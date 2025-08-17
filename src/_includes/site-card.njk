@@ -1,0 +1,55 @@
+{%- set siteUrl = site.demo or site.url %}
+<div class="sites-site-vert{% if site.official %} sites-site-official{% endif %}{% if site.class %} {{ site.class }}{% endif %}" data-filter-tags="{% if siteData | lighthousePerfectScore %}perfectlh{% endif %}">
+  <a {% if siteUrl %}href="{{ site.demo or site.url }}"{% endif %} class="elv-externalexempt" title="{{ site.name }}">
+    <span class="sites-site-name">
+      {%- if not site.skipIcon %}
+        {%- if site.iconUrl or site.url %}
+          {%- indieavatar site.iconUrl or site.url, "avatar-large" %}
+        {%- elseif site.opened_by %}
+          {%- communityavatar site.opened_by %}
+        {%- endif %}
+      {%- endif %}
+      {%- if site.name -%}
+        {{ site.name }}
+      {%- else -%}
+        {{ site.url | displayUrl }}
+      {%- endif -%}
+    </span>
+    {{ site | cardScreenshotHtml | safe }}
+{%- if siteData | lighthouseGoodDataCheck %}
+    <div class="sites-site-lighthouse">
+      <is-land on:visible import="/js/speedlify-score.js">
+        <speedlify-score raw-data='{{ siteData | toJSON | safe }}'></speedlify-score>
+      </is-land>
+    </div>
+{%- endif %}
+  </a>
+
+{%- set sourceUrl = site.source_url %}
+{%- if not sourceUrl and site.url and (site.url.startsWith("https://github.com/") or site.url.startsWith("https://gitlab.com/")) %}
+  {%- set sourceUrl = site.url %}
+{%- endif %}
+
+{%- if not hideRelatedLinks %}
+<ul class="inlinelist inlinelist-sm">
+  {%- if sourceUrl %}
+  <li class="inlinelist-item"><a href="{{ sourceUrl }}" class="elv-externalexempt">Source code</a></li>
+  {%- endif %}
+</ul>
+{%- endif %}
+
+{%- if site.tags -%}
+  {%- for tag in site.tags %}
+  <span class="sites-tag">{{ tag }}</span>
+  {%- endfor %}
+{%- endif %}
+
+{%- if site.description %}
+  <div class="sites-site-description">
+    {%- if site.official %}<strong>🎈 Official Starter</strong> · {% endif -%}
+    {%- if site.featured %}<strong>Featured</strong> · {% endif -%}
+    {{ site.description }}
+  </div>
+{%- endif %}
+
+</div>

@@ -1,0 +1,33 @@
+<div class="elv-toc" data-pagefind-ignore>
+{%- set calloutTitle %}<a href="/blog/">Blog</a>{% endset %}
+{%- for post in collections.sidebarHighlight %}
+{%- callout "", "html", calloutTitle %}
+<a href="{{ post.url }}" class="elv-toc-callout-link"><strong>{{ post.data.title }}</strong></a>
+{%- endcallout %}
+{%- endfor %}
+
+{%- set versionsTitle = "<a href='/docs/versions/'>Versions</a>" %}
+{%- callout "box", "html", versionsTitle -%}
+	<dl class="versions-callout">
+		<dt>Stable</dt>
+		<dd><a href="https://github.com/11ty/eleventy/releases/tag/v{{ npmVersions.latest }}" class="elv-externalexempt"><code>{{ npmVersions.latest }}</code>{# <small>{{ githubReleases[ npmVersions.latest | normalizeVersion ].date | timeDiff }}</small> #}</a></dd>
+		{%- if semverGreaterThan(npmVersions.beta, npmVersions.latest) %}
+		<dt>Beta</dt>
+		<dd><a href="https://github.com/11ty/eleventy/releases/tag/v{{ npmVersions.beta }}" class="elv-externalexempt"><code>{{ npmVersions.beta }}</code>{# <small>{{ githubReleases[ npmVersions.beta | normalizeVersion ].date | timeDiff }}</small> #}</a></dd>
+		{%- endif %}
+		{%- if semverGreaterThan(npmVersions.canary, npmVersions.latest) and semverGreaterThan(npmVersions.canary, npmVersions.beta) %}
+		<dt>Canary</dt>
+		<dd><a href="https://github.com/11ty/eleventy/releases/tag/v{{ npmVersions.canary }}" class="elv-externalexempt"><code>{{ npmVersions.canary }}</code>{# <small>{{ githubReleases[ npmVersions.canary | normalizeVersion ].date | timeDiff }}</small> #}</a></dd>
+		{%- endif %}
+	</dl>
+{%- endcallout %}
+
+<details-force-state class="elv-toc-c" data-force-closed="(max-width: 54.9375em)">
+	{%- if eleventyNavigation -%}
+		{%- set navKey = eleventyNavigation.key -%}
+	{%- endif -%}
+	<div id="skip-nav">
+		{{ "Eleventy Documentation,Ecosystem" | navFiltered | eleventyNavigationToHtml({ activeKey: navKey, listClass: 'elv-toc-list', activeListItemClass: 'elv-toc-active', useTopLevelDetails: true, anchorElementWithoutHref: "span" }) | safe }}
+	</div>
+</details-force-state>
+</div>

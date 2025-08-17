@@ -1,0 +1,14 @@
+---
+layout: layouts/docs.njk
+---
+<h1>{{ title | safe }}</h1>
+
+{{ content | safe }}
+
+<ul class="quicktipstoc">
+	<li><h3><strong>All <a href="/docs/quicktips/">Quick Tips</a></strong></h3></li>
+{% for tip in collections.quicktips %}
+	<li{% if page.url == tip.url %} class="active"{% endif %}><a href="{{ tip.url }}">{{ tip.data.title }}</a></li>
+{%- endfor %}
+  <li>View all of the <a href="/docs/quicktips/"><strong>Eleventy Quick Tips</strong></a>.</li>
+</ul>

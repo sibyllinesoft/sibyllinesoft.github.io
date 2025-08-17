@@ -1,0 +1,673 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if title %}{{ title }} — {% endif %}{{ config.site.title or "Sibylline Software" }}</title>
+    <meta name="description" content="{{ description or config.site.description or 'Your trusted partner for innovative digital solutions' }}">
+    <meta name="generator" content="{{ eleventy.generator }}">
+    
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon.png">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="/css/fonts.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.28.2/dist/tocbot.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.css">
+    <style>
+        /* Professional minimalist design system */
+        :root {
+            --font-family-default: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-family-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-family-monospace: 'SF Mono', 'Monaco', 'Consolas', 'Liberation Mono', monospace;
+            
+            /* Sophisticated graphite palette */
+            --color-graphite-900: #0f0f0f;
+            --color-graphite-800: #1a1a1a;
+            --color-graphite-700: #2a2a2a;
+            --color-graphite-600: #404040;
+            --color-graphite-500: #525252;
+            --color-graphite-400: #737373;
+            --color-graphite-300: #a3a3a3;
+            --color-graphite-200: #d4d4d4;
+            --color-graphite-100: #f5f5f5;
+            --color-graphite-50: #fafafa;
+            
+            /* Dark semantic colors */
+            --color-primary: var(--color-graphite-100);
+            --color-secondary: var(--color-graphite-300);
+            --color-tertiary: var(--color-graphite-400);
+            --color-background: var(--color-graphite-800);
+            --color-surface: var(--color-graphite-600);
+            --color-text: var(--color-graphite-100);
+            --color-text-light: var(--color-graphite-300);
+            --color-text-muted: var(--color-graphite-500);
+            --color-border: var(--color-graphite-750);
+            --color-border-light: var(--color-graphite-775);
+            
+            /* Muted accent colors */
+            --color-accent: #6366f1;
+            --color-accent-hover: #4f46e5;
+            --color-accent-light: rgba(99, 102, 241, 0.1);
+            
+            /* Add intermediate graphite shades */
+            --color-graphite-775: #202020;
+            --color-graphite-750: #242424;
+            --color-graphite-650: #383838;
+            
+            /* Semi-transparent surface and border colors for sections */
+            --color-surface-50: rgba(64, 64, 64, 0.5);
+            --color-border-light-50: rgba(32, 32, 32, 0.5);
+            
+            /* Spacing scale */
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+            --space-3xl: 4rem;
+            --space-4xl: 6rem;
+            --space-5xl: 8rem;
+            
+            /* Typography scale */
+            --text-xs: 0.75rem;
+            --text-sm: 0.875rem;
+            --text-base: 1rem;
+            --text-lg: 1.125rem;
+            --text-xl: 1.25rem;
+            --text-2xl: 1.5rem;
+            --text-3xl: 1.875rem;
+            --text-4xl: 2.25rem;
+            --text-5xl: 3rem;
+            --text-6xl: 3.75rem;
+            
+            /* Line heights */
+            --leading-tight: 1.25;
+            --leading-snug: 1.375;
+            --leading-normal: 1.5;
+            --leading-relaxed: 1.625;
+            --leading-loose: 2;
+            
+            /* Border radius */
+            --radius-sm: 0.125rem;
+            --radius-md: 0.375rem;
+            --radius-lg: 0.5rem;
+            --radius-xl: 0.75rem;
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-family-default);
+            font-size: var(--text-base);
+            line-height: var(--leading-relaxed);
+            color: var(--color-text);
+            background: var(--color-background);
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* Header */
+        .header {
+            background: var(--color-background);
+            border-bottom: 1px solid var(--color-border-light);
+            padding: var(--space-lg) 0;
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(10px);
+            background: rgba(26, 26, 26, 0.95);
+            z-index: 100;
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-xl);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: var(--text-lg);
+            font-weight: 600;
+            font-family: var(--font-family-display);
+        }
+        
+        .header h1 a {
+            color: var(--color-text);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        .header h1 a:hover {
+            color: var(--color-accent);
+        }
+        
+        .nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: var(--space-2xl);
+        }
+        
+        .nav a {
+            color: var(--color-text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: var(--text-sm);
+            transition: color 0.2s ease;
+            letter-spacing: 0.025em;
+        }
+        
+        .nav a:hover {
+            color: var(--color-text);
+        }
+        
+        /* Main content */
+        .main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--space-2xl) var(--space-xl) var(--space-4xl);
+        }
+        
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-family-display);
+            font-weight: 600;
+            color: var(--color-text);
+            margin-top: var(--space-3xl);
+            margin-bottom: var(--space-lg);
+            line-height: var(--leading-tight);
+            letter-spacing: -0.025em;
+        }
+        
+        h1 {
+            font-size: var(--text-5xl);
+            margin-top: 0;
+            line-height: var(--leading-tight);
+        }
+        
+        h2 {
+            font-size: var(--text-3xl);
+            margin-top: var(--space-5xl);
+        }
+        
+        h3 {
+            font-size: var(--text-2xl);
+            margin-top: var(--space-3xl);
+        }
+        
+        p {
+            color: var(--color-text-light);
+            margin-bottom: var(--space-xl);
+            font-size: var(--text-lg);
+            line-height: var(--leading-relaxed);
+        }
+        
+        a {
+            color: var(--color-accent);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        a:hover {
+            color: var(--color-accent-hover);
+        }
+        
+        strong {
+            color: var(--color-text);
+            font-weight: 600;
+        }
+        
+        ul, ol {
+            margin-bottom: var(--space-xl);
+            padding-left: var(--space-xl);
+        }
+        
+        li {
+            margin-bottom: var(--space-sm);
+            color: var(--color-text-light);
+            line-height: var(--leading-relaxed);
+        }
+        
+        hr {
+            border: none;
+            border-top: 1px solid var(--color-border);
+            margin: var(--space-5xl) 0;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--color-surface);
+            border-top: 1px solid var(--color-border-light);
+            text-align: center;
+            padding: var(--space-3xl) var(--space-xl);
+            margin-top: var(--space-5xl);
+        }
+        
+        .footer p {
+            color: var(--color-text-muted);
+            font-size: var(--text-sm);
+            margin: 0;
+        }
+        
+        .footer a {
+            color: var(--color-text-light);
+        }
+        
+        /* Floating Table of Contents */
+        .toc-container {
+            position: fixed;
+            left: calc(50% + 620px);
+            top: 30%;
+            width: 220px;
+            z-index: 1000;
+            opacity: 0;
+            transform: translateX(30px);
+            transition: all 0.4s ease;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
+        
+        .toc-container.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .toc-title {
+            display: none;
+        }
+        
+        .toc {
+            padding: var(--space-md);
+        }
+        
+        /* Custom tocbot styling */
+        .toc ol, .toc ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .toc li {
+            margin: 0 0 var(--space-sm) 0;
+            padding: 0;
+        }
+        
+        .toc a {
+            display: block;
+            padding: var(--space-sm) var(--space-md);
+            color: var(--color-text-muted);
+            text-decoration: none;
+            font-size: var(--text-sm);
+            font-weight: 400;
+            border-radius: var(--radius-sm);
+            transition: all 0.2s ease;
+            line-height: 1.4;
+            border-left: 2px solid var(--color-border);
+        }
+        
+        .toc a:hover {
+            color: var(--color-text-light);
+            background: transparent;
+            border-left-color: var(--color-text-light);
+        }
+        
+        .toc a.is-active-link {
+            color: var(--color-text);
+            background: transparent;
+            font-weight: 600;
+            border-left-color: var(--color-accent);
+        }
+        
+        .toc .toc-list-item.is-active-li > a {
+            color: var(--color-text);
+            font-weight: 600;
+            border-left-color: var(--color-accent);
+        }
+        
+        /* Override Tocbot's default green styling */
+        .toc a.is-active-link,
+        .toc .is-active-link {
+            color: var(--color-text) !important;
+            background: transparent !important;
+            border-left-color: var(--color-accent) !important;
+        }
+        
+        /* Override the green ::before pseudo-element that creates the indicator line */
+        .toc .is-active-link::before {
+            background-color: var(--color-accent) !important;
+        }
+        
+        .toc .is-active-li > a {
+            color: var(--color-text) !important;
+            border-left-color: var(--color-accent) !important;
+        }
+        
+        /* Nested levels */
+        .toc .toc-list-item {
+            position: relative;
+        }
+        
+        .toc .toc-list-item.is-collapsible {
+            padding-left: 0;
+        }
+        
+        .toc .toc-list .toc-list {
+            padding-left: var(--space-md);
+        }
+        
+        .toc .toc-list .toc-list a {
+            font-size: var(--text-xs);
+            opacity: 0.8;
+        }
+
+        /* Marketing blurbs */
+        .marketing-blurb {
+            margin: var(--space-4xl) 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            color: var(--color-text);
+            font-size: var(--text-xl);
+            font-weight: 500;
+            line-height: var(--leading-relaxed);
+            background: linear-gradient(90deg, 
+                var(--color-text-light) 0%, 
+                var(--color-text) 20%, 
+                #ffffff 40%, 
+                #ffffff 60%, 
+                var(--color-text) 80%, 
+                var(--color-text-light) 100%
+            );
+            background-size: 200% 100%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textShimmer 20s ease-in-out infinite;
+        }
+
+        @keyframes textShimmer {
+            0%, 100% { background-position: -200% 0; }
+            50% { background-position: 200% 0; }
+        }
+
+        .marketing-blurb strong {
+            font-weight: 600;
+            /* Inherit the shimmer effect from parent */
+            background: inherit;
+            background-clip: inherit;
+            -webkit-background-clip: inherit;
+            -webkit-text-fill-color: inherit;
+        }
+
+        /* Main title shimmer */
+        .hero-content h1 {
+            background: linear-gradient(90deg, 
+                var(--color-text-light) 0%, 
+                var(--color-text) 25%, 
+                #ffffff 50%, 
+                var(--color-text) 75%, 
+                var(--color-text-light) 100%
+            );
+            background-size: 200% 100%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: titleShimmer 9s ease-in-out infinite;
+        }
+
+        @keyframes titleShimmer {
+            0%, 100% { background-position: -200% 0; }
+            50% { background-position: 200% 0; }
+        }
+
+        /* Lucide Icons */
+        .lucide {
+            width: 1.2em;
+            height: 1.2em;
+            color: var(--color-accent);
+            margin-right: var(--space-sm);
+            vertical-align: middle;
+            stroke-width: 2;
+            filter: drop-shadow(0 0 4px rgba(99, 102, 241, 0.2));
+        }
+
+        /* Service cards icon styling */
+        .service-card .lucide {
+            width: 2.5em;
+            height: 2.5em;
+            margin-right: var(--space-md);
+            filter: drop-shadow(0 0 6px rgba(99, 102, 241, 0.4));
+        }
+
+        /* Discovery process icons */
+        .discovery-option h3 .lucide {
+            width: 2.5em;
+            height: 2.5em;
+            margin-right: var(--space-md);
+            color: var(--color-accent);
+            filter: drop-shadow(0 0 6px rgba(99, 102, 241, 0.3));
+        }
+
+        /* Responsive design */
+        @media (max-width: 1400px) {
+            .toc-container {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: var(--space-lg);
+                padding: 0 var(--space-lg);
+            }
+            
+            .nav ul {
+                gap: var(--space-lg);
+            }
+            
+            .main {
+                padding: var(--space-3xl) var(--space-lg);
+            }
+            
+            h1 {
+                font-size: var(--text-4xl);
+            }
+            
+            h2 {
+                font-size: var(--text-2xl);
+            }
+            
+            h3 {
+                font-size: var(--text-xl);
+            }
+            
+            p {
+                font-size: var(--text-base);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <h1><a href="/" style="display: flex; align-items: center;"><img src="/img/logo.png" alt="Sibylline Soft Logo" style="height: 24px; width: auto; margin-right: 8px;">{{ config.site.title or "Sibylline Software" }}</a></h1>
+            <nav class="nav">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about/">About</a></li>
+                    <li><a href="/articles/">Articles</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Floating Table of Contents -->
+    <div class="toc-container">
+        <div class="toc-title">On This Page</div>
+        <div class="toc"></div>
+    </div>
+    
+    <main class="main">
+        {{ content | safe }}
+    </main>
+    
+    <footer class="footer">
+        <p>&copy; {{ config.now.getFullYear() }} {{ config.site.title or "Sibylline Software" }}. Built with <a href="https://www.11ty.dev/">Eleventy</a>.</p>
+    </footer>
+
+    <!-- Tocbot JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/tocbot@4.28.2/dist/tocbot.min.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script>
+        // Initialize Tocbot when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if there are any headings on the page
+            const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+            const tocContainer = document.querySelector('.toc-container');
+            
+            if (headings.length > 0 && tocContainer) {
+                // First, add IDs to headings that don't have them
+                const h2Elements = document.querySelectorAll('.main h2:not(.article-title)');
+                h2Elements.forEach((heading, index) => {
+                    if (!heading.id) {
+                        // Generate ID from heading text
+                        const text = heading.textContent.trim();
+                        const id = text
+                            .toLowerCase()
+                            .replace(/[^\w\s-]/g, '') // Remove special characters
+                            .replace(/\s+/g, '-') // Replace spaces with hyphens
+                            .replace(/--+/g, '-') // Replace multiple hyphens with single
+                            .replace(/^-|-$/g, ''); // Remove leading/trailing hyphens
+                        heading.id = id || `section-${index + 1}`;
+                    }
+                });
+
+                // Initialize tocbot
+                tocbot.init({
+                    // Where to render the table of contents
+                    tocSelector: '.toc',
+                    // Which headings to grab
+                    contentSelector: '.main',
+                    // Which headings to use for building the TOC  
+                    headingSelector: 'h2:not(.article-title)',
+                    // For headings inside relative or absolute positioned containers within content
+                    hasInnerContainers: true,
+                    // Smooth scroll settings
+                    scrollSmooth: true,
+                    scrollSmoothDuration: 400,
+                    scrollSmoothOffset: -100,
+                    // Heading offset for when scrolling to a heading - activate when section is centered
+                    headingsOffset: window.innerHeight * 0.4,
+                    // Throttle the scrolling
+                    throttleTimeout: 50,
+                    // Element to add the positionFixedClass to
+                    positionFixedSelector: null,
+                    // Fixed position class to add to make sidebar fixed after scrolling down past the fixedSidebarOffset
+                    positionFixedClass: 'is-position-fixed',
+                    // fixedSidebarOffset can be any number but by default is set to auto which sets the fixedSidebarOffset to the sidebar element's offsetTop from the top of the document on init
+                    fixedSidebarOffset: 'auto',
+                    // includeHtml can be set to true to include the HTML markup from the heading node instead of just including the textContent
+                    includeHtml: false,
+                    // onclick function to apply to all links in toc. will be applied after the scrollto function
+                    onClick: function(e) {
+                        // Optional click handler
+                    },
+                    // orderedList can be set to false to generate unordered lists (ul) instead of ordered lists (ol)
+                    orderedList: false,
+                    // If there is a fixed article scroll container, set to calculate titles' offset
+                    scrollContainer: null,
+                    // prevent ToC DOM selection
+                    skipRendering: false,
+                    // HeadingLabelCallback function can be used to modify the headings
+                    headingLabelCallback: false,
+                    // ignore headings that are hidden in DOM
+                    ignoreHiddenElements: true,
+                    // Optional callback to change heading labels
+                    headingObjectCallback: null,
+                    // Set the base path, this is useful if you use a `base` tag in `head`
+                    basePath: '',
+                    // Only takes affect when `tocSelector` is scrolling, keep the toc scroll position in sync with the content
+                    disableTocScrollSync: false,
+                    // Smooth scroll offset
+                    tocScrollOffset: 0,
+                    // Collapse nested sections by default
+                    collapseDepth: 0
+                });
+                
+                // Show the TOC container initially (but invisible due to CSS)
+                tocContainer.style.display = 'block';
+                
+                // Handle scroll-based fade in/out
+                let tocVisible = false;
+                
+                function handleTocVisibility() {
+                    const heroSection = document.querySelector('canvas') || document.querySelector('.article-header') || document.querySelector('.main > *:first-child');
+                    if (!heroSection) {
+                        // If no hero section found, show TOC after scrolling past 200px
+                        const shouldShow = window.scrollY > 200;
+                        if (shouldShow && !tocVisible) {
+                            tocContainer.classList.add('visible');
+                            tocVisible = true;
+                        } else if (!shouldShow && tocVisible) {
+                            tocContainer.classList.remove('visible');
+                            tocVisible = false;
+                        }
+                        return;
+                    }
+                    
+                    const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+                    const scrollY = window.scrollY;
+                    const shouldShow = scrollY > heroBottom - 200; // Show 200px before hero ends
+                    
+                    if (shouldShow && !tocVisible) {
+                        tocContainer.classList.add('visible');
+                        tocVisible = true;
+                    } else if (!shouldShow && tocVisible) {
+                        tocContainer.classList.remove('visible');
+                        tocVisible = false;
+                    }
+                }
+                
+                // Initial check
+                handleTocVisibility();
+                
+                // Listen to scroll events
+                window.addEventListener('scroll', handleTocVisibility, { passive: true });
+                
+            } else {
+                // Hide TOC if no headings found
+                if (tocContainer) {
+                    tocContainer.style.display = 'none';
+                }
+            }
+        });
+        
+        // Clean up when navigating away
+        window.addEventListener('beforeunload', function() {
+            if (typeof tocbot !== 'undefined') {
+                tocbot.destroy();
+            }
+        });
+        
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>

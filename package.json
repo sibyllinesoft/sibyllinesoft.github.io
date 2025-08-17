@@ -1,0 +1,85 @@
+{
+  "name": "sibyllinesoft.github.io",
+  "version": "1.0.0",
+  "description": "Sibylline Software website built with the official 11ty theme",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "check-links": "npx check-html-links _site",
+    "build": "npx @11ty/eleventy --quiet && npm run create-search-index",
+    "build-production": "npm run get-new-data && NODE_ENV=production npx @11ty/eleventy && npm run create-search-index",
+    "start": "npx @11ty/eleventy --serve --quiet --port=8091 --incremental",
+    "start-production": "NODE_ENV=production npx @11ty/eleventy --serve --quiet --port=8091",
+    "create-search-index": "npx pagefind --site \"_site\" --glob \"{docs,blog}/**/*.html\"",
+    "get-new-data": "rm -rf ./src/_data/builtwith/ && npx degit github:11ty/11ty-community/built-with-eleventy src/_data/builtwith/",
+    "format": "prettier --write '**/*.{js,css,html,md}'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sibyllinesoft/sibyllinesoft.github.io.git"
+  },
+  "author": {
+    "name": "Sibylline Software",
+    "email": "contact@sibyllinesoft.com",
+    "url": "https://sibyllinesoft.github.io"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sibyllinesoft/sibyllinesoft.github.io/issues"
+  },
+  "homepage": "https://sibyllinesoft.github.io",
+  "lint-staged": {
+    "*.{js,css,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "4.0.0-alpha.4",
+    "@11ty/eleventy-activity-feed": "^2.0.0",
+    "@11ty/eleventy-fetch": "^5.1.0",
+    "@11ty/eleventy-img": "^6.0.4",
+    "@11ty/eleventy-navigation": "^1.0.4",
+    "@11ty/eleventy-plugin-rss": "^2.0.4",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.1",
+    "@11ty/eleventy-plugin-webc": "^0.12.0-beta.3",
+    "@11ty/font-awesome": "1.0.0-beta.12",
+    "@11ty/image-color": "^1.0.6",
+    "@11ty/webc": "0.11.3",
+    "@tweetback/canonical": "^2.0.48",
+    "clean-css": "^5.3.3",
+    "comma-number": "^2.1.0",
+    "degit": "^2.8.4",
+    "dotenv": "^16.6.1",
+    "entities": "^6.0.1",
+    "esm-import-transformer": "^3.0.3",
+    "fast-glob": "^3.3.3",
+    "fs-extra": "^11.3.0",
+    "human-readable-numbers": "0.9.5",
+    "lodash": "^4.17.21",
+    "luxon": "^3.7.1",
+    "markdown-it-table-of-contents": "^0.9.0",
+    "memoize": "^10.1.0",
+    "pagefind": "^1.3.0",
+    "prettier": "^3.6.2",
+    "semver": "^7.7.2",
+    "short-hash": "^1.0.0",
+    "terser": "^5.43.1"
+  },
+  "dependencies": {
+    "@11ty/client": "4.0.0-alpha.3",
+    "@11ty/is-land": "^5.0.0-beta.5",
+    "@11ty/logo": "^2.0.6",
+    "@zachleat/details-utils": "^2.0.2",
+    "@zachleat/filter-container": "^4.0.0",
+    "@zachleat/flex-luthor": "^4.0.2",
+    "@zachleat/heading-anchors": "^1.0.3",
+    "@zachleat/line-numbers": "^1.0.3",
+    "@zachleat/seven-minute-tabs": "^3.0.2",
+    "artificial-chart": "^2.0.3",
+    "lite-youtube-embed": "^0.3.3",
+    "speedlify-score": "^4.0.4"
+  }
+}

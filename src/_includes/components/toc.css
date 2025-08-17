@@ -1,0 +1,290 @@
+.elv-toc {
+	--elv-toc-sticky-top: 0;
+	--elv-toc-spacing: .75em;
+	--elv-toc-link-color: #1873a5;
+	--elv-toc-hover-color: #dff7ff;
+	font-size: 1rem; /* Reset */
+}
+.elv-header-docs + .elv-layout .elv-toc {
+	--elv-toc-sticky-top: 4em;
+}
+@media (prefers-color-scheme: dark) {
+	.elv-toc {
+		--elv-toc-link-color: #86d0fb;
+		--elv-toc-hover-color: #353535;
+	}
+}
+@media (min-width: 55em) { /* 880px */
+	.elv-toc {
+		position: absolute;
+		left: 1rem;
+		width: 13rem;
+		z-index: 1;
+		height: 100%;
+	}
+}
+
+@media (max-width: 54.9375em) { /* 879px */
+	.elv-toc-c {
+		--elv-toc-bg: #f4f4f4;
+	}
+	@media (prefers-color-scheme: dark) {
+		.elv-toc-c {
+			--elv-toc-bg: #111;
+		}
+	}
+
+	.elv-toc-c {
+		display: block;
+		background-color: var(--elv-toc-bg);
+		margin-inline: -1rem;
+		padding: .5rem;
+		margin-block-end: 2.5em;
+	}
+}
+@media (min-width: 55em) and (min-height: 43.75em) { /* 880×700px */
+	/* Sticky on menus except Guide/Projects */
+	.elv-toc-c:not(:has(a[href="/docs/projects/"] + details[open])) {
+		position: sticky;
+		top: var(--elv-toc-sticky-top);
+	}
+}
+
+.elv-toc-list details,
+.elv-toc-list details[open] > summary {
+	margin: 0;
+}
+.elv-toc-list {
+	justify-content: space-between;
+	padding-inline: 0;
+	margin: 0 0 2.5em;
+	list-style: "";
+}
+.elv-toc-list li {
+	font-size: 0.9375em; /* 15px /16 */
+	line-height: 1.466666666667; /* 22px /15 */
+}
+/* Nested lists */
+.elv-toc-list ul {
+	padding: 0;
+	margin: 0;
+	list-style: "";
+}
+/* First-order nested list */
+.elv-toc-list > li > details > ul {
+	margin-block: var(--elv-toc-spacing);
+}
+/* List items with deeply nested lists inside */
+.elv-toc-list > li > details > ul > li:has(ul ul) {
+	margin-block: var(--elv-toc-spacing);
+}
+
+/* Menus nested exact 2 levels deep */
+.elv-toc-list {
+	--toc-border-color: rgba(0,0,0,.06);
+}
+@media (prefers-color-scheme: dark) {
+	.elv-toc-list {
+		--toc-border-color: rgba(255,255,255,.06);
+	}
+}
+.elv-toc-list > li > details > ul > li > ul > li {
+	border-inline-start: 2px solid var(--toc-border-color);
+}
+.elv-toc-list > li > details > ul > li > ul > li:is(.elv-toc-active, :has(.elv-toc-active)) {
+	--toc-border-color: #63e6be;
+	--toc-border-width: 2px;
+}
+.elv-toc-list > li > details > ul > li > ul > li > a {
+	padding-inline: .5em;
+}
+.elv-toc-list ul ul {
+	margin-inline-start: .25em;
+}
+.elv-toc-list ul ul ul {
+	margin-inline-start: 1.5em; /* 24px /16 */
+}
+
+/* List items */
+.elv-toc-list a,
+.elv-toc-list span:where(:has(+ ul)) {
+	display: block;
+	padding: 0.15em 0.25em;
+}
+@media (max-width: 54.9375em) { /* 879px */
+	.elv-toc-list a,
+	.elv-toc-list span:where(:has(+ ul)) {
+		padding-block: .5em;
+	}
+}
+.elv-toc-list a:hover {
+	text-underline-offset: .1em;
+}
+.elv-toc-list > li details a[href] {
+	color: var(--elv-toc-link-color);
+}
+.elv-toc-list > li > a[href] {
+	text-decoration-line: underline;
+}
+.elv-toc-list > li > details a[href]:hover {
+	background-color: var(--elv-toc-hover-color);
+}
+.elv-toc-list > li > details a[href]:not(:hover) {
+	text-decoration-line: none;
+}
+.elv-toc-list > li > details > ul > li > a {
+	font-weight: 500;
+}
+.elv-toc-list > li > details > ul > li > a[href]:not(:hover) {
+	text-decoration-line: underline;
+}
+.elv-toc-list li {
+	margin: 0;
+	padding: 0;
+}
+@media (min-width: 55em) { /* 880px */
+	.elv-toc-list > li:not(:first-child) {
+		border-top: 1px solid var(--border-color);
+	}
+
+	.elv-toc-list > li:last-child {
+		margin-bottom: var(--elv-toc-spacing);
+	}
+}
+
+/* Top level links */
+.elv-toc-list > li > details > summary,
+.elv-toc-list > li > a {
+	font-weight: 700;
+	padding-block: var(--elv-toc-spacing);
+	color: var(--color);
+}
+
+
+/* Active links */
+.elv-toc-list li.elv-toc-active > a,
+.elv-toc-list li.elv-toc-active > details > summary,
+.elv-toc-list > li > a:hover,
+.elv-toc-list > li > details > summary:hover {
+	background-color: var(--elv-toc-hover-color);
+}
+
+/* Hide top level summary when JS and there is a sibling link */
+details-force-state:defined .elv-toc-list > li {
+	position: relative;
+}
+details-force-state:defined .elv-toc-list > li > a:has(+ details) {
+	position: absolute;
+	margin-left: 0.8125em; /* 13px /16 */
+	padding-inline: 0 0.5em; /* 8px /16 */
+	background-color: var(--elv-toc-bg, var(--background-color));
+}
+details-force-state:defined .elv-toc-list > li.elv-toc-active > a:has(+ details),
+details-force-state:defined .elv-toc-list > li > a:has(+ details):hover,
+details-force-state:defined .elv-toc-list > li > a:hover + details > summary,
+details-force-state:defined .elv-toc-list > li > a:has(+ details > summary:hover) {
+	background-color: var(--elv-toc-hover-color);
+}
+
+/* Footer category navigation */
+.elv-cat-list-active {
+	font-weight: 600;
+}
+
+/* Wrapper around the markdown Table of contents plugin */
+details.toc {
+	border-radius: 0.4em;
+	padding: .5rem;
+	margin-inline: -.5rem;
+	/* padding: 0.5rem 0.5rem 0 0.5rem; */
+	/* margin: 0 -0.5rem 3em -0.5rem; */
+}
+h1 + details.toc {
+	margin-top: -1.444444444444em; /* -26px /18 */
+}
+/* Overrides */
+details.toc,
+details.toc[open] {
+	border: 2px solid #ccc;
+	box-shadow: none;
+}
+details.toc[open] {
+	background-color: #f7f7f7;
+}
+@media (prefers-color-scheme: dark) {
+	details.toc[open] {
+		background-color: #292929;
+	}
+}
+details.toc[open] > summary {
+	font-weight: bold;
+}
+
+/* Markdown table of contents plugin */
+.table-of-contents > ul ul {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5em 2em;
+}
+.table-of-contents > ul ul > li {
+	padding: 0;
+}
+
+/* Sidebar ads */
+.elv-toc .elv-callout:first-child {
+	--callout-primary: #63e6be;
+	--callout-secondary: #e4fdf5;
+}
+@media (prefers-color-scheme: dark) {
+	.elv-toc .elv-callout:first-child {
+		--callout-primary: #31b089;
+		--callout-secondary: #135340;
+	}
+}
+
+.elv-toc-callout-link {
+	display: block;
+	font-size: 1.15em;
+	line-height: 1.4;
+	text-wrap: balance;
+}
+
+.elv-toc-list ul .fa11ty-icon {
+	margin-inline-start: 0;
+}
+.elv-toc ul ul .fa11ty-icon use[href] {
+	opacity: .8;
+	color: inherit !important;
+}
+
+
+/* Full page nav as main content */
+.elv-page-toc {
+	columns: 18em;
+	column-gap: 3em;
+}
+.elv-page-toc > ul {
+	list-style: "";
+	padding: 0;
+	margin: 0;
+}
+.elv-page-toc > ul > li:has(ul) {
+	margin-block-end: 1.5em;
+}
+.elv-page-toc > ul > li {
+	break-inside: avoid;
+	padding: 0;
+	margin: 1em 0;
+}
+.elv-page-toc > ul > li:first-child {
+	margin-block-start: 0;
+}
+.elv-page-toc > ul > li > a,
+/* asterisk on languages */
+.elv-page-toc > ul > li:has(> a):after {
+	font-size: 1.25em; /* 20px /16 */
+	font-weight: 600;
+}
+.elv-page-toc .fa11ty-icon {
+	margin-left: 0;
+}
