@@ -27,4 +27,16 @@ Thumbs.db
 
 # Logs
 logs/
-*.log
+*.log# Environment files with API keys
+.env
+.env.local
+.env.production
+
+# API tokens and secrets
+*token*
+*key*
+*secret*
+
+# Cloudflare config
+cloudflare-config.json
+namecheap-config.json

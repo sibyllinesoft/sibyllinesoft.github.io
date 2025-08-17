@@ -58,10 +58,30 @@ class CloudflareEmailSetup {
         console.log(`🔍 Looking for zone: ${this.domain}`);
         try {
             const zones = await this.makeRequest('GET', '/zones');
+            console.log(`Found ${zones.length} zones total`);
+            
+            if (zones.length > 0) {
+                console.log('Available zones:', zones.map(z => `${z.name} (${z.status})`));
+            }
+            
             const zone = zones.find(z => z.name === this.domain);
             
             if (!zone) {
-                throw new Error(`Domain ${this.domain} not found in your Cloudflare account. Please add it first.`);
+                // If we can't find it in the general list, try searching by name
+                console.log(`🔍 Zone not found in list, trying direct search...`);
+                try {
+                    const searchZones = await this.makeRequest('GET', `/zones?name=${this.domain}`);
+                    if (searchZones.length > 0) {
+                        const foundZone = searchZones[0];
+                        this.zoneId = foundZone.id;
+                        console.log(`✅ Found zone via search: ${this.domain} (${this.zoneId})`);
+                        return this.zoneId;
+                    }
+                } catch (searchError) {
+                    console.log('Direct search also failed:', searchError.message);
+                }
+                
+                throw new Error(`Domain ${this.domain} not found in your Cloudflare account. Please check API token permissions.`);
             }
             
             this.zoneId = zone.id;
