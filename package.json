@@ -4,7 +4,7 @@
   "description": "Sibylline Software website built with the official 11ty theme",
   "type": "module",
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "scripts": {
     "check-links": "npx check-html-links _site",
