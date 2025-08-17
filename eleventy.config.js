@@ -10,6 +10,10 @@ export default function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/img");
   eleventyConfig.addPassthroughCopy("src/js");
+  
+  // Copy CNAME and other root files for GitHub Pages
+  eleventyConfig.addPassthroughCopy("CNAME");
+  eleventyConfig.addPassthroughCopy(".nojekyll");
 
   // Date filters
   eleventyConfig.addFilter("readableDate", (dateObj) => {
