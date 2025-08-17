@@ -43,7 +43,7 @@ Have an idea that could change everything? A dataset that feels like it's hiding
 
 I'd love to hear about it.
 
-**Email**: [contact@sibyllinesoft.com](mailto:contact@sibyllinesoft.com)
+**Email**: <a href="#" data-email-display="contact" data-contact-type="contact" data-subject-type="general">Loading secure contact...</a>
 
 **Ready to explore what's possible?** Whether you're a startup founder with big dreams or an established company ready to embrace the AI revolution, let's start a conversation about turning your vision into reality.
 

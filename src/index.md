@@ -365,19 +365,19 @@ Most companies collect data but struggle to extract real value from it. Others k
   <div class="discovery-option">
     <h3><i data-lucide="lightbulb"></i> Strategy Session</h3>
     <p>Identify high-impact AI opportunities specific to your business.</p>
-    <a href="mailto:contact@sibyllinesoft.com?subject=Strategy Session Request&body=I'm interested in exploring how AI could transform my business. Here's what I'm working on..." class="btn-primary">Let's Talk Strategy</a>
+    <a href="#" class="btn-primary" data-contact-type="contact" data-subject-type="strategy" data-custom-body="I'm interested in exploring how AI could transform my business. Here's what I'm working on...">Let's Talk Strategy</a>
   </div>
   
   <div class="discovery-option">
     <h3><i data-lucide="search"></i> Technical Assessment</h3>
     <p>We'll assess your current capabilities and design implementation roadmaps.</p>
-    <a href="mailto:contact@sibyllinesoft.com?subject=Technical Assessment Request&body=I'd like to discuss our technical implementation options. Our current setup includes..." class="btn-primary">Get Technical</a>
+    <a href="#" class="btn-primary" data-contact-type="contact" data-subject-type="technical" data-custom-body="I'd like to discuss our technical implementation options. Our current setup includes...">Get Technical</a>
   </div>
   
   <div class="discovery-option">
     <h3><i data-lucide="wrench"></i> Innovation Workshop</h3>
     <p>Collaborative sessions to reimagine what's possible with intelligent systems.</p>
-    <a href="mailto:contact@sibyllinesoft.com?subject=Innovation Workshop Interest&body=I'm interested in exploring innovative AI applications for..." class="btn-primary">Explore Innovation</a>
+    <a href="#" class="btn-primary" data-contact-type="contact" data-subject-type="innovation" data-custom-body="I'm interested in exploring innovative AI applications for...">Explore Innovation</a>
   </div>
 </div>
 
@@ -2932,11 +2932,12 @@ document.addEventListener('DOMContentLoaded', () => {
     modalImage.alt = serviceInfo.alt;
     modalCtaText.textContent = serviceInfo.ctaText;
     
-    // Create mailto link
-    const emailAddress = 'hello@sibyllinesoft.com';
-    const subject = encodeURIComponent(serviceInfo.subject);
-    const body = encodeURIComponent(serviceInfo.body);
-    modalCtaButton.href = `mailto:${emailAddress}?subject=${subject}&body=${body}`;
+    // Create secure mailto link
+    const subject = serviceInfo.subject;
+    const body = serviceInfo.body;
+    modalCtaButton.href = window.generateSecureMailto ? 
+        window.generateSecureMailto(subject, body, 'hello') : 
+        'javascript:void(0)';
     
     // Show modal
     modal.classList.add('active');
