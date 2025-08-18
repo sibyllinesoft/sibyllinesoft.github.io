@@ -9,7 +9,7 @@ description: Leveraging two decades of AI expertise to solve real-world challeng
 
 # Domains
 
-Building game-changing AI applications requires understanding both AI technology and the problem domain deeply. The most impactful solutions emerge when technical expertise meets real-world domain knowledge. Here are the problem domains where this combination creates the most value:
+Building game-changing AI applications requires understanding both AI technology and the problem domain deeply. These are the problem domains where I have deep domain knowledge, and can help build revolutionary AI applications:
 
 <!-- Startups & Emerging Tech Domain -->
 <div class="domain-brochure" id="startup-domain">
