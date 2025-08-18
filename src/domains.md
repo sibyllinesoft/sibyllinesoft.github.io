@@ -9,7 +9,7 @@ description: Leveraging two decades of AI expertise to solve real-world challeng
 
 # Domains
 
-Nearly two decades of machine learning experience has taught me that the most impactful AI applications solve real problems in domains where I understand both the technical challenges and the human stakes. Here are the problem domains where my expertise creates the most value:
+Building game-changing AI applications requires understanding both AI technology and the problem domain deeply. The most impactful solutions emerge when technical expertise meets real-world domain knowledge. Here are the problem domains where this combination creates the most value:
 
 <!-- Startups & Emerging Tech Domain -->
 <div class="domain-brochure" id="startup-domain">

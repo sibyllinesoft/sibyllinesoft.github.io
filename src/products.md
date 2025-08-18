@@ -9,7 +9,7 @@ description: Next-generation AI tools currently in development
 
 # Products
 
-Next-generation AI tools currently in alpha development. Each product represents years of research and development, designed to solve real problems for creators and professionals. While still in early access, you can request to join the waitlist for priority access when they launch.
+Next-generation AI tools currently in alpha development. These tools represent the cutting edge of research and development, designed to solve real problems for creators and professionals. While still in early access, you can request to join the waitlist for priority access when they launch.
 
 <!-- Product Bookworm -->
 <div class="project-brochure" id="bookworm-product">
