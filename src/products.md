@@ -157,7 +157,8 @@ Next-generation AI tools currently in alpha development. These tools represent t
       <p class="project-tagline">Finally know what your models actually understand—not what they memorized.</p>
       
       <div class="project-cta">
-        <a href="#" data-contact-type="contact" data-subject-type="scramblebench" data-custom-body="I'm interested in joining the waitlist for ScrambleBench. My current evaluation challenges include..." class="btn-primary"><span class="btn-inner">Join Waitlist <i data-lucide="mail"></i></span></a>
+        <a href="https://sibylline.dev/scramblebench/" target="_blank" rel="noopener noreferrer" class="btn-primary" style="margin-right: 1rem;"><span class="btn-inner">Documentation <i data-lucide="book-open"></i></span></a>
+        <a href="https://github.com/sibyllinesoft/scramblebench" target="_blank" rel="noopener noreferrer" class="btn-primary"><span class="btn-inner">View on GitHub <i data-lucide="github"></i></span></a>
       </div>
     </div>
   </div>
