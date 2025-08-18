@@ -57,7 +57,7 @@ Next-generation AI tools currently in alpha development. These tools represent t
     <div class="project-status">Alpha Evolution</div>
   </div>
   <div class="project-content">
-    <h2>Where Ideas Evolve Themselves</h2>
+    <h2>Generate Hundreds of Ideas While You Sleep</h2>
     <div class="project-pitch">
       <p><strong>The Problem:</strong> You spend hours generating ideas only to hit the same creative walls. Manual brainstorming sessions produce diminishing returns after the first few rounds. You need fresh perspectives, but your team is stuck in the same thinking patterns.</p>
       
