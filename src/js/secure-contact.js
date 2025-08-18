@@ -10,7 +10,7 @@
     const DOMAIN_PARTS = ['sibylline', 'dev'];
     const EMAIL_CONFIGS = {
         contact: {
-            user: [99, 111, 110, 116, 97, 99, 116], // 'contact' in char codes
+            user: [110, 97, 116, 104, 97, 110], // 'nathan' in char codes
             subjects: {
                 strategy: 'Strategy Session Request',
                 technical: 'Technical Assessment Request', 
@@ -19,7 +19,7 @@
             }
         },
         hello: {
-            user: [104, 101, 108, 108, 111], // 'hello' in char codes
+            user: [110, 97, 116, 104, 97, 110], // 'nathan' in char codes
             subjects: {
                 general: 'Hello from your website'
             }

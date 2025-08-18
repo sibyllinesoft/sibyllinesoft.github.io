@@ -40,3 +40,19 @@ logs/
 # Cloudflare config
 cloudflare-config.json
 namecheap-config.json
+
+# Development and temporary files
+*.png
+*.jpg
+*.jpeg
+*.gif
+!src/img/**/*.png
+!src/img/**/*.jpg
+!src/img/**/*.jpeg
+!src/img/**/*.gif
+!src/img/**/*.webp
+*.sh
+test-results/
+*reference*.md
+*guide*.md
+screenshot*.png

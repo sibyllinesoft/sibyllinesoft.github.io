@@ -1,14 +1,20 @@
 ---
 title: "Your Model Is Smart Enough. Your Process Isn't."
-description: "Why process intelligence—not model intelligence—is the real automation bottleneck, and how to build AI workflows that actually work."
+description: "Why process intelligence—not single-turn intelligence—is the real automation bottleneck, and how to build AI workflows that actually work."
 date: 2025-08-17
 published: true
 tags: ["articles", "ai", "automation", "process-intelligence", "agents"]
 layout: article.njk
+image: "/img/optimized/article-process-intelligence.webp"
 ---
 
 <div class="tldr-banner">
-  <strong>TL;DR</strong> Build orchestrated agent workflows with delegation to specialized subagents. Use agents to automate requirement gathering and issue management. Process intelligence > one shot intelligence.
+  <strong>TL;DR</strong>
+  <ul>
+    <li>Build orchestrated agent workflows with delegation to specialized subagents</li>
+    <li>Use agents to automate requirement gathering and issue management</li>
+    <li>Process intelligence > one shot intelligence</li>
+  </ul>
 </div>
 
 A [recent post argues](https://latentintent.substack.com/p/model-intelligence-is-no-longer-the) that "model intelligence is no longer the constraint for automation"—that we just need better tooling and information access. I half-agree, but there's a crucial caveat that changes everything.
@@ -19,7 +25,7 @@ But here's where the premise breaks down: **we're measuring intelligence wrong**
 
 Case in point: I recently burned an hour on a Plotly dendrogram "fold-back" visualization bug. Multiple retries with different models failed, despite each being capable of sophisticated plotting logic. The breakthrough came only when I systematically injected the library's source code into context—something that required **procedural thinking about when to escalate, what information to gather, and how to route specialized questions to knowledge sources**.
 
-This explains why Claude often outperforms "smarter" models like GPT-5 in agentic workflows. It's not about raw reasoning power—Claude is better trained on systematic tool use and tends to break down complex problems more methodically. **Process intelligence beats point intelligence** for real-world automation.
+This explains why Claude often outperforms "smarter" models like GPT-5 in agentic workflows. It's not about raw reasoning power—Claude is better trained on systematic tool use and tends to break down complex problems more methodically. **Process intelligence beats single-turn intelligence** for real-world automation.
 
 So while the tooling focus is important, it misses the deeper issue: models aren't "there yet" because we haven't trained them to think procedurally across extended workflows. The constraint isn't just information access—it's the intelligence to orchestrate that access systematically.
 
@@ -194,7 +200,7 @@ Claude Code will automatically install and configure these when you add them to 
 
 ## The Challenge
 
-Here's my challenge to anyone still convinced that model intelligence is the constraint: **Show me a case where a knowledge subagent + deterministic tools + a delegating controller doesn't beat a model swap on time-to-green.**
+Here's my challenge to anyone still convinced that single-turn intelligence is the constraint: **Show me a case where a knowledge subagent + deterministic tools + a delegating controller doesn't beat a model swap on time-to-green.**
 
 My Plotly dendrogram bug says hi. An hour of retries—4-5 goes with Sonnet, 2 with Opus—all failed. Five minutes with the right process—manually injecting library source code into context—solved it permanently.
 

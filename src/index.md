@@ -8,10 +8,10 @@ layout: simple.njk
 <div class="hero-container">
   <canvas id="neural-network" class="neural-background"></canvas>
   <div class="hero-content">
-    <h1>Turn Your Data Into Your Competitive Advantage</h1>
+    <h1 class="hero-title">Turn Your Data Into Your Competitive Advantage</h1>
     <div class="rotating-banners">
-      <div class="banner-container">
-        <span class="banner-text" data-text="AI-powered solutions that transform ambitious ideas into intelligent systems"></span>
+      <div class="banner-container active">
+        <span class="banner-text" data-text="AI-powered solutions that transform ambitious ideas into intelligent systems">AI-powered solutions that transform ambitious ideas into intelligent systems</span>
       </div>
     </div>
   </div>
@@ -22,8 +22,8 @@ layout: simple.njk
 Most companies collect data but struggle to extract real value from it. Others know AI could transform their business but don't know where to start. If you're ready to turn untapped potential into competitive advantage, you're in the right place.
 
 <div class="hero-cta">
-  <a href="#discovery" class="btn-primary">Discover What's Possible</a>
-  <a href="/about/" class="btn-secondary">Learn My Approach</a>
+  <a href="#discovery" class="btn-primary"><span class="btn-inner">Discover What's Possible <i data-lucide="mail"></i></span></a>
+  <a href="/about/" class="btn-secondary"><span class="btn-inner">Learn My Approach <i data-lucide="user"></i></span></a>
 </div>
 
 <div class="content-section">
@@ -365,19 +365,19 @@ Most companies collect data but struggle to extract real value from it. Others k
   <div class="discovery-option">
     <h3><i data-lucide="lightbulb"></i> Strategy Session</h3>
     <p>Identify high-impact AI opportunities specific to your business.</p>
-    <a href="#" class="btn-primary" data-contact-type="contact" data-subject-type="strategy" data-custom-body="I'm interested in exploring how AI could transform my business. Here's what I'm working on...">Let's Talk Strategy</a>
+    <a href="#" class="btn-primary" data-contact-type="contact" data-subject-type="strategy" data-custom-body="I'm interested in exploring how AI could transform my business. Here's what I'm working on..."><span class="btn-inner">Talk Strategy <i data-lucide="mail"></i></span></a>
   </div>
   
   <div class="discovery-option">
     <h3><i data-lucide="search"></i> Technical Assessment</h3>
     <p>We'll assess your current capabilities and design implementation roadmaps.</p>
-    <a href="#" class="btn-primary" data-contact-type="contact" data-subject-type="technical" data-custom-body="I'd like to discuss our technical implementation options. Our current setup includes...">Get Technical</a>
+    <a href="#" class="btn-primary" data-contact-type="contact" data-subject-type="technical" data-custom-body="I'd like to discuss our technical implementation options. Our current setup includes..."><span class="btn-inner">Get Assessment <i data-lucide="mail"></i></span></a>
   </div>
   
   <div class="discovery-option">
     <h3><i data-lucide="wrench"></i> Innovation Workshop</h3>
     <p>Collaborative sessions to reimagine what's possible with intelligent systems.</p>
-    <a href="#" class="btn-primary" data-contact-type="contact" data-subject-type="innovation" data-custom-body="I'm interested in exploring innovative AI applications for...">Explore Innovation</a>
+    <a href="#" class="btn-primary" data-contact-type="contact" data-subject-type="innovation" data-custom-body="I'm interested in exploring innovative AI applications for..."><span class="btn-inner">Start Workshop <i data-lucide="mail"></i></span></a>
   </div>
 </div>
 
@@ -388,13 +388,7 @@ Most companies collect data but struggle to extract real value from it. Others k
 {% if collections.articles.length > 0 %}
 <div class="recent-articles">
   {% for article in collections.articles | head(3) %}
-  <div class="article-preview">
-    <h3><a href="{{ article.url }}">{{ article.data.title }}</a></h3>
-    <time>{{ article.date | readableDate }}</time>
-    {% if article.data.description %}
-    <p>{{ article.data.description }}</p>
-    {% endif %}
-  </div>
+    {% include "components/article-card.njk" %}
   {% endfor %}
 </div>
 
@@ -402,47 +396,8 @@ Most companies collect data but struggle to extract real value from it. Others k
 
 <style>
 .recent-articles {
-  margin: 2rem 0;
-}
-
-.article-preview {
-  background: var(--color-surface-50);
-  border: 1px solid var(--color-border-light-50);
-  padding: var(--space-xl);
-  margin-bottom: var(--space-lg);
-  border-radius: var(--radius-lg);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  transition: all 0.2s ease;
-}
-
-.article-preview:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-.article-preview h3 {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-}
-
-.article-preview h3 a {
-  color: var(--color-primary);
-  text-decoration: none;
-}
-
-.article-preview h3 a:hover {
-  color: var(--color-link);
-  text-decoration: underline;
-}
-
-.article-preview time {
-  font-size: 0.9rem;
-  color: var(--color-primary-light);
-}
-
-.article-preview p {
-  margin: 0.5rem 0 0 0;
-  color: var(--color-primary-light);
+  display: grid;
+  gap: var(--space-2xl);
 }
 </style>
 {% endif %}
@@ -479,13 +434,81 @@ Most companies collect data but struggle to extract real value from it. Others k
   padding: var(--space-3xl) var(--space-xl);
 }
 
-.hero-content h1 {
+/* Hero Title - Sophisticated Focus-Grabbing Animation */
+.hero-title {
   font-size: var(--text-6xl);
   margin-bottom: var(--space-lg);
-  background: linear-gradient(135deg, var(--color-text) 0%, var(--color-accent) 100%);
+  line-height: var(--leading-tight);
+  position: relative;
+  
+  /* Elegant monochrome gradient */
+  background: linear-gradient(
+    135deg,
+    var(--color-text) 0%,
+    #ffffff 25%,
+    var(--color-accent) 50%,
+    #ffffff 75%,
+    var(--color-text) 100%
+  );
+  background-size: 300% 100%;
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  
+  /* Initial state - blurred and ready for dramatic entrance */
+  filter: blur(8px);
+  opacity: 0;
+  transform: scale(0.95);
+  
+  /* Immediate focus-grabbing animation */
+  animation: 
+    dramaticFocusEntrance 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards,
+    subtleGlowSweep 6s ease-in-out 1.5s infinite;
+  
+  /* Performance optimization */
+  will-change: filter, opacity, transform, background-position;
+  backface-visibility: hidden;
+}
+
+/* Immediate dramatic focus entrance */
+@keyframes dramaticFocusEntrance {
+  0% {
+    filter: blur(8px);
+    opacity: 0;
+    transform: scale(0.95);
+    background-position: -100% 0;
+  }
+  40% {
+    filter: blur(2px);
+    opacity: 0.8;
+    transform: scale(1.02);
+    background-position: 0% 0;
+  }
+  100% {
+    filter: blur(0px);
+    opacity: 1;
+    transform: scale(1);
+    background-position: 0% 0;
+  }
+}
+
+/* Subtle glow sweep that passes over the title */
+@keyframes subtleGlowSweep {
+  0%, 100% {
+    background-position: -100% 0;
+    filter: blur(0px) drop-shadow(0 0 0px rgba(102, 126, 234, 0));
+  }
+  50% {
+    background-position: 100% 0;
+    filter: blur(0px) drop-shadow(0 0 12px rgba(102, 126, 234, 0.6));
+  }
+}
+
+.hero-content h1 {
+  /* Keep original styles for fallback */
+  font-size: var(--text-6xl);
+  margin-bottom: var(--space-lg);
   line-height: var(--leading-tight);
 }
 
@@ -511,7 +534,10 @@ Most companies collect data but struggle to extract real value from it. Others k
   right: 0;
   opacity: 0;
   transform: translateY(0);
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  background: none;
+  border: none;
+  box-shadow: none;
 }
 
 .banner-container.active {
@@ -525,19 +551,22 @@ Most companies collect data but struggle to extract real value from it. Others k
 }
 
 .banner-container {
-  transition: filter 0.9s ease, opacity 0.9s ease;
+  transition: filter 1.5s ease, opacity 1.5s ease;
   overflow: visible;
   padding: 20px;
   margin: -20px;
+  background: none;
+  border: none;
+  box-shadow: none;
 }
 
 .banner-container.blurring-out {
-  filter: blur(20px);
+  filter: blur(3px);
   opacity: 0;
 }
 
 .banner-container.blurring-in {
-  filter: blur(20px);
+  filter: blur(3px);
   opacity: 0;
 }
 
@@ -546,12 +575,16 @@ Most companies collect data but struggle to extract real value from it. Others k
   opacity: 1;
 }
 
+/* Clean Banner Text with Subtle Static Aura */
 .banner-text {
   display: inline-block;
   font-size: var(--text-xl);
   font-style: italic;
-  color: var(--color-text-light);
   font-weight: 400;
+  position: relative;
+  color: transparent;
+  
+  /* Shimmer fade effect instead of swipe-in */
   background: linear-gradient(90deg, 
     var(--color-text-light) 0%, 
     var(--color-text) 15%, 
@@ -564,13 +597,100 @@ Most companies collect data but struggle to extract real value from it. Others k
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: subtitleShimmer 9s ease-in-out infinite;
+  animation: bannerShimmer 36s ease-in-out infinite;
+  
+  /* Subtle static blue aura */
   text-shadow: 0 0 8px rgba(255, 255, 255, 0.15);
+  border: none;
+  box-shadow: none;
 }
 
+/* Clean left-to-right text reveal */
+@keyframes cleanLeftToRightReveal {
+  0% {
+    clip-path: inset(0 100% 0 0);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+
+/* Ensure banner text is always visible */
+.banner-container.active .banner-text {
+  opacity: 1;
+  display: inline-block;
+}
+
+/* Original shimmer effect for compatibility */
+.banner-text.original-shimmer {
+  color: transparent;
+  background: linear-gradient(90deg, 
+    var(--color-text-light) 0%, 
+    var(--color-text) 15%, 
+    #ffffff 35%, 
+    #ffffff 65%, 
+    var(--color-text) 85%, 
+    var(--color-text-light) 100%
+  );
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: subtitleShimmer 18s ease-in-out infinite;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.15);
+  clip-path: none;
+}
+
+/* Banner shimmer animation - twice as slow */
+@keyframes bannerShimmer {
+  0%, 100% { background-position: -200% 0; }
+  50% { background-position: 200% 0; }
+}
+
+/* Original shimmer animation for buttons */
 @keyframes subtitleShimmer {
   0%, 100% { background-position: -200% 0; }
   50% { background-position: 200% 0; }
+}
+
+/* Button shine animation */
+@keyframes tagShine {
+  from {
+    background-position: -200% center;
+  }
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* Accessibility - Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .hero-title,
+  .banner-text {
+    animation: none !important;
+  }
+  
+  .btn-primary,
+  .discovery-option .btn-primary {
+    animation: none !important;
+  }
+  
+  .hero-title {
+    filter: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    background: linear-gradient(135deg, var(--color-text) 0%, var(--color-accent) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .banner-text {
+    clip-path: none !important;
+    color: var(--color-text-light) !important;
+  }
+  
 }
 
 /* Ghostly letter animation */
@@ -690,44 +810,115 @@ Most companies collect data but struggle to extract real value from it. Others k
 }
 
 .btn-primary {
-  background: var(--color-accent);
-  color: white;
-  padding: var(--space-md) var(--space-xl);
+  position: relative;
   border-radius: var(--radius-lg);
   font-weight: 600;
   font-size: var(--text-base);
   transition: all 0.2s ease;
   border: none;
   cursor: pointer;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
+  overflow: hidden;
+  color: white;
+  background: linear-gradient(
+    to right, 
+    var(--color-accent) 20%, 
+    var(--color-accent) 35%, 
+    rgba(115, 125, 247, 1) 42%, 
+    rgba(130, 140, 248, 1) 50%, 
+    rgba(115, 125, 247, 1) 58%, 
+    var(--color-accent) 65%, 
+    var(--color-accent) 100%
+  );
+  background-size: 200% auto;
+  animation: tagShine 6s linear infinite;
+}
+
+.btn-primary .btn-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-xl);
+  margin: 2px;
+  background: var(--color-accent);
+  border-radius: calc(var(--radius-lg) - 1px);
+  color: white;
+  width: 100%;
+  height: 100%;
+}
+
+.btn-primary .btn-inner .lucide {
+  color: rgba(180, 220, 255, 0.9);
+  width: 1em;
+  height: 1em;
 }
 
 .btn-primary:hover {
-  background: var(--color-accent-hover);
   transform: translateY(-1px);
   box-shadow: var(--shadow-lg);
   color: white;
 }
 
 .btn-secondary {
-  background: transparent;
-  color: var(--color-text);
-  padding: var(--space-md) var(--space-xl);
+  position: relative;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   font-weight: 500;
   font-size: var(--text-base);
   transition: all 0.2s ease;
   cursor: pointer;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
+  overflow: hidden;
+  color: var(--color-text);
+  background: linear-gradient(
+    to right, 
+    transparent 20%, 
+    transparent 35%, 
+    rgba(115, 125, 247, 0.2) 42%, 
+    rgba(130, 140, 248, 0.2) 50%, 
+    rgba(115, 125, 247, 0.2) 58%, 
+    transparent 65%, 
+    transparent 100%
+  );
+  background-size: 200% auto;
+  animation: tagShine 6s linear infinite;
+}
+
+.btn-secondary .btn-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-xl);
+  margin: 2px;
+  background: var(--color-background);
+  border-radius: calc(var(--radius-lg) - 1px);
+  color: var(--color-text);
+  width: 100%;
+  height: 100%;
+}
+
+.btn-secondary .btn-inner .lucide {
+  color: rgba(180, 220, 255, 0.7);
+  width: 1em;
+  height: 1em;
 }
 
 .btn-secondary:hover {
   border-color: var(--color-accent);
   color: var(--color-accent);
   transform: translateY(-1px);
+}
+
+.btn-secondary:hover .btn-inner {
+  color: var(--color-accent);
 }
 
 .discovery-section {
@@ -753,14 +944,66 @@ Most companies collect data but struggle to extract real value from it. Others k
 
 .discovery-option {
   background: var(--color-surface);
-  padding: var(--space-2xl);
+  padding: var(--space-lg);
   border-radius: var(--radius-lg);
   border: 1px solid var(--color-border-light);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   transition: all 0.2s ease;
-  display: grid;
-  grid-template-rows: 3.75rem 7.5rem 1fr;
+  display: flex;
+  flex-direction: column;
   height: 20rem;
+}
+
+.discovery-option .btn-primary {
+  margin-top: auto;
+  width: 100%;
+  position: relative;
+  border: none;
+  border-radius: var(--radius-lg);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: white;
+  background: linear-gradient(
+    to right, 
+    var(--color-accent) 20%, 
+    var(--color-accent) 35%, 
+    rgba(115, 125, 247, 1) 42%, 
+    rgba(130, 140, 248, 1) 50%, 
+    rgba(115, 125, 247, 1) 58%, 
+    var(--color-accent) 65%, 
+    var(--color-accent) 100%
+  );
+  background-size: 200% auto;
+  animation: tagShine 6s linear infinite;
+  text-decoration: none;
+}
+
+
+.discovery-option .btn-primary .btn-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-lg);
+  margin: 2px;
+  background: var(--color-accent);
+  border-radius: calc(var(--radius-lg) - 1px);
+  color: white;
+  width: 100%;
+  height: 100%;
+}
+
+.discovery-option .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+  color: white;
 }
 
 /* Removed hover animations since discovery options aren't interactive cards */
@@ -812,8 +1055,12 @@ Most companies collect data but struggle to extract real value from it. Others k
   border: 1px solid var(--color-border-light-50);
 }
 
-/* Standardized h2 styles - using goldmine heading margins */
-h2 {
+/* Standardized h2 styles - using goldmine heading margins - scoped to avoid article cards */
+.main > h2,
+.content-section h2,
+.possibilities-deck h2,
+.discovery-section h2,
+.services-grid h2 {
   margin-top: 0;
   margin-bottom: var(--space-lg);
 }
@@ -905,7 +1152,7 @@ h2 {
   margin-bottom: var(--space-xs);
 }
 
-.click-hint {
+.service-card .click-hint {
   position: absolute;
   bottom: var(--space-sm);
   right: var(--space-sm);
@@ -1083,10 +1330,8 @@ h2 {
 
 .modal-cta-button {
   width: 100%;
-  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-hover) 100%);
-  color: white;
+  position: relative;
   border: none;
-  padding: var(--space-lg) var(--space-xl);
   border-radius: var(--radius-lg);
   font-size: var(--text-lg);
   font-weight: 600;
@@ -1096,18 +1341,49 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  color: white;
+  background: linear-gradient(
+    to right, 
+    var(--color-accent) 20%, 
+    var(--color-accent) 35%, 
+    rgba(115, 125, 247, 1) 42%, 
+    rgba(130, 140, 248, 1) 50%, 
+    rgba(115, 125, 247, 1) 58%, 
+    var(--color-accent) 65%, 
+    var(--color-accent) 100%
+  );
+  background-size: 200% auto;
+  animation: tagShine 6s linear infinite;
+  text-decoration: none;
+}
+
+.modal-cta-button .btn-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   gap: var(--space-sm);
+  padding: var(--space-lg) var(--space-xl);
+  margin: 2px;
+  background: var(--color-accent);
+  border-radius: calc(var(--radius-lg) - 1px);
+  color: white;
+  width: 100%;
+  height: 100%;
+}
+
+.modal-cta-button .btn-inner .lucide {
+  color: rgba(180, 220, 255, 0.9);
+  width: 1.2em;
+  height: 1.2em;
 }
 
 .modal-cta-button:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+  color: white;
 }
 
-.modal-cta-button .lucide {
-  width: 1.2em;
-  height: 1.2em;
-}
 
 @media (max-width: 768px) {
   .modal-content {
@@ -2168,8 +2444,10 @@ h2 {
       
       <div class="modal-cta">
         <a href="#" class="modal-cta-button" id="modal-cta">
-          <span id="modal-cta-text">Get Started</span>
-          <i data-lucide="mail"></i>
+          <span class="btn-inner">
+            <span id="modal-cta-text">Get Started</span>
+            <i data-lucide="mail"></i>
+          </span>
         </a>
       </div>
     </div>
@@ -2860,42 +3138,42 @@ document.addEventListener('DOMContentLoaded', () => {
   // Service data for modals
   const serviceData = {
     startup: {
-      image: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800&h=600&fit=crop&crop=focalpoint&fp-x=0.4&fp-y=0.4',
+      image: '/img/optimized/modal-office-meeting.webp',
       ctaText: 'Start Your AI Journey',
       alt: 'Modern startup office with AI technology displays',
       subject: 'Startup AI Architecture & Strategy Inquiry',
       body: 'Hi there! I\'m interested in learning more about your Startup AI Architecture & Strategy services. Could we schedule a time to discuss how you can help build robust AI infrastructure for my startup?'
     },
     enterprise: {
-      image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.3', 
+      image: '/img/optimized/modal-building-architecture.webp', 
       ctaText: 'Transform Your Enterprise',
       alt: 'Corporate skyscrapers representing enterprise AI transformation',
       subject: 'Enterprise AI Implementation Consultation',
       body: 'Hello! I\'d like to explore your Enterprise AI Implementation services for our organization. Could we discuss how to integrate AI across our business operations?'
     },
     training: {
-      image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.4',
+      image: '/img/optimized/modal-team-meeting.webp',
       ctaText: 'Boost Team Productivity',
       alt: 'Team collaboration and training session',
       subject: 'Individual AI Productivity Training Request',
       body: 'Hi! I\'m interested in your Individual AI Productivity Training to help our team harness AI agents and custom workflows. Can we discuss training options?'
     },
     agentic: {
-      image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=600&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.5',
+      image: '/img/optimized/modal-computer-code.webp',
       ctaText: 'Deploy Autonomous AI',
       alt: 'Futuristic AI robot and autonomous systems',
       subject: 'Agentic AI Systems Development Inquiry',
       body: 'Hello! I\'m interested in developing Agentic AI Systems that can act autonomously on our behalf. Could we discuss how to implement systems that decide and execute automatically?'
     },
     predictive: {
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.4',
+      image: '/img/optimized/modal-data-visualization.webp',
       ctaText: 'Build Predictive Systems',
       alt: 'Data analytics dashboard with predictive charts',
       subject: 'Predictive Applications Development Request',
       body: 'Hi there! I\'m interested in building Predictive Applications that learn and evolve. Can we explore how to create software that gets smarter with every interaction?'
     },
     strategic: {
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.4',
+      image: '/img/optimized/modal-analytics-dashboard.webp',
       ctaText: 'Execute Your Strategy',
       alt: 'Strategic planning session with data visualization',
       subject: 'Strategic AI Implementation Consultation',
@@ -3186,6 +3464,20 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 3000);
     }
   }
+  
+  // Premium Text Animation Handler
+  function initPremiumTextAnimations() {
+    // Performance optimization: remove will-change after animations complete
+    setTimeout(() => {
+      const animatedElements = document.querySelectorAll('.hero-title, .banner-text');
+      animatedElements.forEach(el => {
+        el.style.willChange = 'auto';
+      });
+    }, 4000); // After all animations should be complete
+  }
+  
+  // Initialize premium text animations
+  initPremiumTextAnimations();
   
   // Initialize rotating banners
   new RotatingBanners();

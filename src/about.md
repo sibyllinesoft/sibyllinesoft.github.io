@@ -1,50 +1,247 @@
 ---
 eleventyNavigation:
   key: About
-  order: 2
+  order: 4
 layout: simple.njk
 ---
 
 # About Nathan Rice
 
-Hi, I'm Nathan Rice, founder of Sibylline Software. I've been obsessed with the intersection of data, intelligence, and human potential for nearly two decades.
+<!-- About - Open Book Style -->
+<div class="about-brochure">
+  <div class="about-visual">
+    <i data-lucide="cpu" class="about-icon"></i>
+    <div class="about-image-placeholder">Nathan Rice<br>Founder & AI Architect</div>
+  </div>
+  <div class="about-content">
+    <h2>Two Decades of AI Innovation</h2>
+    <div class="about-pitch">
+      <p><strong>The Journey:</strong> My fascination with machine learning began during the Netflix Prize in 2007—a pivotal moment that sparked a lifelong passion for extracting insights from data. Since then, I've dedicated myself to understanding how intelligent systems can amplify human capabilities and create new possibilities.</p>
+      
+      <p><strong>The Experience:</strong> Over the years, I've built a reputation for designing and building powerful data-driven applications that help entrepreneurs and growing companies unlock their potential. My sweet spot? Helping startups figure out how to leverage their data to build amazing apps, and increasingly, how to harness AI to enable entirely new types of programs.</p>
+      
+      <div class="about-expertise">
+        <div class="expertise-item">
+          <strong>Deep Technical Expertise:</strong> Nearly two decades of machine learning experience, from the early days of collaborative filtering to today's large language models and agentic systems.
+        </div>
+        <div class="expertise-item">
+          <strong>Startup Sensibility:</strong> I understand the unique pressures of growing companies—the need to move fast, validate quickly, and build for scale without over-engineering.
+        </div>
+        <div class="expertise-item">
+          <strong>Practical AI Implementation:</strong> Not just theoretical knowledge, but real-world experience building systems that work, scale, and deliver measurable value.
+        </div>
+        <div class="expertise-item">
+          <strong>Creative Problem Solving:</strong> My artistic background brings a different perspective to technical challenges, often leading to innovative solutions others might miss.
+        </div>
+      </div>
+      
+      <p class="about-philosophy"><strong>My Philosophy:</strong> The best AI systems don't replace human intelligence—they amplify it. Whether you're a founder with a vision, a startup ready to scale, or an established company looking to stay ahead, I'm here to help you discover what becomes possible when you combine your domain expertise with intelligent systems.</p>
+      
+      <div class="about-cta">
+        <a href="#" data-contact-type="contact" data-subject-type="general" data-custom-body="I'm interested in discussing how AI could transform my business. Here's what I'm working on..." class="btn-primary"><span class="btn-inner">Start a Conversation <i data-lucide="mail"></i></span></a>
+      </div>
+    </div>
+  </div>
+</div>
 
-## My Journey
+<style>
+/* About Brochure - Open Book Style */
+.about-brochure {
+  display: flex;
+  background: var(--color-surface-50);
+  border: 1px solid var(--color-border-light-50);
+  border-radius: var(--radius-lg);
+  margin: var(--space-3xl) 0;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
 
-My fascination with machine learning began during the Netflix Prize in 2007—a pivotal moment that sparked a lifelong passion for extracting insights from data. Since then, I've dedicated myself to understanding how intelligent systems can amplify human capabilities and create new possibilities.
+.about-brochure:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-accent);
+}
 
-Over the years, I've built a reputation for designing and building powerful data-driven applications that help entrepreneurs and growing companies unlock their potential. My sweet spot? Helping startups figure out how to leverage their data to build amazing apps, and increasingly, how to harness AI to enable entirely new types of programs.
+.about-visual {
+  flex: 0 0 40%;
+  background: var(--color-graphite-700);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3xl) var(--space-2xl);
+  position: relative;
+  background-size: cover;
+  background-position: 70% center;
+  background-blend-mode: overlay;
+  text-align: center;
+  background-image: linear-gradient(rgba(99, 102, 241, 0.3), rgba(99, 102, 241, 0.3)), url('/img/photo.png');
+}
 
-## Beyond the Code
+.about-icon {
+  width: 4rem;
+  height: 4rem;
+  color: var(--color-accent);
+  margin-bottom: var(--space-lg);
+  filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.4));
+}
 
-I'm not just a technologist—I'm a creative who believes AI is the ultimate creative multiplier. I'm deeply involved in leveraging generative AI for my own creative endeavors as a published artist and soon-to-be-published writer. This hands-on experience with AI as a creative tool gives me unique insights into how these technologies can transform not just business processes, but entire ways of thinking and creating.
+.about-image-placeholder {
+  color: var(--color-text-light);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  text-align: center;
+  line-height: var(--leading-tight);
+}
 
-## What I Bring to Your Project
+.about-content {
+  flex: 1;
+  padding: var(--space-3xl);
+}
 
-**Deep Technical Expertise**: Nearly two decades of machine learning experience, from the early days of collaborative filtering to today's large language models and agentic systems.
+.about-content h2 {
+  margin-top: 0;
+  margin-bottom: var(--space-lg);
+  color: var(--color-text);
+  font-size: var(--text-3xl);
+  font-weight: 700;
+}
 
-**Startup Sensibility**: I understand the unique pressures of growing companies—the need to move fast, validate quickly, and build for scale without over-engineering.
+.about-pitch {
+  color: var(--color-text-light);
+  line-height: var(--leading-relaxed);
+}
 
-**Practical AI Implementation**: Not just theoretical knowledge, but real-world experience building systems that work, scale, and deliver measurable value.
+.about-pitch p {
+  margin-bottom: var(--space-lg);
+}
 
-**Creative Problem Solving**: My artistic background brings a different perspective to technical challenges, often leading to innovative solutions others might miss.
+.about-pitch strong {
+  color: var(--color-text);
+  font-weight: 600;
+}
 
-## My Philosophy
+.about-expertise {
+  margin: var(--space-2xl) 0;
+  background: var(--color-background);
+  border-radius: var(--radius-md);
+  padding: var(--space-xl);
+  border-left: 3px solid var(--color-accent);
+}
 
-The best AI systems don't replace human intelligence—they amplify it. Whether you're a founder with a vision, a startup ready to scale, or an established company looking to stay ahead, I'm here to help you discover what becomes possible when you combine your domain expertise with intelligent systems.
+.expertise-item {
+  margin-bottom: var(--space-lg);
+  padding-left: var(--space-md);
+}
 
-## Let's Build Something Extraordinary
+.expertise-item:last-child {
+  margin-bottom: 0;
+}
 
-Every great application starts with understanding what's truly possible. Whether you're sitting on untapped data goldmines or wondering how AI could transform your user experience, I'd love to explore the possibilities with you.
+.expertise-item strong {
+  color: var(--color-accent);
+  font-weight: 600;
+  display: block;
+  margin-bottom: var(--space-xs);
+}
 
-## Get In Touch
+.about-philosophy {
+  color: var(--color-text);
+  font-weight: 500;
+  font-style: italic;
+  margin-bottom: var(--space-lg);
+  font-size: var(--text-lg);
+}
 
-Have an idea that could change everything? A dataset that feels like it's hiding secrets? A vision for how AI could transform your industry? 
+.about-cta {
+  margin-top: var(--space-lg);
+  text-align: center;
+}
 
-I'd love to hear about it.
+.btn-primary {
+  position: relative;
+  border-radius: var(--radius-lg);
+  font-weight: 600;
+  font-size: var(--text-base);
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  overflow: hidden;
+  color: white;
+  background: linear-gradient(
+    to right, 
+    var(--color-accent) 20%, 
+    var(--color-accent) 35%, 
+    rgba(115, 125, 247, 1) 42%, 
+    rgba(130, 140, 248, 1) 50%, 
+    rgba(115, 125, 247, 1) 58%, 
+    var(--color-accent) 65%, 
+    var(--color-accent) 100%
+  );
+  background-size: 200% auto;
+  animation: tagShine 6s linear infinite;
+}
 
-**Email**: <a href="#" data-email-display="contact" data-contact-type="contact" data-subject-type="general">Loading secure contact...</a>
+.btn-primary .btn-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-lg);
+  margin: 2px;
+  background: var(--color-accent);
+  border-radius: calc(var(--radius-lg) - 1px);
+  color: white;
+  width: 100%;
+  height: 100%;
+}
 
-**Ready to explore what's possible?** Whether you're a startup founder with big dreams or an established company ready to embrace the AI revolution, let's start a conversation about turning your vision into reality.
+.btn-primary .btn-inner .lucide {
+  color: rgba(180, 220, 255, 0.9);
+  width: 1em;
+  height: 1em;
+}
 
-*Because the future isn't just built—it's intelligently designed.*
+@keyframes tagShine {
+  from {
+    background-position: -200% center;
+  }
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about-brochure {
+    flex-direction: column;
+  }
+  
+  .about-visual {
+    flex: none;
+    padding: var(--space-2xl);
+  }
+  
+  .about-icon {
+    width: 3rem;
+    height: 3rem;
+  }
+  
+  .about-content {
+    padding: var(--space-2xl);
+  }
+  
+  .about-content h2 {
+    font-size: var(--text-2xl);
+  }
+  
+  .about-expertise {
+    padding: var(--space-lg);
+  }
+}
+</style>

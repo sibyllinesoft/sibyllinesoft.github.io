@@ -8,24 +8,31 @@ layout: simple.njk
     <strong>Draft:</strong> This article is not yet published and won't appear in the articles listing.
   </div>
   {% endif %}
-  <header class="article-header">
-    <h1 class="article-title">{{ title }}</h1>
-    <div class="article-meta">
-      <time datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time>
-      {% if tags %}
-      <div class="article-tags">
-        {% for tag in tags %}
-          {% if tag != "articles" %}
-          <span class="tag">{{ tag }}</span>
-          {% endif %}
-        {% endfor %}
-      </div>
-      {% endif %}
+  
+  <div class="article-hero">
+    <div class="article-image-section">
+      <img src="{{ image or '/img/default-article.jpg' }}" alt="{{ title }}">
+      <div class="article-image-overlay"></div>
     </div>
-    {% if description %}
-    <p class="article-description">{{ description }}</p>
-    {% endif %}
-  </header>
+    <header class="article-header">
+      <h1 class="article-title">{{ title }}</h1>
+      <div class="article-meta">
+        <time datetime="{{ date | htmlDateString }}"><i data-lucide="calendar"></i> {{ date | readableDate }}</time>
+        {% if tags %}
+        <div class="article-tags">
+          {% for tag in tags %}
+            {% if tag != "articles" %}
+            <span class="tag">{{ tag }}</span>
+            {% endif %}
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+      {% if description %}
+      <p class="article-description">{{ description }}</p>
+      {% endif %}
+    </header>
+  </div>
 
   <div class="article-body">
     {{ content | safe }}
@@ -41,41 +48,98 @@ layout: simple.njk
   max-width: 1200px;
 }
 
+.article-hero {
+  display: flex;
+  background: var(--color-surface-50);
+  border: 1px solid var(--color-border-light-50);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  margin: 0 0 0 0;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  height: 300px;
+}
+
+.article-image-section {
+  flex: 0 0 40%;
+  position: relative;
+  background: var(--color-graphite-700);
+}
+
+.article-image-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.article-image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(99, 102, 241, 0.3);
+  pointer-events: none;
+}
+
 .article-header {
-  border-bottom: 1px solid var(--color-border);
-  padding-bottom: 2rem;
-  margin-bottom: 2rem;
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
 }
 
 .article-header h1 {
   margin-bottom: 1rem;
+  color: var(--color-text);
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
 }
 
 .article-meta {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
   margin-bottom: 1rem;
   font-size: 0.9rem;
-  color: var(--color-primary-light);
+  color: var(--color-text-muted);
+}
+
+.article-meta time {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.article-meta .lucide {
+  width: 0.9rem;
+  height: 0.9rem;
+  color: var(--color-text-muted);
 }
 
 .article-tags {
   display: flex;
   gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .tag {
-  background: var(--color-border);
-  padding: 0.2rem 0.5rem;
-  border-radius: 3px;
+  background: var(--color-graphite-200);
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--radius-md);
   font-size: 0.8rem;
-  color: var(--color-primary);
+  color: var(--color-graphite-800);
+  border: 1px solid var(--color-graphite-400);
 }
 
 .article-description {
   font-size: 1.1rem;
-  color: var(--color-primary-light);
+  color: var(--color-text-light);
   line-height: 1.6;
   font-style: italic;
   margin: 0;
@@ -167,30 +231,63 @@ layout: simple.njk
 .tldr-banner {
   background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
   color: white;
-  padding: 0.75rem 1.25rem;
-  border-radius: 8px;
-  margin-bottom: 1.5rem;
-  font-size: 0.95rem;
+  padding: var(--space-lg) var(--space-xl);
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  margin-bottom: var(--space-2xl);
+  font-size: var(--text-base);
   border-left: 4px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.15);
-  display: flex;
-  align-items: center;
-  text-align: center;
-  gap: 1rem;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--color-border-light-50);
+  border-top: none;
 }
 
 .tldr-banner strong {
-  color: var(--color-graphite-800);
-  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: var(--text-lg);
   font-weight: 700;
-  flex-shrink: 0;
+  display: block;
+  margin-bottom: 0;
+}
+
+.tldr-banner ul {
+  margin: 0;
+  padding-left: var(--space-lg);
+  list-style-type: disc;
+}
+
+.tldr-banner li {
+  margin-bottom: var(--space-sm);
+  line-height: var(--leading-relaxed);
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.tldr-banner li:last-child {
+  margin-bottom: 0;
 }
 
 @media (max-width: 768px) {
-  .article-meta {
+  .article-hero {
     flex-direction: column;
-    align-items: flex-start;
+    height: auto;
+  }
+  
+  .article-image-section {
+    flex: 0 0 200px;
+  }
+  
+  .article-header {
+    padding: 1.5rem;
+    text-align: center;
+  }
+  
+  .article-meta {
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 0.5rem;
+  }
+  
+  .article-header h1 {
+    font-size: 2rem;
   }
 }
 </style>
