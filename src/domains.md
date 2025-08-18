@@ -218,27 +218,27 @@ Nearly two decades of machine learning experience has taught me that the most im
 /* Domain-specific background images */
 /* Startups & Emerging Tech */
 #startup-domain .domain-visual {
-  background-image: linear-gradient(rgba(99, 102, 241, 0.3), rgba(99, 102, 241, 0.3)), url('/img/optimized/domain-startup-workspace.webp');
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/domain-startup-workspace.webp');
 }
 
 /* Clinical & Biotech - Laboratory with equipment and researchers */
 #clinical-domain .domain-visual {
-  background-image: linear-gradient(rgba(99, 102, 241, 0.3), rgba(99, 102, 241, 0.3)), url('/img/optimized/domain-lab-medical.webp');
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/domain-lab-medical.webp');
 }
 
 /* Environmental & Industrial - Industrial facility with smokestacks */
 #environmental-domain .domain-visual {
-  background-image: linear-gradient(rgba(99, 102, 241, 0.3), rgba(99, 102, 241, 0.3)), url('/img/optimized/domain-industrial.webp');
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/domain-industrial.webp');
 }
 
 /* Language Intelligence - Classic library with ladder */
 #language-domain .domain-visual {
-  background-image: linear-gradient(rgba(99, 102, 241, 0.3), rgba(99, 102, 241, 0.3)), url('/img/optimized/domain-library.webp');
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/domain-library.webp');
 }
 
 /* Defense & Security - Drone */
 #security-domain .domain-visual {
-  background-image: linear-gradient(rgba(99, 102, 241, 0.3), rgba(99, 102, 241, 0.3)), url('/img/optimized/domain-drone.webp');
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/domain-drone.webp');
 }
 
 .domain-icon {

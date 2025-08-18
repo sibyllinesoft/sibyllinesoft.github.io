@@ -199,19 +199,19 @@ Next-generation AI tools currently in alpha development. Each product represents
 
 /* Project-specific background images */
 #bookworm-product .project-visual {
-  background-image: linear-gradient(rgba(99, 102, 241, 0.3), rgba(99, 102, 241, 0.3)), url('/img/optimized/product-bookworm.webp');
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-bookworm.webp');
 }
 
 #darwin-product .project-visual {
-  background-image: linear-gradient(rgba(99, 102, 241, 0.3), rgba(99, 102, 241, 0.3)), url('/img/optimized/product-darwin.webp');
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-darwin.webp');
 }
 
 #ideoscope-product .project-visual {
-  background-image: linear-gradient(rgba(99, 102, 241, 0.3), rgba(99, 102, 241, 0.3)), url('/img/optimized/product-ideoscope.webp');
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-ideoscope.webp');
 }
 
 #scramblebench-product .project-visual {
-  background-image: linear-gradient(rgba(99, 102, 241, 0.3), rgba(99, 102, 241, 0.3)), url('/img/optimized/product-scramblebench.webp');
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-scramblebench.webp');
 }
 
 .project-icon {

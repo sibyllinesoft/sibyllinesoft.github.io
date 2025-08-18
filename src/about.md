@@ -76,7 +76,7 @@ layout: simple.njk
   background-position: 70% center;
   background-blend-mode: overlay;
   text-align: center;
-  background-image: linear-gradient(rgba(99, 102, 241, 0.3), rgba(99, 102, 241, 0.3)), url('/img/photo.png');
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/photo.png');
 }
 
 .about-icon {
