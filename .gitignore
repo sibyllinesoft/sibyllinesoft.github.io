@@ -58,3 +58,5 @@ test-results/
 screenshot*.png
 
 .serena/
+.claude/
+repomix-output.xml

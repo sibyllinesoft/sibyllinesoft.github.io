@@ -2981,14 +2981,7 @@ class NeuralNetwork {
   
   updateNodes() {
     this.time += 0.016; // 60fps normalized
-    
-    // Pre-calculate common values to avoid repeated calculations
-    const timeConstant1 = this.time * 0.3;
-    const timeConstant2 = this.time * 0.2;
-    const timeConstant3 = this.time * 0.25;
-    const timeConstant4 = this.time * 0.4;
-    const timeConstant5 = this.time * 0.15;
-    const timeConstant6 = this.time * 0.18;
+    this.rotation += 0.00225; // Increased rotation speed by 50%
     
     this.nodes.forEach((node, index) => {
       // Enhanced orbital drift for more organic movement
@@ -2997,14 +2990,16 @@ class NeuralNetwork {
       const driftY = Math.sin(orbitAngle) * node.orbitRadius * 0.1;
       
       // Gentler, smoother mesh deformation for cleaner elliptical appearance
-      const deformX1 = Math.sin(timeConstant1 + node.baseY * 0.008) * 8; // Much gentler
-      const deformX2 = Math.cos(timeConstant2 + node.baseZ * 0.005) * 6; // Smoother
-      const deformY1 = Math.cos(timeConstant3 + node.baseX * 0.007) * 10; // Moderate
-      const deformY2 = Math.sin(timeConstant4 + (node.layerIndex * 0.3)) * 5; // Gentle
+      const deformX1 = Math.sin(this.time * 0.3 + node.baseY * 0.008) * 8; // Much gentler
+      const deformX2 = Math.cos(this.time * 0.2 + node.baseZ * 0.005) * 6; // Smoother
+      const deformY1 = Math.cos(this.time * 0.25 + node.baseX * 0.007) * 10; // Moderate
+      const deformY2 = Math.sin(this.time * 0.4 + (node.layerIndex * 0.3)) * 5; // Gentle
       
       // Subtle turbulent warping for organic feel without messiness
-      const turbulenceX = Math.sin(timeConstant5 + node.cylinderAngle * 2) * 4; // Much subtler
-      const turbulenceY = Math.cos(timeConstant6 + node.cylinderAngle * 1.8) * 6; // Smoother
+      const turbulenceX = Math.sin(this.time * 0.15 + node.cylinderAngle * 2) * 4; // Much subtler
+      const turbulenceY = Math.cos(this.time * 0.18 + node.cylinderAngle * 1.8) * 6; // Smoother
+      
+      // Remove chaotic deformation for cleaner appearance
       
       // Combine smoother deformations
       const totalDeformX = deformX1 + deformX2 + turbulenceX;
@@ -3034,9 +3029,9 @@ class NeuralNetwork {
       const depthScale = 0.8 + perspective * 0.2;
       node.currentRadius = node.radius * depthScale;
       
-      // Restored node visibility with balanced transparency
+      // Restored node visibility for better animation
       const depthRatio = (cylinderZ + effectiveRadius) / (2 * effectiveRadius); // 0 to 1, 1 = closest
-      const baseDepthAlpha = 0.05 + (0.15 * depthRatio); // Balanced visibility: 0.05 to 0.2
+      const baseDepthAlpha = 0.05 + (0.15 * depthRatio); // Restored: 0.05 to 0.20
       
       // Add gentle pulsing with more upside potential for star field effect
       const pulseValue = Math.sin(this.time * node.pulseSpeed + node.pulsePhase) * node.pulseIntensity;
@@ -3148,9 +3143,9 @@ class NeuralNetwork {
       }
     });
     
-    // Balanced decay for visible afterglow on edges
+    // Much slower decay for very long lingering afterglow on edges
     for (const [id, glow] of this.connectionGlow.entries()) {
-      this.connectionGlow.set(id, Math.max(0, glow - 0.008)); // Faster decay for visible animation (balanced performance)
+      this.connectionGlow.set(id, Math.max(0, glow - 0.001)); // Much slower decay for very long afterglow (was 0.002)
     }
   }
   
@@ -3163,7 +3158,7 @@ class NeuralNetwork {
       const nodeB = this.nodes[connection.to];
       const glow = this.connectionGlow.get(connection.id) || 0;
       
-      // Only draw connections with substantial glow - balanced threshold
+      // Only draw connections with substantial glow
       if (glow > 0.1) {
         // Calculate depth-based thickness - closer edges are thicker
         const avgDepthFactor = ((nodeA.depthFactor || 0.5) + (nodeB.depthFactor || 0.5)) / 2;
@@ -3171,7 +3166,7 @@ class NeuralNetwork {
         const depthLineWidth = baseLineWidth * (0.3 + avgDepthFactor * 1.0); // Even thinner
         
         // More colorful glowing connection with purplish-blue afterglow
-        const glowAlpha = glow * 0.18; // Balanced visibility
+        const glowAlpha = glow * 0.14; // Reduced to 70% of 0.2 = 0.14
         this.ctx.strokeStyle = `rgba(150, 130, 220, ${glowAlpha})`; // Purplish-blue afterglow
         this.ctx.lineWidth = depthLineWidth;
         this.ctx.beginPath();
@@ -3181,7 +3176,7 @@ class NeuralNetwork {
         
         // Bright center line with enhanced purplish color for active connections
         if (glow > 0.6) {
-          this.ctx.strokeStyle = `rgba(180, 150, 240, ${(glow - 0.6) * 0.6})`; // Purplish center with balanced visibility
+          this.ctx.strokeStyle = `rgba(180, 150, 240, ${(glow - 0.6) * 0.7})`; // Purplish center
           this.ctx.lineWidth = depthLineWidth * 0.3;
           this.ctx.beginPath();
           this.ctx.moveTo(nodeA.x, nodeA.y);
@@ -3191,18 +3186,14 @@ class NeuralNetwork {
       }
     });
     
-    // Draw pulses with light blue colors and glow trails - Performance Optimized
-    const pulseCount = this.pulses.length;
-    for (let pulseIdx = 0; pulseIdx < pulseCount; pulseIdx++) {
-      const pulse = this.pulses[pulseIdx];
+    // Draw pulses with light blue colors and glow trails
+    this.pulses.forEach(pulse => {
       const connection = this.connections[pulse.connectionIndex];
       const nodeA = this.nodes[connection.from];
       const nodeB = this.nodes[connection.to];
       
-      const dx = nodeB.x - nodeA.x;
-      const dy = nodeB.y - nodeA.y;
-      const x = nodeA.x + dx * pulse.progress;
-      const y = nodeA.y + dy * pulse.progress;
+      const x = nodeA.x + (nodeB.x - nodeA.x) * pulse.progress;
+      const y = nodeA.y + (nodeB.y - nodeA.y) * pulse.progress;
       
       const alpha = Math.sin(pulse.progress * Math.PI) * pulse.intensity;
       
@@ -3210,51 +3201,36 @@ class NeuralNetwork {
       const pulseColor = pulse.color || { r: 100, g: 140, b: 200 };
       const { r, g, b } = pulseColor;
       
-      // Draw comet-like trail behind the pulse - further optimized for performance
-      const trailLength = 60; // Restored for performance
-      const trailStep = 0.0075; // Adjusted to maintain trail length
-      let activeTrailPoints = 0;
-      
-      // Enable additive blending for glow effect
-      this.ctx.save();
-      this.ctx.globalCompositeOperation = 'lighter';
-      
+      // Draw much longer and more lingering glow trail behind the pulse
+      const trailLength = 60; // Doubled from 30 for twice as long trails
       for (let i = 0; i < trailLength; i++) {
-        const trailProgress = pulse.progress - (i * trailStep);
-        if (trailProgress <= 0) break; // Early exit optimization
-        
-        activeTrailPoints++;
-        const trailX = nodeA.x + dx * trailProgress;
-        const trailY = nodeA.y + dy * trailProgress;
-        
-        // Create smooth comet-like fade with exponential falloff
-        const trailPosition = i / trailLength; // 0 to 1
-        const exponentialFade = Math.pow(1 - trailPosition, 2.5); // Proper exponential falloff
-        const trailAlpha = Math.max(0.02, alpha * exponentialFade * 0.5); // Higher floor and visibility
-        
-        // Comet-like radius - 50% thinner for performance
-        const trailRadius = 1.75 * Math.pow(1 - trailPosition, 1.8); // Exponential radius reduction
-        
-        // Batch fill operations
-        this.ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${trailAlpha})`;
-        this.ctx.beginPath();
-        this.ctx.arc(trailX, trailY, Math.max(0.4, trailRadius), 0, Math.PI * 2);
-        this.ctx.fill();
+        const trailProgress = Math.max(0, pulse.progress - (i * 0.0075)); // Half the spacing for twice as long trail
+        if (trailProgress > 0) {
+          const trailX = nodeA.x + (nodeB.x - nodeA.x) * trailProgress;
+          const trailY = nodeA.y + (nodeB.y - nodeA.y) * trailProgress;
+          const trailAlpha = alpha * (1 - i / trailLength) * 0.45; // Reduced to 75% of 0.6 = 0.45
+          
+          // Larger trail points that fade more gradually
+          const trailRadius = 3 - (i * 0.15); // Slower size reduction for longer visible trail
+          
+          this.ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${trailAlpha})`;
+          this.ctx.beginPath();
+          this.ctx.arc(trailX, trailY, Math.max(0.5, trailRadius), 0, Math.PI * 2);
+          this.ctx.fill();
+        }
       }
       
-      this.ctx.restore(); // guarantees we leave additive mode
-      
-      // Main pulse with enhanced glow using custom color - balanced visibility
-      this.ctx.shadowColor = `rgba(${Math.min(255, r + 20)}, ${Math.min(255, g + 20)}, ${Math.min(255, b + 20)}, ${0.4 * 0.7})`;
+      // Main pulse with enhanced glow using custom color - reduced to 75% opacity
+      this.ctx.shadowColor = `rgba(${Math.min(255, r + 20)}, ${Math.min(255, g + 20)}, ${Math.min(255, b + 20)}, ${0.4 * 0.75})`;
       this.ctx.shadowBlur = 12;
-      this.ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${alpha * 0.7})`;
+      this.ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${alpha * 0.75})`;
       this.ctx.beginPath();
       this.ctx.arc(x, y, 3.5, 0, Math.PI * 2);
       this.ctx.fill();
       
-      // Bright center with color variation - balanced visibility
+      // Bright center with color variation - reduced to 75% opacity
       this.ctx.shadowBlur = 6;
-      this.ctx.fillStyle = `rgba(${Math.min(255, r + 50)}, ${Math.min(255, g + 50)}, ${Math.min(255, b + 55)}, ${alpha * 0.9 * 0.7})`;
+      this.ctx.fillStyle = `rgba(${Math.min(255, r + 50)}, ${Math.min(255, g + 50)}, ${Math.min(255, b + 55)}, ${alpha * 0.9 * 0.75})`;
       this.ctx.beginPath();
       this.ctx.arc(x, y, 2, 0, Math.PI * 2);
       this.ctx.fill();
@@ -3315,8 +3291,6 @@ class NeuralNetwork {
   }
   
   animate() {
-    this.rotation += 0.0045; // Doubled rotation speed
-    
     this.updateNodes();
     this.updatePulses();
     
@@ -3360,7 +3334,6 @@ class NeuralNetwork {
     this.draw();
     this.animationId = requestAnimationFrame(() => this.animate());
   }
-  
   
   destroy() {
     if (this.animationId) {
