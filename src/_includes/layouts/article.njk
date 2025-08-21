@@ -14,25 +14,29 @@ layout: simple.njk
       <img src="{{ image or '/img/default-article.jpg' }}" alt="{{ title }}">
       <div class="article-image-overlay"></div>
     </div>
-    <header class="article-header">
-      <h1 class="article-title">{{ title }}</h1>
-      <div class="article-meta">
-        <time datetime="{{ date | htmlDateString }}"><i data-lucide="calendar"></i> {{ date | readableDate }}</time>
-        {% if tags %}
-        <div class="article-tags">
-          {% for tag in tags %}
-            {% if tag != "articles" %}
-            <span class="tag">{{ tag }}</span>
-            {% endif %}
-          {% endfor %}
-        </div>
-        {% endif %}
-      </div>
-      {% if description %}
-      <p class="article-description">{{ description }}</p>
-      {% endif %}
-    </header>
+    <div class="article-tldr">
+      <!-- TL;DR content will be moved here from article body -->
+    </div>
   </div>
+  
+  <header class="article-header">
+    <h1 class="article-title">{{ title }}</h1>
+    <div class="article-meta">
+      <time datetime="{{ date | htmlDateString }}"><i data-lucide="calendar"></i> {{ date | readableDate }}</time>
+      {% if tags %}
+      <div class="article-tags">
+        {% for tag in tags %}
+          {% if tag != "articles" %}
+          <span class="tag">{{ tag }}</span>
+          {% endif %}
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+    {% if description %}
+    <p class="article-description">{{ description }}</p>
+    {% endif %}
+  </header>
 
   <div class="article-body">
     {{ content | safe }}
@@ -53,14 +57,14 @@ layout: simple.njk
   background: var(--color-surface-50);
   border: 1px solid var(--color-border-light-50);
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-  margin: 0 0 0 0;
+  margin: 0;
   overflow: hidden;
   box-shadow: var(--shadow-sm);
-  height: 300px;
+  height: 500px;
 }
 
 .article-image-section {
-  flex: 0 0 40%;
+  flex: 1.2;
   position: relative;
   background: var(--color-graphite-700);
 }
@@ -82,12 +86,24 @@ layout: simple.njk
   pointer-events: none;
 }
 
-.article-header {
-  flex: 1;
+.article-tldr {
+  flex: 0 0 400px;
   padding: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  color: white;
+  font-size: 0.9rem;
+}
+
+.article-header {
+  padding: 2rem;
+  background: var(--color-surface-50);
+  border: 1px solid var(--color-border-light-50);
+  border-top: none;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  margin-bottom: var(--space-xl);
   text-align: center;
 }
 
@@ -228,41 +244,51 @@ layout: simple.njk
   font-size: 0.9rem;
 }
 
+.article-tldr .tldr-banner,
 .tldr-banner {
-  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  background: transparent;
   color: white;
-  padding: var(--space-lg) var(--space-xl);
-  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
-  margin-bottom: var(--space-2xl);
+  padding: 0;
+  border-radius: 0;
+  margin: 0;
   font-size: var(--text-base);
-  border-left: 4px solid rgba(255, 255, 255, 0.3);
-  box-shadow: var(--shadow-lg);
-  border: 1px solid var(--color-border-light-50);
-  border-top: none;
+  border: none;
+  box-shadow: none;
 }
 
+.article-tldr .tldr-banner strong,
 .tldr-banner strong {
   color: rgba(255, 255, 255, 0.95);
-  font-size: var(--text-lg);
+  font-size: 1.56rem;
   font-weight: 700;
   display: block;
-  margin-bottom: 0;
+  margin-bottom: 1rem;
+  text-align: center;
 }
 
+.article-tldr .tldr-banner ul,
 .tldr-banner ul {
   margin: 0;
   padding-left: var(--space-lg);
-  list-style-type: disc;
+  list-style-type: none;
 }
 
+.article-tldr .tldr-banner li,
 .tldr-banner li {
-  margin-bottom: var(--space-sm);
-  line-height: var(--leading-relaxed);
+  margin-bottom: 1.875rem;
+  line-height: 1.6;
   color: rgba(255, 255, 255, 0.95);
+  font-size: 0.84rem;
 }
 
+.article-tldr .tldr-banner li:last-child,
 .tldr-banner li:last-child {
   margin-bottom: 0;
+}
+
+/* Hide standalone TL;DR banners in article body when they appear in the hero */
+.article-body .tldr-banner {
+  display: none;
 }
 
 @media (max-width: 768px) {
@@ -272,7 +298,13 @@ layout: simple.njk
   }
   
   .article-image-section {
-    flex: 0 0 200px;
+    flex: 0 0 250px;
+  }
+  
+  .article-tldr {
+    flex: none;
+    padding: 1.5rem;
+    font-size: 0.8rem;
   }
   
   .article-header {
@@ -291,3 +323,18 @@ layout: simple.njk
   }
 }
 </style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Move TL;DR from article body to hero section
+  const tldrBanner = document.querySelector('.article-body .tldr-banner');
+  const tldrContainer = document.querySelector('.article-tldr');
+  
+  if (tldrBanner && tldrContainer) {
+    // Move the TL;DR content to the hero section
+    tldrContainer.appendChild(tldrBanner);
+    // Make it visible again (CSS hides it in article-body)
+    tldrBanner.style.display = 'block';
+  }
+});
+</script>

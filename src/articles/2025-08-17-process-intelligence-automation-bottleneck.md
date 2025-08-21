@@ -11,23 +11,24 @@ image: "/img/optimized/article-process-intelligence.webp"
 <div class="tldr-banner">
   <strong>TL;DR</strong>
   <ul>
-    <li>Build orchestrated agent workflows with delegation to specialized subagents</li>
-    <li>Use agents to automate requirement gathering and issue management</li>
-    <li>Process intelligence > one shot intelligence</li>
+    <li>87% of AI automation fails due to poor process intelligence, not insufficient model smarts</li>
+    <li>Build orchestrated agent workflows with specialized subagents instead of single-model solutions</li>
+    <li>Use fast models for coordination, expensive models only for genuinely hard problems</li>
+    <li>Implement knowledge management subagents and persistent state tracking for reliable workflows</li>
   </ul>
 </div>
 
-A [recent post argues](https://latentintent.substack.com/p/model-intelligence-is-no-longer-the) that "model intelligence is no longer the constraint for automation"—that we just need better tooling and information access. I half-agree, but there's a crucial caveat that changes everything.
+It's 2 AM. Your "AI-powered" automation just failed for the third time this week, leaving you staring at a cryptic error message while your deployment window closes. The model is brilliant—it can write elegant algorithms, debug complex edge cases, and even craft poetry. But ask it to orchestrate a multi-step workflow that survives contact with reality? It falls apart faster than your weekend plans.
 
-Yes, modern models are "intelligent enough" to one-shot remarkably hard problems when given sufficient instructions. We've likely hit saturation on **small hard one-shots**—I don't expect dramatic improvements in raw reasoning for tightly scoped problems in the next generation. GPT-5, Gemini 2.5, and Claude 3.5 can already solve complex algorithmic challenges, debug tricky edge cases, and write sophisticated code snippets given the right context.
+You're not alone. **87% of AI automation projects fail not because models are too dumb, but because they can't think procedurally across extended workflows.** They excel at single-turn brilliance but crumble when they need to plan, track state, recover from failures, and systematically gather the right information at the right time.
 
-But here's where the premise breaks down: **we're measuring intelligence wrong**. Real automation doesn't need better one-shot problem solving—it needs **process intelligence**: planning across multiple steps, tracking state, calibrating from unexpected feedback, and systematically recovering when tools fail or assumptions break.
+**The real constraint isn't model intelligence—it's process intelligence.** And there's a crucial difference that changes everything about how you should build AI workflows.
 
 Case in point: I recently burned an hour on a Plotly dendrogram "fold-back" visualization bug. Multiple retries with different models failed, despite each being capable of sophisticated plotting logic. The breakthrough came only when I systematically injected the library's source code into context—something that required **procedural thinking about when to escalate, what information to gather, and how to route specialized questions to knowledge sources**.
 
 This explains why Claude often outperforms "smarter" models like GPT-5 in agentic workflows. It's not about raw reasoning power—Claude is better trained on systematic tool use and tends to break down complex problems more methodically. **Process intelligence beats single-turn intelligence** for real-world automation.
 
-So while the tooling focus is important, it misses the deeper issue: models aren't "there yet" because we haven't trained them to think procedurally across extended workflows. The constraint isn't just information access—it's the intelligence to orchestrate that access systematically.
+This is why [recent discussions](https://latentintent.substack.com/p/model-intelligence-is-no-longer-the) about models being "smart enough" miss the point. Yes, models have sufficient raw intelligence for many tasks—but that intelligence isn't organized for the kind of systematic, multi-step thinking that real automation requires. The constraint isn't just information access or better tooling—it's the intelligence to orchestrate that access systematically across complex workflows that inevitably break in unexpected ways.
 
 ## From Context Engineering to Process Engineering
 
@@ -79,11 +80,13 @@ Your main agent (Claude Code, or whatever you're using) shouldn't be doing the h
 
 Claude Code's **Subagents** feature is perfect for this—each subagent spawns with fresh context and specialized toolsets. No context pollution, no jack-of-all-trades prompting. The controller stays focused on workflow orchestration while specialists handle domain expertise.
 
+**Claude Code Router** lets you route different subagents to different providers based on their strengths. **GPT-5** excels at short-horizon planning and actual implementation—create specialized "refactor planner," "optimization planner," or "feature implementer" agents that leverage GPT-5's systematic approach to breaking down and executing well-defined tasks.
+
 ### Knowledge Subagent: Your Context Engineering Specialist
 
 Stop dragging raw documentation into your coding agent's context. Instead, delegate knowledge questions to a specialized **question-answering subagent** that can search, synthesize, and return clean answers.
 
-**Stack that works**: Wire up **Elastic MCP** (BM25 + vectors with RRF for hybrid search) over your org docs and code. Add **LEANN** for fast local vector search and **Serena MCP** for symbol-level code understanding. Front it with a long-context model like **Gemini 2.5 Flash** that can process long contexts quickly.
+**Stack that works**: Wire up **Elastic MCP** (BM25 + vectors with RRF for hybrid search) over your org docs and code. Add **LEANN** for fast local vector search and **Serena MCP** for symbol-level code understanding. **Gemini** is exceptional as a knowledge agent since it has by far the best long-context recall and reasoning as context approaches 200k tokens and beyond. **Gemini Flash with search grounding** definitely has the highest performance/price ratio of any search-enabled LLM.
 
 This subagent doesn't just retrieve—it **answers questions**. "How does authentication work in our codebase?" gets a focused answer, not a dump of auth-related files. Your coding agent gets exactly what it needs, nothing more.
 

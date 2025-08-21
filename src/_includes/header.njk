@@ -2,7 +2,7 @@
 	<div class="elv-menu">
 		<active-background>
 			<ul class="elv-nav-menu list-bare fl fl-inline fl-nowrap">
-				<li><a href="/" class="elv-nav-menu-logo" style="display: flex; align-items: center;"><img src="/img/logo.png" alt="Sibylline Soft Logo" style="height: 24px; width: auto; margin-right: 8px;">Sibylline Soft</a></li>
+				<li><a href="/" class="elv-nav-menu-logo" style="display: flex; align-items: center;"><img src="/img/logo.svg" alt="Sibylline Soft Logo" style="height: 24px; width: auto; margin-right: 8px; filter: drop-shadow(0 0 4px rgba(255, 215, 0, 0.6));">Sibylline Soft</a></li>
 				<li><a href="/docs/">Get Started</a></li>
 				<li><a href="/blog/">Blog</a></li>
 				<li><a href="/docs/community/">Community</a></li>
@@ -51,7 +51,7 @@
 
 	<div class="elv-nav-header">
 		{% if not isDocs %}
-		<a href="{% if page.url === '/' %}/docs/{% else %}/{% endif %}" class="elv-hero" style="display: flex; align-items: center;"><img src="/img/logo.png" alt="Sibylline Soft Logo" style="height: 48px; width: auto; margin-right: 12px;">Sibylline Soft<span class="sr-only">Sibylline Soft</span></a>
+		<a href="{% if page.url === '/' %}/docs/{% else %}/{% endif %}" class="elv-hero" style="display: flex; align-items: center;"><img src="/img/logo.svg" alt="Sibylline Soft Logo" style="height: 48px; width: auto; margin-right: 12px; filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.6));">Sibylline Soft<span class="sr-only">Sibylline Soft</span></a>
 		{% endif %}
 		<is-land class="elv-possum-island" on:visible on:idle on:load on:save-data="false" on:media="(prefers-reduced-motion: no-preference)">
 			<template data-island>

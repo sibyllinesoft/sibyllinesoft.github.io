@@ -125,6 +125,158 @@ Next-generation AI tools currently in alpha development. These tools represent t
   </div>
 </div>
 
+<!-- Product Mimir -->
+<div class="project-brochure" id="mimir-product">
+  <div class="project-visual">
+    <i data-lucide="brain-circuit" class="project-icon"></i>
+    <div class="project-codename">Codename: MIMIR</div>
+    <div class="project-status">Research Alpha</div>
+  </div>
+  <div class="project-content">
+    <h2>Research Swarm Intelligence for Hard Problems</h2>
+    <div class="project-pitch">
+      <p><strong>The Problem:</strong> Hard problems require deep research across multiple codebases, documentation, and knowledge sources. Agents get confused by too many search tools. You need systematic investigation but lack unified intelligence that can coordinate complex research across code and literature.</p>
+      
+      <p><strong>The Solution:</strong> Mimir deploys research swarms that unify the best code search MCPs with deep literature analysis. One interface, comprehensive investigation. It coordinates multi-agent research workflows to solve problems that require both extensive code understanding and domain knowledge synthesis.</p>
+      
+      <div class="project-features">
+        <div class="feature-item">
+          <strong>Unified Search Intelligence:</strong> Combines the best code search MCPs into one interface—no more agent confusion from dozens of overlapping search tools.
+        </div>
+        <div class="feature-item">
+          <strong>Research Swarm Coordination:</strong> Deploys multiple specialized agents for code analysis, literature review, and cross-domain synthesis to tackle complex problems.
+        </div>
+        <div class="feature-item">
+          <strong>Deep Problem Solving:</strong> Six-stage intelligence pipeline handles both extensive code search and comprehensive research synthesis for hard engineering challenges.
+        </div>
+        <div class="feature-item">
+          <strong>MCP Integration Hub:</strong> Acts as a central nervous system for research workflows, coordinating agent activities with precise citation and knowledge tracking.
+        </div>
+      </div>
+      
+      <p class="project-tagline">Stop surface-level searches. Deploy research swarms for breakthrough solutions.</p>
+      
+      <div class="project-cta">
+        <a href="#" data-contact-type="contact" data-subject-type="mimir" data-custom-body="I'm interested in joining the waitlist for Codename Mimir. I need research swarms for..." class="btn-primary"><span class="btn-inner">Join Waitlist <i data-lucide="mail"></i></span></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Product Agent Zoo -->
+<div class="project-brochure" id="agentzoo-product">
+  <div class="project-visual">
+    <i data-lucide="package" class="project-icon"></i>
+    <div class="project-codename">Codename: AGENT ZOO</div>
+    <div class="project-status">Beta Implementation</div>
+  </div>
+  <div class="project-content">
+    <h2>Stop Building Agents From Scratch Every Time</h2>
+    <div class="project-pitch">
+      <p><strong>The Problem:</strong> Every team rebuilds the same AI agents from scratch. You find an amazing prompt on Reddit but can't version it or share it properly. Your organization has dozens of agents scattered across Slack threads and Google Docs with no way to discover or reuse them.</p>
+      
+      <p><strong>The Solution:</strong> Discover, compose, and share intelligent agents with the simplicity of markdown and the power of semantic versioning. Search thousands of community agents, fork and customize them, or publish your own innovations for others to build upon.</p>
+      
+      <div class="project-features">
+        <div class="feature-item">
+          <strong>Markdown-Native Registry:</strong> Agents stored as simple .md files with YAML frontmatter—no complex formats or proprietary tools required.
+        </div>
+        <div class="feature-item">
+          <strong>Semantic Versioning & Dependencies:</strong> Full semver support with dependency resolution. Compose complex agents from smaller, reusable components.
+        </div>
+        <div class="feature-item">
+          <strong>NPX CLI Integration:</strong> <code>npx @claudezoo/cli get agents/sql-helper@latest</code> - install and run agents instantly.
+        </div>
+        <div class="feature-item">
+          <strong>Zero-Friction Discovery:</strong> Public browsing without signup barriers. OAuth only required for publishing your own agents.
+        </div>
+      </div>
+      
+      <p class="project-tagline">Stop reinventing agents. Start composing intelligence.</p>
+      
+      <div class="project-cta">
+        <a href="#" data-contact-type="contact" data-subject-type="agentzoo" data-custom-body="I'm interested in joining the waitlist for Codename Agent Zoo. I want to share/discover agents for..." class="btn-primary"><span class="btn-inner">Join Waitlist <i data-lucide="mail"></i></span></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Product MindLink -->
+<div class="project-brochure" id="mindlink-product">
+  <div class="project-visual">
+    <i data-lucide="key" class="project-icon"></i>
+    <div class="project-codename">Codename: MINDLINK</div>
+    <div class="project-status">Production Alpha</div>
+  </div>
+  <div class="project-content">
+    <h2>Every Developer's AI Dream: Zero Setup, Total Control</h2>
+    <div class="project-pitch">
+      <p><strong>The Problem:</strong> Building AI features means paying for expensive inference, managing API keys across tools, and losing control over costs. Your users want local privacy, but apps can't safely access their Ollama setup. You're stuck choosing between expensive cloud AI or complex local integration nightmares.</p>
+      
+      <p><strong>The Solution:</strong> Let your users bring their own AI—whether it's their OpenAI credits, local Ollama models, or Claude Code routed to any provider. One secure handshake gives your app instant access to their complete AI setup. No inference costs for you, total control for them.</p>
+      
+      <div class="project-features">
+        <div class="feature-item">
+          <strong>Zero Developer Inference Costs:</strong> Your users pay for their own AI usage while your app delivers premium intelligence features. Build AI-powered apps without the crushing infrastructure bills.
+        </div>
+        <div class="feature-item">
+          <strong>Universal Provider Access:</strong> Users can route Claude Code to alternative providers, use local Ollama safely, or share any API setup. One integration covers every possible AI configuration.
+        </div>
+        <div class="feature-item">
+          <strong>Secure Local LLM Bridge:</strong> Third-party apps can safely access users' local Ollama instances through sandboxed connections—privacy preserved, power unleashed.
+        </div>
+        <div class="feature-item">
+          <strong>Complete User Sovereignty:</strong> Users control costs, model selection, data flow, and usage limits. No vendor lock-in, no surprise bills, no privacy compromises.
+        </div>
+      </div>
+      
+      <p class="project-tagline">Build AI features without AI bills. Give users the control they actually want.</p>
+      
+      <div class="project-cta">
+        <a href="#" data-contact-type="contact" data-subject-type="mindlink" data-custom-body="I'm interested in joining the waitlist for Codename MindLink. I want to build AI features without inference costs for..." class="btn-primary"><span class="btn-inner">Join Waitlist <i data-lucide="mail"></i></span></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Product Rave -->
+<div class="project-brochure" id="rave-product">
+  <div class="project-visual">
+    <i data-lucide="unlock" class="project-icon"></i>
+    <div class="project-codename">Codename: RAVE</div>
+    <div class="project-status">Production Ready</div>
+  </div>
+  <div class="project-content">
+    <h2>Unleash Full Agent Autonomy Without the Risk</h2>
+    <div class="project-pitch">
+      <p><strong>The Problem:</strong> You want agents to run autonomously but constantly asking for permission kills their effectiveness. Give them full access and they might damage your system. Containers aren't true isolation—agents can still escape and wreak havoc. You're stuck between crippled agents or dangerous freedom.</p>
+      
+      <p><strong>The Solution:</strong> Rave gives agents complete autonomy in true VM isolation. Let them install packages, modify files, run commands—whatever they need—while your host system stays bulletproof. Pre-configured with Vibe Kanban and LLM tools for instant agent swarm deployment.</p>
+      
+      <div class="project-features">
+        <div class="feature-item">
+          <strong>Full Agent Freedom:</strong> No permission gates, no restricted access. Agents get root in their sandbox and can do anything—install, configure, experiment—without breaking your system.
+        </div>
+        <div class="feature-item">
+          <strong>True VM Isolation:</strong> Kernel-level protection that containers can't match. Agents literally cannot escape to damage your host—destroy the VM, problem solved.
+        </div>
+        <div class="feature-item">
+          <strong>Agent Swarm Ready:</strong> Vibe Kanban for task management and comprehensive LLM toolkit pre-installed. Deploy multiple autonomous agents instantly.
+        </div>
+        <div class="feature-item">
+          <strong>30-Second Reset:</strong> Agent broke something? Nuke the VM and spawn a fresh one in seconds. No cleanup, no residual damage, no downtime.
+        </div>
+      </div>
+      
+      <p class="project-tagline">Stop babysitting agents. Give them full power in perfect safety.</p>
+      
+      <div class="project-cta">
+        <a href="#" data-contact-type="contact" data-subject-type="rave" data-custom-body="I'm interested in joining the waitlist for Codename Rave. I want to unleash autonomous agents for..." class="btn-primary"><span class="btn-inner">Join Waitlist <i data-lucide="mail"></i></span></a>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ScrambleBench -->
 <div class="project-brochure" id="scramblebench-product">
   <div class="project-visual">
@@ -209,6 +361,22 @@ Next-generation AI tools currently in alpha development. These tools represent t
 
 #ideoscope-product .project-visual {
   background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-ideoscope.webp');
+}
+
+#mimir-product .project-visual {
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-mimir.webp');
+}
+
+#agentzoo-product .project-visual {
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-agentzoo.webp');
+}
+
+#mindlink-product .project-visual {
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-mindlink.webp');
+}
+
+#rave-product .project-visual {
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-rave.webp');
 }
 
 #scramblebench-product .project-visual {

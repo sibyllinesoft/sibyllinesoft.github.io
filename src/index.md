@@ -8,18 +8,37 @@ layout: simple.njk
 <div class="hero-container">
   <canvas id="neural-network" class="neural-background"></canvas>
   <div class="hero-content">
-    <h1 class="hero-title">Turn Your Data Into Your Competitive Advantage</h1>
+    <div class="hero-title-container">
+      <img src="/img/logo.svg" alt="Sibylline Software Logo" class="hero-logo">
+      <h1 class="hero-title">Ship Autonomous AI Systems While Your Competitors Debug Prompts</h1>
+    </div>
     <div class="rotating-banners">
       <div class="banner-container active">
-        <span class="banner-text" data-text="AI-powered solutions that transform ambitious ideas into intelligent systems">AI-powered solutions that transform ambitious ideas into intelligent systems</span>
+        <span class="banner-text" data-text="10x development velocity with autonomous agents—while your competitors are still writing prompts">10x development velocity with autonomous agents—while your competitors are still writing prompts</span>
+      </div>
+      <div class="banner-container">
+        <span class="banner-text" data-text="Trusted by Fortune 500s and unicorn startups to architect true AI systems">Trusted by Fortune 500s and unicorn startups to architect true AI systems</span>
+      </div>
+      <div class="banner-container">
+        <span class="banner-text" data-text="The AI systems gap is widening daily. Most will never catch up.">The AI systems gap is widening daily. Most will never catch up.</span>
+      </div>
+      <div class="banner-container">
+        <span class="banner-text" data-text="Transform your data into autonomous competitive advantages that work 24/7">Transform your data into autonomous competitive advantages that work 24/7</span>
+      </div>
+      <div class="banner-container">
+        <span class="banner-text" data-text="Multi-agent orchestration and contamination-resistant evaluation—not another chatbot">Multi-agent orchestration and contamination-resistant evaluation—not another chatbot</span>
       </div>
     </div>
   </div>
 </div>
 
-## The AI revolution is here. The question is: Will you lead it or watch it happen?
+<div class="centered-section">
 
-Most companies collect data but struggle to extract real value from it. Others know AI could transform their business but don't know where to start. If you're ready to turn untapped potential into competitive advantage, you're in the right place.
+## While Your Competitors Struggle With Prompts, I'm Shipping Autonomous Agent Systems That 10x Team Velocity
+
+Most teams bolt AI onto existing processes and wonder why it doesn't work. I've been architecting intelligent systems since 2007—I know how to build AI-first from the ground up. While others are still figuring out prompts, I'm shipping autonomous agent systems and contamination-resistant evaluation frameworks. If you're ready to build software that thinks, not just talks, you're in the right place.
+
+</div>
 
 <div class="hero-cta">
   <a href="#discovery" class="btn-primary"><span class="btn-inner">Discover What's Possible <i data-lucide="mail"></i></span></a>
@@ -28,26 +47,25 @@ Most companies collect data but struggle to extract real value from it. Others k
 
 <div class="content-section">
 
-## You're sitting on goldmines of opportunity
+## Proven Paths From *AI Theatre* to Autonomous Systems That Work
 
 <div class="services-grid">
 <div class="service-card" data-service="startup">
-<h3><i data-lucide="zap"></i> Startup AI Architecture & Strategy</h3>
+<h3><i data-lucide="zap"></i> Startups: Build AI-First From Day One</h3>
 <div class="service-summary">
-<p>Build robust AI infrastructure and long-term vision that maximizes your data and application design.</p>
+<p>Your competitors are bolting AI onto existing products. You could architect intelligence as core infrastructure and leave them behind permanently.</p>
 </div>
 <div class="service-details">
-<h4>What I Provide:</h4>
+<h4>Here's the reality:</h4>
+<p>Most startups treat AI like a feature. The winners will be those whose entire product is intelligent by design. I help you architect systems where agents handle complex workflows, coding becomes agentic, and your product gets smarter as it grows.</p>
+<h4>What this looks like:</h4>
 <ul>
-<li>AI infrastructure assessment and architecture design</li>
-<li>Data-driven application strategy and design</li>
-<li>Technology stack recommendations and implementation planning</li>
-<li>Long-term AI roadmap aligned with business goals</li>
-<li>Team training on AI development best practices</li>
-<li>Ongoing support and consultation as you scale</li>
+<li>AI-first architecture that scales with your growth</li>
+<li>Development workflows that 10x your team's velocity</li>
+<li>Multi-agent systems handling complex business logic</li>
 </ul>
-<h4>Ideal For:</h4>
-<p>Startup teams ready to build AI into their core product strategy from the ground up, with budget for strategic consulting and implementation guidance.</p>
+<h4>Right for you if:</h4>
+<p>You're ready to build AI into your core strategy with budget for strategic consulting and implementation.</p>
 </div>
 <div class="click-hint">Click to expand</div>
 <div class="service-visual">
@@ -82,22 +100,21 @@ Most companies collect data but struggle to extract real value from it. Others k
 </div>
 
 <div class="service-card" data-service="enterprise">
-<h3><i data-lucide="building"></i> Enterprise AI Implementation</h3>
+<h3><i data-lucide="building"></i> Enterprise: Custom Agents & Orchestration</h3>
 <div class="service-summary">
-<p>Comprehensive AI integration across business operations with extended contracts and full-time billing options.</p>
+<p>Enterprise constraints require enterprise-grade solutions. Get custom agent systems that meet your needs—stable, secure and supported.</p>
 </div>
 <div class="service-details">
-<h4>What I Provide:</h4>
+<h4>The challenge:</h4>
+<p>You need AI systems that work within enterprise constraints—secure, integrated, and supported. I build custom agent orchestration and pre-configured environments that actually deploy.</p>
+<h4>What you get:</h4>
 <ul>
-<li>End-to-end AI implementation across departments</li>
-<li>Technical architecture and system integration</li>
-<li>Team training and change management</li>
-<li>Custom AI solution development</li>
-<li>Process optimization and automation</li>
-<li>Subcontracting coordination for specialized needs</li>
+<li>Custom agents that work within your constraints</li>
+<li>Enterprise-grade security with VM-isolated operations</li>
+<li>Pre-configured environments your teams can use immediately</li>
 </ul>
-<h4>Engagement Options:</h4>
-<p>Extended contracts from 3-12 months, full-time billing for complex projects, flexible arrangements based on scope and timeline.</p>
+<h4>Engagement:</h4>
+<p>3-12 month contracts, full-time billing for complex projects, flexible arrangements based on scope.</p>
 </div>
 <div class="click-hint">Click to expand</div>
 <div class="service-visual">
@@ -138,22 +155,21 @@ Most companies collect data but struggle to extract real value from it. Others k
 </div>
 
 <div class="service-card" data-service="training">
-<h3><i data-lucide="graduation-cap"></i> Individual AI Productivity Training</h3>
+<h3><i data-lucide="graduation-cap"></i> Individuals: From Zero to AI Hero</h3>
 <div class="service-summary">
-<p>Hands-on training for teams to harness AI agents, MCP tools, and custom workflows for daily productivity.</p>
+<p>Everyone's using ChatGPT. You could be building autonomous workflows that compound daily. Personal coaching to go from prompt jockey to AI architect.</p>
 </div>
 <div class="service-details">
-<h4>What I Provide:</h4>
+<h4>The gap:</h4>
+<p>Most people know how to ask ChatGPT questions. Few know how to build systems that work for them while they sleep. I provide hands-on coaching using production-grade tools and workflows I actually use in my own work.</p>
+<h4>What you learn:</h4>
 <ul>
-<li>Custom AI agent setup for specific business tasks</li>
-<li>MCP (Model Context Protocol) tool configuration</li>
-<li>Workflow automation tailored to team needs</li>
-<li>Hands-on training sessions and workshops</li>
-<li>Pre-configured systems ready for immediate use</li>
-<li>Follow-up support and optimization</li>
+<li>Tools and workflows that actually move the needle</li>
+<li>Custom setups tailored to your specific work</li>
+<li>Best practices from someone who ships these systems</li>
 </ul>
-<h4>Perfect For:</h4>
-<p>Teams wanting immediate AI productivity gains without the complexity—everything preconfigured so people can focus on results, not setup.</p>
+<h4>Right for you if:</h4>
+<p>You want to go beyond basic AI usage and build workflows that compound over time.</p>
 </div>
 <div class="click-hint">Click to expand</div>
 <div class="service-visual">
@@ -187,31 +203,24 @@ Most companies collect data but struggle to extract real value from it. Others k
 </div>
 
 <div class="marketing-blurb">
-<strong>Your competitors are already exploring AI.</strong> The question isn't whether to adopt intelligent systems—it's how quickly you can implement them strategically. Every day of delay is lost competitive advantage.
+<strong>Your competitors are still figuring out prompts. You could be shipping autonomous agents.</strong> The companies that win won't be those with the best AI features—they'll be the ones whose entire product is intelligent by design. Every day of delay is lost competitive advantage.
 </div>
 
 <div class="content-section">
 
-## What becomes possible when data meets intelligence
+## Why You Can Trust Me With Your AI Strategy
 
 <div class="services-grid">
 <div class="service-card" data-service="agentic">
-<h3><i data-lucide="bot"></i> Agentic AI Systems</h3>
+<h3><i data-lucide="bot"></i> I Ship Autonomous Agent Systems</h3>
 <div class="service-summary">
-<p>Autonomous intelligence that acts on your behalf - systems that don't just analyze, they decide and execute automatically.</p>
+<p>While others demo ChatGPT integrations, I build production agent systems that compose like software packages and run safely at scale.</p>
 </div>
 <div class="service-details">
-<h4>What Becomes Possible:</h4>
-<ul>
-<li>Automated decision making with real-time context</li>
-<li>24/7 autonomous customer service and support</li>
-<li>Self-optimizing business processes</li>
-<li>Intelligent workflow orchestration</li>
-<li>Predictive issue resolution before problems occur</li>
-<li>Dynamic resource allocation and scaling</li>
-</ul>
-<h4>Impact:</h4>
-<p>95% faster response times with 24/7 autonomous operation that scales infinitely without human intervention.</p>
+<h4>The difference:</h4>
+<p>Anyone can wrap the OpenAI API. I build agent registries with semantic versioning, VM-isolated environments where agents can't damage host systems, and evaluation frameworks that expose what AI actually understands versus what it memorized.</p>
+<h4>What this proves:</h4>
+<p>I don't just talk about autonomous agents—I ship them. Battle-tested architectures solving real problems for real users.</p>
 </div>
 <div class="click-hint">Click to expand</div>
 <div class="service-visual">
@@ -246,22 +255,15 @@ Most companies collect data but struggle to extract real value from it. Others k
 </div>
 
 <div class="service-card" data-service="predictive">
-<h3><i data-lucide="trending-up"></i> Predictive Applications</h3>
+<h3><i data-lucide="trending-up"></i> I Build Systems That Actually Learn</h3>
 <div class="service-summary">
-<p>Applications that learn and evolve - software that gets smarter with every interaction and anticipates future needs.</p>
+<p>Most AI just regurgitates training data. I build systems that spot patterns others miss and evolve ideas autonomously while you sleep.</p>
 </div>
 <div class="service-details">
-<h4>What Becomes Possible:</h4>
-<ul>
-<li>Self-learning systems that improve autonomously</li>
-<li>Adaptive user experiences that personalize automatically</li>
-<li>Predictive maintenance and issue prevention</li>
-<li>Dynamic process optimization based on performance data</li>
-<li>Intelligent recommendations that get better over time</li>
-<li>Future-state planning with scenario modeling</li>
-</ul>
-<h4>Impact:</h4>
-<p>10x faster learning cycles with infinite improvement potential that compounds exponentially over time.</p>
+<h4>Beyond pattern matching:</h4>
+<p>I've built narrative analysis that maps emotional tension, trend detection that surfaces viral content weeks early, and evaluation systems that expose what AI actually understands versus what it memorized.</p>
+<h4>What this proves:</h4>
+<p>I understand how to make AI genuinely intelligent, not just responsive. Pattern recognition that finds opportunities others miss.</p>
 </div>
 <div class="click-hint">Click to expand</div>
 <div class="service-visual">
@@ -297,22 +299,15 @@ Most companies collect data but struggle to extract real value from it. Others k
 </div>
 
 <div class="service-card" data-service="strategic">
-<h3><i data-lucide="target"></i> Strategic Implementation</h3>
+<h3><i data-lucide="target"></i> I've Been Doing This Since 2007</h3>
 <div class="service-summary">
-<p>Clear roadmaps from concept to competitive edge - strategic implementation with measurable impact from day one.</p>
+<p>From collaborative filtering to autonomous agents—I've weathered every AI hype cycle and know which technologies actually stick.</p>
 </div>
 <div class="service-details">
-<h4>What Becomes Possible:</h4>
-<ul>
-<li>Measurable impact with clear ROI tracking</li>
-<li>Scalable solutions that grow with your business</li>
-<li>Strategic roadmaps with defined milestones</li>
-<li>Immediate value delivery on implementation</li>
-<li>Long-term competitive advantage building</li>
-<li>Risk mitigation through proven methodologies</li>
-</ul>
-<h4>Impact:</h4>
-<p>Day 1 immediate value with 100% strategic alignment that delivers compounding competitive advantages.</p>
+<h4>Why experience matters:</h4>
+<p>I know which AI approaches come and go versus which ones scale to production. I've solved the infrastructure problems that break most AI projects and seen every way implementations fail—and how to prevent it.</p>
+<h4>What this means for you:</h4>
+<p>AI moves fast, but building reliable systems doesn't. You get two decades of hard-won knowledge about what actually works.</p>
 </div>
 <div class="click-hint">Click to expand</div>
 <div class="service-visual">
@@ -405,6 +400,22 @@ Most companies collect data but struggle to extract real value from it. Others k
 *Where ambitious ideas meet intelligent execution.*
 
 <style>
+/* Centered section styling */
+.centered-section {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto var(--space-2xl);
+}
+
+.centered-section h2 {
+  margin-top: 0;
+  margin-bottom: var(--space-xl);
+}
+
+.centered-section p {
+  margin-bottom: var(--space-lg);
+}
+
 /* Neural Network Hero Animation */
 .hero-container {
   position: relative;
@@ -430,8 +441,48 @@ Most companies collect data but struggle to extract real value from it. Others k
   position: relative;
   z-index: 2;
   text-align: center;
-  max-width: 800px;
+  width: 100%;
   padding: var(--space-3xl) var(--space-xl);
+}
+
+/* Hero Title Container with Logo */
+.hero-title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xl);
+}
+
+.hero-logo {
+  height: 104px;
+  width: auto;
+  flex-shrink: 0;
+  filter: 
+    drop-shadow(0 0 4px rgba(255, 215, 0, 0.4)) 
+    drop-shadow(0 0 18px rgba(255, 215, 0, 0.22)) 
+    drop-shadow(0 0 36px rgba(255, 215, 0, 0.15))
+    drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.15))
+    drop-shadow(-0.5px -0.5px 1px rgba(255, 255, 255, 0.08));
+  animation: logoGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes logoGlow {
+  0% {
+    filter: 
+      drop-shadow(0 0 4px rgba(255, 215, 0, 0.4)) 
+      drop-shadow(0 0 17px rgba(255, 215, 0, 0.2)) 
+      drop-shadow(0 0 27px rgba(255, 215, 0, 0.14))
+      drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.15))
+      drop-shadow(-0.5px -0.5px 1px rgba(255, 255, 255, 0.08));
+  }
+  100% {
+    filter: 
+      drop-shadow(0 0 4px rgba(255, 215, 0, 0.4)) 
+      drop-shadow(0 0 21px rgba(255, 215, 0, 0.28)) 
+      drop-shadow(0 0 34px rgba(255, 215, 0, 0.20))
+      drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.15))
+      drop-shadow(-0.5px -0.5px 1px rgba(255, 255, 255, 0.08));
+  }
 }
 
 /* Hero Title - Sophisticated Focus-Grabbing Animation */
@@ -780,6 +831,14 @@ Most companies collect data but struggle to extract real value from it. Others k
 @media (max-width: 768px) {
   .hero-container {
     min-height: 35vh;
+  }
+  
+  .hero-title-container {
+    gap: var(--space-lg);
+  }
+  
+  .hero-logo {
+    height: 100px;
   }
   
   .hero-content h1 {
@@ -1244,6 +1303,7 @@ Most companies collect data but struggle to extract real value from it. Others k
   padding: var(--space-2xl);
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   overflow-y: auto;
   position: relative;
 }
@@ -1273,11 +1333,11 @@ Most companies collect data but struggle to extract real value from it. Others k
 }
 
 .modal-header {
-  margin-bottom: var(--space-xl);
+  margin-bottom: var(--space-lg);
 }
 
 .modal-header h3 {
-  margin: 0 0 var(--space-lg) 0;
+  margin: 0 0 var(--space-md) 0;
   color: var(--color-accent);
   font-size: var(--text-2xl);
   font-weight: 700;
@@ -1302,30 +1362,29 @@ Most companies collect data but struggle to extract real value from it. Others k
 
 .modal-body {
   flex: 1;
-  margin-bottom: var(--space-lg);
 }
 
 .modal-body h4 {
   color: var(--color-text);
-  margin-top: var(--space-xl);
-  margin-bottom: var(--space-lg);
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-md);
   font-size: var(--text-lg);
   font-weight: 600;
 }
 
 .modal-body ul {
-  margin: var(--space-lg) 0;
+  margin: var(--space-md) 0;
   padding-left: var(--space-xl);
 }
 
 .modal-body li {
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-sm);
   color: var(--color-text-light);
   line-height: 1.5;
 }
 
 .modal-cta {
-  margin-top: var(--space-lg);
+  margin-top: 0;
 }
 
 .modal-cta-button {
@@ -3268,27 +3327,27 @@ document.addEventListener('DOMContentLoaded', () => {
       // Coordinated title-subtitle pairs
       this.titleSubtitlePairs = [
         {
-          title: "Turn Your Data Into Your Competitive Advantage",
+          title: "Stop Losing to Startups With Real AI Advantages",
           subtitles: [
-            "AI-powered solutions that transform ambitious ideas into intelligent systems",
-            "From scattered information to strategic insights",
-            "Unlock the intelligence hidden in your data"
+            "Turn your data moat into autonomous agent systems that competitors can't copy",
+            "From scattered information to strategic intelligence",
+            "Build systems that scale faster than venture-backed competitors"
           ]
         },
         {
-          title: "The Future of Business is Intelligent",
+          title: "17 Years Building AI Systems Before It Was Cool",
           subtitles: [
-            "From reactive decisions to predictive intelligence",
-            "Where automation meets innovation",
-            "Building tomorrow's solutions today"
+            "From reactive dashboards to predictive agent orchestration that thinks 3 moves ahead",
+            "Where deep systems expertise meets cutting-edge AI",
+            "Building autonomous intelligence while others chase trends"
           ]
         },
         {
-          title: "Transform Vision Into Intelligent Reality",
+          title: "Your Next Hire Should Be 100 Autonomous Agents",
           subtitles: [
-            "Turn your boldest ideas into working AI systems",
-            "From concept to competitive advantage in weeks",
-            "Where human creativity meets artificial intelligence"
+            "Scale faster than venture-backed competitors with intelligent systems that never sleep",
+            "From manual processes to autonomous orchestration in weeks",
+            "Build systems that work 24/7 while your competitors hire more humans"
           ]
         },
         {
