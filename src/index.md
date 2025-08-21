@@ -32,6 +32,8 @@ layout: simple.njk
   </div>
 </div>
 
+<hr class="hero-divider">
+
 <div class="centered-section">
 
 ## While Your Competitors Struggle With Prompts, I'm Shipping Autonomous Agent Systems That 10x Team Velocity
@@ -69,31 +71,32 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
 </div>
 <div class="click-hint">Click to expand</div>
 <div class="service-visual">
-<div class="startup-foundation">
-<div class="foundation-layers">
-<div class="layer" style="bottom: 0; height: 25%; animation-delay: 0s;">
-<div class="layer-label">Data Foundation</div>
+<div class="ai-first-architecture">
+<div class="architecture-stack">
+<div class="arch-layer" style="bottom: 0; height: 20%; animation-delay: 0s;">
+<div class="layer-label">Agent Registry</div>
+<div class="code-particles"></div>
 </div>
-<div class="layer" style="bottom: 25%; height: 25%; animation-delay: 0.2s;">
-<div class="layer-label">AI Infrastructure</div>
+<div class="arch-layer" style="bottom: 20%; height: 20%; animation-delay: 0.15s;">
+<div class="layer-label">Orchestration</div>
+<div class="flow-lines"></div>
 </div>
-<div class="layer" style="bottom: 50%; height: 25%; animation-delay: 0.4s;">
-<div class="layer-label">Application Layer</div>
+<div class="arch-layer" style="bottom: 40%; height: 20%; animation-delay: 0.3s;">
+<div class="layer-label">Intelligence Layer</div>
+<div class="neural-nodes"></div>
 </div>
-<div class="layer building" style="bottom: 75%; height: 25%; animation-delay: 0.6s;">
-<div class="layer-label">Growth Platform</div>
+<div class="arch-layer" style="bottom: 60%; height: 20%; animation-delay: 0.45s;">
+<div class="layer-label">Business Logic</div>
+<div class="logic-circuits"></div>
+</div>
+<div class="arch-layer building" style="bottom: 80%; height: 20%; animation-delay: 0.6s;">
+<div class="layer-label">Autonomous Systems</div>
+<div class="autonomous-indicators"></div>
 </div>
 </div>
-<div class="blueprint-overlay">
-<div class="blueprint-line horizontal" style="top: 25%;"></div>
-<div class="blueprint-line horizontal" style="top: 50%;"></div>
-<div class="blueprint-line horizontal" style="top: 75%;"></div>
-<div class="blueprint-line vertical" style="left: 30%;"></div>
-<div class="blueprint-line vertical" style="left: 70%;"></div>
-</div>
-<div class="growth-indicators">
-<div class="growth-arrow"></div>
-<div class="rocket-icon">▲</div>
+<div class="velocity-multiplier">
+<div class="velocity-arrow">→</div>
+<div class="multiplier-text">10x</div>
 </div>
 </div>
 </div>
@@ -118,27 +121,31 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
 </div>
 <div class="click-hint">Click to expand</div>
 <div class="service-visual">
-<div class="enterprise-ecosystem">
+<div class="agent-orchestration">
 <div class="central-hub">
-<div class="hub-core">AI</div>
+<div class="hub-core">orchestrator</div>
 <div class="hub-pulse"></div>
 </div>
-<div class="department-nodes">
-<div class="dept-node" style="top: 10%; left: 50%; animation-delay: 0s;">
-<div class="node-label">Sales</div>
-<div class="connection-beam"></div>
+<div class="isolated-agents">
+<div class="agent-vm" style="top: 15%; left: 15%; animation-delay: 0s;">
+<div class="vm-boundary"></div>
+<div class="agent-core">A1</div>
+<div class="isolation-indicator"></div>
 </div>
-<div class="dept-node" style="top: 40%; right: 15%; animation-delay: 0.2s;">
-<div class="node-label">Operations</div>
-<div class="connection-beam"></div>
+<div class="agent-vm" style="top: 15%; right: 15%; animation-delay: 0.2s;">
+<div class="vm-boundary"></div>
+<div class="agent-core">A2</div>
+<div class="isolation-indicator"></div>
 </div>
-<div class="dept-node" style="bottom: 30%; right: 25%; animation-delay: 0.4s;">
-<div class="node-label">Support</div>
-<div class="connection-beam"></div>
+<div class="agent-vm" style="bottom: 25%; left: 25%; animation-delay: 0.4s;">
+<div class="vm-boundary"></div>
+<div class="agent-core">A3</div>
+<div class="isolation-indicator"></div>
 </div>
-<div class="dept-node" style="bottom: 15%; left: 30%; animation-delay: 0.6s;">
-<div class="node-label">Marketing</div>
-<div class="connection-beam"></div>
+<div class="agent-vm" style="bottom: 25%; right: 25%; animation-delay: 0.6s;">
+<div class="vm-boundary"></div>
+<div class="agent-core">A4</div>
+<div class="isolation-indicator"></div>
 </div>
 <div class="dept-node" style="top: 35%; left: 15%; animation-delay: 0.8s;">
 <div class="node-label">HR</div>
@@ -400,11 +407,90 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
 *Where ambitious ideas meet intelligent execution.*
 
 <style>
+/* Index page specific - remove top margin/padding from main */
+.main {
+  padding-top: 0;
+}
+
+/* Hero divider with pulsing effect */
+.hero-divider {
+  border: none;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.026);
+  margin: 0 auto 80px auto;
+  width: 100%;
+  box-shadow: 0 0 2px rgba(255, 255, 255, 0.0525);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-divider::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to left,
+    transparent 0%,
+    rgba(255, 255, 255, 0.089) 50%,
+    transparent 100%
+  );
+  animation: dividerPulseRTL 4s ease-in-out infinite;
+}
+
+@keyframes dividerPulseRTL {
+  0% {
+    right: -100%;
+  }
+  100% {
+    right: 100%;
+  }
+}
+
+/* Hero divider with pulsing effect */
+.hero-divider {
+  border: none;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.026); /* Reduced base opacity by another 25% */
+  margin: 0 auto 80px auto; /* Set bottom margin to 80px */
+  width: 100%;
+  box-shadow: 0 0 2px rgba(255, 255, 255, 0.0525); /* Reduced haze size by 50% */
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-divider::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to left,
+    transparent 0%,
+    rgba(255, 255, 255, 0.089) 50%,
+    transparent 100%
+  );
+  animation: dividerPulseRTL 4s ease-in-out infinite;
+}
+
+@keyframes dividerPulseRTL {
+  0% {
+    right: -100%;
+  }
+  100% {
+    right: 100%;
+  }
+}
+
 /* Centered section styling */
 .centered-section {
   text-align: center;
-  max-width: 900px;
-  margin: 0 auto var(--space-2xl);
+  width: 100%;
+  padding: 0;
 }
 
 .centered-section h2 {
@@ -424,7 +510,9 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  margin-bottom: var(--space-2xl); /* Reduced from 4xl to bring closer */
+  margin-bottom: 0; /* Removed bottom margin */
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
 }
 
 .neural-background {
@@ -433,8 +521,9 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
   left: -5%;
   width: 110%;
   height: 120%;
-  z-index: -1;
+  z-index: 1;            /* was -1 — this is what hid the canvas */
   opacity: 0.6;
+  pointer-events: none;  /* keeps it “background only” */
 }
 
 .hero-content {
@@ -443,6 +532,7 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
   text-align: center;
   width: 100%;
   padding: var(--space-3xl) var(--space-xl);
+  margin: 0 50px;
 }
 
 /* Hero Title Container with Logo */
@@ -458,12 +548,42 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
   width: auto;
   flex-shrink: 0;
   filter: 
-    drop-shadow(0 0 4px rgba(255, 215, 0, 0.4)) 
-    drop-shadow(0 0 18px rgba(255, 215, 0, 0.22)) 
-    drop-shadow(0 0 36px rgba(255, 215, 0, 0.15))
+    drop-shadow(0 0 2px rgba(255, 215, 0, 0.4)) 
+    drop-shadow(0 0 9px rgba(255, 215, 0, 0.22)) 
+    drop-shadow(0 0 18px rgba(255, 215, 0, 0.15))
     drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.15))
     drop-shadow(-0.5px -0.5px 1px rgba(255, 255, 255, 0.08));
   animation: logoGlow 3s ease-in-out infinite alternate;
+  cursor: pointer;
+}
+
+.hero-logo:hover {
+  filter: 
+    drop-shadow(0 0 6px rgba(255, 215, 0, 0.6)) 
+    drop-shadow(0 0 24px rgba(255, 215, 0, 0.35)) 
+    drop-shadow(0 0 48px rgba(255, 215, 0, 0.25))
+    drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.15))
+    drop-shadow(-0.5px -0.5px 1px rgba(255, 255, 255, 0.08));
+  animation: logoGlowHover 2s ease-in-out infinite alternate;
+}
+
+@keyframes logoGlowHover {
+  0% {
+    filter: 
+      drop-shadow(0 0 6px rgba(255, 215, 0, 0.6)) 
+      drop-shadow(0 0 22px rgba(255, 215, 0, 0.32)) 
+      drop-shadow(0 0 44px rgba(255, 215, 0, 0.22))
+      drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.15))
+      drop-shadow(-0.5px -0.5px 1px rgba(255, 255, 255, 0.08));
+  }
+  100% {
+    filter: 
+      drop-shadow(0 0 8px rgba(255, 215, 0, 0.7)) 
+      drop-shadow(0 0 28px rgba(255, 215, 0, 0.4)) 
+      drop-shadow(0 0 56px rgba(255, 215, 0, 0.3))
+      drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.15))
+      drop-shadow(-0.5px -0.5px 1px rgba(255, 255, 255, 0.08));
+  }
 }
 
 @keyframes logoGlow {
@@ -471,7 +591,7 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
     filter: 
       drop-shadow(0 0 4px rgba(255, 215, 0, 0.4)) 
       drop-shadow(0 0 17px rgba(255, 215, 0, 0.2)) 
-      drop-shadow(0 0 27px rgba(255, 215, 0, 0.14))
+      drop-shadow(0 0 20px rgba(255, 215, 0, 0.14))
       drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.15))
       drop-shadow(-0.5px -0.5px 1px rgba(255, 255, 255, 0.08));
   }
@@ -479,7 +599,7 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
     filter: 
       drop-shadow(0 0 4px rgba(255, 215, 0, 0.4)) 
       drop-shadow(0 0 21px rgba(255, 215, 0, 0.28)) 
-      drop-shadow(0 0 34px rgba(255, 215, 0, 0.20))
+      drop-shadow(0 0 26px rgba(255, 215, 0, 0.20))
       drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.15))
       drop-shadow(-0.5px -0.5px 1px rgba(255, 255, 255, 0.08));
   }
@@ -487,7 +607,7 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
 
 /* Hero Title - Sophisticated Focus-Grabbing Animation */
 .hero-title {
-  font-size: var(--text-6xl);
+  font-size: calc(var(--text-6xl) * 1.33);
   margin-bottom: var(--space-lg);
   line-height: var(--leading-tight);
   position: relative;
@@ -564,7 +684,7 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
 }
 
 .hero-subtitle {
-  font-size: var(--text-xl);
+  font-size: calc(var(--text-xl) * 1.33);
   color: var(--color-text-light);
   margin-bottom: 0;
   font-weight: 400;
@@ -629,7 +749,7 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
 /* Clean Banner Text with Subtle Static Aura */
 .banner-text {
   display: inline-block;
-  font-size: var(--text-xl);
+  font-size: calc(var(--text-xl) * 1.125);
   font-style: italic;
   font-weight: 400;
   position: relative;
@@ -637,12 +757,12 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
   
   /* Shimmer fade effect instead of swipe-in */
   background: linear-gradient(90deg, 
-    var(--color-text-light) 0%, 
-    var(--color-text) 15%, 
-    #ffffff 35%, 
-    #ffffff 65%, 
-    var(--color-text) 85%, 
-    var(--color-text-light) 100%
+    var(--color-text-muted) 0%, 
+    var(--color-text-light) 15%, 
+    var(--color-text) 35%, 
+    var(--color-text) 65%, 
+    var(--color-text-light) 85%, 
+    var(--color-text-muted) 100%
   );
   background-size: 200% 100%;
   background-clip: text;
@@ -863,7 +983,7 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
 /* Landing page specific styles */
 .hero-cta {
   display: flex;
-  margin: var(--space-4xl) 0; /* Increased vertical margin */
+  margin: calc(var(--space-4xl) / 2) 0 var(--space-4xl) 0; /* Cut top margin in half */
   align-items: center;
   justify-content: space-evenly;
 }
@@ -1075,7 +1195,18 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
   font-weight: 600;
   display: flex;
   align-items: center;
+  justify-content: center;
   line-height: 1.2;
+  transition: all 0.3s ease;
+}
+
+.discovery-option:hover h3 {
+  color: var(--color-accent);
+  text-shadow: 0 0 12px rgba(99, 102, 241, 0.6);
+}
+
+.discovery-option:hover h3 i {
+  filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.8));
 }
 
 .discovery-option p {
@@ -1169,6 +1300,8 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
   font-size: var(--text-lg);
   display: flex;
   align-items: center;
+  justify-content: center;
+  text-align: center;
   line-height: 1.2;
 }
 
@@ -1471,6 +1604,21 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
   border-bottom-right-radius: var(--radius-lg);
   overflow: hidden;
   opacity: 0.8;
+}
+
+.service-visual::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.1) 0%, 
+    rgba(255, 255, 255, 0.03) 50%,
+    rgba(255, 255, 255, 0.08) 100%
+  );
+  pointer-events: none;
 }
 
 /* Autonomous Network Visualization */
@@ -2481,6 +2629,45 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
     padding: var(--space-lg);
   }
 }
+
+/* Neural Banner Full Width */
+.hero-container {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Larger fonts for hero elements */
+.hero-content h1 {
+  font-size: calc(var(--text-6xl) * 1.2);
+  font-weight: 700;
+}
+
+.hero-subtitle {
+  font-size: calc(var(--text-xl) * 1.5);
+  line-height: 1.4;
+}
+
+/* Centered card titles with hover glow */
+.discovery-option h3,
+.service-card h3 {
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.discovery-option:hover h3,
+.service-card:hover h3 {
+  text-shadow: 0 0 12px rgba(102, 126, 234, 0.6);
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* Improved spacing between sections */
+.hero,
+.discovery-section,
+.services-section {
+  margin-bottom: calc(var(--space-2xl) * 1.5);
+}
 </style>
 
 <!-- Service Modal -->
@@ -2794,7 +2981,14 @@ class NeuralNetwork {
   
   updateNodes() {
     this.time += 0.016; // 60fps normalized
-    this.rotation += 0.00225; // Increased rotation speed by 50%
+    
+    // Pre-calculate common values to avoid repeated calculations
+    const timeConstant1 = this.time * 0.3;
+    const timeConstant2 = this.time * 0.2;
+    const timeConstant3 = this.time * 0.25;
+    const timeConstant4 = this.time * 0.4;
+    const timeConstant5 = this.time * 0.15;
+    const timeConstant6 = this.time * 0.18;
     
     this.nodes.forEach((node, index) => {
       // Enhanced orbital drift for more organic movement
@@ -2803,16 +2997,14 @@ class NeuralNetwork {
       const driftY = Math.sin(orbitAngle) * node.orbitRadius * 0.1;
       
       // Gentler, smoother mesh deformation for cleaner elliptical appearance
-      const deformX1 = Math.sin(this.time * 0.3 + node.baseY * 0.008) * 8; // Much gentler
-      const deformX2 = Math.cos(this.time * 0.2 + node.baseZ * 0.005) * 6; // Smoother
-      const deformY1 = Math.cos(this.time * 0.25 + node.baseX * 0.007) * 10; // Moderate
-      const deformY2 = Math.sin(this.time * 0.4 + (node.layerIndex * 0.3)) * 5; // Gentle
+      const deformX1 = Math.sin(timeConstant1 + node.baseY * 0.008) * 8; // Much gentler
+      const deformX2 = Math.cos(timeConstant2 + node.baseZ * 0.005) * 6; // Smoother
+      const deformY1 = Math.cos(timeConstant3 + node.baseX * 0.007) * 10; // Moderate
+      const deformY2 = Math.sin(timeConstant4 + (node.layerIndex * 0.3)) * 5; // Gentle
       
       // Subtle turbulent warping for organic feel without messiness
-      const turbulenceX = Math.sin(this.time * 0.15 + node.cylinderAngle * 2) * 4; // Much subtler
-      const turbulenceY = Math.cos(this.time * 0.18 + node.cylinderAngle * 1.8) * 6; // Smoother
-      
-      // Remove chaotic deformation for cleaner appearance
+      const turbulenceX = Math.sin(timeConstant5 + node.cylinderAngle * 2) * 4; // Much subtler
+      const turbulenceY = Math.cos(timeConstant6 + node.cylinderAngle * 1.8) * 6; // Smoother
       
       // Combine smoother deformations
       const totalDeformX = deformX1 + deformX2 + turbulenceX;
@@ -2842,9 +3034,9 @@ class NeuralNetwork {
       const depthScale = 0.8 + perspective * 0.2;
       node.currentRadius = node.radius * depthScale;
       
-      // Half as visible nodes - 50% of current transparency
+      // Restored node visibility with balanced transparency
       const depthRatio = (cylinderZ + effectiveRadius) / (2 * effectiveRadius); // 0 to 1, 1 = closest
-      const baseDepthAlpha = 0.025 + (0.1 * depthRatio); // 50% reduction: 0.025 to 0.125 instead of 0.05 to 0.25
+      const baseDepthAlpha = 0.05 + (0.15 * depthRatio); // Balanced visibility: 0.05 to 0.2
       
       // Add gentle pulsing with more upside potential for star field effect
       const pulseValue = Math.sin(this.time * node.pulseSpeed + node.pulsePhase) * node.pulseIntensity;
@@ -2956,9 +3148,9 @@ class NeuralNetwork {
       }
     });
     
-    // Much slower decay for very long lingering afterglow on edges
+    // Balanced decay for visible afterglow on edges
     for (const [id, glow] of this.connectionGlow.entries()) {
-      this.connectionGlow.set(id, Math.max(0, glow - 0.001)); // Much slower decay for very long afterglow (was 0.002)
+      this.connectionGlow.set(id, Math.max(0, glow - 0.008)); // Faster decay for visible animation (balanced performance)
     }
   }
   
@@ -2971,15 +3163,15 @@ class NeuralNetwork {
       const nodeB = this.nodes[connection.to];
       const glow = this.connectionGlow.get(connection.id) || 0;
       
-      // Only draw connections with substantial glow - much higher threshold
-      if (glow > 0.4) {
+      // Only draw connections with substantial glow - balanced threshold
+      if (glow > 0.1) {
         // Calculate depth-based thickness - closer edges are thicker
         const avgDepthFactor = ((nodeA.depthFactor || 0.5) + (nodeB.depthFactor || 0.5)) / 2;
         const baseLineWidth = connection.type === 'intra' ? 0.8 : 0.4;
         const depthLineWidth = baseLineWidth * (0.3 + avgDepthFactor * 1.0); // Even thinner
         
         // More colorful glowing connection with purplish-blue afterglow
-        const glowAlpha = glow * 0.14; // Reduced to 70% of 0.2 = 0.14
+        const glowAlpha = glow * 0.18; // Balanced visibility
         this.ctx.strokeStyle = `rgba(150, 130, 220, ${glowAlpha})`; // Purplish-blue afterglow
         this.ctx.lineWidth = depthLineWidth;
         this.ctx.beginPath();
@@ -2987,9 +3179,9 @@ class NeuralNetwork {
         this.ctx.lineTo(nodeB.x, nodeB.y);
         this.ctx.stroke();
         
-        // Bright center line with enhanced purplish color for active connections - reduced to 70%
-        if (glow > 0.8) {
-          this.ctx.strokeStyle = `rgba(180, 150, 240, ${(glow - 0.8) * 0.28})`; // Purplish center with reduced opacity
+        // Bright center line with enhanced purplish color for active connections
+        if (glow > 0.6) {
+          this.ctx.strokeStyle = `rgba(180, 150, 240, ${(glow - 0.6) * 0.6})`; // Purplish center with balanced visibility
           this.ctx.lineWidth = depthLineWidth * 0.3;
           this.ctx.beginPath();
           this.ctx.moveTo(nodeA.x, nodeA.y);
@@ -2999,14 +3191,18 @@ class NeuralNetwork {
       }
     });
     
-    // Draw pulses with light blue colors and glow trails
-    this.pulses.forEach(pulse => {
+    // Draw pulses with light blue colors and glow trails - Performance Optimized
+    const pulseCount = this.pulses.length;
+    for (let pulseIdx = 0; pulseIdx < pulseCount; pulseIdx++) {
+      const pulse = this.pulses[pulseIdx];
       const connection = this.connections[pulse.connectionIndex];
       const nodeA = this.nodes[connection.from];
       const nodeB = this.nodes[connection.to];
       
-      const x = nodeA.x + (nodeB.x - nodeA.x) * pulse.progress;
-      const y = nodeA.y + (nodeB.y - nodeA.y) * pulse.progress;
+      const dx = nodeB.x - nodeA.x;
+      const dy = nodeB.y - nodeA.y;
+      const x = nodeA.x + dx * pulse.progress;
+      const y = nodeA.y + dy * pulse.progress;
       
       const alpha = Math.sin(pulse.progress * Math.PI) * pulse.intensity;
       
@@ -3014,36 +3210,51 @@ class NeuralNetwork {
       const pulseColor = pulse.color || { r: 100, g: 140, b: 200 };
       const { r, g, b } = pulseColor;
       
-      // Draw much longer and more lingering glow trail behind the pulse
-      const trailLength = 60; // Doubled from 30 for twice as long trails
+      // Draw comet-like trail behind the pulse - further optimized for performance
+      const trailLength = 60; // Restored for performance
+      const trailStep = 0.0075; // Adjusted to maintain trail length
+      let activeTrailPoints = 0;
+      
+      // Enable additive blending for glow effect
+      this.ctx.save();
+      this.ctx.globalCompositeOperation = 'lighter';
+      
       for (let i = 0; i < trailLength; i++) {
-        const trailProgress = Math.max(0, pulse.progress - (i * 0.0075)); // Half the spacing for twice as long trail
-        if (trailProgress > 0) {
-          const trailX = nodeA.x + (nodeB.x - nodeA.x) * trailProgress;
-          const trailY = nodeA.y + (nodeB.y - nodeA.y) * trailProgress;
-          const trailAlpha = alpha * (1 - i / trailLength) * 0.45; // Reduced to 75% of 0.6 = 0.45
-          
-          // Larger trail points that fade more gradually
-          const trailRadius = 3 - (i * 0.15); // Slower size reduction for longer visible trail
-          
-          this.ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${trailAlpha})`;
-          this.ctx.beginPath();
-          this.ctx.arc(trailX, trailY, Math.max(0.5, trailRadius), 0, Math.PI * 2);
-          this.ctx.fill();
-        }
+        const trailProgress = pulse.progress - (i * trailStep);
+        if (trailProgress <= 0) break; // Early exit optimization
+        
+        activeTrailPoints++;
+        const trailX = nodeA.x + dx * trailProgress;
+        const trailY = nodeA.y + dy * trailProgress;
+        
+        // Create smooth comet-like fade with exponential falloff
+        const trailPosition = i / trailLength; // 0 to 1
+        const exponentialFade = Math.pow(1 - trailPosition, 2.5); // Proper exponential falloff
+        const trailAlpha = Math.max(0.02, alpha * exponentialFade * 0.5); // Higher floor and visibility
+        
+        // Comet-like radius - 50% thinner for performance
+        const trailRadius = 1.75 * Math.pow(1 - trailPosition, 1.8); // Exponential radius reduction
+        
+        // Batch fill operations
+        this.ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${trailAlpha})`;
+        this.ctx.beginPath();
+        this.ctx.arc(trailX, trailY, Math.max(0.4, trailRadius), 0, Math.PI * 2);
+        this.ctx.fill();
       }
       
-      // Main pulse with enhanced glow using custom color - reduced to 75% opacity
-      this.ctx.shadowColor = `rgba(${Math.min(255, r + 20)}, ${Math.min(255, g + 20)}, ${Math.min(255, b + 20)}, ${0.4 * 0.75})`;
+      this.ctx.restore(); // guarantees we leave additive mode
+      
+      // Main pulse with enhanced glow using custom color - balanced visibility
+      this.ctx.shadowColor = `rgba(${Math.min(255, r + 20)}, ${Math.min(255, g + 20)}, ${Math.min(255, b + 20)}, ${0.4 * 0.7})`;
       this.ctx.shadowBlur = 12;
-      this.ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${alpha * 0.75})`;
+      this.ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${alpha * 0.7})`;
       this.ctx.beginPath();
       this.ctx.arc(x, y, 3.5, 0, Math.PI * 2);
       this.ctx.fill();
       
-      // Bright center with color variation - reduced to 75% opacity
+      // Bright center with color variation - balanced visibility
       this.ctx.shadowBlur = 6;
-      this.ctx.fillStyle = `rgba(${Math.min(255, r + 50)}, ${Math.min(255, g + 50)}, ${Math.min(255, b + 55)}, ${alpha * 0.9 * 0.75})`;
+      this.ctx.fillStyle = `rgba(${Math.min(255, r + 50)}, ${Math.min(255, g + 50)}, ${Math.min(255, b + 55)}, ${alpha * 0.9 * 0.7})`;
       this.ctx.beginPath();
       this.ctx.arc(x, y, 2, 0, Math.PI * 2);
       this.ctx.fill();
@@ -3104,6 +3315,8 @@ class NeuralNetwork {
   }
   
   animate() {
+    this.rotation += 0.0045; // Doubled rotation speed
+    
     this.updateNodes();
     this.updatePulses();
     
@@ -3148,6 +3361,7 @@ class NeuralNetwork {
     this.animationId = requestAnimationFrame(() => this.animate());
   }
   
+  
   destroy() {
     if (this.animationId) {
       cancelAnimationFrame(this.animationId);
@@ -3155,18 +3369,35 @@ class NeuralNetwork {
   }
 }
 
-// Initialize neural network when page loads
 document.addEventListener('DOMContentLoaded', () => {
   const canvas = document.getElementById('neural-network');
-  
-  if (canvas && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    const network = new NeuralNetwork(canvas);
-    
-    // Clean up on page unload
-    window.addEventListener('beforeunload', () => {
-      network.destroy();
-    });
-  }
+  let started = false;
+  let network = null;
+
+  // Wait until the canvas has a real, non-zero layout size
+  const startNetwork = () => {
+    if (started) return;
+
+    const ready =
+      canvas &&
+      canvas.clientWidth > 0 &&
+      canvas.clientHeight > 0 &&
+      !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (ready) {
+      started = true;
+      network = new NeuralNetwork(canvas);
+
+      // Clean up on page unload
+      window.addEventListener('beforeunload', () => {
+        network && network.destroy();
+      });
+    } else {
+      requestAnimationFrame(startNetwork); // try again next frame after layout settles
+    }
+  };
+
+  requestAnimationFrame(startNetwork);
   
   // Enhanced possibility cards with progressive disclosure
   const possibilityCards = document.querySelectorAll('.possibility-card');
@@ -3540,5 +3771,6 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Initialize rotating banners
   new RotatingBanners();
+  
 });
 </script>
