@@ -4,15 +4,14 @@ class DetailsForceState extends HTMLElement {
     if(forceClosed) {
       isSectionActive = false;
     } else {
-      isSectionActive = Boolean(details.querySelector('.elv-toc-active') || details.closest('.elv-toc-active'));
+      // Start all sections collapsed by default
+      isSectionActive = false;
       const titleNode = details.previousElementSibling;
       if(document.location.pathname === '/' && !titleNode) {
         isSectionActive = true;
       }
-      // Use breadcrumbs to work with pages excluded from sidebar
-      if(titleNode && document.querySelector('.breadcrumb li:nth-child(2) > a')?.textContent === titleNode?.textContent){
-        isSectionActive = true;
-      }
+      // Keep sections collapsed even if they contain active pages
+      // Users can manually expand sections they need
     }
 
     if (isSectionActive) {

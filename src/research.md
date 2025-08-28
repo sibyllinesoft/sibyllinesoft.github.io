@@ -43,7 +43,7 @@ Advanced research projects exploring the frontiers of AI, machine learning, and 
       <p class="project-tagline">Finally know what your models actually understand—not what they memorized.</p>
       
       <div class="project-cta">
-        <a href="https://sibylline.dev/scramblebench/" target="_blank" rel="noopener noreferrer" class="btn-unified btn-secondary btn-margin-right">
+        <a href="https://sibylline.dev/scramblebench/" target="_blank" rel="noopener noreferrer" class="btn-unified btn-primary btn-margin-right">
           <span class="btn-inner">
             Documentation
             <i data-lucide="book-open"></i>
@@ -91,14 +91,6 @@ Advanced research projects exploring the frontiers of AI, machine learning, and 
       
       <p class="project-tagline">Research foundation for infinite agent context through intelligent forgetting and zero-overhead memory management.</p>
       
-      <div class="project-cta">
-        <a href="https://arxiv.org/abs/PLACEHOLDER" target="_blank" rel="noopener noreferrer" class="btn-unified btn-primary">
-          <span class="btn-inner">
-            Research Paper
-            <i data-lucide="file-text"></i>
-          </span>
-        </a>
-      </div>
     </div>
   </div>
 </div>
@@ -135,7 +127,7 @@ Advanced research projects exploring the frontiers of AI, machine learning, and 
       <p class="project-tagline">Bridging graph theory and software engineering: the first PageRank approach to intelligent code selection.</p>
       
       <div class="project-cta">
-        <a href="https://arxiv.org/abs/PLACEHOLDER" target="_blank" rel="noopener noreferrer" class="btn-unified btn-primary">
+        <a href="https://github.com/sibyllinesoft/scribe/blob/main/paper/draft.pdf" target="_blank" rel="noopener noreferrer" class="btn-unified btn-primary">
           <span class="btn-inner">
             Research Paper
             <i data-lucide="file-text"></i>
@@ -177,14 +169,6 @@ Advanced research projects exploring the frontiers of AI, machine learning, and 
       
       <p class="project-tagline">Creating the scientific foundation for rigorous AI coding agent evaluation.</p>
       
-      <div class="project-cta">
-        <a href="https://arxiv.org/abs/PLACEHOLDER" target="_blank" rel="noopener noreferrer" class="btn-unified btn-primary">
-          <span class="btn-inner">
-            Research Paper
-            <i data-lucide="file-text"></i>
-          </span>
-        </a>
-      </div>
     </div>
   </div>
 </div>
@@ -193,7 +177,7 @@ Advanced research projects exploring the frontiers of AI, machine learning, and 
 <div class="project-brochure" id="modules-research">
   <div class="project-visual">
     <i data-lucide="cpu" class="project-icon"></i>
-    <div class="project-codename">BEM Modules</div>
+    <div class="project-codename">BEM</div>
     <div class="project-status">Implementation Complete</div>
   </div>
   <div class="project-content">
@@ -227,7 +211,7 @@ Advanced research projects exploring the frontiers of AI, machine learning, and 
             <i data-lucide="github"></i>
           </span>
         </a>
-        <a href="https://arxiv.org/abs/PLACEHOLDER" target="_blank" rel="noopener noreferrer" class="btn-unified btn-primary">
+        <a href="https://github.com/sibyllinesoft/BEM/blob/master/archive/paper/paper.pdf" target="_blank" rel="noopener noreferrer" class="btn-unified btn-primary">
           <span class="btn-inner">
             Research Paper
             <i data-lucide="file-text"></i>

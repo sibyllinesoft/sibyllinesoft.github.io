@@ -9,7 +9,7 @@ description: Next-generation AI tools currently in development
 
 # Products
 
-Next-generation AI tools currently in alpha development. These tools represent the cutting edge of research and development, designed to solve real problems for creators and professionals. While still in early access, you can request to join the waitlist for priority access when they launch.
+Next-generation AI tools designed to solve real problems for creators and professionals. Some products have been released, while others are being privately tested with select users. You can request to become a tester for early access to unreleased products.
 
 ## Infrastructure & Execution
 
@@ -20,7 +20,7 @@ Systems that provide the foundation for running and scaling agentic development.
   <div class="project-visual">
     <i data-lucide="factory" class="project-icon"></i>
     <div class="project-codename">Codename: RAVE</div>
-    <div class="project-status">Production Ready</div>
+    <div class="project-status">Private Testing</div>
   </div>
   <div class="project-content">
     <h3>Fully Configured Agentic Autonomous Development System</h3>
@@ -47,9 +47,9 @@ Systems that provide the foundation for running and scaling agentic development.
       <div class="project-tagline">Beyond dev shops - deploy a fully autonomous agentic development system with industry-standard tracking and reporting in minutes.</div>
       
       <div class="project-cta">
-        <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in joining the waitlist for this product. Please let me know when it becomes available.">
+        <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in becoming a tester for this product. Please let me know about testing opportunities.">
           <span class="btn-inner">
-            Join Waitlist
+            Become a Tester
             <i data-lucide="mail"></i>
           </span>
         </a>
@@ -63,36 +63,79 @@ Systems that provide the foundation for running and scaling agentic development.
   <div class="project-visual">
     <i data-lucide="cpu" class="project-icon"></i>
     <div class="project-codename">Codename: SMITH</div>
-    <div class="project-status">Production Alpha</div>
+    <div class="project-status">Private Testing</div>
   </div>
   <div class="project-content">
-    <h3>High-Performance AI Agent Execution Platform</h3>
+    <h3>Reactive Agent Development Platform</h3>
     <div class="project-pitch">
-      <p><strong>The Problem:</strong> Speed is incredibly important for AI agents, yet most agents are written in JavaScript. This introduces latency overhead, memory bloat, and cold start delays. JavaScript dependency chains create security vulnerabilities. Complex agent workflows need enterprise-grade reliability and deterministic replay capabilities.</p>
+      <p><strong>The Problem:</strong> Traditional agent platforms require manual orchestration and polling-based coordination. Agents can't react to real-time events efficiently, leading to delayed responses and resource waste. JavaScript-based agent platforms suffer from latency overhead, memory bloat, and security vulnerabilities from dependency chains.</p>
       
-      <p><strong>The Solution:</strong> Smith is a high-performance Rust platform for AI agent execution with sub-5ms cold starts, 150MB memory footprint, and core-as-a-service architecture. Built for enterprise-grade performance and reliability in agent coordination workflows.</p>
+      <p><strong>The Solution:</strong> Smith is a reactive agent development platform built in Rust that monitors NATS event streams and dispatches agents in response to real-time events. With sub-5ms cold starts and intelligent event-driven orchestration, Smith enables truly responsive agent workflows that scale automatically with demand.</p>
       
       <div class="project-features">
         <div class="feature-item">
-          <strong>Blazing Performance:</strong> Sub-5ms cold start times, <150MB memory usage, and minimal CPU overhead through Rust optimizations and core-as-a-service architecture.
+          <strong>Event-Driven Agent Dispatch:</strong> Monitors NATS event streams and automatically dispatches agents in response to real-time events, enabling truly reactive development workflows without manual coordination.
         </div>
         <div class="feature-item">
-          <strong>Enterprise Reliability:</strong> Deterministic record/replay, comprehensive audit logging, process isolation, and 24/7 daemon stability with automatic recovery.
+          <strong>Blazing Performance:</strong> Sub-5ms cold start times, <150MB memory usage, and minimal CPU overhead through Rust optimizations and intelligent agent lifecycle management.
         </div>
         <div class="feature-item">
-          <strong>Agent Optimization:</strong> Purpose-built for AI agent workloads with JavaScript/TypeScript hook compatibility and seamless tool integration for existing agent frameworks.
+          <strong>Enterprise Reliability:</strong> Deterministic record/replay, comprehensive audit logging, process isolation, and 24/7 daemon stability with automatic recovery and event replay capabilities.
         </div>
         <div class="feature-item">
-          <strong>Advanced Architecture:</strong> IPC-based service communication, real-time TUI interface, NATS integration for distributed workflows, and extensible plugin system.
+          <strong>Distributed Workflow Orchestration:</strong> Native NATS integration enables seamless multi-node agent coordination with real-time TUI monitoring and extensible plugin architecture.
         </div>
       </div>
       
-      <div class="project-tagline">Production-ready AI agent execution platform, blazingly fast. Built in Rust for enterprise performance and reliability.</div>
+      <div class="project-tagline">Stop polling for events. Start reacting in real-time with intelligent agent dispatch and enterprise-grade reliability.</div>
       
       <div class="project-cta">
-        <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in joining the waitlist for this product. Please let me know when it becomes available.">
+        <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in becoming a tester for this product. Please let me know about testing opportunities.">
           <span class="btn-inner">
-            Join Waitlist
+            Become a Tester
+            <i data-lucide="mail"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Product Heimdall -->
+<div class="project-brochure" id="heimdall-product">
+  <div class="project-visual">
+    <i data-lucide="eye" class="project-icon"></i>
+    <div class="project-codename">Codename: HEIMDALL</div>
+    <div class="project-status">Private Testing</div>
+  </div>
+  <div class="project-content">
+    <h3>Intelligent LLM Router with Cost-Quality Optimization</h3>
+    <div class="project-pitch">
+      <p><strong>The Problem:</strong> Choosing the right AI model for each task is impossible to optimize manually. Premium models are expensive for simple tasks, while cheap models fail on complex ones. You waste money on overengineered responses or get poor results from under-powered models.</p>
+      
+      <p><strong>The Solution:</strong> Heimdall uses gradient-boosted decision trees and Avengers-Pro routing to automatically route each request to the optimal model. It maximizes quality per dollar through intelligent triage, OAuth integration, and real-time cost-quality optimization.</p>
+      
+      <div class="project-features">
+        <div class="feature-item">
+          <strong>GBDT Triage System:</strong> Machine learning triage routes requests to cheap (DeepSeek/Qwen), mid (Claude/GPT-5), or premium (GPT-5/Gemini with high reasoning) tiers based on complexity analysis.
+        </div>
+        <div class="feature-item">
+          <strong>Avengers-Pro Optimization:</strong> Within each tier, uses research-backed alpha scoring to balance quality and cost, ensuring optimal model selection for each specific task type.
+        </div>
+        <div class="feature-item">
+          <strong>Direct Provider Integration:</strong> OAuth passthrough for Claude, direct API access for GPT-5 and Gemini, with intelligent fallback handling for rate limits and failures.
+        </div>
+        <div class="feature-item">
+          <strong>Thinking Budget Control:</strong> Dynamically adjusts reasoning effort (GPT-5) and thinking budgets (Gemini) based on task complexity, optimizing both latency and quality.
+        </div>
+      </div>
+      
+      <div class="project-tagline">Stop guessing which AI model to use. Start optimizing quality per dollar automatically with intelligent routing.</div>
+      
+      <div class="project-cta">
+        <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in becoming a tester for this product. Please let me know about testing opportunities.">
+          <span class="btn-inner">
+            Become a Tester
             <i data-lucide="mail"></i>
           </span>
         </a>
@@ -110,7 +153,7 @@ Tools focused on discovery, search, and context handling.
   <div class="project-visual">
     <i data-lucide="brain-circuit" class="project-icon"></i>
     <div class="project-codename">Codename: MIMIR</div>
-    <div class="project-status">Research Alpha</div>
+    <div class="project-status">Private Testing</div>
   </div>
   <div class="project-content">
     <h3>Research Swarm Intelligence for Hard Problems</h3>
@@ -153,7 +196,7 @@ Tools focused on discovery, search, and context handling.
   <div class="project-visual">
     <i data-lucide="memory-stick" class="project-icon"></i>
     <div class="project-codename">Codename: LETHE</div>
-    <div class="project-status">Alpha Testing</div>
+    <div class="project-status">Private Testing</div>
   </div>
   <div class="project-content">
     <h3>Infinite Context for Agents Through Intelligent Forgetting</h3>
@@ -234,12 +277,16 @@ Tools focused on discovery, search, and context handling.
   </div>
 </div>
 
+## Agent Optimization & Workflow
+
+Products that improve agent behavior, planning, or coordination.
+
 <!-- Product Minerva -->
 <div class="project-brochure" id="minerva-product">
   <div class="project-visual">
     <i data-lucide="network" class="project-icon"></i>
     <div class="project-codename">Codename: MINERVA</div>
-    <div class="project-status">Alpha Development</div>
+    <div class="project-status">Private Testing</div>
   </div>
   <div class="project-content">
     <h3>Meta MCP Server: Unified Intelligence Across All Your Tools</h3>
@@ -266,9 +313,9 @@ Tools focused on discovery, search, and context handling.
       <div class="project-tagline">Stop managing scattered tools. Start orchestrating unified intelligence across your entire MCP ecosystem.</div>
       
       <div class="project-cta">
-        <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in joining the waitlist for this product. Please let me know when it becomes available.">
+        <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in becoming a tester for this product. Please let me know about testing opportunities.">
           <span class="btn-inner">
-            Join Waitlist
+            Become a Tester
             <i data-lucide="mail"></i>
           </span>
         </a>
@@ -277,16 +324,12 @@ Tools focused on discovery, search, and context handling.
   </div>
 </div>
 
-## Agent Optimization & Workflow
-
-Products that improve agent behavior, planning, or coordination.
-
 <!-- Product Daedalus -->
 <div class="project-brochure" id="daedalus-product">
   <div class="project-visual">
     <i data-lucide="brain-circuit" class="project-icon"></i>
     <div class="project-codename">Codename: DAEDALUS</div>
-    <div class="project-status">Production Ready</div>
+    <div class="project-status">Private Testing</div>
   </div>
   <div class="project-content">
     <h3>Online Agent Optimization Framework</h3>
@@ -313,9 +356,9 @@ Products that improve agent behavior, planning, or coordination.
       <div class="project-tagline">Stop crafting prompts manually. Start optimizing agents automatically based on what actually works.</div>
       
       <div class="project-cta">
-        <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in joining the waitlist for this product. Please let me know when it becomes available.">
+        <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in becoming a tester for this product. Please let me know about testing opportunities.">
           <span class="btn-inner">
-            Join Waitlist
+            Become a Tester
             <i data-lucide="mail"></i>
           </span>
         </a>
@@ -329,7 +372,7 @@ Products that improve agent behavior, planning, or coordination.
   <div class="project-visual">
     <i data-lucide="users" class="project-icon"></i>
     <div class="project-codename">Codename: CONCLAVE</div>
-    <div class="project-status">Alpha Testing</div>
+    <div class="project-status">Private Testing</div>
   </div>
   <div class="project-content">
     <h3>AI-Powered Workflow Planning Through Expert Debate</h3>
@@ -356,9 +399,9 @@ Products that improve agent behavior, planning, or coordination.
       <div class="project-tagline">Stop planning in isolation. Assemble expert AI councils for bulletproof workflow design.</div>
       
       <div class="project-cta">
-        <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in joining the waitlist for this product. Please let me know when it becomes available.">
+        <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in becoming a tester for this product. Please let me know about testing opportunities.">
           <span class="btn-inner">
-            Join Waitlist
+            Become a Tester
             <i data-lucide="mail"></i>
           </span>
         </a>
@@ -367,41 +410,88 @@ Products that improve agent behavior, planning, or coordination.
   </div>
 </div>
 
-<!-- Product Heimdall -->
-<div class="project-brochure" id="heimdall-product">
+## Software Development
+
+Tools for code quality, specifications, and development workflows.
+
+<!-- Product Echo -->
+<div class="project-brochure" id="echo-product">
   <div class="project-visual">
-    <i data-lucide="eye" class="project-icon"></i>
-    <div class="project-codename">Codename: HEIMDALL</div>
-    <div class="project-status">Alpha Development</div>
+    <i data-lucide="search-code" class="project-icon"></i>
+    <div class="project-codename">Codename: ECHO</div>
+    <div class="project-status">Production Ready</div>
   </div>
   <div class="project-content">
-    <h3>Intelligent LLM Router with Cost-Quality Optimization</h3>
+    <h3>Next-Generation Duplicate Code Detection</h3>
     <div class="project-pitch">
-      <p><strong>The Problem:</strong> Choosing the right AI model for each task is impossible to optimize manually. Premium models are expensive for simple tasks, while cheap models fail on complex ones. You waste money on overengineered responses or get poor results from under-powered models.</p>
+      <p><strong>The Problem:</strong> Traditional duplicate detection tools fail with 87% false positives, cloud lock-in, and primitive algorithms that miss semantic duplicates. SonarQube, PMD CPD, and legacy tools crash on large codebases or ignore refactored code patterns entirely.</p>
       
-      <p><strong>The Solution:</strong> Heimdall uses gradient-boosted decision trees and Avengers-Pro routing to automatically route each request to the optimal model. It maximizes quality per dollar through intelligent triage, OAuth integration, and real-time cost-quality optimization.</p>
+      <p><strong>The Solution:</strong> Echo delivers 10x the performance and 90%+ accuracy using AI-native architecture with GraphCodeBERT embeddings for semantic understanding. Complete local processing, LSH-optimized performance, and native MCP integration for AI workflows that enterprise teams actually want to use.</p>
       
       <div class="project-features">
         <div class="feature-item">
-          <strong>GBDT Triage System:</strong> Machine learning triage routes requests to cheap (DeepSeek/Qwen), mid (Claude/GPT-5), or premium (GPT-5/Gemini with high reasoning) tiers based on complexity analysis.
+          <strong>AI-Powered Semantic Detection:</strong> GraphCodeBERT-mini embeddings catch semantically identical but syntactically different code that traditional tools miss entirely.
         </div>
         <div class="feature-item">
-          <strong>Avengers-Pro Optimization:</strong> Within each tier, uses research-backed alpha scoring to balance quality and cost, ensuring optimal model selection for each specific task type.
+          <strong>10x Performance Advantage:</strong> LSH-optimized algorithms index 250k LOC repositories in seconds, not minutes. Memory efficient with no OOM crashes.
         </div>
         <div class="feature-item">
-          <strong>Direct Provider Integration:</strong> OAuth passthrough for Claude, direct API access for GPT-5 and Gemini, with intelligent fallback handling for rate limits and failures.
+          <strong>Enterprise-Grade Privacy:</strong> 100% local processing with zero cloud dependencies. Perfect for regulated industries and security-conscious teams.
         </div>
         <div class="feature-item">
-          <strong>Thinking Budget Control:</strong> Dynamically adjusts reasoning effort (GPT-5) and thinking budgets (Gemini) based on task complexity, optimizing both latency and quality.
+          <strong>Native AI Integration:</strong> Built-in MCP server allows AI coding assistants to automatically detect and refactor duplicates in real-time workflows.
         </div>
       </div>
       
-      <div class="project-tagline">Stop guessing which AI model to use. Start optimizing quality per dollar automatically with intelligent routing.</div>
+      <div class="project-tagline">Stop settling for 13% accuracy. Get 90%+ precision with blazing speed and complete local control.</div>
       
       <div class="project-cta">
-        <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in joining the waitlist for this product. Please let me know when it becomes available.">
+        <a href="https://github.com/sibyllinesoft/echo" target="_blank" rel="noopener noreferrer" class="btn-unified btn-primary">
           <span class="btn-inner">
-            Join Waitlist
+            View on GitHub
+            <i data-lucide="github"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Product Arbiter -->
+<div class="project-brochure" id="arbiter-product">
+  <div class="project-visual">
+    <i data-lucide="gavel" class="project-icon"></i>
+    <div class="project-codename">Codename: ARBITER</div>
+    <div class="project-status">Private Testing</div>
+  </div>
+  <div class="project-content">
+    <h3>Complete Software Development Specification Service</h3>
+    <div class="project-pitch">
+      <p><strong>The Problem:</strong> Software development suffers from incomplete specifications, disconnected requirements, and manual testing bottlenecks. Teams struggle to transform business requirements into complete, validated software systems with comprehensive testing and documentation.</p>
+      
+      <p><strong>The Solution:</strong> Arbiter is a comprehensive service for generating complete software development specifications that can be automatically transformed into fully functional software. Using the CUE language for rigorous robustness guarantees, it provides end-to-end testing, real-time diagram generation for specification visualization, and seamless transformation from requirements to working code.</p>
+      
+      <div class="project-features">
+        <div class="feature-item">
+          <strong>Complete Specification Generation:</strong> Transform business requirements into comprehensive software development specifications using CUE language for mathematical precision and robustness guarantees.
+        </div>
+        <div class="feature-item">
+          <strong>Automatic Software Transformation:</strong> Seamlessly convert specifications into fully functional software with robust end-to-end testing and validation built-in from the start.
+        </div>
+        <div class="feature-item">
+          <strong>Real-time Diagram Generation:</strong> Visualize specifications with automatically generated diagrams that update in real-time as requirements evolve, ensuring stakeholder alignment.
+        </div>
+        <div class="feature-item">
+          <strong>Rigorous Robustness Guarantees:</strong> Leverage CUE language's type system and constraints to ensure specifications are mathematically sound with built-in validation and error prevention.
+        </div>
+      </div>
+      
+      <div class="project-tagline">Transform requirements into complete, validated software systems with mathematical precision and automated end-to-end development.</div>
+      
+      <div class="project-cta">
+        <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in becoming a tester for this product. Please let me know about testing opportunities.">
+          <span class="btn-inner">
+            Become a Tester
             <i data-lucide="mail"></i>
           </span>
         </a>
@@ -419,7 +509,7 @@ Products that make AI setup, costs, and integration controllable.
   <div class="project-visual">
     <i data-lucide="key" class="project-icon"></i>
     <div class="project-codename">Codename: MINDLINK</div>
-    <div class="project-status">Production Alpha</div>
+    <div class="project-status">Production Ready</div>
   </div>
   <div class="project-content">
     <h3>Every Developer's AI Dream: Zero Setup, Total Control</h3>
@@ -446,9 +536,9 @@ Products that make AI setup, costs, and integration controllable.
       <div class="project-tagline">Build AI features without AI bills. Give users the control they actually want.</div>
       
       <div class="project-cta">
-        <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in joining the waitlist for this product. Please let me know when it becomes available.">
+        <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in becoming a tester for this product. Please let me know about testing opportunities.">
           <span class="btn-inner">
-            Join Waitlist
+            Become a Tester
             <i data-lucide="mail"></i>
           </span>
         </a>
@@ -500,49 +590,6 @@ Products that make AI setup, costs, and integration controllable.
   </div>
 </div>
 
-<!-- Product Arbiter -->
-<div class="project-brochure" id="arbiter-product">
-  <div class="project-visual">
-    <i data-lucide="gavel" class="project-icon"></i>
-    <div class="project-codename">Codename: ARBITER</div>
-    <div class="project-status">Alpha Development</div>
-  </div>
-  <div class="project-content">
-    <h3>Declarative Test Specification Engine</h3>
-    <div class="project-pitch">
-      <p><strong>The Problem:</strong> Writing comprehensive tests is time-consuming and error-prone. Test coverage gaps lead to production bugs. Manual test maintenance becomes unmanageable as applications grow. You need tests that understand your application's behavior, not just its structure.</p>
-      
-      <p><strong>The Solution:</strong> Arbiter uses CUE (Configure, Unify, Execute) to let you specify what your application should do declaratively. It automatically generates comprehensive test suites, validates behavior across UI flows, and maintains test correctness as your application evolves.</p>
-      
-      <div class="project-features">
-        <div class="feature-item">
-          <strong>Declarative Test Specifications:</strong> Define application behavior in CUE rather than writing individual test cases. Arbiter generates comprehensive test coverage from high-level specifications.
-        </div>
-        <div class="feature-item">
-          <strong>Behavior-Driven Validation:</strong> Tests understand user flows, UI interactions, and business logic rather than just checking implementation details. Validates actual behavior, not code structure.
-        </div>
-        <div class="feature-item">
-          <strong>Automatic Test Generation:</strong> Creates unit tests, integration tests, and end-to-end test suites automatically from your behavioral specifications with full coverage of edge cases.
-        </div>
-        <div class="feature-item">
-          <strong>Continuous Test Evolution:</strong> As specifications change, tests automatically update to match new requirements while preserving validation of core application behavior.
-        </div>
-      </div>
-      
-      <div class="project-tagline">Stop writing tests manually. Start specifying behavior declaratively and let AI generate comprehensive test coverage.</div>
-      
-      <div class="project-cta">
-        <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in joining the waitlist for this product. Please let me know when it becomes available.">
-          <span class="btn-inner">
-            Join Waitlist
-            <i data-lucide="mail"></i>
-          </span>
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-
 ## Creative
 
 AI-powered tools for creators, writers, and content professionals to analyze, generate, and optimize creative work.
@@ -579,9 +626,9 @@ AI-powered tools for creators, writers, and content professionals to analyze, ge
       <div class="project-tagline">From manuscript to masterpiece. Every story has a structure—now you can see yours.</div>
       
       <div class="project-cta">
-        <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in joining the waitlist for this product. Please let me know when it becomes available.">
+        <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in becoming a tester for this product. Please let me know about testing opportunities.">
           <span class="btn-inner">
-            Join Waitlist
+            Become a Tester
             <i data-lucide="mail"></i>
           </span>
         </a>
@@ -622,9 +669,9 @@ AI-powered tools for creators, writers, and content professionals to analyze, ge
       <div class="project-tagline">Stop guessing what will resonate. Start creating with confidence.</div>
       
       <div class="project-cta">
-        <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in joining the waitlist for this product. Please let me know when it becomes available.">
+        <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in becoming a tester for this product. Please let me know about testing opportunities.">
           <span class="btn-inner">
-            Join Waitlist
+            Become a Tester
             <i data-lucide="mail"></i>
           </span>
         </a>
@@ -638,7 +685,7 @@ AI-powered tools for creators, writers, and content professionals to analyze, ge
   <div class="project-visual">
     <i data-lucide="git-branch" class="project-icon"></i>
     <div class="project-codename">Codename: DARWIN</div>
-    <div class="project-status">Alpha Evolution</div>
+    <div class="project-status">Private Testing</div>
   </div>
   <div class="project-content">
     <h3>Generate Hundreds of Ideas While You Sleep</h3>
@@ -665,9 +712,9 @@ AI-powered tools for creators, writers, and content professionals to analyze, ge
       <div class="project-tagline">Stop forcing creativity. Start discovering what's already waiting to be found.</div>
       
       <div class="project-cta">
-        <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in joining the waitlist for this product. Please let me know when it becomes available.">
+        <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in becoming a tester for this product. Please let me know about testing opportunities.">
           <span class="btn-inner">
-            Join Waitlist
+            Become a Tester
             <i data-lucide="mail"></i>
           </span>
         </a>
@@ -765,6 +812,10 @@ AI-powered tools for creators, writers, and content professionals to analyze, ge
 
 #hydra-product .project-visual {
   background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('https://images.unsplash.com/photo-1681800834704-121aa6378fff?q=80&w=1528&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+}
+
+#echo-product .project-visual {
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
 }
 
 #arbiter-product .project-visual {

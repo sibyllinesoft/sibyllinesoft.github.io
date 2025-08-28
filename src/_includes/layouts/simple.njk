@@ -285,7 +285,7 @@
         /* Floating Table of Contents */
         .toc-container {
             position: fixed;
-            left: calc(50% + 620px);
+            right: 20px;
             top: 30%;
             width: 220px;
             z-index: 1000;
@@ -400,14 +400,16 @@
             user-select: none;
         }
         
-        .toc .toc-list-item.is-collapsed .toc-list {
+        /* Hide nested lists when collapsed, but keep the parent link visible */
+        .toc .toc-list-item.is-collapsed > .toc-list {
             max-height: 0;
             opacity: 0;
             margin: 0;
             padding: 0;
+            overflow: hidden;
         }
         
-        .toc .toc-list-item:not(.is-collapsed) .toc-list {
+        .toc .toc-list-item:not(.is-collapsed) > .toc-list {
             max-height: 1000px;
             opacity: 1;
         }
@@ -1112,8 +1114,8 @@
 
     <!-- Tocbot JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/tocbot@4.28.2/dist/tocbot.min.js"></script>
-    <!-- Improved TOC Scroll Spy -->
-    <script src="/js/toc-scrollspy.js"></script>
+    <!-- Custom TOC ScrollSpy disabled - using tocbot instead -->
+    <!-- <script src="/js/toc-scrollspy.js"></script> -->
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <!-- Mermaid.js for diagrams -->
@@ -1161,10 +1163,21 @@
 
                 // Force initial collapsed state for all sections and add click handlers
                 setTimeout(() => {
-                    const tocItems = document.querySelectorAll('.toc .toc-list-item.is-collapsible');
-                    tocItems.forEach(item => {
-                        // Start all sections collapsed except the active one
-                        if (!item.classList.contains('is-active-li')) {
+                    // Find items that have nested lists (main sections)
+                    const allTocItems = document.querySelectorAll('.toc .toc-list-item');
+                    const collapsibleTocItems = Array.from(allTocItems).filter(item => 
+                        item.querySelector('.toc-list') !== null
+                    );
+                    
+                    collapsibleTocItems.forEach(item => {
+                        // Add collapsible class if it doesn't have it
+                        if (!item.classList.contains('is-collapsible')) {
+                            item.classList.add('is-collapsible');
+                        }
+                        
+                        // Start all sections collapsed to keep TOC compact
+                        const nestedList = item.querySelector('.toc-list');
+                        if (nestedList) {
                             item.classList.add('is-collapsed');
                         }
                         
@@ -1177,6 +1190,105 @@
                             });
                         }
                     });
+
+                    
+                    // Expand the currently visible section
+                    const expandVisibleSection = () => {
+                        console.group('🔍 TOC Scroll Detection Debug');
+                        
+                        const headings = document.querySelectorAll('.main h2:not(.article-title)');
+                        console.log(`📋 Found ${headings.length} H2 headings:`, Array.from(headings).map(h => ({
+                            id: h.id,
+                            text: h.textContent?.trim().substring(0, 50) + '...',
+                            offsetTop: h.offsetTop
+                        })));
+                        
+                        let currentSection = null;
+                        const scrollY = window.scrollY;
+                        const viewportHeight = window.innerHeight;
+                        const scrollOffset = viewportHeight * 0.3;
+                        const scrollPosition = scrollY + scrollOffset;
+                        
+                        console.log(`📏 Scroll metrics:
+                            - window.scrollY: ${scrollY}px
+                            - viewport height: ${viewportHeight}px
+                            - scroll offset (30%): ${scrollOffset}px
+                            - effective scroll position: ${scrollPosition}px`);
+                        
+                        console.log('🎯 Checking headings for current section:');
+                        
+                        // Find which H2 section we're currently viewing
+                        for (let i = headings.length - 1; i >= 0; i--) {
+                            const heading = headings[i];
+                            const isActive = heading.offsetTop <= scrollPosition;
+                            console.log(`  ${i}. "${heading.textContent?.trim()}" (id: ${heading.id})
+                                - offsetTop: ${heading.offsetTop}px
+                                - scrollPosition: ${scrollPosition}px
+                                - isActive: ${isActive} ${isActive ? '✅' : '❌'}`);
+                            
+                            if (isActive) {
+                                currentSection = heading;
+                                console.log(`🎯 Selected as current section: "${heading.textContent?.trim()}" (${heading.id})`);
+                                break;
+                            }
+                        }
+                        
+                        // Collapse all sections first
+                        console.log(`🔄 Collapsing all ${collapsibleTocItems.length} TOC sections`);
+                        collapsibleTocItems.forEach((item, index) => {
+                            const wasCollapsed = item.classList.contains('is-collapsed');
+                            item.classList.add('is-collapsed');
+                            console.log(`  ${index}: ${wasCollapsed ? 'already collapsed' : 'collapsed'}`);
+                        });
+                        
+                        // If we found a current section, expand its TOC entry
+                        if (currentSection && currentSection.id) {
+                            console.log(`🔍 Looking for TOC link with href="#${currentSection.id}"`);
+                            const tocLink = document.querySelector(`.toc a[href="#${currentSection.id}"]`);
+                            
+                            if (tocLink) {
+                                console.log('✅ TOC link found:', tocLink.textContent?.trim());
+                                const tocItem = tocLink.closest('.toc-list-item');
+                                
+                                if (tocItem) {
+                                    console.log('✅ Parent TOC item found');
+                                    const subList = tocItem.querySelector('.toc-list');
+                                    
+                                    if (subList) {
+                                        console.log('✅ Sub-list found, expanding TOC section');
+                                        const wasCollapsed = tocItem.classList.contains('is-collapsed');
+                                        tocItem.classList.remove('is-collapsed');
+                                        console.log(`🎉 TOC section expanded! (was collapsed: ${wasCollapsed})`);
+                                    } else {
+                                        console.log('❌ No sub-list found in TOC item - nothing to expand');
+                                    }
+                                } else {
+                                    console.log('❌ Could not find parent TOC list item');
+                                }
+                            } else {
+                                console.log(`❌ No TOC link found for "#${currentSection.id}"`);
+                                console.log('Available TOC links:', Array.from(document.querySelectorAll('.toc a')).map(a => ({
+                                    href: a.getAttribute('href'),
+                                    text: a.textContent?.trim()
+                                })));
+                            }
+                        } else {
+                            console.log('❌ No current section found or section has no ID');
+                        }
+                        
+                        console.groupEnd();
+                    };
+                    
+                    // Expand initially visible section
+                    expandVisibleSection();
+                    
+                    // Update expanded section on scroll
+                    let scrollTimer;
+                    window.addEventListener('scroll', () => {
+                        clearTimeout(scrollTimer);
+                        scrollTimer = setTimeout(expandVisibleSection, 50);
+                    }, { passive: true });
+                    
                 }, 100);
 
                 // Initialize improved scroll spy after TOC is ready

@@ -240,8 +240,16 @@
 .service-visual .network-node,
 .service-visual .milestone-marker,
 .service-visual .hub-core,
-.service-visual .agent-instance {
+.service-visual .agent-instance,
+.service-visual .agent-vm,
+.service-visual .vm-boundary,
+.service-visual .agent-core,
+.service-visual .dept-node,
+.service-visual .central-hub,
+.service-visual .hub-pulse,
+.service-visual .isolation-indicator {
   opacity: 1 !important;
+  display: block !important;
 }
 
 .service-card.expanded .service-visual.animate .milestone-marker {
