@@ -359,6 +359,7 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
 <strong>Ready to stop wondering "what if" and start building "what's next"?</strong> The most successful companies don't wait for perfect timing—they create competitive advantages while others hesitate.
 </div>
 
+
 <div id="discovery" class="discovery-section">
 
 ## Start Your Discovery Process
@@ -367,23 +368,31 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
   <div class="discovery-option">
     <h3><i data-lucide="lightbulb"></i> Strategy Session</h3>
     <p>Identify high-impact AI opportunities specific to your business.</p>
-    <a href="#" class="btn-primary" data-contact-type="contact" data-subject-type="strategy" data-custom-body="I'm interested in exploring how AI could transform my business. Here's what I'm working on..."><span class="btn-inner">Talk Strategy <i data-lucide="mail"></i></span></a>
+    <a class="btn-unified btn-primary" href="javascript:void(0)" data-contact-type="contact" data-subject-type="strategy">
+      <span class="btn-inner">Talk Strategy <i data-lucide="arrow-right"></i></span>
+    </a>
   </div>
   
   <div class="discovery-option">
     <h3><i data-lucide="search"></i> Technical Assessment</h3>
     <p>We'll assess your current capabilities and design implementation roadmaps.</p>
-    <a href="#" class="btn-primary" data-contact-type="contact" data-subject-type="technical" data-custom-body="I'd like to discuss our technical implementation options. Our current setup includes..."><span class="btn-inner">Get Assessment <i data-lucide="mail"></i></span></a>
+    <a class="btn-unified btn-primary" href="javascript:void(0)" data-contact-type="contact" data-subject-type="technical">
+      <span class="btn-inner">Get Assessment <i data-lucide="clipboard-check"></i></span>
+    </a>
   </div>
   
   <div class="discovery-option">
     <h3><i data-lucide="wrench"></i> Innovation Workshop</h3>
     <p>Collaborative sessions to reimagine what's possible with intelligent systems.</p>
-    <a href="#" class="btn-primary" data-contact-type="contact" data-subject-type="innovation" data-custom-body="I'm interested in exploring innovative AI applications for..."><span class="btn-inner">Start Workshop <i data-lucide="mail"></i></span></a>
+    <a class="btn-unified btn-primary" href="javascript:void(0)" data-contact-type="contact" data-subject-type="innovation">
+      <span class="btn-inner">Start Workshop <i data-lucide="play-circle"></i></span>
+    </a>
   </div>
 </div>
 
+
 </div>
+
 
 ## Latest Articles
 
@@ -510,9 +519,10 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  margin-bottom: 0; /* Removed bottom margin */
+  margin-bottom: 0;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
 }
 
 .neural-background {
@@ -521,9 +531,9 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
   left: -5%;
   width: 110%;
   height: 120%;
-  z-index: 1;            /* was -1 — this is what hid the canvas */
+  z-index: 1;
   opacity: 0.6;
-  pointer-events: none;  /* keeps it “background only” */
+  pointer-events: none;
 }
 
 .hero-content {
@@ -2630,13 +2640,7 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
   }
 }
 
-/* Neural Banner Full Width */
-.hero-container {
-  width: 100%;
-  max-width: none;
-  margin: 0;
-  padding: 0;
-}
+/* Neural Banner Full Width - Removed conflicting styles, handled in hero.css */
 
 /* Larger fonts for hero elements */
 .hero-content h1 {

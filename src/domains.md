@@ -39,7 +39,12 @@ Building game-changing AI applications requires understanding both AI technology
       <p class="domain-cta-text">Whether you're a pre-seed startup with a big AI vision or a growth-stage company ready to leverage your data goldmine—let's explore what becomes possible when you combine your domain expertise with intelligent systems.</p>
       
       <div class="domain-cta">
-        <a href="#" data-contact-type="contact" data-subject-type="startup" data-custom-body="I'm interested in exploring AI opportunities for my startup. Here's what we're building..." class="btn-primary"><span class="btn-inner">Discuss Your Vision <i data-lucide="mail"></i></span></a>
+        <a href="#discovery" class="btn-unified btn-primary">
+          <span class="btn-inner">
+            Get Started
+            <i data-lucide="mail"></i>
+          </span>
+        </a>
       </div>
     </div>
   </div>
@@ -73,7 +78,12 @@ Building game-changing AI applications requires understanding both AI technology
       <p class="domain-cta-text">Whether you're accelerating drug discovery, optimizing clinical trials, or bridging the gap between research and practice—let's explore how AI can amplify your scientific impact.</p>
       
       <div class="domain-cta">
-        <a href="#" data-contact-type="contact" data-subject-type="clinical" data-custom-body="I'm interested in AI applications for clinical/biotech research. Our current challenges include..." class="btn-primary"><span class="btn-inner">Explore AI Solutions <i data-lucide="mail"></i></span></a>
+        <a href="#discovery" class="btn-unified btn-primary">
+          <span class="btn-inner">
+            Get Started
+            <i data-lucide="mail"></i>
+          </span>
+        </a>
       </div>
     </div>
   </div>
@@ -107,7 +117,12 @@ Building game-changing AI applications requires understanding both AI technology
       <p class="domain-cta-text">From manufacturing optimization to environmental compliance, I help build AI systems that make complex industrial and environmental data actionable.</p>
       
       <div class="domain-cta">
-        <a href="#" data-contact-type="contact" data-subject-type="industrial" data-custom-body="I'm interested in AI for environmental/industrial applications. Our data challenges involve..." class="btn-primary"><span class="btn-inner">Optimize Operations <i data-lucide="mail"></i></span></a>
+        <a href="#discovery" class="btn-unified btn-primary">
+          <span class="btn-inner">
+            Get Started
+            <i data-lucide="mail"></i>
+          </span>
+        </a>
       </div>
     </div>
   </div>
@@ -141,7 +156,12 @@ Building game-changing AI applications requires understanding both AI technology
       <p class="domain-cta-text">Whether you need to understand customer sentiment, automate document workflows, or build conversational interfaces—let's discuss how language AI can transform your text data into competitive advantage.</p>
       
       <div class="domain-cta">
-        <a href="#" data-contact-type="contact" data-subject-type="language" data-custom-body="I'm interested in language AI and text analysis solutions. Our text data includes..." class="btn-primary"><span class="btn-inner">Unlock Text Insights <i data-lucide="mail"></i></span></a>
+        <a href="#discovery" class="btn-unified btn-primary">
+          <span class="btn-inner">
+            Get Started
+            <i data-lucide="mail"></i>
+          </span>
+        </a>
       </div>
     </div>
   </div>
@@ -175,7 +195,12 @@ Building game-changing AI applications requires understanding both AI technology
       <p class="domain-cta-text">From cybersecurity to intelligence analysis, I help build AI systems that enhance security capabilities while maintaining the reliability and transparency that critical applications demand.</p>
       
       <div class="domain-cta">
-        <a href="#" data-contact-type="contact" data-subject-type="security" data-custom-body="I'm interested in AI for defense/security applications. Our security challenges involve..." class="btn-primary"><span class="btn-inner">Enhance Security <i data-lucide="mail"></i></span></a>
+        <a href="#discovery" class="btn-unified btn-primary">
+          <span class="btn-inner">
+            Get Started
+            <i data-lucide="mail"></i>
+          </span>
+        </a>
       </div>
     </div>
   </div>
@@ -330,62 +355,6 @@ Building game-changing AI applications requires understanding both AI technology
   border: 1px solid var(--color-border-light);
 }
 
-.btn-primary {
-  position: relative;
-  border-radius: var(--radius-lg);
-  font-weight: 600;
-  font-size: var(--text-base);
-  transition: all 0.2s ease;
-  border: none;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  overflow: hidden;
-  color: white;
-  background: linear-gradient(
-    to right, 
-    var(--color-accent) 20%, 
-    var(--color-accent) 35%, 
-    rgba(115, 125, 247, 1) 42%, 
-    rgba(130, 140, 248, 1) 50%, 
-    rgba(115, 125, 247, 1) 58%, 
-    var(--color-accent) 65%, 
-    var(--color-accent) 100%
-  );
-  background-size: 200% auto;
-  animation: tagShine 6s linear infinite;
-}
-
-.btn-primary .btn-inner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-sm);
-  padding: var(--space-sm) var(--space-lg);
-  margin: 2px;
-  background: var(--color-accent);
-  border-radius: calc(var(--radius-lg) - 1px);
-  color: white;
-  width: 100%;
-  height: 100%;
-}
-
-.btn-primary .btn-inner .lucide {
-  color: rgba(180, 220, 255, 0.9);
-  width: 1em;
-  height: 1em;
-}
-
-@keyframes tagShine {
-  from {
-    background-position: -200% center;
-  }
-  to {
-    background-position: 200% center;
-  }
-}
 
 /* Responsive Design */
 @media (max-width: 768px) {

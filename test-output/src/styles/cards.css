@@ -1,0 +1,1380 @@
+/* Service Card and Discovery Option Styles */
+
+/* =================================
+   Discovery Options Grid & Cards
+   ================================= */
+
+.discovery-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-xl);
+  margin: var(--space-xl) 0;
+  align-items: start;
+}
+
+.discovery-option {
+  background: var(--color-surface);
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-light);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  height: 20rem;
+}
+
+.discovery-option .btn-primary {
+  margin-top: auto;
+  width: 100%;
+  position: relative;
+  border: none;
+  border-radius: var(--radius-lg);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: white;
+  background: linear-gradient(
+    to right, 
+    var(--color-accent) 20%, 
+    var(--color-accent) 35%, 
+    rgba(115, 125, 247, 1) 42%, 
+    rgba(130, 140, 248, 1) 50%, 
+    rgba(115, 125, 247, 1) 58%, 
+    var(--color-accent) 65%, 
+    var(--color-accent) 100%
+  );
+  background-size: 200% auto;
+  animation: tagShine 6s linear infinite;
+  text-decoration: none;
+}
+
+.discovery-option .btn-primary .btn-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: calc(var(--space-sm) * 1.25) calc(var(--space-lg) * 1.25);
+  margin: 2px;
+  background: var(--color-accent);
+  border-radius: calc(var(--radius-lg) - 1px);
+  color: white;
+  width: 100%;
+  height: 100%;
+}
+
+.discovery-option .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+  color: white;
+}
+
+.discovery-option h3 {
+  margin-top: 0;
+  margin-bottom: var(--space-md);
+  color: var(--color-accent);
+  font-size: var(--text-base);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.2;
+  transition: all 0.3s ease;
+}
+
+.discovery-option:hover h3 {
+  color: var(--color-accent);
+  text-shadow: 0 0 12px rgba(99, 102, 241, 0.6);
+}
+
+.discovery-option:hover h3 i {
+  filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.8));
+}
+
+.discovery-option p {
+  margin-bottom: var(--space-lg);
+  font-size: var(--text-base);
+  align-self: start;
+}
+
+/* =================================
+   Services Grid & Service Cards
+   ================================= */
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+  margin-top: var(--space-lg);
+  align-items: start;
+}
+
+.service-card {
+  background: var(--color-surface);
+  padding: var(--space-xl);
+  padding-bottom: calc(var(--space-xl) + 120px); /* Add space for visual element */
+  border-radius: var(--radius-lg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--color-border-light);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: 3.75rem 5rem 1fr;
+  height: 25rem;
+}
+
+.service-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border-color: var(--color-accent);
+}
+
+.service-card.expanded {
+  transform: scale(1.01);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  border-color: var(--color-accent);
+  z-index: 10;
+}
+
+.service-card h3 {
+  margin-top: 0;
+  margin-bottom: var(--space-md);
+  color: var(--color-accent);
+  font-weight: 600;
+  font-size: var(--text-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.service-summary {
+  transition: opacity 0.3s ease;
+  align-self: start;
+}
+
+.service-details {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  margin-top: var(--space-lg);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--color-border-light);
+}
+
+.service-card.expanded .service-summary {
+  opacity: 0.7;
+}
+
+.service-card.expanded .service-details {
+  display: block;
+  opacity: 1;
+}
+
+.service-details h4 {
+  margin-top: 0;
+  margin-bottom: var(--space-sm);
+  color: var(--color-text);
+  font-size: var(--text-lg);
+}
+
+.service-details ul {
+  margin: var(--space-sm) 0;
+  padding-left: var(--space-lg);
+}
+
+.service-details li {
+  margin-bottom: var(--space-xs);
+}
+
+.service-card .click-hint {
+  position: absolute;
+  bottom: var(--space-sm);
+  right: var(--space-sm);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.service-card.expanded .click-hint {
+  opacity: 0;
+}
+
+/* =================================
+   Shared Card Title Styles
+   ================================= */
+
+/* Centered card titles with hover glow */
+.discovery-option h3,
+.service-card h3 {
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.discovery-option:hover h3,
+.service-card:hover h3 {
+  text-shadow: 0 0 2px rgba(102, 126, 234, 0.4);
+  filter: brightness(1.15);
+}
+
+/* Icon styles for h3 elements - 25% bigger */
+.service-card h3 i,
+.discovery-option h3 i {
+  width: 1.5em;
+  height: 1.5em;
+  margin-right: 0;
+  margin-left: 0;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+/* =================================
+   Service Visual Elements
+   ================================= */
+
+/* Base Service Visual Container */
+.service-visual {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(135deg, var(--color-graphite-750) 0%, var(--color-graphite-700) 100%);
+  border-bottom-left-radius: var(--radius-lg);
+  border-bottom-right-radius: var(--radius-lg);
+  overflow: hidden;
+  opacity: 0.8;
+}
+
+.service-visual::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.1) 0%, 
+    rgba(255, 255, 255, 0.03) 50%,
+    rgba(255, 255, 255, 0.08) 100%
+  );
+  pointer-events: none;
+}
+
+/* Production Pipeline Visualization */
+.production-pipeline {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-sm);
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.05) 0%, rgba(99, 102, 241, 0.05) 100%);
+  overflow: hidden;
+}
+
+.pipeline-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  position: relative;
+}
+
+.stage-icon {
+  font-size: 12px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--color-accent), rgb(14, 165, 233));
+  border-radius: 50%;
+  color: white;
+  font-weight: bold;
+}
+
+.stage-label {
+  font-size: 8px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stage-status {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  animation: statusPulse 2s infinite;
+}
+
+.stage-status.success {
+  background: rgb(34, 197, 94);
+}
+
+.pipeline-flow {
+  flex: 1;
+  height: 2px;
+  background: rgba(99, 102, 241, 0.2);
+  position: relative;
+  margin: 0 8px;
+}
+
+.flow-segment {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.code-commit, .build-artifact, .live-agent {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--color-accent);
+  border-radius: 50%;
+  top: -3px;
+  animation: pipelineFlow 3s infinite;
+}
+
+.flowing {
+  opacity: 0;
+}
+
+.uptime-indicator {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 7px;
+  font-weight: 700;
+  color: rgb(34, 197, 94);
+  background: rgba(34, 197, 94, 0.1);
+  padding: 2px 4px;
+  border-radius: 4px;
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.agent-swarm {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.agent-instance {
+  width: 6px;
+  height: 6px;
+  background: var(--color-accent);
+  border-radius: 50%;
+  animation: agentScale 2s infinite;
+}
+
+.scaling-indicator {
+  font-size: 6px;
+  color: var(--color-text-secondary);
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Adaptive Intelligence Visualization */
+.adaptive-intelligence {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-sm);
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.05) 0%, rgba(99, 102, 241, 0.05) 100%);
+  overflow: hidden;
+}
+
+.pattern-recognition {
+  position: relative;
+  width: 100%;
+  height: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.data-stream {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.data-cluster {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 4px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.data-cluster.emerging {
+  background: rgba(168, 85, 247, 0.1);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+.data-cluster.analyzing {
+  background: rgba(168, 85, 247, 0.2);
+  border: 1px solid rgba(168, 85, 247, 0.5);
+  animation: clusterPulse 2s infinite;
+}
+
+.data-cluster.learned {
+  background: rgba(168, 85, 247, 0.3);
+  border: 2px solid rgb(168, 85, 247);
+  animation: insightGlow 3s infinite;
+}
+
+.pattern-dot {
+  width: 4px;
+  height: 4px;
+  background: rgb(168, 85, 247);
+  border-radius: 50%;
+  animation: dotPulse 1.5s infinite;
+}
+
+.pattern-connection {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 20px;
+  background: rgb(168, 85, 247);
+  transform: translate(-50%, -50%) rotate(45deg);
+  opacity: 0.6;
+}
+
+.insight-spark {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 8px;
+  height: 8px;
+  background: rgb(255, 215, 0);
+  border-radius: 50%;
+  animation: spark 2s infinite;
+}
+
+.evolution-spiral {
+  position: absolute;
+  bottom: 20%;
+  right: 10%;
+  width: 30px;
+  height: 30px;
+}
+
+.spiral-path {
+  width: 100%;
+  height: 100%;
+  border: 2px solid rgba(168, 85, 247, 0.3);
+  border-radius: 50%;
+  border-top-color: rgb(168, 85, 247);
+  animation: spin 3s linear infinite;
+}
+
+.learning-marker {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgb(168, 85, 247);
+  border-radius: 50%;
+  top: calc(50% + 12px * cos(var(--position) * 3.14159 / 50));
+  left: calc(50% + 12px * sin(var(--position) * 3.14159 / 50));
+  transform: translate(-50%, -50%);
+}
+
+.learning-marker.active {
+  background: rgb(255, 215, 0);
+  animation: markerGlow 2s infinite;
+}
+
+.prediction-engine {
+  width: 100%;
+  height: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.trend-line {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  height: 20px;
+}
+
+.trend-point {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.trend-point.past {
+  background: rgba(168, 85, 247, 0.5);
+  height: 8px;
+}
+
+.trend-point.current {
+  background: rgb(168, 85, 247);
+  height: 12px;
+  animation: currentPulse 2s infinite;
+}
+
+.trend-point.future {
+  background: rgb(255, 215, 0);
+  height: 16px;
+  animation: futurePulse 2s infinite;
+}
+
+.confidence-gauge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.gauge-fill {
+  height: 4px;
+  background: linear-gradient(to right, rgb(168, 85, 247), rgb(255, 215, 0));
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+}
+
+.gauge-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 20%;
+  background: rgba(255, 255, 255, 0.3);
+  animation: gaugeShimmer 2s infinite;
+}
+
+.gauge-label {
+  font-size: 7px;
+  font-weight: 600;
+  color: rgb(168, 85, 247);
+}
+
+/* Experience Journey Visualization */
+.experience-journey {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--space-sm);
+  background: linear-gradient(135deg, rgba(192, 132, 252, 0.05) 0%, rgba(99, 102, 241, 0.05) 100%);
+  overflow: hidden;
+}
+
+.timeline-mastery {
+  width: 100%;
+  height: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.era-marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  position: relative;
+  opacity: 0;
+  animation: eraReveal 3s ease-out forwards;
+}
+
+.era-marker.era-2007 { animation-delay: 0s; }
+.era-marker.era-2015 { animation-delay: 0.5s; }
+.era-marker.era-2020 { animation-delay: 1s; }
+.era-marker.era-current { animation-delay: 1.5s; }
+
+.era-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(192, 132, 252, 0.3);
+  border: 2px solid rgba(192, 132, 252, 0.5);
+  transition: all 0.3s ease;
+}
+
+.era-marker.active .era-dot {
+  background: rgb(192, 132, 252);
+  border-color: rgb(192, 132, 252);
+  box-shadow: 0 0 12px rgba(192, 132, 252, 0.8);
+  animation: eraGlow 2s infinite;
+}
+
+.era-dot.pulsing {
+  animation: eraPulse 2s infinite;
+}
+
+.era-label {
+  font-size: 8px;
+  font-weight: 700;
+  color: rgb(192, 132, 252);
+  text-align: center;
+}
+
+.era-tech {
+  font-size: 6px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.experience-flow {
+  flex: 1;
+  height: 2px;
+  background: rgba(192, 132, 252, 0.2);
+  margin: 0 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.tech-evolution {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(192, 132, 252, 0.6) 50%, 
+    transparent 100%);
+  animation: techFlow 4s infinite;
+}
+
+.tech-evolution.ai-winter { animation-delay: 0s; }
+.tech-evolution.big-data { animation-delay: 1s; }
+.tech-evolution.llm-boom { animation-delay: 2s; }
+
+.wisdom-accumulation {
+  width: 100%;
+  height: 35%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pattern-library {
+  display: flex;
+  gap: 6px;
+  flex: 1;
+}
+
+.pattern-block {
+  padding: 4px 6px;
+  border-radius: 4px;
+  font-size: 6px;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.pattern-block.survived {
+  background: rgba(34, 197, 94, 0.15);
+  border: 1px solid rgba(34, 197, 94, 0.4);
+  color: rgb(34, 197, 94);
+}
+
+.pattern-block.failed {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: rgb(239, 68, 68);
+}
+
+.pattern-block.emerging {
+  background: rgba(255, 215, 0, 0.15);
+  border: 1px solid rgba(255, 215, 0, 0.4);
+  color: rgb(255, 215, 0);
+  animation: emergingGlow 3s infinite;
+}
+
+.experience-counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.counter-value {
+  font-size: 16px;
+  font-weight: 900;
+  color: rgb(192, 132, 252);
+  line-height: 1;
+  animation: counterPulse 3s infinite;
+}
+
+.counter-label {
+  font-size: 6px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+/* Agent Orchestration Visualization */
+.agent-orchestration {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(147, 51, 234, 0.05) 100%);
+  overflow: hidden;
+}
+
+.central-hub {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+}
+
+.hub-core {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--color-accent), rgb(147, 51, 234));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  font-weight: 900;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 0 12px rgba(99, 102, 241, 0.4);
+  position: relative;
+}
+
+.hub-pulse {
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  right: -6px;
+  bottom: -6px;
+  border: 2px solid var(--color-accent);
+  border-radius: 15px;
+  opacity: 0;
+  animation: enterprisePulse 3s ease-in-out infinite;
+}
+
+.isolated-agents {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.agent-vm {
+  position: absolute;
+  width: 45px;
+  height: 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  animation: agentSpawn 2.5s ease-out forwards;
+}
+
+.vm-boundary {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px dashed rgba(147, 51, 234, 0.4);
+  border-radius: 8px;
+  background: rgba(147, 51, 234, 0.08);
+  animation: securityScan 4s ease-in-out infinite;
+}
+
+.agent-core {
+  position: relative;
+  width: 24px;
+  height: 20px;
+  background: linear-gradient(135deg, rgb(147, 51, 234), rgb(168, 85, 247));
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  font-weight: 800;
+  color: white;
+  z-index: 2;
+  box-shadow: 0 2px 6px rgba(147, 51, 234, 0.3);
+}
+
+.isolation-indicator {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  width: 8px;
+  height: 8px;
+  background: rgb(34, 197, 94);
+  border-radius: 50%;
+  border: 2px solid white;
+  animation: securityBlink 2s ease-in-out infinite;
+}
+
+.enterprise-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(rgba(147, 51, 234, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(147, 51, 234, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0.3;
+  animation: gridFlow 8s linear infinite;
+}
+
+.compliance-badge {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  font-size: 10px;
+  color: rgb(34, 197, 94);
+  font-weight: 700;
+  background: rgba(34, 197, 94, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.dept-node {
+  position: absolute;
+  width: 30px;
+  height: 20px;
+  background: rgba(99, 102, 241, 0.2);
+  border: 1px solid rgba(99, 102, 241, 0.4);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  animation: agentSpawn 2s ease-out forwards;
+}
+
+.node-label {
+  font-size: 7px;
+  font-weight: 700;
+  color: var(--color-accent);
+  text-transform: uppercase;
+}
+
+.connection-beam {
+  position: absolute;
+  width: 2px;
+  height: 20px;
+  background: linear-gradient(to bottom, var(--color-accent), transparent);
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.6;
+  animation: beamPulse 2s ease-in-out infinite;
+}
+
+.integration-waves {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+}
+
+.wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(99, 102, 241, 0.3), 
+    transparent);
+  animation: waveFlow 3s ease-in-out infinite;
+}
+
+.wave.wave-1 { animation-delay: 0s; }
+.wave.wave-2 { animation-delay: 1s; }
+.wave.wave-3 { animation-delay: 2s; }
+
+/* Startup Icon Sequence */
+.startup-icon-sequence {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  z-index: 2;
+}
+
+.startup-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--color-accent);
+  filter: drop-shadow(0 0 4px rgba(99, 102, 241, 0.6));
+  animation: iconPulse 3s ease-in-out infinite;
+}
+
+.startup-arrow {
+  width: 14px;
+  height: 14px;
+  color: var(--color-accent);
+  opacity: 0.8;
+}
+
+.startup-icon:nth-child(1) { animation-delay: 0s; }
+.startup-icon:nth-child(3) { animation-delay: 1s; }
+.startup-icon:nth-child(5) { animation-delay: 2s; }
+
+@keyframes iconPulse {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+/* Startup Velocity Visualization */
+.startup-velocity {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(99, 102, 241, 0.05) 100%);
+  overflow: hidden;
+}
+
+.rocket-trajectory {
+  position: relative;
+  width: 100%;
+  height: 70%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.launch-pad {
+  position: relative;
+  width: 30px;
+  height: 40px;
+  margin-left: 20px;
+}
+
+.rocket {
+  font-size: 20px;
+  animation: rocketFloat 3s ease-in-out infinite;
+}
+
+.exhaust-trail {
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 15px;
+  background: linear-gradient(to bottom, 
+    rgba(255, 165, 0, 0.8), 
+    rgba(255, 69, 0, 0.6), 
+    transparent);
+  border-radius: 0 0 50% 50%;
+  animation: exhaustFlicker 0.3s ease-in-out infinite alternate;
+}
+
+.growth-curve {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  right: 20%;
+  bottom: 20%;
+}
+
+.milestone {
+  position: absolute;
+  font-size: 8px;
+  font-weight: 700;
+  color: rgb(34, 197, 94);
+  background: rgba(34, 197, 94, 0.15);
+  padding: 2px 4px;
+  border-radius: 4px;
+  border: 1px solid rgba(34, 197, 94, 0.4);
+  animation: milestoneGlow 3s ease-in-out infinite;
+}
+
+.velocity-indicator {
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.speed-lines {
+  width: 30px;
+  height: 10px;
+  background-image: 
+    linear-gradient(90deg, transparent 0%, rgba(34, 197, 94, 0.6) 50%, transparent 100%),
+    linear-gradient(90deg, transparent 20%, rgba(34, 197, 94, 0.4) 60%, transparent 100%),
+    linear-gradient(90deg, transparent 40%, rgba(34, 197, 94, 0.2) 80%, transparent 100%);
+  background-position: 0px 0px, 0px 3px, 0px 6px;
+  background-size: 100% 2px;
+  background-repeat: no-repeat;
+  animation: speedStream 1s linear infinite;
+}
+
+.multiplier {
+  font-size: 12px;
+  font-weight: 900;
+  color: rgb(34, 197, 94);
+  text-shadow: 0 0 4px rgba(34, 197, 94, 0.5);
+  animation: multiplierPulse 2s ease-in-out infinite;
+}
+
+/* Learning Journey Visualization */
+.learning-journey {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(99, 102, 241, 0.05) 100%);
+  overflow: hidden;
+}
+
+.knowledge-tree {
+  position: relative;
+  width: 100%;
+  height: 80%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.tree-trunk {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 40%;
+  background: linear-gradient(to top, rgba(139, 69, 19, 0.8), rgba(160, 82, 45, 0.6));
+  border-radius: 3px 3px 0 0;
+}
+
+.knowledge-branch {
+  position: absolute;
+  width: 50px;
+  height: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  opacity: 0;
+  animation: branchGrow 2s ease-out forwards;
+}
+
+.skill-node {
+  font-size: 8px;
+  font-weight: 700;
+  color: rgb(34, 197, 94);
+  background: rgba(34, 197, 94, 0.15);
+  padding: 2px 6px;
+  border-radius: 12px;
+  border: 1px solid rgba(34, 197, 94, 0.4);
+  text-align: center;
+}
+
+.growth-ring {
+  width: 12px;
+  height: 12px;
+  border: 2px solid rgba(34, 197, 94, 0.4);
+  border-radius: 50%;
+  border-top-color: rgb(34, 197, 94);
+  animation: growthSpin 3s linear infinite;
+}
+
+.mastery-indicator {
+  position: absolute;
+  top: 10%;
+  right: 15%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.lightbulb {
+  font-size: 16px;
+  animation: lightbulbGlow 3s ease-in-out infinite;
+}
+
+.insight-rays {
+  width: 20px;
+  height: 20px;
+  position: relative;
+}
+
+.insight-rays::before,
+.insight-rays::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 8px;
+  background: rgb(255, 215, 0);
+  transform-origin: center bottom;
+  animation: raySpread 2s ease-in-out infinite;
+}
+
+.insight-rays::before {
+  transform: translate(-50%, -100%) rotate(45deg);
+}
+
+.insight-rays::after {
+  transform: translate(-50%, -100%) rotate(-45deg);
+  animation-delay: 0.5s;
+}
+
+/* =================================
+   Service Visual Animations
+   ================================= */
+
+@keyframes statusPulse {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.3); }
+}
+
+@keyframes pipelineFlow {
+  0% { left: -8px; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { left: calc(100% + 8px); opacity: 0; }
+}
+
+@keyframes agentScale {
+  0%, 100% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.2); opacity: 1; }
+}
+
+@keyframes clusterPulse {
+  0%, 100% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.1); opacity: 1; }
+}
+
+@keyframes insightGlow {
+  0%, 100% { box-shadow: 0 0 4px rgba(168, 85, 247, 0.3); }
+  50% { box-shadow: 0 0 12px rgba(168, 85, 247, 0.8); }
+}
+
+@keyframes dotPulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes spark {
+  0%, 100% { opacity: 0; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.3); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes markerGlow {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.4); }
+}
+
+@keyframes currentPulse {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes futurePulse {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.3); }
+}
+
+@keyframes gaugeShimmer {
+  0% { left: -20%; }
+  100% { left: 100%; }
+}
+
+@keyframes eraReveal {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes eraGlow {
+  0%, 100% { box-shadow: 0 0 12px rgba(192, 132, 252, 0.8); }
+  50% { box-shadow: 0 0 20px rgba(192, 132, 252, 1); }
+}
+
+@keyframes eraPulse {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.3); }
+}
+
+@keyframes techFlow {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes emergingGlow {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; box-shadow: 0 0 8px rgba(255, 215, 0, 0.5); }
+}
+
+@keyframes counterPulse {
+  0%, 100% { opacity: 0.9; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+@keyframes enterprisePulse {
+  0%, 100% { opacity: 0; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.2); }
+}
+
+@keyframes agentSpawn {
+  0% { opacity: 0; transform: scale(0.8) translateY(10px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes securityScan {
+  0%, 100% { border-color: rgba(147, 51, 234, 0.4); }
+  50% { border-color: rgba(147, 51, 234, 0.8); }
+}
+
+@keyframes securityBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+@keyframes gridFlow {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(20px, 20px); }
+}
+
+@keyframes beamPulse {
+  0%, 100% { opacity: 0.6; transform: translateX(-50%) scaleY(1); }
+  50% { opacity: 1; transform: translateX(-50%) scaleY(1.2); }
+}
+
+@keyframes waveFlow {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes rocketFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  33% { transform: translateY(-2px) rotate(5deg); }
+  66% { transform: translateY(-1px) rotate(-3deg); }
+}
+
+@keyframes exhaustFlicker {
+  0% { opacity: 0.8; transform: translateX(-50%) scaleY(1); }
+  100% { opacity: 1; transform: translateX(-50%) scaleY(1.2); }
+}
+
+@keyframes milestoneGlow {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; box-shadow: 0 0 8px rgba(34, 197, 94, 0.5); }
+}
+
+@keyframes speedStream {
+  0% { background-position: -100px 0px, -80px 3px, -60px 6px; }
+  100% { background-position: 100px 0px, 120px 3px, 140px 6px; }
+}
+
+@keyframes multiplierPulse {
+  0%, 100% { opacity: 0.9; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+@keyframes branchGrow {
+  0% { opacity: 0; transform: scale(0.8) translateY(20px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes growthSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes lightbulbGlow {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.3) drop-shadow(0 0 8px rgba(255, 215, 0, 0.6)); }
+}
+
+@keyframes raySpread {
+  0%, 100% { opacity: 0; transform: translate(-50%, -100%) rotate(var(--rotation, 45deg)) scaleY(0.5); }
+  50% { opacity: 1; transform: translate(-50%, -100%) rotate(var(--rotation, 45deg)) scaleY(1); }
+}
+
+/* =================================
+   Responsive Design
+   ================================= */
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .services-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .discovery-options {
+    grid-template-columns: 1fr;
+  }
+  
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}

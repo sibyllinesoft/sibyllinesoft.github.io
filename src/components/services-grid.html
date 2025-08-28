@@ -1,0 +1,29 @@
+<!-- Services Grid Component -->
+<!-- Reusable container for service cards with consistent layout and styling -->
+<section class="services-grid" role="group" aria-labelledby="{{ gridId | default('services-heading') }}">
+
+<style>
+/* Services Grid Component Styles */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg, 1.5rem);
+  margin-top: var(--space-lg, 1.5rem);
+  align-items: start;
+}
+
+/* Responsive behavior */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .services-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
+</section>

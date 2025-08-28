@@ -1,0 +1,591 @@
+<!-- 
+  Card Container Component
+  
+  A flexible, accessible card component with optional header, body, footer,
+  and various styling options. Supports different layouts and content types.
+  
+  Usage Examples:
+  
+  Basic card:
+  <article class="card">
+    <div class="card__body">
+      <h3 class="card__title">Card Title</h3>
+      <p class="card__description">Card description content goes here.</p>
+    </div>
+  </article>
+  
+  Full card with all sections:
+  <article class="card">
+    <header class="card__header">
+      <img src="image.jpg" alt="Card image" class="card__image">
+    </header>
+    <div class="card__body">
+      <h3 class="card__title">Card Title</h3>
+      <p class="card__description">Detailed card description.</p>
+    </div>
+    <footer class="card__footer">
+      <button class="btn btn--primary">Action</button>
+    </footer>
+  </article>
+  
+  Interactive card:
+  <article class="card card--interactive" tabindex="0" role="button" aria-label="View details">
+    <div class="card__body">
+      <h3 class="card__title">Clickable Card</h3>
+      <p class="card__description">Click anywhere on this card.</p>
+    </div>
+  </article>
+  
+  Horizontal card:
+  <article class="card card--horizontal">
+    <img src="image.jpg" alt="Card image" class="card__image">
+    <div class="card__content">
+      <div class="card__body">
+        <h3 class="card__title">Horizontal Card</h3>
+        <p class="card__description">Side-by-side layout.</p>
+      </div>
+    </div>
+  </article>
+-->
+
+<article 
+  class="card" 
+  role="article"
+  tabindex="0"
+>
+  <!-- Optional header section -->
+  <header class="card__header">
+    <img 
+      src="https://via.placeholder.com/400x200/e2e8f0/64748b?text=Card+Image" 
+      alt="Card image description" 
+      class="card__image"
+      loading="lazy"
+    >
+  </header>
+  
+  <!-- Main content area -->
+  <div class="card__content">
+    <div class="card__body">
+      <h3 class="card__title">
+        Card Title
+      </h3>
+      
+      <p class="card__description">
+        This is a description of the card content. It provides context and details about what this card represents.
+      </p>
+      
+      <!-- Optional metadata -->
+      <div class="card__meta">
+        <span class="card__meta-item">
+          <span class="sr-only">Published on</span>
+          <time datetime="2024-01-15">January 15, 2024</time>
+        </span>
+        <span class="card__meta-item">
+          <span class="sr-only">Category:</span>
+          Technology
+        </span>
+      </div>
+    </div>
+    
+    <!-- Optional footer section -->
+    <footer class="card__footer">
+      <button class="btn btn--primary" type="button">
+        Read More
+      </button>
+      <button class="btn btn--secondary" type="button">
+        Share
+      </button>
+    </footer>
+  </div>
+</article>
+
+<style>
+  .card {
+    /* CSS Custom Properties for theming */
+    --card-background: var(--color-background, #ffffff);
+    --card-border-color: var(--color-border, #e2e8f0);
+    --card-border-radius: var(--border-radius-lg, 0.5rem);
+    --card-border-width: 1px;
+    --card-padding: var(--spacing-lg, 1.5rem);
+    --card-gap: var(--spacing-md, 1rem);
+    --card-shadow: var(--shadow-sm, 0 1px 2px 0 rgb(0 0 0 / 0.05));
+    --card-shadow-hover: var(--shadow-md, 0 4px 6px -1px rgb(0 0 0 / 0.1));
+    --card-transition: var(--transition-base, 0.2s ease);
+    
+    /* Typography */
+    --card-title-color: var(--color-text, #1e293b);
+    --card-title-size: var(--font-size-lg, 1.125rem);
+    --card-title-weight: var(--font-weight-semibold, 600);
+    --card-description-color: var(--color-text-muted, #64748b);
+    --card-description-size: var(--font-size-base, 1rem);
+    --card-meta-color: var(--color-text-muted, #64748b);
+    --card-meta-size: var(--font-size-sm, 0.875rem);
+    
+    display: flex;
+    flex-direction: column;
+    background: var(--card-background);
+    border: var(--card-border-width) solid var(--card-border-color);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--card-shadow);
+    transition: all var(--card-transition);
+    overflow: hidden;
+    position: relative;
+    font-family: var(--font-family-primary, system-ui, -apple-system, sans-serif);
+  }
+  
+  .card__header {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .card__image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    transition: transform var(--card-transition);
+  }
+  
+  .card__content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  
+  .card__body {
+    padding: var(--card-padding);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--card-gap);
+  }
+  
+  .card__title {
+    margin: 0;
+    color: var(--card-title-color);
+    font-size: var(--card-title-size);
+    font-weight: var(--card-title-weight);
+    line-height: 1.3;
+  }
+  
+  .card__description {
+    margin: 0;
+    color: var(--card-description-color);
+    font-size: var(--card-description-size);
+    line-height: 1.5;
+    flex: 1;
+  }
+  
+  .card__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm, 0.5rem);
+    align-items: center;
+    margin-top: auto;
+  }
+  
+  .card__meta-item {
+    color: var(--card-meta-color);
+    font-size: var(--card-meta-size);
+    font-weight: var(--font-weight-medium, 500);
+  }
+  
+  .card__meta-item:not(:last-child)::after {
+    content: '•';
+    margin-left: var(--spacing-sm, 0.5rem);
+    opacity: 0.5;
+  }
+  
+  .card__footer {
+    padding: var(--card-padding);
+    padding-top: 0;
+    display: flex;
+    gap: var(--spacing-sm, 0.5rem);
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  /* Size variants */
+  .card--compact {
+    --card-padding: var(--spacing-md, 1rem);
+    --card-gap: var(--spacing-sm, 0.5rem);
+    --card-title-size: var(--font-size-base, 1rem);
+  }
+  
+  .card--spacious {
+    --card-padding: var(--spacing-xl, 2rem);
+    --card-gap: var(--spacing-lg, 1.5rem);
+    --card-title-size: var(--font-size-xl, 1.25rem);
+  }
+  
+  /* Style variants */
+  .card--elevated {
+    --card-shadow: var(--shadow-md, 0 4px 6px -1px rgb(0 0 0 / 0.1));
+    --card-shadow-hover: var(--shadow-lg, 0 10px 15px -3px rgb(0 0 0 / 0.1));
+  }
+  
+  .card--flat {
+    --card-shadow: none;
+    --card-shadow-hover: var(--shadow-sm, 0 1px 2px 0 rgb(0 0 0 / 0.05));
+  }
+  
+  .card--outlined {
+    --card-shadow: none;
+    --card-border-width: 2px;
+  }
+  
+  /* Color variants */
+  .card--primary {
+    --card-border-color: var(--color-primary, #2563eb);
+    --card-title-color: var(--color-primary, #2563eb);
+  }
+  
+  .card--secondary {
+    --card-background: var(--color-surface, #f8fafc);
+  }
+  
+  .card--accent {
+    --card-border-color: var(--color-accent, #f59e0b);
+    --card-title-color: var(--color-accent, #f59e0b);
+  }
+  
+  /* Layout variants */
+  .card--horizontal {
+    flex-direction: row;
+    align-items: stretch;
+  }
+  
+  .card--horizontal .card__header {
+    flex-shrink: 0;
+    width: 200px;
+  }
+  
+  .card--horizontal .card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .card--horizontal .card__content {
+    flex: 1;
+    min-width: 0; /* Prevent overflow */
+  }
+  
+  /* Interactive states */
+  .card--interactive {
+    cursor: pointer;
+    transition: all var(--card-transition);
+  }
+  
+  .card--interactive:hover {
+    box-shadow: var(--card-shadow-hover);
+    transform: translateY(-2px);
+  }
+  
+  .card--interactive:hover .card__image {
+    transform: scale(1.02);
+  }
+  
+  .card--interactive:active {
+    transform: translateY(0);
+  }
+  
+  .card--interactive:focus {
+    outline: 2px solid var(--color-primary, #2563eb);
+    outline-offset: 2px;
+  }
+  
+  /* Loading state */
+  .card--loading {
+    opacity: 0.7;
+    pointer-events: none;
+  }
+  
+  .card--loading .card__image {
+    background: linear-gradient(90deg, #f0f0f0 25%, transparent 37%, #f0f0f0 63%);
+    background-size: 400% 100%;
+    animation: card-skeleton 1.5s ease-in-out infinite;
+  }
+  
+  /* Screen reader only text */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  
+  /* Button styles for cards with buttons */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs, 0.25rem);
+    padding: var(--spacing-sm, 0.5rem) var(--spacing-md, 1rem);
+    border: 1px solid transparent;
+    border-radius: var(--border-radius-md, 0.375rem);
+    font-size: var(--font-size-sm, 0.875rem);
+    font-weight: var(--font-weight-medium, 500);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all var(--transition-fast, 0.15s ease);
+    min-height: 2.25rem;
+  }
+  
+  .btn--primary {
+    background: var(--color-primary, #2563eb);
+    color: white;
+    border-color: var(--color-primary, #2563eb);
+  }
+  
+  .btn--primary:hover {
+    background: var(--color-primary-hover, #1d4ed8);
+    border-color: var(--color-primary-hover, #1d4ed8);
+  }
+  
+  .btn--secondary {
+    background: transparent;
+    color: var(--color-text, #1e293b);
+    border-color: var(--color-border, #e2e8f0);
+  }
+  
+  .btn--secondary:hover {
+    background: var(--color-surface, #f8fafc);
+  }
+  
+  /* Responsive design */
+  @media (max-width: 640px) {
+    .card--horizontal {
+      flex-direction: column;
+    }
+    
+    .card--horizontal .card__header {
+      width: 100%;
+    }
+    
+    .card__footer {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    
+    .btn {
+      width: 100%;
+    }
+  }
+  
+  /* Animations */
+  @keyframes card-skeleton {
+    0% {
+      background-position: -200px 0;
+    }
+    100% {
+      background-position: calc(200px + 100%) 0;
+    }
+  }
+  
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .card,
+    .card__image,
+    .btn {
+      transition: none;
+    }
+    
+    .card--interactive:hover {
+      transform: none;
+    }
+    
+    .card--interactive:hover .card__image {
+      transform: none;
+    }
+    
+    .card--loading .card__image {
+      animation: none;
+    }
+  }
+  
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .card {
+      --card-border-color: ButtonText;
+      --card-border-width: 2px;
+    }
+  }
+  
+  /* Print styles */
+  @media print {
+    .card {
+      --card-shadow: none;
+      border: 1px solid #000;
+      break-inside: avoid;
+    }
+    
+    .card__footer {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  // Card Container Component JavaScript
+  (function() {
+    'use strict';
+    
+    class CardContainer {
+      constructor(element) {
+        this.element = element;
+        this.isInteractive = element.classList.contains('card--interactive');
+        
+        this.init();
+      }
+      
+      init() {
+        if (this.isInteractive) {
+          this.setupInteractivity();
+        }
+        
+        this.setupAccessibility();
+        this.setupImageLazyLoading();
+      }
+      
+      setupInteractivity() {
+        // Handle click events for interactive cards
+        this.element.addEventListener('click', this.handleClick.bind(this));
+        this.element.addEventListener('keydown', this.handleKeydown.bind(this));
+        
+        // Ensure proper tabindex
+        if (!this.element.getAttribute('tabindex')) {
+          this.element.setAttribute('tabindex', '0');
+        }
+      }
+      
+      setupAccessibility() {
+        // Ensure proper ARIA attributes
+        if (!this.element.getAttribute('role')) {
+          this.element.setAttribute('role', 'article');
+        }
+        
+        // Add accessible names for interactive cards
+        if (this.isInteractive && !this.element.getAttribute('aria-label')) {
+          const title = this.element.querySelector('.card__title');
+          if (title) {
+            this.element.setAttribute('aria-label', `View ${title.textContent}`);
+          }
+        }
+      }
+      
+      setupImageLazyLoading() {
+        const images = this.element.querySelectorAll('.card__image[loading="lazy"]');
+        
+        if ('IntersectionObserver' in window) {
+          const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                const img = entry.target;
+                img.classList.add('loaded');
+                imageObserver.unobserve(img);
+              }
+            });
+          });
+          
+          images.forEach(img => imageObserver.observe(img));
+        }
+      }
+      
+      handleClick(event) {
+        // Don't trigger card click if user clicked on a button or link
+        if (event.target.closest('button, a, input, select, textarea')) {
+          return;
+        }
+        
+        this.triggerAction();
+      }
+      
+      handleKeydown(event) {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          this.triggerAction();
+        }
+      }
+      
+      triggerAction() {
+        // Look for a primary action (first link or button)
+        const primaryAction = this.element.querySelector('a, button');
+        
+        if (primaryAction) {
+          if (primaryAction.href) {
+            // Navigate to link
+            window.location.href = primaryAction.href;
+          } else {
+            // Trigger button click
+            primaryAction.click();
+          }
+        }
+        
+        // Emit custom event for additional handling
+        this.element.dispatchEvent(new CustomEvent('card:action', {
+          bubbles: true,
+          detail: { card: this.element }
+        }));
+      }
+      
+      setLoading(isLoading) {
+        if (isLoading) {
+          this.element.classList.add('card--loading');
+          this.element.setAttribute('aria-busy', 'true');
+        } else {
+          this.element.classList.remove('card--loading');
+          this.element.setAttribute('aria-busy', 'false');
+        }
+      }
+      
+      setContent(content) {
+        const body = this.element.querySelector('.card__body');
+        if (body && content) {
+          if (content.title) {
+            const title = body.querySelector('.card__title');
+            if (title) title.textContent = content.title;
+          }
+          
+          if (content.description) {
+            const description = body.querySelector('.card__description');
+            if (description) description.textContent = content.description;
+          }
+          
+          if (content.image) {
+            const image = this.element.querySelector('.card__image');
+            if (image) {
+              image.src = content.image.src;
+              image.alt = content.image.alt || '';
+            }
+          }
+        }
+      }
+    }
+    
+    // Auto-initialize all cards
+    function initCards() {
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        if (!card._cardContainer) {
+          card._cardContainer = new CardContainer(card);
+        }
+      });
+    }
+    
+    // Global API
+    window.CardContainer = CardContainer;
+    
+    // Auto-initialize on DOM ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initCards);
+    } else {
+      initCards();
+    }
+  })();
+</script>

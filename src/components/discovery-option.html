@@ -1,0 +1,35 @@
+<!-- Discovery Option Component -->
+<div class="discovery-option {{ optionClass }}">
+  <div class="option-header">
+    <div class="option-icon">
+      {{ icon }}
+    </div>
+    <h4 class="option-title">{{ title }}</h4>
+  </div>
+  
+  <div class="option-content">
+    <p class="option-description">{{ description }}</p>
+    
+    {% if benefits %}
+    <div class="option-benefits">
+      <h5>Benefits:</h5>
+      <ul class="benefit-list">
+        {% for benefit in benefits %}
+        <li class="benefit-item">{{ benefit }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+    
+    {% if timeline %}
+    <div class="option-timeline">
+      <span class="timeline-label">Timeline:</span>
+      <span class="timeline-value">{{ timeline }}</span>
+    </div>
+    {% endif %}
+  </div>
+  
+  <div class="option-footer">
+    {{ action }}
+  </div>
+</div>

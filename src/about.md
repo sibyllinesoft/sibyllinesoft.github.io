@@ -38,7 +38,9 @@ layout: simple.njk
       <p class="about-philosophy"><strong>My Philosophy:</strong> The best AI systems don't replace human intelligence—they amplify it. Whether you're a founder with a vision, a startup ready to scale, or an established company looking to stay ahead, I'm here to help you discover what becomes possible when you combine your domain expertise with intelligent systems.</p>
       
       <div class="about-cta">
-        <a href="#" data-contact-type="contact" data-subject-type="general" data-custom-body="I'm interested in discussing how AI could transform my business. Here's what I'm working on..." class="btn-primary"><span class="btn-inner">Start a Conversation <i data-lucide="mail"></i></span></a>
+        <a href="#" data-contact-type="contact" data-subject-type="general" data-custom-body="I'm interested in discussing how AI could transform my business. Here's what I'm working on..." class="btn-unified btn-primary">
+          <span class="btn-inner">Start a Conversation <i data-lucide="mail"></i></span>
+        </a>
       </div>
     </div>
   </div>
@@ -159,62 +161,6 @@ layout: simple.njk
   text-align: center;
 }
 
-.btn-primary {
-  position: relative;
-  border-radius: var(--radius-lg);
-  font-weight: 600;
-  font-size: var(--text-base);
-  transition: all 0.2s ease;
-  border: none;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  overflow: hidden;
-  color: white;
-  background: linear-gradient(
-    to right, 
-    var(--color-accent) 20%, 
-    var(--color-accent) 35%, 
-    rgba(115, 125, 247, 1) 42%, 
-    rgba(130, 140, 248, 1) 50%, 
-    rgba(115, 125, 247, 1) 58%, 
-    var(--color-accent) 65%, 
-    var(--color-accent) 100%
-  );
-  background-size: 200% auto;
-  animation: tagShine 6s linear infinite;
-}
-
-.btn-primary .btn-inner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-sm);
-  padding: var(--space-sm) var(--space-lg);
-  margin: 2px;
-  background: var(--color-accent);
-  border-radius: calc(var(--radius-lg) - 1px);
-  color: white;
-  width: 100%;
-  height: 100%;
-}
-
-.btn-primary .btn-inner .lucide {
-  color: rgba(180, 220, 255, 0.9);
-  width: 1em;
-  height: 1em;
-}
-
-@keyframes tagShine {
-  from {
-    background-position: -200% center;
-  }
-  to {
-    background-position: 200% center;
-  }
-}
 
 /* Responsive Design */
 @media (max-width: 768px) {

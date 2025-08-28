@@ -11,119 +11,99 @@ description: Next-generation AI tools currently in development
 
 Next-generation AI tools currently in alpha development. These tools represent the cutting edge of research and development, designed to solve real problems for creators and professionals. While still in early access, you can request to join the waitlist for priority access when they launch.
 
-<!-- Product Bookworm -->
-<div class="project-brochure" id="bookworm-product">
+## Infrastructure & Execution
+
+Systems that provide the foundation for running and scaling agentic development.
+
+<!-- Product Rave -->
+<div class="project-brochure" id="rave-product">
   <div class="project-visual">
-    <i data-lucide="book-open" class="project-icon"></i>
-    <div class="project-codename">Codename: BOOKWORM</div>
-    <div class="project-status">Stealth Development</div>
+    <i data-lucide="factory" class="project-icon"></i>
+    <div class="project-codename">Codename: RAVE</div>
+    <div class="project-status">Production Ready</div>
   </div>
   <div class="project-content">
-    <h2>Turn Your Story Into Visual Insights That Sell</h2>
+    <h3>Fully Configured Agentic Autonomous Development System</h3>
     <div class="project-pitch">
-      <p><strong>The Problem:</strong> Writers spend years perfecting their craft through trial and error. Editors rely on gut instinct. Publishers gamble on manuscripts without data. What if you could see your story's DNA before readers do?</p>
+      <p><strong>The Problem:</strong> Setting up a modern development environment takes weeks. You need GitLab, CI/CD pipelines, monitoring, project management, secure communication, and collaboration tools—all properly configured and integrated. But more than that, you need autonomous agents that can actually work within this infrastructure with industry-standard tracking and reporting.</p>
       
-      <p><strong>The Solution:</strong> This classified narrative analysis engine reveals the hidden patterns that captivate readers. Upload your manuscript and watch as we dissect every sentence, revealing emotional arcs, dialogue patterns, and narrative rhythms that separate bestsellers from the slush pile.</p>
+      <p><strong>The Solution:</strong> Rave isn't just a dev shop in a box—it's a fully configured agentic autonomous development system. Built on NixOS for perfect reproducibility, it combines enterprise infrastructure (GitLab, Element/Matrix, Grafana) with autonomous AI agents that operate within industry-standard workflows, complete with comprehensive tracking and reporting.</p>
       
       <div class="project-features">
         <div class="feature-item">
-          <strong>Tension Mapping:</strong> See exactly where your story drags and where it soars across every chapter.
+          <strong>Autonomous Agent Infrastructure:</strong> Not just tools, but autonomous AI agents that operate within GitLab, CI/CD pipelines, Grafana monitoring, and Element/Matrix communication—creating a fully agentic development environment.
         </div>
         <div class="feature-item">
-          <strong>Emotional Flow Analysis:</strong> Track how your characters' journeys impact reader engagement and emotional investment.
+          <strong>Industry-Standard Tracking & Reporting:</strong> Full GitLab integration with autonomous agents creating issues, merge requests, and comprehensive reports. Grafana dashboards track both infrastructure metrics and agent performance with enterprise-grade visibility.
         </div>
         <div class="feature-item">
-          <strong>Dialogue Intelligence:</strong> Analyze conversation patterns, character voice consistency, and speech authenticity across your entire manuscript.
+          <strong>Agentic Collaboration:</strong> Element/Matrix integration enables agents to communicate with human teams in real-time, providing status updates, requesting approvals, and coordinating work through standard chat interfaces.
         </div>
         <div class="feature-item">
-          <strong>Character Arc Visualization:</strong> Watch your protagonists transform across chapters with data-driven character development tracking.
+          <strong>Enterprise-Grade Deployment:</strong> NixOS flakes ensure identical agentic environments everywhere. Multi-format deployment (QEMU, VirtualBox, VMware, ISO) with full agent orchestration, security, and comprehensive audit trails.
         </div>
       </div>
       
-      <p class="project-tagline">From manuscript to masterpiece. Every story has a structure—now you can see yours.</p>
+      <div class="project-tagline">Beyond dev shops - deploy a fully autonomous agentic development system with industry-standard tracking and reporting in minutes.</div>
       
       <div class="project-cta">
-        <a href="#" data-contact-type="contact" data-subject-type="bookworm" data-custom-body="I'm interested in joining the waitlist for Codename Bookworm. I'm a [writer/editor/publisher] working on..." class="btn-primary"><span class="btn-inner">Join Waitlist <i data-lucide="mail"></i></span></a>
+        <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in joining the waitlist for this product. Please let me know when it becomes available.">
+          <span class="btn-inner">
+            Join Waitlist
+            <i data-lucide="mail"></i>
+          </span>
+        </a>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Product Darwin -->
-<div class="project-brochure" id="darwin-product">
+<!-- Product Smith -->
+<div class="project-brochure" id="smith-product">
   <div class="project-visual">
-    <i data-lucide="git-branch" class="project-icon"></i>
-    <div class="project-codename">Codename: DARWIN</div>
-    <div class="project-status">Alpha Evolution</div>
+    <i data-lucide="cpu" class="project-icon"></i>
+    <div class="project-codename">Codename: SMITH</div>
+    <div class="project-status">Production Alpha</div>
   </div>
   <div class="project-content">
-    <h2>Generate Hundreds of Ideas While You Sleep</h2>
+    <h3>High-Performance AI Agent Execution Platform</h3>
     <div class="project-pitch">
-      <p><strong>The Problem:</strong> You spend hours generating ideas only to hit the same creative walls. Manual brainstorming sessions produce diminishing returns after the first few rounds. You need fresh perspectives, but your team is stuck in the same thinking patterns.</p>
+      <p><strong>The Problem:</strong> Speed is incredibly important for AI agents, yet most agents are written in JavaScript. This introduces latency overhead, memory bloat, and cold start delays. JavaScript dependency chains create security vulnerabilities. Complex agent workflows need enterprise-grade reliability and deterministic replay capabilities.</p>
       
-      <p><strong>The Solution:</strong> Get a creative partner that works around the clock, generating and refining ideas while you focus on other priorities. This system automatically produces hundreds of variations, cross-breeds the best concepts, and surfaces breakthrough combinations you'd never discover manually.</p>
+      <p><strong>The Solution:</strong> Smith is a high-performance Rust platform for AI agent execution with sub-5ms cold starts, 150MB memory footprint, and core-as-a-service architecture. Built for enterprise-grade performance and reliability in agent coordination workflows.</p>
       
       <div class="project-features">
         <div class="feature-item">
-          <strong>24/7 Idea Generation:</strong> Set it running overnight and wake up to hundreds of refined concepts, each building on your initial direction.
+          <strong>Blazing Performance:</strong> Sub-5ms cold start times, <150MB memory usage, and minimal CPU overhead through Rust optimizations and core-as-a-service architecture.
         </div>
         <div class="feature-item">
-          <strong>Smart Quality Filtering:</strong> Multiple AI evaluators assess ideas from different angles—practicality, originality, market fit—so you only see the gems.
+          <strong>Enterprise Reliability:</strong> Deterministic record/replay, comprehensive audit logging, process isolation, and 24/7 daemon stability with automatic recovery.
         </div>
         <div class="feature-item">
-          <strong>Cross-Breeding Innovation:</strong> The system combines your best ideas in unexpected ways, discovering hybrid concepts you'd never think to try.
+          <strong>Agent Optimization:</strong> Purpose-built for AI agent workloads with JavaScript/TypeScript hook compatibility and seamless tool integration for existing agent frameworks.
         </div>
         <div class="feature-item">
-          <strong>Stay in Control:</strong> Guide the process anytime by marking favorites, adding constraints, or steering toward specific outcomes.
+          <strong>Advanced Architecture:</strong> IPC-based service communication, real-time TUI interface, NATS integration for distributed workflows, and extensible plugin system.
         </div>
       </div>
       
-      <p class="project-tagline">Stop forcing creativity. Start discovering what's already waiting to be found.</p>
+      <div class="project-tagline">Production-ready AI agent execution platform, blazingly fast. Built in Rust for enterprise performance and reliability.</div>
       
       <div class="project-cta">
-        <a href="#" data-contact-type="contact" data-subject-type="darwin" data-custom-body="I'm interested in joining the waitlist for Codename Darwin. I want to evolve ideas for..." class="btn-primary"><span class="btn-inner">Join Waitlist <i data-lucide="mail"></i></span></a>
+        <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in joining the waitlist for this product. Please let me know when it becomes available.">
+          <span class="btn-inner">
+            Join Waitlist
+            <i data-lucide="mail"></i>
+          </span>
+        </a>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Product Ideoscope -->
-<div class="project-brochure" id="ideoscope-product">
-  <div class="project-visual">
-    <i data-lucide="radar" class="project-icon"></i>
-    <div class="project-codename">Codename: IDEOSCOPE</div>
-    <div class="project-status">Discovery Phase</div>
-  </div>
-  <div class="project-content">
-    <h2>See What's Resonating Before Anyone Else</h2>
-    <div class="project-pitch">
-      <p><strong>The Problem:</strong> Creators waste hours scrolling through endless feeds trying to understand what's trending in their niche. By the time you spot a trend manually, it's already saturated. You need to see what's resonating with audiences before it becomes obvious to everyone else.</p>
-      
-      <p><strong>The Solution:</strong> AI-curated Pinterest-style boards that automatically surface the most relevant viral and high-engagement content for whatever you're trying to create. Stop chasing trends—start anticipating them.</p>
-      
-      <div class="project-features">
-        <div class="feature-item">
-          <strong>Trend Radar:</strong> AI monitors millions of posts to identify what's gaining traction in your creative domain before it hits mainstream awareness.
-        </div>
-        <div class="feature-item">
-          <strong>Smart Boards:</strong> Visual inspiration boards automatically curated around your projects, showing viral content, engagement patterns, and emerging themes.
-        </div>
-        <div class="feature-item">
-          <strong>Resonance Analysis:</strong> Understand why specific content is connecting with audiences through AI-powered engagement pattern analysis.
-        </div>
-        <div class="feature-item">
-          <strong>Creator Intelligence:</strong> Learn from successful creators in your space—see what formats, topics, and approaches are driving authentic engagement.
-        </div>
-      </div>
-      
-      <p class="project-tagline">Stop guessing what will resonate. Start creating with confidence.</p>
-      
-      <div class="project-cta">
-        <a href="#" data-contact-type="contact" data-subject-type="ideoscope" data-custom-body="I'm interested in joining the waitlist for Codename Ideoscope. I create content for..." class="btn-primary"><span class="btn-inner">Join Waitlist <i data-lucide="mail"></i></span></a>
-      </div>
-    </div>
-  </div>
-</div>
+## Research & Knowledge Systems
+
+Tools focused on discovery, search, and context handling.
 
 <!-- Product Mimir -->
 <div class="project-brochure" id="mimir-product">
@@ -133,7 +113,7 @@ Next-generation AI tools currently in alpha development. These tools represent t
     <div class="project-status">Research Alpha</div>
   </div>
   <div class="project-content">
-    <h2>Research Swarm Intelligence for Hard Problems</h2>
+    <h3>Research Swarm Intelligence for Hard Problems</h3>
     <div class="project-pitch">
       <p><strong>The Problem:</strong> Hard problems require deep research across multiple codebases, documentation, and knowledge sources. Agents get confused by too many search tools. You need systematic investigation but lack unified intelligence that can coordinate complex research across code and literature.</p>
       
@@ -154,52 +134,285 @@ Next-generation AI tools currently in alpha development. These tools represent t
         </div>
       </div>
       
-      <p class="project-tagline">Stop surface-level searches. Deploy research swarms for breakthrough solutions.</p>
+      <div class="project-tagline">Stop surface-level searches. Deploy research swarms for breakthrough solutions.</div>
       
       <div class="project-cta">
-        <a href="#" data-contact-type="contact" data-subject-type="mimir" data-custom-body="I'm interested in joining the waitlist for Codename Mimir. I need research swarms for..." class="btn-primary"><span class="btn-inner">Join Waitlist <i data-lucide="mail"></i></span></a>
+        <a href="https://github.com/sibyllinesoft/mimir" class="btn-unified btn-primary">
+          <span class="btn-inner">
+            View on GitHub
+            <i data-lucide="github"></i>
+          </span>
+        </a>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Product Agent Zoo -->
-<div class="project-brochure" id="agentzoo-product">
+<!-- Product Lethe -->
+<div class="project-brochure" id="lethe-product">
   <div class="project-visual">
-    <i data-lucide="package" class="project-icon"></i>
-    <div class="project-codename">Codename: AGENT ZOO</div>
-    <div class="project-status">Beta Implementation</div>
+    <i data-lucide="memory-stick" class="project-icon"></i>
+    <div class="project-codename">Codename: LETHE</div>
+    <div class="project-status">Alpha Testing</div>
   </div>
   <div class="project-content">
-    <h2>Stop Building Agents From Scratch Every Time</h2>
+    <h3>Infinite Context for Agents Through Intelligent Forgetting</h3>
     <div class="project-pitch">
-      <p><strong>The Problem:</strong> Every team rebuilds the same AI agents from scratch. You find an amazing prompt on Reddit but can't version it or share it properly. Your organization has dozens of agents scattered across Slack threads and Google Docs with no way to discover or reuse them.</p>
+      <p><strong>The Problem:</strong> Context management is a constant headache. You spend more time deciding what to include than actually working. Agents hit token limits, lose important context, and require careful curation of their chat history to stay functional.</p>
       
-      <p><strong>The Solution:</strong> Discover, compose, and share intelligent agents with the simplicity of markdown and the power of semantic versioning. Search thousands of community agents, fork and customize them, or publish your own innovations for others to build upon.</p>
+      <p><strong>The Solution:</strong> Lethe gives agents infinite context by intelligently filtering irrelevant messages and rewriting chat history more efficiently. No more context management—just let agents read everything and trust Lethe to help them forget what's not important.</p>
       
       <div class="project-features">
         <div class="feature-item">
-          <strong>Markdown-Native Registry:</strong> Agents stored as simple .md files with YAML frontmatter—no complex formats or proprietary tools required.
+          <strong>Intelligent Filtering:</strong> Automatically identifies and removes irrelevant messages from chat history, keeping only what matters for the current context and task.
         </div>
         <div class="feature-item">
-          <strong>Semantic Versioning & Dependencies:</strong> Full semver support with dependency resolution. Compose complex agents from smaller, reusable components.
+          <strong>Efficient Rewriting:</strong> Compresses and rewrites verbose messages into concise, information-dense summaries that preserve meaning while reducing token usage.
         </div>
         <div class="feature-item">
-          <strong>NPX CLI Integration:</strong> <code>npx @claudezoo/cli get agents/sql-helper@latest</code> - install and run agents instantly.
+          <strong>Zero Context Management:</strong> Eliminates manual context curation. Agents can read everything without worrying about token limits or relevance filtering—Lethe handles it automatically.
         </div>
         <div class="feature-item">
-          <strong>Zero-Friction Discovery:</strong> Public browsing without signup barriers. OAuth only required for publishing your own agents.
+          <strong>Infinite Agent Memory:</strong> Agents gain access to unlimited conversation history through smart compression and relevance filtering, maintaining full context awareness without performance degradation.
         </div>
       </div>
       
-      <p class="project-tagline">Stop reinventing agents. Start composing intelligence.</p>
+      <div class="project-tagline">Stop managing context. Start trusting intelligent forgetting. Infinite agent memory through smart compression.</div>
       
       <div class="project-cta">
-        <a href="#" data-contact-type="contact" data-subject-type="agentzoo" data-custom-body="I'm interested in joining the waitlist for Codename Agent Zoo. I want to share/discover agents for..." class="btn-primary"><span class="btn-inner">Join Waitlist <i data-lucide="mail"></i></span></a>
+        <a href="https://github.com/sibyllinesoft/lethe" class="btn-unified btn-primary">
+          <span class="btn-inner">
+            View on GitHub
+            <i data-lucide="github"></i>
+          </span>
+        </a>
       </div>
     </div>
   </div>
 </div>
+
+<!-- Product Scribe -->
+<div class="project-brochure" id="scribe-product">
+  <div class="project-visual">
+    <i data-lucide="zap" class="project-icon"></i>
+    <div class="project-codename">Codename: SCRIBE</div>
+    <div class="project-status">Production Ready</div>
+  </div>
+  <div class="project-content">
+    <h3>Effortless Codebase Sharing with LLMs That Scales to Any Repository</h3>
+    <div class="project-pitch">
+      <p><strong>The Problem:</strong> Sharing your codebase with LLMs is a nightmare. Manual file selection, token counting, context juggling, and constant decisions about what to include or leave out. Large repositories become impossible to share effectively, and you miss critical code connections.</p>
+      
+      <p><strong>The Solution:</strong> Scribe makes codebase sharing effortless. Point it at any repository and get an intelligent, optimally-packed representation that scales gracefully to any size. Advanced PageRank centrality algorithms automatically identify the most important code, so LLMs always get the context they need.</p>
+      
+      <div class="project-features">
+        <div class="feature-item">
+          <strong>One-Command Simplicity:</strong> Point Scribe at any GitHub repository and instantly get perfectly formatted code for LLM consumption. No manual file selection, no token management, no configuration needed.
+        </div>
+        <div class="feature-item">
+          <strong>Infinite Scale:</strong> Works effortlessly on any repository size. Small projects get complete coverage, massive codebases get intelligently prioritized content using novel research-backed algorithms.
+        </div>
+        <div class="feature-item">
+          <strong>Always the Most Important Code:</strong> Advanced PageRank centrality analysis automatically identifies critical code relationships, dependencies, and core functionality—ensuring LLMs see what matters most.
+        </div>
+        <div class="feature-item">
+          <strong>Intelligent Context Optimization:</strong> Multi-fidelity representation with semantic chunking, dependency-aware selection, and budget-conscious allocation. Maximum insight per token, every time.
+        </div>
+      </div>
+      
+      <div class="project-tagline">Stop wrestling with code selection. Start sharing entire codebases effortlessly, at any scale.</div>
+      
+      <div class="project-cta">
+        <a href="https://github.com/sibyllinesoft/scribe" class="btn-unified btn-primary">
+          <span class="btn-inner">
+            View on GitHub
+            <i data-lucide="github"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Product Minerva -->
+<div class="project-brochure" id="minerva-product">
+  <div class="project-visual">
+    <i data-lucide="network" class="project-icon"></i>
+    <div class="project-codename">Codename: MINERVA</div>
+    <div class="project-status">Alpha Development</div>
+  </div>
+  <div class="project-content">
+    <h3>Meta MCP Server: Unified Intelligence Across All Your Tools</h3>
+    <div class="project-pitch">
+      <p><strong>The Problem:</strong> You have dozens of MCP servers scattered across different tools and services. Finding the right tool for a task is like searching through a digital junkyard. Manual tool selection wastes time, and agents can't efficiently discover what's available across your entire toolchain.</p>
+      
+      <p><strong>The Solution:</strong> Minerva automatically discovers, aggregates, and intelligently orchestrates all your MCP servers into one unified interface. Advanced hybrid search combines BM25 and dense embeddings with cross-encoder reranking to always surface the perfect tool for any task.</p>
+      
+      <div class="project-features">
+        <div class="feature-item">
+          <strong>Universal Tool Discovery:</strong> Automatically crawls and validates tools from multiple upstream MCP servers, creating a unified directory of all your available capabilities.
+        </div>
+        <div class="feature-item">
+          <strong>Intelligent Hybrid Search:</strong> BM25 full-text search combined with dense embeddings and cross-encoder reranking ensures you find exactly the right tool for any natural language query.
+        </div>
+        <div class="feature-item">
+          <strong>Multi-Mode Performance:</strong> Fast mode (200ms), Balanced mode (500ms), or Thorough mode (2s) with optional LLM-powered DAG generation for complex workflows.
+        </div>
+        <div class="feature-item">
+          <strong>Production-Ready Infrastructure:</strong> Full observability with OpenTelemetry, circuit breakers, RBAC controls, and degradation modes for enterprise deployment.
+        </div>
+      </div>
+      
+      <div class="project-tagline">Stop managing scattered tools. Start orchestrating unified intelligence across your entire MCP ecosystem.</div>
+      
+      <div class="project-cta">
+        <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in joining the waitlist for this product. Please let me know when it becomes available.">
+          <span class="btn-inner">
+            Join Waitlist
+            <i data-lucide="mail"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Agent Optimization & Workflow
+
+Products that improve agent behavior, planning, or coordination.
+
+<!-- Product Daedalus -->
+<div class="project-brochure" id="daedalus-product">
+  <div class="project-visual">
+    <i data-lucide="brain-circuit" class="project-icon"></i>
+    <div class="project-codename">Codename: DAEDALUS</div>
+    <div class="project-status">Production Ready</div>
+  </div>
+  <div class="project-content">
+    <h3>Online Agent Optimization Framework</h3>
+    <div class="project-pitch">
+      <p><strong>The Problem:</strong> Agents fail tasks due to suboptimal prompts and configurations. You spend hours crafting system prompts only to watch them break on edge cases. Generic prompts can't adapt to specific task requirements, and manual optimization takes too long to be practical.</p>
+      
+      <p><strong>The Solution:</strong> Daedalus is an online agent optimization framework that automatically optimizes task and system prompts for your agents based on the exact details of the task they've been instructed to perform and past performance metrics.</p>
+      
+      <div class="project-features">
+        <div class="feature-item">
+          <strong>Task-Specific Optimization:</strong> Analyzes the exact details of each task to generate optimized prompts tailored to specific requirements, constraints, and success criteria.
+        </div>
+        <div class="feature-item">
+          <strong>Performance-Driven Learning:</strong> Uses past metrics and failure patterns to continuously improve agent performance, learning from both successes and edge cases.
+        </div>
+        <div class="feature-item">
+          <strong>Real-Time Adaptation:</strong> Dynamically adjusts system prompts and task instructions based on task complexity, domain requirements, and historical performance data.
+        </div>
+        <div class="feature-item">
+          <strong>Multi-Agent Orchestration:</strong> Optimizes not just individual agents but entire agent workflows, improving coordination and reducing failure cascades.
+        </div>
+      </div>
+      
+      <div class="project-tagline">Stop crafting prompts manually. Start optimizing agents automatically based on what actually works.</div>
+      
+      <div class="project-cta">
+        <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in joining the waitlist for this product. Please let me know when it becomes available.">
+          <span class="btn-inner">
+            Join Waitlist
+            <i data-lucide="mail"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Product Conclave -->
+<div class="project-brochure" id="conclave-product">
+  <div class="project-visual">
+    <i data-lucide="users" class="project-icon"></i>
+    <div class="project-codename">Codename: CONCLAVE</div>
+    <div class="project-status">Alpha Testing</div>
+  </div>
+  <div class="project-content">
+    <h3>AI-Powered Workflow Planning Through Expert Debate</h3>
+    <div class="project-pitch">
+      <p><strong>The Problem:</strong> Planning complex workflows is guesswork. You either over-engineer from the start or miss critical dependencies that derail projects later. Single AI perspectives lack the rigor of real planning sessions, and manual planning takes forever.</p>
+      
+      <p><strong>The Solution:</strong> Conclave assembles multiple AI experts who debate, critique, and refine workflow proposals through structured rounds of discussion. Get the benefits of expert planning sessions—comprehensive task breakdowns, risk assessment, and dependency analysis—in minutes, not hours.</p>
+      
+      <div class="project-features">
+        <div class="feature-item">
+          <strong>Multi-Expert Debate Process:</strong> 3-4 AI planning personas analyze your requirements from different angles, then debate and refine proposals through up to 5 structured rounds.
+        </div>
+        <div class="feature-item">
+          <strong>Structured XML Workflows:</strong> Get canonical workflow plans with task dependencies, risk registers, acceptance criteria, and timeline estimates—ready for immediate execution.
+        </div>
+        <div class="feature-item">
+          <strong>Repository-Aware Planning:</strong> Automatically analyzes your codebase to create context-aware plans that leverage existing patterns and avoid architectural conflicts.
+        </div>
+        <div class="feature-item">
+          <strong>MCP Integration:</strong> Works seamlessly with Claude Desktop and Claude Code through Model Context Protocol—no setup complexity, just natural conversation planning.
+        </div>
+      </div>
+      
+      <div class="project-tagline">Stop planning in isolation. Assemble expert AI councils for bulletproof workflow design.</div>
+      
+      <div class="project-cta">
+        <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in joining the waitlist for this product. Please let me know when it becomes available.">
+          <span class="btn-inner">
+            Join Waitlist
+            <i data-lucide="mail"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Product Heimdall -->
+<div class="project-brochure" id="heimdall-product">
+  <div class="project-visual">
+    <i data-lucide="eye" class="project-icon"></i>
+    <div class="project-codename">Codename: HEIMDALL</div>
+    <div class="project-status">Alpha Development</div>
+  </div>
+  <div class="project-content">
+    <h3>Intelligent LLM Router with Cost-Quality Optimization</h3>
+    <div class="project-pitch">
+      <p><strong>The Problem:</strong> Choosing the right AI model for each task is impossible to optimize manually. Premium models are expensive for simple tasks, while cheap models fail on complex ones. You waste money on overengineered responses or get poor results from under-powered models.</p>
+      
+      <p><strong>The Solution:</strong> Heimdall uses gradient-boosted decision trees and Avengers-Pro routing to automatically route each request to the optimal model. It maximizes quality per dollar through intelligent triage, OAuth integration, and real-time cost-quality optimization.</p>
+      
+      <div class="project-features">
+        <div class="feature-item">
+          <strong>GBDT Triage System:</strong> Machine learning triage routes requests to cheap (DeepSeek/Qwen), mid (Claude/GPT-5), or premium (GPT-5/Gemini with high reasoning) tiers based on complexity analysis.
+        </div>
+        <div class="feature-item">
+          <strong>Avengers-Pro Optimization:</strong> Within each tier, uses research-backed alpha scoring to balance quality and cost, ensuring optimal model selection for each specific task type.
+        </div>
+        <div class="feature-item">
+          <strong>Direct Provider Integration:</strong> OAuth passthrough for Claude, direct API access for GPT-5 and Gemini, with intelligent fallback handling for rate limits and failures.
+        </div>
+        <div class="feature-item">
+          <strong>Thinking Budget Control:</strong> Dynamically adjusts reasoning effort (GPT-5) and thinking budgets (Gemini) based on task complexity, optimizing both latency and quality.
+        </div>
+      </div>
+      
+      <div class="project-tagline">Stop guessing which AI model to use. Start optimizing quality per dollar automatically with intelligent routing.</div>
+      
+      <div class="project-cta">
+        <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in joining the waitlist for this product. Please let me know when it becomes available.">
+          <span class="btn-inner">
+            Join Waitlist
+            <i data-lucide="mail"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Developer Control & Integration
+
+Products that make AI setup, costs, and integration controllable.
 
 <!-- Product MindLink -->
 <div class="project-brochure" id="mindlink-product">
@@ -209,7 +422,7 @@ Next-generation AI tools currently in alpha development. These tools represent t
     <div class="project-status">Production Alpha</div>
   </div>
   <div class="project-content">
-    <h2>Every Developer's AI Dream: Zero Setup, Total Control</h2>
+    <h3>Every Developer's AI Dream: Zero Setup, Total Control</h3>
     <div class="project-pitch">
       <p><strong>The Problem:</strong> Building AI features means paying for expensive inference, managing API keys across tools, and losing control over costs. Your users want local privacy, but apps can't safely access their Ollama setup. You're stuck choosing between expensive cloud AI or complex local integration nightmares.</p>
       
@@ -230,87 +443,234 @@ Next-generation AI tools currently in alpha development. These tools represent t
         </div>
       </div>
       
-      <p class="project-tagline">Build AI features without AI bills. Give users the control they actually want.</p>
+      <div class="project-tagline">Build AI features without AI bills. Give users the control they actually want.</div>
       
       <div class="project-cta">
-        <a href="#" data-contact-type="contact" data-subject-type="mindlink" data-custom-body="I'm interested in joining the waitlist for Codename MindLink. I want to build AI features without inference costs for..." class="btn-primary"><span class="btn-inner">Join Waitlist <i data-lucide="mail"></i></span></a>
+        <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in joining the waitlist for this product. Please let me know when it becomes available.">
+          <span class="btn-inner">
+            Join Waitlist
+            <i data-lucide="mail"></i>
+          </span>
+        </a>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Product Rave -->
-<div class="project-brochure" id="rave-product">
+<!-- Product Hydra -->
+<div class="project-brochure" id="hydra-product">
   <div class="project-visual">
-    <i data-lucide="unlock" class="project-icon"></i>
-    <div class="project-codename">Codename: RAVE</div>
+    <i data-lucide="git-branch-plus" class="project-icon"></i>
+    <div class="project-codename">Codename: HYDRA</div>
     <div class="project-status">Production Ready</div>
   </div>
   <div class="project-content">
-    <h2>Unleash Full Agent Autonomy Without the Risk</h2>
+    <h3>Transform Claude Code Into 50+ Expert Agent Heads</h3>
     <div class="project-pitch">
-      <p><strong>The Problem:</strong> You want agents to run autonomously but constantly asking for permission kills their effectiveness. Give them full access and they might damage your system. Containers aren't true isolation—agents can still escape and wreak havoc. You're stuck between crippled agents or dangerous freedom.</p>
+      <p><strong>The Problem:</strong> Claude Code hits context limits after 50-100 messages, forcing constant restarts that kill productivity. You spend more time re-explaining your project than building it. Complex development sessions become impossible.</p>
       
-      <p><strong>The Solution:</strong> Rave gives agents complete autonomy in true VM isolation. Let them install packages, modify files, run commands—whatever they need—while your host system stays bulletproof. Pre-configured with Vibe Kanban and LLM tools for instant agent swarm deployment.</p>
+      <p><strong>The Solution:</strong> Hydra transforms Claude Code into a mythical development beast with 50+ specialized agent heads. Each agent spawns with fresh context, delivers expert results, and returns only actionable outputs—preserving your conversation forever while delivering specialist-level expertise.</p>
       
       <div class="project-features">
         <div class="feature-item">
-          <strong>Full Agent Freedom:</strong> No permission gates, no restricted access. Agents get root in their sandbox and can do anything—install, configure, experiment—without breaking your system.
+          <strong>Context Firewall Technology:</strong> 50+ agents work in isolation, using 0% of your conversation context. Unlimited 300+ message sessions without degradation.
         </div>
         <div class="feature-item">
-          <strong>True VM Isolation:</strong> Kernel-level protection that containers can't match. Agents literally cannot escape to damage your host—destroy the VM, problem solved.
+          <strong>50+ Domain Experts:</strong> From TypeScript masters to security ninjas—each agent brings deep expertise in modern frameworks and 2024-2025 patterns.
         </div>
         <div class="feature-item">
-          <strong>Agent Swarm Ready:</strong> Vibe Kanban for task management and comprehensive LLM toolkit pre-installed. Deploy multiple autonomous agents instantly.
+          <strong>Autonomous Parallel Execution:</strong> Multiple agents coordinate complex projects independently while you maintain oversight and control.
         </div>
         <div class="feature-item">
-          <strong>30-Second Reset:</strong> Agent broke something? Nuke the VM and spawn a fresh one in seconds. No cleanup, no residual damage, no downtime.
+          <strong>Living Blueprint System:</strong> Every project becomes a persistent XML document that orchestrates execution and captures organizational knowledge.
         </div>
       </div>
       
-      <p class="project-tagline">Stop babysitting agents. Give them full power in perfect safety.</p>
+      <div class="project-tagline">Stop hitting context limits. Start building mythical-scale projects with unlimited conversations.</div>
       
       <div class="project-cta">
-        <a href="#" data-contact-type="contact" data-subject-type="rave" data-custom-body="I'm interested in joining the waitlist for Codename Rave. I want to unleash autonomous agents for..." class="btn-primary"><span class="btn-inner">Join Waitlist <i data-lucide="mail"></i></span></a>
+        <a href="https://github.com/sibyllinesoft/hydra" class="btn-unified btn-primary">
+          <span class="btn-inner">
+            View on GitHub
+            <i data-lucide="github"></i>
+          </span>
+        </a>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ScrambleBench -->
-<div class="project-brochure" id="scramblebench-product">
+<!-- Product Arbiter -->
+<div class="project-brochure" id="arbiter-product">
   <div class="project-visual">
-    <i data-lucide="shield-check" class="project-icon"></i>
-    <div class="project-codename">ScrambleBench</div>
-    <div class="project-status">Research Release</div>
+    <i data-lucide="gavel" class="project-icon"></i>
+    <div class="project-codename">Codename: ARBITER</div>
+    <div class="project-status">Alpha Development</div>
   </div>
   <div class="project-content">
-    <h2>Contamination-Resistant LLM Evaluation Toolkit</h2>
+    <h3>Declarative Test Specification Engine</h3>
     <div class="project-pitch">
-      <p><strong>The Problem:</strong> Training data contamination makes LLM evaluation meaningless. Models perform well on benchmarks they've seen during training, giving false confidence in capabilities. How do you test what a model truly understands versus what it memorized?</p>
+      <p><strong>The Problem:</strong> Writing comprehensive tests is time-consuming and error-prone. Test coverage gaps lead to production bugs. Manual test maintenance becomes unmanageable as applications grow. You need tests that understand your application's behavior, not just its structure.</p>
       
-      <p><strong>The Solution:</strong> A comprehensive benchmarking framework that creates truly novel test cases by transforming existing benchmarks through constructed languages and document transformations, ensuring models are evaluated on genuinely unseen content.</p>
+      <p><strong>The Solution:</strong> Arbiter uses CUE (Configure, Unify, Execute) to let you specify what your application should do declaratively. It automatically generates comprehensive test suites, validates behavior across UI flows, and maintains test correctness as your application evolves.</p>
       
       <div class="project-features">
         <div class="feature-item">
-          <strong>Constructed Language Translation:</strong> Transform benchmarks into artificial languages that preserve logical structure while eliminating memorization advantages.
+          <strong>Declarative Test Specifications:</strong> Define application behavior in CUE rather than writing individual test cases. Arbiter generates comprehensive test coverage from high-level specifications.
         </div>
         <div class="feature-item">
-          <strong>Document Transformation:</strong> Advanced text transformations and long-context document restructuring that maintains semantic meaning while creating novel test cases.
+          <strong>Behavior-Driven Validation:</strong> Tests understand user flows, UI interactions, and business logic rather than just checking implementation details. Validates actual behavior, not code structure.
         </div>
         <div class="feature-item">
-          <strong>Multi-Model Evaluation:</strong> Test 100+ models through OpenRouter integration with comprehensive statistical analysis and rich visualizations.
+          <strong>Automatic Test Generation:</strong> Creates unit tests, integration tests, and end-to-end test suites automatically from your behavioral specifications with full coverage of edge cases.
         </div>
         <div class="feature-item">
-          <strong>Research-Grade Toolkit:</strong> Complete CLI and Python API designed for researchers and AI practitioners conducting rigorous evaluation studies.
+          <strong>Continuous Test Evolution:</strong> As specifications change, tests automatically update to match new requirements while preserving validation of core application behavior.
         </div>
       </div>
       
-      <p class="project-tagline">Finally know what your models actually understand—not what they memorized.</p>
+      <div class="project-tagline">Stop writing tests manually. Start specifying behavior declaratively and let AI generate comprehensive test coverage.</div>
       
       <div class="project-cta">
-        <a href="https://sibylline.dev/scramblebench/" target="_blank" rel="noopener noreferrer" class="btn-primary" style="margin-right: 1rem;"><span class="btn-inner">Documentation <i data-lucide="book-open"></i></span></a>
-        <a href="https://github.com/sibyllinesoft/scramblebench" target="_blank" rel="noopener noreferrer" class="btn-primary"><span class="btn-inner">View on GitHub <i data-lucide="github"></i></span></a>
+        <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in joining the waitlist for this product. Please let me know when it becomes available.">
+          <span class="btn-inner">
+            Join Waitlist
+            <i data-lucide="mail"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Creative
+
+AI-powered tools for creators, writers, and content professionals to analyze, generate, and optimize creative work.
+
+<!-- Product Bookworm -->
+<div class="project-brochure" id="bookworm-product">
+  <div class="project-visual">
+    <i data-lucide="book-open" class="project-icon"></i>
+    <div class="project-codename">Codename: BOOKWORM</div>
+    <div class="project-status">Stealth Development</div>
+  </div>
+  <div class="project-content">
+    <h3>Turn Your Story Into Visual Insights That Sell</h3>
+    <div class="project-pitch">
+      <p><strong>The Problem:</strong> Writers spend years perfecting their craft through trial and error. Editors rely on gut instinct. Publishers gamble on manuscripts without data. What if you could see your story's DNA before readers do?</p>
+      
+      <p><strong>The Solution:</strong> This classified narrative analysis engine reveals the hidden patterns that captivate readers. Upload your manuscript and watch as we dissect every sentence, revealing emotional arcs, dialogue patterns, and narrative rhythms that separate bestsellers from the slush pile.</p>
+      
+      <div class="project-features">
+        <div class="feature-item">
+          <strong>Tension Mapping:</strong> See exactly where your story drags and where it soars across every chapter.
+        </div>
+        <div class="feature-item">
+          <strong>Emotional Flow Analysis:</strong> Track how your characters' journeys impact reader engagement and emotional investment.
+        </div>
+        <div class="feature-item">
+          <strong>Dialogue Intelligence:</strong> Analyze conversation patterns, character voice consistency, and speech authenticity across your entire manuscript.
+        </div>
+        <div class="feature-item">
+          <strong>Character Arc Visualization:</strong> Watch your protagonists transform across chapters with data-driven character development tracking.
+        </div>
+      </div>
+      
+      <div class="project-tagline">From manuscript to masterpiece. Every story has a structure—now you can see yours.</div>
+      
+      <div class="project-cta">
+        <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in joining the waitlist for this product. Please let me know when it becomes available.">
+          <span class="btn-inner">
+            Join Waitlist
+            <i data-lucide="mail"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Product Ideoscope -->
+<div class="project-brochure" id="ideoscope-product">
+  <div class="project-visual">
+    <i data-lucide="radar" class="project-icon"></i>
+    <div class="project-codename">Codename: IDEOSCOPE</div>
+    <div class="project-status">Discovery Phase</div>
+  </div>
+  <div class="project-content">
+    <h3>See What's Resonating Before Anyone Else</h3>
+    <div class="project-pitch">
+      <p><strong>The Problem:</strong> Creators waste hours scrolling through endless feeds trying to understand what's trending in their niche. By the time you spot a trend manually, it's already saturated. You need to see what's resonating with audiences before it becomes obvious to everyone else.</p>
+      
+      <p><strong>The Solution:</strong> AI-curated Pinterest-style boards that automatically surface the most relevant viral and high-engagement content for whatever you're trying to create. Stop chasing trends—start anticipating them.</p>
+      
+      <div class="project-features">
+        <div class="feature-item">
+          <strong>Trend Radar:</strong> AI monitors millions of posts to identify what's gaining traction in your creative domain before it hits mainstream awareness.
+        </div>
+        <div class="feature-item">
+          <strong>Smart Boards:</strong> Visual inspiration boards automatically curated around your projects, showing viral content, engagement patterns, and emerging themes.
+        </div>
+        <div class="feature-item">
+          <strong>Resonance Analysis:</strong> Understand why specific content is connecting with audiences through AI-powered engagement pattern analysis.
+        </div>
+        <div class="feature-item">
+          <strong>Creator Intelligence:</strong> Learn from successful creators in your space—see what formats, topics, and approaches are driving authentic engagement.
+        </div>
+      </div>
+      
+      <div class="project-tagline">Stop guessing what will resonate. Start creating with confidence.</div>
+      
+      <div class="project-cta">
+        <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in joining the waitlist for this product. Please let me know when it becomes available.">
+          <span class="btn-inner">
+            Join Waitlist
+            <i data-lucide="mail"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Product Darwin -->
+<div class="project-brochure" id="darwin-product">
+  <div class="project-visual">
+    <i data-lucide="git-branch" class="project-icon"></i>
+    <div class="project-codename">Codename: DARWIN</div>
+    <div class="project-status">Alpha Evolution</div>
+  </div>
+  <div class="project-content">
+    <h3>Generate Hundreds of Ideas While You Sleep</h3>
+    <div class="project-pitch">
+      <p><strong>The Problem:</strong> You spend hours generating ideas only to hit the same creative walls. Manual brainstorming sessions produce diminishing returns after the first few rounds. You need fresh perspectives, but your team is stuck in the same thinking patterns.</p>
+      
+      <p><strong>The Solution:</strong> Get a creative partner that works around the clock, generating and refining ideas while you focus on other priorities. This system automatically produces hundreds of variations, cross-breeds the best concepts, and surfaces breakthrough combinations you'd never discover manually.</p>
+      
+      <div class="project-features">
+        <div class="feature-item">
+          <strong>24/7 Idea Generation:</strong> Set it running overnight and wake up to hundreds of refined concepts, each building on your initial direction.
+        </div>
+        <div class="feature-item">
+          <strong>Smart Quality Filtering:</strong> Multiple AI evaluators assess ideas from different angles—practicality, originality, market fit—so you only see the gems.
+        </div>
+        <div class="feature-item">
+          <strong>Cross-Breeding Innovation:</strong> The system combines your best ideas in unexpected ways, discovering hybrid concepts you'd never think to try.
+        </div>
+        <div class="feature-item">
+          <strong>Stay in Control:</strong> Guide the process anytime by marking favorites, adding constraints, or steering toward specific outcomes.
+        </div>
+      </div>
+      
+      <div class="project-tagline">Stop forcing creativity. Start discovering what's already waiting to be found.</div>
+      
+      <div class="project-cta">
+        <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in joining the waitlist for this product. Please let me know when it becomes available.">
+          <span class="btn-inner">
+            Join Waitlist
+            <i data-lucide="mail"></i>
+          </span>
+        </a>
       </div>
     </div>
   </div>
@@ -379,8 +739,40 @@ Next-generation AI tools currently in alpha development. These tools represent t
   background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-rave.webp');
 }
 
-#scramblebench-product .project-visual {
-  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-scramblebench.webp');
+#lethe-product .project-visual {
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('https://images.unsplash.com/photo-1571989237340-98fb838eeef1?q=80&w=1528&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+}
+
+#scribe-product .project-visual {
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+}
+
+#smith-product .project-visual {
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('https://images.unsplash.com/photo-1496247749665-49cf5b1022e9?q=80&w=2673&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+}
+
+#daedalus-product .project-visual {
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+}
+
+#conclave-product .project-visual {
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+}
+
+#minerva-product .project-visual {
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+}
+
+#hydra-product .project-visual {
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('https://images.unsplash.com/photo-1681800834704-121aa6378fff?q=80&w=1528&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+}
+
+#arbiter-product .project-visual {
+  background-image: linear-gradient(rgba(234, 179, 8, 0.15), rgba(234, 179, 8, 0.15)), url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+}
+
+#heimdall-product .project-visual {
+  background-image: linear-gradient(rgba(14, 165, 233, 0.15), rgba(14, 165, 233, 0.15)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2672&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
 }
 
 .project-icon {
@@ -477,62 +869,6 @@ Next-generation AI tools currently in alpha development. These tools represent t
   text-align: center;
 }
 
-.btn-primary {
-  position: relative;
-  border-radius: var(--radius-lg);
-  font-weight: 600;
-  font-size: var(--text-base);
-  transition: all 0.2s ease;
-  border: none;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  overflow: hidden;
-  color: white;
-  background: linear-gradient(
-    to right, 
-    var(--color-accent) 20%, 
-    var(--color-accent) 35%, 
-    rgba(115, 125, 247, 1) 42%, 
-    rgba(130, 140, 248, 1) 50%, 
-    rgba(115, 125, 247, 1) 58%, 
-    var(--color-accent) 65%, 
-    var(--color-accent) 100%
-  );
-  background-size: 200% auto;
-  animation: tagShine 6s linear infinite;
-}
-
-.btn-primary .btn-inner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-sm);
-  padding: var(--space-sm) var(--space-lg);
-  margin: 2px;
-  background: var(--color-accent);
-  border-radius: calc(var(--radius-lg) - 1px);
-  color: white;
-  width: 100%;
-  height: 100%;
-}
-
-.btn-primary .btn-inner .lucide {
-  color: rgba(180, 220, 255, 0.9);
-  width: 1em;
-  height: 1em;
-}
-
-@keyframes tagShine {
-  from {
-    background-position: -200% center;
-  }
-  to {
-    background-position: 200% center;
-  }
-}
 
 /* Responsive Design */
 @media (max-width: 768px) {

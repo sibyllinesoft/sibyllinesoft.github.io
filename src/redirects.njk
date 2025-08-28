@@ -1,0 +1,8 @@
+---
+permalink: /_redirects
+eleventyExcludeFromCollections: true
+---
+{# Netlify/Vercel _redirects file format #}
+{%- for redirect in authorRedirects -%}
+{{ redirect.source }} {{ redirect.destination }} {{ redirect.statusCode }}
+{% endfor -%}

@@ -1,0 +1,802 @@
+<!-- 
+  Modal Template Component
+  
+  An accessible, flexible modal dialog component that follows WCAG guidelines
+  and provides keyboard navigation, focus management, and screen reader support.
+  
+  Usage Examples:
+  
+  Basic modal:
+  <div class="modal" id="example-modal" aria-labelledby="modal-title" aria-hidden="true">
+    <div class="modal__backdrop"></div>
+    <div class="modal__container">
+      <div class="modal__content">
+        <header class="modal__header">
+          <h2 id="modal-title" class="modal__title">Modal Title</h2>
+          <button class="modal__close" aria-label="Close modal">×</button>
+        </header>
+        <div class="modal__body">
+          <p>Modal content goes here.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  Modal with form:
+  <div class="modal modal--form" id="contact-modal" aria-labelledby="contact-title" aria-hidden="true">
+    <div class="modal__backdrop"></div>
+    <div class="modal__container">
+      <div class="modal__content">
+        <header class="modal__header">
+          <h2 id="contact-title" class="modal__title">Contact Us</h2>
+          <button class="modal__close" aria-label="Close modal">×</button>
+        </header>
+        <div class="modal__body">
+          <form class="modal__form">
+            <input type="text" placeholder="Name" required>
+            <textarea placeholder="Message" required></textarea>
+          </form>
+        </div>
+        <footer class="modal__footer">
+          <button type="button" class="btn btn--secondary">Cancel</button>
+          <button type="submit" class="btn btn--primary">Send</button>
+        </footer>
+      </div>
+    </div>
+  </div>
+  
+  Large modal:
+  <div class="modal modal--large" id="gallery-modal" aria-labelledby="gallery-title" aria-hidden="true">
+    <!-- Content here -->
+  </div>
+  
+  JavaScript usage:
+  const modal = new Modal(document.getElementById('example-modal'));
+  modal.open();
+  modal.close();
+-->
+
+<div 
+  class="modal" 
+  id="modal-template"
+  role="dialog" 
+  aria-modal="true"
+  aria-labelledby="modal-title"
+  aria-describedby="modal-description"
+  aria-hidden="true"
+  tabindex="-1"
+>
+  <!-- Modal backdrop -->
+  <div class="modal__backdrop" aria-hidden="true"></div>
+  
+  <!-- Modal container -->
+  <div class="modal__container" role="document">
+    <div class="modal__content">
+      <!-- Modal header -->
+      <header class="modal__header">
+        <h2 id="modal-title" class="modal__title">
+          Modal Title
+        </h2>
+        
+        <button 
+          type="button" 
+          class="modal__close" 
+          aria-label="Close modal"
+          data-modal-close
+        >
+          <span aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </span>
+        </button>
+      </header>
+      
+      <!-- Modal body -->
+      <div class="modal__body">
+        <div id="modal-description" class="modal__description">
+          <p>This is the modal content area. You can place any content here including text, forms, images, or other components.</p>
+        </div>
+      </div>
+      
+      <!-- Optional modal footer -->
+      <footer class="modal__footer">
+        <button 
+          type="button" 
+          class="modal__button modal__button--secondary" 
+          data-modal-close
+        >
+          Cancel
+        </button>
+        <button 
+          type="button" 
+          class="modal__button modal__button--primary"
+        >
+          Confirm
+        </button>
+      </footer>
+    </div>
+  </div>
+</div>
+
+<style>
+  .modal {
+    /* CSS Custom Properties for theming */
+    --modal-z-index: var(--z-modal, 1050);
+    --modal-backdrop-color: rgba(0, 0, 0, 0.5);
+    --modal-background: var(--color-background, #ffffff);
+    --modal-border-radius: var(--border-radius-lg, 0.5rem);
+    --modal-shadow: var(--shadow-lg, 0 10px 15px -3px rgb(0 0 0 / 0.1));
+    --modal-padding: var(--spacing-lg, 1.5rem);
+    --modal-gap: var(--spacing-md, 1rem);
+    --modal-max-width: 32rem;
+    --modal-max-height: 90vh;
+    --modal-transition: var(--transition-base, 0.2s ease);
+    
+    /* Typography */
+    --modal-title-color: var(--color-text, #1e293b);
+    --modal-title-size: var(--font-size-xl, 1.25rem);
+    --modal-title-weight: var(--font-weight-semibold, 600);
+    --modal-text-color: var(--color-text, #1e293b);
+    --modal-text-size: var(--font-size-base, 1rem);
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: var(--modal-z-index);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-md, 1rem);
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--modal-transition);
+    font-family: var(--font-family-primary, system-ui, -apple-system, sans-serif);
+  }
+  
+  .modal[aria-hidden="false"] {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .modal__backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--modal-backdrop-color);
+    cursor: pointer;
+  }
+  
+  .modal__container {
+    position: relative;
+    width: 100%;
+    max-width: var(--modal-max-width);
+    max-height: var(--modal-max-height);
+    display: flex;
+    flex-direction: column;
+    transform: scale(0.9) translateY(20px);
+    transition: transform var(--modal-transition);
+  }
+  
+  .modal[aria-hidden="false"] .modal__container {
+    transform: scale(1) translateY(0);
+  }
+  
+  .modal__content {
+    background: var(--modal-background);
+    border-radius: var(--modal-border-radius);
+    box-shadow: var(--modal-shadow);
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+    overflow: hidden;
+  }
+  
+  .modal__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--modal-padding);
+    padding-bottom: var(--spacing-md, 1rem);
+    border-bottom: 1px solid var(--color-border, #e2e8f0);
+    flex-shrink: 0;
+  }
+  
+  .modal__title {
+    margin: 0;
+    color: var(--modal-title-color);
+    font-size: var(--modal-title-size);
+    font-weight: var(--modal-title-weight);
+    line-height: 1.25;
+  }
+  
+  .modal__close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    border: none;
+    border-radius: var(--border-radius-md, 0.375rem);
+    color: var(--color-text-muted, #64748b);
+    cursor: pointer;
+    transition: all var(--transition-fast, 0.15s ease);
+    flex-shrink: 0;
+  }
+  
+  .modal__close:hover {
+    background: var(--color-surface, #f8fafc);
+    color: var(--color-text, #1e293b);
+  }
+  
+  .modal__close:focus {
+    outline: 2px solid var(--color-primary, #2563eb);
+    outline-offset: 2px;
+  }
+  
+  .modal__close svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  
+  .modal__body {
+    padding: var(--modal-padding);
+    color: var(--modal-text-color);
+    font-size: var(--modal-text-size);
+    line-height: 1.5;
+    overflow-y: auto;
+    flex: 1;
+  }
+  
+  .modal__description {
+    margin: 0;
+  }
+  
+  .modal__footer {
+    display: flex;
+    gap: var(--spacing-sm, 0.5rem);
+    justify-content: flex-end;
+    align-items: center;
+    padding: var(--modal-padding);
+    padding-top: var(--spacing-md, 1rem);
+    border-top: 1px solid var(--color-border, #e2e8f0);
+    flex-shrink: 0;
+  }
+  
+  .modal__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs, 0.25rem);
+    padding: var(--spacing-sm, 0.5rem) var(--spacing-md, 1rem);
+    border: 1px solid transparent;
+    border-radius: var(--border-radius-md, 0.375rem);
+    font-size: var(--font-size-sm, 0.875rem);
+    font-weight: var(--font-weight-medium, 500);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all var(--transition-fast, 0.15s ease);
+    min-height: 2.25rem;
+  }
+  
+  .modal__button--primary {
+    background: var(--color-primary, #2563eb);
+    color: white;
+    border-color: var(--color-primary, #2563eb);
+  }
+  
+  .modal__button--primary:hover {
+    background: var(--color-primary-hover, #1d4ed8);
+    border-color: var(--color-primary-hover, #1d4ed8);
+  }
+  
+  .modal__button--secondary {
+    background: transparent;
+    color: var(--color-text, #1e293b);
+    border-color: var(--color-border, #e2e8f0);
+  }
+  
+  .modal__button--secondary:hover {
+    background: var(--color-surface, #f8fafc);
+  }
+  
+  .modal__button:focus {
+    outline: 2px solid var(--color-primary, #2563eb);
+    outline-offset: 2px;
+  }
+  
+  /* Size variants */
+  .modal--small {
+    --modal-max-width: 24rem;
+  }
+  
+  .modal--medium {
+    --modal-max-width: 32rem;
+  }
+  
+  .modal--large {
+    --modal-max-width: 48rem;
+  }
+  
+  .modal--extra-large {
+    --modal-max-width: 64rem;
+  }
+  
+  .modal--full-screen {
+    --modal-max-width: calc(100vw - 2rem);
+    --modal-max-height: calc(100vh - 2rem);
+  }
+  
+  /* Style variants */
+  .modal--centered .modal__footer {
+    justify-content: center;
+  }
+  
+  .modal--no-header .modal__header {
+    display: none;
+  }
+  
+  .modal--no-footer .modal__footer {
+    display: none;
+  }
+  
+  .modal--form .modal__body {
+    padding-bottom: 0;
+  }
+  
+  .modal__form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md, 1rem);
+  }
+  
+  .modal__form input,
+  .modal__form textarea,
+  .modal__form select {
+    width: 100%;
+    padding: var(--spacing-sm, 0.5rem) var(--spacing-md, 1rem);
+    border: 1px solid var(--color-border, #e2e8f0);
+    border-radius: var(--border-radius-md, 0.375rem);
+    font-size: var(--font-size-base, 1rem);
+    font-family: inherit;
+    background: var(--color-background, #ffffff);
+    color: var(--color-text, #1e293b);
+    transition: border-color var(--transition-fast, 0.15s ease);
+  }
+  
+  .modal__form input:focus,
+  .modal__form textarea:focus,
+  .modal__form select:focus {
+    outline: none;
+    border-color: var(--color-primary, #2563eb);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  }
+  
+  .modal__form textarea {
+    min-height: 6rem;
+    resize: vertical;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 640px) {
+    .modal {
+      padding: var(--spacing-sm, 0.5rem);
+    }
+    
+    .modal--full-screen {
+      --modal-max-width: 100vw;
+      --modal-max-height: 100vh;
+    }
+    
+    .modal--full-screen .modal__container {
+      border-radius: 0;
+    }
+    
+    .modal__header,
+    .modal__body,
+    .modal__footer {
+      padding: var(--spacing-md, 1rem);
+    }
+    
+    .modal__footer {
+      flex-direction: column-reverse;
+    }
+    
+    .modal__button {
+      width: 100%;
+    }
+  }
+  
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .modal,
+    .modal__container,
+    .modal__close,
+    .modal__button {
+      transition: none;
+    }
+    
+    .modal__container {
+      transform: none;
+    }
+    
+    .modal[aria-hidden="false"] .modal__container {
+      transform: none;
+    }
+  }
+  
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .modal__content {
+      border: 2px solid ButtonText;
+    }
+    
+    .modal__header,
+    .modal__footer {
+      border-color: ButtonText;
+    }
+  }
+  
+  /* Print styles */
+  @media print {
+    .modal {
+      position: static;
+      z-index: auto;
+      opacity: 1;
+      visibility: visible;
+      padding: 0;
+    }
+    
+    .modal__backdrop {
+      display: none;
+    }
+    
+    .modal__container {
+      max-width: none;
+      max-height: none;
+      transform: none;
+    }
+    
+    .modal__close {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  // Modal Component JavaScript
+  (function() {
+    'use strict';
+    
+    class Modal {
+      constructor(element) {
+        this.element = element;
+        this.backdrop = element.querySelector('.modal__backdrop');
+        this.closeButtons = element.querySelectorAll('[data-modal-close]');
+        this.focusableElements = null;
+        this.previouslyFocusedElement = null;
+        this.isOpen = false;
+        
+        this.init();
+      }
+      
+      init() {
+        this.setupEventListeners();
+        this.setupAccessibility();
+      }
+      
+      setupEventListeners() {
+        // Close button clicks
+        this.closeButtons.forEach(button => {
+          button.addEventListener('click', this.close.bind(this));
+        });
+        
+        // Backdrop click
+        if (this.backdrop) {
+          this.backdrop.addEventListener('click', this.close.bind(this));
+        }
+        
+        // Escape key
+        document.addEventListener('keydown', this.handleKeydown.bind(this));
+        
+        // Prevent body scroll when modal is open
+        this.element.addEventListener('transitionend', this.handleTransitionEnd.bind(this));
+      }
+      
+      setupAccessibility() {
+        // Ensure proper ARIA attributes
+        if (!this.element.getAttribute('role')) {
+          this.element.setAttribute('role', 'dialog');
+        }
+        
+        if (!this.element.getAttribute('aria-modal')) {
+          this.element.setAttribute('aria-modal', 'true');
+        }
+        
+        // Set initial focus state
+        this.element.setAttribute('tabindex', '-1');
+      }
+      
+      handleKeydown(event) {
+        if (!this.isOpen) return;
+        
+        if (event.key === 'Escape') {
+          event.preventDefault();
+          this.close();
+        }
+        
+        if (event.key === 'Tab') {
+          this.handleTabNavigation(event);
+        }
+      }
+      
+      handleTabNavigation(event) {
+        if (!this.focusableElements) return;
+        
+        const firstElement = this.focusableElements[0];
+        const lastElement = this.focusableElements[this.focusableElements.length - 1];
+        
+        if (event.shiftKey) {
+          // Shift + Tab
+          if (document.activeElement === firstElement) {
+            event.preventDefault();
+            lastElement.focus();
+          }
+        } else {
+          // Tab
+          if (document.activeElement === lastElement) {
+            event.preventDefault();
+            firstElement.focus();
+          }
+        }
+      }
+      
+      handleTransitionEnd(event) {
+        if (event.target === this.element) {
+          if (this.isOpen) {
+            this.handleModalOpened();
+          } else {
+            this.handleModalClosed();
+          }
+        }
+      }
+      
+      handleModalOpened() {
+        // Set focus to modal
+        this.element.focus();
+        
+        // Find and cache focusable elements
+        this.updateFocusableElements();
+        
+        // Focus first focusable element
+        if (this.focusableElements.length > 0) {
+          this.focusableElements[0].focus();
+        }
+      }
+      
+      handleModalClosed() {
+        // Restore focus to previously focused element
+        if (this.previouslyFocusedElement) {
+          this.previouslyFocusedElement.focus();
+          this.previouslyFocusedElement = null;
+        }
+        
+        // Re-enable body scroll
+        document.body.style.overflow = '';
+        document.body.classList.remove('modal-open');
+      }
+      
+      updateFocusableElements() {
+        const focusableSelectors = [
+          'button:not([disabled])',
+          'input:not([disabled])',
+          'select:not([disabled])',
+          'textarea:not([disabled])',
+          'a[href]',
+          '[tabindex]:not([tabindex="-1"])'
+        ].join(', ');
+        
+        this.focusableElements = Array.from(
+          this.element.querySelectorAll(focusableSelectors)
+        ).filter(element => {
+          return element.offsetWidth > 0 && element.offsetHeight > 0;
+        });
+      }
+      
+      open(options = {}) {
+        if (this.isOpen) return;
+        
+        // Store previously focused element
+        this.previouslyFocusedElement = document.activeElement;
+        
+        // Prevent body scroll
+        document.body.style.overflow = 'hidden';
+        document.body.classList.add('modal-open');
+        
+        // Show modal
+        this.element.setAttribute('aria-hidden', 'false');
+        this.isOpen = true;
+        
+        // Update content if provided
+        if (options.title) {
+          this.setTitle(options.title);
+        }
+        
+        if (options.content) {
+          this.setContent(options.content);
+        }
+        
+        // Emit open event
+        this.element.dispatchEvent(new CustomEvent('modal:open', {
+          bubbles: true,
+          detail: { modal: this }
+        }));
+      }
+      
+      close() {
+        if (!this.isOpen) return;
+        
+        // Hide modal
+        this.element.setAttribute('aria-hidden', 'true');
+        this.isOpen = false;
+        
+        // Emit close event
+        this.element.dispatchEvent(new CustomEvent('modal:close', {
+          bubbles: true,
+          detail: { modal: this }
+        }));
+      }
+      
+      setTitle(title) {
+        const titleElement = this.element.querySelector('.modal__title');
+        if (titleElement) {
+          titleElement.textContent = title;
+        }
+      }
+      
+      setContent(content) {
+        const contentElement = this.element.querySelector('.modal__description');
+        if (contentElement) {
+          if (typeof content === 'string') {
+            contentElement.innerHTML = content;
+          } else {
+            contentElement.innerHTML = '';
+            contentElement.appendChild(content);
+          }
+        }
+      }
+      
+      setSize(size) {
+        // Remove existing size classes
+        this.element.classList.remove(
+          'modal--small',
+          'modal--medium',
+          'modal--large',
+          'modal--extra-large',
+          'modal--full-screen'
+        );
+        
+        // Add new size class
+        if (size !== 'default') {
+          this.element.classList.add(`modal--${size}`);
+        }
+      }
+      
+      toggle() {
+        if (this.isOpen) {
+          this.close();
+        } else {
+          this.open();
+        }
+      }
+      
+      destroy() {
+        this.close();
+        this.closeButtons.forEach(button => {
+          button.removeEventListener('click', this.close.bind(this));
+        });
+        
+        if (this.backdrop) {
+          this.backdrop.removeEventListener('click', this.close.bind(this));
+        }
+      }
+    }
+    
+    // Auto-initialize all modals
+    function initModals() {
+      const modals = document.querySelectorAll('.modal');
+      modals.forEach(modal => {
+        if (!modal._modal) {
+          modal._modal = new Modal(modal);
+        }
+      });
+    }
+    
+    // Utility function for creating modals programmatically
+    function createModal(options = {}) {
+      const {
+        id = `modal-${Date.now()}`,
+        title = 'Modal',
+        content = '',
+        size = 'medium',
+        buttons = []
+      } = options;
+      
+      const modal = document.createElement('div');
+      modal.className = `modal modal--${size}`;
+      modal.id = id;
+      modal.setAttribute('role', 'dialog');
+      modal.setAttribute('aria-modal', 'true');
+      modal.setAttribute('aria-labelledby', `${id}-title`);
+      modal.setAttribute('aria-hidden', 'true');
+      modal.setAttribute('tabindex', '-1');
+      
+      // Create buttons HTML
+      const buttonsHtml = buttons.map((button, index) => {
+        const className = button.primary ? 'modal__button--primary' : 'modal__button--secondary';
+        const closeAttr = button.close ? 'data-modal-close' : '';
+        return `<button type="button" class="modal__button ${className}" ${closeAttr}>${button.text}</button>`;
+      }).join('');
+      
+      modal.innerHTML = `
+        <div class="modal__backdrop" aria-hidden="true"></div>
+        <div class="modal__container" role="document">
+          <div class="modal__content">
+            <header class="modal__header">
+              <h2 id="${id}-title" class="modal__title">${title}</h2>
+              <button type="button" class="modal__close" aria-label="Close modal" data-modal-close>
+                <span aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                  </svg>
+                </span>
+              </button>
+            </header>
+            <div class="modal__body">
+              <div class="modal__description">${content}</div>
+            </div>
+            ${buttons.length > 0 ? `<footer class="modal__footer">${buttonsHtml}</footer>` : ''}
+          </div>
+        </div>
+      `;
+      
+      document.body.appendChild(modal);
+      return new Modal(modal);
+    }
+    
+    // Global API
+    window.Modal = {
+      create: createModal,
+      init: initModals
+    };
+    
+    // Auto-initialize on DOM ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initModals);
+    } else {
+      initModals();
+    }
+    
+    // Handle modal triggers
+    document.addEventListener('click', function(event) {
+      const trigger = event.target.closest('[data-modal-target]');
+      if (trigger) {
+        event.preventDefault();
+        const targetId = trigger.getAttribute('data-modal-target');
+        const modal = document.getElementById(targetId);
+        if (modal && modal._modal) {
+          modal._modal.open();
+        }
+      }
+    });
+  })();
+</script>

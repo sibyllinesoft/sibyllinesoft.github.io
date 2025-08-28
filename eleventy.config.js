@@ -1,56 +1,61 @@
-import syntaxHighlightPlugin from "@11ty/eleventy-plugin-syntaxhighlight";
-import navigationPlugin from "@11ty/eleventy-navigation";
+import syntaxHighlightPlugin from '@11ty/eleventy-plugin-syntaxhighlight';
+import navigationPlugin from '@11ty/eleventy-navigation';
+import mermaidPlugin from '@kevingimbel/eleventy-plugin-mermaid';
+
+// Import modularized configurations
+import customFilters from './src/_eleventy/filters.js';
+import customCollections from './src/_eleventy/collections.js';
+import passthroughConfig from './src/_eleventy/passthrough.js';
+
+// Centralized path configuration
+const PATHS = {
+  input: 'src',
+  output: '_site',
+  includes: '_includes',
+  layouts: '_includes/layouts',
+  
+  // Content paths
+  articles: 'src/articles/*.md',
+  
+  // Asset paths
+  css: 'src/css',
+  img: 'src/img',
+  js: 'src/js',
+  styles: 'src/styles',
+  
+  // Root files for GitHub Pages
+  rootFiles: ['CNAME', '.nojekyll']
+};
 
 export default function(eleventyConfig) {
   // Plugins
   eleventyConfig.addPlugin(syntaxHighlightPlugin);
   eleventyConfig.addPlugin(navigationPlugin);
+  eleventyConfig.addPlugin(mermaidPlugin);
 
-  // Copy static assets
-  eleventyConfig.addPassthroughCopy("src/css");
-  eleventyConfig.addPassthroughCopy("src/img");
-  eleventyConfig.addPassthroughCopy("src/js");
-  
-  // Copy CNAME and other root files for GitHub Pages
-  eleventyConfig.addPassthroughCopy("CNAME");
-  eleventyConfig.addPassthroughCopy(".nojekyll");
+  // Configure passthrough copy
+  passthroughConfig.setup(eleventyConfig, PATHS);
 
-  // Date filters
-  eleventyConfig.addFilter("readableDate", (dateObj) => {
-    return new Date(dateObj).toLocaleDateString();
+  // Add custom filters
+  Object.keys(customFilters).forEach(filterName => {
+    eleventyConfig.addFilter(filterName, customFilters[filterName]);
   });
 
-  eleventyConfig.addFilter("htmlDateString", (dateObj) => {
-    return new Date(dateObj).toISOString().split('T')[0];
-  });
-
-  eleventyConfig.addFilter("head", (array, n) => {
-    if (n < 0) {
-      return array.slice(n);
-    }
-    return array.slice(0, n);
-  });
-
-  // Collections
-  eleventyConfig.addCollection("articles", function(collectionApi) {
-    return collectionApi.getFilteredByGlob("src/articles/*.md")
-      .filter(item => item.data.published === true)
-      .reverse();
-  });
-
-  // Collection for all articles (including unpublished) for admin purposes
-  eleventyConfig.addCollection("allArticles", function(collectionApi) {
-    return collectionApi.getFilteredByGlob("src/articles/*.md").reverse();
+  // Add custom collections
+  Object.keys(customCollections).forEach(collectionName => {
+    eleventyConfig.addCollection(collectionName, function(collectionApi) {
+      return customCollections[collectionName](collectionApi, PATHS);
+    });
   });
 
   return {
     dir: {
-      input: "src",
-      output: "_site",
-      includes: "_includes",
-      layouts: "_includes/layouts"
+      input: PATHS.input,
+      output: PATHS.output,
+      includes: PATHS.includes,
+      layouts: PATHS.layouts
     },
-    markdownTemplateEngine: "njk",
-    htmlTemplateEngine: "njk"
+    markdownTemplateEngine: 'njk',
+    htmlTemplateEngine: 'njk'
   };
 }

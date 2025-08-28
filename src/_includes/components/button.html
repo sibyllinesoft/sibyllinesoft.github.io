@@ -1,0 +1,53 @@
+{# 
+  Unified Button Component
+  Usage examples:
+  - Primary: include "components/button.html", text: "Discover What's Possible", icon: "mail", href: "#discovery"
+  - Secondary: include "components/button.html", text: "Learn My Approach", icon: "user", href: "/about/", variant: "secondary" 
+  - Dark: include "components/button.html", text: "Get Started", variant: "dark"
+#}
+
+{% set buttonClass = "btn-primary" %}
+{% if variant == "secondary" %}
+  {% set buttonClass = "btn-secondary" %}
+{% elif variant == "dark" %}
+  {% set buttonClass = "btn-dark" %}
+{% endif %}
+
+{% if href %}
+<a class="btn-unified {{ buttonClass }}{% if size %} btn-{{ size }}{% endif %}{% if block %} btn-block{% endif %}{% if additionalClasses %} {{ additionalClasses }}{% endif %}"
+   href="{{ href }}"
+   {% if target %}target="{{ target }}"{% endif %}
+   {% if rel %}rel="{{ rel }}"{% endif %}
+   {% if id %}id="{{ id }}"{% endif %}
+   {% if ariaLabel %}aria-label="{{ ariaLabel }}"{% endif %}
+   {% if dataAttributes %}
+     {% for attr, value in dataAttributes %}
+       data-{{ attr }}="{{ value }}"
+     {% endfor %}
+   {% endif %}>
+  <span class="btn-inner">
+    {{ text }}
+    {% if icon %}
+      <i data-lucide="{{ icon }}"></i>
+    {% endif %}
+  </span>
+</a>
+{% else %}
+<button class="btn-unified {{ buttonClass }}{% if size %} btn-{{ size }}{% endif %}{% if block %} btn-block{% endif %}{% if additionalClasses %} {{ additionalClasses }}{% endif %}"
+        {% if type %}type="{{ type }}"{% endif %}
+        {% if id %}id="{{ id }}"{% endif %}
+        {% if disabled %}disabled{% endif %}
+        {% if ariaLabel %}aria-label="{{ ariaLabel }}"{% endif %}
+        {% if dataAttributes %}
+          {% for attr, value in dataAttributes %}
+            data-{{ attr }}="{{ value }}"
+          {% endfor %}
+        {% endif %}>
+  <span class="btn-inner">
+    {{ text }}
+    {% if icon %}
+      <i data-lucide="{{ icon }}"></i>
+    {% endif %}
+  </span>
+</button>
+{% endif %}

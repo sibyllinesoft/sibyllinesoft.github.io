@@ -292,8 +292,6 @@
             opacity: 0;
             transform: translateX(30px);
             transition: all 0.4s ease;
-            max-height: 50vh;
-            overflow-y: auto;
         }
         
         .toc-container.visible {
@@ -382,11 +380,62 @@
         
         .toc .toc-list .toc-list {
             padding-left: var(--space-md);
+            transition: all 0.3s ease;
+            overflow: hidden;
         }
         
         .toc .toc-list .toc-list a {
             font-size: var(--text-xs);
             opacity: 0.8;
+        }
+
+        /* Collapsible TOC styles */
+        .toc-indicator {
+            display: inline-block;
+            margin-right: var(--space-xs);
+            font-size: var(--text-xs);
+            color: var(--color-accent);
+            transition: transform 0.2s ease;
+            cursor: pointer;
+            user-select: none;
+        }
+        
+        .toc .toc-list-item.is-collapsed .toc-list {
+            max-height: 0;
+            opacity: 0;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .toc .toc-list-item:not(.is-collapsed) .toc-list {
+            max-height: 1000px;
+            opacity: 1;
+        }
+        
+        .toc .toc-list-item.is-collapsed .toc-indicator {
+            transform: rotate(0deg);
+        }
+        
+        .toc .toc-list-item:not(.is-collapsed) .toc-indicator {
+            transform: rotate(90deg);
+        }
+        
+        /* Enhanced styling for section headers in TOC */
+        .toc .toc-list-item.is-collapsible > a {
+            font-weight: 600;
+            color: var(--color-text);
+            border-left-width: 3px;
+        }
+        
+        /* Product entries should be more subdued */
+        .toc .toc-list .toc-list-item a {
+            color: var(--color-text-muted);
+            font-weight: 400;
+            padding-left: var(--space-lg);
+        }
+        
+        .toc .toc-list .toc-list-item a:hover {
+            color: var(--color-text-light);
         }
 
         /* Marketing blurbs */
@@ -449,6 +498,11 @@
             50% { background-position: 200% 0; }
         }
 
+        @keyframes tagShine {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
         /* Lucide Icons */
         .lucide {
             width: 1.2em;
@@ -475,6 +529,22 @@
             margin-right: var(--space-md);
             color: var(--color-accent);
             filter: drop-shadow(0 0 6px rgba(99, 102, 241, 0.3));
+        }
+
+        /* Mermaid diagram styling */
+        .mermaid {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+            background: var(--color-surface-50);
+            border: 1px solid var(--color-border-light-50);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+        }
+        
+        .mermaid svg {
+            max-width: 100%;
+            height: auto;
         }
 
         /* Responsive design */
@@ -529,6 +599,10 @@
           position: relative;
         }
         
+        .article-card-component::after {
+          z-index: 0;
+        }
+        
         .article-image-sidebar {
           flex: 0 0 30%;
           position: relative;
@@ -544,11 +618,14 @@
         
         .article-image-overlay {
           position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: rgba(99, 102, 241, 0.3);
+          inset: 0;
+          background: linear-gradient(
+            to bottom,
+            rgba(99, 102, 241, 0.3) 25%,
+            rgba(99, 102, 241, 0.5) 55%,
+            rgba(99, 102, 241, 0.7) 100%
+          );
+          z-index: 1;
           pointer-events: none;
         }
         
@@ -566,8 +643,11 @@
         
         .article-snippet {
           flex: 1;
-          display: flex;
+          display: grid;
+          grid-template-columns: auto 1fr;
+          column-gap: var(--space-sm);
           align-items: center;
+          justify-content: center;
         }
         
         .article-card-footer {
@@ -609,17 +689,24 @@
           color: var(--color-text-muted);
         }
         
-        .article-card-meta time {
-          display: flex;
+        .date-badge {
+          display: inline-flex;
           align-items: center;
           gap: 0.25rem;
-          color: var(--color-text-muted);
+          padding: 0.125rem 0.5rem;
+          border-radius: 999px;
+          background: var(--color-surface);
+          color: var(--color-text-light);
+          font-size: 0.875rem;
+          white-space: nowrap;
+          border: 1px solid var(--color-border-light);
         }
         
-        .article-card-meta .lucide {
-          width: 0.75rem;
-          height: 0.75rem;
-          color: var(--color-text-muted);
+        .date-badge .lucide,
+        .date-badge i {
+          width: 14px;
+          height: 14px;
+          flex-shrink: 0;
         }
         
         .article-card-tags {
@@ -678,29 +765,317 @@
           }
         }
         
+        /* Unified Button Component Styles */
+        
+        /* Base Button */
+        .btn-unified {
+          position: relative;
+          border-radius: var(--radius-lg);
+          font-weight: 600;
+          font-size: var(--text-base);
+          transition: all 0.2s ease;
+          border: none;
+          cursor: pointer;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          text-decoration: none;
+          overflow: hidden;
+          color: white;
+        }
+
+        /* Primary Button (Discover What's Possible style) */
+        .btn-unified.btn-primary {
+          background: linear-gradient(
+            to right, 
+            var(--color-accent) 20%, 
+            var(--color-accent) 35%, 
+            rgba(115, 125, 247, 1) 42%, 
+            rgba(130, 140, 248, 1) 50%, 
+            rgba(115, 125, 247, 1) 58%, 
+            var(--color-accent) 65%, 
+            var(--color-accent) 100%
+          );
+          background-size: 200% auto;
+          animation: tagShine 6s linear infinite;
+        }
+
+        .btn-unified.btn-primary .btn-inner {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: var(--space-sm);
+          padding: var(--space-md) var(--space-xl);
+          margin: 2px;
+          background: var(--color-accent);
+          border-radius: calc(var(--radius-lg) - 1px);
+          color: white;
+          width: 100%;
+          height: 100%;
+        }
+
+        .btn-unified.btn-primary .btn-inner .lucide {
+          color: rgba(180, 220, 255, 0.9);
+          width: 1em;
+          height: 1em;
+        }
+
+        .btn-unified.btn-primary:hover {
+          transform: translateY(-1px);
+          box-shadow: var(--shadow-lg);
+          color: white;
+        }
+
+        /* Secondary Button (Learn My Approach style) */
+        .btn-unified.btn-secondary {
+          background: linear-gradient(
+            to right, 
+            var(--color-border) 20%, 
+            var(--color-border) 35%, 
+            rgba(156, 163, 175, 0.2) 42%, 
+            rgba(209, 213, 219, 0.225) 50%, 
+            rgba(156, 163, 175, 0.2) 58%, 
+            var(--color-border) 65%, 
+            var(--color-border) 100%
+          );
+          background-size: 200% auto;
+          animation: tagShine 6s linear infinite;
+          color: var(--color-text);
+        }
+
+        .btn-unified.btn-secondary .btn-inner {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: var(--space-sm);
+          padding: var(--space-md) var(--space-xl);
+          margin: 2px;
+          background: var(--color-background);
+          border-radius: calc(var(--radius-lg) - 1px);
+          color: var(--color-text);
+          width: 100%;
+          height: 100%;
+        }
+
+        .btn-unified.btn-secondary .btn-inner .lucide {
+          color: rgba(180, 220, 255, 0.7);
+          width: 1em;
+          height: 1em;
+        }
+
+        .btn-unified.btn-secondary:hover {
+          border-color: var(--color-accent);
+          color: var(--color-accent);
+          transform: translateY(-1px);
+        }
+
+        .btn-unified.btn-secondary:hover .btn-inner {
+          color: var(--color-accent);
+        }
+
+        /* Dark Button (alternative dark variant) */
+        .btn-unified.btn-dark {
+          background: var(--color-graphite-700);
+          color: white;
+          border: 1px solid var(--color-graphite-600);
+        }
+
+        .btn-unified.btn-dark .btn-inner {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: var(--space-sm);
+          padding: var(--space-md) var(--space-xl);
+          margin: 2px;
+          background: var(--color-graphite-700);
+          border-radius: calc(var(--radius-lg) - 1px);
+          color: white;
+          width: 100%;
+          height: 100%;
+        }
+
+        .btn-unified.btn-dark .btn-inner .lucide {
+          color: rgba(180, 220, 255, 0.9);
+          width: 1em;
+          height: 1em;
+        }
+
+        .btn-unified.btn-dark:hover {
+          background: var(--color-graphite-600);
+          border-color: var(--color-accent);
+          transform: translateY(-1px);
+          box-shadow: var(--shadow-lg);
+        }
+
+        /* Button Sizes */
+        .btn-unified.btn-sm .btn-inner {
+          padding: var(--space-sm) var(--space-lg);
+          font-size: var(--text-sm);
+        }
+
+        .btn-unified.btn-lg .btn-inner {
+          padding: var(--space-lg) var(--space-2xl);
+          font-size: var(--text-lg);
+        }
+
+        .btn-unified.btn-xl .btn-inner {
+          padding: var(--space-xl) var(--space-3xl);
+          font-size: var(--text-xl);
+        }
+
+        /* Block Button */
+        .btn-unified.btn-block {
+          width: 100%;
+          display: flex;
+        }
+
+        /* Accessibility - Respect reduced motion preferences for unified buttons */
+        @media (prefers-reduced-motion: reduce) {
+          .btn-unified.btn-primary {
+            animation: none !important;
+          }
+          
+          .btn-unified:hover {
+            transform: none;
+          }
+        }
+
+        /* Fix for buttons wrapped in paragraph tags by Markdown processor */
+        p .btn-unified {
+          display: inline-flex !important;
+        }
+        
+        p .project-cta,
+        p .domain-cta {
+          display: block !important;
+          margin: var(--space-lg) 0 !important;
+        }
+
+        /* Responsive Design for unified buttons */
+        @media (max-width: 768px) {
+          .btn-unified .btn-inner {
+            padding: var(--space-sm) var(--space-lg);
+            font-size: var(--text-sm);
+          }
+          
+          .btn-unified, .btn-unified.btn-secondary {
+            text-align: center;
+          }
+        }
+        
         /* Responsive overrides for article cards */
         @media (max-width: 768px) {
           .article-card-component {
             flex-direction: column;
             height: 280px;
+            position: relative;
+          }
+          
+          .article-card-component::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(99, 102, 241, 0.3);
+            pointer-events: none;
+            z-index: 1;
           }
           
           .article-image-sidebar {
-            flex: 0 0 120px;
+            flex: 1;
+            position: relative;
           }
           
+          .article-image-sidebar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+          }
+          
+          /* Enhanced dark overlay for mobile */
+          .article-image-overlay {
+            position: absolute;
+            top: 25%;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(
+              to bottom,
+              transparent 25%,
+              rgba(0, 0, 0, 0.6) 55%,
+              rgba(0, 0, 0, 0.9) 100%
+            );
+            z-index: 1;
+            pointer-events: none;
+          }
+          
+          /* Position content over the image */
           .article-content-area {
-            padding: 1rem;
-          }
-          
-          .article-card-meta {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem 1rem 1rem;
+            background: rgba(0, 0, 0, 0.525);
+            color: white;
+            z-index: 2;
+            min-height: auto;
+            display: flex;
             flex-direction: column;
-            align-items: flex-start;
-            gap: 0.25rem;
+            justify-content: flex-end;
           }
           
           .article-card-title {
             font-size: 1.25rem;
+            margin: 0 0 0.5rem 0;
+            text-align: left;
+          }
+          
+          .article-card-title a {
+            color: white;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+          }
+          
+          .article-card-title a:hover {
+            color: white;
+            opacity: 0.9;
+          }
+          
+          .article-snippet {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            column-gap: 1rem;
+            align-items: start;
+            margin: 0;
+          }
+          
+          .date-badge {
+            background: rgba(0, 0, 0, 0.7);
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+            border-color: rgba(255, 255, 255, 0.2);
+          }
+          
+          .article-card-excerpt {
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin: 0;
+            -webkit-line-clamp: 2;
+          }
+          
+          /* Hide tags on mobile to reduce clutter */
+          .article-card-tags {
+            display: none;
+          }
+          
+          /* Hide footer hint on mobile */
+          .article-card-footer {
+            display: none;
           }
         }
     </style>
@@ -713,6 +1088,7 @@
                 <ul>
                     <li><a href="/domains/">Domains</a></li>
                     <li><a href="/products/">Products</a></li>
+                    <li><a href="/research/">Research</a></li>
                     <li><a href="/articles/">Articles</a></li>
                     <li><a href="/about/">About</a></li>
                 </ul>
@@ -736,96 +1112,91 @@
 
     <!-- Tocbot JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/tocbot@4.28.2/dist/tocbot.min.js"></script>
+    <!-- Improved TOC Scroll Spy -->
+    <script src="/js/toc-scrollspy.js"></script>
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <!-- Mermaid.js for diagrams -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.7.0/dist/mermaid.min.js"></script>
     <script>
-        // Initialize Tocbot when DOM is ready
         document.addEventListener('DOMContentLoaded', function() {
-            // Check if there are any headings on the page
-            const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+            const headings = document.querySelectorAll('.main h2:not(.article-title), .main .project-content h2, .main .project-content h3');
             const tocContainer = document.querySelector('.toc-container');
-            
+
             if (headings.length > 0 && tocContainer) {
-                // First, add IDs to headings that don't have them
-                const h2Elements = document.querySelectorAll('.main h2:not(.article-title)');
-                h2Elements.forEach((heading, index) => {
+                headings.forEach((heading, index) => {
                     if (!heading.id) {
-                        // Generate ID from heading text
                         const text = heading.textContent.trim();
-                        const id = text
-                            .toLowerCase()
-                            .replace(/[^\w\s-]/g, '') // Remove special characters
-                            .replace(/\s+/g, '-') // Replace spaces with hyphens
-                            .replace(/--+/g, '-') // Replace multiple hyphens with single
-                            .replace(/^-|-$/g, ''); // Remove leading/trailing hyphens
+                        const id = text.toLowerCase()
+                            .replace(/[^\w\s-]/g, '')
+                            .replace(/\s+/g, '-')
+                            .replace(/--+/g, '-')
+                            .replace(/^-|-$/g, '');
                         heading.id = id || `section-${index + 1}`;
                     }
                 });
 
-                // Initialize tocbot
                 tocbot.init({
-                    // Where to render the table of contents
                     tocSelector: '.toc',
-                    // Which headings to grab
                     contentSelector: '.main',
-                    // Which headings to use for building the TOC  
-                    headingSelector: 'h2:not(.article-title)',
-                    // For headings inside relative or absolute positioned containers within content
+                    headingSelector: 'h2:not(.article-title), .project-content h2, .project-content h3',
                     hasInnerContainers: true,
-                    // Smooth scroll settings
                     scrollSmooth: true,
                     scrollSmoothDuration: 400,
                     scrollSmoothOffset: -100,
-                    // Heading offset for when scrolling to a heading - activate when section is centered
                     headingsOffset: window.innerHeight * 0.4,
-                    // Throttle the scrolling
                     throttleTimeout: 50,
-                    // Element to add the positionFixedClass to
-                    positionFixedSelector: null,
-                    // Fixed position class to add to make sidebar fixed after scrolling down past the fixedSidebarOffset
-                    positionFixedClass: 'is-position-fixed',
-                    // fixedSidebarOffset can be any number but by default is set to auto which sets the fixedSidebarOffset to the sidebar element's offsetTop from the top of the document on init
-                    fixedSidebarOffset: 'auto',
-                    // includeHtml can be set to true to include the HTML markup from the heading node instead of just including the textContent
-                    includeHtml: false,
-                    // onclick function to apply to all links in toc. will be applied after the scrollto function
-                    onClick: function(e) {
-                        // Optional click handler
-                    },
-                    // orderedList can be set to false to generate unordered lists (ul) instead of ordered lists (ol)
+                    collapseDepth: 1,
                     orderedList: false,
-                    // If there is a fixed article scroll container, set to calculate titles' offset
-                    scrollContainer: null,
-                    // prevent ToC DOM selection
-                    skipRendering: false,
-                    // HeadingLabelCallback function can be used to modify the headings
-                    headingLabelCallback: false,
-                    // ignore headings that are hidden in DOM
-                    ignoreHiddenElements: true,
-                    // Optional callback to change heading labels
-                    headingObjectCallback: null,
-                    // Set the base path, this is useful if you use a `base` tag in `head`
-                    basePath: '',
-                    // Only takes affect when `tocSelector` is scrolling, keep the toc scroll position in sync with the content
-                    disableTocScrollSync: false,
-                    // Smooth scroll offset
-                    tocScrollOffset: 0,
-                    // Collapse nested sections by default
-                    collapseDepth: 0
+                    activeLinkClass: 'is-active-link',
+                    collapsibleClass: 'is-collapsible',
+                    isCollapsedClass: 'is-collapsed',
+                    listClass: 'toc-list',
+                    listItemClass: 'toc-list-item',
+                    activeListItemClass: 'is-active-li',
+                    includeHtml: false
                 });
-                
-                // Show the TOC container initially (but invisible due to CSS)
+
                 tocContainer.style.display = 'block';
-                
-                // Handle scroll-based fade in/out
+
+                // Force initial collapsed state for all sections and add click handlers
+                setTimeout(() => {
+                    const tocItems = document.querySelectorAll('.toc .toc-list-item.is-collapsible');
+                    tocItems.forEach(item => {
+                        // Start all sections collapsed except the active one
+                        if (!item.classList.contains('is-active-li')) {
+                            item.classList.add('is-collapsed');
+                        }
+                        
+                        // Add click handler to main section links
+                        const mainLink = item.querySelector(':scope > a');
+                        if (mainLink) {
+                            mainLink.addEventListener('click', (e) => {
+                                // Don't prevent default link behavior, but toggle collapse state
+                                item.classList.toggle('is-collapsed');
+                            });
+                        }
+                    });
+                }, 100);
+
+                // Initialize improved scroll spy after TOC is ready
+                setTimeout(() => {
+                    if (typeof TOCScrollSpy !== 'undefined') {
+                        window.tocScrollSpy = new TOCScrollSpy({
+                            tocSelector: '.toc',
+                            headingSelector: 'h2:not(.article-title), .project-content h2, .project-content h3',
+                            headerOffset: 100,
+                            throttleDelay: 75
+                        });
+                    }
+                }, 200);
+
                 let tocVisible = false;
-                
                 function handleTocVisibility() {
                     const heroSection = document.querySelector('canvas') || document.querySelector('.article-header') || document.querySelector('.main > *:first-child');
                     if (!heroSection) {
-                        // If no hero section found, show TOC after scrolling past 200px
                         const shouldShow = window.scrollY > 200;
-                        if (shouldShow && !tocVisible) {
+                        if(shouldShow && !tocVisible) {
                             tocContainer.classList.add('visible');
                             tocVisible = true;
                         } else if (!shouldShow && tocVisible) {
@@ -836,8 +1207,7 @@
                     }
                     
                     const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
-                    const scrollY = window.scrollY;
-                    const shouldShow = scrollY > heroBottom - 200; // Show 200px before hero ends
+                    const shouldShow = window.scrollY > heroBottom - 200;
                     
                     if (shouldShow && !tocVisible) {
                         tocContainer.classList.add('visible');
@@ -847,30 +1217,43 @@
                         tocVisible = false;
                     }
                 }
-                
-                // Initial check
+
                 handleTocVisibility();
-                
-                // Listen to scroll events
                 window.addEventListener('scroll', handleTocVisibility, { passive: true });
-                
             } else {
-                // Hide TOC if no headings found
                 if (tocContainer) {
                     tocContainer.style.display = 'none';
                 }
             }
         });
-        
-        // Clean up when navigating away
+
         window.addEventListener('beforeunload', function() {
             if (typeof tocbot !== 'undefined') {
                 tocbot.destroy();
             }
         });
-        
-        // Initialize Lucide icons
+
         lucide.createIcons();
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'dark',
+            themeVariables: {
+                primaryColor: '#6366f1',
+                primaryTextColor: '#f5f5f5',
+                primaryBorderColor: '#4f46e5',
+                lineColor: '#6366f1',
+                secondaryColor: '#2a2a2a',
+                tertiaryColor: '#404040',
+                background: '#1a1a1a',
+                mainBkg: '#2a2a2a',
+                secondBkg: '#404040',
+                tertiaryBkg: '#525252'
+            },
+            flowchart: {
+                htmlLabels: true,
+                curve: 'basis'
+            }
+        });
     </script>
     
     <!-- Secure Contact Email System -->
