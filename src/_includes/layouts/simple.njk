@@ -329,12 +329,20 @@
             border-radius: var(--radius-sm);
             transition: all 0.2s ease;
             line-height: 1.4;
+        }
+
+        /* White borders only on top-level TOC items */
+        .toc > .toc-list > .toc-list-item > a {
             border-left: 2px solid var(--color-border);
         }
         
         .toc a:hover {
             color: var(--color-text-light);
             background: transparent;
+        }
+
+        /* White border hover state only for top-level items */
+        .toc > .toc-list > .toc-list-item > a:hover {
             border-left-color: var(--color-text-light);
         }
         
@@ -342,12 +350,20 @@
             color: var(--color-text);
             background: transparent;
             font-weight: 600;
+        }
+
+        /* Active state border colors only for top-level items */
+        .toc > .toc-list > .toc-list-item > a.is-active-link {
             border-left-color: var(--color-accent);
         }
         
         .toc .toc-list-item.is-active-li > a {
             color: var(--color-text);
             font-weight: 600;
+        }
+
+        /* Active state border colors only for top-level items */
+        .toc > .toc-list > .toc-list-item.is-active-li > a {
             border-left-color: var(--color-accent);
         }
         
@@ -356,6 +372,11 @@
         .toc .is-active-link {
             color: var(--color-text) !important;
             background: transparent !important;
+        }
+
+        /* Border color overrides only for top-level items */
+        .toc > .toc-list > .toc-list-item > a.is-active-link,
+        .toc > .toc-list > .toc-list-item > .is-active-link {
             border-left-color: var(--color-accent) !important;
         }
         
@@ -366,6 +387,10 @@
         
         .toc .is-active-li > a {
             color: var(--color-text) !important;
+        }
+
+        /* Border color for active list items only on top-level */
+        .toc > .toc-list > .toc-list-item.is-active-li > a {
             border-left-color: var(--color-accent) !important;
         }
         
@@ -426,6 +451,30 @@
             max-height: 1000px;
             opacity: 1;
         }
+
+        /* Fast animation for TOC expansion/collapse */
+        .toc .toc-list-item > .toc-list {
+            transition: max-height 0.15s ease-out, opacity 0.1s ease-out;
+        }
+
+        /* Add dark grey left border to nested TOC items (H3 level) ONLY */
+        .toc .toc-list-item .toc-list .toc-list-item {
+            border-left: 2px solid #666;
+            padding-left: 8px;
+            margin-left: 4px;
+        }
+
+        /* Remove borders from links inside nested items to avoid double borders */
+        .toc .toc-list-item .toc-list .toc-list-item .toc-link {
+            border-left: none !important;
+        }
+
+        /* CRITICAL FIX: Remove light grey background from ::before pseudo-elements on H3 (nested) TOC links */
+        .toc .toc-list .toc-list-item .toc-link::before,
+        .toc .toc-list .toc-list .toc-list-item .toc-link::before {
+            background: transparent !important;
+            background-color: transparent !important;
+        }
         
         .toc .toc-list-item.is-collapsed .toc-indicator {
             transform: rotate(0deg);
@@ -439,9 +488,13 @@
         .toc .toc-list-item.is-collapsible > a {
             font-weight: 600;
             color: var(--color-text);
-            border-left-width: 3px;
             display: block !important;
             opacity: 1 !important;
+        }
+
+        /* White border styling only for top-level collapsible items */
+        .toc > .toc-list > .toc-list-item.is-collapsible > a {
+            border-left-width: 3px;
         }
         
         /* Product entries should be more subdued */
@@ -1162,7 +1215,7 @@
                     scrollSmoothDuration: 400,
                     scrollSmoothOffset: -100,
                     headingsOffset: window.innerHeight * 0.4,
-                    throttleTimeout: 50,
+                    throttleTimeout: 16,
                     collapseDepth: 1,
                     orderedList: false,
                     activeLinkClass: 'is-active-link',
@@ -1316,7 +1369,7 @@
                     let scrollTimer;
                     window.addEventListener('scroll', () => {
                         clearTimeout(scrollTimer);
-                        scrollTimer = setTimeout(expandVisibleSection, 50);
+                        scrollTimer = setTimeout(expandVisibleSection, 16);
                     }, { passive: true });
                     
                 }, 100);
@@ -1328,7 +1381,7 @@
                             tocSelector: '.toc',
                             headingSelector: 'h2:not(.article-title), .project-content h2, .project-content h3',
                             headerOffset: 100,
-                            throttleDelay: 75
+                            throttleDelay: 16
                         });
                     }
                 }, 200);
