@@ -500,6 +500,49 @@ Tools for code quality, specifications, and development workflows.
   </div>
 </div>
 
+<!-- Product Valknut -->
+<div class="project-brochure" id="valknut-product">
+  <div class="project-visual">
+    <i data-lucide="layers" class="project-icon"></i>
+    <div class="project-codename">Codename: VALKNUT</div>
+    <div class="project-status">In Development</div>
+  </div>
+  <div class="project-content">
+    <h3>Static Analysis Engine for AI-Guided Refactoring</h3>
+    <div class="project-pitch">
+      <p><strong>The Problem:</strong> AI agents waste time analyzing entire codebases when refactoring, struggling to identify which functions actually need attention. Without guidance, they either miss critical issues or get overwhelmed by low-priority violations. Teams need a way to direct AI focus to the most problematic code.</p>
+      
+      <p><strong>The Solution:</strong> Valknut uses deterministic static analysis to rank code by "refactorability," creating a targeted roadmap for AI agents. It generates structured refactor briefs that help AI tools like Claude Code automatically focus on the highest-impact problems first, making refactoring sessions dramatically more efficient.</p>
+      
+      <div class="project-features">
+        <div class="feature-item">
+          <strong>Static Algorithm Analysis:</strong> Uses deterministic complexity, duplication, centrality, and dependency metrics to generate precise 0-1 refactoring urgency scores without runtime profiling.
+        </div>
+        <div class="feature-item">
+          <strong>AI Agent Integration:</strong> Purpose-built MCP server integration allows Claude Code and other AI tools to automatically query the most problematic code and focus refactoring efforts efficiently.
+        </div>
+        <div class="feature-item">
+          <strong>Multi-Language Support:</strong> Handles Python, TypeScript, JavaScript, and Rust with language-specific detection patterns like type friction and clone mass analysis.
+        </div>
+        <div class="feature-item">
+          <strong>Coordinated Refactoring:</strong> Identifies Impact Packs and circular dependencies that should be tackled together, preventing AI agents from making isolated changes that miss systemic issues.
+        </div>
+      </div>
+      
+      <div class="project-tagline">Stop letting AI agents hunt blindly through code. Start directing them to the problems that matter most.</div>
+      
+      <div class="project-cta">
+        <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in becoming a tester for this product. Please let me know about testing opportunities.">
+          <span class="btn-inner">
+            Become a Tester
+            <i data-lucide="mail"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
 ## Developer Control & Integration
 
 Products that make AI setup, costs, and integration controllable.
@@ -824,6 +867,10 @@ AI-powered tools for creators, writers, and content professionals to analyze, ge
 
 #heimdall-product .project-visual {
   background-image: linear-gradient(rgba(14, 165, 233, 0.15), rgba(14, 165, 233, 0.15)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2672&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+}
+
+#valknut-product .project-visual {
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('https://images.unsplash.com/photo-1612528449557-90f97e0cf75c?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
 }
 
 .project-icon {

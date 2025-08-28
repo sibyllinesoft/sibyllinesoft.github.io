@@ -70,35 +70,9 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
 <p>You're ready to build AI into your core strategy with budget for strategic consulting and implementation.</p>
 </div>
 <div class="click-hint">Click to expand</div>
-<div class="service-visual">
-<div class="ai-first-architecture">
-<div class="architecture-stack">
-<div class="arch-layer" style="bottom: 0; height: 20%; animation-delay: 0s;">
-<div class="layer-label">Agent Registry</div>
-<div class="code-particles"></div>
-</div>
-<div class="arch-layer" style="bottom: 20%; height: 20%; animation-delay: 0.15s;">
-<div class="layer-label">Orchestration</div>
-<div class="flow-lines"></div>
-</div>
-<div class="arch-layer" style="bottom: 40%; height: 20%; animation-delay: 0.3s;">
-<div class="layer-label">Intelligence Layer</div>
-<div class="neural-nodes"></div>
-</div>
-<div class="arch-layer" style="bottom: 60%; height: 20%; animation-delay: 0.45s;">
-<div class="layer-label">Business Logic</div>
-<div class="logic-circuits"></div>
-</div>
-<div class="arch-layer building" style="bottom: 80%; height: 20%; animation-delay: 0.6s;">
-<div class="layer-label">Autonomous Systems</div>
-<div class="autonomous-indicators"></div>
-</div>
-</div>
-<div class="velocity-multiplier">
-<div class="velocity-arrow">→</div>
-<div class="multiplier-text">10x</div>
-</div>
-</div>
+<div class="service-visual solar">
+<div class="star"></div>
+<b></b><b></b><b></b><b></b>
 </div>
 </div>
 
@@ -120,44 +94,9 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
 <p>3-12 month contracts, full-time billing for complex projects, flexible arrangements based on scope.</p>
 </div>
 <div class="click-hint">Click to expand</div>
-<div class="service-visual">
-<div class="agent-orchestration">
-<div class="central-hub">
-<div class="hub-core">orchestrator</div>
-<div class="hub-pulse"></div>
-</div>
-<div class="isolated-agents">
-<div class="agent-vm" style="top: 15%; left: 15%; animation-delay: 0s;">
-<div class="vm-boundary"></div>
-<div class="agent-core">A1</div>
-<div class="isolation-indicator"></div>
-</div>
-<div class="agent-vm" style="top: 15%; right: 15%; animation-delay: 0.2s;">
-<div class="vm-boundary"></div>
-<div class="agent-core">A2</div>
-<div class="isolation-indicator"></div>
-</div>
-<div class="agent-vm" style="bottom: 25%; left: 25%; animation-delay: 0.4s;">
-<div class="vm-boundary"></div>
-<div class="agent-core">A3</div>
-<div class="isolation-indicator"></div>
-</div>
-<div class="agent-vm" style="bottom: 25%; right: 25%; animation-delay: 0.6s;">
-<div class="vm-boundary"></div>
-<div class="agent-core">A4</div>
-<div class="isolation-indicator"></div>
-</div>
-<div class="dept-node" style="top: 35%; left: 15%; animation-delay: 0.8s;">
-<div class="node-label">HR</div>
-<div class="connection-beam"></div>
-</div>
-</div>
-<div class="integration-waves">
-<div class="wave wave-1"></div>
-<div class="wave wave-2"></div>
-<div class="wave wave-3"></div>
-</div>
-</div>
+<div class="service-visual galaxy">
+<object type="image/svg+xml" data="/img/svg/galaxy.svg" class="galaxy-svg" width="492" height="252" aria-label="Enhanced spiral galaxy with glow effects"></object>
+<div class="glass-overlay"></div>
 </div>
 </div>
 
@@ -179,31 +118,9 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
 <p>You want to go beyond basic AI usage and build workflows that compound over time.</p>
 </div>
 <div class="click-hint">Click to expand</div>
-<div class="service-visual">
-<div class="productivity-training">
-<div class="skill-progression">
-<div class="skill-level basic">
-<div class="skill-bar"></div>
-<div class="skill-label">Before</div>
-</div>
-<div class="transformation-arrow">⟹</div>
-<div class="skill-level advanced">
-<div class="skill-bar growing"></div>
-<div class="skill-label">After</div>
-</div>
-</div>
-<div class="productivity-metrics">
-<div class="metric-circle">
-<div class="circle-progress" style="--progress: 75%;"></div>
-<div class="metric-text">3x<br><small>Faster</small></div>
-</div>
-<div class="workflow-icons">
-<div class="workflow-icon">⚙</div>
-<div class="workflow-icon">◉</div>
-<div class="workflow-icon">⟐</div>
-</div>
-</div>
-</div>
+<div class="service-visual planet">
+<div class="orbit-ring"></div>
+<i></i>
 </div>
 </div>
 </div>
@@ -414,6 +331,286 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
 {% endif %}
 
 *Where ambitious ideas meet intelligent execution.*
+
+<style>
+/* Refined Chrome Animation Base Styles */
+:root{
+  --bg:#0b0e13;             /* card bg already dark */
+  --ink:#a6b0c2;            /* strokes */
+  --glow:#a9bfff;           /* cool accent */
+  --muted:#8b97aa;          /* secondary */
+  --size:164px; --h:84px; --r:14px;
+  --blur:1.2px;             /* tiny! keeps it flat */
+  --dur:6.5s;               /* slow loops */
+  --alpha:0.35;             /* glow cap */
+}
+.tile{
+  position:relative; width:var(--size); height:var(--h); border-radius:var(--r);
+  background:linear-gradient(180deg,#0b0e13,#0a0d12);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.06);
+  overflow:hidden; isolation:isolate;
+}
+.chrome-label{
+  position:absolute; bottom:6px; left:8px; font:500 11px/1 Inter,system-ui;
+  color:#8a93a4; letter-spacing:.02em; user-select:none;
+}
+@media (prefers-reduced-motion:reduce){
+  .tile *,.tile::before,.tile::after{animation:none!important}
+}
+
+
+/* Individual — Planet (clean, flat) */
+.service-visual.planet{ /* background stars */
+  position:absolute; bottom:0; left:0; right:0; width:100%; height:120px;
+  border-radius:0 0 var(--radius-lg) var(--radius-lg); border:1px solid rgba(255,255,255,.05);
+  overflow: hidden;
+  opacity: 0.8;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(255,255,255,.4) 0 2.7px, transparent 2.8px),
+    radial-gradient(circle at 80% 15%, rgba(255,255,255,.3) 0 2.7px, transparent 2.8px),
+    radial-gradient(circle at 25% 85%, rgba(255,255,255,.35) 0 2.7px, transparent 2.8px),
+    radial-gradient(circle at 70% 75%, rgba(255,255,255,.25) 0 2.7px, transparent 2.8px),
+    radial-gradient(circle at 40% 30%, rgba(255,255,255,.3) 0 2.7px, transparent 2.8px),
+    radial-gradient(circle at 90% 60%, rgba(255,255,255,.2) 0 2.7px, transparent 2.8px),
+    radial-gradient(circle at 10% 70%, rgba(255,255,255,.25) 0 2.7px, transparent 2.8px),
+    radial-gradient(circle at 60% 10%, rgba(255,255,255,.3) 0 2.7px, transparent 2.8px),
+    radial-gradient(circle at 30% 90%, rgba(255,255,255,.2) 0 2.7px, transparent 2.8px),
+    linear-gradient(135deg, var(--color-graphite-750) 0%, var(--color-graphite-700) 100%);
+}
+.service-visual.planet::before{ /* glass overlay removed for consistency */
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* background gradient removed for visual consistency between service cards */
+  pointer-events: none;
+  z-index: 10;
+}
+.service-visual.planet::after{ /* planet */
+  content:""; position:absolute; left:50%; top:50%; translate:-50% -50%;
+  width:40px; height:40px; border-radius:50%;
+  background:radial-gradient(circle at 35% 35%, rgba(99,102,241,.9) 0%, rgba(99,102,241,.7) 50%, rgba(99,102,241,.6) 100%);
+  box-shadow:0 0 0 1px rgba(255,255,255,.08) inset;
+  z-index: 5;
+}
+.service-visual.planet i{ /* the moon */
+  position:absolute; left:50%; top:50%; translate:40px -50%;
+  width:8px; height:8px; border-radius:50%;
+  background:var(--color-accent);
+  filter:drop-shadow(0 0 6px rgba(99,102,241,.4));
+  animation:spin var(--dur) linear infinite;
+  transform-origin:-40px 0;
+  z-index: 6;
+}
+.service-visual.planet .orbit-ring { /* moon orbit ring */
+  position:absolute; left:50%; top:50%; translate:-50% -50%;
+  width:80px; height:80px; border-radius:50%;
+  border:1px solid rgba(99,102,241,.1);
+  z-index: 4;
+}
+
+/* Startup — Solar System (three nodes, thin arcs) */
+.service-visual.solar{ /* background stars */
+  position:absolute; bottom:0; left:0; right:0; width:100%; height:120px;
+  border-radius:0 0 var(--radius-lg) var(--radius-lg); border:1px solid rgba(255,255,255,.05);
+  overflow: hidden;
+  opacity: 0.8;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(255,255,255,.35) 0 2.7px, transparent 2.8px),
+    radial-gradient(circle at 85% 22%, rgba(255,255,255,.3) 0 2.7px, transparent 2.8px),
+    radial-gradient(circle at 20% 80%, rgba(255,255,255,.4) 0 2.7px, transparent 2.8px),
+    radial-gradient(circle at 75% 85%, rgba(255,255,255,.25) 0 2.7px, transparent 2.8px),
+    radial-gradient(circle at 45% 15%, rgba(255,255,255,.3) 0 2.7px, transparent 2.8px),
+    radial-gradient(circle at 65% 45%, rgba(255,255,255,.2) 0 2.7px, transparent 2.8px),
+    radial-gradient(circle at 90% 35%, rgba(255,255,255,.25) 0 2.7px, transparent 2.8px),
+    radial-gradient(circle at 8% 50%, rgba(255,255,255,.3) 0 2.7px, transparent 2.8px),
+    radial-gradient(circle at 35% 8%, rgba(255,255,255,.2) 0 2.7px, transparent 2.8px),
+    radial-gradient(circle at 70% 12%, rgba(255,255,255,.25) 0 2.7px, transparent 2.8px),
+    radial-gradient(circle at 15% 90%, rgba(255,255,255,.2) 0 2.7px, transparent 2.8px),
+    linear-gradient(135deg, var(--color-graphite-750) 0%, var(--color-graphite-700) 100%);
+}
+.service-visual.solar::before{ /* glass overlay removed for consistency */
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* background gradient removed for visual consistency between service cards */
+  pointer-events: none;
+  z-index: 10;
+}
+.service-visual.solar::after{ /* orbital arcs */
+  content:""; position:absolute; left:50%; top:50%; translate:-50% -50%;
+  width:180px; height:180px; border-radius:50%;
+  background:
+    radial-gradient(closest-side, transparent 86%, rgba(99,102,241,.08) 87% 88%, transparent 89%),
+    radial-gradient(closest-side, transparent 70%, rgba(99,102,241,.08) 71% 72%, transparent 73%),
+    radial-gradient(closest-side, transparent 54%, rgba(99,102,241,.08) 55% 56%, transparent 57%),
+    radial-gradient(closest-side, transparent 38%, rgba(99,102,241,.08) 39% 40%, transparent 41%),
+    radial-gradient(closest-side, transparent 22%, rgba(99,102,241,.08) 23% 24%, transparent 25%);
+  filter:blur(.2px);
+  z-index: 1;
+}
+.service-visual.solar b{
+  position:absolute; left:50%; top:50%; translate:-50% -50%;
+  animation:spin var(--dur) linear infinite; will-change:transform;
+  z-index: 3;
+}
+.service-visual.solar b::after{
+  content:""; position:absolute; left:0; top:-3.5px;
+  width:7px; height:7px; border-radius:50%;
+  background:var(--color-accent); box-shadow:0 0 8px rgba(99,102,241,.4);
+  transform-origin: center center;
+}
+.service-visual.solar b:nth-child(2){ width:180px; height:180px; animation-duration:calc(var(--dur)*3.0)}
+.service-visual.solar b:nth-child(2)::after{ left:90px; opacity:.9; width:9px; height:9px; }
+.service-visual.solar b:nth-child(3){ width:140px; height:140px; animation-duration:calc(var(--dur)*2.2)}
+.service-visual.solar b:nth-child(3)::after{ left:70px; opacity:.85; width:7px; height:7px; }
+.service-visual.solar b:nth-child(4){ width:100px; height:100px; animation-duration:calc(var(--dur)*1.5)}
+.service-visual.solar b:nth-child(4)::after{ left:50px; opacity:.8; width:5px; height:5px; }
+.service-visual.solar b:nth-child(5){ width:60px; height:60px; animation-duration:calc(var(--dur)*1.0)}
+.service-visual.solar b:nth-child(5)::after{ left:30px; opacity:.75; width:3px; height:3px; }
+.service-visual.solar .star{ /* central star */
+  position:absolute; left:50%; top:50%; translate:-50% -50%; z-index:5;
+  width:9px; height:9px; 
+  background:radial-gradient(circle, 
+    rgba(255,255,255,1) 0%, 
+    rgba(255,255,255,0.95) 15%,
+    rgba(99,102,241,0.9) 25%,
+    rgba(99,102,241,0.8) 40%,
+    rgba(99,102,241,0.7) 55%,
+    rgba(99,102,241,0.6) 70%,
+    rgba(99,102,241,0.5) 85%,
+    rgba(99,102,241,0.3) 100%);
+  border-radius:50%; filter:blur(.3px);
+  box-shadow:
+    0 0 30px rgba(99,102,241,.8),
+    0 0 50px rgba(99,102,241,.6),
+    0 0 70px rgba(99,102,241,.4),
+    0 0 90px rgba(99,102,241,.2),
+    inset 0 0 15px rgba(255,255,255,.3);
+  animation: sunPulse 3s ease-in-out infinite;
+}
+
+/* Enterprise — Galaxy (muted, parallax, but NOT flashy) */
+.service-visual.galaxy{
+  position:absolute; bottom:0; left:0; right:0; width:100%; height:120px;
+  border-radius:0 0 var(--radius-lg) var(--radius-lg); border:1px solid rgba(255,255,255,.05);
+  overflow: hidden;
+  opacity: 0.9;
+  background:
+    radial-gradient(circle, #3b82f6 .2px, transparent .3px) 13% 27%,
+    radial-gradient(circle, #60a5fa .2px, transparent .3px) 73% 19%,
+    radial-gradient(circle, #3b82f6 .2px, transparent .3px) 31% 83%,
+    radial-gradient(circle, #60a5fa .2px, transparent .3px) 89% 71%,
+    radial-gradient(circle, #3b82f6 .2px, transparent .3px) 7% 52%,
+    radial-gradient(circle, #60a5fa .2px, transparent .3px) 41% 11%,
+    radial-gradient(circle, #3b82f6 .2px, transparent .3px) 67% 63%,
+    radial-gradient(circle, #60a5fa .2px, transparent .3px) 23% 47%,
+    radial-gradient(circle, #3b82f6 .2px, transparent .3px) 91% 34%,
+    radial-gradient(circle, #60a5fa .2px, transparent .3px) 56% 79%,
+    linear-gradient(135deg, var(--color-graphite-750) 0%, var(--color-graphite-700) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-visual.galaxy .galaxy-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: scale(3);
+  filter: drop-shadow(0 0 20px rgba(99, 102, 241, 0.5)) drop-shadow(0 0 40px rgba(99, 102, 241, 0.2));
+  z-index: 5;
+}
+.service-visual.galaxy .glass-overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.1) 0%, 
+    rgba(255, 255, 255, 0.03) 50%,
+    rgba(255, 255, 255, 0.08) 100%
+  );
+  pointer-events: none;
+  z-index: 10;
+}
+/* Old galaxy animation CSS - now replaced by SVG
+.service-visual.galaxy::before,.service-visual.galaxy::after{
+  content:""; position:absolute; left:50%; top:50%; translate:-50% -50%;
+  width:396px; height:396px;
+  mix-blend-mode:screen;
+  z-index: 5;
+}
+.service-visual.galaxy::before{
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255,255,255,.35) 0 12%, transparent 55%),
+    conic-gradient(from 8deg,
+      rgba(59,130,246,.14) 0 18deg, transparent 18deg 60deg,
+      rgba(59,130,246,.12) 60deg 78deg, transparent 78deg 120deg,
+      rgba(59,130,246,.10) 120deg 138deg, transparent 138deg 180deg,
+      rgba(59,130,246,.09) 180deg 198deg, transparent 198deg 240deg,
+      rgba(59,130,246,.08) 240deg 258deg, transparent 258deg 300deg,
+      rgba(59,130,246,.07) 300deg 318deg, transparent 318deg 360deg);
+  filter:blur(var(--blur));
+  animation:galaxySwirl var(--dur) linear infinite;
+  transform: perspective(200px) rotateX(5deg);
+}
+.service-visual.galaxy::after{
+  background:
+    conic-gradient(from -6deg,
+      rgba(59,130,246,.07) 0 14deg, transparent 14deg 52deg,
+      rgba(59,130,246,.06) 52deg 66deg, transparent 66deg 104deg,
+      rgba(59,130,246,.05) 104deg 118deg, transparent 118deg 156deg,
+      rgba(59,130,246,.05) 156deg 170deg, transparent 170deg 208deg,
+      rgba(59,130,246,.04) 208deg 222deg, transparent 222deg 260deg,
+      rgba(59,130,246,.04) 260deg 274deg, transparent 274deg 312deg,
+      rgba(59,130,246,.03) 312deg 326deg, transparent 326deg 360deg);
+  opacity:.9; filter:blur(calc(var(--blur)*1.2));
+  animation:galaxySwirlReverse calc(var(--dur)*1.1) linear infinite;
+  transform: perspective(200px) rotateX(3deg);
+}
+*/
+
+/* Shared keyframes for all animations */
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes gspin{to{transform:rotate(360deg)}}
+@keyframes gspinR{to{transform:rotate(-360deg)}}
+@keyframes sunPulse{
+  0%, 100% { 
+    transform: translate(-50%, -50%) scale(1); 
+    opacity: 1; 
+  }
+  50% { 
+    transform: translate(-50%, -50%) scale(1.1); 
+    opacity: 0.9; 
+  }
+}
+/* Old galaxy animation keyframes - now replaced by SVG animations
+@keyframes galaxySwirl{
+  0% { transform: perspective(200px) rotateX(5deg) rotate(0deg) scale(1); }
+  25% { transform: perspective(200px) rotateX(5deg) rotate(90deg) scale(1.05); }
+  50% { transform: perspective(200px) rotateX(5deg) rotate(180deg) scale(1); }
+  75% { transform: perspective(200px) rotateX(5deg) rotate(270deg) scale(0.95); }
+  100% { transform: perspective(200px) rotateX(5deg) rotate(360deg) scale(1); }
+}
+@keyframes galaxySwirlReverse{
+  0% { transform: perspective(200px) rotateX(3deg) rotate(0deg) scale(1); }
+  25% { transform: perspective(200px) rotateX(3deg) rotate(-90deg) scale(0.95); }
+  50% { transform: perspective(200px) rotateX(3deg) rotate(-180deg) scale(1); }
+  75% { transform: perspective(200px) rotateX(3deg) rotate(-270deg) scale(1.05); }
+  100% { transform: perspective(200px) rotateX(3deg) rotate(-360deg) scale(1); }
+}
+*/
+
+</style>
 
 <style>
 /* Index page specific - remove top margin/padding from main */
@@ -1631,6 +1828,44 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
   pointer-events: none;
 }
 
+/* Minimal Service Visual Elements */
+.service-visual-minimal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--color-graphite-700) 0%, var(--color-graphite-600) 100%);
+}
+
+.service-visual-minimal .minimal-visual-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-lg);
+}
+
+.service-visual-minimal .visual-icon {
+  font-size: 2.5rem;
+  line-height: 1;
+  margin-bottom: var(--space-sm);
+  opacity: 0.9;
+}
+
+.service-visual-minimal .visual-text {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: var(--space-xs);
+  line-height: 1.2;
+}
+
+.service-visual-minimal .visual-subtext {
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.3;
+}
+
 /* Autonomous Network Visualization */
 .autonomous-network {
   position: relative;
@@ -2671,6 +2906,606 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
 .discovery-section,
 .services-section {
   margin-bottom: calc(var(--space-2xl) * 1.5);
+}
+
+/* Startup Rocket System Styles */
+.startup-rocket-system {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(147, 51, 234, 0.1) 100%);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.growth-trajectory {
+  position: absolute;
+  top: 20%;
+  left: 5%;
+  right: 5%;
+  height: 4px;
+}
+
+.trajectory-path {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6 0%, #10b981 50%, #f59e0b 100%);
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+}
+
+.stage-marker {
+  position: absolute;
+  top: -8px;
+  transform: translateX(-50%);
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.marker-dot {
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border: 3px solid #3b82f6;
+  border-radius: 50%;
+  margin: 0 auto 8px;
+  position: relative;
+  z-index: 2;
+}
+
+.stage-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #e2e8f0;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.stage-glow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.6) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.rocket-ship {
+  position: absolute;
+  top: -15px;
+  transform: translateX(-50%);
+  opacity: 0;
+  animation: rocketLaunch 1.5s ease-out 1.2s forwards;
+}
+
+.rocket-body {
+  font-size: 24px;
+  filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.8));
+  animation: float 3s ease-in-out infinite;
+}
+
+.rocket-trail {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 20px;
+  background: linear-gradient(180deg, rgba(249, 115, 22, 0.8) 0%, transparent 100%);
+  border-radius: 1px;
+  animation: trailGlow 1s infinite alternate;
+}
+
+.ai-capabilities-stack {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.capability-layer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: slideInLeft 0.6s ease-out forwards;
+}
+
+.capability-icon {
+  font-size: 14px;
+  filter: drop-shadow(0 0 4px rgba(59, 130, 246, 0.6));
+}
+
+.capability-text {
+  font-size: 10px;
+  font-weight: 500;
+  color: #cbd5e1;
+}
+
+.capability-pulse {
+  width: 6px;
+  height: 6px;
+  background: #3b82f6;
+  border-radius: 50%;
+  animation: pulse 1.5s infinite;
+}
+
+.velocity-showcase {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 80px;
+}
+
+.velocity-comparison {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.before-state, .after-state {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.progress-bar {
+  width: 40px;
+  height: 4px;
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-bar.slow {
+  background: rgba(156, 163, 175, 0.3);
+}
+
+.progress-bar.slow::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30%;
+  height: 100%;
+  background: #6b7280;
+  border-radius: 2px;
+  animation: slowProgress 3s infinite;
+}
+
+.progress-bar.fast {
+  background: rgba(59, 130, 246, 0.3);
+}
+
+.progress-bar.fast::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 90%;
+  height: 100%;
+  background: #3b82f6;
+  border-radius: 2px;
+  animation: fastProgress 1s infinite;
+}
+
+.state-label {
+  font-size: 9px;
+  font-weight: 500;
+  color: #94a3b8;
+}
+
+.transformation-boost {
+  text-align: center;
+  font-size: 12px;
+  color: #f59e0b;
+  animation: bounce 2s infinite;
+}
+
+.multiplier-badge {
+  position: absolute;
+  top: -15px;
+  right: -10px;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(16, 185, 129, 0.4);
+  animation: glow 2s infinite alternate;
+}
+
+/* Enterprise Command Center Styles */
+.enterprise-command-center {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(51, 65, 85, 0.8) 100%);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.security-perimeter {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.perimeter-shield {
+  font-size: 16px;
+  color: #10b981;
+  filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.6));
+  animation: securityPulse 3s infinite;
+}
+
+.security-scan {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(16, 185, 129, 0.5);
+  border-radius: 50%;
+  animation: radarScan 2s linear infinite;
+}
+
+.orchestration-matrix {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+}
+
+.command-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.center-core {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 6px;
+}
+
+.core-processor {
+  font-size: 18px;
+  color: #3b82f6;
+  filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.8));
+  animation: rotate 10s linear infinite;
+}
+
+.processing-rings {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.ring {
+  position: absolute;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 50%;
+  animation: ringExpand 4s infinite ease-in-out;
+}
+
+.ring-1 {
+  width: 30px;
+  height: 30px;
+  top: 5px;
+  left: 5px;
+  animation-delay: 0s;
+}
+
+.ring-2 {
+  width: 35px;
+  height: 35px;
+  top: 2.5px;
+  left: 2.5px;
+  animation-delay: 1.3s;
+}
+
+.ring-3 {
+  width: 40px;
+  height: 40px;
+  top: 0;
+  left: 0;
+  animation-delay: 2.6s;
+}
+
+.center-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.agent-nodes {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.agent-cluster {
+  position: absolute;
+  opacity: 0;
+  animation: fadeInScale 0.8s ease-out forwards;
+}
+
+.node-container {
+  position: relative;
+  background: rgba(30, 41, 59, 0.8);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 8px;
+  padding: 6px;
+  text-align: center;
+  backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
+}
+
+.node-container:hover {
+  border-color: rgba(59, 130, 246, 0.6);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+}
+
+.node-icon {
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+
+.node-id {
+  font-size: 9px;
+  font-weight: 500;
+  color: #e2e8f0;
+  margin-bottom: 2px;
+}
+
+.security-badge {
+  font-size: 8px;
+  color: #10b981;
+}
+
+.data-stream {
+  position: absolute;
+  width: 1px;
+  height: 20px;
+  background: linear-gradient(180deg, rgba(59, 130, 246, 0.8) 0%, transparent 100%);
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: dataFlow 2s infinite;
+}
+
+.enterprise-metrics {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  right: 8px;
+  display: flex;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+.metric-pod {
+  flex: 1;
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 6px;
+  padding: 4px;
+  text-align: center;
+  backdrop-filter: blur(4px);
+}
+
+.metric-icon {
+  font-size: 10px;
+  margin-bottom: 1px;
+}
+
+.metric-value {
+  font-size: 8px;
+  font-weight: 700;
+  color: #10b981;
+  margin-bottom: 1px;
+}
+
+.metric-label {
+  font-size: 7px;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rocketLaunch {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes trailGlow {
+  from {
+    opacity: 0.6;
+  }
+  to {
+    opacity: 1;
+    height: 25px;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slowProgress {
+  0%, 100% {
+    width: 20%;
+  }
+  50% {
+    width: 30%;
+  }
+}
+
+@keyframes fastProgress {
+  0%, 100% {
+    width: 85%;
+  }
+  50% {
+    width: 95%;
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-4px);
+  }
+  60% {
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 2px 4px rgba(16, 185, 129, 0.4);
+  }
+  to {
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.8);
+  }
+}
+
+@keyframes securityPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.6));
+  }
+  50% {
+    filter: drop-shadow(0 0 12px rgba(16, 185, 129, 1));
+  }
+}
+
+@keyframes radarScan {
+  0% {
+    transform: rotate(0deg);
+    border-color: rgba(16, 185, 129, 0.2);
+  }
+  25% {
+    border-color: rgba(16, 185, 129, 0.8);
+  }
+  100% {
+    transform: rotate(360deg);
+    border-color: rgba(16, 185, 129, 0.2);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes ringExpand {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1.3);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes dataFlow {
+  0% {
+    opacity: 0;
+    height: 0;
+  }
+  50% {
+    opacity: 1;
+    height: 20px;
+  }
+  100% {
+    opacity: 0;
+    height: 30px;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.1);
+  }
 }
 </style>
 

@@ -66,6 +66,9 @@ class ModalManager {
         }
       });
     });
+
+    // Set up intersection observer for automatic animations
+    this.initIntersectionObserver();
     
     // Add close modal listeners
     if (this.modalClose) {
@@ -161,6 +164,58 @@ class ModalManager {
     }
   }
   
+  initIntersectionObserver() {
+    // Create an intersection observer to trigger animations when cards come into view
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const card = entry.target;
+          const serviceVisual = card.querySelector('.service-visual');
+          
+          // Trigger a subtle version of animations for cards in view
+          if (serviceVisual && !serviceVisual.classList.contains('auto-animated')) {
+            serviceVisual.classList.add('auto-animated');
+            this.triggerPreviewAnimations(card);
+          }
+        }
+      });
+    }, {
+      threshold: 0.3, // Trigger when 30% of the card is visible
+      rootMargin: '0px 0px -50px 0px' // Slight offset from bottom
+    });
+
+    // Observe all service cards
+    this.serviceCards.forEach(card => {
+      observer.observe(card);
+    });
+  }
+
+  triggerPreviewAnimations(card) {
+    const aiArchitecture = card.querySelector('.ai-first-architecture');
+    if (aiArchitecture) {
+      const layers = aiArchitecture.querySelectorAll('.arch-layer');
+      
+      // Subtle animation for preview - just fade in the layers
+      layers.forEach((layer, index) => {
+        setTimeout(() => {
+          layer.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+          layer.style.opacity = '1';
+          layer.style.transform = 'translateY(0)';
+        }, index * 200 + 500);
+      });
+
+      // Animate velocity multiplier after layers
+      const velocityMultiplier = aiArchitecture.querySelector('.velocity-multiplier');
+      if (velocityMultiplier) {
+        setTimeout(() => {
+          velocityMultiplier.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+          velocityMultiplier.style.opacity = '1';
+          velocityMultiplier.style.transform = 'scale(1)';
+        }, layers.length * 200 + 800);
+      }
+    }
+  }
+
   triggerServiceVisualAnimations(card) {
     const serviceVisual = card.querySelector('.service-visual');
     if (serviceVisual) {
@@ -173,15 +228,48 @@ class ModalManager {
       // Restart animations by temporarily removing and re-adding animation styles
       const animatedElements = serviceVisual.querySelectorAll('.arch-layer, .milestone-marker, .network-node, .skill-level');
       animatedElements.forEach((el, index) => {
+        // Reset the element to initial state
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
         el.style.animation = 'none';
         el.offsetHeight; // Force reflow
-        el.style.animation = '';
         
-        // Add slight delay for stagger effect
-        if (el.classList.contains('arch-layer')) {
-          el.style.animationDelay = `${index * 0.2}s`;
-        }
+        // Re-apply animation with staggered delays
+        setTimeout(() => {
+          el.style.animation = '';
+          if (el.classList.contains('arch-layer')) {
+            el.style.animationDelay = `${index * 0.15}s`;
+          }
+        }, 10);
       });
+
+      // Trigger specific animations for AI architecture elements
+      const aiArchitecture = serviceVisual.querySelector('.ai-first-architecture');
+      if (aiArchitecture) {
+        const layers = aiArchitecture.querySelectorAll('.arch-layer');
+        layers.forEach((layer, index) => {
+          layer.style.opacity = '0';
+          layer.style.transform = 'translateY(20px)';
+          
+          setTimeout(() => {
+            layer.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            layer.style.opacity = '1';
+            layer.style.transform = 'translateY(0)';
+          }, index * 100 + 200);
+        });
+
+        // Animate velocity multiplier
+        const velocityMultiplier = aiArchitecture.querySelector('.velocity-multiplier');
+        if (velocityMultiplier) {
+          velocityMultiplier.style.opacity = '0';
+          velocityMultiplier.style.transform = 'scale(0.8)';
+          setTimeout(() => {
+            velocityMultiplier.style.transition = 'opacity 0.4s ease-out, transform 0.4s ease-out';
+            velocityMultiplier.style.opacity = '1';
+            velocityMultiplier.style.transform = 'scale(1)';
+          }, 800);
+        }
+      }
     }
   }
 }

@@ -225,16 +225,20 @@
   animation: layerBuild 0.8s ease-out forwards;
 }
 
-/* Force visibility of service-visual elements even when not expanded */
+/* Style service-visual elements for proper display */
 .service-visual .arch-layer {
-  opacity: 1 !important;
-  background: rgba(99, 102, 241, 0.1) !important;
-  border: 1px solid rgba(99, 102, 241, 0.3) !important;
-  position: absolute !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  border-radius: 4px !important;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+/* Only force visibility when card is expanded and animated */
+.service-card.expanded .service-visual .arch-layer {
+  opacity: 1;
 }
 
 .service-visual .network-node,
@@ -306,20 +310,7 @@
   opacity: 0.8;
 }
 
-.service-visual::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, 
-    rgba(255, 255, 255, 0.1) 0%, 
-    rgba(255, 255, 255, 0.03) 50%,
-    rgba(255, 255, 255, 0.08) 100%
-  );
-  pointer-events: none;
-}
+/* Removed universal gradient overlay to ensure consistency between service cards */
 
 /* Production Pipeline Visualization */
 .production-pipeline {
@@ -1295,6 +1286,47 @@
 @keyframes agentScale {
   0%, 100% { transform: scale(1); opacity: 0.7; }
   50% { transform: scale(1.2); opacity: 1; }
+}
+
+/* =================================
+   Minimal Service Visuals
+   ================================= */
+
+.service-visual-minimal {
+  background: linear-gradient(135deg, var(--color-graphite-750) 0%, var(--color-graphite-700) 100%);
+  border: 1px solid var(--color-graphite-600);
+}
+
+.minimal-visual-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: var(--color-mist-200);
+  width: 100%;
+  padding: 0 var(--space-md);
+}
+
+.visual-icon {
+  font-size: 2rem;
+  margin-bottom: var(--space-xs);
+  display: block;
+}
+
+.visual-text {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-mist-100);
+  margin-bottom: var(--space-2xs);
+  line-height: 1.2;
+}
+
+.visual-subtext {
+  font-size: 0.875rem;
+  color: var(--color-mist-400);
+  opacity: 0.8;
+  line-height: 1.2;
 }
 
 /* =================================

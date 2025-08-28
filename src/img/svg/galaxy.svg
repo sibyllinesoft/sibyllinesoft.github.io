@@ -1,0 +1,146 @@
+<svg class="galaxy-svg"
+     width="492" height="252" viewBox="0 0 492 252"
+     xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Spiral galaxy"
+     data-arms="5"        
+     data-tight="med"     
+     data-speed="med"     
+     data-speck="on"      
+     data-intensity="m">  
+  <defs>
+    <!-- Palette + knobs -->
+    <style>
+      .galaxy-svg{
+        --glow:#6366f1; --core:#ffffff;
+        --armOpacity: .55;        
+        --dash: 1.1 6.2;          
+        --outerOpacity: .45;      
+        --outerDash: .9 7.2;
+        --outerScale: 1.06;
+        --dur: 14s;               
+      }
+      /* Intensity presets */
+      .galaxy-svg[data-intensity="q"]{ --armOpacity:.40; --outerOpacity:.30 }
+      .galaxy-svg[data-intensity="m"]{ --armOpacity:.55; --outerOpacity:.45 }
+      .galaxy-svg[data-intensity="b"]{ --armOpacity:.70; --outerOpacity:.60 }
+
+      /* Speed presets */
+      .galaxy-svg[data-speed="slow"]{ --dur:18s }
+      .galaxy-svg[data-speed="med"] { --dur:14s }
+      .galaxy-svg[data-speed="fast"]{ --dur:10s }
+
+      /* Show/hide arm-count groups */
+      .arms-2, .arms-3, .arms-4, .arms-5 { display:none }
+      .galaxy-svg[data-arms="2"] .arms-2 { display:block }
+      .galaxy-svg[data-arms="3"] .arms-3 { display:block }
+      .galaxy-svg[data-arms="4"] .arms-4 { display:block }
+      .galaxy-svg[data-arms="5"] .arms-5 { display:block }
+
+      /* Tightness selection (choose which path def is visible) */
+      .path-loose, .path-med, .path-tight { display:none }
+      .galaxy-svg[data-tight="loose"] .path-loose { display:inline }
+      .galaxy-svg[data-tight="med"]   .path-med   { display:inline }
+      .galaxy-svg[data-tight="tight"] .path-tight { display:inline }
+
+      /* Enhanced CSS rotation with same direction parallax */
+      @keyframes spin { to { transform: rotate(360deg) } }
+      .spin { transform-origin: 246px 126px; animation: spin var(--dur) linear infinite }
+      .spin.slow { animation-duration: calc(var(--dur) * 1.8) }
+      .spin.med { animation-duration: var(--dur) }
+      .spin.fast { animation-duration: calc(var(--dur) * 0.7) }
+    </style>
+
+    <!-- Core gradient + edge falloff -->
+    <radialGradient id="coreGrad" cx="50%" cy="50%" r="55%">
+      <stop offset="0%"  stop-color="var(--core)" stop-opacity="0.9"/>
+      <stop offset="30%" stop-color="var(--glow)" stop-opacity="0.45"/>
+      <stop offset="70%" stop-color="var(--glow)" stop-opacity="0.0"/>
+    </radialGradient>
+    <radialGradient id="fade" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#fff" stop-opacity="1"/>
+      <stop offset="80%" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <mask id="fadeMask"><rect width="100%" height="100%" fill="url(#fade)"/></mask>
+
+    <!-- Glow filter for enhanced visual effect -->
+    <filter id="glowEffect" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="9" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="strongGlow" x="-150%" y="-150%" width="400%" height="400%">
+      <feGaussianBlur stdDeviation="18" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Five tightness variants (scaled up 3x and centered near 246,126) -->
+    <path id="arm-loose" class="path-loose" d="
+      M246 126 C 300 96, 372 108, 390 150 S 414 228, 342 240 S 222 216, 186 168
+                    S 174 114, 216 96 S 288 102, 324 120" fill="none"/>
+    <path id="arm-med"   class="path-med" d="
+      M246 126 C 288 102, 348 108, 372 138 S 402 204, 354 228 S 252 228, 204 186
+                    S 174 132, 204 108 S 276 96, 312 114" fill="none"/>
+    <path id="arm-tight" class="path-tight" d="
+      M246 126 C 276 114, 318 114, 342 138 S 372 180, 342 204 S 270 198, 234 174
+                    S 210 138, 234 120 S 270 114, 294 120" fill="none"/>
+  </defs>
+
+  <!-- Optional sparse speckles (scaled up 3x) -->
+  <g class="speck" opacity=".35">
+    <circle cx="102"  cy="174" r="2.7" fill="#e7eeff" filter="url(#glowEffect)"/>
+    <circle cx="408" cy="120" r="2.7" fill="#e7eeff" filter="url(#glowEffect)"/>
+    <circle cx="162"  cy="84" r="2.7" fill="#e7eeff" filter="url(#glowEffect)"/>
+    <circle cx="342" cy="192" r="2.7" fill="#e7eeff" filter="url(#glowEffect)"/>
+    <circle cx="78"  cy="96" r="2.7" fill="#e7eeff" filter="url(#glowEffect)"/>
+    <circle cx="420" cy="180" r="2.7" fill="#e7eeff" filter="url(#glowEffect)"/>
+    <circle cx="144"  cy="42" r="2.7" fill="#e7eeff" filter="url(#glowEffect)"/>
+    <circle cx="384" cy="210" r="2.7" fill="#e7eeff" filter="url(#glowEffect)"/>
+  </g>
+  <style>
+    .galaxy-svg[data-speck="off"] .speck { display:none }
+  </style>
+
+  <!-- Arms + core (masked to fade at edges, scaled up for prominence) -->
+  <g mask="url(#fadeMask)">
+    <!-- OUTER haze (largest, slowest) -->
+    <g class="spin slow" id="outer-haze" transform="scale(1.06)" opacity="0.27">
+      <g class="arms-5">
+        <use href="#arm-med"   transform="rotate(0 246 126)" stroke="var(--glow)" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="var(--outerDash)" filter="url(#strongGlow)"/>
+        <use href="#arm-med"   transform="rotate(72 246 126)" stroke="var(--glow)" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="var(--outerDash)" filter="url(#strongGlow)"/>
+        <use href="#arm-med"   transform="rotate(144 246 126)" stroke="var(--glow)" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="var(--outerDash)" filter="url(#strongGlow)"/>
+        <use href="#arm-med"   transform="rotate(216 246 126)" stroke="var(--glow)" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="var(--outerDash)" filter="url(#strongGlow)"/>
+        <use href="#arm-med"   transform="rotate(288 246 126)" stroke="var(--glow)" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="var(--outerDash)" filter="url(#strongGlow)"/>
+      </g>
+    </g>
+
+    <!-- MIDDLE arms (medium speed) -->
+    <g class="spin med" id="middle" opacity="0.45">
+      <g class="arms-5">
+        <use href="#arm-med"   transform="rotate(0 246 126)" stroke="var(--glow)" stroke-width="3.2" stroke-linecap="round" stroke-dasharray="var(--outerDash)" filter="url(#glowEffect)"/>
+        <use href="#arm-med"   transform="rotate(72 246 126)" stroke="var(--glow)" stroke-width="3.2" stroke-linecap="round" stroke-dasharray="var(--outerDash)" filter="url(#glowEffect)"/>
+        <use href="#arm-med"   transform="rotate(144 246 126)" stroke="var(--glow)" stroke-width="3.2" stroke-linecap="round" stroke-dasharray="var(--outerDash)" filter="url(#glowEffect)"/>
+        <use href="#arm-med"   transform="rotate(216 246 126)" stroke="var(--glow)" stroke-width="3.2" stroke-linecap="round" stroke-dasharray="var(--outerDash)" filter="url(#glowEffect)"/>
+        <use href="#arm-med"   transform="rotate(288 246 126)" stroke="var(--glow)" stroke-width="3.2" stroke-linecap="round" stroke-dasharray="var(--outerDash)" filter="url(#glowEffect)"/>
+      </g>
+    </g>
+
+    <!-- INNER arms (brightest, fastest) -->
+    <g class="spin fast" id="inner">
+      <g class="arms-5">
+        <use href="#arm-med"   transform="rotate(0 246 126)" stroke="var(--glow)" stroke-width="4.4" stroke-linecap="round" stroke-dasharray="var(--dash)" opacity="var(--armOpacity)" filter="url(#glowEffect)"/>
+        <use href="#arm-med"   transform="rotate(72 246 126)" stroke="var(--glow)" stroke-width="4.4" stroke-linecap="round" stroke-dasharray="var(--dash)" opacity="var(--armOpacity)" filter="url(#glowEffect)"/>
+        <use href="#arm-med"   transform="rotate(144 246 126)" stroke="var(--glow)" stroke-width="4.4" stroke-linecap="round" stroke-dasharray="var(--dash)" opacity="var(--armOpacity)" filter="url(#glowEffect)"/>
+        <use href="#arm-med"   transform="rotate(216 246 126)" stroke="var(--glow)" stroke-width="4.4" stroke-linecap="round" stroke-dasharray="var(--dash)" opacity="var(--armOpacity)" filter="url(#glowEffect)"/>
+        <use href="#arm-med"   transform="rotate(288 246 126)" stroke="var(--glow)" stroke-width="4.4" stroke-linecap="round" stroke-dasharray="var(--dash)" opacity="var(--armOpacity)" filter="url(#glowEffect)"/>
+      </g>
+    </g>
+
+    <!-- Core bulge (scaled up 3x) -->
+    <circle cx="246" cy="126" r="36" fill="url(#coreGrad)" filter="url(#strongGlow)"/>
+    <circle cx="246" cy="126" r="6.6" fill="var(--core)" opacity="0.9" filter="url(#glowEffect)"/>
+  </g>
+</svg>
