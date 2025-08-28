@@ -400,9 +400,22 @@
             user-select: none;
         }
         
-        /* Hide nested lists when collapsed, but keep the parent link visible */
+        /* CRITICAL: Always show top-level section headings - never hide them */
+        .toc > .toc-list > .toc-list-item > a {
+            display: block !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+        
+        /* OVERRIDE: Prevent the generic .is-collapsed rule from hiding entire TOC items */
+        .toc .toc-list-item.is-collapsed {
+            max-height: none !important;
+            overflow: visible !important;
+        }
+        
+        /* Only hide the nested sub-lists when collapsed, NOT the main section titles */
         .toc .toc-list-item.is-collapsed > .toc-list {
-            max-height: 0;
+            max-height: 0 !important;
             opacity: 0;
             margin: 0;
             padding: 0;
@@ -422,11 +435,13 @@
             transform: rotate(90deg);
         }
         
-        /* Enhanced styling for section headers in TOC */
+        /* Enhanced styling for section headers in TOC - always visible and clean */
         .toc .toc-list-item.is-collapsible > a {
             font-weight: 600;
             color: var(--color-text);
             border-left-width: 3px;
+            display: block !important;
+            opacity: 1 !important;
         }
         
         /* Product entries should be more subdued */
@@ -1163,33 +1178,48 @@
 
                 // Force initial collapsed state for all sections and add click handlers
                 setTimeout(() => {
-                    // Find items that have nested lists (main sections)
-                    const allTocItems = document.querySelectorAll('.toc .toc-list-item');
-                    const collapsibleTocItems = Array.from(allTocItems).filter(item => 
+                    // Find only the TOP-LEVEL items (direct children of the main .toc)
+                    // These are the main section headings that should always be visible
+                    const topLevelItems = document.querySelectorAll('.toc > .toc-list > .toc-list-item');
+                    
+                    topLevelItems.forEach((item, index) => {
+                        const nestedList = item.querySelector('.toc-list');
+                        const mainLink = item.querySelector(':scope > a');
+                        const linkText = mainLink?.textContent || 'Unknown';
+                        
+                        console.log(`🔍 TOP-LEVEL TOC ITEM ${index}: "${linkText}"`);
+                        console.log('  - Has nested list:', !!nestedList);
+                        console.log('  - Main link element:', !!mainLink);
+                        
+                        if (nestedList) {
+                            // This is a main section with sub-items
+                            item.classList.add('is-collapsible');
+                            item.classList.add('is-collapsed'); // Start with sub-items collapsed
+                            
+                            // Check visibility after applying classes
+                            const computedStyle = window.getComputedStyle(mainLink);
+                            console.log('  - Applied classes:', Array.from(item.classList));
+                            console.log('  - Link display:', computedStyle.display);
+                            console.log('  - Link opacity:', computedStyle.opacity);
+                            console.log('  - Link visibility:', computedStyle.visibility);
+                            
+                            // Add click handler for manual expand/collapse  
+                            if (mainLink) {
+                                mainLink.addEventListener('click', (e) => {
+                                    item.classList.toggle('is-collapsed');
+                                    console.log(`  - Clicked "${linkText}", now collapsed:`, item.classList.contains('is-collapsed'));
+                                });
+                            }
+                        } else {
+                            console.log('  - No nested list found - this might be a product item, not a section');
+                        }
+                        console.log(''); // Empty line for readability
+                    });
+                    
+                    // Store reference for the scroll function
+                    const collapsibleTocItems = Array.from(topLevelItems).filter(item => 
                         item.querySelector('.toc-list') !== null
                     );
-                    
-                    collapsibleTocItems.forEach(item => {
-                        // Add collapsible class if it doesn't have it
-                        if (!item.classList.contains('is-collapsible')) {
-                            item.classList.add('is-collapsible');
-                        }
-                        
-                        // Start all sections collapsed to keep TOC compact
-                        const nestedList = item.querySelector('.toc-list');
-                        if (nestedList) {
-                            item.classList.add('is-collapsed');
-                        }
-                        
-                        // Add click handler to main section links
-                        const mainLink = item.querySelector(':scope > a');
-                        if (mainLink) {
-                            mainLink.addEventListener('click', (e) => {
-                                // Don't prevent default link behavior, but toggle collapse state
-                                item.classList.toggle('is-collapsed');
-                            });
-                        }
-                    });
 
                     
                     // Expand the currently visible section
