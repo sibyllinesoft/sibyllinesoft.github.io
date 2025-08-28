@@ -366,15 +366,15 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
   overflow: hidden;
   opacity: 0.8;
   background:
-    radial-gradient(circle at 15% 20%, rgba(255,255,255,.4) 0 2.7px, transparent 2.8px),
-    radial-gradient(circle at 80% 15%, rgba(255,255,255,.3) 0 2.7px, transparent 2.8px),
-    radial-gradient(circle at 25% 85%, rgba(255,255,255,.35) 0 2.7px, transparent 2.8px),
-    radial-gradient(circle at 70% 75%, rgba(255,255,255,.25) 0 2.7px, transparent 2.8px),
-    radial-gradient(circle at 40% 30%, rgba(255,255,255,.3) 0 2.7px, transparent 2.8px),
-    radial-gradient(circle at 90% 60%, rgba(255,255,255,.2) 0 2.7px, transparent 2.8px),
-    radial-gradient(circle at 10% 70%, rgba(255,255,255,.25) 0 2.7px, transparent 2.8px),
-    radial-gradient(circle at 60% 10%, rgba(255,255,255,.3) 0 2.7px, transparent 2.8px),
-    radial-gradient(circle at 30% 90%, rgba(255,255,255,.2) 0 2.7px, transparent 2.8px),
+    radial-gradient(circle at 15% 20%, rgba(255,255,255,.4) 0 0.54px, transparent 0.56px),
+    radial-gradient(circle at 80% 15%, rgba(255,255,255,.3) 0 0.54px, transparent 0.56px),
+    radial-gradient(circle at 25% 85%, rgba(255,255,255,.35) 0 0.54px, transparent 0.56px),
+    radial-gradient(circle at 70% 75%, rgba(255,255,255,.25) 0 0.54px, transparent 0.56px),
+    radial-gradient(circle at 40% 30%, rgba(255,255,255,.3) 0 0.54px, transparent 0.56px),
+    radial-gradient(circle at 90% 60%, rgba(255,255,255,.2) 0 0.54px, transparent 0.56px),
+    radial-gradient(circle at 10% 70%, rgba(255,255,255,.25) 0 0.54px, transparent 0.56px),
+    radial-gradient(circle at 60% 10%, rgba(255,255,255,.3) 0 0.54px, transparent 0.56px),
+    radial-gradient(circle at 30% 90%, rgba(255,255,255,.2) 0 0.54px, transparent 0.56px),
     linear-gradient(135deg, var(--color-graphite-750) 0%, var(--color-graphite-700) 100%);
 }
 .service-visual.planet::before{ /* glass overlay removed for consistency */
@@ -418,17 +418,17 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
   overflow: hidden;
   opacity: 0.8;
   background:
-    radial-gradient(circle at 12% 18%, rgba(255,255,255,.35) 0 2.7px, transparent 2.8px),
-    radial-gradient(circle at 85% 22%, rgba(255,255,255,.3) 0 2.7px, transparent 2.8px),
-    radial-gradient(circle at 20% 80%, rgba(255,255,255,.4) 0 2.7px, transparent 2.8px),
-    radial-gradient(circle at 75% 85%, rgba(255,255,255,.25) 0 2.7px, transparent 2.8px),
-    radial-gradient(circle at 45% 15%, rgba(255,255,255,.3) 0 2.7px, transparent 2.8px),
-    radial-gradient(circle at 65% 45%, rgba(255,255,255,.2) 0 2.7px, transparent 2.8px),
-    radial-gradient(circle at 90% 35%, rgba(255,255,255,.25) 0 2.7px, transparent 2.8px),
-    radial-gradient(circle at 8% 50%, rgba(255,255,255,.3) 0 2.7px, transparent 2.8px),
-    radial-gradient(circle at 35% 8%, rgba(255,255,255,.2) 0 2.7px, transparent 2.8px),
-    radial-gradient(circle at 70% 12%, rgba(255,255,255,.25) 0 2.7px, transparent 2.8px),
-    radial-gradient(circle at 15% 90%, rgba(255,255,255,.2) 0 2.7px, transparent 2.8px),
+    radial-gradient(circle at 12% 18%, rgba(255,255,255,.35) 0 0.54px, transparent 0.56px),
+    radial-gradient(circle at 85% 22%, rgba(255,255,255,.3) 0 0.54px, transparent 0.56px),
+    radial-gradient(circle at 20% 80%, rgba(255,255,255,.4) 0 0.54px, transparent 0.56px),
+    radial-gradient(circle at 75% 85%, rgba(255,255,255,.25) 0 0.54px, transparent 0.56px),
+    radial-gradient(circle at 45% 15%, rgba(255,255,255,.3) 0 0.54px, transparent 0.56px),
+    radial-gradient(circle at 65% 45%, rgba(255,255,255,.2) 0 0.54px, transparent 0.56px),
+    radial-gradient(circle at 90% 35%, rgba(255,255,255,.25) 0 0.54px, transparent 0.56px),
+    radial-gradient(circle at 8% 50%, rgba(255,255,255,.3) 0 0.54px, transparent 0.56px),
+    radial-gradient(circle at 35% 8%, rgba(255,255,255,.2) 0 0.54px, transparent 0.56px),
+    radial-gradient(circle at 70% 12%, rgba(255,255,255,.25) 0 0.54px, transparent 0.56px),
+    radial-gradient(circle at 15% 90%, rgba(255,255,255,.2) 0 0.54px, transparent 0.56px),
     linear-gradient(135deg, var(--color-graphite-750) 0%, var(--color-graphite-700) 100%);
 }
 .service-visual.solar::before{ /* glass overlay removed for consistency */
@@ -455,7 +455,7 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
   z-index: 1;
 }
 .service-visual.solar b{
-  position:absolute; left:50%; top:50%; translate:-50% -50%;
+  position:absolute; left:50%; top:50%;
   animation:spin var(--dur) linear infinite; will-change:transform;
   z-index: 3;
 }
@@ -474,8 +474,8 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
 .service-visual.solar b:nth-child(5){ width:60px; height:60px; animation-duration:calc(var(--dur)*1.0)}
 .service-visual.solar b:nth-child(5)::after{ left:30px; opacity:.75; width:3px; height:3px; }
 .service-visual.solar .star{ /* central star */
-  position:absolute; left:50%; top:50%; translate:-50% -50%; z-index:5;
-  width:9px; height:9px; 
+  position:absolute; left:50%; top:50%; transform:translate(-50%, -50%); z-index:5;
+  width:45px; height:45px; 
   background:radial-gradient(circle, 
     rgba(255,255,255,1) 0%, 
     rgba(255,255,255,0.95) 15%,
@@ -487,11 +487,11 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
     rgba(99,102,241,0.3) 100%);
   border-radius:50%; filter:blur(.3px);
   box-shadow:
-    0 0 30px rgba(99,102,241,.8),
-    0 0 50px rgba(99,102,241,.6),
-    0 0 70px rgba(99,102,241,.4),
-    0 0 90px rgba(99,102,241,.2),
-    inset 0 0 15px rgba(255,255,255,.3);
+    0 0 60px rgba(99,102,241,.8),
+    0 0 120px rgba(99,102,241,.6),
+    0 0 180px rgba(99,102,241,.4),
+    0 0 240px rgba(99,102,241,.2),
+    inset 0 0 30px rgba(255,255,255,.3);
   animation: sunPulse 3s ease-in-out infinite;
 }
 
@@ -502,16 +502,16 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
   overflow: hidden;
   opacity: 0.9;
   background:
-    radial-gradient(circle, #3b82f6 .2px, transparent .3px) 13% 27%,
-    radial-gradient(circle, #60a5fa .2px, transparent .3px) 73% 19%,
-    radial-gradient(circle, #3b82f6 .2px, transparent .3px) 31% 83%,
-    radial-gradient(circle, #60a5fa .2px, transparent .3px) 89% 71%,
-    radial-gradient(circle, #3b82f6 .2px, transparent .3px) 7% 52%,
-    radial-gradient(circle, #60a5fa .2px, transparent .3px) 41% 11%,
-    radial-gradient(circle, #3b82f6 .2px, transparent .3px) 67% 63%,
-    radial-gradient(circle, #60a5fa .2px, transparent .3px) 23% 47%,
-    radial-gradient(circle, #3b82f6 .2px, transparent .3px) 91% 34%,
-    radial-gradient(circle, #60a5fa .2px, transparent .3px) 56% 79%,
+    radial-gradient(circle, #3b82f6 .04px, transparent .06px) 13% 27%,
+    radial-gradient(circle, #60a5fa .04px, transparent .06px) 73% 19%,
+    radial-gradient(circle, #3b82f6 .04px, transparent .06px) 31% 83%,
+    radial-gradient(circle, #60a5fa .04px, transparent .06px) 89% 71%,
+    radial-gradient(circle, #3b82f6 .04px, transparent .06px) 7% 52%,
+    radial-gradient(circle, #60a5fa .04px, transparent .06px) 41% 11%,
+    radial-gradient(circle, #3b82f6 .04px, transparent .06px) 67% 63%,
+    radial-gradient(circle, #60a5fa .04px, transparent .06px) 23% 47%,
+    radial-gradient(circle, #3b82f6 .04px, transparent .06px) 91% 34%,
+    radial-gradient(circle, #60a5fa .04px, transparent .06px) 56% 79%,
     linear-gradient(135deg, var(--color-graphite-750) 0%, var(--color-graphite-700) 100%);
   display: flex;
   align-items: center;
@@ -525,7 +525,7 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
   width: 100%;
   height: 100%;
   transform: scale(3);
-  filter: drop-shadow(0 0 20px rgba(99, 102, 241, 0.5)) drop-shadow(0 0 40px rgba(99, 102, 241, 0.2));
+  filter: drop-shadow(0 0 40px rgba(99, 102, 241, 0.6)) drop-shadow(0 0 80px rgba(99, 102, 241, 0.3)) drop-shadow(0 0 120px rgba(99, 102, 241, 0.1));
   z-index: 5;
 }
 .service-visual.galaxy .glass-overlay{
@@ -580,7 +580,7 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
 */
 
 /* Shared keyframes for all animations */
-@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes spin{to{transform:translate(-50%, -50%) rotate(360deg)}}
 @keyframes gspin{to{transform:rotate(360deg)}}
 @keyframes gspinR{to{transform:rotate(-360deg)}}
 @keyframes sunPulse{

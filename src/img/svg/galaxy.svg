@@ -41,12 +41,18 @@
       .galaxy-svg[data-tight="med"]   .path-med   { display:inline }
       .galaxy-svg[data-tight="tight"] .path-tight { display:inline }
 
-      /* Enhanced CSS rotation with same direction parallax */
-      @keyframes spin { to { transform: rotate(360deg) } }
-      .spin { transform-origin: 246px 126px; animation: spin var(--dur) linear infinite }
-      .spin.slow { animation-duration: calc(var(--dur) * 1.8) }
-      .spin.med { animation-duration: var(--dur) }
-      .spin.fast { animation-duration: calc(var(--dur) * 0.7) }
+      /* Enhanced CSS rotation with same direction parallax - DISABLED FOR PERFORMANCE */
+      /* @keyframes spin { to { transform: rotate(360deg) } } */
+      /* .spin { transform-origin: 246px 126px; animation: spin var(--dur) linear infinite } */
+      /* .spin.slow { animation-duration: calc(var(--dur) * 1.8) } */
+      /* .spin.med { animation-duration: var(--dur) } */
+      /* .spin.fast { animation-duration: calc(var(--dur) * 0.7) } */
+      
+      /* Static positioning for performance - no animations */
+      .spin { transform-origin: 246px 126px; }
+      .spin.slow { transform: rotate(15deg); } /* Slight rotation for visual interest */
+      .spin.med { transform: rotate(0deg); }   /* No rotation for middle layer */
+      .spin.fast { transform: rotate(-10deg); } /* Counter rotation for inner layer */
     </style>
 
     <!-- Core gradient + edge falloff -->
@@ -62,15 +68,15 @@
     <mask id="fadeMask"><rect width="100%" height="100%" fill="url(#fade)"/></mask>
 
     <!-- Glow filter for enhanced visual effect -->
-    <filter id="glowEffect" x="-100%" y="-100%" width="300%" height="300%">
-      <feGaussianBlur stdDeviation="9" result="coloredBlur"/>
+    <filter id="glowEffect" x="-200%" y="-200%" width="500%" height="500%">
+      <feGaussianBlur stdDeviation="20" result="coloredBlur"/>
       <feMerge> 
         <feMergeNode in="coloredBlur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-    <filter id="strongGlow" x="-150%" y="-150%" width="400%" height="400%">
-      <feGaussianBlur stdDeviation="18" result="coloredBlur"/>
+    <filter id="strongGlow" x="-250%" y="-250%" width="600%" height="600%">
+      <feGaussianBlur stdDeviation="35" result="coloredBlur"/>
       <feMerge> 
         <feMergeNode in="coloredBlur"/>
         <feMergeNode in="SourceGraphic"/>
@@ -91,14 +97,14 @@
 
   <!-- Optional sparse speckles (scaled up 3x) -->
   <g class="speck" opacity=".35">
-    <circle cx="102"  cy="174" r="2.7" fill="#e7eeff" filter="url(#glowEffect)"/>
-    <circle cx="408" cy="120" r="2.7" fill="#e7eeff" filter="url(#glowEffect)"/>
-    <circle cx="162"  cy="84" r="2.7" fill="#e7eeff" filter="url(#glowEffect)"/>
-    <circle cx="342" cy="192" r="2.7" fill="#e7eeff" filter="url(#glowEffect)"/>
-    <circle cx="78"  cy="96" r="2.7" fill="#e7eeff" filter="url(#glowEffect)"/>
-    <circle cx="420" cy="180" r="2.7" fill="#e7eeff" filter="url(#glowEffect)"/>
-    <circle cx="144"  cy="42" r="2.7" fill="#e7eeff" filter="url(#glowEffect)"/>
-    <circle cx="384" cy="210" r="2.7" fill="#e7eeff" filter="url(#glowEffect)"/>
+    <circle cx="102"  cy="174" r="0.54" fill="#e7eeff" filter="url(#glowEffect)"/>
+    <circle cx="408" cy="120" r="0.54" fill="#e7eeff" filter="url(#glowEffect)"/>
+    <circle cx="162"  cy="84" r="0.54" fill="#e7eeff" filter="url(#glowEffect)"/>
+    <circle cx="342" cy="192" r="0.54" fill="#e7eeff" filter="url(#glowEffect)"/>
+    <circle cx="78"  cy="96" r="0.54" fill="#e7eeff" filter="url(#glowEffect)"/>
+    <circle cx="420" cy="180" r="0.54" fill="#e7eeff" filter="url(#glowEffect)"/>
+    <circle cx="144"  cy="42" r="0.54" fill="#e7eeff" filter="url(#glowEffect)"/>
+    <circle cx="384" cy="210" r="0.54" fill="#e7eeff" filter="url(#glowEffect)"/>
   </g>
   <style>
     .galaxy-svg[data-speck="off"] .speck { display:none }
