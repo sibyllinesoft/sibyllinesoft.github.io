@@ -10,23 +10,20 @@ layout: simple.njk
   <div class="hero-content">
     <div class="hero-title-container">
       <img src="/img/logo.svg" alt="Sibylline Software Logo" class="hero-logo">
-      <h1 class="hero-title">Ship Autonomous AI Systems While Your Competitors Debug Prompts</h1>
+      <h1 class="hero-title">Build AI that ships, not just talks.</h1>
     </div>
     <div class="rotating-banners">
       <div class="banner-container active">
-        <span class="banner-text" data-text="10x development velocity with autonomous agents—while your competitors are still writing prompts">10x development velocity with autonomous agents—while your competitors are still writing prompts</span>
+        <span class="banner-text" data-text="Zero-setup environments, smart model routing, and agents that keep context. Teams ship 40–80% faster by cutting setup weeks, slashing token bills, and killing resets.">Zero-setup environments, smart model routing, and agents that keep context. Teams ship 40–80% faster by cutting setup weeks, slashing token bills, and killing resets.</span>
       </div>
       <div class="banner-container">
-        <span class="banner-text" data-text="Trusted by Fortune 500s and unicorn startups to architect true AI systems">Trusted by Fortune 500s and unicorn startups to architect true AI systems</span>
+        <span class="banner-text" data-text="Stop debugging prompts. Start shipping autonomous systems that work 24/7.">Stop debugging prompts. Start shipping autonomous systems that work 24/7.</span>
       </div>
       <div class="banner-container">
-        <span class="banner-text" data-text="The AI systems gap is widening daily. Most will never catch up.">The AI systems gap is widening daily. Most will never catch up.</span>
+        <span class="banner-text" data-text="Your competitors hire more humans. You deploy more agents.">Your competitors hire more humans. You deploy more agents.</span>
       </div>
       <div class="banner-container">
-        <span class="banner-text" data-text="Transform your data into autonomous competitive advantages that work 24/7">Transform your data into autonomous competitive advantages that work 24/7</span>
-      </div>
-      <div class="banner-container">
-        <span class="banner-text" data-text="Multi-agent orchestration and contamination-resistant evaluation—not another chatbot">Multi-agent orchestration and contamination-resistant evaluation—not another chatbot</span>
+        <span class="banner-text" data-text="From setup weeks to same-day launches with AI-first infrastructure.">From setup weeks to same-day launches with AI-first infrastructure.</span>
       </div>
     </div>
   </div>
@@ -43,8 +40,8 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
 </div>
 
 <div class="hero-cta">
-  <a href="#discovery" class="btn-primary"><span class="btn-inner">Discover What's Possible <i data-lucide="mail"></i></span></a>
-  <a href="/about/" class="btn-secondary"><span class="btn-inner">Learn My Approach <i data-lucide="user"></i></span></a>
+  <a href="#discovery" class="btn-primary"><span class="btn-inner">View Products <i data-lucide="mail"></i></span></a>
+  <a href="/about/" class="btn-secondary"><span class="btn-inner">Run a 5-min demo <i data-lucide="user"></i></span></a>
 </div>
 
 <div class="content-section">
@@ -55,19 +52,16 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
 <div class="service-card" data-service="startup">
 <h3><i data-lucide="zap"></i> Startups: Build AI-First From Day One</h3>
 <div class="service-summary">
-<p>Your competitors are bolting AI onto existing products. You could architect intelligence as core infrastructure and leave them behind permanently.</p>
+<p>Skip setup. Start shipping.</p>
 </div>
 <div class="service-details">
-<h4>Here's the reality:</h4>
-<p>Most startups treat AI like a feature. The winners will be those whose entire product is intelligent by design. I help you architect systems where agents handle complex workflows, coding becomes agentic, and your product gets smarter as it grows.</p>
-<h4>What this looks like:</h4>
+<p>Most small teams burn weeks wiring GitLab, CI/CD, monitoring, and chat before shipping a feature. RAVE wipes that away—instant infra, already wired to agents.</p>
 <ul>
-<li>AI-first architecture that scales with your growth</li>
-<li>Development workflows that 10x your team's velocity</li>
-<li>Multi-agent systems handling complex business logic</li>
+<li><strong>RAVE:</strong> Full dev shop in minutes, no config drift.</li>
+<li><strong>Hydra:</strong> Continuous multi-agent coding; no context resets.</li>
+<li><strong>Lethe + Scribe:</strong> Infinite memory and repo packing; LLMs see the right code.</li>
 </ul>
-<h4>Right for you if:</h4>
-<p>You're ready to build AI into your core strategy with budget for strategic consulting and implementation.</p>
+<p>From empty repo to production features in days, not months; seniors stop babysitting setup and velocity jumps 2–3× by week two.</p>
 </div>
 <div class="click-hint">Click to expand</div>
 <div class="service-visual solar">
@@ -79,19 +73,16 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
 <div class="service-card" data-service="enterprise">
 <h3><i data-lucide="building"></i> Enterprise: Custom Agents & Orchestration</h3>
 <div class="service-summary">
-<p>Enterprise constraints require enterprise-grade solutions. Get custom agent systems that meet your needs—stable, secure and supported.</p>
+<p>Orchestrate agents without chaos.</p>
 </div>
 <div class="service-details">
-<h4>The challenge:</h4>
-<p>You need AI systems that work within enterprise constraints—secure, integrated, and supported. I build custom agent orchestration and pre-configured environments that actually deploy.</p>
-<h4>What you get:</h4>
+<p>SSH + tool calls turn agents into a security risk and a monitoring blind spot. Smith flips control: agents react to events but don't mutate systems directly.</p>
 <ul>
-<li>Custom agents that work within your constraints</li>
-<li>Enterprise-grade security with VM-isolated operations</li>
-<li>Pre-configured environments your teams can use immediately</li>
+<li><strong>Smith:</strong> Rust runner, sub-5 ms starts, inversion-of-control, audit + replay.</li>
+<li><strong>Heimdall:</strong> Cost/quality routing with OAuth; graceful fallbacks.</li>
+<li><strong>Minerva:</strong> Unified MCP directory; the right tool surfaces instantly.</li>
 </ul>
-<h4>Engagement:</h4>
-<p>3-12 month contracts, full-time billing for complex projects, flexible arrangements based on scope.</p>
+<p>Real-time, observable orchestration without brittle hacks; compliance gets logs, leads get dashboards, and inference costs drop ~30–40%.</p>
 </div>
 <div class="click-hint">Click to expand</div>
 <div class="service-visual galaxy">
@@ -103,19 +94,16 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
 <div class="service-card" data-service="training">
 <h3><i data-lucide="graduation-cap"></i> Individuals: From Zero to AI Hero</h3>
 <div class="service-summary">
-<p>Everyone's using ChatGPT. You could be building autonomous workflows that compound daily. Personal coaching to go from prompt jockey to AI architect.</p>
+<p>Serious tools, zero overhead.</p>
 </div>
 <div class="service-details">
-<h4>The gap:</h4>
-<p>Most people know how to ask ChatGPT questions. Few know how to build systems that work for them while they sleep. I provide hands-on coaching using production-grade tools and workflows I actually use in my own work.</p>
-<h4>What you learn:</h4>
+<p>You want pro-grade tools without corporate overhead. We ship the same stack—simpler to adopt, friendly to local setups.</p>
 <ul>
-<li>Tools and workflows that actually move the needle</li>
-<li>Custom setups tailored to your specific work</li>
-<li>Best practices from someone who ships these systems</li>
+<li><strong>Mindlink:</strong> BYO models (Ollama/OpenAI/Claude) via one secure handshake.</li>
+<li><strong>Echo:</strong> Local-only semantic duplicate detection; no cloud.</li>
+<li><strong>Valknut:</strong> Static refactor targets so your AI hits high-impact code first.</li>
 </ul>
-<h4>Right for you if:</h4>
-<p>You want to go beyond basic AI usage and build workflows that compound over time.</p>
+<p>Keep privacy, cut friction, and make your AI assistant useful on your codebase within minutes.</p>
 </div>
 <div class="click-hint">Click to expand</div>
 <div class="service-visual planet">
@@ -4251,21 +4239,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const serviceData = {
     startup: {
       image: '/img/optimized/modal-office-meeting.webp',
-      ctaText: 'Start Your AI Journey',
+      ctaText: 'Launch RAVE',
       alt: 'Modern startup office with AI technology displays',
       subject: 'Startup AI Architecture & Strategy Inquiry',
       body: 'Hi there! I\'m interested in learning more about your Startup AI Architecture & Strategy services. Could we schedule a time to discuss how you can help build robust AI infrastructure for my startup?'
     },
     enterprise: {
       image: '/img/optimized/modal-building-architecture.webp', 
-      ctaText: 'Transform Your Enterprise',
+      ctaText: 'Request Smith Access',
       alt: 'Corporate skyscrapers representing enterprise AI transformation',
       subject: 'Enterprise AI Implementation Consultation',
       body: 'Hello! I\'d like to explore your Enterprise AI Implementation services for our organization. Could we discuss how to integrate AI across our business operations?'
     },
     training: {
       image: '/img/optimized/modal-team-meeting.webp',
-      ctaText: 'Boost Team Productivity',
+      ctaText: 'Use Mindlink',
       alt: 'Team collaboration and training session',
       subject: 'Individual AI Productivity Training Request',
       body: 'Hi! I\'m interested in your Individual AI Productivity Training to help our team harness AI agents and custom workflows. Can we discuss training options?'

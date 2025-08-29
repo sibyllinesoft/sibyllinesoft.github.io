@@ -1,2174 +1,0 @@
-<documents>
-<!-- Repository: file:///home/nathan/Projects/sibyllinesoft.github.io (HEAD: 81e2651dc5119888df49ad9b31a9d3b09700ff12) -->
-<!-- Files: 9, Estimated tokens: 38,515 -->
-<document index="1">
-<source>README.md</source>
-<!-- Size: 3.4 KiB, Tokens: ~876 -->
-<document_content>
-# Sibylline Software 🔮
-
-- https://sibyllinesoft.github.io/
-
-The official website for Sibylline Software, built with the [Eleventy static site generator](https://github.com/11ty/eleventy/). This project is based on the official 11ty.dev theme and architecture.
-
-## Project Goal
-
-This website serves as the digital presence for Sibylline Software, showcasing our innovative AI-powered products and services. Built with Eleventy, it demonstrates modern static site generation principles while maintaining excellent performance and developer experience.
-
-## Architecture Overview
-
-The site follows Eleventy&#x27;s recommended structure with some custom enhancements:
-
-### Key Directories
-- **`src/`** - Source files for the website
-  - **`_includes/`** - Reusable templates, layouts, and components
-  - **`_data/`** - Global data files and configuration
-  - **`articles/`** - Blog posts and articles (Markdown files)
-  - **`components/`** - Reusable UI components
-  - **`styles/`** - CSS styling files
-  - **`img/`** - Static images and assets
-- **`_site/`** - Generated output (auto-created during build)
-- **`eleventy.config.js`** - Main Eleventy configuration
-
-### Core Logic Location
-- **Filters**: Date formatting, array manipulation (in `eleventy.config.js`)
-- **Collections**: Article grouping and filtering (in `eleventy.config.js`)
-- **Passthrough Copy**: Static asset handling (CSS, JS, images)
-
-## Running Locally
-
-```bash
-# Install dependencies
-npm install
-
-# Fetch latest community data from 11ty ecosystem
-npm run get-new-data
-
-# Start development server
-npm start
-# Alternative: npx @11ty/eleventy --serve
-```
-
-Browse to http://localhost:8091/ (configured port, will bump if taken).
-
-## Available Scripts
-
-### Development Scripts
-- **`npm start`** - Start development server with live reload (port 8091)
-- **`npm run start-production`** - Start server with production environment variables
-
-### Build Scripts  
-- **`npm run build`** - Build the site for development
-- **`npm run build-production`** - Full production build with data refresh and search indexing
-
-### Data Management Scripts
-- **`npm run get-new-data`** - Fetch latest community projects from [11ty/11ty-community](https://github.com/11ty/11ty-community)
-  - Removes existing `./src/_data/builtwith/` directory
-  - Downloads fresh community data using `degit`
-  - Required for showcasing community projects
-
-### Quality Assurance Scripts
-- **`npm run format`** - Format code using Prettier
-- **`npm run check-links`** - Validate internal links in generated site
-- **`npm run create-search-index`** - Generate search index using Pagefind
-
-## Content Management
-
-### Adding New Articles
-1. Create a new Markdown file in `src/articles/`
-2. Use this frontmatter template:
-```yaml
----
-title: &quot;Your Article Title&quot;
-date: 2024-01-15
-published: true
-excerpt: &quot;Brief description for listings&quot;
----
-```
-3. Articles with `published: false` won&#x27;t appear in public listings but are available at `/articles/allArticles/`
-
-### Adding Components
-1. Create HTML files in `src/components/`
-2. Components are automatically available at `/components/[component-name]/`
-3. Follow the existing naming convention (kebab-case)
-
-## Technology Stack
-
-- **Static Site Generator**: Eleventy 4.0 (alpha)
-- **Template Engine**: Nunjucks for layouts, Markdown for content
-- **Styling**: Custom CSS with component-based architecture
-- **Search**: Pagefind for client-side search
-- **Hosting**: GitHub Pages with custom domain
-- **Package Manager**: npm with Node.js 20+
-
-</document_content>
-</document>
-<document index="2">
-<source>src/components/README.md</source>
-<!-- Size: 4.6 KiB, Tokens: ~1173 -->
-<document_content>
-# Component Library
-
-A collection of reusable, accessible, and themeable HTML components for the Sibylline Software website.
-
-## Design Principles
-
-- **Semantic HTML**: All components use proper HTML5 semantic elements
-- **Accessibility First**: WCAG 2.1 AA compliant with proper ARIA attributes
-- **CSS Custom Properties**: Themeable using CSS custom properties for colors, spacing, and typography
-- **Progressive Enhancement**: Components work without JavaScript and are enhanced with JS when available
-- **Responsive Design**: Mobile-first approach with responsive breakpoints
-
-## Component Architecture
-
-Each component follows these conventions:
-
-### CSS Custom Properties
-Components use a consistent naming pattern for CSS custom properties:
-```css
---component-property-modifier: value;
-```
-
-### Data Attributes
-Configuration is handled through data attributes:
-```html
-&lt;div data-component=&quot;component-name&quot; data-variant=&quot;variant-name&quot;&gt;
-```
-
-### CSS Classes
-Classes follow BEM (Block Element Modifier) methodology:
-```css
-.component {}
-.component__element {}
-.component--modifier {}
-```
-
-## Available Components
-
-### Layout Components
-- **Card Container** (`card-container.html`) - Generic card layout with header, body, and footer
-- **Modal Template** (`modal-template.html`) - Accessible modal dialog with backdrop
-
-### UI Components  
-- **Icon Component** (`icon-component.html`) - Scalable icon system with accessibility support
-- **Loading Spinner** (`loading-spinner.html`) - Animated loading indicator
-- **CTA Section** (`cta-section.html`) - Call-to-action section with button and content
-
-## Theme Variables
-
-Global CSS custom properties that all components use:
-
-```css
-:root {
-  /* Colors */
-  --color-primary: #2563eb;
-  --color-primary-hover: #1d4ed8;
-  --color-secondary: #64748b;
-  --color-accent: #f59e0b;
-  --color-background: #ffffff;
-  --color-surface: #f8fafc;
-  --color-text: #1e293b;
-  --color-text-muted: #64748b;
-  --color-border: #e2e8f0;
-  --color-error: #dc2626;
-  --color-success: #16a34a;
-  --color-warning: #d97706;
-
-  /* Spacing */
-  --spacing-xs: 0.25rem;
-  --spacing-sm: 0.5rem;
-  --spacing-md: 1rem;
-  --spacing-lg: 1.5rem;
-  --spacing-xl: 2rem;
-  --spacing-2xl: 3rem;
-
-  /* Typography */
-  --font-family-primary: -apple-system, BlinkMacSystemFont, &#x27;Segoe UI&#x27;, Roboto, sans-serif;
-  --font-family-heading: &#x27;Inter&#x27;, var(--font-family-primary);
-  --font-family-mono: &#x27;SF Mono&#x27;, Monaco, &#x27;Cascadia Code&#x27;, monospace;
-  
-  --font-size-xs: 0.75rem;
-  --font-size-sm: 0.875rem;
-  --font-size-base: 1rem;
-  --font-size-lg: 1.125rem;
-  --font-size-xl: 1.25rem;
-  --font-size-2xl: 1.5rem;
-  --font-size-3xl: 1.875rem;
-
-  --font-weight-normal: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 600;
-  --font-weight-bold: 700;
-
-  /* Border Radius */
-  --border-radius-sm: 0.25rem;
-  --border-radius-md: 0.375rem;
-  --border-radius-lg: 0.5rem;
-  --border-radius-xl: 0.75rem;
-
-  /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-
-  /* Transitions */
-  --transition-fast: 0.15s ease;
-  --transition-base: 0.2s ease;
-  --transition-slow: 0.3s ease;
-
-  /* Z-index */
-  --z-dropdown: 1000;
-  --z-sticky: 1020;
-  --z-fixed: 1030;
-  --z-modal-backdrop: 1040;
-  --z-modal: 1050;
-  --z-popover: 1060;
-  --z-tooltip: 1070;
-}
-```
-
-## Usage Guidelines
-
-### Including Components
-Components can be included in your HTML templates using server-side includes or by copying the component markup.
-
-### Customization
-Override CSS custom properties to customize component appearance:
-
-```css
-.my-custom-card {
-  --card-background: var(--color-primary);
-  --card-text-color: white;
-  --card-border-radius: var(--border-radius-xl);
-}
-```
-
-### JavaScript Enhancement
-Components that require JavaScript functionality should:
-1. Work without JavaScript (progressive enhancement)
-2. Use data attributes for configuration
-3. Follow consistent event naming patterns
-4. Be accessible via keyboard navigation
-
-## Browser Support
-
-Components are tested and supported in:
-- Chrome 90+
-- Firefox 88+
-- Safari 14+
-- Edge 90+
-
-## Accessibility
-
-All components follow WCAG 2.1 AA guidelines and include:
-- Proper semantic markup
-- ARIA labels and descriptions
-- Keyboard navigation support
-- Focus management
-- Color contrast compliance
-- Screen reader compatibility
-
-## Contributing
-
-When adding new components:
-1. Follow the established naming conventions
-2. Include proper accessibility attributes
-3. Use CSS custom properties for theming
-4. Add usage examples in component comments
-5. Test with keyboard navigation and screen readers
-6. Update this README with component documentation
-</document_content>
-</document>
-<document index="3">
-<source>src/img/optimized/modal-building-architecture.webp</source>
-<!-- Size: 85.6 KiB, Tokens: ~20779 -->
-<document_content>
-RIFF�V WEBPVP8X
-       � � ICCP0    0ADBE  mntrRGB XYZ �        acspAPPL    none                  ��     �-ADBE                                               
-cprt   �   2desc  0   kwtpt  �   bkpt  �   rTRC  �   gTRC  �   bTRC  �   rXYZ  �   gXYZ     bXYZ     text    Copyright 1999 Adobe Systems Incorporated   desc       Adobe RGB (1998)                                                                                XYZ       �Q    �XYZ                 curv       3  curv       3  curv       3  XYZ       �  O�  �XYZ       4�  �,  �XYZ       &amp;1  /  ��VP8 4T �f�*��&gt;Q$�E��#%��� �
-	gm~�e��_}���~U�~a�v�35�����ŏ-n:��&quot;�{����_k|!�&gt;����߼�=þg�/Z���G����e�#����7�/�ޣﺤ�q��������� �����S��Џ�~��T���3��������&#x27;�o��p���_�_��~�|
-���_�?����������߶X���{�ϰ_��?�z�B�����7�_������_�?�~�|a���������������?޿����������������[�����?���������_���r&gt;�?��������/�?������s�{��������������������/�?������;�����U%U��&gt;y`�X�m;�ɦ��yX��I����Ҧ��I
-2ՍLa����yo��$�����W��D�`�2����o�y���;yl� �Se��������б�����t�8���|��g��E�g�j�P�aVm���?��x���@��IvY&#x27;�7�cЉ��F�&quot;�ĥ���袣R0��h�z�2�O�j�&lt;w#5�X$[�&quot;Tv�jA
-Y7&amp;P�j�(���ҏ��%�V7 ��yW��M��D�M��
-���5D��x̽*�}L����g���I�r���w;HH&lt;;s�U���L�ģDH:�,P�XB�s�y&amp;�g&lt;Ə��\Cj��BH�=5Gw�������R{xܟ��34���g��_�����N�J�{�X��:Y���U
-��U�}��og{�A��JɅ��A�3C��3&gt;w�=&lt;������**vO4L,�&lt;�[ZYt�_���Np��i/�@ݠ?L�����&amp;��k��dFY�)1O���B1�*i]G�rbх����qPR��B�h&amp;/�Tg&#x27;U�+Θr7&amp;M5��b�- c���	���n8fL߆��yH�ñ�����x������R���N�&amp;�]
-�AE�ʜ@%{_B]���3N��*}�.4$�;o߆��H�czΟ���L���y�n�&lt;���yE�o�k&#x27;0���~�\�����-�R��I�����MBtB��T+�o�)M���Ox�Dmv�U4�Q3���a�=��o�*���~�JL�;2�J�:N�����Ѯ�&quot;
-X(�P�Pֽ`�sJP6�~D&quot;D4�u�&gt;��a���Kl�0�3F&lt;(���2��Q�y١�*�(�ǗQ4&gt;�����ܬ����;;�wrU�,h&#x27;�8�
-��tױ)/�r�w� �7��	Ǡ�_mф�^0�끤AV��b�%Ɉ��W��g뱬���ѳ�&gt;�R�tV�_�A�\A�Hc~o�8��Z%9`��&amp;�Za#@YuS�@^���xZM�lU��c�q/�J��LºZš(��&gt;�ˣ�[`z3��Ġ�� \��dW�R��K�~�5ߘ��s��&amp;���B����r��)Qe搁����rYͲ���
-��?�Q&amp;�����&gt;s�D�@&amp;9�/�/��	�U��{W�g��m��/0&gt;�7o\/8iI��q� �n��(��\�fKD����&quot;p���!�6��Ηd���Fo������9d��&#x27;�rM�=��/�M�o24��_�I�$�V+����ϛj�U �x&quot;n|֟�v
-��Y4Fr�1B$�3��&amp;���⽡_�?/fOAb&gt;�F �J��ݾ#kH&amp;��k)K6��HÑ��[�F���&lt;*ߩ:ڽ��*
-��͔�:�N&quot;W�:���LY���b6w������QOa�M0���&amp;^e��DЫ8ZH��Q�i���QL	��Bŋ{�b�&lt;/`w�.�y\X��@�L!56�lBs-�0�z�_��Y)���D�wL�հe��������&amp;kX��O�%:�H��c�Z�6r��Z!�$Di��rnm~�z�X� 0Nì�JK(9�n+pK��0p�t3�ll���g0N�c�؋ �97��oM���*C��#�юN&lt;�����P5��7V��@��0i���&#x27;�}�:�} 2�������y�4I�$�-�����\�����y]2\q��Ng��z�����=��
-u���^V!w&lt;�7 k��S|��t���4���d�����
-Bc�?��&amp;��б&quot;+_��%�]���Py�`�]eg�Ay=#Gl��!&lt;f
-xe�ԍwG4�c����zV\s�{c?`x��,�DuD,����
-Y	��R(k�8���\Q&amp;f�0b����yme&quot;)m&amp;�\=���7Y9���O�*%�k��!?C�mk��O�&lt; ͧ�w�;�f@
-/uQ�o�xr�Y�A&quot;:�0Q��y��8�;�o�f�y1�0	A�pr�XC�z�� [��O�Ȑ��*f��FZ�%ewO5G_�����6���$L�1�)�.���#v\�k;��(��8�&quot;���H�J��=;��OM����oK�&amp;�ya���U_��s�^�ʣk����S���wbn�lT�ޘJ�&lt;�[W$�rq���
--/-.��03n�N$����
-�K�� &lt;^�0� *!��iv��X�EO=�X�	��Kί��8�#Sͬ�A���+M[nE������X�vw���&#x27;D�����C�I�}��\��#G��׼��vF�q�n�1�9�KB��G��Dh��7�f�ٝ�ɛG��%���Z�9�J5����k�ȩ L65�ҽ@.C]������C���#}%��M?:��z�&lt;o��Y;kJ����3i��r#ZWM�z��x�^���q���LXƟȁ�l��c7��~�  [d[��&quot;�dS�Zj&quot;�f6�u�\u�	�n�{ؼ���ٲX!j��n���v�� ,@ֺJ��7�˹J��~y�{��S&amp;��Y��	Ab�憂K�KҪ���4a&amp;��h��gV���u�
-��J�z������_x�����܀��b�l�����.�ơ4o����4�+����-�r���ѭ��UrT�A���g$ )L����3�kUP�Ά+O��rp�V&gt; k7�N��bѱ�U��[|13Kd�V��?�� �A{Ҍv�I�M�&gt;}xk󝠑������k��X�M}�)�X/|��J�qĖ^P��5�᝽(�(�L�+��S��g��@� ��������6��j3l�4C��
-{�g�*��/t�ύ�ve�js=`|.A��=9��;�Tk�ew2K���X�S�f�X��v�qb�cT�&amp;=&gt;�^ H� ޼�}&lt;~W���H)B#Mq��^�;�/��m�Z���0�$����CB�8�Q5��n�8�\�|�pt��kg�ʽ�]U�&lt;��s���Z�XRQ-���8�_�&lt;��1�nĜ&quot;�&amp;�
-�e��Tݳ8����p,M��x�����
-�� BD]��k�1�L��
-	}� 7~�,+����;��6`7�M���.�N:B��أ�{a��=���j���$����6�5=��л��Fa��a�&gt;q.�C��h�αM���z�z�^�dҾ��{��DѰ�g���� ��h��]���.$�!�t/0qU�����c�����g��Y ��L��!U�?n��d�ߋ}��qy䭒/N���x�2q�g��$k� �(,�v�欢0�(����m-:�I�	ᇘk�P�dab_rP_�sz!j|�c~Kz��x���ؿ�ۧ~�D�#1��&#x27;s���cB}]&gt;�����SUS9�.rT�@�Pj�#p~6&gt;�lZwn�B|(�f	J��ɪ�	�4�&#x27;g��\�ד�lBIǘo�P3�&quot;���F���&gt;��,Իs��֌��&quot;�%��&quot;~��χ���ݭ��&quot;A�]W����k/��~z/�-��x�6I@���K�P@yT}��ziW`+&quot;���c#�[�y��X�H��-��.7u�nJ�W���&quot;
- W�@D�3n���W��v���lrDx�Rn� ��b�&lt;{z�tҊ�4&gt;V,��
-��וBk^v��C�n�`r�7�tR�Ź/AzAq%��Ű��������j/�!ҵ7!�_f��2\��m%��)�5{0$[�.�6(�»��y��Y��;]+z��d��KG�!����KP�c
-0��/�`��72�,$�b��FR3�������ۋ���9aū�X~���l�W	�`�;9���׻#��?o��kL���O̯�&lt;���	�ď���M�e��;}���p���&lt;������f$��g�-��A�k?%c~=�O�^�����˾yA�K�o���b`��͘l$���
-k4x80�1�;?��1{�,X������Є�
-ؘ��e�/y���Ġ����/c�� ,��ݡ��{uC2ey���n^��)ڽ��5��8�2�;�,f�..(�����ӆ����=��E��rU��TǨ�*6 w
-&lt;ٳ
-(�3�a/�8��=]o&quot;#͒e{��w~Q��#��#W�v�S\�T���!�&gt;o�l̈��t&lt;��Bg�)dGs�(w�����]@uN��� &quot;Ӄ}+GTk�
-�Y�s��e�{6��|��F�@{���VwB��H�##�o���%a���y۹��h���=�H&#x27;�qȠ�~�	� ����=��&amp;:^Pݚ��Tꢻ+xVY�4^r��t3wZ5�qD�	�βU�)c�Y�=WX&quot;@�����t���5s��I��#�I��W���zF`�y*��h0LzG�~��	KY����}f�.���3X�;�ĵƦR��.by�˨�H���i���ZC�c7^.9б��^��*
-��_Rla����Z�&quot;�K�T��N���d��_�F`rԢ�X�z���T��ʸ�*_?�#�=J&quot;a{!�%��̹k?3�8�&amp;3� K�\.MP�/=�G�ľj�?�������|����&gt;�qu���[�f�̒:����A%oɯ7�y�&quot;�I~��k b��P����v�3���WH~�*{�f�����v���{�}]�G�~+����&quot;�&amp;�{G�1�qMe7Α��[���U�E���I��Ā*�`IO���e��Oyg$�&quot;&lt;�P��?�(�(fێj�2c�#��k�1��H���_�Ǖj�f�-S�@2;u-_��K��\����Z���B+α=�C�oA��p+�)x,�-Ԇ�/?mk�&lt;jB�5E�YC�F����5�&amp;_�&lt;&lt; ���6cmz���@@����{�¿��8g��]@@=�����!�q�6�q�)�O��׻G�N�57�Q�ĩ�(S�v��x2�f��V�b��FËxq��s��`c�i��w����[��\��Δ/���
-+ʒc!�HF� ]�ONf�L\W�ZU/��Q$��,i;o�{���~�
-i�냲���E$��1�e7�&amp;/饹�0{S}�s[�u&#x27;�S�b7�\�X�����T��w�C�l��^LX�a�o&amp;�k]����L*G���}ti�tv:�X͚��W��P�	[�7�e�_�dY�ƚ�������}��2�T���^���S��B����o�7��%���|�,��k���e��.��1?�
-/�\�G1l���F���RoN���&#x27;N������r���&gt;[�_�)�){D�]S�iw�m����*V�s�8GͷԊ܊bz�PN�Et�)���B�ߡP�0+%���ko.=9��`�iS�}�W�K�}���^�`0#N&quot;����&quot;����pf��ڮ쌍Xn�۟i_.�چP��r&#x27;��}uߨY��k���������̚�S ��b�z�WN0��9D����H��{��O�QKV%l5�}�&amp;�t��f��
-��A�)7mНM%��B�K��V���A���L��1e�eC~y���&quot;J�A1ML�
-�w�Ik7p*ʬJ�DJ=B-�C�@�����Ք]mU߃�ضW^G�m����tĨ�$������7N(�4@���w��C��yW�gI� �|&#x27;�k`��2�P�W��y(�%8�w/t��S��N=z���1��g���\����w���U��nQ��x��n��k�M�LW��(��!�S���1�s#E��;�X��J�?��Z���{ز�a&lt;n�&#x27;�����Sϫݜ��[3:����)��7č#��/?�?��
-5�r?X�^e���R�P����u#:�2�&quot;�ʴ┃q��k��!��&amp;ϲ����gu�yp�zT�yu��n�B���bj���^��~��2��΁�`Y��¢�Z:w�QpK�x���҇c&quot;�.WJ�a�3�$2�@G�0�z=�rμ���	�Y	���-�)��$���	̙��*�%A`�dh�����#��+-��n�{�RY�mw����3S��������v�B�4����+�
-{=^�D�[�Ǿ6���Y��J�x��q`���;��x���cXR���da�
-�n���B&lt;\|�^�N���i8�����U�8�Q�ꩱ���0��5|��ֱXI���do��m�{���yE��~4�F��G	�l�HӀ�
-�Q?�ݞk�5��V��Ά1��q ֑[ί
-mF���r�dBJ��*�3�
-�[y����2���)bK�7�Y�1L
-�$#	��3���
-$���w�b�!�l� :X|�a��rg��C�cw�{~1iخy�Bm��7��^�}���C�M��caM�nh��mzŠZ�\�5Ʌ�����b�?���q���	q�W��ο���s#c�w���DV�]�=�n2�:^��
-�7��W���Wu�O�;y�*�ʯ���@�s�ޣs�P8g�S4=�0,�L��_@g��&lt;	�12�x0�w����߸����&quot;_ �C�❒8�m��N�|�	��4^n�h$]��{���%1  �#�2?�9�O��Z�O�����&lt;R�p��9�7�/����@n�N
-�[�#d�~Ր���v��&quot;]�L��{7+2�xK=sR�Z9�w�L�Q1�&gt;]P���?�]�sx�����k�O��	�b�Zh�\n�v/��P�/�y�D��B� �4PPk(в@��H|��Hy|����g~�~�g4뱺e����x@��}&lt;t79 �,5�u�]��V]p@�u��V���Uv$N�m�Q�8?hY�n,���S�/$�)E���Zҿ�R8DC�ʑ�8=Fi;�i����9~%YP�W2-X���.Ꞵ����T�_*{�+/q&gt;�]��{�a9_������W ���8�ݕ3��b�*.�vT7�I�U��TT��Ŋ����b�����a��ud����[d��l�&#x27;UL�YT��ma��3C#���M��m6cb����
-5�#l��4�q�� Q�����)�`�3x^�A�:�p�k5	��?X(�������:5�M�|����	�n�X$j�s� �f�R7s���P��=,S���s����z`�d�����;�B������&lt;p:�[ﺙnz�e�Ik9���6��=	̷5)�7�i�������?�B��?�W�s�2�4�*X�lv�ɯ�t�r��O}�g��
-�C�#&#x27;1�n$X�u��
-�&gt;�}w䀖W����������D]q�����u�H�~�ִ��L��
-�&quot;�h�	�B�}������F�Z�U���l!�n�+Ħ6�-9E}�dȫ��J�S*��
-����	u�p�|��
-n8���#�����|� d����&#x27;�L�FiO;�X���Q�NO��h{��&#x27;&lt;���04C�0�0YI{��2�����BN�y�����.�q&lt;f�;u�z�2�f6 ��NHι����t�AF��Pn*0�i.����f� �8h������
-n��f�����HW[�@ݓr��s�:Yo��\d�R��~�R�^4��G�Գ�qߵ�� �7���t����	3�X2�$-�:�$W���W�Ѿ�VM��L۸��_0��vM�i� _�{�c���m������3*7���pۂ�bƮ6B䁀Fjͯk���-��@5�ĘfE_B�o�z��)&#x27;?����&amp;~�ec�x�ƶ�AG!ʕ��K�3���˾�B�nԥ��q�����R���8���?|�&lt;�KɆoյwb�L2��x7s_
-�M� &#x27;��R�*���wi�R���&quot;�l����1�~K�qGE�5����A�#��QY9a�޶M�J�jm�|e���~Ha_��	��xR�,J����ƣ��2��2ߠ[��x��D�P_�6�ކ=����Iv���4坉��CӞ,@F�3`5�&lt;&#x27;�0��%c��j��/�b���4G{Z����&#x27;X��V�1��J�E��h��ZI+�L�N�N6
-�
-ߞ\�����~����1���A������VGyu4y1�P��:�	l���~G{�Vf�*ÿ��&amp;�\�/�������,��;�A�� {��O�:��_��Fd���8`b?|9#�I��|0��\D���z���Bi���1���D���Ѓy(؍�#���TQ���f5{Ont�g#@w��$&#x27;�a��u嬧)�O���7��	~ŋ3�fcGȪ��=�˨_��n�l��1��������1[mX�twDs7w�͕T&lt;u��ސ�����r�W)� kr�/��y(�p�c;B|��EwU
-�΍x��r���1Cz����b���UlV&amp;�Μ-d�ف��8��f��̃�8e2�n���&quot;��gzB�EA�G�0}��r�d&amp;�Z��������
-�9|J�_Kk�.k�vƻ�|�깱,&amp;�X�˗�q=	4�{	�u�`+W����9À*}�.&amp;_7z���w?��1�+��x�V;�m&quot;�R��z�U���� Z��}C����V�5�e�@ZD�g4���I�ܣ� )+���*��灌�|��
-��ky���w���pT��W����	w?�i���h:���}c��J��?��A����䠻c��K!�*;�@�}��fĎPb�/㳈�;���iu�����ݤu�w���9�S�,-�]���9`��%�ދ����՝e���Ix&#x27;�F��]a�j�w�CG�&lt;�y-�|!g3��͉�44 �dU���)����Y~;n�{m��rc��8�?�YB ��*PH�}��C~W�9^��o��2KO,��y�j�i/XL0}�tu��8Q��滚�i� Q�ݧ*lLu�W�!�`\Iu���{e��� ��!M^�Rs����]r{v�ո~�f��f���rݻ} ?���
-�#=Km}��ѰC:���^{�K����y&quot;�ӆ3)(�|٧�g�`8wϠ�
-��;&lt;��Ț�+�����Qw8mE�t���8}]iX��i�&quot;^�ME{:3�n���ڰlqN��*�ܷ�����k�In������X6���Z/�c[o:�*{��65�,�bf2�B�	(&quot;s����F������ظt���tY�,n��P�x�)�y5�c�:=�0ώ���.-�[�Xf�&quot;�񖠙)��ʙ�V)@rʗ�o���S�&gt;��*c�8ۉ��ԓ���N5���I/FA�g���@�8�|SE8��z����[ϝ]��Nm����+��M��[8~�f���:	Ӻ���A�|W�E&lt;_䉉K|��Z��YPZ ��8ccd�����iS�y��G�$�)�!�u�;�|a=���v^Ҵg�A���	!��Cj�&quot; ��P�r%6Uǃ�&gt;���VO&#x27;z��QM�Vz_���zPv�&lt;o����x�y\��O�n�M��J�$�!�Dk�ʳei�oSw��rFp�@��h�U
-��&quot;�D&gt;��Ə%�E�f�{r����~�^&gt;�f�د&#x27;����M1�Jg���DS?*s�~���s�`�ߘ��&#x27;8�jƼV����j@fm��;�o�w�X�\��6н)f3��$)�Iδd�ǳy�{� �Qd-�,rzQ[��꾣ɤP�;-����y0eMzO�@f�H����I�t�_��5;dM�ӻ/#�6�؏��7���.1�[���&quot;����K�qa�NE�Ӊ
-p��1�`�@��c�����O��́`| �~���u�����?�6~H3��X�٦B�}6O1&lt;jt&amp;�`?A^B;�&gt;�^MyF��B�LԆ�Iジg讬����K����DZ�M|&quot;.�ΔX@��[��bf8`�\2۬�J��}����A�C&lt;W��ۤl9 m�,� �J�FH�fT�Ĥ���x�R�r�970����-bl8#X��N����Y�Ě pb�CRb�&gt;��m���@͉)*�F��7��&quot;�
-�9�Ɗ9N0��]\x������bM�N	����s��h)�h�.�5�
-v�}��
-��R�LXzЅ�Ҫ���i�h��GU���_�C�:b�f�N��.NO�N=!���y���(�Ť&lt;w���㣜��ܖ_ 8+	\�M�*��+4Cˈd*]�v#R����{���Y�_mDJ�BA��a�FNE��(z�;p`u]�7��·���~��h`����AM�P=1��Rg��|�*s�ޤ��&lt;@�O�6�~F�\I�ܒf:�Bf�G���W�G�DPp�f��� �p+�dS⊩p�Z?�w�v?��
-��/��&lt;�A��(C�u0j;���  giʦH���I�f���#���Ε�M��q�Y[��K�jA��A�~M3��F�� �� ry���.M%�H� r�3A1�@ߏa;�!�������OY�����V@}�bS��U�#�=-��Z��&lt;�L�t6��݀��2���Ud��{�(AI�S��N�績���ID/����Iq�l͹&amp;��[鉵!B_�F�=Ȍ[-�0��#����ur�����:�J��j�VC���&amp;��    ��j�V��V�Iz�����
-�~_t,��i=?�R��$r�iY�1Z�i�,$����[T��Z}�r��)+�`�#�=��5��1��M{�*Z��c����-���0�������!�9&quot;�
-��X�}�@gK�)��m���F�8ޢ@&quot; r&gt;ђ&gt;0���(Y���B�����
-_!�m���H6/Y��T�2�c�NC�7G߆��e�_\D��&#x27;Bzu6��&#x27;�\��seI�G5�� ^�c�]�p
-L�&gt;�D�#�?&gt;��g��&quot;f��T*g�C������ ~+\ ����O 9� ���&amp;V�j
-�ٴ`��گ���B%c��9�-|���%վ!�(�%e�����%5�
-��5�Kn��zKI� �L��su������у�p���+^�T�Iܦ���L3�E`@�ꦟ2��t[X+{+�����N�a����&quot;��Fڝ� 6	]�6��*n�������-��8طGP��9 �Un�����R�O�`���S?����J�_��g��l�\��O�A�*���ݬCʲ8�����8Թ��&lt;��h���j�tD�
-F)�y}����Rv^/+�� -Q@I��%5i�o
-��*�i&amp;�&lt;�������&lt;+~z�xE%�$j�GN�Ik�g�JG+ba7.@c��E�b��:5���p`�{:To&quot;[��H�,Y�����V�S�l	ß��5��i�s���Ͽ�[��:g�l�&#x27;��
-�]��l���\=�]Ϻ�����Q׌�Mz.i���l�ѤI�v)�����ǃ�����v3ĳ��PR�d��&#x27;�2��s��U�
-�շ�r�ޖ�����sͦQ��E����g	�0  v�pCSlC��;}$%���%��_@EI��4T���1t���RC�����0&quot;!�G�^����r4�����!eqW�OZ�܀��u�����j��C@��B�h
-�u�}��� �.�ׅ掯&gt;�L;�)&lt;L��&quot;�\r��&gt;��Dnm�Ұ�08��O�	:�H�&quot;Fc�&quot;�@�Cc5������h�z�1L�Q�yX��e�	75 �hu�����j�V��n[k�t��լf���O�Q���G�������}&gt;B~TU�u
-|�ܛ
-t#�������^������U�`�n�g�]YBSf-|I�~�o���&#x27;�L����!\̂z`V����\^F �&lt;#����~ ���z[*i	XӅ��~`&#x27;���||
-js�� �����&#x27;Ox�4N�F�(k{������� w�h��!hv)����z��T�T�o�р/���=�hG��*�)sؔ�&gt;I���a+���;��q �.]z��PD烤`C�eNWQ}��P�B�5������g}q�y�&amp;^}|����:�&gt;�� ���;*#�	�cp)5�c+��ƿ��5���v�uB�X�ґ��9��}������{3�w~_�(p�[N&amp;ԙ�Vo&gt;��%I!��$p0͆ #ݩk���-����qpg�	���̎�h�=�P4�)�e��)���D;xt��N����䢏U�.�ᙸ�v���DM��Ď9s��#���BF�=wo蚊P K[�D��f������d1��0���2NĤ+=�˂����yA�x�ElQ8X3R���&lt;��h���Y��IE��ԡ���L,&lt;��w��$��B��ϥ�cwb�������L�=���	���WM�zp����y���5����+!1��F�z�&quot;�ur�9$T��isf��,ℒ[�
-�=�?&gt;s4�8��t��3����ش5�-0(��A{~v�*��awr}+!*cȁ��� ��{jM�n%c�߱F����&gt;����t��]_��l�t	M���eƐ��7�y2t�e��mM��sloxH� �u9�z�4C�f��tE�Z˚��f�BF�QD��9�/p ��̷H+M�  @�p ��/R%wF6��`����/Tx��q�m~:�ګ��F	׫Z���
-~FP��Zn��2��
-��S��.�0���p�9�����k���|�_���1�ik�
-��N���)���Mde�h%U��B�B��&#x27;d����}Ib`2b�85τ*�W£6��C&gt;�!6��Q/f[X��q��n�����NE0�Z��&lt;f����BH��h:, mf�ח� �-��aӲ�)&quot;�3z��&quot;Jr��)�֑��y��e�2�k��EG�����Bd_т�4�H�&quot;�+Jd@�x}�X��V���Q�0��{{�A���HhI�`�nd�s/@6:�����%��J(���j8t�!�R� ׆w���a1�[V��ט��a&lt;t��r[����+�v|����j�D^���n@i��z��j�U#������*�y��&quot; �y�WО���q�ul2��r]�L����&gt;՚���@~T��Tz��1��KL��֪�O�J*��![$&lt;Y����t�ƖAz�	�bԐ�5]�E��Ԛ�&gt;�\[�z�!�I��o������Ks�=�4F�|9�ߜ�E���{q(�� ��.��~��V�3��&#x27;�h�נ�7^&#x27;@(i.	�&#x27;�e��a�R�6�݆p1_�u1$B 0�X��Y�=ޛi�~
-�}損��
-c�{ތ�����3n���fܤ�ۊ���.��}^·v����rw��*�ս����M(l�1(��\R�]h� *���}:/Tx�
-��+v�S������&quot;B��띢)&lt;*�V�o���Kg{6�e\��(��:��#������u�cA���!^��C{�|g_���&amp;��R�Q�� c�����n��,!����8&gt;�M�2E�7�pL	�6}y�q]h,M�WhQ��͍���p}��ꦾ,N�W��Wg����]w��yd�(�k&lt;|˞�)��a�$&gt;j�p��i��w�V&gt;���� ��)&amp;ܲ���/�}�Ѵ��Egx�:�h:0�ĭ��yTiZ�/�����,H��Q!k(�7�3����ꣿ�D�L�ܦjA�*��$m��d|�a7,�ݔ��W+��]���޿y��y.�1��K`#�8�=�b�pN�k/�6�s��]5���f_&gt;�oF×�Y������L��Ah�j&lt;X&gt;�-sS�t�\]��@|���F��ͱ��oi�:�g�~l[�J��YY�)an��F˪f
-�&gt;���|���A���Mb�1�&gt;P�R��!�e��Y�l+	?k{U,C�sa������3�g4�:pm�z��=�3�W9@	�P &amp;&amp;�#.��P+�&amp;
-�+zΆxğ��O�k
-�T��nU����2%���;��h������
-��q3�x�� ��&amp;�W���X)2�v�$���sy�#5B�d�~0v���A&#x27;�ۊ&#x27;��T�:���x�q&#x27;$Evt;���6:6��+�xo�����y&lt;Ó�3��x����Ү�+��G3�^�\騈2}]�Gõ�
-��v`%k��J��y&amp;����uTxv˄��������F�P�e^4�(�D�q��II��Q�����=�&quot;��� ��ýK�&quot;���#��)�1�pv�͈����ޓZ�;[���s�!n����Ӡ%��u�)&amp;c�ӭSX�*��;V�Ij�@��,e�@+~_�;.�����Ǧ_��L=��6@ �f=!P�@&amp;(�T��2$��gb�~�Ml,#�|)��:{�4a�I�y9���eF��&amp;���OYB����X�k�����&quot;��1&lt;_sd�q%���X�DF�T�)V \�*���&amp;��R6pQ�n�JN����5�R`|M�W&amp;�R�n^�#�S^��u�3M��&quot;�M�K����]i�Đ���PnzX�*���T���zEW0�z�3�2�Sq��OO���siuMM�uNq&gt;�`Y�C��
-Єٺ�@ �W=&quot;o�JY=*
-J4@K]Q{��i&#x27;��{|��2j{�n������P���e(n7�
-Z�)��[jm�������/_`)�&quot;
-�&gt;� P�I���82��J�Y���{l�b�L Ce�#�A�T��u{�����b��*g���q��s��t��kܕ0w5
-�5��5孭x�p�x���q�N�ˈb_�^xtA�Ӷ.?���~{-��9��&lt;=rn.�&#x27;qvpo�m�֘/8z�k��d�H�����*S���4��)&lt; ���2���W�6@�*�����E���P��[�ێL��iH��D�8�@
-�I6����#�H�\���r��ܻ�u���� �5�I��Δ����e�;�Ad�:O����+�
-:RM���_�Z}�?V��� �&#x27;~��ҌY44�����*JUW�ډ�k��ל6頽hHq�+�d�e
-7��i����[���g�&lt;��s|����.��F�P&#x27;L��D&amp;:b
-nAsQ�^��P�b��ppD�fH71�O��aC詋��u���T�߰�n���L��T�34�|v6{;A�~���w�mt�ߞ�
-�5~�.�S�N&gt;P䥔+�=$�_!\YT�#J�I���R�q$K���O�A�q9�7�˟5�&quot;N�&lt;à򒅗 �w�)�)�ػS_4�өr
-NM)7�qN����h=V�@�&#x27;����1�/{ �U�6��V{�ᛓ{Yp��hl䶯��&quot;��C��],_M�2;�~�@ޒ�*5P~��x&#x27;� ]��ܼ�V�\��p3to��H����ꀢ�^(�u��@�D�XZiE�Τ�*m�&amp;�x�G�W��r��S�}u�?�5\���3F���={�hD���?!h bh�*~G@����ߙ����46�����w�w,`��#�\ۚ]�ўl�Ω~P�R��c#=��p.䓴b�7k�F����_#x�$Y�1�MU�Im��t@iIG0l�6���}�S q�pT�P�ɪRW&lt;xMu,r�cb��D[��rlF�au���rQ8a�zLBd�$l �2�en	��ȏ�3x
-��[���z�m�c��p��Au�Ъ�6b��&quot;��J��ʰw����OH��n�/���x��q�?����F$7$��	@��ΒԃG0�Ek3�U�$��+y�R�6/�k����yq����9��X��e���ˮ��-޻r
-�E49�!�K�nX=G&quot;�$)�Zo�1�ګ-����Ģ3�Y�.y倖��d��;��&quot;Ȉ�e`��?���Јr 2�9u��|N1ڀ�{��ؗu&amp;��k�CqLWd�� 7�zS`=�)਀�Locx5�i�~���r�n�8�K�i���@s0�V�y֜Q��4}o�j1b�\�.V@0�K۔�ٚ��T�F��H��sB���o�(�o;/�P�ʩb��$D�=�9���L�esB�k}����@;����v��Q ����p�)��,��=,��}���q�Ђ�,�N�T}�U3==\�O�+�갔�zh�@0C�2xD��0����`/���8���M�9�λ�d��gE��8$
-��u����yW)��-b}���%\�X���u4�5}����蝥���� p�I.�nl��(��3��m{
-f�C�i�C}7��v�rx�UU�o�OK�D��В|c�&#x27;9ғ騙�v�5�����d~yZ�d] ��Eo\���`(W�roFU��K\FL��Z���4�����w�OAx��Wmz���H�N�/���ʞ�x����	��ä�����{Β�0��!Y4�&quot;`Jݬ
-.+�;�=y���;��P�Ө�Xna�v�Q|�M����	�d���d�eF�V(�+ni
-����G�[Z�$��)߫�����J��7��|�[z�}M�k��4a����S	&lt;6�f �&quot;��
-���a���TI,Wĭt����/�ʺ}�&lt;�m&quot;�X�q��.c&#x27;�[��+��nX������|-T�Zѕ6�q5�ʩ�����I�,�1[� �%�e�T_�ph&quot;�)�O�����i� .�|�dW���^���p�뗱�J�y�U$��#�+����c�:�5�v���ر7~��ݠ9P�h��
-j)3j��Y��&gt;�5&#x27;j�Ԣs��p��=��(̆e��驪�;$�K�TmwM&lt;���9�X�~&lt;�/�~�oV�ʡ�4x��n�i��[r7Ƣ��\�ߧ��Z�H;�;�Z��\�1P�����rʻ�͞�}�K��W)E��Mqr��\��W����$�@l� rBD)mo�lDVԋVa��}�|��p�]��q�K�T�fZ4&quot;�`��n��X��e�(+xA)X���p��5�{��/�v�F��1D|�Y���]�0f�g3Q��]�gg��R5�cJ�Vapc�����}E��^j+ɆIčԀQ��ٿ���y9�S��1�Q/ϟ���n&#x27;�`��r�vn�\�ѱ�/`9����bF:�
-F��0=�	;�&#x27;�Gg!�ʸ���b\�����w�^_Es�)�1**mB(������a��.[$7&lt;(���:g�)�2^L������푬��%�갉�`�A�=�$��HT!�ް�5�m�D��Jz-�o�B�A���v��ʩ:F&lt;����g�]�y?�cd
-�i�w3*�/L���+�&quot;��z��k �DW� �ņ ������Y/KnZ����	��1&gt;�7�؉c|��t����{+�R�g�p��~�fżJW�`tO�&lt;�1��A�Ojtܦ��
-��i����(�~������&amp;�r|�EG���I{,�����H����
- x�˻�(y@xD{m�NgH�\o�$̂Y$�z�6l�}�h��.�~_.����O����ؠ�����X̡�����	]��yY&lt;H�{�f*��(
-$��+��Wq�1iF]|� ��w��d.�ε�s�كI��\��+�E: ���&#x27;����T}�t�E^63����Wz�c�{5H��N��讞H1$�t��AH|���%�ǑF����SH�����	�i��3C��LI\�	&#x27;A���ps��JE���ĕߴ��3L���u!5�ؼL���&quot;z�lc�rS\�w�6���t�T���+Q�B˰��x,�
-��&quot;.��O�¿� )�!�&lt;��z���v����4.�� �T�L��E����~��1ݝ�i*V������v?�):���������� �sEqb�j*m��K�a&#x27;���u� $,O��ynj�)A?��dt�Qɸ�Řj�&#x27;���q��F�[Z�2���#�;�v�8�$k+���=����]��GM�X��w`���S�5�:�Wo_����3h�O�M���Oށ���Y&gt;Na�8n�S��\��M�Ph4Ɲ���
-li���.��ұ���x;������)�:v�-&#x27;�ǥy�𩪅#��mP�.u�M��{Cc}�;�:p��3jQ8P�b�7�?�@XP��y��0}���M�0x^|�6��4}��nف���!7�n���~�������k�n�P��-Z�f���3�t��9�s-{2�G��/��׊��I�2�����4C&amp;����}�op�i~�Z�Zb������iu��P�z_�Rh����&quot;��l�]pP��U��g�u���cT��l|��#���ܶ��m��YLP�������#����
-vl&amp;�
-DW�r�i8�R:���%z#=p�&lt;&quot;��W�v�6�b(Y����]4�=	}�Y�g����n����(z�N�R�����&lt;�e�W;x��A�Vn�tT}y�A��kΛ	�@^Xm@M�	�s(W䟧���
-:/��{��=e���N���gl�}�(gY|��N0��EIN7or暖e!_���W���Z�`����x��!kC�	��A�\A�`9��d��u��|Wq�E�����ٴ�� ~~
-�%5ǥ�gw�5�[
-�Z�4�/j�25������1���/�����䪲�J�Pp����	AR��΂kv��:}�&gt;�R�e�6].�)B���Q�Dx�:��ߙ藺��p�����̌��/(��]�b��]T{~�&#x27;/�[&amp;\[��P�4m�Z�ߓ� �����Ad�&amp;Bx�2�=��s#�
-�4��c��Y��!�,���g�K����ŵK��@�c¹yjsp&lt;n���U��4��{��P�ʟ��&#x27;����b �f��c�i��Ժ�e�bΠi�zc�e
-F��?���|��z�mN�@��l�������@�F�bx���=��Ěvs�S��$�!���@��2d�tN�)σ��*9D?S���X������O?sY���� {fc^�`���U2��5/z�����K��Š]L�F&amp;��T���uJ^�*v�����/
-Dc��9V�	aX*L z�~��Ayx�ˬ3\�ϐMa��z(��h7���V �� 0���*�)�m�֘8�5A��k�7~�uQ�cÛ����,&lt;{�X�q����Q�%;EV#�y�&amp;kڤ�X���Q��:�\���CjI&quot;�~��x�-(D9�vƭ�`Q2���	v&gt;�ře��[~�
-��1JB_��:Vj*�Yd����U�b-��T�����|$�z���^qi�m�Z:���3�k�`}C��:?�&quot;/;]ը2%�����A-��1`�Ո�[!�պ���?{�N&gt;?z���2C��%&quot;y���F��a
-�6
-H7,�2L��l
-��	z��X�?��dqD��-h����%����O�E��ҳ?�ɾ���b뤴��2���/(�9��[��J���&#x27;ۮ�X[e�{�.Q4�*����df0�ƞ�{�cqEh\_���c��6�\�|�*���jӤ|��H�i������/Zg�K�e�18v�sί�G{賫W���O�2|��d��o�Ĵ?nr�+m��Ѿ�d	�V��o��KY�HFrO�Yy2��}稠kե�����:)Q�z*_�쿋�� �r-���Ėws�&gt;�B47���z�����n�i�/IVpq�nY�f�J�T@;��콣�ԁ&lt;���9�I�OV&#x27;/��4���k�fm*��~`�5Ũ�@�&#x27;j�����/`�`�Lpo� �R!�G�)�vH�����&#x27;��&#x27;�#XX.J|�S7��&#x27;F�����ـ�r&#x27;�j�M0^�mO�
-����硜cΰ�)�9((.tv�Xw�콥N�F�XJ��Xm��N̷
-��*E^��Mu� ���5FR���ϝ[ x�z�;@)�L&amp;k�g��������!b��S����I��
-���TѰ//-����ż__��ڕV[��v���T���B������б�-~�[��:s�fq\�v3�O �	�Re�m��D�U�»&amp;������+�B1��R&gt;�:�kf��j�Kϙ!�q�Y%��w[�]h����e�j]�
-��D��|��0�jSde&lt;-G�ج��QSG҉M�a�yM���ا�S{�	&#x27;�M��q	:�~V���\�셿����x�(Ա���Ώ0�/
-/�F�q��[R�
-��+�Ay�_�.�HV�D�%��@���ݐ`�&amp;N�0ߛ�;R	)�y��[�/)eq	ff��I(Q��tS��m
-����Ɇ�3�]V����/�j(�
-қ;So�-ԉ�u��i&amp;�^!� ��[7򪴺��RǏ	|�m�w����6TA����.��F�n�k�.���&quot;���k��x.sӒ��̳/�c��3�i&#x27;�%�꾻��a%�n]�Y&amp;�&gt;N��?M�0��Q���@��o#�+�U�d�
-@�k��!���0ב��˔�W ��爋/��S��zeY�;)+[os+����p��(�i� �Ex1T,���q��
-Ԫ��N����
-Ґ��@�8�c��7��Q� �\ �ȫ�x�$�d�-�%G*`�]TF�!�U��;51af�-�����T����A��kmݍ�.z)�	zd����.!���Z�slW��0B�ɼ%W&gt;��p�^X,����ׅ����8�{ u����$!�&gt;X�[�{0��V�`�}�2�8���c/UPa5�(���m*�
-�4d�ӣO��4�p�sJ
-�k#�-^�1i�P햠�e&gt;J �0ˢy��͖�uY(07x���Z�JyNJ�����&#x27;�9u ,��;�l�B��F��t��p$���0ހQ6˭����̬���b�;y�g��2���41Ǟ&amp;���Q2S�
-�C�W��r�����u����V��Ynx�?��@����&quot;����YJC	Q���
-	ϾKL�!�L��s�9�׭��[��)�����%�0�bR�σ���m��W�&#x27;�6�.�,�����:�?ߐ�0+�&quot;+��5V�4��&gt;}!���J�yh���� X7Ny�j�G��}O;�oNt-В�俢��4��-���X‸�x^$ݥ�D���#�y�DZ!WJ������#���&#x27;d�*M��	��ʺ�� ��_zX��h�Y�%��Ɯ�jJ~�+ohL�Uq��k��qQ����R%�&quot;��o�S$3i-���#U!n?��كa�d������&amp;p��O��X8{�D���dL�K�.�R���V?�PP�L&gt;�K�HX.&quot;�N�Xd���5g��x
-�@�xj��S�&#x27;*��t5=A�+��EJ��Y\�����r-��Y�\�z�4?�;�M���vN��O�yFB���F2�C��r����K��cō�$�[Vى潮�~ib���D�8�X.�����`L�c����VI�5$i;�~9KP^#w+̱
-f
-^웒 �{O�jﭢ1�i,��r��st���i��O��Hs�a�/$��U���d��`)x�el�J��qpo�l�����CCA��n�ߞ�,d��� oV?�vyV�e29
-��ڮ֐��2�`��vT,�`7�����C 6Q�`��b�]�?!�R�G���t����V�wB��z�gs*`�{ �&lt;Y@��Gm05r��G�d�AKSY���/4�
-x�`�IW��}����s��s;m�-`~͎�-z��̑+ƞ�}���t6n�3=ǻ�b�s�)&lt;���Fi]�a��Fɱ��hIe��o�6��w�����{�+���શR�B���;a`�O祤�`��j�����װ���X��&amp;���MH���%{%o��V���f��Q��[9�؏�&gt;y=_;ܬ��dЮb��&lt;�!��=m��l��=lO%��T�1�f(�&quot;�6�U��Z�L���߇T6�$`��/2F�Z0�[�����+�FTZ���q��S���GnF!҄OTf���2�r�ܗ˺ׯ+j�:J~C;�=Oz�H7m�������+��Whr�!�T@|G�צ:�=͍�⤧X����r���D �&#x27;f��wk����G[q�gҤ�f5fˊ�u���Cg\X{�Q�]�EF�S��J�-��O�#&quot;b�ԥ/�nѲ�kД�E�X�v&gt;,�$p�-�����Ct�ܘ��y�\K@0�G��P&gt;K��Í ��e���ImY���n����&#x27;B�r�Mf�XBJ`2h5����t� :Z�9��N&amp;�m���7C$�n{��ߌִrm��Y�GBs�����_q������#е����Y�{ &lt;8| ` ���(�s��v[Ty9�W�m�Ã�峾�W��ijf������u�G���&lt;;� j%c�-�K��4����*i�	�U����QK�-�!/f���|���v�jU���J������tۂi��8p��aOӎ�!�r�����&quot;Zu�{�_3���#.&quot;&#x27;�Xق�t�;|5B&quot;zy��f��d�wdj�Jԩ
-�b
-�@��eE��S c-��	p8֩����&lt;��z�ʟax&#x27;�L��P՞��~1�.�&#x27;�,&amp;R�q�?
-pIdЛ� K!X��D4�J�h�7
-]�#�J8��E�ێ�-|��-�mr�w�-�{��H�p&gt;�&lt; oD�)+Wƌ�h����D�&gt;|AJM4&amp;~�&gt;x:C�G\��?�;j�	�jб�=A��T��(.��;N}�YL6�0.5$��yJo���˖,C�]�7�p&#x27;�.L%��o��k��F؊_9&quot;����`3��V_м.$eo����)~Iq���̵	�0C�yCԃYl��oc�Xt�sr�T�ʆ#A�&lt;Q�a����a�I���6-����!5M���y��ݧ�N���C���Q&gt;�Λ�L���-0]1l*lMt|N�W�=��T��v�!��b�&#x27;.IVJ�C}�fY}��~)�ŇP�M,;Nܜ*ի�%��jk���@2ث�2V���+�V
-���9q����c�����܈NB�]7�	�ښ���z��I�@��l�����Y)*�Oc�#�������4t
-J���E�^p8��Ri�s�i��nG�&quot;��ϒ���p��\4f�&amp;x=�?����,u�
-�y�&#x27;�o[J��M/��܊D�Dk�l��	&amp;�r���U��*�������G��-t|mM{6@\svk������y�@�s�:g�K�n{�F�X��Sזk���� �Z��,�������O�&lt;뒮� ��I
-�c ��o��
-�-�3u��WI�ȭv et���%���-�c��Kz4�G���Po@�#����&gt;�{�Yx�]���Q�&amp;��1u�,V�N[?�)�qr�w��uHwE�����Iv�&amp;��8�+L2I��Ͼ��2�b�/	���]�7��W�:2�n���w��o*h�&lt;SB�v�4~Q�&gt;�5W��Su�R�Ck5�
-E�S��&amp;�ɳI9��s�u�e�\G��TCHR�tC��JPr�~�����&quot;
-5zx��%~~�����X��L��C_�Ɣ3x*0���&lt;�@��s9
-��?�+�Ƚ��8|B��t�p�9&amp;�r�P�o���G�z�qw�l5X9XT��W������.�e;+/4n��`fk��D0��4E�eM&lt;:*�)M;A͗&gt;�i㼠���
-_�X��٫���K�lr�p�,��	NeO
-����*�sj�~���M^��K+��e��z�̿\�x��`�j�115����w��#ԧ�?G��G�������
-�2��S@1o��|�&lt;��CXv�BM��w�܋�f���=*����;�g*��
-j�z�#&lt;G�-Q|�{/����|V�|�&quot;��Rh!a)��}¢�Q��tӆ:�M3q�����cz������ߍ�#�4��z2��&amp;��&quot;���2�v)�����Ŵ�S	
-�ۦ���-�9������ԣ�&quot;q�+�҂_�tZ/���ާ�N�G����GYPǔ3;���oq�E�( v��4�����˼	Q|�C�n2�
-���5�7S��k{�#��GM�@�+��q.�m@�Bv�|���gҀi3���$3\�	4���O�ߔA��ɋTۧcX x�|�9�*�����&gt;����J�A�����=�we��1
-��5���������n�H�`�$k���`�Kٽ1ߔ2c�
-P��k�-ؽ��A7�i%y\�Rg�Co�	i�J��!(� o�L��Бh�_�v�7.޺]
-^RvaQ{�G,�K����^�G�%�+�7�
-�ʛ�6+�~ٟ%R`MUʉ��&gt;��8(&#x27;��yt���\�M�ʞ��{�ˣ�)�F&quot;�8�I�7`$�w�7��ôv�&#x27;l��h_��xd�).��B������LX&#x27;���j����a�����+�o8rG�&#x27;��əZf��C���]�a�X�f���i�t+��_)
-&lt;��=��Q�����쪩@�9c��Т\;�J�+Q�]���i�#�M��e���D0&gt;i�B���{Cv��\X�@ș��\&#x27;&gt;�n�I�12���Q�,�w��ֹ1��&#x27;nRZW�&gt;zw�
-B�nT}4t��h���m��O(&#x27;�-
-C�Z)���S�d��%�����$��G;�2�ihm�J��WF�	��&gt;���Hx_�
-吘&quot;��M�=����O�.�JV&quot;v2�8�~��g\ͼ�Ǹ`��	�]Y��JjY&quot;��շ`�0��V���6��(fN�V��y�
-����O&amp;����Sc~�J_��0��ʮ�v�w�\J&#x27;�M��NhE��� T�K���SSQ��n�a����d�l~��]����tΰ����[R/]�oz^��_\��,�4��&amp;}�cϦ
-�7��~��N�r�;�j�O+7[�:{��t/��M,}�k�0U^���J���B�S�:�����3�0hhؓ?���3�D;�ƆGC�u#���
-��̋.�t���zKY��H�&lt;�\+z0�7=m���&lt;-M!m���&amp;ᷴv`K7�kJ����4�~�����
-d����I@�R6�9���H6��n�/9`�8IN��H�9�����\��h�8�T����S;�����%~��q&#x27;A�m}���[��B\i}=�e�=��7�U�N�s�ۇ&#x27;�$ZK�$�B,rmH5_WP=
-2p�a�� �ڭ~&quot;4ɔ#���&gt;����P ������Sq�G��~�~��
-kǻD��G�k2�灔��3�Ǔ+��Ep����^��� ���ݵ�t���]F�/��U	����sP��8&gt;{+��������D{�9���`&gt;�N���P��7ߴ�=�� N�
-����F?����D%��;�M��&quot;n	�`��FU��|�%QN=�B�_�n#�*L��e]�&amp;�ъ�v����B����cT�v�f���aZ���y��WÂsD�.�|�mP��ٻ�
-��[�C2��ц;mW	�O�\��O����5[��,&lt;�� iL`�K_��-������~&amp;fY��I�sG��� &amp;�V�#��Yf�\�Gw������*M�[vZ������WN���e�96�|��$��L�;�0OB_i���y�RzP��AF)~���~:�xH�
-K{(J�5+X�+��h.#P�A���W�~{۔�p����s�4BYp#݀�g.}h�&amp;ι� Tl�1ϩ�O�&#x27;�˴%���;X�U�$1��ByJZ\���/_���l��G� dǴ@ݠ��V���LF�\4�L�w�_I
-ż
-��R�v�+��+�h�9�}�l�֪� �2�r��v�Y�.ć��$�G�΅IƔ�:����@���xI�{���ⳕx���3�G���
-��	�@�����Rȱ6���kCd%���0�|۞-U.1�I]d���v��s�����)[���{8&amp;m�#�g���J&#x27;@E������L��:�۟��_TaSb�@�Cf�)0JQpw�\�up%���� -�b��?�A��֖
-r/��h���HU&amp;����N��.�]�����}���^h�@��f�
-!����%jW�����Vk�J���2�z1;}0,�5�	�g�w1b�����ZMp�$OG��&#x27;ߙ��qƟ�y�o���̹�GT��߉�f���А�#|n�s�[�&amp;!��!L�9Y��W^9��]T��U��=�&lt;���7/;T��I���p�9I�`t���.��O�+Ѳ���&gt;���VN�,�uƍD�A�֬6w�Ç�t�w�alWP��}79���0����E�:��T��&gt;�+.DW��¦U���[�&quot;�z����ZA��R\������F�����e0���Yc�d��s񰡟�;՟C��G	�e��L^4� �%_�����=��&lt;9�4��
-��$n7]2��ă1�0��9oX�#~�`T�TR�s��in�
-:���D��襺Ә%�$F��y!�ɱ��ës˻��N������Ehٸ/DB�5�=���ã� *� 8���z��hǅ�^-�f�*����&quot;$���s�{����T�s�g�ɗV~�i*������.��a�w�VΫm6�I
-�+ҋ��i/K�sD��Q�g{��e.��l��G$8!�Ge����3��6�sr�g���R�ڬt����ās.mgKä�z��Ѿ����0�7��헸&#x27;&#x27;)����+US7�j� 3�f�F����!�(A-��b��^q�5��»_��3è�ELT����$� �oLsLu�R
-� H��H�K�S��AY��a�����A��O���宂�:���ob��н���D��uE�ņg?�Jw%�/��
-P*B�������i���d&quot;�GS�b
-N��l\�r��_y0�
-��	�s�Kgs��)Q�T���68�C}){��q�i�	?{^�2I��р��{�I��ɮ&amp;��-F�3�J���S�[F�p�-�ã;�9[6G8�x!�R�W��2��p��-ܸĽVF�x��73�_z�wz�.�m�_I�Ȥ�����H�C����rZ\��U�u�ДW8��������!��S����t�Q%{9��\�	�5�`�~�&lt;��kܚ�&amp;`��QY��[�n�T�f:RqW��|�)�zmsc�cf���=&amp;�A�B�p�a1��b z������JL��p�W}����i� �)�E%�/��M=C���M�{W����=��{#���oP��fj	M;��4���j�˴x��G�}񼼏ן��4����2���љ��ç����5��I�B3=g��|+g��J���;eΦjazӠ�sC[��9������j������ �/*����A�����1
-=4K�w�Rb5�F�(:�͝����&gt;�ID�$U_��(O�Ƕ��4L\ô�q���w�G���M��k�?�2:��̹��k���:���P3:���z���QƘU�Shd�lZ���0�|mf&amp;��(
-�S-�����&lt;�q[u53�js^/u)��w���\���~F���)�~�A����a�l	�J�y��
-�P�/9�*��f�?����Txl[j��$��9M�y
-T�x`�3����f�0pv
-�ɼ&quot;Н��5���=����&#x27;�F�w�:	MZ2|ToɳZ���wH�+lb��ޮ��nvw)0��0�r:5E���K	&#x27;�R5
-kV������W۠�̮hi�U��.q2�t��/�ׂ��&amp;�ho�%?�b����۠�&gt;/ 3�M��ߕ?J��8�o�5�/ɶ��΃VL�?&amp;�=����2ĺe����t��gr$AP&#x27;(�Hr�xi��,�F�Y��ƇJGC�+P��M?�巋&quot;�t��m�,̄�l�T�j��~ۅx�\CS#�u&lt;�����@����M[0���㒎��*#�a�ig/�@��K	_
-o�;�@Lg7�E�5�q��vH��E5ʩ��oiڃd^xt�fɼ�&gt;�%=�א�}�EvQ��@�=�I4^ ��ߋ����~F�,&gt;K���!�q���[� �zv膺)��)��t��x�Kd��
-[�G&#x27;��4D�%�&quot;-v#ړ�9 h����� 1���d2���l�N���n�R�&gt;�5�^�[�,1�b&amp;9%�*�a�L��Ф���Y����p��l��wZ�(W�Úl� �%�y��Z���G3A%j�;�E�_�l!��&quot;���q��v�Ñ��j�d��å
-�e�H��Q�4
-�\b���e֫���;�0
-�$��Á��C�vo�?856II||���t�&gt;�#�&quot;:����c��DD�&gt;!~�ǽ����o��-���3�5Q~�2���
--]ȡj
-&quot; +
-�d��t=��z���Mnh#�`�y��ǧ�OՅ���\uM����W�G�5�0��yӉ*�D�&#x27;���J��v�ۿB�-Z/�E5�f�IГ�VA�(%�QD1�X�&amp;&gt;��|?zĭ~�Ŋ����]�љl圉��_O�ȏ��zIO� �[aV9���1�s1�.Db�3l1�P���#���+�2�=|�?|T1VS��K��M�&#x27;*G�6 ��u�Ng��J(�`������9$)�1��y�Y�B�ݕmn $��[�d�7N���-���`�&amp;���AG����y�a�y7�^���v��&lt;�t򦱮 x��M&gt;;��;�s��#��Ԓ�\S1��-����5)�Z����r���5{�lƼ�?d�-�E3)��g�T�0��q��HNOʌ|�%8+ 1�����!V�ָ
- �������VN�o�����Ҭ�7��w�Äҫ9��˷
-�^O/��E!ys��ũ���2yp���r�����2|�d�1A�4ut��ݚ�v�t��#
-k��-�$����s9�Mj��.U�O��r���/�ݓг&gt;O8��5:�&lt;!0&quot;��3i)�2Z�_3�nx�&quot;Q	&amp;�C������
-e�I�У���5|O�H7&gt;��s�Bs��T$���i��[(��lzTf�X����.z�&gt;�2���R��	���MP�������c�.�u���/`B�K�à �d	���A���n��wdR�j�,y{2�0�C���j��+�
-T%����Dъ&lt;[{rKaZሗ���~*�ć��;��!�Ě�
-�2�&gt;�7&#x27;��2h�M��î%:l7:X�x��tT�+1�o8p��x��b{bX��&lt;e�l�Eq�l�e��Xy���������TX���$�Rb��&gt;a�M�,��0��^kA�D9Nbd���%d��+F��xu(�-5a���=dip�0�͑D�&gt;=�����z��?���c&lt;T��c^%�=v���߽��}F��m^B@�Z�$e?�[I���
-&quot;��XH��);�q&#x27;PHl�5L��&gt;w�p��&amp;��ۉIl�:��5���d�\�/�;曺ũ%&amp;z�2��w�6�̰Zm��	�������5$��=u�׉3��дŪ�Cv=�g�B�xbM�)�X�MX��ǎ�7ڼO�2��5���N�,��2���6NTy8��q�}�p�C���x�gf��D{v�/��H�zt)�@ �`���__�ܨ�l��W��y#��WX~Y&gt;p��
-2�BP恷��ӽ���Ay�\�6��w-�7-#������1^��Qf�h��&gt;XX��b��
-��V�a&lt;Lo��zg����\@4r*J6�s�-���3q�jT j|�� �כ�Ͳ+D��X;����.J%�L�@2W���u�a ��(55�ʿ�&quot;!��[	Ƭ�Esߕ�G���i:��cRXF���# ���E��j���y�_�O&gt;�Q��3
-��Z�W�I�������F ��^`�M2f����Z�ٶ���b�^�`j�lޠ����ɦ&gt;2GG��1�]�
-�9�j05iɨ�J�#�3Uta�_���&quot;f�}K�·�^ϑC���S#��^b����s!-	��w)�8��ɀK��|��(�F*�r�X$L�ikZcvZ�EZ�_���
-�7�:1LXx^h�&#x27;&#x27;�T �N���Ւ=�O�!BMb�� vLk
-n�� aJ�sa^�4��Oۧ�A�?�Ԗ�p�;+O9��%܃ϱ��d�I�\f��܈x���:r}�2�j�}_��/9�-�kx��!o�Ђ���ۼ9�1�z�}��&gt;��&quot;�~lFԑ�.u�
-�܎}D�$�EGI��=%P�=�8�ri�k.&amp;��$��R��
-bW�����9��WC�MŠ�	+����n�&lt;��![�H/u��/�=��u�H��w�篶b2%~�;[�)]w9%^p��i��6�ތ|��Yma��?	6E�&amp;H/�BHf&amp;��V�	����ܿ���p�-�ğ�̓l����e��!�L7�%�*&quot;�z�A�S���Kd�߄���spMO�,�!�
-֠��r�S7Tȡ�k��-���y�s�x��ʳ�KF��+C �c�q ���UZ��� pF�!ԩl��P��w\gj�������4q��(g0K��s��;xH*-[y�@��\ s�3���`L�@b�&amp;sk�r-:��x��\�|�M�p�N��{g���U౗��ܤqau�/�oZ��E�j&#x27;�R!W��ur��d�.�ž����mQ&amp;m.��cgoAB�6|kf�]��B&quot;�OHeu&amp;�
-���0q臲f��~�`[����yx���;JIP�Tઆ���Y[7�(-�����N=��wʹdb�
-G���l�yp�lsD��s��B ڋ�ڐ�&amp;��X�6o��Yz̓�	T������!K�
-�W�&amp;������H�u�����;�]�Q�B;�1?=fJ��T���)d�(Y�	�
-�i�u&lt;5��Ӳ`7�&quot;�9�����1�..�
-��F��-�3q;�)��&quot;����H��y�Vti��%�f�4�����^��
-��xfb1ۓc���hm�\��A���xMz��?�a��v��d
-�Fw���+�Y-��6���E�7��6��\7��W���[@���%�j1uI�S@&amp;����)��$�2���_��z_ ���}r�-�^ǵ��_v��c�&quot;Q
-��u(Y���B��7&amp;���$��X&amp;Gm����9���!
-�ui-]�N;�Q��X{ʪ	�&gt;���&#x27;r�(�B��x�&gt;^�wp3N��0���h��0u���-���G�i��^~��(s���E#�fJ��
-��0¼4�)^�$�#J���k���_2�	�a&amp;��Ⴖ�#�e�N}��Ɲ{#����N�ƲN�d�&#x27;˝�zTu
-_�[�a�&quot;����s�4ұ�g��\����&#x27;!�{�͞�^ܕ0E(ؔ�2��fɀ�[?�CN��{���}��1ꍍd�c9�S�YQ&lt;Φb�$21�2R:W 8w�����*u�����j�K��̞Z;,Ϻ��F�P�@��-f�ψ����g�}���!��,xX�񯙖��#ʺ#��k^�H�|�1�����-�kg�H��?�p��
-J�@�{�z��Z��k��R����{&gt;���kf ?.&quot;�A�4�J�&amp;��f�D{ |x�&quot;����A/�Ę9M9�z8�q�4��e�� QA�@���cD�X���ú��K|X�BEF�#�JC�Z�?���h��K�`�qL�N�UT��_!P��ěYGE���ў����hӢ?�3��Z�&lt;7�-��lV�X/mnd}�D��[j 
-Ut�b�cu�~�8���亂#}���f)�z:��W�#���^�[�b����N�?֓T�p��ȅ���{_������{fo�%��u�ٔ��Hrs`���L��=��/3�^�:�Ӳz6�|���Zx���3�������P�J*;af�w�8�4m%�o���L�V�R�?�y�b�C�u�U�c$�s[�lx&#x27;d��g�Hr��}�ՠ��
-?��* f�X��ʘ�m_2S��T��u���!��?�����x�X�Z&#x27;�h�ز
-v]Ky�
-��A)LT��F�h��]���*�Z���(KeH����J�gW�b��s~�����ߌ�r��0Nh�t�L�犼�=�:�a�fK2������p��vA������JbѾEbͥ��^�OC��
-�i;()&amp;&gt;B��A�Z�!�����&quot;��%!y��Rb��ӏ��$a��lI�g�gp�M#n��{*ѠYΎZH�T�C#a|8&#x27;�U|�J�W�Ɯ&#x27;/�&lt;�u�,񰭪o���HE���Ǳ&amp;=����A�2Ӈ��,L=�(y��~e�,:J����?*$7
-z�*�g�X�bz����kK`��|H��x�ڛY�sFԉ��T+�\�?�ݠ|˔B.��P��Z��p#�f_&quot;�XFa��-�7�ϢɆ)�e�tJW &lt;��&quot;\���0f*�nI���Ű&gt;�,�r$�4oX��b��?�J�X�4k�D�n��:���0qM�p
-Bs�lt 4�h��/��p��h8�T@3sԖ�h�&#x27;hÖ�cR��H��LwH�&amp;*��.?��nݰi��,;G�N�
-&quot;]*BRWĆ?���ެ��͢�E��R������E����(��(ЈV��&#x27;�lTfn�{�{�P��,KWL�����Ą� YĈ)�RXrlQ?��Q H�kz|�#�3�&#x27;�3n�^��W�Z�+��vq��!+l��]����D�A�T�Abj%?�;�g�D�y&amp;K$r_j,�
-~���$/�iމc����2���(���^x��.����b�&#x27;�$`��W:��}��Y��я( W�&gt;-k徝����:��&amp;�
-��|���#I��9&quot;����Ib`9����Cv�k�C0;t�ݬ��&quot;4I�1֩��r����=z&quot;����:Zo��|�d��9��ř6D8昦B�gnH~�Ha\��*8*o��.����W$i�wY�|0����3����ֈ��q#�I�2�2k��O��cV�:
-؊�)��$MF�j��|ڂ}��m�k5��&quot;̋� ��)ʼ�N����-�`���uLy�j��`�$�e�I�F�|e�&amp;/%�&#x27;&#x27;G�����]�I��t��*㕻��&amp;�&quot;�+j�&quot;n�X�8&gt;�z�nP�Q���K�9��������a�x�H������;&lt;5~0C*�St`&amp;1�?��uR�W{�e�~�PK#�}_�J�QW6Ɨ%��y�fBǇnoXT�$�|&gt;sQt��A��O��ڊ�ꏕ2�l��=\P�^{�2�Hx�|e��n
-A�:9�n|�D��2R!�����~�g&#x27;�m6иT!���qN:)�g�:I�&lt;u�ssHBq�������eટo3���S/ϐ$fU�1�U�v�yv
-��I��y2c%���@:R�Q�t����_#��%������7���Ҏqǵ�L�SV�P�ƿ�)/�z/�d􁎢š&#x27;&lt;L��
-�o揅b��2�C0�&gt;�&amp;#讬SU*��䵒�|�x`�G���
-T�1��J�\�|�q#_;�!�w��c�w�r�=�;|�j��*&#x27;��}���E��j�D`��\[ߓǕH��&quot;��q��=���W�#�toĿ��9Q�Q	�:���o���$i���8����;:s��On��V `�x��e8n�~�=֏i���J�dh��b�����f�j�uJ2*g,&gt;��U�,c�{g��
-����U&#x27;�I�����3tQ�஠f� ���w�m��٦v�E�S�ku�OfM�&gt;�&amp;��M�R��!C�VqF&#x27;��1s�#�{�A��$�L SD$��`�.�c=n�C�k6��
-ʧc����	��6�/qm/
-�y �����H�8�/:Q5��}�%�=𳎴�}�&amp;���e�2��{�u��N�`�?&#x27;|�i� 7��#�r���DD8��j�����{�� YBܥb�W�?肽��&gt;A��=o�{I[|���f�&lt;s�N��+�8�oXn)�#s�r ��C�܌%�:^��~��0�3�xu�%$-�m�-�?|�s�&quot;�=��@�K5/����ЛN�\����&quot;DSEL�� �����m�(�V�9Mvt$C����X
-7&#x27;��H��Z� ��kA$��V|�l��
-_����r���.���+��a�j��h?�ԫ�t�eq�ObKM�x�fU���H�PA�&lt;����$4�éBo� &lt;4�P6�����q�Y��auJ��-�ښ(���T{�#�#2�Y?�U���;��]��B��W�/�o&amp;����U,0�y�g����d׿C��&amp;���5���0v�:A������ )�$dY���R��P�Dת��&lt;ګ��}bg�B�W�B;�2o[�LD�	�-�)E��V����C�k`�[b�d��K�u25������7�&quot;��_����9�*,�c�w7�B�2i�&amp;�F+uGϿ��l� �A,&lt;=l �4���gZE�V��K ��f�wg�N�M�.��� q�v�FT&gt;@��FdFf�L!�SC.R�&amp; �ҳB\*��Ӓ�
-o$��E;�6k_�_w����B���|��cx�F�陕&#x27;[
-ŖU&gt;Kt�]��+}�袐��6�X����X״�~^�N_^+1y�&amp;Y��c䴪�C�.�Z�/+ǂ�t�N�رB}P%[Րhsq4$������w$#�u
-�&lt;�����n��q�e)#HOؼ��)��9����h��R#�k��*�����7Wan2h������&amp;:��8���x�HŷݟJ����1�liWnU]P���q����̅�&gt;1�~�L��b��+$����&gt;dd��(�+�A�Z�y������(�&quot;��b�&#x27;N�V&lt;�o��G��0b ��[�:��
-#BS�c&lt;�Ү�����H����ߕ)8�L��i�Q��)�,@�&#x27;j2���	��LN	�oR�6�sO������a��8f����Y4�����Ѯ��`O��4i�Z�U����=�K[��YQ�*��3��Vᑀ88-^/W�� �����e�}_�g8e�Y�6V����G�~E�R���ɕ5}�*�e���[
-�\�ܲ�t�ޚ����#��K_:�}vynnh�G9���Wo[P���P�b],����绸)W�o�`C��m�y˒f@���TÝ=����c�Kn�n�c9$-4K��dQe�4�,��mQ�9���Ա���79&gt;N&quot;m]z��g[�~��W���C/��{I�fA�*wZ����.@=�~��^�z���3 �.�&amp;Љ���ㄣ�v�@�N�`$�B�I��0.��U��¤�R��._^&gt;n�?a�.��3&#x27;���ʑ�{ŵ��(G����N��B��R-�!�޵&lt;P�;XCS4�y�kAj1V���6f_;�x�u����b����8X4&gt;8;�X�����#�Ju;�b@y��Mt9��6����ېhH�2�u���d��Te�y��D�z��&#x27;��#z�M�K(��Tf�w�����	�v2���n�C)f&gt;��:&quot;�r����o[X γ��*�.٢SI����e���*�&quot;S�w��U�r����6&#x27;��\�
-��kj3檱W�&amp;�Q&lt;]��̱��(�������W3�
-%;=�#z��@����M\ ٭ ;\_ٍ��������&gt;dS^���x�;�@�/�w*��*�������t�G!�M5F=�&lt;��̧�m#W,�%Ƃ�-��ۦ:��ڃ?Uc�*�bq���}NQ�2�A�;�ȯ���0���*��+�E�L^h�&gt;��Զ��_@�+ #���Dj
-AIP��,���}Z;j�ة_���B�NL��z&lt;���a�9�Ə�*�B���~�{�8$RYv3�;`����hp`* ����^�Pa�\�gTbml-c����,�ΰ�}÷7���#r�J�t�㕧����N6&quot;�mw�ߋ��F��?[��q�cF��2+ �YzV��� :@����s�#.�^@��+��l�a�6����2�T�8U�`�+��]S�����]���uo�v����d@���̾���M��2o_���~n�@��x Q�ָuu^?�%:&gt;���qS�r.)�e��x&gt;&quot;��#۽P&#x27;t�1�w�{�����aemp��r�A2~�[�2&lt;n�M���oMT�P�Kri�z,�s\9$�X_ވ�z�&amp;T1&lt;���Az�)�[cRQٱ�,�XE(�N&lt;.������qbsl[KП4l�6r�;��8�㢛&gt;�ې���}�&gt;i�L�h��^F�����N�o�s�ZC��?l�Vd�N���x��b��m�~�uO�5���Ȇ�q���pE�T��t,=w|�8��^{�Б�4~�$t������Y�q��`�vj���&#x27;梮���hX�]�гK#��Ф�9��~�����fb�&amp;�1� g��V���MEP�����❸�a8��t9�0lu�ѽ��	~t(B��������B��B&#x27;F����w������vs&quot;�r�J~|&quot;���c�&lt;��JR���9�XI1c�
-NJ֍$B����b��i3�WT�m$�HL���#CJ8&lt;��ZqqS�W[mdE��2m���&lt;V~8�z�zemo�2��{t&quot;2U��b���u��$�=�����CO�l&#x27;��9��&#x27;��-�������OaV���ńM��&lt;�?�Y� ���P^���r��֢���=�YX�~/�J/�i�%ܽ/{�ԛÇ�SO���r��r��j��Y��MkI��&amp;;�sR������	ŧ{�[�����Җw��kD����6Åz�S�C�d�^~�ć�q7����V�6`�Z9w��4q��l(�z����(��-~�9ZRhC��H����2?�p}�@����4VE.	��	�tM���~D� /�ړf��ՁT&#x27;dӆ���Oq�Q93@�}/s���Lױ��ŀ����T��og�KvZN򮌭v�4-���LrUrp�}����_
-�&quot;6�&lt;�������ʼ���E&lt;~���ʡ*���Rg�fU=��`��rKfe���U��*���W7�+��
-��&#x27;Ubr�X	�F&lt;�i�d3ێ/�Ux�$�C���C ���wGt�wfG�ʸ�0��/%Ů�	�Μ����7)�2vk�B��&#x27;����4�����O���d�.�N8��|�	e�4n5��%��OµZr�g7����� 
-w����y�cx����;��	��
-�T������){4 �qyy+�s��]��3�k
-
-�|��2�����[�r�O9�Ds������Y���B������q�O��944�&#x27;�x)�`8ln�(���j�~P�DŊ�8�\⽎�J˯�H�׏L��f�����*-nk��v�&#x27;�*�Jv��U�7��-�}�z�&#x27;/ ���AP�р��������(@(R0K�����9�G�F�6�(����4/��&#x27;�i-Q���Uq���bK�M3?�E�t�1�����}��*���Z��g��;-�L|j��$+������H����������=:��/�	Y�O2� β�@���B/�F씉�j�s��������&quot;�n���sS��&quot;&gt;�8V���3���j���3p�&#x27;�X�01)�Ӣ����v�֭-&#x27;�e�-Q,M��R!��b�&gt;(^K�0�ϯ�����@�+�����٢����e
-�:��S�o�,E���]&gt;���Zx2�eI��|&gt;�R�4�&lt;�ЊY#-���=�ڭ6���&amp;��A!�7��ɊN͕�.�xJɎ�/�t���9M}�}��?(����y�����A�j�Mr����EFC�����}���TK�F���y����k�*)O���p�j����/;Y�����K��i&gt;Γ�8Ǉt���.�Ut�� 󺌺�,�eT�?P9#m��r���1&quot;c�3=35S�2�N��,O-:� D�]���5&gt;-��h��e`�⛎�&lt;J�����
-{]�
-�VڋOH��X�4%*.�u�y�ݳJ���̋
-&#x27;F�w˹�D���og��T�N�y�~:,@�Y-5�Ã�LY��:T=�C���wJ0��zm�qj�+���K\�yK:),�����p�5y ���_�WC�Q��`s��M����?;@6I�t8���=�9@��+o�qY�~�/5! �=�w�{l��,s�����W]g�!�
-KX&lt;�Z�.���1��7N�7B���d��G�It�h��j�O�|�Y-b��E���Ԍ��&quot;k(%H��k�6��Y���l�W�_W6��U` -_�+�w�!a��j�=@^�7�31s��g��� 7om��vDX��jq*`+������2eR�9���0�U=}�7.+E����� �����,/;N�	��Y��%�-���j�i�~��V��꘵���MI���2L��0S���R.�mp�Ɲ��Y,�x�t��,
-���YQ���a�ܬ3�-�AS�X�.�%B���Efʒ���X�&gt;n�n3�-�^ȅK��ӱF�&amp;)E��?v��:��ꨰ&gt;�gp��YA	z�&gt;�˻���)�����&lt;�}��U�!ݣ��(��a��8�� �o���*�v��y��TU&quot;��]�6�An�&amp;zx�`���2�V*�r?N!7w�vP�K&lt;�9*81Ѕ�1�q`&amp;}^�5ﺉ{�뱂�q(d�Ǝ�w���S��*�HO�J��]w��3(IWt���YK�?.8^O����|�̜%��%}���DS���h��K��������|���� S�	s�p�n�d��F�%���V&gt;�;H����g��c;��IwK����}�I���.�*G��H�,U�Ne��Ĳ7��T�KzF޲�/߁7���O��h�Jqn�B^�����Y7!�ǐNx�x|�N鸷��������}���,ȑ�]�������b�����6��U�Ls��(gϑjd��C�q���CP�f��X��qEI���wo���U	;Է˥����������/ÿ�l��`�_�:��1�����5ꓗ]�-K�k��Ӏ4�;0*z�]�NꔞUC�}*�Qd#�]?Q�D�)f��w��&gt;[%wg@k���HL�����/k .훍����v�gq��Y�� }�Q7����LQqZӍ:�55��.q�2KNÔ�5wZ��L&gt;=���&#x27;4��2
-��YJNX6���[Kn�g{�������1�Z������Mk��k�Y,��UX�״ryx�	�Gv`���r7@8�*��[��\���eRՍ����3���}�ts*�.6��&lt;�����������
-����+5��M]�CL�*9}�ȳ[�
-	�����&lt;�h���_L�o�n��ʼ���ŭ��[���wf������&#x27;c�r=m��.�^�═�����4ݷTg�O�v1.LB)�����}fDx�h%����M�&#x27;ê+��@��m���+��X=�lK/�Tď
-�Hs��q�T?������H�7Lw���Z-��*�=\Ͻ�*Yϩa���W��.��軥{���
-ۜ&amp;��TF�AQPN4�
-f�&lt;$M��e�e�|�}[���eF�#&lt;���kW��!Hn�����-vC@s�����U��ON�]̻wv�_~�ʺ�/��-����l��?��c��P�T?7k��y��K�	L�)�����_�V&#x27;7���3N�HD��=���`B}�_1��X�
-�s����jD5Z���L��Ⱥ�(�&quot;5*�}t&lt;h�=3P��%&quot;�4q��4~��DK�����	S��W(�?\F[�IU��ϯH���];�ڬ&#x27;���S]շ,�(.-X�*  1
-n3#�8�g���E��e�����vu�+�缏�� ĆWC]J�����8�fU&#x27;�)S,3�
-�.!��w���Ē&gt;�:���dt�/�W���5�����{9��s/��{�/����i�51�T�.�C����_�
-0��5�F4T�M�Z�QuXs��ʭڳ�&gt;�E��Lz&quot;�|���k/��������@�4�����Ns���C�� �Kڨ�%�{IVVu�D�`:��u��n9ǉ���طh?qʎ�c	*����$o��5pz���u�	��:�&lt;�h���C��2�����w|b����8�#���;@�=�do�^�]IJ@�?	C&gt;&quot;�Ks,�^+������� �Q������ʃH�+䉴N;����B-Go ��
-��ȭ|I�E���$ދdY��̕q�%AB??�� )�u�Х��)TKݶ4�F�z7�����S$�k�x���@O?{���y4@��a�C���*uJNY!�.j�c���
-�N�(�?g.7��_}$��7U,��N�7ĭ��Ͷ+�&amp;�8��-g��T��`�w����RÌ^e((�.��[6����/\x�(7Bx�[y������ ��.D���f�y�r�&quot;K]Ϫ���.y�c�&quot;yh��ko))���;B7�M�����R�gI�t�������w��[�I�	���8�c�b�5v]7���D�Ybu4	&quot;�N9^z#U����^�������w�&quot;��O8jB��7��z!�CJ35�X��^��If�0O��g��5��l��o	�MYj�٬�l�.u��iSj�PZ.i�� ��e�\&gt;�����=d�`���mv��8*���O?
-{My�����Ҵ&#x27;,��i c��=dh?�z��/��D���TQ��&quot;[�C��Ae��S���;���1��w���[@Th,6;J�%c�\�a��헏�o��$�=Vn3j���ކ�6�A��+;�v&#x27;O�#Ѷ�|9��7���]�~��B0 .p�`l��&lt;{�o�@�D��C��=谶^ٴ��O\���H�r��m�&quot;�O�h�]s�4�����,��h����m���j�[���d��B�]�4�5$2:���&#x27;@lK�un������)vj�������0&gt;0)E�5&#x27;|9����&amp;h\E��&#x27;%�&gt;������9è�Y��_g0��w���b�����_&amp;��3��3	�&lt;R�}&lt;W�^GT
-���1�u�φ(=�����&gt;Ó�*��H�ٵ&#x27;ӝ��o���:��_��}�5�x�qK�����V�,�å�U˩e�ج����_���!���]��X�n=|�b��(,��\��u_��k�&gt;~��l&gt;{h@6�f�mXpl#p�O&amp;�ߦ��H�9���FB]�X�o���qcWjti���==�v�s��?)���w�pP&lt;�%���8N5��ٚ�kL��4?��z�/��3�J@|,�ঽ����0�d��&gt;��xyezY:]a�;7X����T�ֳ&gt;���0�*�7u�k&quot;\Qޥ��F�3C?�uUe��@�%��S��V�j��4XV���Er�$�G֐�PĤ���P����8c��tJ��o��9�.�����&#x27;ͱ���`�	&lt;&gt;��׏��ʚ���(�SL�u�.�s8��c]%?1C
-������}�@Lb1uRq���Sܯ��Tߔ��=�����W@b7ۻ,���Pg��������9!�w��l�)��z��;���}eSfp�D��ɂ$��bp��Z.&#x27;�I�&#x27;%4_��
-G�z�B�W�5��#������Rw�^��_c�tXī��誜T�Bm���C�b�� �j]P��$F�y���b�w&quot;����hgq�W{� �	z�9~‐p��5�z��&gt;��n�B_���V5֬��
-�P�Д�w�ui�u����׳o��Z��x��.���x�\�I�t�n�n@�Ȉ�?�_��a�Z�,qk_$+�a��R���I��s q���O�M��u��Z�F_�F3�v4�j���$Hu��RM I���/绔�-�����wh���V����Gu�+�g�W�Y����l������&gt;/~������6�m�2�6��R��lN������1�_Qk��|�1�gJ���iM��^��S[��Z�&lt;T�wECR�)7�h��{D&gt;��n�����E]���k�t�J�{+ԦJ]�64����:��xv��E&quot;.���[�4� v$�+��=�w��Y��g�mx���9	7�f�KM�/�KCi�\`�m�rh�%1��3?� +�-L���.�3�a�	&quot;&amp;
-��X��o�ɍ]+e�3V����uH��ڟ:�Q�	.�]BO��P�=��/�	����
-X��Q�u�]�вq���~D�*����q���mU��Orb�׭&gt;���9j�0�u���{)��\�A9W�������|��-�E�P���a��~�l�2�KZŽ��aM��t�tg.0���O^���D͚{H���l&gt;H4w�/=$���mU��3���R�c��@��`�S�x�2	x*)���څ2��T�a�����e�L��\��EW�|��3��jB�b�&lt;ɇ�/7��ڹ�&lt;&quot;Z[i׃C�,)�b����������p؆Sқ��|�A��
-g2,G,H�d	)�g�BI�ZT�2zM�{e�{u-p���jϕ�l�����u�ċ�8:�4Q�Sb�q���`�9G�2��`E:�r|e��D�v�P$���*C����_X��r|�~|��y�{r���P�w.�M���4��)�ɸ��ϭ�4������0�7a�&quot;|�]Ik?��.���px�q~����F|Ϧ�5Ϋ�.!)��v�4cF8����T4����%�_�{P&#x27;��6��&quot;�`���[&#x27;@��h�S���e�O�:Sr�[
-��1�{�N����&amp;b]v;Y��X����8ˎ������
-kԋ�C�@�ʂ`���H��I��������;]�����]��Lc����5�OZ�z��Fa�:6Zh�%��v|�A��{�PS�&amp;V�.ą2�n,ř�d�|l�s4c�e
-	�3I���C�i�����R4ܶm��P��9�x5�w&#x27;�,���BcjL��M�9Q���|�M����֤Njm@�(;գX�D��@����r*6
-� ���3e,�؎�P���ҿ/���7RL��	O�^}!.��&quot;�����`5�B��Pʘ~���� L3���V�5��2˼GG_0�t�Z&quot;GMJ�&lt;�XH]�ﾎQ�����`� 
-+)6�( 
-����,t��C�O��&quot;M�Z�����Z]�;���z�x@@#�i�Q����lT�[*ӎ�|6㟒ܵ��3��i�&gt;`󝐷$���k&lt;~8G��[��3�&lt;�*O������?�IT֕��xB�୿�!꿤OÌ�G��b��N�H;�	P/�*�7W���8�+���E ?;,L-�Z*#���dG} G�^�&gt;Q�&amp;xN����	��� W�iy�[�����3�7���������8��&gt;WSb�E-�zRAs&gt;�a�&lt;���4�묠:9ȵ���N~�������ѐNtf�h��	�&amp;J�K�������^�R�1q�n�7��|y��n��O�^�Y��T��.�����ء� H&lt;�bA�
-��y$ yɠ��Pk�FANh&#x27;� ��Mu��1�&lt;��]�j���N0�с5���I�q��Q�_��&lt;u m3����j$���m�����-|�oaC����h�OrU)��~�磚s�~�RgU�V%x�G��z�|&quot;ȧm�v�WA��f��V��w���9~e�k��m��3�Ԯ��^��ȳ&#x27;�*r^������`.��L&amp;��Zntʶ��������[�FM�1X��)��&#x27;y���Z��:6� ��#���0�����(*�W��Iԇ�?ְ�:-L���lO!5����K�ަ���~���K[Z��&amp;&amp;����&gt;G�M%(�[5�s̄21푌�Cĺ+�� #�8B:�+�[U�:�xm3�����Ho��(�݅���UL��\dY���&amp;���my��j��ͪ�+����P
-���4��Ds�)�����T��Ru�LeC�����肯�U�˻&gt;鍭Z���
-�m�)��sx��I��e���&gt; �8����kX���Xz%_�|2��MϠN���&lt;y�/�rݎ]aq��������j���M�1����Ap�|��&quot;E8���k$��L����n��-�ɨ�W��(r��&quot;�n�{\����c�Z�	�fu��l
-�r�ox(�Q�&gt;����K�F�Xa ���͹sH��n�8�;��$��e��Q���L?s���Ƥ��e`�9�m�*&amp;:�2��:��ha[$qL`�nGf�N&quot;�4%x3�W�6���ϥ&lt;�0��M����&gt;eZ?���!U���1�&#x27;ډ=n
-G��NoB���WA5�}��u&#x27;�&amp;bkZW�ރ#��tv�V��:n�j��A����U�	g#*΃��	�E��K�d+�
-�d���R*A�0QE^L�mB�G�[�E(;dS��ng���xSa�l �����c�L��:G~owޝ�&lt;?��:]�J��KP#b��+��:�~Ċ(���b�2�Rff2��T�m�T�ϑQ��f��|��u��e��7�v=7���50��݈���������w�
-�?�?���g��f��T,F&lt;0S�2ūH_;m�L�2��љq0��&amp;�D���R���
-��
-��, �M.��d��!#��k�%O�6
-$E.�����Z��ܤ��b�Fk�g�1z��� ~v��`k�|!��ҭ	������Fղ$��o��
-eQ���ݘ�qL�=�q�Ѱ�z�n+�Gܫ�U�[^&quot;볂��~i����ز�u�v&amp;���E�y�&amp;D[����hu#bT,�{^C�g�&amp;ܨ���y��+���T�}��$�&#x27;:����o�UL�m|o�-��D�1jmn�b�.����@U�u�QT��p�F|w=B��:t�Ǘ=�P ~\�D���ױ�+]�X�qύ�9r��uO�(bgC&quot;�0	*�ͷ�c���4�3�3e�����\9�DB������G����M-5�&#x27;�\�o�î/@�����cL�Z����:��%�ǉ�-&gt;E���G��o��J�S�&gt;�D6vf&#x27;��vXݛl��&amp;�&#x27;nݵ����bT �MO����E�4L�R�u��6}u&#x27;�
-#v �&amp;��he� ��D���L�����ǆ\������+��b�}�M�Ȃk�qq��d?L���.&gt;Fʣ`�%)�d&gt;:����lg&#x27;&#x27;w%�In��}��5�$��(�i�cj��Y��L���-���X�e�)��؏��_���� aD���Uo��x]���0��w:4�1Mv��vX�ὰ���d�\Nڰ��Î75c:Q�,x����6�ʮӉ=�	�j���$�ڌ��OG�Fx7�XE�p7���
-����L�֯|V�~&amp;/&#x27;�����d�9ܮ�ߌe�EKH��IW���k4cB�M�D�G�1`VN�&#x27;�uS������|�B��
-�-���r��_0�
-?/�&quot;�=�	���)�u� ˖ �%���_�r����&#x27;9���Z���x�{��h��U��+���a�]G���Xf_�Ϝ�}�U�f�Y.#���=����n�*���������.�xBқH������G%BQ�\&quot;���ǉ���z&amp;�k�I�㼁�خY
-��]�A�=&amp;+�Ձ?lQ&quot;D&lt;���{��XWP�L廄�Ϸu*5K)�o��D��)�O�Te��㺍U�J`&lt;�G�������t�����u���U���QB�H�#�!�sa������;*&lt;�oz�ZL�����_42��}%d�� ��]jv`���&gt;���P���;;�/�~1B����:qS�R�a�=}wj�+^��\{��d]�(g��i�*ޗ/h�,Lb^��U�}�_&lt;�&lt;�	�Zw�r��	����N�E�&amp;.g�N�$��5�r�&amp;[ t��B���SSNz�SuS�j r��/�	���䧸��;8�e͜�
-*8T��ևySv\Z�=?�3CPߔ{��-M���K����og���V��f�8���d�|��@X�f�2@�0t�{��-�]����Va�����2���f# �%�Bħ��x�%n�n�������T5/F�$X�sÍ�߫��&quot;u�&amp;��4�Q�*0ziƐ�̌q��m�ќ?��Ge�,t���4�9��������s��{��l��)Wu���w?��R�}�ڰ��&lt;-{\.��`Y�{����{�E���&quot;���Y�ɲs6��``�o9��U�k�^(�)���c0���F#}�&#x27;�6�%�Dfl|���_������
-Lr��=��h��\�c�#��f�j���līsB�k�x�
-��ȯ`��-B�o=��M��$}~���� �v����-Л$�K�0�)
-�j��9�ƶ�����7%��(go��#��DTn��5��M�-��_̕�I�m~�s0HR8�9���ֹԌ1�
-����n�	Է�OP�H3��a3h�i����y�c��r���,U:����Q��k�7��j4u��q��U��ev�0F�7n�EE��i+���y���u���qC�
-���B�~��`�+�Wh`��)@g��⪳m��]��o�,2�7��o�^Y䝻�iH���ڼ&#x27;�k�x��O�ݍ�=j�?r�㝗�׬6-�s�j�Sy�;�&quot;���ZK�&quot;;�Jy������F$�d�IQ���7��&lt;O����Q����_��N�H��D��C�pKi0����� ���AF�qb0�.��#/�U�� �ƚ^r
-k0��-|+K�œ6O�ne\��Nq�t������_&lt;����*7w1���ܺ�XP�p��/ٳQSش}&gt;O5=6~~oح?���Mqt��9|����ס�r@�L���/�GOc�4j&amp;�h�c��Ƀe�]��q�K��ְ����-���&quot;���l�� ��#L~�괸udm�QA�`ZQ�����c)��&quot;��4M[r=�4Eۤ2���/����	u�t���w;K���F�%��Z�;�?}��	��^��b��[f�b���s�e3��ᕑɈ���#��\� D���a=SR��{o�����&amp;K-�~��7�bN�4��\��]IHB���	Uϐ3�Z�6o��&#x27;�l��$GU�[��Ҋ��l��A����F�U$��ӱ;�˹~]&quot;�o��mW+��ٛSn��qǑ��@V��Q�uoO��}��m��3C�-�n|vwdd:�I�&amp;�8zlMtR�� iXl�)mJ�.�
-mk��F����J}������t�f��F=8�)���֤D�M&lt;�^ӧ��2;�^*��=3B�I��VU������`�����ou]���
-� \&gt;9*�]��auLo����߿Lj���6Oղ�L$�&gt;�I���iՁ3���pG�8tP����-�U�?Ⱥ�z�t�m}�1�)�B	il#���J���؝w�S~w��@͕!6��$�-�����H�&quot;/A��BRu&quot;j�0=w�XIW��.~=��ó�}r�UKE9`�S/����`!��v���1�ITv�g5�&#x27;�fD�1�$�A���-�`�?�q�8{�1d��l/��f�{�,R�5�̊h�EǸ/Q��Tm	&amp;ݰCtu�	���t�!�c}!��I������3I��$��f�(Q_/��`�Wj�h
-��ʃ�q�a�&amp;��r�&quot;�}���g�����ܝ�V�&amp;y2��^���;�m����Vj�LHn��_r��,�������d���eU;Ļ��
-�
-�Cl9[D������!�b��O���/Sqk��̘NJa#&gt;ٚù�,u�Z]��e�2e�Nݞ�bA/��!���T����	�5�^��xE�G;$&quot;��Q��LoO/Ϳ�[��ڇ�e���G���&lt;�$Uph�o2�/ىy
-Y�5�x����I��Pؓ�C�yQ&lt;�n�Z ̣�q֟ll!z;
-3N���Í���G�k[�~^\��~ɞ�^{7�B`�Y&#x27;�B��z�eC h��w^d�,�sӏ�ߓYB�����Ǌ�[�ׄ(O�S-N��ӌY�Fr醅ŲxT���5�`�}���//a۟%5��[5%�B1�ͥ��F4�1B��c�=Ѵd&gt;�2�&lt;�0N���H��,�&#x27;up� �b�f�_�8��DM�&amp;�l����&amp;nm&#x27;Q�����.b&#x27;��#ރN�x��&quot;*.�{�@�ؑ]O7���+I�E�F���Axl48�N=w��q��,�c6`��^�P�ͫQ��&lt;XT/5o�}�/��*�9q[���&lt;A#ÝЅf��i�t�,a���K�_3�m*J�1}hn-��knlZ�=$p`��{&lt;h�.�W����u��p��JnQ&lt;)�C���[V@£J�UXZW��p}�8�ʢ6�;b������G�(=W�-�T�1��*�؝S7�4����+.}P\\��n��Jf�ͼ�����Av}0�����X����&#x27;V�kGd�R �hV9��6��5;T�}=)�t���&lt;M
-��[�~��Ϸ�B[�5|,��ɷ����1�+��(p�]�
-Vp1����Dby$Rt�UߧhÃ��� :�ր9=:9����6�,���xS����x.�C��
-gM/�9�&lt;lX{����Hyb�W�آ����}��8��=3��bܦ%Nj�8�4��v&#x27;�5�4����J��9�`f;�~`���C&quot;��hl9/F?��#��ӏ6}sk�{8�I�r$xo�De��&amp;��Ӝ�P#��%%h��Yڬ`ɀ&#x27;�0/e&#x27;�QQ���O�,�&quot;jW�n�t*�D?8i҆����F�a�E���-����}Cש`��Q1�Y���`��{������g��D� �Mb�ſ1�e�A��$��*��5�C$j���c�b��f���&gt;���izAikS�C1J@Bl��j&amp;~:�:�눯�
-/��+ܺ�(3
-Z��[���	��z1UE��i6Ƕ Uf ������}���t�&gt;�Ջ�/-3�2Ll�-L���?C�D��C&lt;(R������ɪ)t���2�X\ �
-_F-iU?�e��Z��̄69e^�|/VISpN[��A�GC���Qm
-��q�Ի�P)�gc/N�
-N�c�
-����&quot;.
-r��*�bH�㞬Ѯ)�:���n�6 cKk��c�N��Z��wO@k��Fy�=��ͦ7l����s��(7��mV���Ȩ�j.��J�}3Ж��u;ol^����:.���*��y�jƼD
-/ґK &gt;�kKa&quot;�W���9�sj�9o�(:`3��b�K։[��ص�a8�S�V��g�H���P�+�8�&gt;@߶�c7w��v��C������c5`��mp
-�	�eИ��SK�x�X��Cي�:U2/AK3��J���U�&amp;�C��Yz-]T_uvP3���χ��%��D��o���N�pd}�q�L��*��8j����dP����hl�m2�}�8�g*E��kV� ���NbW0^���!�Z�&gt;��jVm����̬���3��o+n?��͂ʽ�f�#���~�6O�c�Z��C?G/y
-C��a=�,�˃4������vI51^�a�J�
-.tS��(&gt;8����9���f&gt;ûl�*�I����9�7�*�syBP�����y���
-��&#x27;�o�q�����N�@u)��{�qCa��S ]!�@V#+w|i�q�8��$Ͳ:
-=�R���A�����V�Âc60���69�k����3F�F��r�=��xMmܜ������3囉����U&#x27;z������H����w�K�itK i� ‟QՑ�AP&gt;7���y�`��Q�|�J���/_��$�����2�@�����h��?r�¹�#c���\��S�f��fF����}������ڣhL*i|(��#;��T�9�V�i�bk��x�!75!���Z&#x27;56���zU��1�ֆ��р�+�MB�E���&quot;;�&amp;����uP��1���+�j�h���K�r���_���&quot;�J�_��tQΉ&lt;)z4����/5�r�^B �F#Np�&amp;��&gt;XV��g
-��`u&#x27;/u]���,��!\�|J�s�~�o�d�O0
-�R:A
-���iK]����^��
-������$��]��� K�E��Y����*yB4��P9��sEĞ�66��j��PJi��-F��Q}�臟�Hl���:���W��W��K�\�M�OJ����4-8�-��V�6��u���}&gt;`�C:{��J����»�h���\
-A)���
-�]���#[�� ?���%���t����rM�ĕh�Y��&#x27;�V��5��1
-ٚ8����&#x27;���v�+�Kue�y�3Gy=~�MsW����������M�s���d&quot;Y�*�n@�&#x27;�ݶ/�����-e�4AT��8ҿ���ۣk���x���|��bGd��H�7#�0�C�Ps����\�a���ڣY�2�ؕF��1� q�C�`_?�!!���I?���2Β&gt;��%�FTN��k�d�P{�@ǹ�ɩ�6�u��Kݰ��S=�&gt;��d\�w��-�M�!wk/jp� ;�Ԛa��H��px���,FW��F�#���6��,�2;��ZL	k�����0�S�@�O5���q�ob8�s�[��V^F�T.����ώ���+��^�@S-��=��I&lt;���G�&quot;�!q,�	l�|��	P�o�g�~�aDw��|�&#x27;ߑɋ[�f�OA�4R��QXp���&amp;Z�@�&gt;�d�OT�ʌ?�B��s� 	�����IvZ�|�C�26���u�
-|��6��[�._6�
-�{�����g�8#dM�I��7qw��������u �_��bڏ���,BE%L0�d�G�5�O���u|?o�N���!㻧8�_ ���J�;�gA��H}�y�B&amp;&gt;�[4.�R!̚q�9&amp;ô�F��R�:	�(*�+�\f�I�R�E��&lt;Ot�R��R���Z �� ����}uc�$F5~cw��OeLP�1��omG;dlRH1L���뵲��&lt;���Wh�b�=q�C�&quot;��q��N�F�I۬�
-T�JTʌB��\/&amp;����K�1/�gs�;�i�	Ј�� !Ԏ��H��o�2��`���S	����X���n���}@剣�?��K	�n�g��`ͫ��3�N����zm��A}��mK�~�.ͦe�Aυ(7�u�a�1��)Ar ��Fk|�!K�GT¨=U���6e��m�M����s��I��L$�,��K����LjG�&gt;�8Q�*�B��oŹ����G-{��G��{�dL]]ۭ��ڴ�r�Eź��R�ډqϸ�s�lH��!�����K��&quot;����
-B��9+��&#x27;��?@�ef�sp*�;lj����yQ^��˙Q�Og�I��}�H��H&quot;�`N�)
-b��;ȋQ�3���[4�,�s0��*I�
-��s����~��B�O)��Q&quot;�y7�rl�Mu.���#��yiAS��-�b�o��,*2�p��*�t�h�O��n!}J�wUF9�)���:5;�hl҂46�p)&quot;�
-̮��&quot;a��ۋ�1&amp;8�7h�|��&gt;}��Xwă]������AN�)C��bu(�$��G�I1�z����e��U�`�#��\�H3�j�5�G�#���$Փ;M?&#x27;]�/;�a��^e2�:�~l8C��:iZշ���@J�9��yX�4�}��������������?��z˸�
-�PV� ���3U��$�LK�Z�5�3a�Ftr��8k�0�L�Zm���W��m+��1U�ǽ��&lt;սG&gt;ҙd|&amp;�^��x(��6&lt;����	�+|��R_���0��Kq=&lt;�#��#�V%ʿ��|Y7���t�4���V_��Z�$3`y&gt;�L�=0^r��̾���R��Jw7Z!5�:0H�6lX����)p��
-��/��\E�LϙlðSG��
-����R�����&amp;o:�1�;���灷���C�D-�F?
-p���d*��!��
-��\з/u��b������w���v��W�B�A�#��]�&gt;�&lt;
-� ^�&#x27;�nvj�40)FEGj���=�����q��Djy.���  ��hN ��&gt;olR�X�eQ)��Հ��&gt;�(B���\x2�&quot;ǒD�~&#x27;Kѕ�&#x27;L�8�Z���f�i~˂ (�U�C+�Y�OI����Ƀ^棎�&#x27;�^��%4O8�klXz����8�Kܽ��s%Ӈ��+��J��`+�y�n���?RY����:/}�
-��ꁟ#B~�X��U�Nq�a��
-ߋ8���\&lt;�_�SˊC�%g���:Y�|�dKu�W�e�����zN��&lt;f�Hr_��w�5JPo��Y��Rj
-�	����sl��Ȼω�4&lt;t�ňw(���*V ��s�=M���J	&#x27;�؛���*nl�͂�w~`��bq��L�+��i�y��M��ο&lt;j ��mY�a5*�B��y�We� �ǵ�V��x��c��f�k�k�`&gt;��۱C���a�:��]9�p�����7�%Z�
-��Gq���&lt;t}�0�J� =��ː&quot;��q}^c;1-���F����G�yA��v��b�&gt;zw����i�&amp;�~
-&#x27;S��/��&#x27;�M�k,�i���u���A�q�z�bY��ΐ���ΚA̽�{����8(�����[-�Nv��S
-.Ɲ���&#x27;�:�cI�a������d���=~����]�r�%���
-b[��!Px���M�`d��
-�ZؼC�2*����z������-d�*��3�Ş�U��wF�:j?�yn���t��o�$&lt;!�P25��f^�?�B��IM2��ǫ��dG�Prб&lt;�e7�V��sx�,�*	[c ����M���
-�ޮ�[�K���lu��@�5r�! �Y�Р�#m&gt;� .�
-�c������ڼH���]�**��:o�r� R!�{�|o,jwIRU�Pj�7s���WU��Q�H*{���\0�b	-�^��G�$�����1����S�s��)F�cr�L�]z�z� `�#�I�pd��2b%J�E�U���&lt;D��+
-=Ok�XD�&quot;]M�w�
- k�H�4f��3�{v��V�
-j�ح���9ME�U�Z:Q��d��P�y�a��o��l�&#x27;�:&amp;r&amp;��0/���:6
-�K,���q��#J�Y��9=�?N��וC�k�TV��+6I�?#9l���*�O��� �|n��t�=�*ʻ *U���P~�����,&amp;�i�&amp;]NN-�Z�e�Һ�&gt;N�3h�)&lt;+���ąI�){�[�Vմ�4�W�����7��A)s�Ug�-�c9�K�lm��s���=#,X���sa���;*/�	����z9�_��K/�ӇZ�|Q���}x��2��8�ۭ�OQ�xU��dZ�J&amp;�ZF���!E�v��Z��	=���.l��g�����ھ�&amp;���!����/�@��R���V��*�phy�Z`�,g��=��y!0��c��&amp;�~��{�~vavC�rP5TS�ҽ@��
-��HP/�%������ܢU0&quot;W-�q�i	g��y�e{��60����8�9f�_4ne),��|p$;ފ�17Q�7��QNuLB��Ǹq�sI�?��9�1.$���ܾJ�⽄���=N1h��c�dfrkd��f�/���%S�X8��GD
-���������b�Q�O�|�S��6�*v@�o�MA�Hށ�陝h�+ۋ��&gt;$=Fzq�Ο^�pJ��P%��A�&#x27;�&lt;��l���c��6YD��G�e��s���;�ש�Wp{¡w��eL�ȿYǕe�! �e4=����G,�/\S4�Rۻ
-�U�@� 7(\��Ŏ��L��,�zˡrh�;�*	�G���J[	�����Hqb���u��P|r��������t��+�-�0rR��ľ�/��&amp;��Y��^��&quot;���ꔥ?���F�Š�&#x27;l\Jt��8K�w�9}�H�8-��s1u��
-����+�ꣶQ�K�Rwäh�^�{�ŝ�
-�:��.�n��pХ}�D����,�����ipa�xY�!!��B�&amp;��8�r)5se��ԓ� �0���;V&quot;��TD�*�?�G�^��X:�(G1$� �J�^�
-g�1�|��vLu��.0az��m)�SJs��K��|��͆#�ՓP�	8;HF�V�����`��Z߬*�	�%��e��3=O
-qE�[&quot;n5�.�ʰ����pґL�K����e���T@v���p���r�w�c��V} ���^U�`��6�T�Q�ÀV��g�.&amp;#�3@�9�]�I�ʅ W�����0~�ֻ�W *��h�
-�0��_��Vܖ��YA�xD���w��52E������@��dR�����i� x4�hE���ʆ�l&amp;n&#x27;Nʡ+O=%������`�/��
-V-��f$��ۏ����Lm{
-���O����r�P��L��q�Rwl�l@
- �9J��������=gʪXC@S�ĪQHQ����޴�9�3kO���Y��W�+s��u&quot;�y7���g�}f�0��,;���s��b0vK���N�� �4&quot;7g7Z�ej-f]SQ�#+���X���̉p����
-���{��Y��X	�*��Bw[��:O&gt;�W�z�x&amp;_/�?�mpqP-o.y�H|��ÊJ ��
-�9��oI�+(N�zp\~u����T������x��5w���t(7ަE熓�	�Ei|�zs |����}���|��d���3ʰ9�0��*
-B�x���K�����/2;��+&quot;�^q�� =�Y������D�����eB�m5���_��&amp;=�o�$C�K�]�턷/c}���&lt;��5�@?b]�^��m�~�WP�1s��f�9̱g��m+��?�k�M�@u)P�K����DG��Vq&lt;�s@3�{��cM�S;�L��=������4���h�?�S�6^�4ƹ�PD��lOQY���G���0	�8\�9���&quot;�n��3�cʅ`&quot;���;o� ��ȱ��w�i��̗�?o�i���������zH�P�	���A�]x���a&amp;⪯���j�,�{�{�H0����ɋ�{����c
-�)G9*9�%�(	M |0�C� ~��x}H���X̞�����AX�oҥ��t�r���_����Uh&gt;�
-� �C&quot; �u��7p�u�ԇ��&quot;s�!XZ���I�[����+)v��	te��|��q?��V����²q��K��ڎ�5��)�|�Ma�[����]~T=3����w��}�HL���Py�� ��D7�91�r�J����s]�W��)�&quot;U�mxU�̪��R��,k�&gt;]�W��Z*��&amp;b�73��l�bh��_{��l�]eq4	�*ϗf�&gt;�&amp;������Y.U�*🠻��zȢ�PaZؓ��l��6�����U7`٠�X�h��ٽ�O=��A+T�b;��cթM�mWmd��5{������&amp;lqI��tQt��9�!&gt;?�I�-���ѭk��j���&gt;���D]��$@�v�UE��&amp;�7�u��&amp;D&#x27;��}�MHV4�ޑ&gt;;Rc��&#x27;��#-�����A2� ��T�1po�v��&lt;��~�_��x��h�:��E.��dTܘ`g���,gɶ
-�[Ey��Vm�c�t�a
-(����1*���G��u��n��I�8
-O%ԥC�rm�m9���f{d��i(�q���9��Z��נ�ߧG�|&quot;���U�4�끀Λz����&#x27;(�ߖx���=�g�V`�0#&lt;�������?�i?,8Į�+�]d!�����upv�BE!N�/A�&quot;������������ 	�R���df;��z��b�?iM�wL����=�v�&quot;�+,H���_��h�����I�-x_��Hfw�q�c���\+L�_��,�&#x27;���y�!�蒉ߝ4@��~�)�����B&gt;Q���c�Շǵd��Ps\L�&#x27;�lL���L���5���@�ft7�Y��ç&#x27;�V��x�愠�R=ZF�7�K��gv欴 ���SŶ���D���w� )���̬[ -�جTRO�.R��i&quot;�x+_��*� �6��c�sLR+=������8َ�?�W��Jc0�hP��s׽?Ċ9k���M�	a�PTmi�ET���W�&gt;�ǔ�&quot;\~�i�?D���ګ�&amp;��\?��&lt;J�(0�b	�8��^ t��Ql%����o{VŶ�9VT�һ3�t�E��~��a,����F�`m�wM����!�QX~��w��|�G����v\�����*�s0��`��#8��j��&gt;�Y�k�mƛ���ho��7y��׺��*��2=q�ź���k���K��������P]��w_��f�2n��B�M��h��5��븷 @F�M�B�5�ݱb)|75��y�d!`�������#���rW��/���]����%9H�.���������C%O+F�y%�c�����S�Q��ȭ:w&gt;�}eBO�0�f2s�E˛��&#x27;%��EZF�#�/l�{�)�����A�d/Sk���{aRfo&quot;��]�t	n�ѫnB�d���7&lt;Wr�o�#�M�Up�j]#ō%_vRYSJ�!�
-Z�2Ӯ�l�H�뾳z��E�m �q�I� ��L��6.4�ﭓh��ЭB�)�C��kv��͖�=�&#x27;JY��m���r�D&amp;��k��XU�c���`ǝ�M�Q��JEc�P0]Ƽ@8�l`U�a5�W��C2�X�}�_�*�00Q��̘S�@�g�- ��ԸU�����ƥ|�r������������e�)�&lt;��V8��)��%��Pf���ʰ�F���j{�
-o�
-qU-|������F&amp;����6�iI�.���uΐ��H�)��]aH
-��*�5/)&lt;���=Q�\#�r~��ĩ�N��/ܻ�m���1��e���h�d��J]IV�5m�Vޭ��(O��W��p��t�ʆ�9��0��A$c@��v�m��1�V8X�#榰�7�&quot;��@a����S���	ӏ?BqM�h;w��2Y���⅚�yo� �J�U�-�S�s]ڍ��ٯ;�!�P�g�`�ZE�Ws�V�5$Q�����V���V�,�Ҧ�.�͐�n��e����f��cD+qq�����?���jX� �)1u��ԯ�w&gt;]���������Ŭ��P�w�\5U3�)j�� ��&amp;��J��p��$��Qsz&quot;��&#x27;�Lݶ1�r����{�{&amp;���U�����=]�;د R5d� ��F�������	��v���v����{m�B�JL��&amp;G���;F�I�$w����&lt;�%UY
-�7|}z&quot;$߆^@_�����C���9C[uEWV����rQ=�S��ƶ�S6HO�������xxG.�}/��OvʼL�V&amp;�UzhM�t��I�!�!ٕ��33��ύ76�66Kv�2���~�6��*Cm�� l�6�T���@g�q�*�[5FBe˩��t�K�Y���G��g3
-~#�1��ÁP&quot;;ʯ@�v�� q����6��8�g��I���
-ۤ��ј����^45H��Ht��M��C��E��j=O!m��
-�9��5��&quot;�~3�p�s�ډ������w��K��w�����Z,��Z�wmy��ǯ��-�)��}�Ko �uLj��}��#Ucܮ��J�*�(
-��n�2Qo�G�
-s�[���:�Q7��v&amp;�.NէgDρWE�@8mY���GD��6��|_��G������a��K�ф#,��c�!Ըn]�b�Rx-%�v�!K�}4�#��,�9�g�^�xȜ��ׯ��LZ�t����2b����.X�Į�Vr�	c߫�&amp;�|+�7[���qj� �&#x27;�
-�9�&amp;:��~O�|���t(�YX:6F#�,h*� ���D?&gt;�{�oeUe��7*��� ���s.r0���@�H�ZnP�RS�d�Ҋ��~�ߥ[5�&amp;��]3�d��D��&quot;	XCp���&amp;O&gt;�p�Ooq�X����ж��x�_u�q��\��!Jw�D^��
-}#
-�r��:��4����k�
-�,�I5Ҁ��*j]`�SM+w&quot;	|���q�جհ��!_�&quot;��R�4�}#؂x�+����믤��^*�=�V*���j؄$xJ�L��H�G�2��;�#��\�s&amp;SVA��Ҹ�X�#k�����
-9t�3n��j���x�&gt;s2����y2��S�qݬ������E�B�h���^;،ȕ�&lt;����Nl�f�eV3��k_��0ˀ��,BY�ͯ$�,yS�J�n����U��z���3��D��0*�1��y�TgX��-�68A[(L\K�#6��J��)�ᄫb�7s��t�zf��&gt;Ź/���H�� /�z�[�|�H�Skg��yߔOw��x( ��n�I�Ib�]�]�&lt;�N 5掗�rWM:6u���{Z��^��:Ņh1�I&#x27;� ���\D/�fUꅡ��fS��J^��X�Dq(+�;�t&quot;(���@�ߠ���Bg�r��	�&#x27;�y�vʄ�,z�&quot;_��1���%�������}��y=��&amp;�x��H��L�8ti(���s��]]u��7�y��$;�PW�i��s�C��g�؜��_���R�&#x27;����崯�7O�g�ϝd�g�u�	�z$V�낓v�&lt;#�̃w9���꺞W����\8&quot;��6��n_�7NO&quot;&lt;��&lt;�ߔ�D��&#x27;�(S6p�!&amp;k���[lSE܄؟���1��19@t�sEV��,V^
-�bg[y�K��1����P�R^��w/��c��$-�Ed����;S} Bo+�`ˆ(ę�v�* }��U7��	Kݹ��Wfq�+��ȧ����Cty��  l�	VE�+��{Q�&quot;Na%M&lt;��9�$��ܶ�=�BF�O�Ua�6C�k�p6$�����t�����(�lG���� O9���A=|���&gt;ɾ@{�)�4?�;
-X�K
-o�:6-pH� �l�D��Iqs�0N��\f
-�7����Ès	����7%�ߒ�
-�D{�??�����h ���_�� ��p;ro!��A�:�߾�&lt;o��R˙A&amp;U}-����]������$���L�8W��z�?�&lt;o�������#�Q����$Iā�f��Ȓ9 4��&gt;��8�Q^Vѡ [��
-b�Fc�֨��`����a����kg��p��C��V�a]�:�vp�����&gt;�j)f:&lt;�Wx��{����&amp;�!�R�N�bY���)\��fC�ZUؓ	J��请�e1 ,�Y
-@��j���h
-X����{W��|�k-���&lt;��5◕ ],�b�{����-�D*�^n����];� ~�?��4�	�O�P�ވ�}�\����qO�蘀	��59i��C�n��DD��r�~r���]��.�9���s&#x27;�!���U�� ���������*g����ePg��ɴl�:�A|��;&gt;�%�O�2�jaHߎdb�����P- � ��kCm�p�ʰ\&lt;Sk�|9��k�B���rl���_Y���!���zP0y�?�������^*Z�I#�
-z0���-�Yi�a�
-������H�Z��H��D��Z�����l������/|6TC�����2�/�h�
-۬��pw9;m�n
-?3���
-O�xi�ET��%[��*����_�a*7��q��6�ڬuI`By��e��0v�)��?U�M����[(��v���W���*�&#x27;D�`���F&gt;$9�i�������Rs�lq�ou(nܷ���~xX�w$eS&amp;���V�r
-�+
-Q�D
-��Z�2*���ǐ�n������ɓ��ls��xx���.5����U)�%��nX��p��\��
-vbLٔ=�M�`�������ZI09�?����F^�:`T��.&lt;��
-i7~�F�b5{�49��0&quot;�d:�*.�\���Tx�1@�v[f��&quot;�S����j���݆_�[�y�8�$�I@�6	�=�S���0ͤ��&amp;�ڣ;��{F���
-((���J� ��C�	_8ۗO�P�@���ګ���&amp;	����+{!����v�%�n�0�F�|��}�p��4@��G��P�23
-� Rwa$~xnI�t{�?�g�8�@7y���żU����{i\�R��dK�AC��3���y0��ޛsIw궣K��Lef�ڮA) �&amp;1�^��45���ض�%�&#x27;���\ڦD��+�oY
-������l�ˣ���J�ץ�����4w�a��+�H�r UL��A�D���Dh�Ջ,���2�
-_�5��)
-���ƍk��b{����{�p߀&quot;������\g� V7@�r�&quot;P?��X\*Mc.^�-J�t[��6uq���E�{8��5���6��΄s�X ~Ŗ��X��Xr�4��CM��u��/���J�\a��&quot;��J�z������(�t�ΐ��u���w7,�o�� A����xS6r�@!��.�RBx�gu��je�9Ѻ�(��������(�ߪ�fU�+�/�D&lt;k�Q�9��~!�lPY�������t��n���rTa�O�� p�_Ғgy��W�6��Ԗ�������;PH�w�w� �UA���&#x27;&#x27;#�����9IA?�aER{��r�Tg߼�Ibc�Ě����r��rl/I��랟�Q����7T�B6���C�����W�����k��q�X�]���5s�VgH�o��K����&quot;EV��}%&#x27;��G��s��,��Y�-��Z���&#x27;�bq����C�c�.��H:��
-�D&#x27;΂̳�O6k�i��P�]�ap���ݰ�|��N��o��2���
-yM9CCn�__��&gt;[D�e��/&quot;���C��٥ �i����5v��(z�1u&amp;������돝ޫy.��	v����w���X4{:y$(^,����Ͽ�#�Ke�v5E����&lt;t(��V���E���LS��v�j���J&gt;�od���h�Q��p�X�U决$�O&amp;�f����1n��B���0�($d,α!������ՙp�_�7��Z��$�gq����j���?�&#x27;�іǝ�����#�ڟ_L_6���9}s��S��Q��k�h���P�S	[����;�iD�8L.������jI���?Ƨ^^��`�ƣI3��bf�ߗ���̀axN��eE��f�z�n&lt;�+�
-w��c?w9oε��Ŝ�4�o��� ��g��@���2Umy�D{E��ˁ��N!20al��
-�z
-�`vV����|8/�P��:��,�r�^�N��R��@4-d惼��`�E(�M�T�&#x27;*�S�ޥ:���jɒTG�l�@sQ���p�H7�F�=үzZ�m��44q׌���+����V\-�1w	�MG�j&lt;�(@�ٸ�*Q�����)8F��-骏1� �&#x27;��u:k�j i���4f���3K�&gt;���՝=n��ʒSe{v�a�#U���5�s�Qg��A׬�fř�c;��D_{.������?h���@�ͮ��}]�7/�4�e2��ndIv_|�3�O�Fz�~=�D.�d�#G�e��~�ZQD­���_~jO8�H��S/�T�M)\e�#EL����V
-wvv�n+={��~&#x27;Ɋwr�J, �aȻ;���[��%GJMu������	�.�N�1r�f駃�Y�(�
-*@��3�U��M��2����o�ŲD��6�[N���[A뉧��7�v�%��SZ�O�c^����_r��X���W��ݿ&#x27; b&amp;�ng܂WP�����m��`��r�+
-r0��/�����O�)���Q���OS��h�:� )��*en���
-�uK��xW��k�:�g�jp���Ф���rV��ǆ��J�6F^����MM���[X�r�X�݃-/�Yѕ/�V�.��id���73�ܒ�6kL�ꛮ� 
-�� �}��J+�p&lt;�;}���+{��4K��XQ
-��&#x27;�e5�VU�ۊN�#	�k�y[��{���4���, )�K+�t���ntv;7� I�rճS$9Y�&amp;��!�j��{�|��@�;v��A�K^���+y�l&lt;:@hp����CP|Ԋ��H2E�|j�����w���ޠ���Ծ�^?��8S��
-F����%�c��k��&gt;��9��m�bۘ�Jk�&#x27;���}�Gr$f&lt;Ii�6X5��;k��C���1O�j����.�VE��F���x9$���&#x27;�e��9��`�X��8�J�Ǚ �&lt;e�y\�CYԳt}e]lT���	[Y���0�er�SU�
-���f� 
-���X��),��7T�=
-g3��1��U�Zy�Í�o�Lv&gt;h;�hG��Qp
-ƴӦ��xf�x��@40���kKo�T{�*\W_���:�F8���:&amp;��q��&amp;��
-*����_���,T�6�k���ɶF7AU*���cPvϹ��Z�l�3I���A|Sl�]l��%oK;����&amp;�F3���h��2Vk$�yO�p얰�Y���
-���n\�Q�j�����v�m}�P��[w� �H��ʵ�������՗y �,C�i$���B��a�&quot;l�����ߓ��)�~\-$B��fZ��bvBHY��,w�\}�P���}��1�
-�?�]o�|m++W�J~�|��Rh|�vds����B��룵:����7���3���#C�A�3����&gt;sk�f���׷����S#�&quot;��k��o&#x27;�(�bϾs�dd_�(�Iҟ�p���5�RSDn�pTrP��(�d|*����)Z
-9]**;����A�޴��~p�}_�����K����&gt;1��:I۱[�t*2����&gt;��g��j}�g�ƢMp.�em�I�6f
-]]�$� ����V��Z���T~A�����A^�@dʤL^r?Н�k�m|���ԳR�Ǌ&amp;���U��3��y���q�Ң�yEVj��_
-�&#x27;��uH46aN��_&#x27;% �O�;M�eʹ�mk`�C��ܜ���(NH��R��pT?��`�B��֮�w��*ΓCd�����ieoU:�!�����&gt;%W�&amp;��&quot;��M�%ao�^q�h�|US�ڊ/�7Qg�����/��M�F2�� ��s�����&quot;�a��MY�?Ÿ�s�Y��x��=�	�0օ�� ���ɦ�Db�6�@f��kϢ/�.�St\4ϫz&amp;z+�笁�MAk��~�1
-�*�!��C{&#x27;X�#�����$�7�k�� �	z�z�=-��Cv�(��{��]��Vx�p0�X�ʽ��r����_�a�wu��H�,����Шz��s��A�`�p�������[�9���}֨�����+u�z7��&lt;@;��eU5�1�:bk���L-���,���q���L8�RL��m�[R�{��&amp;W��(��پYe����=�X�%�����bL}��|������&lt;��}��n466�A��gn@-V]�C�C�����Yw�̶�͞�	1F$���ˤu���0�-���������I��XT[t����QB��&lt;�a&amp;��ths�us
-������Nb��*x�Gh�-QVP�A��N�f$@�S&#x27;ۘ���$�+�L���?�Mg�E&gt;`��r]C�� i�yoQ��3�dG���
-�1�\�T�.$hmR`��	�L��_�1���ޮ�1Ԩ��$P,�	���S��T���|� v��Ӻ�u���yV���L�Yz&lt;�o�[��F��{�����&lt;�	�(x�v\��d&lt;Ei��,�&amp;�L�%��0M��N�	|�7/&quot;�T�vJ�a��ũ��gSj� �w��8l6s��:6H�&#x27;�X��= Ȧu5��x�vt�FP6�~����(��̓��,�����d��B0rE��#1	�e*`G�{n͹�� at�0@F��Y�L���6浟r�h�gH��ݙM��s���e�Њ���R��[�~4E�0x��&lt;��pm��d��`+YPib�J|UYH�* �9�hƎ�`�����fcF+Z���1(�Ǥ&#x27;PA��\w��qfd[PԊ�Ł)����%F�z!��
-��C� NPX�H�S]y&gt;�����n��n%q����6� �E���FȠ�^C�m�����yo���DB�d�o0��4�K��W��s�sd/�&#x27;��+�µ��Y� ��Z5�.�v�t3x�� Fド���qhEg%_�4�L1��/Yg �t��Іyv`
-&quot;.C�FU�?Eߧ��Z��:�����˲���+d� ���.GN�c�E�+@����e���ȡ����9T&amp;Z�Zָe}9�&#x27;+���+�M��h���c&gt;��fY����#U��Y@�A,��y��?&gt;�&lt;�����I��d$���@q�;�����LJ$h�TRc�P^$�
-�Z��x��E��ʘb�J0��#�39���6h��?�~�+�� YX��q �XC�{���)�~�����
-Q��`a���)J�P�=z�[��
-�?�Vb��c(�g_*Y������L�L����;[{��4Fk�䇦^h܀�/�
-
-&#x27;����e�Їq��W�PX���G��9/.�^�������bU[�&amp;�e��E�P@���A��eq&#x27;�Y��^7�4�q� �:i=2���*Y�5|zc��ł����mM�������z��Z�h2��ߏA�0��!�&gt;P�,��UB7���X#E2d_�!�	P2ZI�C
-���ɻ����Y���{-��M_9X���OO��j�r�L��;bƱ=�����l^6g�!�K�P�h�:����Z��iF����{E[�L*5���*Iٝ
-N����H����p��}��`��������1���D��0|���pCi��Qv�	Bk&#x27;�������\�N��K��T܍d�#��Ip[���Y��w�]{�4#t*��@lK�w�?Lƻ&lt;;�5B��yz�!�;��&lt;J[��(c�C�S&#x27;7]�гm������-�&#x27;�{����
-v�L���0WG�d6&gt;_u&#x27;I����Dٷ�i�X%$mBfϿ4�?h� �`5�	�G�A�vf�CU��k�����h�x�a�l���������&gt;	n��������|)�ˠ#&lt;����)�Ix�	҉�7�Bw�4����&#x27;�F�=�z銘wp�凿�z�=����g����&lt;���G���a�D�XO��Ϭ�X��x�����@輮�	�����o�8`.�U�0(��8i�t� ���*&lt;V&amp;A�;&gt;)c�la���0����e��O��l9:��ЫB;���[����S�Q���P&#x27;6v��x�|r�
-X�=U5�f8��J*���z�b	}���������
-��fO���#�7�[�ݭ%��M��&#x27;f*,&gt;Wӂ��S��z�aa:��,��C/̀�e�ъN�x��&amp;�T( jQ3Z{Ys�=�5]���e�?�fh�����J�f�i#�~�=J���!�,�]�ŧ�S�C)B}፧�o�	m���0_���Д��� �jX�.R��&gt;��6���ٹoG���a��h�az��`��R��H�Y:��l�ǳ�\�v�|�yX��&amp;���ˑ
-�Pi�Ƀ]��1�ǎ��/�6�����(Z�&gt;_�E�/�^ZPd�v�n�.]A�%�/� �aݲ����~ؔ(��R5/���k�o���r����܍w5� &amp;yt�q����eFۏ�`D1Ա����r��y�8sq&quot;�&#x27;��H�*W���)mO��l� 7tD�Qol�c�U6([������Z34�Ir�f8$��F�?�ȉ�ǐ��&#x27;-|r|�A�4���]�
-31�\�+T�N�1a��.��aG��Һ}r�Yؤ���i 
-1]b�DB��T�3DH[�y ��	3|�&#x27;Z������;kG�[o��M�$���]2��b�,бWg��3�Q,9�5^n�/�y���	L��ҽ�&quot;=��E��
-║�D�/0]�V	L�P�Y��RM^�IQ��de�,��ey��a�}�g�#���&quot;Ԉ57&#x27;�k����l��(����Fr��%�6�׼���j�c3�7W�뛂�t}�p�hư��__&amp;F&lt;��`��X�Rot�^��1��^\��`��ԈF�����m�Jz\�&gt;�4G�%O�_��3�VM�3���f���g�Ef[��m��qv��ܤ���lmpB�,�9�敩�7�K��Iu�׽�~5R��/b���k�-��;���
-](��{���ر�U`N%���r}��&gt;Ο� �1q³,��E��S��a��ob����B�n���P����Ƶd�E�dV3�]��,̅�L��hS�;C�Z�;�wm��8XƗtB�G���	��S���W��c��˞��i�aK�&gt;n
-s�o�ܕX�m���c��������*��kU�(h�)�9b,��~Sm�Ԛ*֏[mi�
-i��F��i�fU�	ϹD,�/|�]R(.� &amp;���w��F�Fe	N��C&#x27;v�8�� ��m�2�v�$�*������ �*�Ab�|/����D���p0Q\�T� H&amp;|�ı�W����ⲁ�D�JYd��P�k�]��ȶ��o��A`b�9 �U���|`}=����|�=���E9�N�=T:��n��P�F��ִ;HŘz|8D&gt;ƃ��^W��l�4��ʝ[�Zs�����O����䱬gz�f@F�֗A�#R`�U4�?ßks?�s��#j�툟 �ᖫqq%��	:d�� ��2j�c��H9�n8ݺh^��~Pʪa��M.03��
-�-8a&#x27;��� �&quot;���
-O�j}c֊�퓕\�aq����\,ǕX�$Iԫ
-���O�o�X���ͽ��\)Z��1�ۓ��~��G�	��O�3��[�h�h�������%�\`;���j� k3��9[�4�P&gt;�	���ן�(��*���T�7v$΂��Գt��|L
-�b
-0�_ӎVg~Hw$��D����w���� �	�����L�wNB�|��d��&gt; %��`�;ȟ�oA�RNSÛ�K�	�=&quot;�� T��&quot;E�����(���~�x1B��+B�o���=��M��
-R;PP`�A�(��&amp;��zр�N[yM�!?e�^~��5���������y���,�D���X�8������W�T:��rL x� ��q��8�	è&lt; �-�ͺ_�(�2S~�ff��+h��R x�	&lt;���mjV��!A@.��8�10ҫ���r����ת��ކ��,�.$x�2�ëR5%S7v;�NO�Ѷѷ�)���D4�J�,����:���o���~&#x27;�@��NYɒ
-g�BՋ��;3i&gt;�ʪ�Ns�$z��liK&quot;��7$p5���s�Ł&gt;�
-w��&gt;[ȼ�x�.ҝSG-!�p9��Ô�.
-����/&lt;�&amp;���*��h5s��!�I�[J���t�V�B�o��&gt;�k����?WW�o;?
-N���
-��Q�@8��&quot;j��@ j���7\bئZ�����Q�j~XpF� $Hg�/����
-�c��A��Ré��Goȃ�. 9��
-���\��s V4*U�}W�����|�&amp;���7�����;Κp!I��l&amp;���v�
-�.@}���:��k��&amp;Dz���6a��MJư��Z��,�+�%p� �i�����2���*آ� B���rن�������mR�+;��)���	�}e�2V�R�V��3S؛Н���_��&quot;��u�q4��$�����2�N�V���j�ހ4�(����Է��u��Wj�|6�^��t�;?��&#x27;����ڼA�Yq�T\�~[WP��.�FtJ=���83�1:�+�]|D͉�?�0��ٰF$-�U����#kJ�p?��G�-�#��Z�0�ٿ-�k7�4��m��\߯��g�+�^��fh�DS	v}
-3:���=fWik:�0�9���AdH�]4����!8�ǋ���	��3&gt;Y���Ly��W0O�A�����7�ce�e�?�s��UY-bG5Xy�Sw���������Bo�Ŏ�1�L�{ˬ�n�(_L�^҄3��i&#x27;��z
-��&gt;i��}j��|!�th,LY��(��e�wO3���VO;c�&lt;G.�q�&#x27;�~�c��Q,,��LȘׁ��@��ZZc\��*�����Q�+�H��ki����1��A�TY-}&quot;
-�Jh�:�&quot;&gt;�$h�Ao���,j��^�!�\���&lt;i&lt;!|5/ֲoo�c� ��mҢh�l�;DO��?�~�9*����&amp;sۙ�q���E�$�cq.�+w`.����K�^���zc�
-��S��W��ٮM���}+@A&gt;��U�;/n|�A
-V�%w4|}k�m2���.0�o|(�w�D�?�a�~� Xr��&quot;����^^nL��H��H_�2��p�@|-G�R�C^��^�Љ����
-�� l�G��a��$��4�nd|n�S+�g ��H/7�bW$7~@%�sT?=&amp;,�+V��M�VDw}M&gt;]�-�h2��.0�)&lt;&#x27;U.�,�vR&#x27;�]�L��z���9ü�8��:L
-&amp;���DQ�l��~X��b�&amp;�U�{Cɕ9��77d�\0jUbLܩu�/���&quot;L��m�sm��������9��&quot;B��x�ɅF)�{f����@�*�c��C�ٮ�&quot;�9�30Y��!�ޯ`�C�A��y��F*SJ(���#r[�����[��x~�����
-��d#0�v�7.����g��Za�+��]�1��}�+����R���Śp���H2�����To��8�U&gt;:d��tO_��;��{���C�%��=��e�?��WpyI�������;,�/��F���&lt;`���
-����z	�Ҋ x3��������8}t1��#�
-�,�La�3�?n��^�*=JMf����JY���E&amp;P��z2�1���e7R�@�4㮎�iZ`�!oWؑ��4�{R��[M�D���k#�����!0&#x27;9�mA;�u7abg�}^[1���^��K
-c���5\PA\AP��y��L�.&amp;�Ńk_�w=m��?�2d������X��p����v?!K��-�^��g�Z��j�:{�r�����YQ�!����X�4�V���3}�&quot;IU�HD���� DU�7$J�Li9��RF��p�UG|����???&quot;G�s���ڔ�Za�Q1���\/M��!!`�߹�0��d@��8
-&gt;/�����(Kڏ�
-ʤC�&#x27;��=�� 1�CY��m�p���	���,̑�*��2�����������vO�D}I��,����)�5;���SK�NJC
-%�����U�Ҹ���#�&quot;!&amp;�A&amp;�PH彌K�i��������D���K-��L˘2�B��ή+��I�U��vY���B���ӀZ�Ԅ����*�|����b�[x��3��XA�.i�0+G�m#�N��Pc����0��z_���M�{���2�Ԕ�r]��~he�o��v��&amp;�������&lt;��A��k�z��7���#��o�x��i0����6�SB�$���O�*P�.���jC����.�
-P��%�V\�s��B��K�U��k% {�G?G��*������)���o8�qa+�]`�y�ʖ�f�w!�W�Pcp���;�fbg��ғ�WJ&gt;��n��j�u��
-�۟��v�8Ó��
-�Ǌ����ow&#x27;q�?�K�8*��!&gt;n�I�rԙ�}�������u�G5�1�%�I]i���{D���T�\I��	�Li ����#��w���p*�e���͑��98����e��b$$�.�L&amp;����+݇&gt;����آX���K�9I)�f�θ&lt;:H�r�祉�
-�ԍ�����ƣ���Wz�;�+�̒4�&lt;�?�9�����V��듩;&gt;AHE&gt;��q�1�|�d���}Ϟ����~��n6Cm�t�|�IB��⯭�I���~Z����O� ��|����B�E�H��{�|G��Yh=��ִհLrwMш}w���0�$���{	�*�;��gz�$K�k��p�j0,W֜���Mr]0����/�[��&amp;��MV��`1���W&gt;(��r�I�P)�����k�X�l����lf�y�� @�`Vƣ���_�g���=a
-����%a��s�v��^� ���Wx+4zf�&gt;r�Ox&gt;^A��D,��~�%t;K�a�:z�q���x5wĂ~�u��s�6���O��+haE��i[�O��F�^vj��:^,�c����K]�������6�뉐k����}	�ߎB!g��ea$���&amp;)�mrk6�gw����SET���Ԋ��h`C-�N���X����i�H����6QV���\v
-o�X�.k��N�&lt;�/����z ��ZL}Y#,r_NP�_(v���;=3&lt;/��2NMa�:/���5u�11�
-�T�?�
-?��fT5��۠&quot;�jd��&lt;�Xo�ǉD�_���[��l����Eô4�O}�;�+�j
-��	��� R[ �R_˔L̿��;�B�QS�5d!Ƚ=�AZ��&gt;�W$����
-KP����ƽbS)��b���Y[��~�G�ڋ^K�Ij���C�i0Ԉ��&lt;���l�������KV�{��&lt; 
-M0�7N���ݼ�����\�\i-&gt;&amp;�E�d/�N�P�OI�dfv7b06���hՕ�$���NC%�F�8��&#x27;��pɰ�=TŽ1��O����l���&lt;��JV�q�?9&lt;�H��sI�!@d��CLr��j����s&gt;�{īi&gt;.a�$��(V��G����aQxSMp��)�s�×�*�z(=O��:�_�C �_&quot;�ny������s�y�����lZ������ �s�i���(��2IM�4%h�j��DcD�v� V�%�i��X$ڱ�@S!0��~zN��q}�a�T/l���Ӎ�]�O���p&quot;�Rm��Z=H��?��IG��=�Fm`��2����J3	~qxX��6O����VA�a6���4�O���t	`�9O{�h��\B��ڶ�a��}�@��!؏=IEw�sl1�-q-����_�K��#���J�����t�#S�|2K8@i�~y������۵:G@0�}W�#�e�g��ZO�v3���j��Q�_��)�qK
-Z��B��5��er�@��6&amp;c՛&gt;�c:�?��L��=�e/���D1HK�hz��^�]�;��Γ�c���s��r�%���i.�r&amp;����( �ޱ���mo��u=HTսo�&gt;�J�uxaz���9`��Fq��m&quot;���l�,�SnJu�L�b�٦n�D���&#x27;���$�܃zH^jm���2-4-�y��aMib�Co��܋qB�$�:0m���=z��}�f��Ve���WQo�y�Z��ۼ����K;�bܚ���{�����j7����/��4�����8ꕳQf Q�����pLRq9&lt;ɰ�1�2*��?ᩖ�z�������h]R��]�vOTa���K��	kYJ,���nv���L�&#x27;�7���?&lt;`���Lѧ���&amp;%�;%hbM�ϻcF�l7+F��JD	&#x27;%&quot;:�0ӗޤ�����h*7�ҔY���e�kF����O.X&lt;$8U=,&#x27;�Qk�g�&gt;��jۗ����q��^�����&gt;Kr�7�_/S��4\r�6&amp;l6���z������j�RU4�w�hБ�|�5ɭd��x_�_���Z&#x27;7�#0��C�̬c#.F�P?T�`:�W�tĭ�Y�MXz�//���WFU�Am?/�� ����#�I�e��F�I�]����i�6p���ε%u]&quot;��&#x27;���K���C8!Vw�զti�������;��K箒	&#x27;�in2�!�����T�������}�!�ž�+���P����_�%Y��Bhԁ�9�ˣ����aӗ:�_w��7��A�&gt;r�s*�C��+��x4����z���򣖧2���ZI��~��ӟ��y�
-��fʰ��
-J}| ��53��|�P!�WP�����&#x27;�}Xt�чC�e�x�&amp;~�X��Bd�[�	��4��ʓ���I)ΐ����	�q�
-��*|��Ð�L�6%�8F35��,2�Î&lt;r3깗��N��S���·it�&amp;N�וd��ɐtL��G������Mb,nSWl�w�ARO�&lt;�yUY��B�`����j\��J��y�����
-�H_\�A���Ũ�
-�~UP���59�E]�g�?���V&quot;=ّ�z͛�����HP�SjW $4AN���C)��˱�U
-m�P�P��E�C_*���;T�%�4y}��Q�)&gt;6�{��je�7��8��ݯR%��������j0����|�z+4�r^�)$w�qf}�����ƌ�Awp
-G(_�
-kޕ՗�F�2�[7M�����cQ�ڸ�
-h��&gt;��FP����0�$+�1�t�J�)�ud�p��� ֚Q5 �4Ɓ)9Zk�5��S-x�������N�&lt;�	%2k7��g&gt; V�`���qְr��p;��&amp;�AQT��g츂D�J0R(&gt;$����`]-(�&quot;�/n}�EH}Q�aY%�6��l�Ü�?�8���BW��L��xGveh^m8W�⨻I-.�
-.��� UZԕ	3&lt;��İ�~�gja�#���u�
-*j���6�h
-��&gt;��E�/b�t��X@0�Q��rט��82!�KWeP�\5Ɇֈ���&quot;�q��ő&quot;{�Ɖz?]x��Lqd
-�z� ���Hޯ���21$��a6!�Ђ�O���1�Y@+\��S!�E#���6�S���T:�*}}/#�W줜4��B�f|�SYpPsr�?�`�;�0˛twg�K��c�B�9M�,��h�x�tg_m8�=����щ)��k�Ew&gt;S�$X�f/Na�;(������&#x27;6�0��L�FԮ�.�M�M�_ &quot;y�&gt;zc�˩��*`�PZ3X�c����A?��wɁ	 ��F�&lt;opcu}�`�b�)�^�t�d��c#c���b�Y
-6ۻ��&quot;�
-� ��#���Ϋ���=���4�
-#��Ի���#�&quot;F���\؅��
-vj�4��;�޺K�WI�m%]�9�`2��O6�_�5L���[+~�W��5b���=H9��y��� �T��y�{˒�E�~�C�1r�p&#x27;��2�dZ���ע�����2(��{���.�`��j���ac=fJO�p�(�`�U�l{�C���&gt;�ig�i��� �6�6�LDvp͍�⬜3ټz��w@
-�;Ȇ�N5�^�4���&quot;�/#t0�5dD_*{J�)�&lt;�P���̬�&quot;4�wU.�ڤ��1�����������f�ѹ����!�����4HC�f��5i�`+.ySA�g�3�R^ԡfÛ�
-�H#��Z�@z�U�^j{��ӌ�n%H8��_�b��ed�ϙF&gt;�6�(���?��2}/ō��j7|�:��G# �hX�;���&quot;�yY��׮@PHP�p�н�&gt;���q��.h�TH:���P��|��YU�	�\#��n/�5��|� ����o�f�Ql9��P�?����&lt;�߉��^���as���o Y��j��_6�ז�����������B�����u��]k�u�9��Rݧ����O0t2�9�7��h�۵T����&amp;+;�bjR�I�����;V}��&quot;�:��U��3ETT��ٮ^����&quot;:w�G&quot;��ځ�)���������
-�~N����R3j��J&amp;�O��t��oi��E7�M��V?E��ل5a&#x27;���J�
-;�/U��������ךF�/��-�ؒbtP_x��o9��LJg��i�99�&#x27;�1Y@e�{��(��A&gt;t���8�
-�V���:+��A�|�h4}���p$&#x27;Y��ֹ�y�p�`x�|�&lt;}n�њµ�m�K�dg��Y
-F$�G7M������
-��v�5nb�LZ֞���l�Ro�t��4n�x�?W�d���zf�n�:�dd��6),n�_ֈn����l�&amp;&amp;e(�,����2N,����yKfW�!�z)�a
-��B�q:�0���-�.yl��$� n��QxV�|�H2�/Fr�H�hR�͛�m�,Zz| �Ώ/hs��pٳ��$x4~�wً��J��,���oE���D�?�&quot;���J��������1������$_*U�&amp;qT��˒v�^=���Y�&gt;�����P��6�I����f�g1|,VN,��9��o�6r��q��@����qE����Wa2�Cv���[%�^��?��� �������n�u�z��&lt;�)C������c%����b\�l����.e���y�a��X��&amp;�3�!-R@ţ2�6$VpD�R�찾����Ə*����/4����}���aӻ�p�D^�3́	6�}��e�M��5���Z�[\f|a��n���ؽ� �%��j}܎O��zn����0%[G� ��� 	�,&quot;^�!� ��uQ˨^k�2�LUA��0$��j���&gt;3��.�};Y���ә, W��N�p�8��v	�`���]��Ey����v9�x�K������HU�2.�6g �)�}Y�p�9D_��#�v��C�z��;�sK�NVC�4�f.3��KC��T&#x27;��:��dݫ���L@��SK��C���7u�\
-��
-��U����d�z
-	K��H3`_Έ=��&quot;VT�{���8��3GO�Ɲ=���騔X1�/.(��
-�q{�n.�Wt��1�n�jF�&gt;s�R��Y,7(R�zl��7#L7.�g帝���/[�ܠ���}��-�h�P�(���#t�d�-�����p{���-0��&lt;i&quot;�ZZ���?��hW; �k^�=W�����E2DhE�~� ��y��#�I�a6+ �0c6R� +։]�e&gt;��
-e���){�^���k�\���|�����,��J���Z��� �S����
-=�vQ5��3�M=���Z����Hxe�C����׈���V�N�Ru���_��Ǐ�T�B���2��kL(�e&#x27;��-����g� SSP��ڴ&amp;���z�	^��ŧ�$�t����W���dP��陀_�o�w,����ט��w����Fq����@�S%�������;�N�~�0]��*6U
-|���?o���R�N�D�&#x27;�n;��Hp�I6p�� ���8*��U�y�G[$T�W��/	�A���&#x27;�l�ίv���L|�q̮e��QV��n�pN�EF���Ցpb
-�2�a����z�A,�g�8��/X���|-�i��Y�LlA�� �����
-��M&gt;�xqw�A{����3?����&lt;
-�{�M
-62�� 2�1���f��ɚ��]�ϩ������O��l���}����d�&#x27;�M9o�PZH�n��F�]��!��Q�������
-Ѡ$�u��,�6�qБ�!�C����Q�&gt;��u&#x27;�]�����Q�Sǥx~����!%xG�}+�~��EA�(�N}��j�@�Z:��Bh,�Y:��I�+&gt;#��//��Pr�]�&#x27;���qH�r����=�Cz�)�?��4��G-�|&amp;�
-el�@�1�:��s4`~,
- ��
-�d&#x27;�˵���a��yTp�_	�$�i�CN�}�DY��U��䰑��0j��q��D��QoP&lt;��&amp;����g��6���HSY����b����F_�_07�/r�_�J-ٿhL+Ñ�
-;&gt;�&#x27;��Z�&gt;��N��|�T3��׻E�c��JW�1��Y�0�`kxEjYBφ���AX�Y���@���RA��!�|�!t���V�[�[#D�M5�P�8��N�;����7f��3�`y�y�;Zj�d����S�����BH�6ə����DX��+řH�I�����h��Ҭ\F/a*�J c���
-z;��gھ*��L���A�
-�i�[�Hy�h3L�?��%�Q��\���7�B߉T�&lt;�B��H��Pa{��p�U8@�H޴�K򱇘�6͐�{��j�rɴxM�ҿ��6��*��#���Jz�E��˃.��}m���;�N��i���u8M g�j\v&quot;0:#�$VnV��@K��+�Y�O&quot;�J�&#x27;@����1�~+q֤_0����k&quot;�
-�m��ߌqZ$�l��^��ɀ�ڽS��f��V�S�۬3E�&#x27;��H�2��Þ��^4������A�6�7&gt;�g+_���UYA�~\N3��{�(�߅$+q����n��C	��3�V@��z�ȣ�t�}8��t&lt;�hp�{�EU��]�QiR�F7t�n�^�&#x27;��ҳ�k02f-u$[b+��,��	��ZR��o,��&#x27;��l
-Cm��o$� ������v�e�&lt;n����^z�M����1�W��}�U�������&amp;~��M�a���m&#x27;5�.��	�Z�����ݞ�kX�P�P�M�hk�BA�
-&amp;A��C�&lt; ���pX��:� �-eԕ.���hT���r~�X�Fk���o\�%r��*+��z_����n���0)�W���z�vr��r;g�F��e
-��]�]V�������z̦|���և?�!����{lۧ�$��sm��OH)��f��c��=���tQ�P�*��
-���x�y#֮�Oth-�Z&quot;G�}&gt;$����xS�������P���r�ͩ���d|&#x27;�`��D`&amp;~�.ᛡ�C�&#x27;xm�Y�h�)�i����Z�A5;��Wۿ�1��K��X\��&#x27;s\|D=q�r��k ���T��d�����	I�oⰻ�2&#x27;��^Z݂Ю��5?Ң����\��T���#�
-t���0UKc�}X�=���N�ϓ�|�����!,����4^�$�%�Xx����,C^2��V�Y�����;G�$V�)	��m{�pm���]U�{��0ygCw�Ax|[;.�zFH�u=Կ9P1v���y&lt;�����}�x��xZ����橧��N��T���)4J,T������P��l���HWѾЉ���w���Zd����ъ�㨂���-Rˍh�A��cD��߆s�E%��x&gt;��E{�H���yX�2E��h��+�H4����vm�-;~��C�}}�][��t�)��w����+����Mu(�p�k߀�}���b�(x�&quot;��-��EB]+��؏?�;+�&quot;�	ſ�o�L9��pJ��択�T�_�6�Q��۲�Vi)�� ��
-� �?ٹ\����(w�G��h|#�Ȁ.S���8�~��V��-�Iu�74Ȼ&amp;|B���#)ՏA�wDp�TǏ�+g�ۜ�Ρ��&gt;�pI�0���&#x27;���
-z���&lt;�P���:s{�r�h� a�2�%����5-~��I�S��!`W�ݹ������f� ��Ѣ�U&quot;���ÿ�p��\��� �}$��a�E�M1z�3nQ��5�p����Y�ɚ:�[�1� �p6��gqd��Â����Q\��45�&quot;	Q�� �.��Rc��m���c0�m[1�?wTNZ�m��h�J�&lt;��E*s&quot;�X+d#b*H%�z����0	��&lt;�c����;�@���3Z�T��+h���&gt;c&amp;��w����63�ʙ?��f)J���*�5�
-yE�u�jG		-�J��f�@JU�~�5�Q�Y���f,u�(H�&#x27;PizN3��6��?������p�	y�$�8��$Y���{�1�)�T�2a���������u����M�,�cK�xmv�l�j���EC���4u��)s[$k�QO4]d+`iet��&#x27;�euk��_�݈۾�IG�߼�[����clU�sQ�Ln9��3�^w���7.s���gQC�!�rf?�W�8:��zU|�M_&#x27;h62�������VMy������T��-I|�=�Vn�n�|%ݭ���������	&quot;Lv�}�fˍ�Xn੕�kxVZD#3��8��Z֩
-r�-����G�ѝ��P[͈����Tr��
-�t���*we�.5�$�x[61(&gt;|����,q�(���: 量z��ߒ��&gt;lz�&quot;��i����&gt;#I+{��Z��ƅ�)z�V�nG.A������&#x27;(�V��i~�:���PPJ�a�=B�2�j
-��c�h�y��PB	JC�@D{�#�)WL��m51��	sI~ˀ�F�nI����&amp;�P�%Ǭ�(�ڬx8���-slg�&amp;Û��l����&gt;о�H՞�a��u!�&quot;xђ��Vbf��&lt;�@��+��T]� 5P� �������n���.G�q=��Ø��
-�O�C�V����������&lt;p��AY&amp;@/X�ڏ�*E %	�1���&amp;�E-/���Y�f�������s ���
-p�A�/JA9f
-]�rnu@U(j�����	�#`Im�{��=�&gt;W�!�8��+x�M����ٱU�G�Yj�,9{���C����P�j��5��@6ׯw�f�CA��)�n���f�.ŁB@R̕�R���{���+����E�lt���5�=Sv����	&quot;BٟVN0�`_4��r(ma/B�G�$�����������CǐuJm�@k(t��5�&#x27;.����x�z]큉��
-&#x27;��K�nƙL����Yi������=G���sO:(����t���j�|�=�M��R=�A �����dpnz�X`^��~� �}�o�;}b�r΀�o%��k��$��	ߢ�gJx/ޢ�I��L�W��N.�;�ǌ`Q(�l@����%�Հd/��j�;&amp;��B����̵��$\���k���p �l�FAt�͈?-���CJ�����:�S�7;n���]Z����
-�1�5�CV��[�͝��/����]:�E;�@�[�&amp;~��V���&lt;��u�#N����i%d�
-���j3
-����	&quot;\�&amp;`�d«����-w��&gt;;���wH�SC�;�&amp;��Vg�T�ܕ��:��&#x27;w�X�a�5B���i(7�b&lt;#���vd��^P_U8�9Yu��G9&lt;��# �I
-_F�|Q����=?P:8$��h�M�G�g�����c�r�\:�����=��PL*�ٟ�H�]Vk�=���WJ&amp;��6l��p�Z�{���1_xqL�M��K��Ӎ��&lt;
-_���3?�ܗa�Y/�GH0���������9#E�V���b��v�1`��	l���C��?�F�@�J�݅���
-4i�iR��(���,����6��P�����W�g�l��
-����S�PO.��s�ɟ����c��Ć���\Yb2���2�VV밝qCX�֖����2&quot;�	HT��&quot;��˲��J��t��+�(X��xD٥Y��堝&gt;~��bO��xq���gs���4�z�I�h;�ʶ��p��+x�H���ᐺV���mp��&#x27;��x�z^!��&gt;����=��,�F�H�LQ��bE��G,�$�o�`���\Y8*��x]{
-��d�{Z�� �0d�g�c�~0�a\�ky$S��U:����2D��_y�O���x#BN
-W���.�v��\��M�����&quot;�}m/%�[��	�(����� �
-LPK�������F�[vX��u�� �I&lt;�9
-��i 
-Ƨ���(�;��oʗ5p�e��fg�ec�ŝ�h&amp;	��y���@[ld�7Hi�_�v&#x27;�-��P��!�-ش�[�����V~���LG���3�*n��7Qݝ,�q��
-JL���O�&lt;L������=�ܡQR�/��x�z���Y&lt;8w&lt;
-�}
-��y�������&quot;�O#���|\�y��.-�zv�105ݨ���mڧ#�C9�(�a�֟�[�[SW����tQf��Ѝ�G�s�}�cA��7�O؂�� a��]����^�f�Άt��T)Z��&quot;�(M
-���&gt;&lt;N*h�x
-$��ӯ\��w{�
-�@�0���rSb�$�����SnzJ#�Ml�9Y����^��N2X��&lt;$.�Wko.Y��� �A���dG0z
-0a�=����D��㿟�wHZ��&quot;�f�o}�#/�cq�vN���*��B�5q��ݨy��;o4@0C{���@`�/pX*����A��0��Z����.#����C�R�$8�d��5YĔ�v�d��z��d�;q�����:�Y6cI�.�I�7 FH&lt;W*ܕ4�&#x27;�[���e�|߯���5EN�����?��l��lώ��������B5�Zp�#!��)!T������_-3�{��#��n�V2�2���^{�����S��U!&lt;s�Z����[�ڇ䞵�O�b��Wb�������S�bX�{΢��U27�@�%
-���b����-2��,����&#x27;��h��i�oFI��֎Bp���@J,q�?9� 	ꥪD�~ �n�b��&quot;�?�[�yZ�43_���8O~�#5-�ϓ���&lt;�/,I �f�)Ll19#�$Y�T�?��̱̝2�������Q�����8��]&gt;t�3�
-+��6��9u]X���}�0�M��2��@b���0���Z;��m��[��.b�#�Y�)�Z�w��P_zg�c+�&gt;� ���Rt{����e�]Ǒ�VfH��n�:I����t�#���&#x27;+4�}�g|�s;W�78�����9�S�GSǪ���d����P����[KM&#x27;yX�p�,�,ҜԄ|�T��X�*�0�X&lt;���);�=ܯ�����;�}�J�]��iD����J���
-1	&#x27;���atʽ�%�~����+�D�&#x27;R�Z�����h
-u�T��-w�/w\��w���q�&amp;���RO���A�V~�S�`����NnL��{�v�����ڡ�m4���X40D��T&quot;̀��{\IX��Y��
-)�d�2��B�}��&#x27;K�)���f�:���?p&gt;1�߯�~�T~C�5� �8{g废��Q�VE&amp;}rz�3T����eQ�LH�[������s[hm��ڊ����o�81�+p��3at�Z8�e�-��[�&gt;��)��;��&amp;�
-�;!V^���+�oVp�G�c�!�y�p�#�J��E��h��n��g%�~$�~�,����6�X$�4ƅ�HR�N8�����5ar���r�W����i��c���nQD&quot;�w�	�-��&amp;�������hN���N�/��_����O.������&gt;#Ζ��E�d����~�-f�տ�z��@�օX6o����Wf�H@x3��x�[�D?���8�+�6F�+ ڝ����c&lt;&quot;&gt;�dz���;�K���/���蟃��l_x�7&quot;���E
-&gt;�p��r�4���,U��fQkQv��F��t3`������7��Z�/ ǫl���w��}O�H&#x27;�=s����Z�z���&lt;�Gц ��,
-�j�	�&lt;[LLN�w�3�g��[�Y�$�R��\��tV�^�f����n�J+��z-����*��|�2f�N){��ك��fE����{H�V~Gc��F�A�ߴ$~�]����o�Qoʎ)�@�^�16���R�
-�����w��M���Y�� m�sP�^���-��eʹ�a�N4F�]�@DD��kZ�z�Pʈ��&#x27;-?$w7X&gt;xO��A�
-��À؃�m��kL��( �&#x27;�`T/�h�@�A#&gt;IK�� e�%�CQJ�	��z8���qc��C��#UG��c}��@�}�KU q8e��w�w�
-�����«��-8��M��o�Q�8ܦ���-$2�[�G���-��6$�aW���[�����SC� $j�85�T=�-WF&gt;.��]J�-4v_�_���������2gZ�`N�-�V铅U�Ȓ�R�l��&quot;	ܞ�-D�&quot;U��݅�7����H�
-*&gt;�&#x27;iצ�xC06mU�S8(����-�RA�F�W�������,��E�i�=��?+�T���u�m7�t��a#Y�Q�R�f[lvZT�͉�L6�tMI@�qr�b愦�Қ�[b��W*b�Z� ��;ϸ�j�h��C-$Jf�J3�s��L�v&#x27;N�����)��-�M+�ڥ�� K�#���\�;rV��0��\zH6lٝ�Z��T .�&#x27;Js��=�c�Hͫ��2����Jxk�}&quot;�i�l@���y&lt;�}�����&#x27;Jt�&lt;��:$��JǛ&lt;�r6�5� Srמ��0.`
-�,7�/�4WcĻ{T�)�)��Τ]���0\׵n�&quot;/k�l���	���Q�l
-U�͕�-٢&quot;8Ɏ�tٚNr{�N),���+W�،�Y$&quot;�Q���6命�M�har��g�۩���ã	��`��f	:l`S�D��7�B����1�N4�uhB��vVB8ūz9Z�_�O�h���&lt;ԧZ��S�?$	Ӝ�c�&#x27;Y�t�@�g
-�=�8�_VrJ.T&quot;� ۯ��S���$��F��b�q�S�te������Q&amp;Q�|ڛ��,��P%n���G�T�ﮐ�I���b���M���e24�]���/�nN�pv�U}%Ѭ[C5pD˓��
-n�W��b���E�ʁ���X���
-�&#x27;]�Z�k3�ZFJ��Z��$�eb�/��X S1(Q㎚�	�ă���=eDåe�0�&lt;���ڋ�.SM�jZ�tTJ_A�]�7t&lt;9x��������6��OJ8��]#�hi[��#V��h ���&quot;y�P@9��_�}��B
-�ub(�|Hָ1cPT
-Gݭ�����?����êWFs�
-��oVC�;��%WjCQU����R!�x\TU�Q*��9�3k�����;m&quot;B�V�$v�)%f��=��Fq`���g1��&gt;ðG\��Cemb�#p9�U
-D��&quot;�Q;����t=�ڎ&#x27;Z�=	}�q�N�#=��΍��f��%p���鉝�^~�.�&amp;&lt;��6!P0 �Bk��2�y��2���`����͔].����
-��1cn���~dS�����;����Rl{��~�ݲ�&quot;�3:Ҝ��_�K (5�ݕ���q�z$$Y�ǡ��O, ^G�=���}\���X��MW�!�Y!��RƮo3?���D�/R�(L�^9;��U�Vp��������T4�:J�Y��8�#��O�&quot;��x�|nm�ï$�5�g�쩺WR���Y]6qqK��}V�SN#�n�C���&quot;���Lv��J�dw�υ���xa�Z��P(
-(&#x27;�	�-�E&quot;/��y��}���$�$��?�YW��&lt;P�j��˩�v���
-��W������&lt;iΤ���O6�1^M_��*�����v��IA;-�6N�η������c(�%��uG@Q�`z��~�&quot;~�R��V�m��֮}\�HE��� �5���._�)���h�`�J��g��:}�0�����(��m�K?K�3�yjJ�q��l���G�o�,������Om���[$���u_K8����v�����&#x27;��z,z3��x�R(U�	�5�E�R% ���Sp������-�Ւ��mUp���(K�͸��� )��7���ي��Ѧ�Ʈv�be��� �&lt;�&quot;J|��w��:��I�#,g�m���4��-ri�%�˶���1��m ua��a��6$܍���{?Ă8�(/�n�)
-�狸��&#x27;x�\�un���̭K a�W��H����:��UhA&#x27;�uq�W�T��vP��S2+�?g�h�m���Pi&#x27;�+�	xh��ۦ;�C&#x27;ICթd0S�������I�R��O�����AGBTߦ�䣱r�P\_r��;�)}����L�� �����*����Q�Z�Ec)�f{1S�\��քP-�E�J��x�@�&amp;Am	4Cq&lt;N����Q�8���Hi^����d�^����n&gt;&#x27;���*0b�ѥ+qcU���?h������1��;�Nf�2���v��Y�K� �j�b�� ����&#x27;����vE)Z28�P=�H��{ͪ�n���;�^+�bJs	S�w:J ��{�E-l�dI�W58+֙K�g]�D`�Zs������%�h�����S��N�ǽ���ޱ&gt;C|X�*R:l�ԁ��܆F�{:�3��yqʪ���@� �!ݚr+�,�Ԥ����%���ex�bX��oܟ�gjYUf��O��`�
-��t!�[��:��|���&gt;
-籨�^�o�x�:&gt;˾C	�
-~�w�u�:�	g�ݟ�s۹J���zo�UNԵkM}F��!�Gs�Nk���H��[�耲U���!�LT�wE�Yq=
-�|̗�F�zɇ�ǤR۩���/02�D�l�4��a�Xݧ��(D_=�v��cd�.}o�o�
-���E4z�m�\�P&quot;�ܳ�0�}Jk=�N�I$�kWYf����(6�q�P��h��x!����2+T�c�~��z�&amp;H����!���5��f���
-C-n����!� GjHg׻�!����Qbd0�C}�&lt;��cVs�~�Q�%����&amp;1�)���^���2��H���H�jR��SG�
-�d�i��6�}�n�q�% �!��[x�Ʃ�R�V�M�8�l*uL��S����gA��-Qg���*G��&lt;����dȃ:ϰ�L沚�?�W�9l���Q��7A=c�&quot;�D&#x27;��O�|&lt;L$���L|1[��&#x27;���SL�΍8�
-�bGk�%O��r3���5
-m�K8���j��Px��ӏ�Ed&amp;���R	��aǂfM�&quot;C�\�azW&amp;� ��~;���G�-&gt;y_��j�\����������Ej��s�@���j�Ѳ f
--�&gt;� �U�-�؝N�_^r]MaK�VN��/zؔ�h�Ѐ�IN,b2�����1/�Q,,`�**����S�	;�W~Ǽժ �11z�Hp��S�M4��`k����_]���{s�8V��v�`�5������ ��R�?��f��|���_�j�i�B��5.5��޶e����+flH4!:S�8�jz�D���8\�5��{�{?Mo�=z�!��o��H�|��g�&amp;O���#4Ι�҇��WC?#�� �Z���&quot;�M�Wй	Y��oQݶg��Y&gt;[�c�u�]6GN��_���AGN�گ�Ϊ�dHe6NH�+�2&gt;-��} Z�H���&#x27;��c�L�����WK�!FL��$&amp;R&gt;�#M.�4��Me�`����S�����eE�aw$���x^4;Y7�c�_W����i�!�2���Na!��&quot;��r��whó�
-�q�W��
-�������0/ߡH�SJPr0��t×6{���j?02�z�]3gY��D[g���	�R@��f�P@����������l^��5s8����;�.K�ƨ�t~���jY�6��cpj�	R{Һ%���R�Ш`.r�ک�+,�f�T������9i�ѓ�H��O�����N�8��߲�L�E��HC���e�YDy�[ HD����&#x27;c�&gt;���w�uɍ�rcOml)O�\�I��&#x27;�9!�)U���1U��C69-� A�e��y6�kJ�&amp;�Y�Mo����&#x27;�͠G�/=��M�,:���������~��&lt;1�p�1�&amp;v����{�N���߀^$S��+����cc�(��#�L�DOS� d���@Z�[Q܃nI�Q
-/i	�8+
-G�*�+�b1�h��KyK�3=�M]���(@�`�xqY�������p/���W휽70�a��)YY�E�E�F�bD��S�AŮ���x�ץw���h�tI#��T�/�`M��?��*��{_$��hM¿%��C�&gt;�r��w��W��Sa�{���͗����������m����*�X����8R�2���tx�e&gt;
-~��Sx�ykwmx�OR&amp;���A������ɮi0x��|&gt;��v���%A��,eĮ��M�^	��Biw�=�ؿ�.�Y�$[Q�&lt;_��-�B�����F�ae,�%=�9MvCuI�a�˛�E�=��#ä��q�e7�Y�2�Z��xps����rK�(�,����mE/����vh&quot;G�)�0���w���E񑵈6b�B_�U ����Q���4u��Q��ǬI�GB&#x27;�8A����y�LWIt�E-�NL�0�����F-�i (`��(�p�B�9�t�	v�r�
-��(`S���(�g&lt;Oa
-�,�(;
-�.�A }�҆3���b]T�+��g�䫎�cL���5P�{iW75���6 ������7\�D���{�����3�dp ���M���ﱲ���B��@�ɉ���B+4�Z�R
-�4�� �S6��3&#x27;�1�{��&lt;�ֆ44�c�G`F����m��f��b*�
-�Z�`L��ě7�o%��Ю���Sp�k�%�d�.��GiB%�����g�B��k��,��{��!x�%�2��ZR��H&quot;�\;��-/��J�T�]�tPb��3�6E=���
-��h��bo�«؏�9��vI8��:�~���� @����0&gt;��&#x27;z�Ϸ��XZY¢��J������v��z���Q��`�Im�/��Wokp�o�NJ~2��P,���yZ�$�����1Ҵ&amp;9(Ȟ�j�M��}��o�D�U��s&gt;X�������J\9Ǵ���Xޙٟ��xPq�ԼP&quot;:&amp;_gZ�
-R�t�ߥ�\D+��od�H�(�3��g���+�CZ�g`�@+oq�u��R��`=�g_���9p��Cb���Sh̬Z��/�Gbb�Ƕ]�\-�L: s~��7���A��+y�%5��n�&amp;���fn4���7�1���py��=뻋�YG�v� ޗ���s#��N�F仝8qE3�����M�k��ѱe�6&#x27;�u4:��P�~Lk�$�V��������h�lNIV#��,�~w��f:����u�ғ�$��)���@2&amp;t޷��J?/�RL©��G�P
-�*2B̕����L��ey����[)��#��O٧��ug��FCe�!�z�iP�~*d�l�!�@�k&lt;}�Xu@Nze\$�v�q��@�,�[��u�Wa�w]���=`
-�!���@z�Q7�\�Wzer��V6=ǣ�5^SK��L�����UbFHbvb9��=ˮn�1�R�P\�	��	�&gt;&amp;8�t�&quot;��
-�CPן�$cUQ�e[�Z�)�Z���8���k���q�9�,��y��/�]�JU�Tr�#2jO�&gt;$Z�?2�:�����
-���c�m�|�0�/�|S�=e[	Pu�`�&#x27;�
-���!�Vᾐ�PC]9mf1c���cx�fFbk��m��� E��
-������7�I(	穵 ���Z�\��~������y�;������gH ��
-\�_���
-`X�&gt;�E�e���[�P�A~�.�g�A���KO�W���{����ߩB�%�J�տ�@�`3������E�kT����̀R@�TL�����I��䑴%��J`���6}�}�7�kX��?�Q�-��
-M�몁)S1(i�����~Պ�.r��&quot;�}~�v�z�w�}�i�9F$�6?&#x27;�	�&gt;iܱ�S��6C#7=]l�A�h�^c��uW/^��1vA��N���B�L7���)+l�ʢ�=I����c���P�H���K�4R���&gt;ǪX��-5��
-����$�yi�]��z�W*3!ݮI�
-^�h[i&lt;,�y5u!!0��N���2E~,��?|9�Я�2G��װO��uxU��yY��}����`b�ͩ�am����B:��+�/��2?�$;2u��[4�F�6�z�:/J������H�zsM�x�l7��{]9J���=��S��˾�GX���Z�D| [����A!���S���;y�!x??���1]6��M�r(7���y��/��}���Ok�U��jWeI��f�Ѓ���0g�⥈�^����.C���8�&#x27;
-�?2y�Q�|�^t�:5�x��ꟾ��8s�&gt;:!��AxPEy,|A]��\�u*�&gt;�J_�8x�Ԉwu���L�z�D��݁=ڿ�2�����{�4�-(:�n�^W�d��������rq���D�Xll1�V�o�3����,���^Z4=�Nfh9cnM���W~�j�$�P�G�P�ϴэ��:��
-&lt;�Ժ�:E&amp;aF�&quot;�r����W9�D�:j�z��9IʰL�  
-</document_content>
-</document>
-<document index="4">
-<source>src/products.md</source>
-<!-- Size: 53.8 KiB, Tokens: ~13758 -->
-<document_content>
----
-eleventyNavigation:
-  key: Products
-  order: 2
-layout: simple.njk
-title: Products
-description: Next-generation AI tools currently in development
----
-
-# Products
-
-Next-generation AI tools designed to solve real problems for creators and professionals. Some products have been released, while others are being privately tested with select users. You can request to become a tester for early access to unreleased products.
-
-## Infrastructure &amp; Execution
-
-Most teams struggle with weeks of setup hell—configuring dev environments, managing AI costs, and battling slow agent systems that can barely handle basic tasks. What if you could skip the infrastructure nightmare entirely? What if agents could work as fast as you think?
-
-&lt;!-- Product Rave --&gt;
-&lt;div class=&quot;project-brochure&quot; id=&quot;rave-product&quot;&gt;
-  &lt;div class=&quot;project-visual&quot;&gt;
-    &lt;i data-lucide=&quot;factory&quot; class=&quot;project-icon&quot;&gt;&lt;/i&gt;
-    &lt;div class=&quot;project-codename&quot;&gt;Codename: RAVE&lt;/div&gt;
-    &lt;div class=&quot;project-status&quot;&gt;Private Testing&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;project-content&quot;&gt;
-    &lt;h3&gt;Fully Configured Agentic Autonomous Development System&lt;/h3&gt;
-    &lt;div class=&quot;project-pitch&quot;&gt;
-      &lt;p&gt;&lt;strong&gt;The Problem:&lt;/strong&gt; Setting up a modern development environment takes weeks. You need GitLab, CI/CD pipelines, monitoring, project management, secure communication, and collaboration tools—all properly configured and integrated. But more than that, you need autonomous agents that can actually work within this infrastructure with industry-standard tracking and reporting.&lt;/p&gt;
-      
-      &lt;p&gt;&lt;strong&gt;The Solution:&lt;/strong&gt; Rave isn&#x27;t just a dev shop in a box—it&#x27;s a fully configured agentic autonomous development system. Built on NixOS for perfect reproducibility, it combines enterprise infrastructure (GitLab, Element/Matrix, Grafana) with autonomous AI agents that operate within industry-standard workflows, complete with comprehensive tracking and reporting.&lt;/p&gt;
-      
-      &lt;div class=&quot;project-features&quot;&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Autonomous Agent Infrastructure:&lt;/strong&gt; Not just tools, but autonomous AI agents that operate within GitLab, CI/CD pipelines, Grafana monitoring, and Element/Matrix communication—creating a fully agentic development environment.
-        &lt;/div&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Industry-Standard Tracking &amp; Reporting:&lt;/strong&gt; Full GitLab integration with autonomous agents creating issues, merge requests, and comprehensive reports. Grafana dashboards track both infrastructure metrics and agent performance with enterprise-grade visibility.
-        &lt;/div&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Agentic Collaboration:&lt;/strong&gt; Element/Matrix integration enables agents to communicate with human teams in real-time, providing status updates, requesting approvals, and coordinating work through standard chat interfaces.
-        &lt;/div&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Enterprise-Grade Deployment:&lt;/strong&gt; NixOS flakes ensure identical agentic environments everywhere. Multi-format deployment (QEMU, VirtualBox, VMware, ISO) with full agent orchestration, security, and comprehensive audit trails.
-        &lt;/div&gt;
-      &lt;/div&gt;
-      
-      &lt;div class=&quot;project-tagline&quot;&gt;Beyond dev shops - deploy a fully autonomous agentic development system with industry-standard tracking and reporting in minutes.&lt;/div&gt;
-      
-      &lt;div class=&quot;project-cta&quot;&gt;
-        &lt;a href=&quot;javascript:void(0)&quot; class=&quot;btn-unified btn-primary&quot; data-contact-type=&quot;contact&quot; data-subject-type=&quot;waitlist&quot; data-custom-body=&quot;I&#x27;m interested in becoming a tester for this product. Please let me know about testing opportunities.&quot;&gt;
-          &lt;span class=&quot;btn-inner&quot;&gt;
-            Become a Tester
-            &lt;i data-lucide=&quot;mail&quot;&gt;&lt;/i&gt;
-          &lt;/span&gt;
-        &lt;/a&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;!-- Product Smith --&gt;
-&lt;div class=&quot;project-brochure&quot; id=&quot;smith-product&quot;&gt;
-  &lt;div class=&quot;project-visual&quot;&gt;
-    &lt;i data-lucide=&quot;cpu&quot; class=&quot;project-icon&quot;&gt;&lt;/i&gt;
-    &lt;div class=&quot;project-codename&quot;&gt;Codename: SMITH&lt;/div&gt;
-    &lt;div class=&quot;project-status&quot;&gt;Private Testing&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;project-content&quot;&gt;
-    &lt;h3&gt;Reactive Agent Development Platform&lt;/h3&gt;
-    &lt;div class=&quot;project-pitch&quot;&gt;
-      &lt;p&gt;&lt;strong&gt;The Problem:&lt;/strong&gt; Traditional agent platforms require manual orchestration and polling-based coordination. Agents can&#x27;t react to real-time events efficiently, leading to delayed responses and resource waste. JavaScript-based agent platforms suffer from latency overhead, memory bloat, and security vulnerabilities from dependency chains.&lt;/p&gt;
-      
-      &lt;p&gt;&lt;strong&gt;The Solution:&lt;/strong&gt; Smith is a reactive agent development platform built in Rust that monitors NATS event streams and dispatches agents in response to real-time events. With sub-5ms cold starts and intelligent event-driven orchestration, Smith enables truly responsive agent workflows that scale automatically with demand.&lt;/p&gt;
-      
-      &lt;div class=&quot;project-features&quot;&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Event-Driven Agent Dispatch:&lt;/strong&gt; Monitors NATS event streams and automatically dispatches agents in response to real-time events, enabling truly reactive development workflows without manual coordination.
-        &lt;/div&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Blazing Performance:&lt;/strong&gt; Sub-5ms cold start times, &lt;150MB memory usage, and minimal CPU overhead through Rust optimizations and intelligent agent lifecycle management.
-        &lt;/div&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Enterprise Reliability:&lt;/strong&gt; Deterministic record/replay, comprehensive audit logging, process isolation, and 24/7 daemon stability with automatic recovery and event replay capabilities.
-        &lt;/div&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Distributed Workflow Orchestration:&lt;/strong&gt; Native NATS integration enables seamless multi-node agent coordination with real-time TUI monitoring and extensible plugin architecture.
-        &lt;/div&gt;
-      &lt;/div&gt;
-      
-      &lt;div class=&quot;project-tagline&quot;&gt;Stop polling for events. Start reacting in real-time with intelligent agent dispatch and enterprise-grade reliability.&lt;/div&gt;
-      
-      &lt;div class=&quot;project-cta&quot;&gt;
-        &lt;a href=&quot;javascript:void(0)&quot; class=&quot;btn-unified btn-primary&quot; data-contact-type=&quot;contact&quot; data-subject-type=&quot;waitlist&quot; data-custom-body=&quot;I&#x27;m interested in becoming a tester for this product. Please let me know about testing opportunities.&quot;&gt;
-          &lt;span class=&quot;btn-inner&quot;&gt;
-            Become a Tester
-            &lt;i data-lucide=&quot;mail&quot;&gt;&lt;/i&gt;
-          &lt;/span&gt;
-        &lt;/a&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;!-- Product Heimdall --&gt;
-&lt;div class=&quot;project-brochure&quot; id=&quot;heimdall-product&quot;&gt;
-  &lt;div class=&quot;project-visual&quot;&gt;
-    &lt;i data-lucide=&quot;eye&quot; class=&quot;project-icon&quot;&gt;&lt;/i&gt;
-    &lt;div class=&quot;project-codename&quot;&gt;Codename: HEIMDALL&lt;/div&gt;
-    &lt;div class=&quot;project-status&quot;&gt;Private Testing&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;project-content&quot;&gt;
-    &lt;h3&gt;Intelligent LLM Router with Cost-Quality Optimization&lt;/h3&gt;
-    &lt;div class=&quot;project-pitch&quot;&gt;
-      &lt;p&gt;&lt;strong&gt;The Problem:&lt;/strong&gt; Choosing the right AI model for each task is impossible to optimize manually. Premium models are expensive for simple tasks, while cheap models fail on complex ones. You waste money on overengineered responses or get poor results from under-powered models.&lt;/p&gt;
-      
-      &lt;p&gt;&lt;strong&gt;The Solution:&lt;/strong&gt; Heimdall uses gradient-boosted decision trees and Avengers-Pro routing to automatically route each request to the optimal model. It maximizes quality per dollar through intelligent triage, OAuth integration, and real-time cost-quality optimization.&lt;/p&gt;
-      
-      &lt;div class=&quot;project-features&quot;&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;GBDT Triage System:&lt;/strong&gt; Machine learning triage routes requests to cheap (DeepSeek/Qwen), mid (Claude/GPT-5), or premium (GPT-5/Gemini with high reasoning) tiers based on complexity analysis.
-        &lt;/div&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Avengers-Pro Optimization:&lt;/strong&gt; Within each tier, uses research-backed alpha scoring to balance quality and cost, ensuring optimal model selection for each specific task type.
-        &lt;/div&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Direct Provider Integration:&lt;/strong&gt; OAuth passthrough for Claude, direct API access for GPT-5 and Gemini, with intelligent fallback handling for rate limits and failures.
-        &lt;/div&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Thinking Budget Control:&lt;/strong&gt; Dynamically adjusts reasoning effort (GPT-5) and thinking budgets (Gemini) based on task complexity, optimizing both latency and quality.
-        &lt;/div&gt;
-      &lt;/div&gt;
-      
-      &lt;div class=&quot;project-tagline&quot;&gt;Stop guessing which AI model to use. Start optimizing quality per dollar automatically with intelligent routing.&lt;/div&gt;
-      
-      &lt;div class=&quot;project-cta&quot;&gt;
-        &lt;a href=&quot;javascript:void(0)&quot; class=&quot;btn-unified btn-primary&quot; data-contact-type=&quot;contact&quot; data-subject-type=&quot;waitlist&quot; data-custom-body=&quot;I&#x27;m interested in becoming a tester for this product. Please let me know about testing opportunities.&quot;&gt;
-          &lt;span class=&quot;btn-inner&quot;&gt;
-            Become a Tester
-            &lt;i data-lucide=&quot;mail&quot;&gt;&lt;/i&gt;
-          &lt;/span&gt;
-        &lt;/a&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-## Research &amp; Knowledge Systems
-
-Information overload is killing productivity. You&#x27;re drowning in scattered search tools, hitting context limits every few conversations, and manually curating knowledge that should flow seamlessly to your AI agents. What if your agents could remember everything? What if hard problems solved themselves while you slept?
-
-&lt;!-- Product Mimir --&gt;
-&lt;div class=&quot;project-brochure&quot; id=&quot;mimir-product&quot;&gt;
-  &lt;div class=&quot;project-visual&quot;&gt;
-    &lt;i data-lucide=&quot;brain-circuit&quot; class=&quot;project-icon&quot;&gt;&lt;/i&gt;
-    &lt;div class=&quot;project-codename&quot;&gt;Codename: MIMIR&lt;/div&gt;
-    &lt;div class=&quot;project-status&quot;&gt;Private Testing&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;project-content&quot;&gt;
-    &lt;h3&gt;Research Swarm Intelligence for Hard Problems&lt;/h3&gt;
-    &lt;div class=&quot;project-pitch&quot;&gt;
-      &lt;p&gt;&lt;strong&gt;The Problem:&lt;/strong&gt; Hard problems require deep research across multiple codebases, documentation, and knowledge sources. Agents get confused by too many search tools. You need systematic investigation but lack unified intelligence that can coordinate complex research across code and literature.&lt;/p&gt;
-      
-      &lt;p&gt;&lt;strong&gt;The Solution:&lt;/strong&gt; Mimir deploys research swarms that unify the best code search MCPs with deep literature analysis. One interface, comprehensive investigation. It coordinates multi-agent research workflows to solve problems that require both extensive code understanding and domain knowledge synthesis.&lt;/p&gt;
-      
-      &lt;div class=&quot;project-features&quot;&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Unified Search Intelligence:&lt;/strong&gt; Combines the best code search MCPs into one interface—no more agent confusion from dozens of overlapping search tools.
-        &lt;/div&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Research Swarm Coordination:&lt;/strong&gt; Deploys multiple specialized agents for code analysis, literature review, and cross-domain synthesis to tackle complex problems.
-        &lt;/div&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Deep Problem Solving:&lt;/strong&gt; Six-stage intelligence pipeline handles both extensive code search and comprehensive research synthesis for hard engineering challenges.
-        &lt;/div&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;MCP Integration Hub:&lt;/strong&gt; Acts as a central nervous system for research workflows, coordinating agent activities with precise citation and knowledge tracking.
-        &lt;/div&gt;
-      &lt;/div&gt;
-      
-      &lt;div class=&quot;project-tagline&quot;&gt;Stop surface-level searches. Deploy research swarms for breakthrough solutions.&lt;/div&gt;
-      
-      &lt;div class=&quot;project-cta&quot;&gt;
-        &lt;a href=&quot;https://github.com/sibyllinesoft/mimir&quot; class=&quot;btn-unified btn-primary&quot;&gt;
-          &lt;span class=&quot;btn-inner&quot;&gt;
-            View on GitHub
-            &lt;i data-lucide=&quot;github&quot;&gt;&lt;/i&gt;
-          &lt;/span&gt;
-        &lt;/a&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;!-- Product Lethe --&gt;
-&lt;div class=&quot;project-brochure&quot; id=&quot;lethe-product&quot;&gt;
-  &lt;div class=&quot;project-visual&quot;&gt;
-    &lt;i data-lucide=&quot;memory-stick&quot; class=&quot;project-icon&quot;&gt;&lt;/i&gt;
-    &lt;div class=&quot;project-codename&quot;&gt;Codename: LETHE&lt;/div&gt;
-    &lt;div class=&quot;project-status&quot;&gt;Private Testing&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;project-content&quot;&gt;
-    &lt;h3&gt;Infinite Context for Agents Through Intelligent Forgetting&lt;/h3&gt;
-    &lt;div class=&quot;project-pitch&quot;&gt;
-      &lt;p&gt;&lt;strong&gt;The Problem:&lt;/strong&gt; Context management is a constant headache. You spend more time deciding what to include than actually working. Agents hit token limits, lose important context, and require careful curation of their chat history to stay functional.&lt;/p&gt;
-      
-      &lt;p&gt;&lt;strong&gt;The Solution:&lt;/strong&gt; Lethe gives agents infinite context by intelligently filtering irrelevant messages and rewriting chat history more efficiently. No more context management—just let agents read everything and trust Lethe to help them forget what&#x27;s not important.&lt;/p&gt;
-      
-      &lt;div class=&quot;project-features&quot;&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Intelligent Filtering:&lt;/strong&gt; Automatically identifies and removes irrelevant messages from chat history, keeping only what matters for the current context and task.
-        &lt;/div&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Efficient Rewriting:&lt;/strong&gt; Compresses and rewrites verbose messages into concise, information-dense summaries that preserve meaning while reducing token usage.
-        &lt;/div&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Zero Context Management:&lt;/strong&gt; Eliminates manual context curation. Agents can read everything without worrying about token limits or relevance filtering—Lethe handles it automatically.
-        &lt;/div&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Infinite Agent Memory:&lt;/strong&gt; Agents gain access to unlimited conversation history through smart compression and relevance filtering, maintaining full context awareness without performance degradation.
-        &lt;/div&gt;
-      &lt;/div&gt;
-      
-      &lt;div class=&quot;project-tagline&quot;&gt;Stop managing context. Start trusting intelligent forgetting. Infinite agent memory through smart compression.&lt;/div&gt;
-      
-      &lt;div class=&quot;project-cta&quot;&gt;
-        &lt;a href=&quot;https://github.com/sibyllinesoft/lethe&quot; class=&quot;btn-unified btn-primary&quot;&gt;
-          &lt;span class=&quot;btn-inner&quot;&gt;
-            View on GitHub
-            &lt;i data-lucide=&quot;github&quot;&gt;&lt;/i&gt;
-          &lt;/span&gt;
-        &lt;/a&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;!-- Product Scribe --&gt;
-&lt;div class=&quot;project-brochure&quot; id=&quot;scribe-product&quot;&gt;
-  &lt;div class=&quot;project-visual&quot;&gt;
-    &lt;i data-lucide=&quot;zap&quot; class=&quot;project-icon&quot;&gt;&lt;/i&gt;
-    &lt;div class=&quot;project-codename&quot;&gt;Codename: SCRIBE&lt;/div&gt;
-    &lt;div class=&quot;project-status&quot;&gt;Production Ready&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;project-content&quot;&gt;
-    &lt;h3&gt;Effortless Codebase Sharing with LLMs That Scales to Any Repository&lt;/h3&gt;
-    &lt;div class=&quot;project-pitch&quot;&gt;
-      &lt;p&gt;&lt;strong&gt;The Problem:&lt;/strong&gt; Sharing your codebase with LLMs is a nightmare. Manual file selection, token counting, context juggling, and constant decisions about what to include or leave out. Large repositories become impossible to share effectively, and you miss critical code connections.&lt;/p&gt;
-      
-      &lt;p&gt;&lt;strong&gt;The Solution:&lt;/strong&gt; Scribe makes codebase sharing effortless. Point it at any repository and get an intelligent, optimally-packed representation that scales gracefully to any size. Advanced PageRank centrality algorithms automatically identify the most important code, so LLMs always get the context they need.&lt;/p&gt;
-      
-      &lt;div class=&quot;project-features&quot;&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;One-Command Simplicity:&lt;/strong&gt; Point Scribe at any GitHub repository and instantly get perfectly formatted code for LLM consumption. No manual file selection, no token management, no configuration needed.
-        &lt;/div&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Infinite Scale:&lt;/strong&gt; Works effortlessly on any repository size. Small projects get complete coverage, massive codebases get intelligently prioritized content using novel research-backed algorithms.
-        &lt;/div&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Always the Most Important Code:&lt;/strong&gt; Advanced PageRank centrality analysis automatically identifies critical code relationships, dependencies, and core functionality—ensuring LLMs see what matters most.
-        &lt;/div&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Intelligent Context Optimization:&lt;/strong&gt; Multi-fidelity representation with semantic chunking, dependency-aware selection, and budget-conscious allocation. Maximum insight per token, every time.
-        &lt;/div&gt;
-      &lt;/div&gt;
-      
-      &lt;div class=&quot;project-tagline&quot;&gt;Stop wrestling with code selection. Start sharing entire codebases effortlessly, at any scale.&lt;/div&gt;
-      
-      &lt;div class=&quot;project-cta&quot;&gt;
-        &lt;a href=&quot;https://github.com/sibyllinesoft/scribe&quot; class=&quot;btn-unified btn-primary&quot;&gt;
-          &lt;span class=&quot;btn-inner&quot;&gt;
-            View on GitHub
-            &lt;i data-lucide=&quot;github&quot;&gt;&lt;/i&gt;
-          &lt;/span&gt;
-        &lt;/a&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-## Agent Optimization &amp; Workflow
-
-Your agents are inefficient, your tools are scattered across different platforms, and your workflows break down the moment you attempt anything complex. Manual prompt crafting takes forever and breaks on edge cases, while finding the right tool among dozens of MCP servers feels like searching through a digital junkyard. What if your agents got smarter with every failure? What if chaos became precision?
-
-&lt;!-- Product Minerva --&gt;
-&lt;div class=&quot;project-brochure&quot; id=&quot;minerva-product&quot;&gt;
-  &lt;div class=&quot;project-visual&quot;&gt;
-    &lt;i data-lucide=&quot;network&quot; class=&quot;project-icon&quot;&gt;&lt;/i&gt;
-    &lt;div class=&quot;project-codename&quot;&gt;Codename: MINERVA&lt;/div&gt;
-    &lt;div class=&quot;project-status&quot;&gt;Private Testing&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;project-content&quot;&gt;
-    &lt;h3&gt;Meta MCP Server: Unified Intelligence Across All Your Tools&lt;/h3&gt;
-    &lt;div class=&quot;project-pitch&quot;&gt;
-      &lt;p&gt;&lt;strong&gt;The Problem:&lt;/strong&gt; You have dozens of MCP servers scattered across different tools and services. Finding the right tool for a task is like searching through a digital junkyard. Manual tool selection wastes time, and agents can&#x27;t efficiently discover what&#x27;s available across your entire toolchain.&lt;/p&gt;
-      
-      &lt;p&gt;&lt;strong&gt;The Solution:&lt;/strong&gt; Minerva automatically discovers, aggregates, and intelligently orchestrates all your MCP servers into one unified interface. Advanced hybrid search combines BM25 and dense embeddings with cross-encoder reranking to always surface the perfect tool for any task.&lt;/p&gt;
-      
-      &lt;div class=&quot;project-features&quot;&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Universal Tool Discovery:&lt;/strong&gt; Automatically crawls and validates tools from multiple upstream MCP servers, creating a unified directory of all your available capabilities.
-        &lt;/div&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Intelligent Hybrid Search:&lt;/strong&gt; BM25 full-text search combined with dense embeddings and cross-encoder reranking ensures you find exactly the right tool for any natural language query.
-        &lt;/div&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Multi-Mode Performance:&lt;/strong&gt; Fast mode (200ms), Balanced mode (500ms), or Thorough mode (2s) with optional LLM-powered DAG generation for complex workflows.
-        &lt;/div&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Production-Ready Infrastructure:&lt;/strong&gt; Full observability with OpenTelemetry, circuit breakers, RBAC controls, and degradation modes for enterprise deployment.
-        &lt;/div&gt;
-      &lt;/div&gt;
-      
-      &lt;div class=&quot;project-tagline&quot;&gt;Stop managing scattered tools. Start orchestrating unified intelligence across your entire MCP ecosystem.&lt;/div&gt;
-      
-      &lt;div class=&quot;project-cta&quot;&gt;
-        &lt;a href=&quot;javascript:void(0)&quot; class=&quot;btn-unified btn-primary&quot; data-contact-type=&quot;contact&quot; data-subject-type=&quot;waitlist&quot; data-custom-body=&quot;I&#x27;m interested in becoming a tester for this product. Please let me know about testing opportunities.&quot;&gt;
-          &lt;span class=&quot;btn-inner&quot;&gt;
-            Become a Tester
-            &lt;i data-lucide=&quot;mail&quot;&gt;&lt;/i&gt;
-          &lt;/span&gt;
-        &lt;/a&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;!-- Product Daedalus --&gt;
-&lt;div class=&quot;project-brochure&quot; id=&quot;daedalus-product&quot;&gt;
-  &lt;div class=&quot;project-visual&quot;&gt;
-    &lt;i data-lucide=&quot;brain-circuit&quot; class=&quot;project-icon&quot;&gt;&lt;/i&gt;
-    &lt;div class=&quot;project-codename&quot;&gt;Codename: DAEDALUS&lt;/div&gt;
-    &lt;div class=&quot;project-status&quot;&gt;Private Testing&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;project-content&quot;&gt;
-    &lt;h3&gt;Online Agent Optimization Framework&lt;/h3&gt;
-    &lt;div class=&quot;project-pitch&quot;&gt;
-      &lt;p&gt;&lt;strong&gt;The Problem:&lt;/strong&gt; Agents fail tasks due to suboptimal prompts and configurations. You spend hours crafting system prompts only to watch them break on edge cases. Generic prompts can&#x27;t adapt to specific task requirements, and manual optimization takes too long to be practical.&lt;/p&gt;
-      
-      &lt;p&gt;&lt;strong&gt;The Solution:&lt;/strong&gt; Daedalus is an online agent optimization framework that automatically optimizes task and system prompts for your agents based on the exact details of the task they&#x27;ve been instructed to perform and past performance metrics.&lt;/p&gt;
-      
-      &lt;div class=&quot;project-features&quot;&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Task-Specific Optimization:&lt;/strong&gt; Analyzes the exact details of each task to generate optimized prompts tailored to specific requirements, constraints, and success criteria.
-        &lt;/div&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Performance-Driven Learning:&lt;/strong&gt; Uses past metrics and failure patterns to continuously improve agent performance, learning from both successes and edge cases.
-        &lt;/div&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Real-Time Adaptation:&lt;/strong&gt; Dynamically adjusts system prompts and task instructions based on task complexity, domain requirements, and historical performance data.
-        &lt;/div&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Multi-Agent Orchestration:&lt;/strong&gt; Optimizes not just individual agents but entire agent workflows, improving coordination and reducing failure cascades.
-        &lt;/div&gt;
-      &lt;/div&gt;
-      
-      &lt;div class=&quot;project-tagline&quot;&gt;Stop crafting prompts manually. Start optimizing agents automatically based on what actually works.&lt;/div&gt;
-      
-      &lt;div class=&quot;project-cta&quot;&gt;
-        &lt;a href=&quot;javascript:void(0)&quot; class=&quot;btn-unified btn-primary&quot; data-contact-type=&quot;contact&quot; data-subject-type=&quot;waitlist&quot; data-custom-body=&quot;I&#x27;m interested in becoming a tester for this product. Please let me know about testing opportunities.&quot;&gt;
-          &lt;span class=&quot;btn-inner&quot;&gt;
-            Become a Tester
-            &lt;i data-lucide=&quot;mail&quot;&gt;&lt;/i&gt;
-          &lt;/span&gt;
-        &lt;/a&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;!-- Product Conclave --&gt;
-&lt;div class=&quot;project-brochure&quot; id=&quot;conclave-product&quot;&gt;
-  &lt;div class=&quot;project-visual&quot;&gt;
-    &lt;i data-lucide=&quot;users&quot; class=&quot;project-icon&quot;&gt;&lt;/i&gt;
-    &lt;div class=&quot;project-codename&quot;&gt;Codename: CONCLAVE&lt;/div&gt;
-    &lt;div class=&quot;project-status&quot;&gt;Private Testing&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;project-content&quot;&gt;
-    &lt;h3&gt;AI-Powered Workflow Planning Through Expert Debate&lt;/h3&gt;
-    &lt;div class=&quot;project-pitch&quot;&gt;
-      &lt;p&gt;&lt;strong&gt;The Problem:&lt;/strong&gt; Planning complex workflows is guesswork. You either over-engineer from the start or miss critical dependencies that derail projects later. Single AI perspectives lack the rigor of real planning sessions, and manual planning takes forever.&lt;/p&gt;
-      
-      &lt;p&gt;&lt;strong&gt;The Solution:&lt;/strong&gt; Conclave assembles multiple AI experts who debate, critique, and refine workflow proposals through structured rounds of discussion. Get the benefits of expert planning sessions—comprehensive task breakdowns, risk assessment, and dependency analysis—in minutes, not hours.&lt;/p&gt;
-      
-      &lt;div class=&quot;project-features&quot;&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Multi-Expert Debate Process:&lt;/strong&gt; 3-4 AI planning personas analyze your requirements from different angles, then debate and refine proposals through up to 5 structured rounds.
-        &lt;/div&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Structured XML Workflows:&lt;/strong&gt; Get canonical workflow plans with task dependencies, risk registers, acceptance criteria, and timeline estimates—ready for immediate execution.
-        &lt;/div&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Repository-Aware Planning:&lt;/strong&gt; Automatically analyzes your codebase to create context-aware plans that leverage existing patterns and avoid architectural conflicts.
-        &lt;/div&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;MCP Integration:&lt;/strong&gt; Works seamlessly with Claude Desktop and Claude Code through Model Context Protocol—no setup complexity, just natural conversation planning.
-        &lt;/div&gt;
-      &lt;/div&gt;
-      
-      &lt;div class=&quot;project-tagline&quot;&gt;Stop planning in isolation. Assemble expert AI councils for bulletproof workflow design.&lt;/div&gt;
-      
-      &lt;div class=&quot;project-cta&quot;&gt;
-        &lt;a href=&quot;javascript:void(0)&quot; class=&quot;btn-unified btn-primary&quot; data-contact-type=&quot;contact&quot; data-subject-type=&quot;waitlist&quot; data-custom-body=&quot;I&#x27;m interested in becoming a tester for this product. Please let me know about testing opportunities.&quot;&gt;
-          &lt;span class=&quot;btn-inner&quot;&gt;
-            Become a Tester
-            &lt;i data-lucide=&quot;mail&quot;&gt;&lt;/i&gt;
-          &lt;/span&gt;
-        &lt;/a&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-## Software Development
-
-Legacy tools crash on large codebases, miss semantic duplicates with 87% false positive rates, and can&#x27;t guide AI refactoring effectively—leaving your agents hunting blindly through code instead of focusing on problems that matter. What if your agents could see exactly where the problems are? What if requirements became software without the translation layer?
-
-&lt;!-- Product Echo --&gt;
-&lt;div class=&quot;project-brochure&quot; id=&quot;echo-product&quot;&gt;
-  &lt;div class=&quot;project-visual&quot;&gt;
-    &lt;i data-lucide=&quot;search-code&quot; class=&quot;project-icon&quot;&gt;&lt;/i&gt;
-    &lt;div class=&quot;project-codename&quot;&gt;Codename: ECHO&lt;/div&gt;
-    &lt;div class=&quot;project-status&quot;&gt;Production Ready&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;project-content&quot;&gt;
-    &lt;h3&gt;Next-Generation Duplicate Code Detection&lt;/h3&gt;
-    &lt;div class=&quot;project-pitch&quot;&gt;
-      &lt;p&gt;&lt;strong&gt;The Problem:&lt;/strong&gt; Traditional duplicate detection tools fail with 87% false positives, cloud lock-in, and primitive algorithms that miss semantic duplicates. SonarQube, PMD CPD, and legacy tools crash on large codebases or ignore refactored code patterns entirely.&lt;/p&gt;
-      
-      &lt;p&gt;&lt;strong&gt;The Solution:&lt;/strong&gt; Echo delivers 10x the performance and 90%+ accuracy using AI-native architecture with GraphCodeBERT embeddings for semantic understanding. Complete local processing, LSH-optimized performance, and native MCP integration for AI workflows that enterprise teams actually want to use.&lt;/p&gt;
-      
-      &lt;div class=&quot;project-features&quot;&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;AI-Powered Semantic Detection:&lt;/strong&gt; GraphCodeBERT-mini embeddings catch semantically identical but syntactically different code that traditional tools miss entirely.
-        &lt;/div&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;10x Performance Advantage:&lt;/strong&gt; LSH-optimized algorithms index 250k LOC repositories in seconds, not minutes. Memory efficient with no OOM crashes.
-        &lt;/div&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Enterprise-Grade Privacy:&lt;/strong&gt; 100% local processing with zero cloud dependencies. Perfect for regulated industries and security-conscious teams.
-        &lt;/div&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Native AI Integration:&lt;/strong&gt; Built-in MCP server allows AI coding assistants to automatically detect and refactor duplicates in real-time workflows.
-        &lt;/div&gt;
-      &lt;/div&gt;
-      
-      &lt;div class=&quot;project-tagline&quot;&gt;Stop settling for 13% accuracy. Get 90%+ precision with blazing speed and complete local control.&lt;/div&gt;
-      
-      &lt;div class=&quot;project-cta&quot;&gt;
-        &lt;a href=&quot;https://github.com/sibyllinesoft/echo&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot; class=&quot;btn-unified btn-primary&quot;&gt;
-          &lt;span class=&quot;btn-inner&quot;&gt;
-            View on GitHub
-            &lt;i data-lucide=&quot;github&quot;&gt;&lt;/i&gt;
-          &lt;/span&gt;
-        &lt;/a&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;!-- Product Arbiter --&gt;
-&lt;div class=&quot;project-brochure&quot; id=&quot;arbiter-product&quot;&gt;
-  &lt;div class=&quot;project-visual&quot;&gt;
-    &lt;i data-lucide=&quot;gavel&quot; class=&quot;project-icon&quot;&gt;&lt;/i&gt;
-    &lt;div class=&quot;project-codename&quot;&gt;Codename: ARBITER&lt;/div&gt;
-    &lt;div class=&quot;project-status&quot;&gt;Private Testing&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;project-content&quot;&gt;
-    &lt;h3&gt;Complete Software Development Specification Service&lt;/h3&gt;
-    &lt;div class=&quot;project-pitch&quot;&gt;
-      &lt;p&gt;&lt;strong&gt;The Problem:&lt;/strong&gt; Software development suffers from incomplete specifications, disconnected requirements, and manual testing bottlenecks. Teams struggle to transform business requirements into complete, validated software systems with comprehensive testing and documentation.&lt;/p&gt;
-      
-      &lt;p&gt;&lt;strong&gt;The Solution:&lt;/strong&gt; Arbiter is a comprehensive service for generating complete software development specifications that can be automatically transformed into fully functional software. Using the CUE language for rigorous robustness guarantees, it provides end-to-end testing, real-time diagram generation for specification visualization, and seamless transformation from requirements to working code.&lt;/p&gt;
-      
-      &lt;div class=&quot;project-features&quot;&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Complete Specification Generation:&lt;/strong&gt; Transform business requirements into comprehensive software development specifications using CUE language for mathematical precision and robustness guarantees.
-        &lt;/div&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Automatic Software Transformation:&lt;/strong&gt; Seamlessly convert specifications into fully functional software with robust end-to-end testing and validation built-in from the start.
-        &lt;/div&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Real-time Diagram Generation:&lt;/strong&gt; Visualize specifications with automatically generated diagrams that update in real-time as requirements evolve, ensuring stakeholder alignment.
-        &lt;/div&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Rigorous Robustness Guarantees:&lt;/strong&gt; Leverage CUE language&#x27;s type system and constraints to ensure specifications are mathematically sound with built-in validation and error prevention.
-        &lt;/div&gt;
-      &lt;/div&gt;
-      
-      &lt;div class=&quot;project-tagline&quot;&gt;Transform requirements into complete, validated software systems with mathematical precision and automated end-to-end development.&lt;/div&gt;
-      
-      &lt;div class=&quot;project-cta&quot;&gt;
-        &lt;a href=&quot;javascript:void(0)&quot; class=&quot;btn-unified btn-primary&quot; data-contact-type=&quot;contact&quot; data-subject-type=&quot;waitlist&quot; data-custom-body=&quot;I&#x27;m interested in becoming a tester for this product. Please let me know about testing opportunities.&quot;&gt;
-          &lt;span class=&quot;btn-inner&quot;&gt;
-            Become a Tester
-            &lt;i data-lucide=&quot;mail&quot;&gt;&lt;/i&gt;
-          &lt;/span&gt;
-        &lt;/a&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;!-- Product Valknut --&gt;
-&lt;div class=&quot;project-brochure&quot; id=&quot;valknut-product&quot;&gt;
-  &lt;div class=&quot;project-visual&quot;&gt;
-    &lt;i data-lucide=&quot;layers&quot; class=&quot;project-icon&quot;&gt;&lt;/i&gt;
-    &lt;div class=&quot;project-codename&quot;&gt;Codename: VALKNUT&lt;/div&gt;
-    &lt;div class=&quot;project-status&quot;&gt;Production Ready&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;project-content&quot;&gt;
-    &lt;h3&gt;Static Analysis Engine for AI-Guided Refactoring&lt;/h3&gt;
-    &lt;div class=&quot;project-pitch&quot;&gt;
-      &lt;p&gt;&lt;strong&gt;The Problem:&lt;/strong&gt; AI agents waste time analyzing entire codebases when refactoring, struggling to identify which functions actually need attention. Without guidance, they either miss critical issues or get overwhelmed by low-priority violations. Teams need a way to direct AI focus to the most problematic code.&lt;/p&gt;
-      
-      &lt;p&gt;&lt;strong&gt;The Solution:&lt;/strong&gt; Valknut uses deterministic static analysis to rank code by &quot;refactorability,&quot; creating a targeted roadmap for AI agents. It generates structured refactor briefs that help AI tools like Claude Code automatically focus on the highest-impact problems first, making refactoring sessions dramatically more efficient.&lt;/p&gt;
-      
-      &lt;div class=&quot;project-features&quot;&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Static Algorithm Analysis:&lt;/strong&gt; Uses deterministic complexity, duplication, centrality, and dependency metrics to generate precise 0-1 refactoring urgency scores without runtime profiling.
-        &lt;/div&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;AI Agent Integration:&lt;/strong&gt; Purpose-built MCP server integration allows Claude Code and other AI tools to automatically query the most problematic code and focus refactoring efforts efficiently.
-        &lt;/div&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Multi-Language Support:&lt;/strong&gt; Handles Python, TypeScript, JavaScript, and Rust with language-specific detection patterns like type friction and clone mass analysis.
-        &lt;/div&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Coordinated Refactoring:&lt;/strong&gt; Identifies Impact Packs and circular dependencies that should be tackled together, preventing AI agents from making isolated changes that miss systemic issues.
-        &lt;/div&gt;
-      &lt;/div&gt;
-      
-      &lt;div class=&quot;project-tagline&quot;&gt;Stop letting AI agents hunt blindly through code. Start directing them to the problems that matter most.&lt;/div&gt;
-      
-      
-      &lt;div class=&quot;project-cta&quot;&gt;
-        &lt;a href=&quot;https://github.com/sibyllinesoft/valknut&quot; class=&quot;btn-unified btn-primary&quot;&gt;
-          &lt;span class=&quot;btn-inner&quot;&gt;
-            View on GitHub
-            &lt;i data-lucide=&quot;github&quot;&gt;&lt;/i&gt;
-          &lt;/span&gt;
-        &lt;/a&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-## Developer Control &amp; Integration
-
-You&#x27;re bleeding money on AI inference costs, hitting context limits after 50-100 messages that kill productivity, and losing control of your development flow to vendor lock-in and expensive APIs. Meanwhile, your users want local privacy but your apps can&#x27;t safely access their Ollama setups. What if conversations never ended? What if your users paid their own AI bills while your app delivered the intelligence?
-
-&lt;!-- Product MindLink --&gt;
-&lt;div class=&quot;project-brochure&quot; id=&quot;mindlink-product&quot;&gt;
-  &lt;div class=&quot;project-visual&quot;&gt;
-    &lt;i data-lucide=&quot;key&quot; class=&quot;project-icon&quot;&gt;&lt;/i&gt;
-    &lt;div class=&quot;project-codename&quot;&gt;Codename: MINDLINK&lt;/div&gt;
-    &lt;div class=&quot;project-status&quot;&gt;Production Ready&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;project-content&quot;&gt;
-    &lt;h3&gt;Every Developer&#x27;s AI Dream: Zero Setup, Total Control&lt;/h3&gt;
-    &lt;div class=&quot;project-pitch&quot;&gt;
-      &lt;p&gt;&lt;strong&gt;The Problem:&lt;/strong&gt; Building AI features means paying for expensive inference, managing API keys across tools, and losing control over costs. Your users want local privacy, but apps can&#x27;t safely access their Ollama setup. You&#x27;re stuck choosing between expensive cloud AI or complex local integration nightmares.&lt;/p&gt;
-      
-      &lt;p&gt;&lt;strong&gt;The Solution:&lt;/strong&gt; Let your users bring their own AI—whether it&#x27;s their OpenAI credits, local Ollama models, or Claude Code routed to any provider. One secure handshake gives your app instant access to their complete AI setup. No inference costs for you, total control for them.&lt;/p&gt;
-      
-      &lt;div class=&quot;project-features&quot;&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Zero Developer Inference Costs:&lt;/strong&gt; Your users pay for their own AI usage while your app delivers premium intelligence features. Build AI-powered apps without the crushing infrastructure bills.
-        &lt;/div&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Universal Provider Access:&lt;/strong&gt; Users can route Claude Code to alternative providers, use local Ollama safely, or share any API setup. One integration covers every possible AI configuration.
-        &lt;/div&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Secure Local LLM Bridge:&lt;/strong&gt; Third-party apps can safely access users&#x27; local Ollama instances through sandboxed connections—privacy preserved, power unleashed.
-        &lt;/div&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Complete User Sovereignty:&lt;/strong&gt; Users control costs, model selection, data flow, and usage limits. No vendor lock-in, no surprise bills, no privacy compromises.
-        &lt;/div&gt;
-      &lt;/div&gt;
-      
-      &lt;div class=&quot;project-tagline&quot;&gt;Build AI features without AI bills. Give users the control they actually want.&lt;/div&gt;
-      
-      &lt;div class=&quot;project-cta&quot;&gt;
-        &lt;a href=&quot;javascript:void(0)&quot; class=&quot;btn-unified btn-primary&quot; data-contact-type=&quot;contact&quot; data-subject-type=&quot;waitlist&quot; data-custom-body=&quot;I&#x27;m interested in becoming a tester for this product. Please let me know about testing opportunities.&quot;&gt;
-          &lt;span class=&quot;btn-inner&quot;&gt;
-            Become a Tester
-            &lt;i data-lucide=&quot;mail&quot;&gt;&lt;/i&gt;
-          &lt;/span&gt;
-        &lt;/a&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;!-- Product Hydra --&gt;
-&lt;div class=&quot;project-brochure&quot; id=&quot;hydra-product&quot;&gt;
-  &lt;div class=&quot;project-visual&quot;&gt;
-    &lt;i data-lucide=&quot;git-branch-plus&quot; class=&quot;project-icon&quot;&gt;&lt;/i&gt;
-    &lt;div class=&quot;project-codename&quot;&gt;Codename: HYDRA&lt;/div&gt;
-    &lt;div class=&quot;project-status&quot;&gt;Production Ready&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;project-content&quot;&gt;
-    &lt;h3&gt;Transform Claude Code Into 50+ Expert Agent Heads&lt;/h3&gt;
-    &lt;div class=&quot;project-pitch&quot;&gt;
-      &lt;p&gt;&lt;strong&gt;The Problem:&lt;/strong&gt; Claude Code hits context limits after 50-100 messages, forcing constant restarts that kill productivity. You spend more time re-explaining your project than building it. Complex development sessions become impossible.&lt;/p&gt;
-      
-      &lt;p&gt;&lt;strong&gt;The Solution:&lt;/strong&gt; Hydra transforms Claude Code into a mythical development beast with 50+ specialized agent heads. Each agent spawns with fresh context, delivers expert results, and returns only actionable outputs—preserving your conversation forever while delivering specialist-level expertise.&lt;/p&gt;
-      
-      &lt;div class=&quot;project-features&quot;&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Context Firewall Technology:&lt;/strong&gt; 50+ agents work in isolation, using 0% of your conversation context. Unlimited 300+ message sessions without degradation.
-        &lt;/div&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;50+ Domain Experts:&lt;/strong&gt; From TypeScript masters to security ninjas—each agent brings deep expertise in modern frameworks and 2024-2025 patterns.
-        &lt;/div&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Autonomous Parallel Execution:&lt;/strong&gt; Multiple agents coordinate complex projects independently while you maintain oversight and control.
-        &lt;/div&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Living Blueprint System:&lt;/strong&gt; Every project becomes a persistent XML document that orchestrates execution and captures organizational knowledge.
-        &lt;/div&gt;
-      &lt;/div&gt;
-      
-      &lt;div class=&quot;project-tagline&quot;&gt;Stop hitting context limits. Start building mythical-scale projects with unlimited conversations.&lt;/div&gt;
-      
-      &lt;div class=&quot;project-cta&quot;&gt;
-        &lt;a href=&quot;https://github.com/sibyllinesoft/hydra&quot; class=&quot;btn-unified btn-primary&quot;&gt;
-          &lt;span class=&quot;btn-inner&quot;&gt;
-            View on GitHub
-            &lt;i data-lucide=&quot;github&quot;&gt;&lt;/i&gt;
-          &lt;/span&gt;
-        &lt;/a&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-## Creative
-
-Creative work is still trial and error—writers spend years perfecting their craft through guesswork, creators waste hours scrolling feeds trying to spot trends that are already saturated, and brilliant ideas die in brainstorming sessions that produce diminishing returns after the first few concepts. What if you could see a story&#x27;s emotional DNA before readers do? What if you knew what would resonate before everyone else?
-
-&lt;!-- Product Bookworm --&gt;
-&lt;div class=&quot;project-brochure&quot; id=&quot;bookworm-product&quot;&gt;
-  &lt;div class=&quot;project-visual&quot;&gt;
-    &lt;i data-lucide=&quot;book-open&quot; class=&quot;project-icon&quot;&gt;&lt;/i&gt;
-    &lt;div class=&quot;project-codename&quot;&gt;Codename: BOOKWORM&lt;/div&gt;
-    &lt;div class=&quot;project-status&quot;&gt;Stealth Development&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;project-content&quot;&gt;
-    &lt;h3&gt;Turn Your Story Into Visual Insights That Sell&lt;/h3&gt;
-    &lt;div class=&quot;project-pitch&quot;&gt;
-      &lt;p&gt;&lt;strong&gt;The Problem:&lt;/strong&gt; Writers spend years perfecting their craft through trial and error. Editors rely on gut instinct. Publishers gamble on manuscripts without data. What if you could see your story&#x27;s DNA before readers do?&lt;/p&gt;
-      
-      &lt;p&gt;&lt;strong&gt;The Solution:&lt;/strong&gt; This classified narrative analysis engine reveals the hidden patterns that captivate readers. Upload your manuscript and watch as we dissect every sentence, revealing emotional arcs, dialogue patterns, and narrative rhythms that separate bestsellers from the slush pile.&lt;/p&gt;
-      
-      &lt;div class=&quot;project-features&quot;&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Tension Mapping:&lt;/strong&gt; See exactly where your story drags and where it soars across every chapter.
-        &lt;/div&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Emotional Flow Analysis:&lt;/strong&gt; Track how your characters&#x27; journeys impact reader engagement and emotional investment.
-        &lt;/div&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Dialogue Intelligence:&lt;/strong&gt; Analyze conversation patterns, character voice consistency, and speech authenticity across your entire manuscript.
-        &lt;/div&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Character Arc Visualization:&lt;/strong&gt; Watch your protagonists transform across chapters with data-driven character development tracking.
-        &lt;/div&gt;
-      &lt;/div&gt;
-      
-      &lt;div class=&quot;project-tagline&quot;&gt;From manuscript to masterpiece. Every story has a structure—now you can see yours.&lt;/div&gt;
-      
-      &lt;div class=&quot;project-cta&quot;&gt;
-        &lt;a href=&quot;javascript:void(0)&quot; class=&quot;btn-unified btn-primary&quot; data-contact-type=&quot;contact&quot; data-subject-type=&quot;waitlist&quot; data-custom-body=&quot;I&#x27;m interested in becoming a tester for this product. Please let me know about testing opportunities.&quot;&gt;
-          &lt;span class=&quot;btn-inner&quot;&gt;
-            Become a Tester
-            &lt;i data-lucide=&quot;mail&quot;&gt;&lt;/i&gt;
-          &lt;/span&gt;
-        &lt;/a&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;!-- Product Ideoscope --&gt;
-&lt;div class=&quot;project-brochure&quot; id=&quot;ideoscope-product&quot;&gt;
-  &lt;div class=&quot;project-visual&quot;&gt;
-    &lt;i data-lucide=&quot;radar&quot; class=&quot;project-icon&quot;&gt;&lt;/i&gt;
-    &lt;div class=&quot;project-codename&quot;&gt;Codename: IDEOSCOPE&lt;/div&gt;
-    &lt;div class=&quot;project-status&quot;&gt;Discovery Phase&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;project-content&quot;&gt;
-    &lt;h3&gt;See What&#x27;s Resonating Before Anyone Else&lt;/h3&gt;
-    &lt;div class=&quot;project-pitch&quot;&gt;
-      &lt;p&gt;&lt;strong&gt;The Problem:&lt;/strong&gt; Creators waste hours scrolling through endless feeds trying to understand what&#x27;s trending in their niche. By the time you spot a trend manually, it&#x27;s already saturated. You need to see what&#x27;s resonating with audiences before it becomes obvious to everyone else.&lt;/p&gt;
-      
-      &lt;p&gt;&lt;strong&gt;The Solution:&lt;/strong&gt; AI-curated Pinterest-style boards that automatically surface the most relevant viral and high-engagement content for whatever you&#x27;re trying to create. Stop chasing trends—start anticipating them.&lt;/p&gt;
-      
-      &lt;div class=&quot;project-features&quot;&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Trend Radar:&lt;/strong&gt; AI monitors millions of posts to identify what&#x27;s gaining traction in your creative domain before it hits mainstream awareness.
-        &lt;/div&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Smart Boards:&lt;/strong&gt; Visual inspiration boards automatically curated around your projects, showing viral content, engagement patterns, and emerging themes.
-        &lt;/div&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Resonance Analysis:&lt;/strong&gt; Understand why specific content is connecting with audiences through AI-powered engagement pattern analysis.
-        &lt;/div&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Creator Intelligence:&lt;/strong&gt; Learn from successful creators in your space—see what formats, topics, and approaches are driving authentic engagement.
-        &lt;/div&gt;
-      &lt;/div&gt;
-      
-      &lt;div class=&quot;project-tagline&quot;&gt;Stop guessing what will resonate. Start creating with confidence.&lt;/div&gt;
-      
-      &lt;div class=&quot;project-cta&quot;&gt;
-        &lt;a href=&quot;javascript:void(0)&quot; class=&quot;btn-unified btn-primary&quot; data-contact-type=&quot;contact&quot; data-subject-type=&quot;waitlist&quot; data-custom-body=&quot;I&#x27;m interested in becoming a tester for this product. Please let me know about testing opportunities.&quot;&gt;
-          &lt;span class=&quot;btn-inner&quot;&gt;
-            Become a Tester
-            &lt;i data-lucide=&quot;mail&quot;&gt;&lt;/i&gt;
-          &lt;/span&gt;
-        &lt;/a&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;!-- Product Darwin --&gt;
-&lt;div class=&quot;project-brochure&quot; id=&quot;darwin-product&quot;&gt;
-  &lt;div class=&quot;project-visual&quot;&gt;
-    &lt;i data-lucide=&quot;git-branch&quot; class=&quot;project-icon&quot;&gt;&lt;/i&gt;
-    &lt;div class=&quot;project-codename&quot;&gt;Codename: DARWIN&lt;/div&gt;
-    &lt;div class=&quot;project-status&quot;&gt;Private Testing&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;project-content&quot;&gt;
-    &lt;h3&gt;Generate Hundreds of Ideas While You Sleep&lt;/h3&gt;
-    &lt;div class=&quot;project-pitch&quot;&gt;
-      &lt;p&gt;&lt;strong&gt;The Problem:&lt;/strong&gt; You spend hours generating ideas only to hit the same creative walls. Manual brainstorming sessions produce diminishing returns after the first few rounds. You need fresh perspectives, but your team is stuck in the same thinking patterns.&lt;/p&gt;
-      
-      &lt;p&gt;&lt;strong&gt;The Solution:&lt;/strong&gt; Get a creative partner that works around the clock, generating and refining ideas while you focus on other priorities. This system automatically produces hundreds of variations, cross-breeds the best concepts, and surfaces breakthrough combinations you&#x27;d never discover manually.&lt;/p&gt;
-      
-      &lt;div class=&quot;project-features&quot;&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;24/7 Idea Generation:&lt;/strong&gt; Set it running overnight and wake up to hundreds of refined concepts, each building on your initial direction.
-        &lt;/div&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Smart Quality Filtering:&lt;/strong&gt; Multiple AI evaluators assess ideas from different angles—practicality, originality, market fit—so you only see the gems.
-        &lt;/div&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Cross-Breeding Innovation:&lt;/strong&gt; The system combines your best ideas in unexpected ways, discovering hybrid concepts you&#x27;d never think to try.
-        &lt;/div&gt;
-        &lt;div class=&quot;feature-item&quot;&gt;
-          &lt;strong&gt;Stay in Control:&lt;/strong&gt; Guide the process anytime by marking favorites, adding constraints, or steering toward specific outcomes.
-        &lt;/div&gt;
-      &lt;/div&gt;
-      
-      &lt;div class=&quot;project-tagline&quot;&gt;Stop forcing creativity. Start discovering what&#x27;s already waiting to be found.&lt;/div&gt;
-      
-      &lt;div class=&quot;project-cta&quot;&gt;
-        &lt;a href=&quot;javascript:void(0)&quot; class=&quot;btn-unified btn-primary&quot; data-contact-type=&quot;contact&quot; data-subject-type=&quot;waitlist&quot; data-custom-body=&quot;I&#x27;m interested in becoming a tester for this product. Please let me know about testing opportunities.&quot;&gt;
-          &lt;span class=&quot;btn-inner&quot;&gt;
-            Become a Tester
-            &lt;i data-lucide=&quot;mail&quot;&gt;&lt;/i&gt;
-          &lt;/span&gt;
-        &lt;/a&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;style&gt;
-/* Project Brochure - Stealth Project Style */
-.project-brochure {
-  display: flex;
-  background: var(--color-surface-50);
-  border: 1px solid var(--color-border-light-50);
-  border-radius: var(--radius-lg);
-  margin: var(--space-3xl) 0;
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  transition: all 0.3s ease;
-}
-
-.project-brochure:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
-  border-color: var(--color-accent);
-}
-
-.project-visual {
-  flex: 0 0 40%;
-  background: var(--color-graphite-700);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space-3xl) var(--space-2xl);
-  position: relative;
-  background-size: cover;
-  background-position: center;
-  background-blend-mode: overlay;
-  text-align: center;
-}
-
-/* Project-specific background images */
-#bookworm-product .project-visual {
-  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url(&#x27;/img/optimized/product-bookworm.webp&#x27;);
-}
-
-#darwin-product .project-visual {
-  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url(&#x27;/img/optimized/product-darwin.webp&#x27;);
-}
-
-#ideoscope-product .project-visual {
-  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url(&#x27;/img/optimized/product-ideoscope.webp&#x27;);
-}
-
-#mimir-product .project-visual {
-  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url(&#x27;/img/optimized/product-mimir.webp&#x27;);
-}
-
-#agentzoo-product .project-visual {
-  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url(&#x27;/img/optimized/product-agentzoo.webp&#x27;);
-}
-
-#mindlink-product .project-visual {
-  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url(&#x27;/img/optimized/product-mindlink.webp&#x27;);
-}
-
-#rave-product .project-visual {
-  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url(&#x27;/img/optimized/product-rave.webp&#x27;);
-}
-
-#lethe-product .project-visual {
-  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url(&#x27;https://images.unsplash.com/photo-1571989237340-98fb838eeef1?q=80&amp;w=1528&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&#x27;);
-}
-
-#scribe-product .project-visual {
-  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url(&#x27;https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&amp;w=2670&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&#x27;);
-}
-
-#smith-product .project-visual {
-  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url(&#x27;https://images.unsplash.com/photo-1496247749665-49cf5b1022e9?q=80&amp;w=2673&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&#x27;);
-}
-
-#daedalus-product .project-visual {
-  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url(&#x27;https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?q=80&amp;w=2670&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&#x27;);
-}
-
-#conclave-product .project-visual {
-  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url(&#x27;https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&amp;w=2670&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&#x27;);
-}
-
-#minerva-product .project-visual {
-  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url(&#x27;https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&amp;w=2670&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&#x27;);
-}
-
-#hydra-product .project-visual {
-  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url(&#x27;https://images.unsplash.com/photo-1681800834704-121aa6378fff?q=80&amp;w=1528&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&#x27;);
-}
-
-#echo-product .project-visual {
-  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url(&#x27;https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&amp;w=2670&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&#x27;);
-}
-
-#arbiter-product .project-visual {
-  background-image: linear-gradient(rgba(234, 179, 8, 0.15), rgba(234, 179, 8, 0.15)), url(&#x27;https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&amp;w=2670&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&#x27;);
-}
-
-#heimdall-product .project-visual {
-  background-image: linear-gradient(rgba(14, 165, 233, 0.15), rgba(14, 165, 233, 0.15)), url(&#x27;https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&amp;w=2672&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&#x27;);
-}
-
-#valknut-product .project-visual {
-  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url(&#x27;https://images.unsplash.com/photo-1612528449557-90f97e0cf75c?q=80&amp;w=2940&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&#x27;);
-}
-
-.project-icon {
-  width: 4rem;
-  height: 4rem;
-  color: var(--color-accent);
-  margin-bottom: var(--space-lg);
-  filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.4));
-}
-
-.project-codename {
-  color: var(--color-accent);
-  font-size: var(--text-xl);
-  font-weight: 700;
-  margin-bottom: var(--space-sm);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  text-align: center;
-}
-
-.project-status {
-  color: var(--color-text-light);
-  font-size: var(--text-sm);
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  opacity: 0.9;
-  text-align: center;
-}
-
-.project-content {
-  flex: 1;
-  padding: var(--space-3xl);
-}
-
-.project-content h2 {
-  margin-top: 0;
-  margin-bottom: var(--space-lg);
-  color: var(--color-text);
-  font-size: var(--text-3xl);
-  font-weight: 700;
-  text-align: center;
-}
-
-.project-pitch {
-  color: var(--color-text-light);
-  line-height: var(--leading-relaxed);
-}
-
-.project-pitch p {
-  margin-bottom: var(--space-lg);
-}
-
-.project-pitch strong {
-  color: var(--color-text);
-  font-weight: 600;
-}
-
-.project-features {
-  margin: var(--space-2xl) 0;
-  background: var(--color-background);
-  border-radius: var(--radius-md);
-  padding: var(--space-xl);
-  border-left: 3px solid var(--color-accent);
-}
-
-.feature-item {
-  margin-bottom: var(--space-lg);
-  padding-left: var(--space-md);
-}
-
-.feature-item:last-child {
-  margin-bottom: 0;
-}
-
-.feature-item strong {
-  color: var(--color-accent);
-  font-weight: 600;
-  display: block;
-  margin-bottom: var(--space-xs);
-}
-
-.project-tagline {
-  color: var(--color-text);
-  font-weight: 500;
-  font-style: italic;
-  margin-bottom: var(--space-lg);
-  font-size: var(--text-lg);
-  text-align: center;
-}
-
-.project-cta {
-  margin-top: var(--space-lg);
-  text-align: center;
-}
-
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .project-brochure {
-    flex-direction: column;
-  }
-  
-  .project-visual {
-    flex: none;
-    padding: var(--space-2xl);
-  }
-  
-  .project-icon {
-    width: 3rem;
-    height: 3rem;
-  }
-  
-  .project-content {
-    padding: var(--space-2xl);
-  }
-  
-  .project-content h2 {
-    font-size: var(--text-2xl);
-  }
-  
-  .project-features {
-    padding: var(--space-lg);
-  }
-  
-  .project-codename {
-    font-size: var(--text-lg);
-  }
-}
-&lt;/style&gt;
-</document_content>
-</document>
-<document index="5">
-<source>src/404.md</source>
-<!-- Size: 455 B, Tokens: ~113 -->
-<document_content>
----
-layout: simple.njk
-permalink: 404.html
-eleventyExcludeFromCollections: true
----
-
-# Page Not Found
-
-Sorry, we couldn&#x27;t find the page you were looking for.
-
-## What you can do:
-
-- Check the URL for any typos
-- Go back to our [Home page](/)
-- Learn more [About us](/about/)
-- If you think this is an error, please contact us at &lt;a href=&quot;#&quot; data-email-display=&quot;contact&quot; data-contact-type=&quot;contact&quot; data-subject-type=&quot;general&quot;&gt;our secure contact email&lt;/a&gt;
-
-</document_content>
-</document>
-<document index="6">
-<source>src/articles/bar.md</source>
-<!-- Size: 6.6 KiB, Tokens: ~1661 -->
-<document_content>
----
-layout: article.njk
-title: &quot;The $1 Trillion Wall: Why AI Progress Just Hit Its Biggest Obstacle Yet&quot;
-description: &quot;We&#x27;re approaching the Human Asymptote—the invisible ceiling where AI hits our own intelligence limits. While this sounds scary, it&#x27;s actually the best news for open-source developers and innovative companies. Here&#x27;s why the next phase of AI will favor collaboration over competition.&quot;
----
-
-## The Moment That Changes Everything
-
-**Here&#x27;s what no one in Silicon Valley wants to admit:** AI progress just hit an invisible wall.
-
-**It&#x27;s not a technical wall.** It&#x27;s not a compute wall. It&#x27;s not even a data wall.
-
-**It&#x27;s the Human Asymptote—the moment when AI hits the ceiling of human intelligence and can&#x27;t bootstrap any further.**
-
-**Think about it:** Every breakthrough in AI has come from learning patterns created by humans. GPT-4 got smarter by studying human writing. AlphaGo got better by analyzing human Go games. Even our &quot;superhuman&quot; AI systems are really just supercharged versions of human knowledge.
-
-**But here&#x27;s the trillion-dollar question:** What happens when there&#x27;s no more human intelligence left to learn from?
-
-&gt; 🎯 **Key Insight:** We&#x27;re about to find out. And surprisingly, this could be the best thing that&#x27;s ever happened to the AI industry.
-
-## The Intelligence Trap That No One Saw Coming
-
-### Why AI Can&#x27;t Bootstrap Beyond Human Limits
-
-**Here&#x27;s the fundamental problem that breaks most AI predictions:**
-
-**AI models are intelligence transformers, not intelligence creators.** They take human patterns and apply them to new domains. But they can&#x27;t generate truly novel intelligence patterns on their own.
-
-**The brutal reality:**
-- 🧠 **Training data quality** is capped by human intelligence
-- 👥 **Data evaluation** is limited by human judgment  
-- 🔄 **Pattern recognition** can only work with patterns humans created
-
-**Translation:** We can&#x27;t accurately identify superhuman training data because we&#x27;re not superhuman ourselves.
-
-### The Ironic Solution That Changes Everything
-
-**Here&#x27;s where it gets interesting:** To push AI beyond human intelligence, we need **global optimization algorithms** to evolve better datasets.
-
-**Sound familiar?** That&#x27;s exactly how humans got intelligent in the first place—through genetic algorithms over millions of years.
-
-**The irony is delicious:** Humans (products of genetic algorithms) must now implement genetic algorithms in machines to surpass their own cognitive limits.
-
-&gt; 🔬 **Technical Reality:** This isn&#x27;t science fiction. It&#x27;s the only mathematically viable path to superhuman AI—and it requires massive collaboration.
-
-## The Evidence Is Already Here: AI Progress Has Plateaued
-
-### The GPT-4 Ceiling That Broke Silicon Valley&#x27;s Dreams
-
-**Pay attention to what&#x27;s NOT happening in AI:**
-
-**Since GPT-4 launched, we haven&#x27;t seen breakthrough improvements in raw problem-solving power.** The gains have all been in efficiency—doing the same things with smaller models.
-
-**Look at the data:**
-- ✅ **Claude Haiku** matches GPT-4 performance at a fraction of the size
-- ✅ **Llama3** competes with billion-dollar models as open source
-- ✅ **Phi3** delivers enterprise-grade results on mobile devices
-
-**What this tells us:** We&#x27;ve maxed out the efficiency of encoding human intelligence. The easy gains are over.
-
-### The Shift That Changes Everything
-
-**Here&#x27;s the pattern that reveals the Human Asymptote:**
-
-**Large models today win through breadth, not depth.** Their advantage isn&#x27;t superior problem-solving—it&#x27;s handling multiple domains simultaneously.
-
-**Translation:** We&#x27;ve hit the ceiling of what human-derived training data can teach AI. The next phase requires fundamentally different approaches.
-
-&gt; 💡 **Strategic Implication:** Companies optimizing for efficiency (not raw model size) are positioning for the post-asymptote world. That&#x27;s where the real opportunities lie.
-
-## Why This Is Actually the Best News for Innovators
-
-### The Self-Driving Cars Moment That Reshapes AI
-
-**I&#x27;m calling it now:** This is self-driving cars all over again.
-
-**What happened with autonomous vehicles?** The core technology worked. Companies raised billions. Then they hit the long tail of edge cases and progress slowed to a crawl.
-
-**What&#x27;s happening with superhuman AI?** The core breakthrough models work. Companies are raising billions. Now they&#x27;re hitting the Human Asymptote—and progress is about to slow dramatically.
-
-### The Collaboration Revolution That Changes Everything
-
-**But here&#x27;s why this is actually amazing news:**
-
-**The Human Asymptote makes AI a civilization-level problem.** No single company—not OpenAI, not Google, not Meta—can solve it alone.
-
-**What this means for you:**
-- 🌍 **Global collaboration** becomes essential (not optional)
-- 🔓 **Open source gets a real shot** at competing with tech giants
-- 🤝 **Corporate monopolies become inefficient** for the hardest problems
-- 💡 **Innovation opportunities** shift to smaller, nimbler teams
-
-### Your Strategic Advantage in the Post-Asymptote World
-
-**The companies that will win are those that:**
-
-1. **🎯 Focus on efficiency over raw capability**
-   - Optimize existing intelligence encoding
-   - Build specialized models for specific domains
-   - Master the art of doing more with less
-
-2. **🤝 Embrace collaborative approaches**
-   - Contribute to global optimization efforts
-   - Build interoperable AI systems
-   - Share learnings across the community
-
-3. **🔬 Invest in optimization algorithms**
-   - Data generation and selection systems
-   - Evolutionary approaches to model improvement
-   - Collaborative training infrastructures
-
-&gt; 🚀 **Ready to Position for the Post-Asymptote Era?** [Download our Human Asymptote Strategy Guide](mailto:hello@sibyllinesoft.com?subject=Human%20Asymptote%20Strategy%20Guide) with specific tactics for thriving when AI progress slows.
-
-### The Bottom Line: Winter Isn&#x27;t Coming, Collaboration Is
-
-**This isn&#x27;t AI winter.** It&#x27;s AI evolution.
-
-**The tooling exists:** We have the optimization algorithms, compute power, and storage capacity to solve the Human Asymptote challenge.
-
-**The requirement changed:** Instead of proprietary breakthroughs, we need global cooperation.
-
-**The opportunity expanded:** Instead of a few tech giants controlling AI, we&#x27;re entering an era where smart collaboration beats big budgets.
-
-**Your next move:** Stop trying to beat Google at their own game. Start building for the collaborative future they can&#x27;t dominate.
-
-&gt; 🎯 **Want to Stay Ahead?** [Join our network](mailto:hello@sibyllinesoft.com?subject=Post-Asymptote%20Network) of forward-thinking AI builders preparing for the collaboration revolution.
-</document_content>
-</document>
-<document index="7">
-<source>backup/src/index.md</source>
-<!-- Size: 556 B, Tokens: ~139 -->
-<document_content>
----
-layout: base.njk
-title: &quot;Home&quot;
-description: &quot;Welcome to Sibylline Software&quot;
----
-
-# Welcome to Sibylline Software
-
-This is the home page of your new Eleventy site! 
-
-## Getting Started
-
-You can edit this content in `src/index.md`. The layout is defined in `src/_layouts/base.njk`.
-
-## Features
-
-- Built with Eleventy static site generator
-- Optimized for GitHub Pages
-- Responsive design
-- Easy to customize
-
-## Next Steps
-
-1. Customize your site content
-2. Update the styling in `src/css/style.css`
-3. Add more pages and posts
-4. Deploy to GitHub Pages
-</document_content>
-</document>
-<document index="8">
-<source>netlify.toml</source>
-<!-- Size: 54 B, Tokens: ~13 -->
-<document_content>
-[build]
-	publish = &quot;_site&quot;
-	command = &quot;npm run build&quot;
-
-</document_content>
-</document>
-<document index="9">
-<source>CNAME</source>
-<!-- Size: 13 B, Tokens: ~3 -->
-<document_content>
-sibylline.dev
-</document_content>
-</document>
-</documents>
