@@ -32,6 +32,13 @@ const serviceData = {
     alt: 'Strategic team meeting with AI implementation planning',
     subject: 'Strategic AI Implementation Consultation',
     body: 'Hello! I\'d like to discuss Strategic Implementation services to create clear roadmaps from concept to competitive edge. Can we schedule a consultation?'
+  },
+  agentic: {
+    image: 'custom-visualization', // Special flag for custom visualization
+    ctaText: 'Build Agent Systems',
+    alt: 'Production pipeline visualization for autonomous agent systems',
+    subject: 'Autonomous Agent Systems Development',
+    body: 'Hi! I\'m interested in your Autonomous Agent Systems development services. Can we discuss how to build production-ready agent systems that scale safely?'
   }
 };
 
@@ -112,8 +119,42 @@ class ModalManager {
     this.modalSummary.textContent = summary;
     this.modalDetails.innerHTML = details ? details.innerHTML : '';
     
-    // Set image and CTA
-    this.modalImage.src = serviceInfo.image;
+    // Set image and CTA - handle custom visualization for agentic service
+    if (serviceType === 'agentic' && serviceInfo.image === 'custom-visualization') {
+      // Hide the standard modal image and show the production pipeline instead
+      this.modalImage.style.display = 'none';
+      
+      // Create or update custom visualization container
+      let customVizContainer = this.modal.querySelector('.modal-custom-visualization');
+      if (!customVizContainer) {
+        customVizContainer = document.createElement('div');
+        customVizContainer.className = 'modal-custom-visualization';
+        this.modalImage.parentNode.insertBefore(customVizContainer, this.modalImage);
+      }
+      
+      // Clone the production pipeline from the card
+      const originalPipeline = card.querySelector('.production-pipeline');
+      if (originalPipeline) {
+        customVizContainer.innerHTML = originalPipeline.outerHTML;
+        customVizContainer.style.display = 'block';
+        
+        // Trigger animations for the cloned pipeline
+        setTimeout(() => {
+          this.triggerModalPipelineAnimations(customVizContainer);
+        }, 100);
+      }
+    } else {
+      // Standard image display for other services
+      this.modalImage.style.display = 'block';
+      this.modalImage.src = serviceInfo.image;
+      
+      // Hide custom visualization if it exists
+      const customVizContainer = this.modal.querySelector('.modal-custom-visualization');
+      if (customVizContainer) {
+        customVizContainer.style.display = 'none';
+      }
+    }
+    
     this.modalImage.alt = serviceInfo.alt;
     this.modalCtaText.textContent = serviceInfo.ctaText;
     
@@ -214,6 +255,21 @@ class ModalManager {
         }, layers.length * 200 + 800);
       }
     }
+    
+    // Also trigger production pipeline preview animations
+    const serviceVisual = card.querySelector('.service-visual');
+    const productionPipeline = serviceVisual?.querySelector('.production-pipeline');
+    if (productionPipeline) {
+      // Subtle flowing animation for preview
+      const flowingElements = productionPipeline.querySelectorAll('.flowing');
+      setTimeout(() => {
+        flowingElements.forEach((element, index) => {
+          element.style.opacity = '0.7';
+          element.style.animation = 'pipelineFlow 4s infinite';
+          element.style.animationDelay = `${index * 0.8}s`;
+        });
+      }, 1000);
+    }
   }
 
   triggerServiceVisualAnimations(card) {
@@ -227,6 +283,29 @@ class ModalManager {
       
       // Restart animations by temporarily removing and re-adding animation styles
       const animatedElements = serviceVisual.querySelectorAll('.arch-layer, .milestone-marker, .network-node, .skill-level');
+      
+      // Trigger production pipeline animations
+      const productionPipeline = serviceVisual.querySelector('.production-pipeline');
+      if (productionPipeline) {
+        // Activate flowing elements
+        const flowingElements = productionPipeline.querySelectorAll('.flowing');
+        flowingElements.forEach((element, index) => {
+          setTimeout(() => {
+            element.style.opacity = '1';
+            element.style.animation = 'pipelineFlow 3s infinite';
+            element.style.animationDelay = `${index * 0.5}s`;
+          }, index * 200 + 300);
+        });
+        
+        // Trigger agent scaling animations
+        const agentInstances = productionPipeline.querySelectorAll('.agent-instance');
+        agentInstances.forEach((instance, index) => {
+          setTimeout(() => {
+            instance.style.animation = 'agentScale 2s infinite';
+            instance.style.animationDelay = `${index * 0.3}s`;
+          }, 800);
+        });
+      }
       animatedElements.forEach((el, index) => {
         // Reset the element to initial state
         el.style.opacity = '0';
@@ -271,6 +350,90 @@ class ModalManager {
         }
       }
     }
+  }
+
+  triggerModalPipelineAnimations(container) {
+    const productionPipeline = container.querySelector('.production-pipeline');
+    if (!productionPipeline) return;
+
+    // Reset and animate pipeline stages
+    const pipelineStages = productionPipeline.querySelectorAll('.pipeline-stage');
+    pipelineStages.forEach((stage, index) => {
+      stage.style.opacity = '0';
+      stage.style.transform = 'translateY(10px)';
+      
+      setTimeout(() => {
+        stage.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+        stage.style.opacity = '1';
+        stage.style.transform = 'translateY(0)';
+      }, index * 150 + 200);
+    });
+
+    // Animate uptime indicator
+    const uptimeIndicator = productionPipeline.querySelector('.uptime-indicator');
+    if (uptimeIndicator) {
+      uptimeIndicator.style.opacity = '0';
+      setTimeout(() => {
+        uptimeIndicator.style.transition = 'opacity 0.8s ease-out';
+        uptimeIndicator.style.opacity = '1';
+        
+        // Add pulsing animation for uptime
+        setTimeout(() => {
+          uptimeIndicator.style.animation = 'statusPulse 2s infinite';
+        }, 500);
+      }, 800);
+    }
+
+    // Animate agent swarm and scaling indicator
+    const agentSwarm = productionPipeline.querySelector('.agent-swarm');
+    if (agentSwarm) {
+      const scalingIndicator = agentSwarm.querySelector('.scaling-indicator');
+      if (scalingIndicator) {
+        scalingIndicator.style.opacity = '0';
+        scalingIndicator.style.transform = 'scale(0.8)';
+        
+        setTimeout(() => {
+          scalingIndicator.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+          scalingIndicator.style.opacity = '1';
+          scalingIndicator.style.transform = 'scale(1)';
+          
+          // Add scaling animation
+          setTimeout(() => {
+            scalingIndicator.style.animation = 'agentScale 2s infinite';
+          }, 300);
+        }, 1000);
+      }
+
+      // Animate agent instances
+      const agentInstances = agentSwarm.querySelectorAll('.agent-instance');
+      agentInstances.forEach((instance, index) => {
+        instance.style.opacity = '0';
+        instance.style.transform = 'scale(0.5)';
+        
+        setTimeout(() => {
+          instance.style.transition = 'opacity 0.4s ease-out, transform 0.4s ease-out';
+          instance.style.opacity = '1';
+          instance.style.transform = 'scale(1)';
+          
+          // Add individual scaling animations
+          setTimeout(() => {
+            instance.style.animation = 'agentScale 2s infinite';
+            instance.style.animationDelay = `${index * 0.3}s`;
+          }, 200);
+        }, 1200 + index * 100);
+      });
+    }
+
+    // Add flowing animation to the entire pipeline after initial animations
+    setTimeout(() => {
+      const flowingElements = productionPipeline.querySelectorAll('.flowing, .pipeline-stage');
+      flowingElements.forEach((element, index) => {
+        if (!element.style.animation || element.style.animation === 'none') {
+          element.style.animation = `pipelineFlow 4s infinite`;
+          element.style.animationDelay = `${index * 0.6}s`;
+        }
+      });
+    }, 1500);
   }
 }
 

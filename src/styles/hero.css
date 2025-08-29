@@ -284,6 +284,31 @@
   }
 }
 
+/* Neural Network Shimmer Effect - For reduced motion fallback */
+.neural-shimmer {
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(150, 130, 220, 0.03) 40%,
+    rgba(180, 150, 240, 0.08) 50%,
+    rgba(150, 130, 220, 0.03) 60%,
+    transparent 70%
+  );
+  background-size: 200% 200%;
+  animation: neuralShimmer 4s ease-in-out infinite;
+}
+
+@keyframes neuralShimmer {
+  0%, 100% {
+    background-position: -200% -200%;
+    opacity: 0.4;
+  }
+  50% {
+    background-position: 200% 200%;
+    opacity: 0.7;
+  }
+}
+
 /* Accessibility - Respect reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
   .hero-title,
@@ -307,6 +332,21 @@
   
   .neural-background {
     display: none;
+  }
+  
+  .neural-shimmer {
+    animation: neuralShimmerReduced 6s ease-in-out infinite;
+  }
+  
+  @keyframes neuralShimmerReduced {
+    0%, 100% {
+      background-position: -100% -100%;
+      opacity: 0.2;
+    }
+    50% {
+      background-position: 100% 100%;
+      opacity: 0.4;
+    }
   }
   
   .hero-divider::before {

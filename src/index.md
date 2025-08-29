@@ -148,48 +148,31 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
 </div>
 <div class="click-hint">Click to expand</div>
 <div class="service-visual">
-<div class="production-pipeline">
-<div class="pipeline-stage development">
-<div class="stage-icon">⚡</div>
-<div class="stage-label">Dev</div>
-<div class="stage-status active"></div>
+<div class="autonomous-network">
+<div class="network-node central">
+<div class="pulse-ring"></div>
+<div class="node-core"></div>
 </div>
-<div class="pipeline-flow">
-<div class="flow-segment">
-<div class="code-commit flowing"></div>
+<div class="network-node satellite" style="top: 25%; left: 75%;">
+<div class="node-core"></div>
+<div class="connection-line" style="transform-origin: center bottom; transform: rotate(-135deg);"></div>
 </div>
+<div class="network-node satellite" style="top: 75%; left: 75%;">
+<div class="node-core"></div>
+<div class="connection-line" style="transform-origin: center bottom; transform: rotate(-45deg);"></div>
 </div>
-<div class="pipeline-stage testing">
-<div class="stage-icon">🧪</div>
-<div class="stage-label">Test</div>
-<div class="stage-status active"></div>
+<div class="network-node satellite" style="top: 75%; left: 25%;">
+<div class="node-core"></div>
+<div class="connection-line" style="transform-origin: center bottom; transform: rotate(45deg);"></div>
 </div>
-<div class="pipeline-flow">
-<div class="flow-segment">
-<div class="build-artifact flowing"></div>
+<div class="network-node satellite" style="top: 25%; left: 25%;">
+<div class="node-core"></div>
+<div class="connection-line" style="transform-origin: center bottom; transform: rotate(135deg);"></div>
 </div>
-</div>
-<div class="pipeline-stage deployment">
-<div class="stage-icon">🚀</div>
-<div class="stage-label">Deploy</div>
-<div class="stage-status active"></div>
-</div>
-<div class="pipeline-flow">
-<div class="flow-segment">
-<div class="live-agent flowing"></div>
-</div>
-</div>
-<div class="pipeline-stage production">
-<div class="stage-icon">✅</div>
-<div class="stage-label">Live</div>
-<div class="stage-status success"></div>
-<div class="uptime-indicator">99.9%</div>
-</div>
-<div class="agent-swarm">
-<div class="agent-instance" style="top: 20%; left: 15%;"></div>
-<div class="agent-instance" style="top: 40%; left: 25%;"></div>
-<div class="agent-instance" style="top: 60%; left: 35%;"></div>
-<div class="scaling-indicator">Auto-scaling</div>
+<div class="data-flow">
+<div class="flow-particle" style="animation-delay: 0s;"></div>
+<div class="flow-particle" style="animation-delay: 1s;"></div>
+<div class="flow-particle" style="animation-delay: 2s;"></div>
 </div>
 </div>
 </div>
@@ -412,14 +395,20 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
   box-shadow:0 0 0 1px rgba(255,255,255,.08) inset;
   z-index: 5;
 }
-.service-visual.planet i{ /* the moon */
-  position:absolute; left:50%; top:50%; translate:40px -50%;
+.service-visual.planet i{ /* the moon orbit container */
+  position:absolute; left:50%; top:50%;
+  width:80px; height:80px;
+  transform:translate(-50%, -50%);
+  animation:orbit var(--dur) linear infinite;
+  z-index: 6;
+}
+.service-visual.planet i::after{ /* the moon */
+  content:""; position:absolute;
+  left:40px; top:50%;
   width:8px; height:8px; border-radius:50%;
   background:var(--color-accent);
   filter:drop-shadow(0 0 6px rgba(99,102,241,.4));
-  animation:spin var(--dur) linear infinite;
-  transform-origin:-40px 0;
-  z-index: 6;
+  transform:translate(-50%, -50%);
 }
 .service-visual.planet .orbit-ring { /* moon orbit ring */
   position:absolute; left:50%; top:50%; translate:-50% -50%;
@@ -473,22 +462,22 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
 }
 .service-visual.solar b{
   position:absolute; left:50%; top:50%;
-  animation:spin var(--dur) linear infinite; will-change:transform;
+  transform:translate(-50%, -50%);
+  animation:orbit var(--dur) linear infinite; will-change:transform;
   z-index: 3;
 }
 .service-visual.solar b::after{
   content:""; position:absolute; left:0; top:-3.5px;
   width:7px; height:7px; border-radius:50%;
   background:var(--color-accent); box-shadow:0 0 8px rgba(99,102,241,.4);
-  transform-origin: center center;
 }
-.service-visual.solar b:nth-child(2){ width:180px; height:180px; animation-duration:calc(var(--dur)*3.0)}
+.service-visual.solar b:nth-child(2){ width:160px; height:160px; animation-duration:calc(var(--dur)*3.0)}
 .service-visual.solar b:nth-child(2)::after{ left:90px; opacity:.9; width:9px; height:9px; }
-.service-visual.solar b:nth-child(3){ width:140px; height:140px; animation-duration:calc(var(--dur)*2.2)}
+.service-visual.solar b:nth-child(3){ width:130px; height:130px; animation-duration:calc(var(--dur)*2.2)}
 .service-visual.solar b:nth-child(3)::after{ left:70px; opacity:.85; width:7px; height:7px; }
 .service-visual.solar b:nth-child(4){ width:100px; height:100px; animation-duration:calc(var(--dur)*1.5)}
 .service-visual.solar b:nth-child(4)::after{ left:50px; opacity:.8; width:5px; height:5px; }
-.service-visual.solar b:nth-child(5){ width:60px; height:60px; animation-duration:calc(var(--dur)*1.0)}
+.service-visual.solar b:nth-child(5){ width:69px; height:69px; animation-duration:calc(var(--dur)*1.0)}
 .service-visual.solar b:nth-child(5)::after{ left:30px; opacity:.75; width:3px; height:3px; }
 .service-visual.solar .star{ /* central star */
   position:absolute; left:50%; top:50%; transform:translate(-50%, -50%); z-index:5;
@@ -598,6 +587,10 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
 
 /* Shared keyframes for all animations */
 @keyframes spin{to{transform:translate(-50%, -50%) rotate(360deg)}}
+@keyframes orbit{
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
 @keyframes gspin{to{transform:rotate(360deg)}}
 @keyframes gspinR{to{transform:rotate(-360deg)}}
 @keyframes sunPulse{

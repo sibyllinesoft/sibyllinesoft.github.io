@@ -895,11 +895,48 @@
 
 .flow-particle {
   position: absolute;
+  top: 50%;
+  left: 50%;
   width: 4px;
   height: 4px;
   background: var(--color-accent);
   border-radius: 50%;
   animation: particleFlow 3s infinite;
+}
+
+/* =================================
+   SVG Solar System Animation
+   ================================= */
+
+/* Solar system container - square aspect ratio for perfect SVG scaling */
+.solar-system {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+  aspect-ratio: 1 / 1;
+}
+
+/* SVG fills the container completely */
+.solar-system svg {
+  width: 100%;
+  height: 100%;
+  color: var(--color-accent, #6366f1);
+}
+
+/* Orbit animation - each group rotates around SVG center (50,50) */
+.orbit {
+  transform-origin: 50px 50px;
+  animation: orbit-spin var(--orbit-period) linear infinite;
+}
+
+/* Keyframe for smooth orbital rotation */
+@keyframes orbit-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* =================================
@@ -1229,10 +1266,10 @@
 }
 
 @keyframes particleFlow {
-  0% { top: 50%; left: 50%; opacity: 0; }
+  0% { transform: translateX(0) translateY(0); opacity: 0; }
   10% { opacity: 1; }
   90% { opacity: 1; }
-  100% { top: 10%; left: 80%; opacity: 0; }
+  100% { transform: translateX(30px) translateY(-40px); opacity: 0; }
 }
 
 @keyframes neuralFire {
@@ -1347,4 +1384,190 @@
   .services-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* =================================
+   Modal Custom Visualization Styles
+   ================================= */
+
+.modal-custom-visualization {
+  width: 100%;
+  height: 300px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-custom-visualization .production-pipeline {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.modal-custom-visualization .pipeline-stage {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px 10px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.modal-custom-visualization .stage-icon {
+  font-size: 2.5rem;
+  margin-bottom: 8px;
+  filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.4));
+}
+
+.modal-custom-visualization .stage-label {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+.modal-custom-visualization .uptime-indicator {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  background: rgba(34, 197, 94, 0.2);
+  border: 1px solid #22c55e;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  color: #22c55e;
+  font-weight: 700;
+  box-shadow: 0 0 8px rgba(34, 197, 94, 0.3);
+}
+
+.modal-custom-visualization .agent-swarm {
+  position: absolute;
+  bottom: 20px;
+  right: 25px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.modal-custom-visualization .scaling-indicator {
+  font-size: 0.9rem;
+  color: #3b82f6;
+  font-weight: 700;
+  background: rgba(59, 130, 246, 0.15);
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  border-radius: 6px;
+  padding: 4px 8px;
+  box-shadow: 0 0 6px rgba(59, 130, 246, 0.3);
+}
+
+.modal-custom-visualization .agent-instance {
+  width: 10px;
+  height: 10px;
+  background: #3b82f6;
+  border-radius: 50%;
+  animation: agentScale 2s infinite;
+  box-shadow: 0 0 4px rgba(59, 130, 246, 0.5);
+}
+
+/* =================================
+   Solar System Visualization for Startup Service Card
+   ================================= */
+
+.service-visual.solar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.service-visual.solar .star {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  background: var(--color-accent);
+  border-radius: 50%;
+  z-index: 5;
+  box-shadow: 0 0 8px rgba(99, 102, 241, 0.6);
+  animation: starPulse 2s ease-in-out infinite;
+}
+
+.service-visual.solar b {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid var(--color-accent);
+  border-radius: 50%;
+  opacity: 0.1;
+  animation: orbitSpin 8s linear infinite;
+}
+
+.service-visual.solar b:nth-child(2) {
+  width: 30px;
+  height: 30px;
+  animation-duration: 6s;
+}
+
+.service-visual.solar b:nth-child(3) {
+  width: 50px;
+  height: 50px;
+  animation-duration: 12s;
+}
+
+.service-visual.solar b:nth-child(4) {
+  width: 70px;
+  height: 70px;
+  animation-duration: 18s;
+}
+
+.service-visual.solar b:nth-child(5) {
+  width: 90px;
+  height: 90px;
+  animation-duration: 24s;
+}
+
+@keyframes starPulse {
+  0%, 100% { 
+    opacity: 1; 
+    transform: translate(-50%, -50%) scale(1); 
+  }
+  50% { 
+    opacity: 0.7; 
+    transform: translate(-50%, -50%) scale(1.1); 
+  }
+}
+
+@keyframes orbitSpin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Enhanced modal image container to accommodate custom visualization */
+.modal-image-container {
+  position: relative;
+  width: 100%;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
 }

@@ -2,6 +2,14 @@
  * Transformer-Inspired Neural Network Animation
  * A sophisticated 3D neural network visualization with rotating cylindrical layers,
  * pulse propagation, and Morse code synchronized transmissions.
+ * 
+ * Performance Optimizations:
+ * - Visibility gating with IntersectionObserver
+ * - Adaptive framerate (30-45Hz simulation, 60Hz render)
+ * - Dynamic resolution scaling with DPR clamping
+ * - Spatial hashing for O(N) physics calculations
+ * - Cached drawing operations and gradients
+ * - prefers-reduced-motion support
  */
 
 class NeuralNetwork {
@@ -16,6 +24,34 @@ class NeuralNetwork {
     this.time = 0;
     this.rotation = 0;
     this.resizeTimeout = null;
+    
+    // Performance optimization state
+    this.isVisible = true;
+    this.isDocumentVisible = true;
+    this.reducedMotion = false;
+    this.isPaused = false;
+    this.lastFrameTime = 0;
+    this.frameCount = 0;
+    this.targetFps = 60;
+    this.frameInterval = 1000 / this.targetFps;
+    
+    // Resolution scaling
+    this.dynamicDpr = 1;
+    this.maxDpr = 1.5;
+    this.baseDpr = window.devicePixelRatio || 1;
+    this.motionIntensity = 0;
+    this.lastMotionTime = 0;
+    
+    // Spatial optimization
+    this.spatialGrid = new Map();
+    this.gridSize = 100;
+    this.spatialUpdateInterval = 10; // Update spatial grid every N frames
+    
+    // Cached drawing operations
+    this.gradientCache = new Map();
+    this.pathCache = new Map();
+    this.lastCacheTime = 0;
+    this.cacheUpdateInterval = 1000; // Update cache every second
     
     // Morse code messages (funny AI-related)
     this.morseMessages = [
@@ -39,6 +75,7 @@ class NeuralNetwork {
   }
   
   init() {
+    this.setupPerformanceOptimizations();
     this.resize();
     this.createTransformerStructure();
     this.createConnections();
@@ -47,16 +84,196 @@ class NeuralNetwork {
     window.addEventListener('resize', () => this.handleResize());
   }
   
+  /**
+   * Phase 1: Setup visibility gating and performance monitoring
+   */
+  setupPerformanceOptimizations() {
+    // Check for reduced motion preference
+    this.reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    // Listen for reduced motion changes
+    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    motionQuery.addListener((e) => {
+      this.reducedMotion = e.matches;
+      if (this.reducedMotion) {
+        this.pauseAnimation();
+      } else {
+        this.resumeAnimation();
+      }
+    });
+    
+    // Setup IntersectionObserver for visibility detection
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          this.isVisible = entry.isIntersecting;
+          this.updateAnimationState();
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '100px'
+      });
+      observer.observe(this.canvas);
+    }
+    
+    // Listen for document visibility changes
+    document.addEventListener('visibilitychange', () => {
+      this.isDocumentVisible = !document.hidden;
+      this.updateAnimationState();
+    });
+    
+    // Setup dynamic DPR based on device capabilities
+    this.setupDynamicResolution();
+  }
+  
+  /**
+   * Dynamic resolution scaling based on motion intensity and device capabilities
+   */
+  setupDynamicResolution() {
+    // Clamp DPR to reasonable maximum
+    this.baseDpr = Math.min(window.devicePixelRatio || 1, this.maxDpr);
+    this.dynamicDpr = this.baseDpr;
+    
+    // Start with conservative DPR on lower-end devices
+    if (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4) {
+      this.baseDpr = Math.min(this.baseDpr, 1.25);
+      this.maxDpr = 1.25;
+    }
+    
+    // Detect device memory constraints
+    if ('deviceMemory' in navigator && navigator.deviceMemory <= 4) {
+      this.baseDpr = Math.min(this.baseDpr, 1);
+      this.maxDpr = 1;
+    }
+    
+    this.dynamicDpr = this.baseDpr;
+  }
+  
+  /**
+   * Update animation state based on visibility and performance constraints
+   */
+  updateAnimationState() {
+    const shouldAnimate = this.isVisible && this.isDocumentVisible && !this.reducedMotion;
+    
+    if (shouldAnimate && this.isPaused) {
+      this.resumeAnimation();
+    } else if (!shouldAnimate && !this.isPaused) {
+      this.pauseAnimation();
+    }
+    
+    // Adjust target FPS based on visibility
+    if (this.isVisible && this.isDocumentVisible) {
+      this.targetFps = 60;
+    } else if (this.isVisible || this.isDocumentVisible) {
+      this.targetFps = 30;
+    } else {
+      this.targetFps = 0; // Pause completely when not visible
+    }
+    
+    this.frameInterval = this.targetFps > 0 ? 1000 / this.targetFps : Infinity;
+  }
+  
+  /**
+   * Pause animation and show idle state
+   */
+  pauseAnimation() {
+    if (this.animationId) {
+      cancelAnimationFrame(this.animationId);
+      this.animationId = null;
+    }
+    this.isPaused = true;
+    
+    if (this.reducedMotion) {
+      // Show static version with CSS shimmer effect
+      this.showIdleShimmer();
+    }
+  }
+  
+  /**
+   * Resume animation from paused state
+   */
+  resumeAnimation() {
+    if (this.isPaused && !this.animationId) {
+      this.isPaused = false;
+      this.lastFrameTime = performance.now();
+      this.animate();
+    }
+  }
+  
+  /**
+   * Show idle shimmer effect using CSS when animation is paused
+   */
+  showIdleShimmer() {
+    // Clear canvas and apply CSS shimmer effect
+    this.ctx.clearRect(0, 0, this.width, this.height);
+    
+    // Add CSS class for shimmer effect
+    this.canvas.classList.add('neural-shimmer');
+    
+    // Remove shimmer class when animation resumes
+    setTimeout(() => {
+      if (this.canvas.classList.contains('neural-shimmer')) {
+        this.canvas.classList.remove('neural-shimmer');
+      }
+    }, 100);
+  }
+  
   resize() {
     const rect = this.canvas.getBoundingClientRect();
-    this.canvas.width = rect.width * window.devicePixelRatio;
-    this.canvas.height = rect.height * window.devicePixelRatio;
-    this.ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+    
+    // Use dynamic DPR for resolution scaling
+    this.canvas.width = rect.width * this.dynamicDpr;
+    this.canvas.height = rect.height * this.dynamicDpr;
+    this.ctx.scale(this.dynamicDpr, this.dynamicDpr);
     
     this.width = rect.width;
     this.height = rect.height;
     this.centerX = this.width / 2;
     this.centerY = this.height / 2;
+    
+    // Clear cached drawing operations when resizing
+    this.clearDrawingCache();
+  }
+  
+  /**
+   * Adjust resolution based on motion intensity and device performance
+   */
+  updateDynamicResolution() {
+    const now = performance.now();
+    
+    // Calculate motion intensity based on pulse activity
+    const recentPulses = this.pulses.filter(pulse => 
+      now - pulse.createdAt < 500
+    ).length;
+    
+    this.motionIntensity = Math.min(recentPulses / 10, 1);
+    
+    // Reduce resolution during high motion periods
+    let targetDpr = this.baseDpr;
+    if (this.motionIntensity > 0.7) {
+      targetDpr = this.baseDpr * 0.75;
+    } else if (this.motionIntensity > 0.4) {
+      targetDpr = this.baseDpr * 0.9;
+    }
+    
+    // Smooth transition to avoid jarring resolution changes
+    const maxChange = 0.1;
+    const change = Math.max(-maxChange, Math.min(maxChange, targetDpr - this.dynamicDpr));
+    this.dynamicDpr = Math.max(0.5, Math.min(this.maxDpr, this.dynamicDpr + change));
+    
+    // Update canvas resolution if significant change
+    if (Math.abs(change) > 0.05 && now - this.lastMotionTime > 1000) {
+      this.lastMotionTime = now;
+      this.resize();
+    }
+  }
+  
+  /**
+   * Clear cached drawing operations
+   */
+  clearDrawingCache() {
+    this.gradientCache.clear();
+    this.pathCache.clear();
   }
   
   handleResize() {
@@ -84,9 +301,9 @@ class NeuralNetwork {
   createTransformerStructure() {
     this.layers = [];
     const layerCount = 24; // Even more layers for much closer vertical spacing
-    const totalWidth = this.width * 0.95; // Wider
-    const totalHeight = this.height * 0.85; // Taller
-    const cylinderRadius = totalHeight * 0.35; // Radius for cylindrical distribution
+    const totalWidth = this.width * 0.65; // Further reduced from 0.82 to provide more breathing room horizontally
+    const totalHeight = this.height * 0.58; // Further reduced from 0.75 to provide more breathing room vertically  
+    const cylinderRadius = totalHeight * 0.28; // Further reduced from 0.32 to match smaller total height
     
     // Generate smooth elliptical distribution with 24 layers for closer spacing
     const layerTypes = [];
@@ -163,7 +380,7 @@ class NeuralNetwork {
           nodeIndex,
           layerType: layerType.name,
           // Enhanced orbital motion for more organic movement
-          orbitRadius: 4 + Math.random() * 8,
+          orbitRadius: 2 + Math.random() * 4, // Further reduced from 3-9 to 2-6 range for smaller geometry
           orbitSpeed: 0.03 + Math.random() * 0.08,
           orbitOffset: Math.random() * Math.PI * 2,
           // Visual properties based on layer type
@@ -231,11 +448,18 @@ class NeuralNetwork {
     this.connections = [];
     this.connectionGlow.clear();
     
-    // Create more regular, structured connections with transparency
+    // Build spatial grid for O(N) connection creation
+    this.buildSpatialGrid();
+    
+    // Create more regular, structured connections with spatial optimization
     for (let i = 0; i < this.nodes.length; i++) {
-      for (let j = i + 1; j < this.nodes.length; j++) {
-        const nodeA = this.nodes[i];
-        const nodeB = this.nodes[j];
+      const nodeA = this.nodes[i];
+      
+      // Use spatial grid to find nearby nodes instead of checking all nodes
+      const nearbyNodes = this.getNearbyNodes(nodeA);
+      
+      for (const nodeB of nearbyNodes) {
+        if (nodeB.spatialIndex <= nodeA.spatialIndex) continue; // Avoid duplicate connections
         
         let shouldConnect = false;
         const connectionStrength = 0.15;
@@ -288,10 +512,10 @@ class NeuralNetwork {
         }
         
         if (shouldConnect) {
-          const connectionId = `${i}-${j}`;
+          const connectionId = `${nodeA.spatialIndex}-${nodeB.spatialIndex}`;
           this.connections.push({
-            from: i,
-            to: j,
+            from: nodeA.spatialIndex,
+            to: nodeB.spatialIndex,
             id: connectionId,
             strength: connectionStrength,
             lastActivation: 0,
@@ -304,25 +528,81 @@ class NeuralNetwork {
     }
   }
   
+  /**
+   * Build spatial grid for O(N) collision detection and connection creation
+   */
+  buildSpatialGrid() {
+    this.spatialGrid.clear();
+    
+    // Add spatial index to nodes for consistent referencing
+    this.nodes.forEach((node, index) => {
+      node.spatialIndex = index;
+      
+      // Calculate grid position
+      const gridX = Math.floor(node.baseX / this.gridSize);
+      const gridY = Math.floor(node.baseY / this.gridSize);
+      const gridKey = `${gridX},${gridY}`;
+      
+      if (!this.spatialGrid.has(gridKey)) {
+        this.spatialGrid.set(gridKey, []);
+      }
+      this.spatialGrid.get(gridKey).push(node);
+    });
+  }
+  
+  /**
+   * Get nearby nodes using spatial grid instead of checking all nodes
+   */
+  getNearbyNodes(node) {
+    const nearbyNodes = [];
+    const searchRadius = 2; // Search in 2x2 grid around node
+    
+    const centerGridX = Math.floor(node.baseX / this.gridSize);
+    const centerGridY = Math.floor(node.baseY / this.gridSize);
+    
+    // Search in surrounding grid cells
+    for (let dx = -searchRadius; dx <= searchRadius; dx++) {
+      for (let dy = -searchRadius; dy <= searchRadius; dy++) {
+        const gridKey = `${centerGridX + dx},${centerGridY + dy}`;
+        const gridNodes = this.spatialGrid.get(gridKey);
+        
+        if (gridNodes) {
+          nearbyNodes.push(...gridNodes);
+        }
+      }
+    }
+    
+    return nearbyNodes;
+  }
+  
+  /**
+   * Update spatial grid periodically for better performance
+   */
+  updateSpatialGrid() {
+    if (this.frameCount % this.spatialUpdateInterval === 0) {
+      this.buildSpatialGrid();
+    }
+  }
+  
   updateNodes() {
     this.time += 0.016; // 60fps normalized
-    this.rotation += 0.00225; // Increased rotation speed by 50%
+    this.rotation += 0.003375; // Increased rotation speed by 50% (0.00225 * 1.5)
     
     this.nodes.forEach((node, index) => {
       // Enhanced orbital drift for more organic movement
       const orbitAngle = this.time * node.orbitSpeed + node.orbitOffset;
-      const driftX = Math.cos(orbitAngle) * node.orbitRadius * 0.15; // More drift
-      const driftY = Math.sin(orbitAngle) * node.orbitRadius * 0.1;
+      const driftX = Math.cos(orbitAngle) * node.orbitRadius * 0.10; // Further reduced from 0.12 for smaller geometry
+      const driftY = Math.sin(orbitAngle) * node.orbitRadius * 0.06; // Further reduced from 0.08 for smaller geometry
       
       // Gentler, smoother mesh deformation for cleaner elliptical appearance
-      const deformX1 = Math.sin(this.time * 0.3 + node.baseY * 0.008) * 8; // Much gentler
-      const deformX2 = Math.cos(this.time * 0.2 + node.baseZ * 0.005) * 6; // Smoother
-      const deformY1 = Math.cos(this.time * 0.25 + node.baseX * 0.007) * 10; // Moderate
-      const deformY2 = Math.sin(this.time * 0.4 + (node.layerIndex * 0.3)) * 5; // Gentle
+      const deformX1 = Math.sin(this.time * 0.3 + node.baseY * 0.008) * 4; // Further reduced from 6 for smaller geometry
+      const deformX2 = Math.cos(this.time * 0.2 + node.baseZ * 0.005) * 3; // Further reduced from 4 for smaller geometry
+      const deformY1 = Math.cos(this.time * 0.25 + node.baseX * 0.007) * 5; // Further reduced from 7 for smaller geometry
+      const deformY2 = Math.sin(this.time * 0.4 + (node.layerIndex * 0.3)) * 2; // Further reduced from 3 for smaller geometry
       
       // Subtle turbulent warping for organic feel without messiness
-      const turbulenceX = Math.sin(this.time * 0.15 + node.cylinderAngle * 2) * 4; // Much subtler
-      const turbulenceY = Math.cos(this.time * 0.18 + node.cylinderAngle * 1.8) * 6; // Smoother
+      const turbulenceX = Math.sin(this.time * 0.15 + node.cylinderAngle * 2) * 2; // Further reduced from 3 for smaller geometry
+      const turbulenceY = Math.cos(this.time * 0.18 + node.cylinderAngle * 1.8) * 3; // Further reduced from 4 for smaller geometry
       
       // Combine smoother deformations
       const totalDeformX = deformX1 + deformX2 + turbulenceX;
@@ -465,122 +745,247 @@ class NeuralNetwork {
       }
     });
     
-    // Much slower decay for very long lingering afterglow on edges
+    // Faster decay for cleaner afterglow on edges
     for (const [id, glow] of this.connectionGlow.entries()) {
-      this.connectionGlow.set(id, Math.max(0, glow - 0.001)); // Much slower decay for very long afterglow (was 0.002)
+      this.connectionGlow.set(id, Math.max(0, glow - 0.0027)); // 35% faster decay for even cleaner edges (increased from 0.002)
     }
   }
   
   draw() {
     this.ctx.clearRect(0, 0, this.width, this.height);
     
-    // Draw connections - extremely subtle, minimal visibility
-    this.connections.forEach((connection, index) => {
-      const nodeA = this.nodes[connection.from];
-      const nodeB = this.nodes[connection.to];
+    // Update cached gradients and paths periodically
+    this.updateDrawingCache();
+    
+    // Batch drawing operations: edges first, then nodes
+    this.drawConnectionsBatched();
+    this.drawPulsesBatched();
+    this.drawNodesBatched();
+  }
+  
+  /**
+   * Update cached gradients and drawing paths
+   */
+  updateDrawingCache() {
+    const now = performance.now();
+    if (now - this.lastCacheTime < this.cacheUpdateInterval) {
+      return;
+    }
+    
+    this.lastCacheTime = now;
+    
+    // Cache common gradients
+    this.cacheGradients();
+    
+    // Cache common drawing paths
+    this.cachePaths();
+  }
+  
+  /**
+   * Cache commonly used gradients
+   */
+  cacheGradients() {
+    const cacheKey = `connection-${this.dynamicDpr}`;
+    if (!this.gradientCache.has(cacheKey)) {
+      const gradient = this.ctx.createLinearGradient(0, 0, this.width, this.height);
+      gradient.addColorStop(0, 'rgba(150, 130, 220, 0.14)');
+      gradient.addColorStop(0.5, 'rgba(180, 150, 240, 0.2)');
+      gradient.addColorStop(1, 'rgba(150, 130, 220, 0.14)');
+      this.gradientCache.set(cacheKey, gradient);
+    }
+  }
+  
+  /**
+   * Cache common drawing paths
+   */
+  cachePaths() {
+    // Cache arc paths for different node sizes
+    const sizes = [1, 2, 3, 4, 5];
+    sizes.forEach(size => {
+      const cacheKey = `arc-${size}`;
+      if (!this.pathCache.has(cacheKey)) {
+        const path = new Path2D();
+        path.arc(0, 0, size, 0, Math.PI * 2);
+        this.pathCache.set(cacheKey, path);
+      }
+    });
+  }
+  
+  /**
+   * Draw connections in batches for better performance
+   */
+  drawConnectionsBatched() {
+    // Collect connections with glow for batching
+    const activeConnections = [];
+    const brightConnections = [];
+    
+    this.connections.forEach((connection) => {
       const glow = this.connectionGlow.get(connection.id) || 0;
       
-      // Only draw connections with substantial glow
       if (glow > 0.1) {
-        // Calculate depth-based thickness - closer edges are thicker
-        const avgDepthFactor = ((nodeA.depthFactor || 0.5) + (nodeB.depthFactor || 0.5)) / 2;
-        const baseLineWidth = connection.type === 'intra' ? 0.8 : 0.4;
-        const depthLineWidth = baseLineWidth * (0.3 + avgDepthFactor * 1.0); // Even thinner
+        const nodeA = this.nodes[connection.from];
+        const nodeB = this.nodes[connection.to];
         
-        // More colorful glowing connection with purplish-blue afterglow
-        const glowAlpha = glow * 0.14; // Reduced to 70% of 0.2 = 0.14
-        this.ctx.strokeStyle = `rgba(150, 130, 220, ${glowAlpha})`; // Purplish-blue afterglow
-        this.ctx.lineWidth = depthLineWidth;
-        this.ctx.beginPath();
-        this.ctx.moveTo(nodeA.x, nodeA.y);
-        this.ctx.lineTo(nodeB.x, nodeB.y);
-        this.ctx.stroke();
-        
-        // Bright center line with enhanced purplish color for active connections
-        if (glow > 0.6) {
-          this.ctx.strokeStyle = `rgba(180, 150, 240, ${(glow - 0.6) * 0.7})`; // Purplish center
-          this.ctx.lineWidth = depthLineWidth * 0.3;
-          this.ctx.beginPath();
-          this.ctx.moveTo(nodeA.x, nodeA.y);
-          this.ctx.lineTo(nodeB.x, nodeB.y);
-          this.ctx.stroke();
+        if (nodeA && nodeB) {
+          const connectionData = { connection, nodeA, nodeB, glow };
+          activeConnections.push(connectionData);
+          
+          if (glow > 0.6) {
+            brightConnections.push(connectionData);
+          }
         }
       }
     });
     
-    // Draw pulses with light blue colors and glow trails
+    // Batch draw regular connections
+    activeConnections.forEach(({ connection, nodeA, nodeB, glow }) => {
+      const avgDepthFactor = ((nodeA.depthFactor || 0.5) + (nodeB.depthFactor || 0.5)) / 2;
+      const baseLineWidth = connection.type === 'intra' ? 0.8 : 0.4;
+      const depthLineWidth = baseLineWidth * (0.3 + avgDepthFactor * 1.0);
+      
+      const glowAlpha = glow * 0.14;
+      this.ctx.strokeStyle = `rgba(150, 130, 220, ${glowAlpha})`;
+      this.ctx.lineWidth = depthLineWidth;
+      this.ctx.beginPath();
+      this.ctx.moveTo(nodeA.x, nodeA.y);
+      this.ctx.lineTo(nodeB.x, nodeB.y);
+      this.ctx.stroke();
+    });
+    
+    // Batch draw bright center lines
+    brightConnections.forEach(({ connection, nodeA, nodeB, glow }) => {
+      const avgDepthFactor = ((nodeA.depthFactor || 0.5) + (nodeB.depthFactor || 0.5)) / 2;
+      const baseLineWidth = connection.type === 'intra' ? 0.8 : 0.4;
+      const depthLineWidth = baseLineWidth * (0.3 + avgDepthFactor * 1.0);
+      
+      this.ctx.strokeStyle = `rgba(180, 150, 240, ${(glow - 0.6) * 0.7})`;
+      this.ctx.lineWidth = depthLineWidth * 0.3;
+      this.ctx.beginPath();
+      this.ctx.moveTo(nodeA.x, nodeA.y);
+      this.ctx.lineTo(nodeB.x, nodeB.y);
+      this.ctx.stroke();
+    });
+  }
+  
+  /**
+   * Draw pulses in batches for better performance
+   */
+  drawPulsesBatched() {
+    // Group pulses by color for batching
+    const pulsesByColor = new Map();
+    
     this.pulses.forEach(pulse => {
       const connection = this.connections[pulse.connectionIndex];
+      if (!connection) return;
+      
       const nodeA = this.nodes[connection.from];
       const nodeB = this.nodes[connection.to];
+      if (!nodeA || !nodeB) return;
       
-      const x = nodeA.x + (nodeB.x - nodeA.x) * pulse.progress;
-      const y = nodeA.y + (nodeB.y - nodeA.y) * pulse.progress;
-      
-      const alpha = Math.sin(pulse.progress * Math.PI) * pulse.intensity;
-      
-      // Get pulse color with fallback to original blue
       const pulseColor = pulse.color || { r: 100, g: 140, b: 200 };
-      const { r, g, b } = pulseColor;
+      const colorKey = `${pulseColor.r}-${pulseColor.g}-${pulseColor.b}`;
       
-      // Draw much longer and more lingering glow trail behind the pulse
-      const trailLength = 60; // Doubled from 30 for twice as long trails
-      for (let i = 0; i < trailLength; i++) {
-        const trailProgress = Math.max(0, pulse.progress - (i * 0.0075)); // Half the spacing for twice as long trail
-        if (trailProgress > 0) {
-          const trailX = nodeA.x + (nodeB.x - nodeA.x) * trailProgress;
-          const trailY = nodeA.y + (nodeB.y - nodeA.y) * trailProgress;
-          const trailAlpha = alpha * (1 - i / trailLength) * 0.45; // Reduced to 75% of 0.6 = 0.45
-          
-          // Larger trail points that fade more gradually
-          const trailRadius = 3 - (i * 0.15); // Slower size reduction for longer visible trail
-          
-          this.ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${trailAlpha})`;
-          this.ctx.beginPath();
-          this.ctx.arc(trailX, trailY, Math.max(0.5, trailRadius), 0, Math.PI * 2);
-          this.ctx.fill();
-        }
+      if (!pulsesByColor.has(colorKey)) {
+        pulsesByColor.set(colorKey, []);
       }
       
-      // Main pulse with enhanced glow using custom color - reduced to 75% opacity
-      this.ctx.shadowColor = `rgba(${Math.min(255, r + 20)}, ${Math.min(255, g + 20)}, ${Math.min(255, b + 20)}, ${0.4 * 0.75})`;
-      this.ctx.shadowBlur = 12;
-      this.ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${alpha * 0.75})`;
-      this.ctx.beginPath();
-      this.ctx.arc(x, y, 3.5, 0, Math.PI * 2);
-      this.ctx.fill();
-      
-      // Bright center with color variation - reduced to 75% opacity
-      this.ctx.shadowBlur = 6;
-      this.ctx.fillStyle = `rgba(${Math.min(255, r + 50)}, ${Math.min(255, g + 50)}, ${Math.min(255, b + 55)}, ${alpha * 0.9 * 0.75})`;
-      this.ctx.beginPath();
-      this.ctx.arc(x, y, 2, 0, Math.PI * 2);
-      this.ctx.fill();
-      this.ctx.shadowBlur = 0;
+      pulsesByColor.get(colorKey).push({
+        pulse,
+        nodeA,
+        nodeB,
+        x: nodeA.x + (nodeB.x - nodeA.x) * pulse.progress,
+        y: nodeA.y + (nodeB.y - nodeA.y) * pulse.progress,
+        alpha: Math.sin(pulse.progress * Math.PI) * pulse.intensity,
+        color: pulseColor
+      });
     });
     
-    // Draw nodes with layer-specific styling, depth scaling, and depth-based alpha
-    this.nodes.forEach(node => {
-      const baseAlpha = Math.max(0.4, Math.min(1, node.activity));
-      const depthAlpha = node.depthAlpha || 1.0;
-      const finalAlpha = baseAlpha * depthAlpha;
-      const color = node.color;
-      const nodeRadius = node.currentRadius || node.radius;
+    // Draw pulses by color groups
+    pulsesByColor.forEach((pulseGroup, colorKey) => {
+      const { r, g, b } = pulseGroup[0].color;
       
-      // Main node with depth-based size and transparency
-      this.ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${finalAlpha})`;
-      this.ctx.beginPath();
-      this.ctx.arc(node.x, node.y, nodeRadius, 0, Math.PI * 2);
-      this.ctx.fill();
+      // Draw trails
+      pulseGroup.forEach(({ pulse, nodeA, nodeB, alpha, color }) => {
+        const trailLength = 60;
+        for (let i = 0; i < trailLength; i++) {
+          const trailProgress = Math.max(0, pulse.progress - (i * 0.0075));
+          if (trailProgress > 0) {
+            const trailX = nodeA.x + (nodeB.x - nodeA.x) * trailProgress;
+            const trailY = nodeA.y + (nodeB.y - nodeA.y) * trailProgress;
+            const trailAlpha = alpha * (1 - i / trailLength) * 0.45;
+            const trailRadius = 3 - (i * 0.15);
+            
+            this.ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${trailAlpha})`;
+            this.ctx.beginPath();
+            this.ctx.arc(trailX, trailY, Math.max(0.5, trailRadius), 0, Math.PI * 2);
+            this.ctx.fill();
+          }
+        }
+      });
       
-      // Subtle inner highlight for active nodes
-      if (node.activity > 0.6) {
-        const highlightAlpha = (node.activity - 0.6) * 0.8 * depthAlpha;
-        this.ctx.fillStyle = `rgba(${Math.min(255, color.r + 60)}, ${Math.min(255, color.g + 60)}, ${Math.min(255, color.b + 60)}, ${highlightAlpha})`;
+      // Draw main pulses
+      this.ctx.shadowColor = `rgba(${Math.min(255, r + 20)}, ${Math.min(255, g + 20)}, ${Math.min(255, b + 20)}, ${0.3})`;
+      this.ctx.shadowBlur = 12;
+      
+      pulseGroup.forEach(({ x, y, alpha }) => {
+        this.ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${alpha * 0.75})`;
         this.ctx.beginPath();
-        this.ctx.arc(node.x, node.y, nodeRadius * 0.6, 0, Math.PI * 2);
+        this.ctx.arc(x, y, 3.5, 0, Math.PI * 2);
         this.ctx.fill();
+      });
+      
+      // Draw bright centers
+      this.ctx.shadowBlur = 6;
+      pulseGroup.forEach(({ x, y, alpha }) => {
+        this.ctx.fillStyle = `rgba(${Math.min(255, r + 50)}, ${Math.min(255, g + 50)}, ${Math.min(255, b + 55)}, ${alpha * 0.675})`;
+        this.ctx.beginPath();
+        this.ctx.arc(x, y, 2, 0, Math.PI * 2);
+        this.ctx.fill();
+      });
+      
+      this.ctx.shadowBlur = 0;
+    });
+  }
+  
+  /**
+   * Draw nodes in batches for better performance
+   */
+  drawNodesBatched() {
+    // Group nodes by layer type for batching
+    const nodesByType = new Map();
+    
+    this.nodes.forEach(node => {
+      const layerType = node.layerType;
+      if (!nodesByType.has(layerType)) {
+        nodesByType.set(layerType, []);
       }
+      nodesByType.get(layerType).push(node);
+    });
+    
+    // Draw nodes by type groups
+    nodesByType.forEach((nodesGroup, layerType) => {
+      nodesGroup.forEach(node => {
+        const baseAlpha = Math.max(0.4, Math.min(1, node.activity));
+        const depthAlpha = node.depthAlpha || 1.0;
+        const finalAlpha = baseAlpha * depthAlpha;
+        const color = node.color;
+        const nodeRadius = node.currentRadius || node.radius;
+        
+        // Main node
+        this.ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${finalAlpha})`;
+        this.ctx.beginPath();
+        this.ctx.arc(node.x, node.y, nodeRadius, 0, Math.PI * 2);
+        this.ctx.fill();
+        
+        // Highlight for active nodes
+        if (node.activity > 0.6) {
+          const highlightAlpha = (node.activity - 0.6) * 0.8 * depthAlpha;
+          this.ctx.fillStyle = `rgba(${Math.min(255, color.r + 60)}, ${Math.min(255, color.g + 60)}, ${Math.min(255, color.b + 60)}, ${highlightAlpha})`;
+          this.ctx.beginPath();
+          this.ctx.arc(node.x, node.y, nodeRadius * 0.6, 0, Math.PI * 2);
+          this.ctx.fill();
+        }
+      });
     });
   }
   
@@ -613,6 +1018,29 @@ class NeuralNetwork {
   }
   
   animate() {
+    const currentTime = performance.now();
+    const deltaTime = currentTime - this.lastFrameTime;
+    
+    // Framerate control - skip frames if needed
+    if (deltaTime < this.frameInterval) {
+      this.animationId = requestAnimationFrame(() => this.animate());
+      return;
+    }
+    
+    this.lastFrameTime = currentTime;
+    this.frameCount++;
+    
+    // Skip all updates if animation is paused
+    if (this.isPaused) {
+      return;
+    }
+    
+    // Update performance optimizations periodically
+    if (this.frameCount % 30 === 0) { // Every 30 frames (~0.5s at 60fps)
+      this.updateDynamicResolution();
+      this.updateSpatialGrid();
+    }
+    
     this.updateNodes();
     this.updatePulses();
     
@@ -660,10 +1088,22 @@ class NeuralNetwork {
   destroy() {
     if (this.animationId) {
       cancelAnimationFrame(this.animationId);
+      this.animationId = null;
     }
     if (this.resizeTimeout) {
       clearTimeout(this.resizeTimeout);
+      this.resizeTimeout = null;
     }
+    
+    // Clean up performance optimization resources
+    this.clearDrawingCache();
+    this.spatialGrid.clear();
+    
+    // Remove CSS classes
+    this.canvas.classList.remove('neural-shimmer');
+    
+    // Remove event listeners
+    document.removeEventListener('visibilitychange', this.updateAnimationState);
   }
 }
 
