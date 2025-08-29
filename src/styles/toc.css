@@ -1,0 +1,244 @@
+/* Table of Contents Styles */
+
+/* =================================
+   Floating Table of Contents
+   ================================= */
+
+.toc-container {
+    position: fixed;
+    right: 20px;
+    top: 30%;
+    width: 220px;
+    z-index: 1000;
+    opacity: 0;
+    transform: translateX(30px);
+    transition: all 0.4s ease;
+}
+
+.toc-container.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.toc-title {
+    display: none;
+}
+
+.toc {
+    padding: var(--space-md);
+}
+
+/* Custom tocbot styling */
+.toc ol, .toc ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.toc li {
+    margin: 0 0 var(--space-sm) 0;
+    padding: 0;
+}
+
+.toc a {
+    display: block;
+    padding: var(--space-sm) var(--space-md);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-size: var(--text-sm);
+    font-weight: 400;
+    border-radius: var(--radius-sm);
+    transition: all 0.2s ease;
+    line-height: 1.4;
+}
+
+/* White borders only on top-level TOC items */
+.toc > .toc-list > .toc-list-item > a {
+    border-left: 2px solid var(--color-border);
+}
+
+.toc a:hover {
+    color: var(--color-text-light);
+    background: transparent;
+}
+
+/* White border hover state only for top-level items */
+.toc > .toc-list > .toc-list-item > a:hover {
+    border-left-color: var(--color-text-light);
+}
+
+.toc a.is-active-link {
+    color: var(--color-text);
+    background: transparent;
+    font-weight: 600;
+}
+
+/* Active state border colors only for top-level items */
+.toc > .toc-list > .toc-list-item > a.is-active-link {
+    border-left-color: var(--color-accent);
+}
+
+.toc .toc-list-item.is-active-li > a {
+    color: var(--color-text);
+    font-weight: 600;
+}
+
+/* Active state border colors only for top-level items */
+.toc > .toc-list > .toc-list-item.is-active-li > a {
+    border-left-color: var(--color-accent);
+}
+
+/* Override Tocbot's default green styling */
+.toc a.is-active-link,
+.toc .is-active-link {
+    color: var(--color-text) !important;
+    background: transparent !important;
+}
+
+/* Border color overrides only for top-level items */
+.toc > .toc-list > .toc-list-item > a.is-active-link,
+.toc > .toc-list > .toc-list-item > .is-active-link {
+    border-left-color: var(--color-accent) !important;
+}
+
+/* Override the green ::before pseudo-element that creates the indicator line */
+.toc .is-active-link::before {
+    background-color: var(--color-accent) !important;
+}
+
+.toc .is-active-li > a {
+    color: var(--color-text) !important;
+}
+
+/* Border color for active list items only on top-level */
+.toc > .toc-list > .toc-list-item.is-active-li > a {
+    border-left-color: var(--color-accent) !important;
+}
+
+/* Nested levels */
+.toc .toc-list-item {
+    position: relative;
+}
+
+.toc .toc-list-item.is-collapsible {
+    padding-left: 0;
+}
+
+.toc .toc-list .toc-list {
+    padding-left: var(--space-md);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.toc .toc-list .toc-list a {
+    font-size: var(--text-xs);
+    opacity: 0.8;
+}
+
+/* Collapsible TOC styles */
+.toc-indicator {
+    display: inline-block;
+    margin-right: var(--space-xs);
+    font-size: var(--text-xs);
+    color: var(--color-accent);
+    transition: transform 0.2s ease;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* CRITICAL: Always show top-level section headings - never hide them */
+.toc > .toc-list > .toc-list-item > a {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* OVERRIDE: Prevent the generic .is-collapsed rule from hiding entire TOC items */
+.toc .toc-list-item.is-collapsed {
+    max-height: none !important;
+    overflow: visible !important;
+}
+
+/* Only hide the nested sub-lists when collapsed, NOT the main section titles */
+.toc .toc-list-item.is-collapsed > .toc-list {
+    max-height: 0 !important;
+    opacity: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.toc .toc-list-item:not(.is-collapsed) > .toc-list {
+    max-height: 1000px;
+    opacity: 1;
+}
+
+/* Fast animation for TOC expansion/collapse */
+.toc .toc-list-item > .toc-list {
+    transition: max-height 0.15s ease-out, opacity 0.1s ease-out;
+}
+
+/* Add borders to nested TOC items (H3 level) - will be overridden when active */
+.toc .toc-list-item .toc-list .toc-list-item > a {
+    border-left: 2px solid var(--color-border);
+    padding-left: 8px;
+    margin-left: 4px;
+}
+
+/* Active state borders for nested TOC items (H3 level) */
+.toc .toc-list-item .toc-list .toc-list-item > a.is-active-link {
+    border-left-color: var(--color-accent) !important;
+}
+
+.toc .toc-list-item .toc-list .toc-list-item.is-active-li > a {
+    border-left-color: var(--color-accent) !important;
+}
+
+/* CRITICAL FIX: Remove light grey background from ::before pseudo-elements on H3 (nested) TOC links */
+.toc .toc-list .toc-list-item .toc-link::before,
+.toc .toc-list .toc-list .toc-list-item .toc-link::before {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+.toc .toc-list-item.is-collapsed .toc-indicator {
+    transform: rotate(0deg);
+}
+
+.toc .toc-list-item:not(.is-collapsed) .toc-indicator {
+    transform: rotate(90deg);
+}
+
+/* Enhanced styling for section headers in TOC - always visible and clean */
+.toc .toc-list-item.is-collapsible > a {
+    font-weight: 600;
+    color: var(--color-text);
+    display: block !important;
+    opacity: 1 !important;
+}
+
+/* White border styling only for top-level collapsible items */
+.toc > .toc-list > .toc-list-item.is-collapsible > a {
+    border-left-width: 3px;
+}
+
+/* Product entries should be more subdued */
+.toc .toc-list .toc-list-item a {
+    color: var(--color-text-muted);
+    font-weight: 400;
+    padding-left: var(--space-lg);
+}
+
+.toc .toc-list .toc-list-item a:hover {
+    color: var(--color-text-light);
+}
+
+/* =================================
+   Responsive Design for TOC
+   ================================= */
+
+@media (max-width: 1400px) {
+    .toc-container {
+        display: none;
+    }
+}

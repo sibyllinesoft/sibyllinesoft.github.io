@@ -13,7 +13,7 @@ Next-generation AI tools designed to solve real problems for creators and profes
 
 ## Infrastructure & Execution
 
-Systems that provide the foundation for running and scaling agentic development.
+Most teams struggle with weeks of setup hell—configuring dev environments, managing AI costs, and battling slow agent systems that can barely handle basic tasks. What if you could skip the infrastructure nightmare entirely? What if agents could work as fast as you think?
 
 <!-- Product Rave -->
 <div class="project-brochure" id="rave-product">
@@ -146,7 +146,7 @@ Systems that provide the foundation for running and scaling agentic development.
 
 ## Research & Knowledge Systems
 
-Tools focused on discovery, search, and context handling.
+Information overload is killing productivity. You're drowning in scattered search tools, hitting context limits every few conversations, and manually curating knowledge that should flow seamlessly to your AI agents. What if your agents could remember everything? What if hard problems solved themselves while you slept?
 
 <!-- Product Mimir -->
 <div class="project-brochure" id="mimir-product">
@@ -279,7 +279,7 @@ Tools focused on discovery, search, and context handling.
 
 ## Agent Optimization & Workflow
 
-Products that improve agent behavior, planning, or coordination.
+Your agents are inefficient, your tools are scattered across different platforms, and your workflows break down the moment you attempt anything complex. Manual prompt crafting takes forever and breaks on edge cases, while finding the right tool among dozens of MCP servers feels like searching through a digital junkyard. What if your agents got smarter with every failure? What if chaos became precision?
 
 <!-- Product Minerva -->
 <div class="project-brochure" id="minerva-product">
@@ -412,7 +412,7 @@ Products that improve agent behavior, planning, or coordination.
 
 ## Software Development
 
-Tools for code quality, specifications, and development workflows.
+Legacy tools crash on large codebases, miss semantic duplicates with 87% false positive rates, and can't guide AI refactoring effectively—leaving your agents hunting blindly through code instead of focusing on problems that matter. What if your agents could see exactly where the problems are? What if requirements became software without the translation layer?
 
 <!-- Product Echo -->
 <div class="project-brochure" id="echo-product">
@@ -505,7 +505,7 @@ Tools for code quality, specifications, and development workflows.
   <div class="project-visual">
     <i data-lucide="layers" class="project-icon"></i>
     <div class="project-codename">Codename: VALKNUT</div>
-    <div class="project-status">In Development</div>
+    <div class="project-status">Production Ready</div>
   </div>
   <div class="project-content">
     <h3>Static Analysis Engine for AI-Guided Refactoring</h3>
@@ -531,11 +531,12 @@ Tools for code quality, specifications, and development workflows.
       
       <div class="project-tagline">Stop letting AI agents hunt blindly through code. Start directing them to the problems that matter most.</div>
       
+      
       <div class="project-cta">
-        <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in becoming a tester for this product. Please let me know about testing opportunities.">
+        <a href="https://github.com/sibyllinesoft/valknut" class="btn-unified btn-primary">
           <span class="btn-inner">
-            Become a Tester
-            <i data-lucide="mail"></i>
+            View on GitHub
+            <i data-lucide="github"></i>
           </span>
         </a>
       </div>
@@ -545,7 +546,7 @@ Tools for code quality, specifications, and development workflows.
 
 ## Developer Control & Integration
 
-Products that make AI setup, costs, and integration controllable.
+You're bleeding money on AI inference costs, hitting context limits after 50-100 messages that kill productivity, and losing control of your development flow to vendor lock-in and expensive APIs. Meanwhile, your users want local privacy but your apps can't safely access their Ollama setups. What if conversations never ended? What if your users paid their own AI bills while your app delivered the intelligence?
 
 <!-- Product MindLink -->
 <div class="project-brochure" id="mindlink-product">
@@ -635,7 +636,7 @@ Products that make AI setup, costs, and integration controllable.
 
 ## Creative
 
-AI-powered tools for creators, writers, and content professionals to analyze, generate, and optimize creative work.
+Creative work is still trial and error—writers spend years perfecting their craft through guesswork, creators waste hours scrolling feeds trying to spot trends that are already saturated, and brilliant ideas die in brainstorming sessions that produce diminishing returns after the first few concepts. What if you could see a story's emotional DNA before readers do? What if you knew what would resonate before everyone else?
 
 <!-- Product Bookworm -->
 <div class="project-brochure" id="bookworm-product">
