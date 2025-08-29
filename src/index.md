@@ -148,31 +148,48 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
 </div>
 <div class="click-hint">Click to expand</div>
 <div class="service-visual">
-<div class="autonomous-network">
-<div class="network-node central">
-<div class="pulse-ring"></div>
-<div class="node-core"></div>
+<div class="production-pipeline">
+<div class="pipeline-stage development">
+<div class="stage-icon">⚡</div>
+<div class="stage-label">Dev</div>
+<div class="stage-status active"></div>
 </div>
-<div class="network-node satellite" style="top: 20%; left: 15%;">
-<div class="connection-line"></div>
-<div class="node-core"></div>
+<div class="pipeline-flow">
+<div class="flow-segment">
+<div class="code-commit flowing"></div>
 </div>
-<div class="network-node satellite" style="top: 25%; right: 20%;">
-<div class="connection-line"></div>
-<div class="node-core"></div>
 </div>
-<div class="network-node satellite" style="bottom: 30%; left: 25%;">
-<div class="connection-line"></div>
-<div class="node-core"></div>
+<div class="pipeline-stage testing">
+<div class="stage-icon">🧪</div>
+<div class="stage-label">Test</div>
+<div class="stage-status active"></div>
 </div>
-<div class="network-node satellite" style="bottom: 25%; right: 15%;">
-<div class="connection-line"></div>
-<div class="node-core"></div>
+<div class="pipeline-flow">
+<div class="flow-segment">
+<div class="build-artifact flowing"></div>
 </div>
-<div class="data-flow">
-<div class="flow-particle" style="animation-delay: 0s;"></div>
-<div class="flow-particle" style="animation-delay: 0.5s;"></div>
-<div class="flow-particle" style="animation-delay: 1s;"></div>
+</div>
+<div class="pipeline-stage deployment">
+<div class="stage-icon">🚀</div>
+<div class="stage-label">Deploy</div>
+<div class="stage-status active"></div>
+</div>
+<div class="pipeline-flow">
+<div class="flow-segment">
+<div class="live-agent flowing"></div>
+</div>
+</div>
+<div class="pipeline-stage production">
+<div class="stage-icon">✅</div>
+<div class="stage-label">Live</div>
+<div class="stage-status success"></div>
+<div class="uptime-indicator">99.9%</div>
+</div>
+<div class="agent-swarm">
+<div class="agent-instance" style="top: 20%; left: 15%;"></div>
+<div class="agent-instance" style="top: 40%; left: 25%;"></div>
+<div class="agent-instance" style="top: 60%; left: 35%;"></div>
+<div class="scaling-indicator">Auto-scaling</div>
 </div>
 </div>
 </div>
