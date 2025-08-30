@@ -40,8 +40,8 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
 </div>
 
 <div class="hero-cta">
-  <a href="#discovery" class="btn-primary"><span class="btn-inner">View Products <i data-lucide="mail"></i></span></a>
-  <a href="/about/" class="btn-secondary"><span class="btn-inner">Run a 5-min demo <i data-lucide="user"></i></span></a>
+  <a href="javascript:void(0)" class="btn-primary" data-contact-type="contact" data-subject-type="strategy"><span class="btn-inner">Book a consultation <i data-lucide="mail"></i></span></a>
+  <a href="/products/" class="btn-secondary"><span class="btn-inner">View products <i data-lucide="arrow-right"></i></span></a>
 </div>
 
 <div class="content-section">
@@ -496,16 +496,16 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
   overflow: hidden;
   opacity: 0.9;
   background:
-    radial-gradient(circle, #3b82f6 .04px, transparent .06px) 13% 27%,
-    radial-gradient(circle, #60a5fa .04px, transparent .06px) 73% 19%,
-    radial-gradient(circle, #3b82f6 .04px, transparent .06px) 31% 83%,
-    radial-gradient(circle, #60a5fa .04px, transparent .06px) 89% 71%,
-    radial-gradient(circle, #3b82f6 .04px, transparent .06px) 7% 52%,
-    radial-gradient(circle, #60a5fa .04px, transparent .06px) 41% 11%,
-    radial-gradient(circle, #3b82f6 .04px, transparent .06px) 67% 63%,
-    radial-gradient(circle, #60a5fa .04px, transparent .06px) 23% 47%,
-    radial-gradient(circle, #3b82f6 .04px, transparent .06px) 91% 34%,
-    radial-gradient(circle, #60a5fa .04px, transparent .06px) 56% 79%,
+    radial-gradient(circle at 13% 27%, rgba(255,255,255,.35) 0 0.54px, transparent 0.56px),
+    radial-gradient(circle at 73% 19%, rgba(255,255,255,.3) 0 0.54px, transparent 0.56px),
+    radial-gradient(circle at 31% 83%, rgba(255,255,255,.4) 0 0.54px, transparent 0.56px),
+    radial-gradient(circle at 89% 71%, rgba(255,255,255,.25) 0 0.54px, transparent 0.56px),
+    radial-gradient(circle at 7% 52%, rgba(255,255,255,.3) 0 0.54px, transparent 0.56px),
+    radial-gradient(circle at 41% 11%, rgba(255,255,255,.35) 0 0.54px, transparent 0.56px),
+    radial-gradient(circle at 67% 63%, rgba(255,255,255,.3) 0 0.54px, transparent 0.56px),
+    radial-gradient(circle at 23% 47%, rgba(255,255,255,.4) 0 0.54px, transparent 0.56px),
+    radial-gradient(circle at 91% 34%, rgba(255,255,255,.25) 0 0.54px, transparent 0.56px),
+    radial-gradient(circle at 56% 79%, rgba(255,255,255,.35) 0 0.54px, transparent 0.56px),
     linear-gradient(135deg, var(--color-graphite-750) 0%, var(--color-graphite-700) 100%);
   display: flex;
   align-items: center;
