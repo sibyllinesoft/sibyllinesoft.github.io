@@ -586,7 +586,7 @@ class NeuralNetwork {
   
   updateNodes() {
     this.time += 0.016; // 60fps normalized
-    this.rotation += 0.003375; // Increased rotation speed by 50% (0.00225 * 1.5)
+    this.rotation += 0.0050625; // Increased rotation speed by 50% again (0.003375 * 1.5)
     
     this.nodes.forEach((node, index) => {
       // Enhanced orbital drift for more organic movement
@@ -677,7 +677,7 @@ class NeuralNetwork {
       this.pulses.push({
         connectionIndex,
         progress: 0,
-        speed: 0.6, // Consistent speed for all traces
+        speed: 0.9, // Increased pulse speed by 50% (0.6 * 1.5)
         intensity: 0.6 + Math.random() * 0.4,
         createdAt: now,
         sourceNode: connection.from, // Track originating node for propagation
@@ -730,7 +730,7 @@ class NeuralNetwork {
           this.pulses.push({
             connectionIndex,
             progress: 0,
-            speed: completedPulse.speed, // Consistent speed - no variation
+            speed: completedPulse.speed, // Consistent speed - inherits increased speed from parent
             intensity: completedPulse.intensity * (0.8 + Math.random() * 0.3), // Gradual intensity decay
             createdAt: Date.now(),
             sourceNode: selectedConnection.from,

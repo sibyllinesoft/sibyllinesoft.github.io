@@ -101,14 +101,35 @@
   }
 }
 
-/* Glow Animation */
+/* Glow Animation - Optimized with pseudo-element */
 @keyframes glow {
   0%, 100% {
-    box-shadow: 0 0 3px rgba(0, 123, 255, 0.2);
+    opacity: 0.2;
+    transform: scale(1);
   }
   50% {
-    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+    opacity: 0.3;
+    transform: scale(1.1);
   }
+}
+
+/* Glow effect using pseudo-element for performance */
+.animate-glow {
+  position: relative;
+}
+
+.animate-glow::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: radial-gradient(circle, rgba(0, 123, 255, 0.2) 0%, transparent 70%);
+  border-radius: inherit;
+  z-index: -1;
+  animation: glow 2s ease-in-out infinite;
+  will-change: transform, opacity;
 }
 
 /* =================================
@@ -157,12 +178,32 @@
    Hover Animations
    ================================= */
 .hover-lift {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.hover-lift::after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 0;
+  right: 0;
+  bottom: -8px;
+  background: radial-gradient(ellipse at center top, rgba(0, 0, 0, 0.15) 0%, transparent 70%);
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: -1;
+  border-radius: inherit;
 }
 
 .hover-lift:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.hover-lift:hover::after {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .hover-scale {
@@ -262,41 +303,98 @@
    Accessibility Considerations
    ================================= */
 @media (prefers-reduced-motion: reduce) {
+  /* Completely disable animations for reduced motion preference */
   *,
   *::before,
   *::after {
+    animation: none !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
+    transition: none !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+    transform: none !important;
   }
   
-  .animate-bounce,
-  .animate-pulse,
-  .animate-float,
-  .animate-rotate,
-  .animate-glow {
+  /* Keep essential loading indicators but make them static */
+  .loading-spinner {
+    border: 3px solid rgba(0, 123, 255, 0.1);
+    border-top: 3px solid var(--primary-color, #007bff);
+    border-radius: 50%;
+    /* Remove rotation but keep visual indicator */
     animation: none;
   }
   
-  .loading-spinner,
   .loading-dots::before,
   .loading-dots::after {
     animation: none;
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  /* Ensure hover effects still work but without transitions */
+  .hover-lift:hover {
+    transform: translateY(-2px);
+  }
+  
+  .hover-scale:hover {
+    transform: scale(1.02);
   }
 }
 
 /* =================================
    Performance Optimizations
    ================================= */
+
+/* CSS Containment for animated elements */
+.animate-fade-in,
+.animate-slide-in-left,
+.animate-slide-in-right,
+.animate-scale-in,
+.animate-bounce,
+.animate-pulse,
+.animate-float,
+.animate-rotate,
+.animate-glow,
+.hover-lift,
+.hover-scale,
+.hover-rotate {
+  contain: layout paint;
+}
+
+/* Content visibility for off-screen sections */
+.content-section {
+  content-visibility: auto;
+  contain-intrinsic-size: 1000px;
+}
+
+/* Dynamic will-change management (set via JavaScript) */
 .will-animate {
   will-change: transform, opacity;
 }
 
+/* Hardware acceleration for complex animations */
 .hardware-accelerated {
   transform: translateZ(0);
   backface-visibility: hidden;
   perspective: 1000px;
+}
+
+/* Staggered animation containment */
+.stagger-animation {
+  contain: layout;
+}
+
+.stagger-animation > * {
+  contain: paint;
+}
+
+/* Neural network animation containment */
+.neural-node,
+.neural-connection,
+.neural-data-flow {
+  contain: layout paint;
+  will-change: transform, opacity;
 }
 
 /* =================================
@@ -314,15 +412,47 @@
 }
 
 /* =================================
-   Custom Easing Functions
+   Custom Easing Functions - Optimized
    ================================= */
 :root {
+  /* Gentler, more performant easing functions */
+  --ease-gentle: cubic-bezier(0.2, 0.8, 0.2, 1);
   --ease-out-cubic: cubic-bezier(0.215, 0.61, 0.355, 1);
   --ease-in-out-cubic: cubic-bezier(0.645, 0.045, 0.355, 1);
   --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  
+  /* Animation duration variables for easy motion control */
+  --animation-duration-fast: 0.2s;
+  --animation-duration-normal: 0.4s;
+  --animation-duration-slow: 0.8s;
+  --transition-duration: 0.3s;
 }
 
 .smooth-ease {
-  transition: all 0.3s var(--ease-out-cubic);
+  transition: transform var(--transition-duration) var(--ease-gentle),
+              opacity var(--transition-duration) var(--ease-gentle);
+}
+
+/* Performance-optimized transitions that only animate transform/opacity */
+.optimized-transition {
+  transition: transform var(--animation-duration-normal) var(--ease-gentle),
+              opacity var(--animation-duration-normal) var(--ease-gentle);
+}
+
+/* Update existing animation classes to use gentler easing */
+.animate-fade-in {
+  animation: fadeIn var(--animation-duration-slow) var(--ease-gentle) forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft var(--animation-duration-slow) var(--ease-gentle) forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight var(--animation-duration-slow) var(--ease-gentle) forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn var(--animation-duration-normal) var(--ease-gentle) forwards;
 }

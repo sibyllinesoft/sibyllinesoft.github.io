@@ -385,6 +385,48 @@ Agent workflows fail 40-60% of the time due to suboptimal prompts and scattered 
 
 Legacy development tools fail with 87% false positive rates and crash under scale. AI-native code analysis and intelligent duplicate detection guide teams toward high-impact improvements.
 
+<!-- Product Aegis -->
+<div class="project-brochure" id="aegis-product">
+  <div class="project-visual">
+    <i data-lucide="shield" class="project-icon"></i>
+    <div class="project-codename">Codename: AEGIS</div>
+    <div class="project-status">In Development</div>
+  </div>
+  <div class="project-content">
+    <h3>High-Throughput Merge Queue</h3>
+    <div class="project-pitch">
+      <p><strong>24× faster merge throughput.</strong></p>
+      <p>Traditional merge queues process PRs one at a time, creating massive bottlenecks with AI-generated code volumes. AEGIS uses intelligent batching and smart conflict detection to handle 100,000+ PRs with parallel validation.</p>
+      
+      <div class="project-features">
+        <div class="feature-item">
+          <strong>Smart Conflict Detection:</strong> Analyzes file changes to automatically group non-conflicting PRs into batches, eliminating manual coordination overhead.
+        </div>
+        <div class="feature-item">
+          <strong>Parallel Validation:</strong> Tests entire batches simultaneously using ghost branches instead of serial testing, dramatically reducing pipeline time.
+        </div>
+        <div class="feature-item">
+          <strong>Instant Failure Recovery:</strong> Parallel bisection finds problematic PRs in O(log N) time instead of testing each individually—3 iterations vs 100.
+        </div>
+        <div class="feature-item">
+          <strong>Selective Testing:</strong> Runs only tests affected by changes—47 relevant tests instead of 10,000 total, with 95% cache hit rates.
+        </div>
+      </div>
+      
+      <p>Development teams reduce merge queue time from 69 days to 2.9 days for 100,000 PRs through mathematical batching algorithms and conflict-aware scheduling.</p>
+      
+      <div class="project-cta">
+        <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in learning more about the Aegis high-throughput merge queue system.">
+          <span class="btn-inner">
+            24× Faster Merges
+            <i data-lucide="mail"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Product Echo -->
 <div class="project-brochure" id="echo-product">
   <div class="project-visual">
@@ -794,47 +836,51 @@ Use product CTAs above or contact us directly for enterprise discussions. All pr
 }
 
 #lethe-product .project-visual {
-  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('https://images.unsplash.com/photo-1571989237340-98fb838eeef1?q=80&w=1528&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-lethe.webp');
 }
 
 #scribe-product .project-visual {
-  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-scribe.webp');
 }
 
 #smith-product .project-visual {
-  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('https://images.unsplash.com/photo-1496247749665-49cf5b1022e9?q=80&w=2673&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-smith.webp');
 }
 
 #daedalus-product .project-visual {
-  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-daedalus.webp');
 }
 
 #conclave-product .project-visual {
-  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-conclave.webp');
 }
 
 #minerva-product .project-visual {
-  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-minerva.webp');
 }
 
 #hydra-product .project-visual {
-  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('https://images.unsplash.com/photo-1681800834704-121aa6378fff?q=80&w=1528&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-hydra.webp');
+}
+
+#aegis-product .project-visual {
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-aegis.webp');
 }
 
 #echo-product .project-visual {
-  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-echo.webp');
 }
 
 #arbiter-product .project-visual {
-  background-image: linear-gradient(rgba(234, 179, 8, 0.15), rgba(234, 179, 8, 0.15)), url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-image: linear-gradient(rgba(234, 179, 8, 0.15), rgba(234, 179, 8, 0.15)), url('/img/optimized/product-arbiter.webp');
 }
 
 #heimdall-product .project-visual {
-  background-image: linear-gradient(rgba(14, 165, 233, 0.15), rgba(14, 165, 233, 0.15)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2672&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-image: linear-gradient(rgba(14, 165, 233, 0.15), rgba(14, 165, 233, 0.15)), url('/img/optimized/product-heimdall.webp');
 }
 
 #valknut-product .project-visual {
-  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('https://images.unsplash.com/photo-1612528449557-90f97e0cf75c?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-valknut.webp');
 }
 
 .project-icon {

@@ -7,20 +7,20 @@
     "node": ">=20"
   },
   "scripts": {
-    "check-links": "npx check-html-links _site",
-    "build": "npx @11ty/eleventy --quiet",
-    "build-production": "npm run get-new-data && NODE_ENV=production npx @11ty/eleventy && npm run create-search-index",
-    "start": "npx @11ty/eleventy --serve --quiet --port=8091 --incremental",
-    "start-production": "NODE_ENV=production npx @11ty/eleventy --serve --quiet --port=8091",
-    "create-search-index": "npx pagefind --site \"_site\" --glob \"{docs,blog}/**/*.html\"",
+    "check-links": "node node_modules/check-html-links/cli.js _site",
+    "build": "node node_modules/@11ty/eleventy/cmd.cjs --quiet",
+    "build-production": "npm run get-new-data && NODE_ENV=production node node_modules/@11ty/eleventy/cmd.cjs && npm run create-search-index",
+    "start": "node node_modules/@11ty/eleventy/cmd.cjs --serve --quiet --port=8091 --incremental",
+    "start-production": "NODE_ENV=production node node_modules/@11ty/eleventy/cmd.cjs --serve --quiet --port=8091",
+    "create-search-index": "node node_modules/pagefind/pagefind --site \"_site\" --glob \"{docs,blog}/**/*.html\"",
     "get-new-data": "node scripts/fetch-community-data.js",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "test": "vitest run",
-    "test:watch": "vitest",
-    "test:coverage": "vitest run --coverage",
-    "test:ui": "vitest --ui",
-    "format": "prettier --write '**/*.{js,css,html,md}'"
+    "lint": "node node_modules/eslint/bin/eslint.js .",
+    "lint:fix": "node node_modules/eslint/bin/eslint.js . --fix",
+    "test": "node node_modules/vitest/vitest.mjs run",
+    "test:watch": "node node_modules/vitest/vitest.mjs",
+    "test:coverage": "node node_modules/vitest/vitest.mjs run --coverage",
+    "test:ui": "node node_modules/vitest/vitest.mjs --ui",
+    "format": "node node_modules/prettier/bin/prettier.cjs --write '**/*.{js,css,html,md}'"
   },
   "repository": {
     "type": "git",
