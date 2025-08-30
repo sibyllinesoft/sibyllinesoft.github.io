@@ -32,7 +32,7 @@ Teams lose weeks to infrastructure setup and unpredictable AI costs. Zero-setup 
   <div class="project-content">
     <h3>Complete Development Environment with AI Agent Integration</h3>
     <div class="project-pitch">
-      <p><strong>RAVE: A full stack in minutes.</strong></p>
+      <p><strong>A full stack in minutes.</strong></p>
       <p>Setup weeks kill momentum. RAVE spins up GitLab, CI/CD, monitoring, and secure chat—already wired together. AI agents handle issues, reviews, and status reports while you keep building.</p>
       
       <div class="project-features">
@@ -52,7 +52,7 @@ Teams lose weeks to infrastructure setup and unpredictable AI costs. Zero-setup 
       <div class="project-cta">
         <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in becoming a tester for this product. Please let me know about testing opportunities.">
           <span class="btn-inner">
-            Skip Setup Weeks • Request Access
+            Skip Setup Weeks
             <i data-lucide="mail"></i>
           </span>
         </a>
@@ -71,7 +71,7 @@ Teams lose weeks to infrastructure setup and unpredictable AI costs. Zero-setup 
   <div class="project-content">
     <h3>Reactive Agent Development Platform</h3>
     <div class="project-pitch">
-      <p><strong>SMITH: Agents that react instantly.</strong></p>
+      <p><strong>Agents that react instantly.</strong></p>
       <p>Slow agents kill user experience. SMITH delivers sub-5ms cold starts with Rust performance—agents react to events in real-time, not after polling delays.</p>
       
       <div class="project-features">
@@ -91,7 +91,7 @@ Teams lose weeks to infrastructure setup and unpredictable AI costs. Zero-setup 
       <div class="project-cta">
         <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in becoming a tester for this product. Please let me know about testing opportunities.">
           <span class="btn-inner">
-            Experience Sub-5ms Response • Join Pilot
+            Experience Sub-5ms Response
             <i data-lucide="mail"></i>
           </span>
         </a>
@@ -110,7 +110,7 @@ Teams lose weeks to infrastructure setup and unpredictable AI costs. Zero-setup 
   <div class="project-content">
     <h3>Intelligent LLM Router with Cost-Quality Optimization</h3>
     <div class="project-pitch">
-      <p><strong>HEIMDALL: Stop burning tokens on simple tasks.</strong></p>
+      <p><strong>Stop burning tokens on simple tasks.</strong></p>
       <p>Picking models by hand is guesswork—you either waste money on trivial calls or get garbage on complex ones. HEIMDALL runs ML triage, routing each request to the cheapest model that can still nail it.</p>
       
       <div class="project-features">
@@ -130,7 +130,7 @@ Teams lose weeks to infrastructure setup and unpredictable AI costs. Zero-setup 
       <div class="project-cta">
         <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in becoming a tester for this product. Please let me know about testing opportunities.">
           <span class="btn-inner">
-            Cut Token Bills 40% • Request Access
+            Cut Token Bills 40%
             <i data-lucide="mail"></i>
           </span>
         </a>
@@ -153,7 +153,7 @@ Knowledge workers lose 2-3 hours daily to information fragmentation and context 
   <div class="project-content">
     <h3>Research Swarm Intelligence for Hard Problems</h3>
     <div class="project-pitch">
-      <p><strong>MIMIR: When one agent isn't enough.</strong></p>
+      <p><strong>When one agent isn't enough.</strong></p>
       <p>Complex problems need specialized expertise from multiple angles. MIMIR coordinates research agents—code analysis, literature review, cross-domain synthesis—into a six-stage intelligence pipeline that tackles what single agents miss.</p>
       
       <div class="project-features">
@@ -173,7 +173,7 @@ Knowledge workers lose 2-3 hours daily to information fragmentation and context 
       <div class="project-cta">
         <a href="https://github.com/sibyllinesoft/mimir" class="btn-unified btn-primary">
           <span class="btn-inner">
-            View on GitHub • Run Mimir Today
+            View on GitHub
             <i data-lucide="github"></i>
           </span>
         </a>
@@ -192,7 +192,7 @@ Knowledge workers lose 2-3 hours daily to information fragmentation and context 
   <div class="project-content">
     <h3>Infinite Context for Agents Through Intelligent Forgetting</h3>
     <div class="project-pitch">
-      <p><strong>LETHE: Infinite context without the noise.</strong></p>
+      <p><strong>Infinite context without the noise.</strong></p>
       <p>Context limits kill productivity. Agents forget important details, you lose momentum choosing what to include, and conversations die after 50 messages. LETHE reads everything but forgets what doesn't matter.</p>
       
       <div class="project-features">
@@ -212,7 +212,7 @@ Knowledge workers lose 2-3 hours daily to information fragmentation and context 
       <div class="project-cta">
         <a href="https://github.com/sibyllinesoft/lethe" class="btn-unified btn-primary">
           <span class="btn-inner">
-            View on GitHub • Run Lethe Now
+            View on GitHub
             <i data-lucide="github"></i>
           </span>
         </a>
@@ -231,7 +231,7 @@ Knowledge workers lose 2-3 hours daily to information fragmentation and context 
   <div class="project-content">
     <h3>Effortless Codebase Sharing with LLMs That Scales to Any Repository</h3>
     <div class="project-pitch">
-      <p><strong>SCRIBE: Point at any repo, get LLM-ready code.</strong></p>
+      <p><strong>Point at any repo, get LLM-ready code.</strong></p>
       <p>Preparing code for LLMs is tedious—you guess which files matter, hit token limits, and miss critical dependencies. SCRIBE uses PageRank algorithms to find what's actually important and formats it perfectly for any LLM.</p>
       
       <div class="project-features">
@@ -251,7 +251,7 @@ Knowledge workers lose 2-3 hours daily to information fragmentation and context 
       <div class="project-cta">
         <a href="https://github.com/sibyllinesoft/scribe" class="btn-unified btn-primary">
           <span class="btn-inner">
-            View on GitHub • Try on Your Repo
+            View on GitHub
             <i data-lucide="github"></i>
           </span>
         </a>
@@ -274,7 +274,7 @@ Agent workflows fail 40-60% of the time due to suboptimal prompts and scattered 
   <div class="project-content">
     <h3>Meta MCP Server: Unified Intelligence Across All Your Tools</h3>
     <div class="project-pitch">
-      <p><strong>MINERVA: One interface, every tool.</strong></p>
+      <p><strong>One interface, every tool.</strong></p>
       <p>Agents waste time hunting for the right tool across scattered MCP servers. MINERVA discovers and validates every tool automatically, then uses hybrid search to match natural language queries to exact capabilities.</p>
       
       <div class="project-features">
@@ -294,7 +294,7 @@ Agent workflows fail 40-60% of the time due to suboptimal prompts and scattered 
       <div class="project-cta">
         <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in becoming a tester for this product. Please let me know about testing opportunities.">
           <span class="btn-inner">
-            Unify Your Tools • Join Pilot
+            Unify Your Tools
             <i data-lucide="mail"></i>
           </span>
         </a>
@@ -313,7 +313,7 @@ Agent workflows fail 40-60% of the time due to suboptimal prompts and scattered 
   <div class="project-content">
     <h3>Online Agent Optimization Framework</h3>
     <div class="project-pitch">
-      <p><strong>DAEDALUS: Agents that get better automatically.</strong></p>
+      <p><strong>Agents that get better automatically.</strong></p>
       <p>Agent prompts break on edge cases and require constant tuning. DAEDALUS learns from performance metrics and failure patterns to optimize prompts continuously—individual agents and entire workflows get better without manual intervention.</p>
       
       <div class="project-features">
@@ -333,7 +333,7 @@ Agent workflows fail 40-60% of the time due to suboptimal prompts and scattered 
       <div class="project-cta">
         <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in becoming a tester for this product. Please let me know about testing opportunities.">
           <span class="btn-inner">
-            Self-Optimizing Agents • Request Access
+            Self-Optimizing Agents
             <i data-lucide="mail"></i>
           </span>
         </a>
@@ -352,7 +352,7 @@ Agent workflows fail 40-60% of the time due to suboptimal prompts and scattered 
   <div class="project-content">
     <h3>AI-Powered Workflow Planning Through Expert Debate</h3>
     <div class="project-pitch">
-      <p><strong>CONCLAVE: Plans that survive first contact.</strong></p>
+      <p><strong>Plans that survive first contact.</strong></p>
       <p>Single-perspective planning misses risks and dependencies. CONCLAVE runs structured debates between 3-4 expert personas who analyze requirements from different angles—technical, business, ops, security—then converge on executable plans.</p>
       
       <div class="project-features">
@@ -372,7 +372,7 @@ Agent workflows fail 40-60% of the time due to suboptimal prompts and scattered 
       <div class="project-cta">
         <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in becoming a tester for this product. Please let me know about testing opportunities.">
           <span class="btn-inner">
-            Expert AI Planning • Join Pilot
+            Expert AI Planning
             <i data-lucide="mail"></i>
           </span>
         </a>
@@ -395,7 +395,7 @@ Legacy development tools fail with 87% false positive rates and crash under scal
   <div class="project-content">
     <h3>Next-Generation Duplicate Code Detection</h3>
     <div class="project-pitch">
-      <p><strong>ECHO: Find duplicates tools miss completely.</strong></p>
+      <p><strong>Find duplicates tools miss completely.</strong></p>
       <p>Traditional tools false-flag 87% of the time, missing semantic duplicates entirely. ECHO uses GraphCodeBERT embeddings to catch identical logic with different syntax—the duplicates that actually matter for refactoring.</p>
       
       <div class="project-features">
@@ -415,7 +415,7 @@ Legacy development tools fail with 87% false positive rates and crash under scal
       <div class="project-cta">
         <a href="https://github.com/sibyllinesoft/echo" target="_blank" rel="noopener noreferrer" class="btn-unified btn-primary">
           <span class="btn-inner">
-            View on GitHub • Run on Your Codebase
+            View on GitHub
             <i data-lucide="github"></i>
           </span>
         </a>
@@ -434,7 +434,7 @@ Legacy development tools fail with 87% false positive rates and crash under scal
   <div class="project-content">
     <h3>Complete Software Development Specification Service</h3>
     <div class="project-pitch">
-      <p><strong>ARBITER: From requirements to running code.</strong></p>
+      <p><strong>From requirements to running code.</strong></p>
       <p>Requirements change, specifications drift, and teams build the wrong thing. ARBITER uses CUE language for mathematical precision—specifications become executable contracts that generate validated software automatically.</p>
       
       <div class="project-features">
@@ -454,7 +454,7 @@ Legacy development tools fail with 87% false positive rates and crash under scal
       <div class="project-cta">
         <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in becoming a tester for this product. Please let me know about testing opportunities.">
           <span class="btn-inner">
-            Requirements to Code • Request Access
+            Requirements to Code
             <i data-lucide="mail"></i>
           </span>
         </a>
@@ -473,7 +473,7 @@ Legacy development tools fail with 87% false positive rates and crash under scal
   <div class="project-content">
     <h3>Static Analysis Engine for AI-Guided Refactoring</h3>
     <div class="project-pitch">
-      <p><strong>VALKNUT: Stop AI agents hunting blindly.</strong></p>
+      <p><strong>Stop AI agents hunting blindly.</strong></p>
       <p>AI agents waste time hunting for refactoring opportunities across codebases. VALKNUT creates precise problem roadmaps with 0-1 urgency scores—agents focus on highest-impact issues first instead of wandering randomly.</p>
       
       <div class="project-features">
@@ -493,7 +493,7 @@ Legacy development tools fail with 87% false positive rates and crash under scal
       <div class="project-cta">
         <a href="https://github.com/sibyllinesoft/valknut" class="btn-unified btn-primary">
           <span class="btn-inner">
-            View on GitHub • Guide Your AI Agents
+            View on GitHub
             <i data-lucide="github"></i>
           </span>
         </a>
@@ -516,7 +516,7 @@ Development teams face crushing AI inference costs and vendor lock-in while buil
   <div class="project-content">
     <h3>Every Developer's AI Dream: Zero Setup, Total Control</h3>
     <div class="project-pitch">
-      <p><strong>MINDLINK: Build AI apps without AI bills.</strong></p>
+      <p><strong>Build AI apps without AI bills.</strong></p>
       <p>AI inference costs crush indie developers while vendors lock users in. MINDLINK flips the script—users bring their own AI (Ollama, Claude Code, any provider) while you deliver premium features without infrastructure costs.</p>
       
       <div class="project-features">
@@ -536,7 +536,7 @@ Development teams face crushing AI inference costs and vendor lock-in while buil
       <div class="project-cta">
         <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in becoming a tester for this product. Please let me know about testing opportunities.">
           <span class="btn-inner">
-            Zero AI Bills • Request Access
+            Zero AI Bills
             <i data-lucide="mail"></i>
           </span>
         </a>
@@ -555,7 +555,7 @@ Development teams face crushing AI inference costs and vendor lock-in while buil
   <div class="project-content">
     <h3>Multi-Agent Development System for Extended Claude Code Sessions</h3>
     <div class="project-pitch">
-      <p><strong>HYDRA: Keep building, stop restarting.</strong></p>
+      <p><strong>Keep building, stop restarting.</strong></p>
       <p>Claude Code stalls after 50 messages, killing momentum on complex projects. HYDRA spins up 50+ specialist agents—backend architects, security auditors, test writers—so context never drops and conversations run for days.</p>
       
       <div class="project-features">
@@ -575,7 +575,7 @@ Development teams face crushing AI inference costs and vendor lock-in while buil
       <div class="project-cta">
         <a href="https://github.com/sibyllinesoft/hydra" class="btn-unified btn-primary">
           <span class="btn-inner">
-            View on GitHub • Never Restart Again
+            View on GitHub
             <i data-lucide="github"></i>
           </span>
         </a>
@@ -598,7 +598,7 @@ Creative professionals lose 40-60% of productive time to manual trend research a
   <div class="project-content">
     <h3>Manuscript Analysis Tool for Writers and Publishers</h3>
     <div class="project-pitch">
-      <p><strong>BOOKWORM: Fix story problems before publication.</strong></p>
+      <p><strong>Fix story problems before publication.</strong></p>
       <p>Writers get subjective feedback that misses structural issues while publishers gamble on manuscripts without objective data. BOOKWORM analyzes narrative patterns that drive reader engagement—pacing, tension, character development—with specific improvement recommendations.</p>
       
       <div class="project-features">
@@ -618,7 +618,7 @@ Creative professionals lose 40-60% of productive time to manual trend research a
       <div class="project-cta">
         <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in becoming a tester for this product. Please let me know about testing opportunities.">
           <span class="btn-inner">
-            Analyze Your Manuscript • Join Beta
+            Analyze Your Manuscript
             <i data-lucide="mail"></i>
           </span>
         </a>
@@ -637,7 +637,7 @@ Creative professionals lose 40-60% of productive time to manual trend research a
   <div class="project-content">
     <h3>Content Trend Analysis Platform for Creators</h3>
     <div class="project-pitch">
-      <p><strong>IDEOSCOPE: Spot trends before your competition.</strong></p>
+      <p><strong>Spot trends before your competition.</strong></p>
       <p>Creators waste hours researching trends that are already mainstream while missing emerging patterns. IDEOSCOPE identifies content patterns 2-3 weeks before they explode, giving you first-mover advantage in your niche.</p>
       
       <div class="project-features">
@@ -657,7 +657,7 @@ Creative professionals lose 40-60% of productive time to manual trend research a
       <div class="project-cta">
         <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in becoming a tester for this product. Please let me know about testing opportunities.">
           <span class="btn-inner">
-            Predict Trends Early • Join Beta
+            Predict Trends Early
             <i data-lucide="mail"></i>
           </span>
         </a>
@@ -676,7 +676,7 @@ Creative professionals lose 40-60% of productive time to manual trend research a
   <div class="project-content">
     <h3>Automated Idea Generation and Refinement System</h3>
     <div class="project-pitch">
-      <p><strong>DARWIN: Generate 500 concepts while you sleep.</strong></p>
+      <p><strong>Generate 500 concepts while you sleep.</strong></p>
       <p>Creative teams burn out generating ideas while missing breakthrough combinations. DARWIN runs 24/7 concept generation with multi-criteria AI assessment—300-500 variations overnight, filtered for feasibility, originality, and market potential.</p>
       
       <div class="project-features">
@@ -696,7 +696,7 @@ Creative professionals lose 40-60% of productive time to manual trend research a
       <div class="project-cta">
         <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in becoming a tester for this product. Please let me know about testing opportunities.">
           <span class="btn-inner">
-            10x Your Ideation • Request Access
+            10x Your Ideation
             <i data-lucide="mail"></i>
           </span>
         </a>
@@ -879,6 +879,14 @@ Use product CTAs above or contact us directly for enterprise discussions. All pr
   text-align: center;
 }
 
+.project-content h3 {
+  margin-top: 0;
+  margin-bottom: var(--space-lg);
+  color: var(--color-text);
+  font-weight: 600;
+  text-align: center;
+}
+
 .project-pitch {
   color: var(--color-text-light);
   line-height: var(--leading-relaxed);
@@ -889,8 +897,10 @@ Use product CTAs above or contact us directly for enterprise discussions. All pr
 }
 
 .project-pitch strong {
-  color: var(--color-text);
+  color: var(--color-text-muted);
   font-weight: 600;
+  display: block;
+  text-align: center;
 }
 
 .project-features {
@@ -930,6 +940,7 @@ Use product CTAs above or contact us directly for enterprise discussions. All pr
   margin-top: var(--space-lg);
   text-align: center;
 }
+
 
 
 /* Responsive Design */
