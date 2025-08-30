@@ -452,10 +452,10 @@ Legacy development tools fail with 87% false positive rates and crash under scal
       <p>Product teams cut specification-to-code iterations by 90% through mathematical precision that eliminates manual bottlenecks and requirement drift.</p>
       
       <div class="project-cta">
-        <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in becoming a tester for this product. Please let me know about testing opportunities.">
+        <a href="https://github.com/sibyllinesoft/arbiter" class="btn-unified btn-primary">
           <span class="btn-inner">
-            Requirements to Code
-            <i data-lucide="mail"></i>
+            View on GitHub
+            <i data-lucide="github"></i>
           </span>
         </a>
       </div>
