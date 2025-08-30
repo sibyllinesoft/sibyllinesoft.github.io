@@ -305,49 +305,9 @@ footer.elv-layout {
 	max-width: none;
 }
 
-/* TOC Layout - Scaling Right Margin with Hide Below 1200px */
+/* TOC Layout - Original Eleventy layout */
 .elv-layout-toc {
-	/* Keep base layout styles but add scaling right margin for TOC */
-	padding: 1rem;
-	margin: 0 auto;
-	max-width: var(--layout-max);
-}
-
-/* Wide screens: TOC with scaling right margin */
-@media (min-width: 75em) { /* 1200px and up */
-	.elv-layout-toc {
-		/* Add right margin that scales with viewport width for TOC */
-		margin-right: clamp(14rem, 20vw, 24rem);
-		position: relative;
-	}
-	
-	/* TOC positioned in the right margin */
-	.elv-layout-toc > .elv-toc {
-		position: fixed;
-		right: clamp(1rem, 4vw, 3rem);
-		top: var(--elv-toc-sticky-top, 88px);
-		width: clamp(12rem, 16vw, 20rem);
-		max-height: calc(100vh - var(--elv-toc-sticky-top, 88px));
-		overflow-y: auto;
-		z-index: 1;
-	}
-	
-	/* Main content flows normally */
-	.elv-layout-toc > #skip-content {
-		/* No special grid constraints needed */
-	}
-}
-
-/* Hide TOC completely at 1200px and below */
-@media (max-width: 74.9375em) { /* 1199px and below */
-	.elv-layout-toc > .elv-toc {
-		display: none !important;
-	}
-	
-	.elv-layout-toc {
-		/* Normal layout without TOC considerations */
-		margin-right: auto;
-	}
+	padding-block-start: 0;
 }
 
 /* Scroll margin for anchored headings (so they don't hide under sticky header) */

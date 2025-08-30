@@ -281,16 +281,30 @@
             color: var(--color-text-light);
         }
         
-        /* Floating Table of Contents */
+        /* Glassmorphic Table of Contents - Flush Right */
         .toc-container {
             position: fixed;
-            right: 20px;
+            right: 0;
             top: 30%;
-            width: 220px;
+            width: clamp(16rem, 18vw, 22rem);
             z-index: 1000;
             opacity: 0;
             transform: translateX(30px);
             transition: all 0.4s ease;
+            
+            /* Glassmorphic styling */
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            
+            /* Left rounded edges, right flush */
+            border-radius: 1rem 0 0 1rem;
+            border-right: none;
+            
+            /* No padding */
+            padding: 0;
         }
         
         .toc-container.visible {
@@ -298,12 +312,34 @@
             transform: translateX(0);
         }
         
+        /* Dark mode glassmorphic styling */
+        @media (prefers-color-scheme: dark) {
+            .toc-container {
+                background: rgba(0, 0, 0, 0.2);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            }
+        }
+        
+        /* Responsive font scaling */
+        @media (max-width: 1600px) {
+            .toc a {
+                font-size: var(--text-xs) !important;
+            }
+        }
+        
+        @media (max-width: 1400px) {
+            .toc a {
+                font-size: 0.75rem !important;
+            }
+        }
+        
         .toc-title {
             display: none;
         }
         
         .toc {
-            padding: var(--space-md);
+            padding: var(--space-md) calc(var(--space-md) / 2) var(--space-md) var(--space-md);
         }
         
         /* Custom tocbot styling */
@@ -320,7 +356,7 @@
         
         .toc a {
             display: block;
-            padding: var(--space-sm) var(--space-md);
+            padding: var(--space-md) 0 var(--space-md) var(--space-md);
             color: var(--color-text-muted);
             text-decoration: none;
             font-size: var(--text-sm);
@@ -330,9 +366,9 @@
             line-height: 1.4;
         }
 
-        /* White borders only on top-level TOC items */
+        /* Slightly lighter/whiter borders only on top-level TOC items */
         .toc > .toc-list > .toc-list-item > a {
-            border-left: 2px solid var(--color-border);
+            border-left: 2px solid color-mix(in srgb, var(--color-border) 85%, white 15%);
         }
         
         .toc a:hover {
@@ -456,9 +492,9 @@
             transition: max-height 0.15s ease-out, opacity 0.1s ease-out;
         }
 
-        /* Add dark grey left border to nested TOC items (H3 level) ONLY */
+        /* Add whiter left border to nested TOC items (H3 level) ONLY */
         .toc .toc-list-item .toc-list .toc-list-item {
-            border-left: 2px solid #666;
+            border-left: 2px solid color-mix(in srgb, #666 85%, white 15%);
             padding-left: 8px;
             margin-left: 4px;
         }
@@ -622,9 +658,9 @@
         }
 
         /* Responsive design */
-        @media (max-width: 1620px) {
+        @media (max-width: 1460px) {
             .toc-container {
-                display: none;
+                display: none !important;
             }
         }
         

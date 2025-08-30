@@ -49,6 +49,27 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
 ## Proven Paths From *AI Theatre* to Autonomous Systems That Work
 
 <div class="services-grid">
+<div class="service-card" data-service="training">
+<h3><i data-lucide="graduation-cap"></i> Individuals: From Zero to AI Hero</h3>
+<div class="service-summary">
+<p>Serious tools, zero overhead.</p>
+</div>
+<div class="service-details">
+<p>You want pro-grade tools without corporate overhead. We ship the same stack—simpler to adopt, friendly to local setups.</p>
+<ul>
+<li><strong>Mindlink:</strong> BYO models (Ollama/OpenAI/Claude) via one secure handshake.</li>
+<li><strong>Echo:</strong> Local-only semantic duplicate detection; no cloud.</li>
+<li><strong>Valknut:</strong> Static refactor targets so your AI hits high-impact code first.</li>
+</ul>
+<p>Keep privacy, cut friction, and make your AI assistant useful on your codebase within minutes.</p>
+</div>
+<div class="click-hint">Click to expand</div>
+<div class="service-visual planet">
+<div class="orbit-ring"></div>
+<i></i>
+</div>
+</div>
+
 <div class="service-card" data-service="startup">
 <h3><i data-lucide="zap"></i> Startups: Build AI-First From Day One</h3>
 <div class="service-summary">
@@ -88,27 +109,6 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
 <div class="service-visual galaxy">
 <object type="image/svg+xml" data="/img/svg/galaxy.svg" class="galaxy-svg" width="492" height="252" aria-label="Enhanced spiral galaxy with glow effects"></object>
 <div class="glass-overlay"></div>
-</div>
-</div>
-
-<div class="service-card" data-service="training">
-<h3><i data-lucide="graduation-cap"></i> Individuals: From Zero to AI Hero</h3>
-<div class="service-summary">
-<p>Serious tools, zero overhead.</p>
-</div>
-<div class="service-details">
-<p>You want pro-grade tools without corporate overhead. We ship the same stack—simpler to adopt, friendly to local setups.</p>
-<ul>
-<li><strong>Mindlink:</strong> BYO models (Ollama/OpenAI/Claude) via one secure handshake.</li>
-<li><strong>Echo:</strong> Local-only semantic duplicate detection; no cloud.</li>
-<li><strong>Valknut:</strong> Static refactor targets so your AI hits high-impact code first.</li>
-</ul>
-<p>Keep privacy, cut friction, and make your AI assistant useful on your codebase within minutes.</p>
-</div>
-<div class="click-hint">Click to expand</div>
-<div class="service-visual planet">
-<div class="orbit-ring"></div>
-<i></i>
 </div>
 </div>
 </div>
@@ -385,9 +385,9 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
 }
 .service-visual.planet i{ /* the moon orbit container */
   position:absolute; left:50%; top:50%;
-  width:80px; height:80px;
-  transform:translate(-50%, -50%);
+  width:165px; height:165px;
   animation:orbit var(--dur) linear infinite;
+  will-change:transform;
   z-index: 6;
 }
 .service-visual.planet i::after{ /* the moon */
@@ -396,7 +396,7 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
   width:8px; height:8px; border-radius:50%;
   background:var(--color-accent);
   filter:drop-shadow(0 0 6px rgba(99,102,241,.4));
-  transform:translate(-50%, -50%);
+  transform:translateY(-50%);
 }
 .service-visual.planet .orbit-ring { /* moon orbit ring */
   position:absolute; left:50%; top:50%; translate:-50% -50%;
@@ -450,7 +450,6 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
 }
 .service-visual.solar b{
   position:absolute; left:50%; top:50%;
-  transform:translate(-50%, -50%);
   animation:orbit var(--dur) linear infinite; will-change:transform;
   z-index: 3;
 }
@@ -472,13 +471,14 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
   width:45px; height:45px; 
   background:radial-gradient(circle, 
     rgba(255,255,255,1) 0%, 
-    rgba(255,255,255,0.95) 15%,
-    rgba(99,102,241,0.9) 25%,
-    rgba(99,102,241,0.8) 40%,
-    rgba(99,102,241,0.7) 55%,
-    rgba(99,102,241,0.6) 70%,
-    rgba(99,102,241,0.5) 85%,
-    rgba(99,102,241,0.3) 100%);
+    rgba(255,255,255,0.9) 12%,
+    rgba(99,102,241,0.9) 35%,
+    rgba(99,102,241,0.8) 45%,
+    rgba(99,102,241,0.6) 55%,
+    rgba(99,102,241,0.3) 65%,
+    rgba(99,102,241,0.1) 75%,
+    rgba(99,102,241,0.05) 85%,
+    rgba(99,102,241,0) 100%);
   border-radius:50%; filter:blur(.3px);
   box-shadow:
     0 0 60px rgba(99,102,241,.8),
@@ -486,7 +486,7 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
     0 0 180px rgba(99,102,241,.4),
     0 0 240px rgba(99,102,241,.2),
     inset 0 0 30px rgba(255,255,255,.3);
-  animation: sunPulse 3s ease-in-out infinite;
+  animation: sunPulse 2s ease-in-out infinite;
 }
 
 /* Enterprise — Galaxy (muted, parallax, but NOT flashy) */
@@ -587,8 +587,8 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
     opacity: 1; 
   }
   50% { 
-    transform: translate(-50%, -50%) scale(1.1); 
-    opacity: 0.9; 
+    transform: translate(-50%, -50%) scale(1.03); 
+    opacity: 0.6; 
   }
 }
 /* Old galaxy animation keyframes - now replaced by SVG animations
@@ -898,8 +898,8 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
 /* Rotating Banners */
 .rotating-banners {
   position: relative;
-  height: 2.5rem;
-  overflow: hidden;
+  height: 3rem;
+  overflow: visible;
   margin-top: var(--space-lg);
 }
 
