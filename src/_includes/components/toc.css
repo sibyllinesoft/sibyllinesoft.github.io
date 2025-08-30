@@ -14,12 +14,17 @@
 		--elv-toc-hover-color: #353535;
 	}
 }
-@media (min-width: 55em) { /* 880px */
+/* TOC positioning - scaling right margin approach */
+@media (min-width: 75em) { /* 1200px and up - matches main layout */
 	.elv-toc {
-		position: absolute;
-		left: 1rem;
-		width: 13rem;
-		z-index: 1;
+		/* Fixed positioning in right margin handled by main layout */
+	}
+}
+
+/* Hide TOC below 1200px - no positioning needed */
+@media (max-width: 74.9375em) { /* 1199px and below */
+	.elv-toc {
+		/* Hidden via display: none in main layout */
 	}
 }
 
@@ -41,11 +46,18 @@
 		margin-block-end: 2.5em;
 	}
 }
-@media (min-width: 55em) and (min-height: 43.75em) { /* 880×700px */
-	/* Sticky on menus except Guide/Projects */
+@media (min-width: 55em) and (max-width: 1619px) and (min-height: 43.75em) { /* 880×700px - 1619px */
+	/* Sticky on menus except Guide/Projects - only for non-grid layout */
 	.elv-toc-c:not(:has(a[href="/docs/projects/"] + details[open])) {
 		position: sticky;
 		top: var(--elv-toc-sticky-top);
+	}
+}
+
+@media (min-width: 1620px) and (min-height: 43.75em) {
+	/* Grid layout sticky positioning handled by parent .elv-toc */
+	.elv-toc-c:not(:has(a[href="/docs/projects/"] + details[open])) {
+		position: static; /* Reset sticky for grid layout */
 	}
 }
 
