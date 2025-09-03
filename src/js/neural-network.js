@@ -35,6 +35,12 @@ class NeuralNetwork {
     this.targetFps = 60;
     this.frameInterval = 1000 / this.targetFps;
     
+    // Ramp-up system for smart initial burst then sustainable steady state
+    this.startTime = Date.now();
+    this.rampUpPhase = true;
+    this.rampUpDuration = 5000; // 5 seconds of initial burst (faster ramp)
+    this.sustainablePhase = false;
+    
     // Resolution scaling
     this.dynamicDpr = 1;
     this.maxDpr = 1.5;
@@ -669,15 +675,23 @@ class NeuralNetwork {
       return; // Skip pulses that don't start from input layer
     }
     
-    // Much more frequent pulses - even faster timing
-    if (now - connection.lastActivation > 800 + Math.random() * 1200) { // Reduced from 2000-5000ms to 800-2000ms
+    // Smart timing based on animation phase
+    const timeSinceStart = now - this.startTime;
+    const isRampUp = timeSinceStart < this.rampUpDuration;
+    
+    // Ramp-up phase: faster interval, sustainable phase: normal interval  
+    const rampFactor = isRampUp ? Math.max(0, 1 - (timeSinceStart / this.rampUpDuration)) : 0;
+    const baseInterval = 1200 - (rampFactor * 1000); // 200 -> 1200 smooth transition
+    const randomInterval = 1800 - (rampFactor * 1500); // 300 -> 1800 smooth transition
+    
+    if (now - connection.lastActivation > baseInterval + Math.random() * randomInterval) {
       // Generate random color personality for this pulse
       const colorPersonality = this.generatePulseColor();
       
       this.pulses.push({
         connectionIndex,
         progress: 0,
-        speed: 0.9, // Increased pulse speed by 50% (0.6 * 1.5)
+        speed: 10, // Very fast trace velocity for testing
         intensity: 0.6 + Math.random() * 0.4,
         createdAt: now,
         sourceNode: connection.from, // Track originating node for propagation
@@ -695,7 +709,7 @@ class NeuralNetwork {
     const completedPulses = [];
     
     this.pulses = this.pulses.filter(pulse => {
-      pulse.progress += pulse.speed * 0.016;
+      pulse.progress += pulse.speed * 0.12; // 50% faster than 0.08 for even more blazing traces
       
       // Check if pulse completed a connection
       if (pulse.progress >= 1 && !pulse.hasCompleted) {
@@ -730,7 +744,7 @@ class NeuralNetwork {
           this.pulses.push({
             connectionIndex,
             progress: 0,
-            speed: completedPulse.speed, // Consistent speed - inherits increased speed from parent
+            speed: completedPulse.speed, // Consistent speed - inherits doubled speed from parent
             intensity: completedPulse.intensity * (0.8 + Math.random() * 0.3), // Gradual intensity decay
             createdAt: Date.now(),
             sourceNode: selectedConnection.from,
@@ -1047,8 +1061,16 @@ class NeuralNetwork {
     // Get current morse code state
     const morseState = this.getMorseForCurrentTime();
     
-    // Pulse system - faster and more frequent synchronized bursts
-    const shouldCreatePulse = Math.random() < 0.001; // Increased from 0.0002 - 5x more frequent
+    // Smart pulse system with smooth ramp-up to sustainable steady state
+    const timeSinceStart = performance.now() - this.startTime;
+    const isRampUp = timeSinceStart < this.rampUpDuration;
+    
+    // Smooth transition factor from 1 (ramp-up) to 0 (sustainable)
+    const rampFactor = isRampUp ? Math.max(0, 1 - (timeSinceStart / this.rampUpDuration)) : 0;
+    
+    // Smoothly interpolated frequency: high at start, low at steady state
+    const pulseFrequency = 0.0008 + (rampFactor * 0.0032); // 0.004 -> 0.0008 smooth transition
+    const shouldCreatePulse = Math.random() < pulseFrequency;
     let morseBoost = false;
     
     // Check for morse code transmission with compressed timing
@@ -1057,9 +1079,9 @@ class NeuralNetwork {
       const symbol = morseState.morse[symbolIndex];
       
       if (symbol === '.') {
-        morseBoost = Math.random() < 0.015; // Increased from 0.003 - 5x more frequent
+        morseBoost = Math.random() < (0.008 + (rampFactor * 0.012)); // Smooth 0.02 -> 0.008
       } else if (symbol === '-') {
-        morseBoost = Math.random() < 0.0075; // Increased from 0.0015 - 5x more frequent
+        morseBoost = Math.random() < (0.004 + (rampFactor * 0.006)); // Smooth 0.01 -> 0.004
       }
     }
     

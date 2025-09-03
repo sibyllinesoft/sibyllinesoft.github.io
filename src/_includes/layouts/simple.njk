@@ -10,6 +10,23 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon.png">
     <link rel="apple-touch-icon" href="/img/favicon.png">
+    <!-- Critical CSS to prevent flash of unstyled content -->
+    <style>
+        /* Immediate critical styles to prevent FOUC */
+        :root {
+            --color-background: #1a1a1a;
+            --color-text: #f5f5f5;
+        }
+        html, body {
+            background: var(--color-background);
+            color: var(--color-text);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+        }
+        /* Hide content until main styles load */
+        .main { opacity: 0; }
+        .loaded .main { opacity: 1; transition: opacity 0.2s ease; }
+    </style>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -297,7 +314,7 @@
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
             
             /* Left rounded edges, right flush */
             border-radius: 1rem 0 0 1rem;
@@ -317,7 +334,7 @@
             .toc-container {
                 background: rgba(32, 32, 32, 0.5);
                 border: 1px solid rgba(255, 255, 255, 0.05);
-                box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+                box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
             }
         }
         
@@ -1493,5 +1510,12 @@
     
     <!-- Secure Contact Email System -->
     <script src="/js/secure-contact.js"></script>
+    
+    <!-- Mark page as loaded to show content -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.classList.add('loaded');
+        });
+    </script>
 </body>
 </html>

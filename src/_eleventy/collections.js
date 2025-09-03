@@ -11,7 +11,7 @@ export default {
   articles: (collectionApi, paths) => {
     return collectionApi.getFilteredByGlob(paths.articles)
       .filter(item => item.data.published === true)
-      .reverse();
+      .sort((a, b) => new Date(b.data.date) - new Date(a.data.date));
   },
 
   /**
@@ -22,6 +22,6 @@ export default {
    */
   allArticles: (collectionApi, paths) => {
     return collectionApi.getFilteredByGlob(paths.articles)
-      .reverse();
+      .sort((a, b) => new Date(b.data.date) - new Date(a.data.date));
   }
 };

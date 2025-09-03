@@ -16,7 +16,13 @@ export default {
     if (isNaN(date.getTime())) {
       return '';
     }
-    return date.toLocaleDateString();
+    // Use UTC to avoid timezone issues with date-only strings
+    return date.toLocaleDateString('en-US', { 
+      timeZone: 'UTC',
+      year: 'numeric',
+      month: 'numeric', 
+      day: 'numeric'
+    });
   },
 
   /**
@@ -32,7 +38,11 @@ export default {
     if (isNaN(date.getTime())) {
       return '';
     }
-    return date.toISOString().split('T')[0];
+    // Use UTC to avoid timezone issues with date-only strings  
+    const year = date.getUTCFullYear();
+    const month = String(date.getUTCMonth() + 1).padStart(2, '0');
+    const day = String(date.getUTCDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
   },
 
   /**
