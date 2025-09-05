@@ -691,7 +691,7 @@ class NeuralNetwork {
       this.pulses.push({
         connectionIndex,
         progress: 0,
-        speed: 10, // Very fast trace velocity for testing
+        speed: 1, // Fixed at 1 to avoid double-dipping with progress rate
         intensity: 0.6 + Math.random() * 0.4,
         createdAt: now,
         sourceNode: connection.from, // Track originating node for propagation
@@ -709,7 +709,7 @@ class NeuralNetwork {
     const completedPulses = [];
     
     this.pulses = this.pulses.filter(pulse => {
-      pulse.progress += pulse.speed * 0.12; // 50% faster than 0.08 for even more blazing traces
+      pulse.progress += pulse.speed * 0.025; // Reduced to 0.025 for smoother speed
       
       // Check if pulse completed a connection
       if (pulse.progress >= 1 && !pulse.hasCompleted) {
@@ -909,7 +909,7 @@ class NeuralNetwork {
         nodeB,
         x: nodeA.x + (nodeB.x - nodeA.x) * pulse.progress,
         y: nodeA.y + (nodeB.y - nodeA.y) * pulse.progress,
-        alpha: Math.sin(pulse.progress * Math.PI) * pulse.intensity,
+        alpha: pulse.intensity * 0.8, // Fixed alpha - was causing invisible pulse heads
         color: pulseColor
       });
     });
@@ -920,7 +920,7 @@ class NeuralNetwork {
       
       // Draw trails
       pulseGroup.forEach(({ pulse, nodeA, nodeB, alpha, color }) => {
-        const trailLength = 60;
+        const trailLength = 120;
         for (let i = 0; i < trailLength; i++) {
           const trailProgress = Math.max(0, pulse.progress - (i * 0.0075));
           if (trailProgress > 0) {
@@ -937,23 +937,23 @@ class NeuralNetwork {
         }
       });
       
-      // Draw main pulses
+      // Draw main pulses - reverted to original size
       this.ctx.shadowColor = `rgba(${Math.min(255, r + 20)}, ${Math.min(255, g + 20)}, ${Math.min(255, b + 20)}, ${0.3})`;
       this.ctx.shadowBlur = 12;
       
       pulseGroup.forEach(({ x, y, alpha }) => {
         this.ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${alpha * 0.75})`;
         this.ctx.beginPath();
-        this.ctx.arc(x, y, 3.5, 0, Math.PI * 2);
+        this.ctx.arc(x, y, 3.5, 0, Math.PI * 2); // Reverted to original size
         this.ctx.fill();
       });
       
-      // Draw bright centers
+      // Draw bright centers - reverted to original size
       this.ctx.shadowBlur = 6;
       pulseGroup.forEach(({ x, y, alpha }) => {
         this.ctx.fillStyle = `rgba(${Math.min(255, r + 50)}, ${Math.min(255, g + 50)}, ${Math.min(255, b + 55)}, ${alpha * 0.675})`;
         this.ctx.beginPath();
-        this.ctx.arc(x, y, 2, 0, Math.PI * 2);
+        this.ctx.arc(x, y, 2, 0, Math.PI * 2); // Reverted to original size
         this.ctx.fill();
       });
       
@@ -1068,8 +1068,8 @@ class NeuralNetwork {
     // Smooth transition factor from 1 (ramp-up) to 0 (sustainable)
     const rampFactor = isRampUp ? Math.max(0, 1 - (timeSinceStart / this.rampUpDuration)) : 0;
     
-    // Smoothly interpolated frequency: high at start, low at steady state
-    const pulseFrequency = 0.0008 + (rampFactor * 0.0032); // 0.004 -> 0.0008 smooth transition
+    // Smoothly interpolated frequency: high at start, low at steady state - extremely rare
+    const pulseFrequency = 0.000005 + (rampFactor * 0.00002); // Drastically reduced - very rare pulses
     const shouldCreatePulse = Math.random() < pulseFrequency;
     let morseBoost = false;
     

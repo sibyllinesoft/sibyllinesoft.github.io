@@ -102,23 +102,25 @@
   line-height: var(--leading-tight);
   font-weight: 700;
   
-  /* Main title horizontal blur animation */
-  transition: filter 0.9s ease, opacity 0.9s ease;
+  /* Performance-friendly opacity transitions only */
+  transition: opacity 0.3s ease;
 }
 
-.hero-content h1.blurring-out {
-  filter: blur(0px) blur(20px);
-  opacity: 0;
-}
-
+/* Removed blur filters to prevent GPU conflicts with neural network canvas */
+.hero-content h1.blurring-out,
 .hero-content h1.blurring-in {
-  filter: blur(20px);
+  filter: none;
   opacity: 0;
 }
 
-.hero-content h1.normal {
-  filter: blur(0px);
+.hero-content h1.normal,
+.hero-content h1.fade-out {
+  filter: none;
   opacity: 1;
+}
+
+.hero-content h1.fade-out {
+  opacity: 0;
 }
 
 /* Hero Subtitle */
@@ -138,6 +140,31 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Performance-optimized banner container transitions */
+.banner-container {
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  will-change: opacity;
+}
+
+.banner-container.active {
+  opacity: 1;
+}
+
+.banner-container.fade-out {
+  opacity: 0;
+}
+
+/* Disable all blur filters for banner elements */
+.banner-container,
+.banner-text,
+.banner-container.blurring-out,
+.banner-container.blurring-in {
+  filter: none !important;
 }
 
 /* Hero Divider with Pulsing Effect */
