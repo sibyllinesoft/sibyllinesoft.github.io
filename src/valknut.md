@@ -286,12 +286,61 @@ document.addEventListener('DOMContentLoaded', function() {
     return hsl2rgb(h, s, l);
   }
 
+  // Store original positions for wobble animation
+  const originalLinePositions = new Float32Array(linePositions);
+  const originalPointsPositions = new Float32Array(pointsPositions);
+  
+  // Wobble parameters for protein-like undulation
+  const wobbleAmplitude = 0.1; // subtle organic deformation
+  const wobbleSpeed = 0.5;        // half the speed too
+  const wobbleComplexity = 3;     // multiple frequency layers
+  
   const clock = new THREE.Clock();
   function tick(){
     const t = clock.getElapsedTime();
 
-    // Rotate as a whole
-    edges.rotation.set(0, t*0.28, 0);
+    // Apply gentle wobble to vertices (protein-like undulation)
+    const linePos = lineGeo.getAttribute('position');
+    for(let i = 0; i < lineUs.length; i++){
+      const baseX = originalLinePositions[i*3+0];
+      const baseY = originalLinePositions[i*3+1]; 
+      const baseZ = originalLinePositions[i*3+2];
+      
+      // Multiple noise frequencies for organic motion
+      const noise1 = Math.sin(t * wobbleSpeed + lineUs[i] * 8 + lineVs[i] * 6) * wobbleAmplitude;
+      const noise2 = Math.sin(t * wobbleSpeed * 1.7 + lineUs[i] * 12 + lineVs[i] * 9) * wobbleAmplitude * 0.6;
+      const noise3 = Math.sin(t * wobbleSpeed * 2.3 + lineUs[i] * 15 + lineVs[i] * 11) * wobbleAmplitude * 0.3;
+      
+      const wobble = noise1 + noise2 + noise3;
+      
+      // Apply wobble in normal direction (perpendicular to surface)
+      linePos.array[i*3+0] = baseX + wobble * Math.cos(lineUs[i] * Math.PI * 4);
+      linePos.array[i*3+1] = baseY + wobble * Math.sin(lineUs[i] * Math.PI * 4);
+      linePos.array[i*3+2] = baseZ + wobble * Math.cos(lineVs[i] * Math.PI * 2);
+    }
+    linePos.needsUpdate = true;
+    
+    // Apply same wobble to points
+    const pointPos = ptsGeo.getAttribute('position');
+    for(let i = 0; i < pointsUs.length; i++){
+      const baseX = originalPointsPositions[i*3+0];
+      const baseY = originalPointsPositions[i*3+1];
+      const baseZ = originalPointsPositions[i*3+2];
+      
+      const noise1 = Math.sin(t * wobbleSpeed + pointsUs[i] * 8 + pointsVs[i] * 6) * wobbleAmplitude;
+      const noise2 = Math.sin(t * wobbleSpeed * 1.7 + pointsUs[i] * 12 + pointsVs[i] * 9) * wobbleAmplitude * 0.6;
+      const noise3 = Math.sin(t * wobbleSpeed * 2.3 + pointsUs[i] * 15 + pointsVs[i] * 11) * wobbleAmplitude * 0.3;
+      
+      const wobble = noise1 + noise2 + noise3;
+      
+      pointPos.array[i*3+0] = baseX + wobble * Math.cos(pointsUs[i] * Math.PI * 4);
+      pointPos.array[i*3+1] = baseY + wobble * Math.sin(pointsUs[i] * Math.PI * 4);
+      pointPos.array[i*3+2] = baseZ + wobble * Math.cos(pointsVs[i] * Math.PI * 2);
+    }
+    pointPos.needsUpdate = true;
+
+    // Rotate as a whole - z-axis spin plus slow clock-style x-axis rotation
+    edges.rotation.set(t*0.08, t*0.23625, 0); // slow x-rotation + even slower y-rotation (0.315 * 0.75)
     vertices.rotation.copy(edges.rotation);
 
     // Update line colors with iridescent shimmer
