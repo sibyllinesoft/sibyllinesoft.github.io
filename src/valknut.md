@@ -29,7 +29,7 @@ description: "Stop AI agents hunting blindly. Precise problem roadmaps with 0-1 
   <div class="hero-content">
     <div class="hero-title-container">
       <img src="/img/logos/valknut-large.webp" alt="Valknut Logo" class="hero-logo" style="height: 52px;">
-      <h1 class="hero-title normal" style="will-change: auto;">Valknut</h1>
+      <h1 class="hero-title normal" style="will-change: auto;">Valknut gives your agents refactoring superpowers</h1>
     </div>
     <div class="rotating-banners">
       <!-- This will be populated by the script using the hero-data above -->
@@ -144,6 +144,10 @@ document.addEventListener('DOMContentLoaded', function() {
   const linePositions = new Float32Array(totalSegs * 2 * 3);
   const lineColors    = new Float32Array(totalSegs * 2 * 3);
   const lineUs        = new Float32Array(totalSegs * 2); // param u per vertex for animation
+  const lineVs        = new Float32Array(totalSegs * 2); // param v around circumference
+  const lineSeed      = new Float32Array(totalSegs * 2); // stable per-vertex hash
+
+  function fract(x){ return x - Math.floor(x); }
 
   let ptr = 0;
   function copyVertex(index, uNorm){
@@ -155,6 +159,9 @@ document.addEventListener('DOMContentLoaded', function() {
     lineColors[ptr*3+1] = 0.5;
     lineColors[ptr*3+2] = 0.5;
     lineUs[ptr] = uNorm;
+    const vNorm = (index % ringSize) / radialSegments; // 0..1 around circumference
+    lineVs[ptr] = vNorm;
+    lineSeed[ptr] = fract(Math.sin(index * 12.9898) * 43758.5453); // stable per-vertex hash
     ptr++;
   }
 
@@ -187,7 +194,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const lineMat = new THREE.LineBasicMaterial({
     vertexColors: true,
     transparent: true,
-    opacity: 0.25 // Reduced opacity for backdrop effect
+    opacity: 0.3, // Increased to make shimmer more visible
+    blending: THREE.AdditiveBlending
   });
   const edges = new THREE.LineSegments(lineGeo, lineMat);
   scene.add(edges);
@@ -196,6 +204,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const pointsPositions = new Float32Array(totalVerts * 3);
   const pointsColors    = new Float32Array(totalVerts * 3);
   const pointsUs        = new Float32Array(totalVerts);
+  const pointsVs        = new Float32Array(totalVerts);
+  const pointsSeed      = new Float32Array(totalVerts);
 
   let pptr = 0;
   for(let i=0;i<rings;i++){
@@ -209,6 +219,8 @@ document.addEventListener('DOMContentLoaded', function() {
       pointsColors[pptr*3+1] = 0.5;
       pointsColors[pptr*3+2] = 0.5;
       pointsUs[pptr] = Math.min(1.0, u); // clamp final duplicate
+      pointsVs[pptr] = j / radialSegments;
+      pointsSeed[pptr] = fract(Math.sin(idx * 12.9898) * 43758.5453);
       pptr++;
     }
   }
@@ -221,16 +233,24 @@ document.addEventListener('DOMContentLoaded', function() {
     size: 2.0,           // px
     sizeAttenuation: false,
     transparent: true,
-    opacity: 0.25 // Reduced opacity for backdrop effect
+    opacity: 0.35, // Increased to make shimmer more visible
+    blending: THREE.AdditiveBlending
   });
   const vertices = new THREE.Points(ptsGeo, ptsMat);
   scene.add(vertices);
 
-  // --- Animate wave brightness along u ---
+  // --- Animate iridescent shimmer along u and v ---
   const waves = 3;          // number of wave fronts
   const sigma = 0.025;      // width of each wave
   const speed = 0.12;       // revolutions per second
-  const baseGray = 0.5;     // ~128
+  const baseGray = 0.50;    // base brightness
+  
+  // Iridescent shimmer controls
+  const hueA = 290/360;     // purple
+  const hueB = 140/360;     // green
+  const microScales = 8;    // reduced density for more visible effect
+  const microSpeed = 0.8;   // faster animation to make it more obvious
+  
   function brightnessAt(u, t){
     let b = 0.0;
     for(let k=0;k<waves;k++){
@@ -242,10 +262,28 @@ document.addEventListener('DOMContentLoaded', function() {
     // normalize gently; cap at 1
     return Math.min(1.0, b);
   }
-  function applyColorMix(arr, idx, bright){
-    // mix(baseGray -> white) by 'bright'
-    const c = baseGray * (1.0 - bright) + 1.0 * bright;
-    arr[idx*3+0] = c; arr[idx*3+1] = c; arr[idx*3+2] = c;
+  
+  // Utilities
+  function clamp(x,a,b){ return Math.max(a, Math.min(b, x)); }
+  function hsl2rgb(h, s, l){ // h in [0,1]
+    const k = n => (n + h * 12) % 12;
+    const a = s * Math.min(l, 1 - l);
+    const f = n => l - a * Math.max(-1, Math.min(k(n) - 3, Math.min(9 - k(n), 1)));
+    return [f(0), f(8), f(4)];
+  }
+  
+  function iridescentRGB(u, v, t, seed){
+    const wave = brightnessAt(u, t);                     // existing longitudinal pulse (0..1)
+    const phase = 2*Math.PI*(v*microScales + microSpeed*t) + seed*6.283;
+    const mixH = 0.5 + 0.5*Math.sin(phase);             // 0..1, animated along v
+    const h = hueA*(1-mixH) + hueB*mixH;
+    
+    // Make inactive areas much dimmer
+    const baseOpacity = 0.125; // quarter opacity for non-active areas (half of previous 0.25)
+    const activeBoost = 0.875; // increased boost to maintain bright shimmer
+    const s = (0.4 + 0.3*wave) * 0.67;                 // reduced saturation by 1/3rd (multiply by 2/3)
+    const l = clamp(baseOpacity + activeBoost*wave, 0, 1); // much dimmer base, bright on pulse
+    return hsl2rgb(h, s, l);
   }
 
   const clock = new THREE.Clock();
@@ -256,19 +294,23 @@ document.addEventListener('DOMContentLoaded', function() {
     edges.rotation.set(0, t*0.28, 0);
     vertices.rotation.copy(edges.rotation);
 
-    // Update line colors
+    // Update line colors with iridescent shimmer
     const lc = lineGeo.getAttribute('color');
     for(let i=0;i<lineUs.length;i++){
-      const bright = brightnessAt(lineUs[i], t);
-      applyColorMix(lc.array, i, bright);
+      const rgb = iridescentRGB(lineUs[i], lineVs[i], t, lineSeed[i]);
+      lc.array[i*3+0] = rgb[0];
+      lc.array[i*3+1] = rgb[1];
+      lc.array[i*3+2] = rgb[2];
     }
     lc.needsUpdate = true;
 
-    // Update point colors
+    // Update point colors with iridescent shimmer
     const pc = ptsGeo.getAttribute('color');
     for(let i=0;i<pointsUs.length;i++){
-      const bright = brightnessAt(pointsUs[i], t);
-      applyColorMix(pc.array, i, bright);
+      const rgb = iridescentRGB(pointsUs[i], pointsVs[i], t, pointsSeed[i]);
+      pc.array[i*3+0] = rgb[0];
+      pc.array[i*3+1] = rgb[1];
+      pc.array[i*3+2] = rgb[2];
     }
     pc.needsUpdate = true;
 
