@@ -279,8 +279,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const h = hueA*(1-mixH) + hueB*mixH;
     
     // Make inactive areas much dimmer
-    const baseOpacity = 0.125; // quarter opacity for non-active areas (half of previous 0.25)
-    const activeBoost = 0.875; // increased boost to maintain bright shimmer
+    const baseOpacity = 0.075; // 40% less opaque (0.125 * 0.6)
+    const activeBoost = 0.925; // increased boost to maintain bright shimmer
     const s = (0.4 + 0.3*wave) * 0.67;                 // reduced saturation by 1/3rd (multiply by 2/3)
     const l = clamp(baseOpacity + activeBoost*wave, 0, 1); // much dimmer base, bright on pulse
     return hsl2rgb(h, s, l);
