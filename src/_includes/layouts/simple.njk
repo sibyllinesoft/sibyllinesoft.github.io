@@ -22,6 +22,17 @@
             color: var(--color-text);
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
         }
+        
+        /* Ensure code samples don't widen the page */
+        pre { 
+            overflow-x: auto; 
+            max-width: 100%; 
+        }
+        
+        /* Prevent horizontal scrollbars globally */
+        body {
+            overflow-x: hidden;
+        }
         /* Hide content until main styles load */
         .main { opacity: 0; }
         .loaded .main { opacity: 1; transition: opacity 0.2s ease; }
@@ -32,6 +43,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.28.2/dist/tocbot.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.css">
+    
+    {%- if stylesheets %}
+    {%- for stylesheet in stylesheets %}
+    <link rel="stylesheet" href="{{ stylesheet }}">
+    {%- endfor %}
+    {%- endif %}
     
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-H63XXGRLBY"></script>
@@ -245,6 +262,7 @@
             margin-bottom: var(--space-xl);
             font-size: var(--text-lg);
             line-height: var(--leading-relaxed);
+            text-align: left;
         }
         
         a {
@@ -302,11 +320,11 @@
         .toc-container {
             position: fixed;
             right: 0;
-            top: 30%;
+            top: 20%;
             width: clamp(16rem, 18vw, 22rem);
             z-index: 1000;
             opacity: 0;
-            transform: translateX(30px);
+            transform: none;
             transition: all 0.4s ease;
             
             /* Glassmorphic styling */
@@ -326,7 +344,7 @@
         
         .toc-container.visible {
             opacity: 1;
-            transform: translateX(0);
+            transform: none;
         }
         
         /* Dark mode glassmorphic styling */
@@ -643,10 +661,19 @@
 
         /* Service cards icon styling */
         .service-card .lucide {
-            width: 2.5em;
-            height: 2.5em;
+            width: 45px !important;
+            height: 45px !important;
             margin-right: var(--space-md);
             filter: drop-shadow(0 0 6px rgba(99, 102, 241, 0.4));
+            flex-shrink: 0;
+        }
+
+        .service-card h3 i,
+        .service-card h3 .lucide {
+            width: 45px !important;
+            height: 45px !important;
+            margin-right: var(--space-md);
+            flex-shrink: 0;
         }
 
         /* Discovery process icons */
@@ -1297,33 +1324,21 @@
                         const mainLink = item.querySelector(':scope > a');
                         const linkText = mainLink?.textContent || 'Unknown';
                         
-                        console.log(`🔍 TOP-LEVEL TOC ITEM ${index}: "${linkText}"`);
-                        console.log('  - Has nested list:', !!nestedList);
-                        console.log('  - Main link element:', !!mainLink);
                         
                         if (nestedList) {
                             // This is a main section with sub-items
                             item.classList.add('is-collapsible');
                             item.classList.add('is-collapsed'); // Start with sub-items collapsed
                             
-                            // Check visibility after applying classes
-                            const computedStyle = window.getComputedStyle(mainLink);
-                            console.log('  - Applied classes:', Array.from(item.classList));
-                            console.log('  - Link display:', computedStyle.display);
-                            console.log('  - Link opacity:', computedStyle.opacity);
-                            console.log('  - Link visibility:', computedStyle.visibility);
                             
                             // Add click handler for manual expand/collapse  
                             if (mainLink) {
                                 mainLink.addEventListener('click', (e) => {
                                     item.classList.toggle('is-collapsed');
-                                    console.log(`  - Clicked "${linkText}", now collapsed:`, item.classList.contains('is-collapsed'));
                                 });
                             }
                         } else {
-                            console.log('  - No nested list found - this might be a product item, not a section');
                         }
-                        console.log(''); // Empty line for readability
                     });
                     
                     // Store reference for the scroll function
@@ -1334,14 +1349,8 @@
                     
                     // Expand the currently visible section
                     const expandVisibleSection = () => {
-                        console.group('🔍 TOC Scroll Detection Debug');
                         
                         const headings = document.querySelectorAll('.main h2:not(.article-title)');
-                        console.log(`📋 Found ${headings.length} H2 headings:`, Array.from(headings).map(h => ({
-                            id: h.id,
-                            text: h.textContent?.trim().substring(0, 50) + '...',
-                            offsetTop: h.offsetTop
-                        })));
                         
                         let currentSection = null;
                         const scrollY = window.scrollY;
@@ -1349,74 +1358,40 @@
                         const scrollOffset = viewportHeight * 0.3;
                         const scrollPosition = scrollY + scrollOffset;
                         
-                        console.log(`📏 Scroll metrics:
-                            - window.scrollY: ${scrollY}px
-                            - viewport height: ${viewportHeight}px
-                            - scroll offset (30%): ${scrollOffset}px
-                            - effective scroll position: ${scrollPosition}px`);
                         
-                        console.log('🎯 Checking headings for current section:');
                         
                         // Find which H2 section we're currently viewing
                         for (let i = headings.length - 1; i >= 0; i--) {
                             const heading = headings[i];
                             const isActive = heading.offsetTop <= scrollPosition;
-                            console.log(`  ${i}. "${heading.textContent?.trim()}" (id: ${heading.id})
-                                - offsetTop: ${heading.offsetTop}px
-                                - scrollPosition: ${scrollPosition}px
-                                - isActive: ${isActive} ${isActive ? '✅' : '❌'}`);
                             
                             if (isActive) {
                                 currentSection = heading;
-                                console.log(`🎯 Selected as current section: "${heading.textContent?.trim()}" (${heading.id})`);
                                 break;
                             }
                         }
                         
                         // Collapse all sections first
-                        console.log(`🔄 Collapsing all ${collapsibleTocItems.length} TOC sections`);
                         collapsibleTocItems.forEach((item, index) => {
-                            const wasCollapsed = item.classList.contains('is-collapsed');
                             item.classList.add('is-collapsed');
-                            console.log(`  ${index}: ${wasCollapsed ? 'already collapsed' : 'collapsed'}`);
                         });
                         
                         // If we found a current section, expand its TOC entry
                         if (currentSection && currentSection.id) {
-                            console.log(`🔍 Looking for TOC link with href="#${currentSection.id}"`);
                             const tocLink = document.querySelector(`.toc a[href="#${currentSection.id}"]`);
                             
                             if (tocLink) {
-                                console.log('✅ TOC link found:', tocLink.textContent?.trim());
                                 const tocItem = tocLink.closest('.toc-list-item');
                                 
                                 if (tocItem) {
-                                    console.log('✅ Parent TOC item found');
                                     const subList = tocItem.querySelector('.toc-list');
                                     
                                     if (subList) {
-                                        console.log('✅ Sub-list found, expanding TOC section');
-                                        const wasCollapsed = tocItem.classList.contains('is-collapsed');
                                         tocItem.classList.remove('is-collapsed');
-                                        console.log(`🎉 TOC section expanded! (was collapsed: ${wasCollapsed})`);
-                                    } else {
-                                        console.log('❌ No sub-list found in TOC item - nothing to expand');
                                     }
-                                } else {
-                                    console.log('❌ Could not find parent TOC list item');
                                 }
-                            } else {
-                                console.log(`❌ No TOC link found for "#${currentSection.id}"`);
-                                console.log('Available TOC links:', Array.from(document.querySelectorAll('.toc a')).map(a => ({
-                                    href: a.getAttribute('href'),
-                                    text: a.textContent?.trim()
-                                })));
                             }
-                        } else {
-                            console.log('❌ No current section found or section has no ID');
                         }
-                        
-                        console.groupEnd();
                     };
                     
                     // Expand initially visible section
@@ -1510,6 +1485,12 @@
     
     <!-- Secure Contact Email System -->
     <script src="/js/secure-contact.js"></script>
+    
+    {%- if scripts %}
+    {%- for script in scripts %}
+    <script src="{{ script }}"></script>
+    {%- endfor %}
+    {%- endif %}
     
     <!-- Mark page as loaded to show content -->
     <script>

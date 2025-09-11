@@ -5,25 +5,50 @@ eleventyNavigation:
 layout: simple.njk
 ---
 
+<!-- Hidden data for rotating banners - read by JavaScript -->
+<div class="hero-data" style="display: none;">
+  <div class="title-subtitle-group" data-group-index="0">
+    <div class="title">Stop Losing to Startups With Real AI Advantages</div>
+    <div class="subtitle">Turn your data moat into autonomous agent systems that competitors can't copy</div>
+    <div class="subtitle">Build AI-first workflows that eliminate manual processes entirely</div>
+    <div class="subtitle">Deploy intelligent automation that learns and improves without human intervention</div>
+  </div>
+  <div class="title-subtitle-group" data-group-index="1">
+    <div class="title">Enterprise AI That Actually Works in Production</div>
+    <div class="subtitle">Architected for scale, security, and seamless integration with existing systems</div>
+    <div class="subtitle">Built with enterprise governance, compliance, and risk management from day one</div>
+    <div class="subtitle">Designed for reliability with comprehensive monitoring and automated failsafes</div>
+  </div>
+  <div class="title-subtitle-group" data-group-index="2">
+    <div class="title">Custom AI Research That Drives Breakthrough Innovation</div>
+    <div class="subtitle">Novel algorithms tailored to your unique data patterns and business constraints</div>
+    <div class="subtitle">Advanced research partnerships that accelerate time-to-market for AI products</div>
+    <div class="subtitle">Proprietary model development that creates sustainable competitive advantages</div>
+  </div>
+  <div class="title-subtitle-group" data-group-index="3">
+    <div class="title">Strategic AI Implementation with Clear ROI</div>
+    <div class="subtitle">Clear roadmaps from concept to competitive edge with measurable business impact</div>
+    <div class="subtitle">Proven methodologies that minimize risk while maximizing transformation speed</div>
+    <div class="subtitle">Executive-ready strategies that align AI initiatives with business objectives</div>
+  </div>
+</div>
+
 <div class="hero-container">
   <canvas id="neural-network" class="neural-background"></canvas>
   <div class="hero-content">
     <div class="hero-title-container">
       <img src="/img/logo.svg" alt="Sibylline Software Logo" class="hero-logo">
-      <h1 class="hero-title">Build AI that ships, not just talks.</h1>
+      <h1 class="hero-title">The AI Dev Stack That Actually Ships</h1>
     </div>
     <div class="rotating-banners">
       <div class="banner-container active">
-        <span class="banner-text" data-text="Zero-setup environments, smart model routing, and agents that keep context. Teams ship 40–80% faster by cutting setup weeks, slashing token bills, and killing resets.">Zero-setup environments, smart model routing, and agents that keep context. Teams ship 40–80% faster by cutting setup weeks, slashing token bills, and killing resets.</span>
+        <span class="banner-text" data-text="The AI Dev Stack That Actually Ships">The AI Dev Stack That Actually Ships</span>
       </div>
       <div class="banner-container">
-        <span class="banner-text" data-text="Stop debugging prompts. Start shipping autonomous systems that work 24/7.">Stop debugging prompts. Start shipping autonomous systems that work 24/7.</span>
+        <span class="banner-text" data-text="Spin Up in Two Commands. Ship in Days.">Spin Up in Two Commands. Ship in Days.</span>
       </div>
       <div class="banner-container">
-        <span class="banner-text" data-text="Your competitors hire more humans. You deploy more agents.">Your competitors hire more humans. You deploy more agents.</span>
-      </div>
-      <div class="banner-container">
-        <span class="banner-text" data-text="From setup weeks to same-day launches with AI-first infrastructure.">From setup weeks to same-day launches with AI-first infrastructure.</span>
+        <span class="banner-text" data-text="From Laptop Sandbox to Hyperscale, Seamlessly.">From Laptop Sandbox to Hyperscale, Seamlessly.</span>
       </div>
     </div>
   </div>
@@ -33,35 +58,34 @@ layout: simple.njk
 
 <div class="centered-section">
 
-## While Your Competitors Struggle With Prompts, I'm Shipping Autonomous Agent Systems That 10x Team Velocity
+## While Others Stitch Tools Together, We Ship a Unified Stack That Scales From Laptop to Enterprise
 
-Most teams bolt AI onto existing processes and wonder why it doesn't work. I've been architecting intelligent systems since 2007—I know how to build AI-first from the ground up. While others are still figuring out prompts, I'm shipping autonomous agent systems and contamination-resistant evaluation frameworks. If you're ready to build software that thinks, not just talks, you're in the right place.
+Most teams chase AI by piling on point solutions. They end up with bloated costs, brittle workflows, and agents that break under pressure. We built one coherent stack — the same core architecture that powers a single developer’s laptop sandbox and scales up to hyperscaler clusters.
+
+The result: blazing performance, low costs, and reliable autonomous development that doesn’t collapse under real workloads. From day one you get a system designed to adapt, scale, and keep shipping — whether you’re a team of one or a global enterprise.
 
 </div>
 
 <div class="hero-cta">
-  <a href="javascript:void(0)" class="btn-primary" data-contact-type="contact" data-subject-type="strategy"><span class="btn-inner">Book a consultation <i data-lucide="mail"></i></span></a>
-  <a href="/products/" class="btn-secondary"><span class="btn-inner">View products <i data-lucide="arrow-right"></i></span></a>
+  <a href="/products/" class="btn-primary"><span class="btn-inner">Try the Stack <i data-lucide="arrow-right"></i></span></a>
+  <a href="javascript:void(0)" class="btn-secondary" data-contact-type="contact" data-subject-type="strategy"><span class="btn-inner">See How It Works <i data-lucide="mail"></i></span></a>
 </div>
 
 <div class="content-section">
 
-## Proven Paths From *AI Theatre* to Autonomous Systems That Work
+## One Stack, Three Scales: From Sandbox to Hyperscale
 
 <div class="services-grid">
 <div class="service-card" data-service="training">
-<h3><i data-lucide="graduation-cap"></i> Individuals: From Zero to AI Hero</h3>
+<h3><i data-lucide="graduation-cap"></i> Individuals — From laptop to pro-grade stack</h3>
 <div class="service-summary">
-<p>Serious tools, zero overhead.</p>
+<p><strong>Your own agentic development environment in minutes.</strong> Secure sandboxes ready to run agent swarms. Pro-grade tools that work on any laptop without burning cash or privacy.</p>
 </div>
 <div class="service-details">
-<p>You want pro-grade tools without corporate overhead. We ship the same stack—simpler to adopt, friendly to local setups.</p>
-<ul>
-<li><strong>Mindlink:</strong> BYO models (Ollama/OpenAI/Claude) via one secure handshake.</li>
-<li><strong>Echo:</strong> Local-only semantic duplicate detection; no cloud.</li>
-<li><strong>Valknut:</strong> Static refactor targets so your AI hits high-impact code first.</li>
-</ul>
-<p>Keep privacy, cut friction, and make your AI assistant useful on your codebase within minutes.</p>
+<p><strong>Your own sandboxed AI dev shop in minutes.</strong> Install RAVE, create a VM, and you've got a secure dev box ready to run a whole swarm of agents. SMITH orchestrates them without lag, LETHE keeps infinite memory without you curating context, and LENS + GRIMOIRE give your agents code search that's scary accurate. You get pro-grade tools, but everything works on a laptop without burning cash or privacy.</p>
+<div class="service-cta">
+<a href="/products/" class="btn-secondary"><span class="btn-inner">Set up your sandbox</span></a>
+</div>
 </div>
 <div class="click-hint">Click to expand</div>
 <div class="service-visual planet">
@@ -71,18 +95,15 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
 </div>
 
 <div class="service-card" data-service="startup">
-<h3><i data-lucide="zap"></i> Startups: Build AI-First From Day One</h3>
+<h3><i data-lucide="zap"></i> Startups — Velocity without burn</h3>
 <div class="service-summary">
-<p>Skip setup. Start shipping.</p>
+<p><strong>Ship features before your runway runs out.</strong> Full agentic dev environments spin up in minutes so your team codes day one. Seamlessly scale to hyperscaler performance at a fraction of the cost.</p>
 </div>
 <div class="service-details">
-<p>Most small teams burn weeks wiring GitLab, CI/CD, monitoring, and chat before shipping a feature. RAVE wipes that away—instant infra, already wired to agents.</p>
-<ul>
-<li><strong>RAVE:</strong> Full dev shop in minutes, no config drift.</li>
-<li><strong>Hydra:</strong> Continuous multi-agent coding; no context resets.</li>
-<li><strong>Lethe + Scribe:</strong> Infinite memory and repo packing; LLMs see the right code.</li>
-</ul>
-<p>From empty repo to production features in days, not months; seniors stop babysitting setup and velocity jumps 2–3× by week two.</p>
+<p><strong>Ship features before your runway runs out.</strong> RAVE spins up your full dev environment in minutes so your team is coding day one. When you outgrow the box, MULTIVERSE scales you to hyperscaler performance at a fraction of the cost. LETHE and SCRIBE give your agents context that doesn't break, ARBITER nails specs before code drifts. You go from empty repo to shipping production features in days, not months.</p>
+<div class="service-cta">
+<a href="/products/" class="btn-secondary"><span class="btn-inner">Scale your team</span></a>
+</div>
 </div>
 <div class="click-hint">Click to expand</div>
 <div class="service-visual solar">
@@ -92,18 +113,15 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
 </div>
 
 <div class="service-card" data-service="enterprise">
-<h3><i data-lucide="building"></i> Enterprise: Custom Agents & Orchestration</h3>
+<h3><i data-lucide="building"></i> Enterprise — Control, compliance, and speed</h3>
 <div class="service-summary">
-<p>Orchestrate agents without chaos.</p>
+<p><strong>Enterprise-grade agentic orchestration without the bureaucracy.</strong> Reactive architecture with sub-5ms starts, full auditing, and multi-layer sandboxing. Distributed, observable, and compliant out of the box.</p>
 </div>
 <div class="service-details">
-<p>SSH + tool calls turn agents into a security risk and a monitoring blind spot. Smith flips control: agents react to events but don't mutate systems directly.</p>
-<ul>
-<li><strong>Smith:</strong> Rust runner, sub-5 ms starts, inversion-of-control, audit + replay.</li>
-<li><strong>Heimdall:</strong> Cost/quality routing with OAuth; graceful fallbacks.</li>
-<li><strong>Minerva:</strong> Unified MCP directory; the right tool surfaces instantly.</li>
-</ul>
-<p>Real-time, observable orchestration without brittle hacks; compliance gets logs, leads get dashboards, and inference costs drop ~30–40%.</p>
+<p><strong>Enterprise-grade orchestration without the bureaucracy.</strong> SMITH gives you reactive architecture with sub-5ms starts, full auditing, and multi-layer sandboxing. GUILD keeps code and business docs in sync while enriching them for RAG. AEGIS ends merge queue hell, ARBITER locks specs to code. It's distributed, observable, and compliant out of the box—so you move faster without sacrificing control.</p>
+<div class="service-cta">
+<a href="javascript:void(0)" class="btn-secondary" data-contact-type="contact" data-subject-type="enterprise"><span class="btn-inner">Run it at scale</span></a>
+</div>
 </div>
 <div class="click-hint">Click to expand</div>
 <div class="service-visual galaxy">
@@ -519,7 +537,7 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
   width: 100%;
   height: 100%;
   transform: scale(3);
-  filter: drop-shadow(0 0 40px rgba(99, 102, 241, 0.6)) drop-shadow(0 0 80px rgba(99, 102, 241, 0.3)) drop-shadow(0 0 120px rgba(99, 102, 241, 0.1));
+  filter: blur(2px) drop-shadow(0 0 60px rgba(99, 102, 241, 0.6)) drop-shadow(0 0 120px rgba(99, 102, 241, 0.3)) drop-shadow(0 0 180px rgba(99, 102, 241, 0.1));
   z-index: 5;
 }
 .service-visual.galaxy .glass-overlay{
@@ -723,8 +741,8 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
 .neural-background {
   position: absolute;
   top: -10%;
-  left: -5%;
-  width: 110%;
+  left: 0;
+  width: 100%;
   height: 120%;
   z-index: 1;
   opacity: 0.6;
@@ -753,9 +771,9 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
   width: auto;
   flex-shrink: 0;
   filter: 
-    drop-shadow(0 0 2px rgba(255, 215, 0, 0.4)) 
-    drop-shadow(0 0 9px rgba(255, 215, 0, 0.22)) 
-    drop-shadow(0 0 18px rgba(255, 215, 0, 0.15))
+    drop-shadow(0 0 1px rgba(255, 215, 0, 0.4)) 
+    drop-shadow(0 0 4.5px rgba(255, 215, 0, 0.22)) 
+    drop-shadow(0 0 9px rgba(255, 215, 0, 0.15))
     drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.15))
     drop-shadow(-0.5px -0.5px 1px rgba(255, 255, 255, 0.08));
   animation: logoGlow 3s ease-in-out infinite alternate;
@@ -764,9 +782,9 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
 
 .hero-logo:hover {
   filter: 
-    drop-shadow(0 0 6px rgba(255, 215, 0, 0.6)) 
-    drop-shadow(0 0 24px rgba(255, 215, 0, 0.35)) 
-    drop-shadow(0 0 48px rgba(255, 215, 0, 0.25))
+    drop-shadow(0 0 3px rgba(255, 215, 0, 0.6)) 
+    drop-shadow(0 0 12px rgba(255, 215, 0, 0.35)) 
+    drop-shadow(0 0 24px rgba(255, 215, 0, 0.25))
     drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.15))
     drop-shadow(-0.5px -0.5px 1px rgba(255, 255, 255, 0.08));
   animation: logoGlowHover 2s ease-in-out infinite alternate;
@@ -930,7 +948,7 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
   transition: filter 1.5s ease, opacity 1.5s ease;
   overflow: visible;
   padding: 20px;
-  margin: -20px;
+  margin: 0;
   background: none;
   border: none;
   box-shadow: none;
@@ -1134,7 +1152,7 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
 
 /* Main title horizontal blur animation */
 .hero-content h1 {
-  transition: filter 0.9s ease, opacity 0.9s ease;
+  transition: filter 1.5s ease, opacity 1.5s ease;
 }
 
 .hero-content h1.blurring-out {
@@ -1515,6 +1533,10 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
   align-self: start;
 }
 
+.service-summary p {
+  font-size: calc(var(--text-base) * 0.85);
+}
+
 .service-details {
   display: none;
   opacity: 0;
@@ -1522,6 +1544,7 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
   margin-top: var(--space-lg);
   padding-top: var(--space-lg);
   border-top: 1px solid var(--color-border-light);
+  font-size: calc(var(--text-base) * 0.8);
 }
 
 .service-card.expanded .service-summary {
@@ -1547,6 +1570,26 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
 
 .service-details li {
   margin-bottom: var(--space-xs);
+}
+
+.service-cta {
+  margin-top: var(--space-md);
+  padding-top: var(--space-sm);
+  border-top: 1px solid rgba(99, 102, 241, 0.1);
+}
+
+.service-cta .btn-secondary {
+  font-size: var(--text-sm);
+  padding: var(--space-xs) var(--space-md);
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  transition: all 0.3s ease;
+}
+
+.service-cta .btn-secondary:hover {
+  background: rgba(99, 102, 241, 0.2);
+  border-color: rgba(99, 102, 241, 0.5);
+  transform: translateY(-1px);
 }
 
 .service-card .click-hint {
@@ -1591,7 +1634,7 @@ Most teams bolt AI onto existing processes and wonder why it doesn't work. I've 
   background: var(--color-surface);
   border-radius: var(--radius-lg);
   padding: 0;
-  max-width: 900px;
+  max-width: 1090px;
   width: 100%;
   max-height: 85vh;
   overflow: hidden;
@@ -3597,7 +3640,7 @@ class NeuralNetwork {
     this.layers = [];
     const layerCount = 24; // Even more layers for much closer vertical spacing
     const totalWidth = this.width * 0.95; // Wider
-    const totalHeight = this.height * 0.85; // Taller
+    const totalHeight = this.height * 0.95; // Taller
     const cylinderRadius = totalHeight * 0.35; // Radius for cylindrical distribution
     
     // Generate smooth elliptical distribution with 24 layers for closer spacing
@@ -3605,8 +3648,8 @@ class NeuralNetwork {
     for (let i = 0; i < layerCount; i++) {
       const progress = i / (layerCount - 1); // 0 to 1
       
-      // Smooth elliptical node distribution - more nodes in middle, fewer at ends
-      const ellipticalFactor = Math.sin(progress * Math.PI); // Bell curve: 0 -> 1 -> 0
+      // Smooth elliptical node distribution - more pinched ends, less taper
+      const ellipticalFactor = Math.pow(Math.sin(progress * Math.PI), 0.6); // More pinched ends
       const minNodes = 8;
       const maxNodes = 28;
       const nodeCount = Math.round(minNodes + (maxNodes - minNodes) * ellipticalFactor);
@@ -3681,10 +3724,10 @@ class NeuralNetwork {
           // Visual properties based on layer type
           radius: this.getNodeSize(layerType.size),
           activity: Math.random(),
-          baseActivity: Math.random() * 0.4 + 0.3,
+          baseActivity: Math.random() * 0.6 + 0.1, // Broader range, darker minimum (was 0.4 + 0.3)
           // Gentle pulsing properties for star field effect
           pulsePhase: Math.random() * Math.PI * 2,
-          pulseSpeed: 0.4 + Math.random() * 0.8, // Very slow gentle pulsing
+          pulseSpeed: 0.2 + Math.random() * 0.5, // Slower pulsing (was 0.4 + 0.8)
           pulseIntensity: 0.15 + Math.random() * 0.25, // Subtle brightness variation
           // Color based on layer type
           color: this.getLayerColor(layerType.name)
@@ -3817,8 +3860,8 @@ class NeuralNetwork {
   }
   
   updateNodes() {
-    this.time += 0.016; // 60fps normalized
-    this.rotation += 0.00225; // Increased rotation speed by 50%
+    this.time += 0.032; // Double the time progression for faster deformation
+    this.rotation += 0.00225; // Halved rotation speed
     
     this.nodes.forEach((node, index) => {
       // Enhanced orbital drift for more organic movement
@@ -3845,9 +3888,9 @@ class NeuralNetwork {
       // Cylindrical rotation with elliptical bulge in middle
       const currentAngle = node.cylinderAngle + this.rotation;
       
-      // Create stronger elliptical bulge - more pronounced taper on sides
+      // Create moderate elliptical bulge - less taper, more pinched ends
       const layerProgress = node.layerIndex / (this.layers.length - 1); // 0 to 1
-      const bulgeFactor = 1.0 + 0.8 * Math.sin(layerProgress * Math.PI); // Much stronger bulge for more elliptical shape
+      const bulgeFactor = 1.0 + 0.4 * Math.pow(Math.sin(layerProgress * Math.PI), 0.7); // Reduced taper, pinched ends
       const effectiveRadius = node.cylinderRadius * bulgeFactor;
       
       // Calculate 3D position on rotating elliptical cylinder
@@ -3856,7 +3899,7 @@ class NeuralNetwork {
       
       // Apply perspective projection
       const perspective = 1 + (cylinderZ * 0.0005); // Front nodes slightly larger
-      const depthAlpha = 0.3 + (0.7 * (cylinderZ + effectiveRadius) / (2 * effectiveRadius)); // Depth-based alpha
+      const depthAlpha = 0.1 + (0.9 * (cylinderZ + effectiveRadius) / (2 * effectiveRadius)); // Broader range, darker minimum
       
       node.x = node.baseX + driftX + totalDeformX;
       node.y = this.centerY + cylinderY + driftY + totalDeformY;
@@ -3912,7 +3955,7 @@ class NeuralNetwork {
       this.pulses.push({
         connectionIndex,
         progress: 0,
-        speed: 0.6, // Consistent speed for all traces
+        speed: 1.2, // Increased speed for faster pulse movement
         intensity: 0.6 + Math.random() * 0.4,
         createdAt: now,
         sourceNode: connection.from, // Track originating node for propagation
@@ -4490,8 +4533,8 @@ document.addEventListener('DOMContentLoaded', () => {
           // Phase 3: Unblur to normal
           this.titleElement.classList.remove('blurring-in');
           this.titleElement.classList.add('normal');
-        }, 100);
-      }, 400); // Reduced from 600ms to start new title sooner
+        }, 200);
+      }, 700); // Extended from 400ms for longer, smoother crossover
     }
     
     rebuildSubtitleContainers(subtitles) {
