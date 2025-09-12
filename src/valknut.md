@@ -1,745 +1,460 @@
 ---
 eleventyNavigation:
-  key: Valknut
-  parent: Products
-  order: 4
+key: Valknut
+parent: Products
+order: 4
 layout: simple.njk
 title: "Valknut: Static Analysis Engine for AI-Guided Refactoring"
 description: "Stop AI agents hunting blindly. Precise problem roadmaps with 0-1 urgency scores guide agents to highest-impact issues first."
+stylesheets:
+  - "/styles/valknut.css"
+scripts:
+  - "/js/valknut-banners.js"
 ---
 
 <!-- Hidden data for rotating banners - customize this for Valknut -->
 <div class="hero-data" style="display: none;">
-  <div class="title-subtitle-group" data-group-index="0">
-    <div class="title">Static Analysis That Guides, Not Just Reports</div>
-    <div class="subtitle">Turn code complexity into a precise refactoring roadmap</div>
-    <div class="subtitle">Give AI agents the intelligence to fix what matters most</div>
-    <div class="subtitle">Find systemic issues, not just surface-level code smells</div>
-  </div>
-  <div class="title-subtitle-group" data-group-index="1">
-    <div class="title">Stop AI Agents From Hunting Blindly</div>
-    <div class="subtitle">AI-native analysis with 0-1 urgency scores for high-impact refactoring</div>
-    <div class="subtitle">From thousands of files to a prioritized list of actionable insights</div>
-    <div class="subtitle">Integrated with Claude Code and other agents via MCP</div>
-  </div>
+   <div class="title-subtitle-group" data-group-index="0">
+      <div class="title">Valknut gives your agents refactoring superpowers</div>
+      <div class="subtitle">Agents Are Lost Without Direction—VALKNUT Gives Them Purpose</div>
+   </div>
+   <div class="title-subtitle-group" data-group-index="1">
+      <div class="title">Static Analysis That Guides, Not Just Reports</div>
+      <div class="subtitle">Turn code complexity into a precise refactoring roadmap</div>
+   </div>
+   <div class="title-subtitle-group" data-group-index="2">
+      <div class="title">Stop AI Agents From Hunting Blindly</div>
+      <div class="subtitle">From thousands of files to a prioritized list of actionable insights</div>
+   </div>
 </div>
-
 <div class="hero-container">
-  <canvas id="neural-network" class="neural-background"></canvas>
-  <div class="hero-content">
-    <div class="hero-title-container">
-      <img src="/img/logos/valknut-large.webp" alt="Valknut Logo" class="hero-logo" style="height: 52px;">
-      <h1 class="hero-title normal" style="will-change: auto;">Valknut gives your agents refactoring superpowers</h1>
-    </div>
-    <div class="rotating-banners">
-      <!-- This will be populated by the script using the hero-data above -->
-    </div>
-  </div>
+   <canvas id="neural-network" class="neural-background"></canvas>
+   <div class="hero-content">
+      <div class="hero-title-container">
+         <img src="/img/logos/valknut-large.webp" alt="Valknut Logo" class="hero-logo" style="height: 72px;">
+         <h1 class="hero-title">Valknut gives your agents refactoring superpowers</h1>
+      </div>
+      <div class="rotating-banners">
+         <div class="banner-container">
+            <span class="banner-text" data-text="Turn code complexity into a precise refactoring roadmap">Turn code complexity into a precise refactoring roadmap</span>
+         </div>
+         <div class="banner-container">
+            <span class="banner-text" data-text="From thousands of files to a prioritized list of actionable insights">From thousands of files to a prioritized list of actionable insights</span>
+         </div>
+      </div>
+   </div>
 </div>
-
 <hr class="hero-divider">
-
-<style>
-/* Valknut-specific hero styling to match homepage */
-.hero-container {
-  position: relative;
-  min-height: 40vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  margin-bottom: 0;
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
-}
-
-.neural-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  opacity: 0.6;
-  pointer-events: none;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  width: 100%;
-  padding: var(--space-3xl) var(--space-xl);
-  margin: 0 50px;
-}
-
-.main {
-  padding-top: 0;
-}
-
-.hero-divider {
-  margin-top: 0;
-  margin-bottom: 40px; /* 50% of the original 80px bottom margin */
-}
-</style>
-
 <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
-<script>
-// Trefoil animation for Valknut hero banner
-document.addEventListener('DOMContentLoaded', function() {
-  const canvas = document.getElementById('neural-network');
-  if (!canvas) return;
-
-  // Renderer - size to hero container, not viewport
-  const renderer = new THREE.WebGLRenderer({canvas: canvas, antialias: true, alpha: true});
-  renderer.setPixelRatio(Math.min(2, window.devicePixelRatio || 1));
-  
-  const container = document.querySelector('.hero-container');
-  function resizeRenderer() {
-    if (container) {
-      const { width, height } = container.getBoundingClientRect();
-      renderer.setSize(width, height);
-      camera.aspect = width / height;
-      camera.updateProjectionMatrix();
-    }
-  }
-  
-  // Scene & camera
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(45, 1, 0.01, 100);
-  camera.position.set(0, 0, 2.75); // Zoomed out slightly to 2.75
-
-  // Trefoil torus knot curve T(2,3)
-  class TrefoilTorusCurve extends THREE.Curve {
-    constructor(R=1.7, r=0.52){ super(); this.R = R; this.r = r; }
-    getPoint(t, target=new THREE.Vector3()){
-      const phi = t * Math.PI * 2.0;
-      const rad = this.R + this.r * Math.cos(3*phi);
-      target.set(rad*Math.cos(2*phi), rad*Math.sin(2*phi), this.r*Math.sin(3*phi));
-      return target.multiplyScalar(0.40);
-    }
-  }
-  const curve = new TrefoilTorusCurve();
-
-  // Build the tube grid just to get a regular vertex lattice on the surface
-  const tubularSegments = 360;   // segments along the knot
-  const radialSegments  = 18;    // segments around circumference
-  const tubeRadius      = 0.16;
-  const tubeGeo = new THREE.TubeGeometry(curve, tubularSegments, tubeRadius, radialSegments, true);
-  tubeGeo.rotateY(Math.PI/(radialSegments*2)); // move seam out of view
-
-  // Extract grid vertex positions
-  const posAttr = tubeGeo.getAttribute('position');
-  const ringSize = radialSegments + 1;
-  const rings = tubularSegments + 1;
-  const totalVerts = rings * ringSize;
-
-  // --- Build edge line segments with per-vertex colors ---
-  // We'll add segments along u (rings) and along v (around circumference)
-  const segmentsU = tubularSegments * ringSize;
-  const segmentsV = tubularSegments * radialSegments;
-  const totalSegs = segmentsU + segmentsV;
-
-  const linePositions = new Float32Array(totalSegs * 2 * 3);
-  const lineColors    = new Float32Array(totalSegs * 2 * 3);
-  const lineUs        = new Float32Array(totalSegs * 2); // param u per vertex for animation
-  const lineVs        = new Float32Array(totalSegs * 2); // param v around circumference
-  const lineSeed      = new Float32Array(totalSegs * 2); // stable per-vertex hash
-
-  function fract(x){ return x - Math.floor(x); }
-
-  let ptr = 0;
-  function copyVertex(index, uNorm){
-    linePositions[ptr*3+0] = posAttr.getX(index);
-    linePositions[ptr*3+1] = posAttr.getY(index);
-    linePositions[ptr*3+2] = posAttr.getZ(index);
-    // initial color mid-gray
-    lineColors[ptr*3+0] = 0.5;
-    lineColors[ptr*3+1] = 0.5;
-    lineColors[ptr*3+2] = 0.5;
-    lineUs[ptr] = uNorm;
-    const vNorm = (index % ringSize) / radialSegments; // 0..1 around circumference
-    lineVs[ptr] = vNorm;
-    lineSeed[ptr] = fract(Math.sin(index * 12.9898) * 43758.5453); // stable per-vertex hash
-    ptr++;
-  }
-
-  // Segments along u (connect ring i to i+1, same radial j)
-  for(let i=0;i<tubularSegments;i++){
-    const u0 = i / tubularSegments;
-    const u1 = (i+1) / tubularSegments;
-    for(let j=0;j<ringSize;j++){
-      const idx0 = i*ringSize + j;
-      const idx1 = (i+1)*ringSize + j;
-      copyVertex(idx0, u0);
-      copyVertex(idx1, u1);
-    }
-  }
-  // Segments along v (connect j to j+1 within each ring i)
-  for(let i=0;i<tubularSegments;i++){
-    const u = i / tubularSegments;
-    for(let j=0;j<radialSegments;j++){
-      const idx0 = i*ringSize + j;
-      const idx1 = i*ringSize + (j+1);
-      copyVertex(idx0, u);
-      copyVertex(idx1, u);
-    }
-  }
-
-  const lineGeo = new THREE.BufferGeometry();
-  lineGeo.setAttribute('position', new THREE.BufferAttribute(linePositions, 3));
-  lineGeo.setAttribute('color',    new THREE.BufferAttribute(lineColors, 3));
-
-  const lineMat = new THREE.LineBasicMaterial({
-    vertexColors: true,
-    transparent: true,
-    opacity: 0.3, // Increased to make shimmer more visible
-    blending: THREE.AdditiveBlending
-  });
-  const edges = new THREE.LineSegments(lineGeo, lineMat);
-  scene.add(edges);
-
-  // --- Build vertex points for visual pips at lattice vertices ---
-  const pointsPositions = new Float32Array(totalVerts * 3);
-  const pointsColors    = new Float32Array(totalVerts * 3);
-  const pointsUs        = new Float32Array(totalVerts);
-  const pointsVs        = new Float32Array(totalVerts);
-  const pointsSeed      = new Float32Array(totalVerts);
-
-  let pptr = 0;
-  for(let i=0;i<rings;i++){
-    const u = i / tubularSegments; // note tubularSegments for normalization; last ring == 1
-    for(let j=0;j<ringSize;j++){
-      const idx = i*ringSize + j;
-      pointsPositions[pptr*3+0] = posAttr.getX(idx);
-      pointsPositions[pptr*3+1] = posAttr.getY(idx);
-      pointsPositions[pptr*3+2] = posAttr.getZ(idx);
-      pointsColors[pptr*3+0] = 0.5;
-      pointsColors[pptr*3+1] = 0.5;
-      pointsColors[pptr*3+2] = 0.5;
-      pointsUs[pptr] = Math.min(1.0, u); // clamp final duplicate
-      pointsVs[pptr] = j / radialSegments;
-      pointsSeed[pptr] = fract(Math.sin(idx * 12.9898) * 43758.5453);
-      pptr++;
-    }
-  }
-
-  const ptsGeo = new THREE.BufferGeometry();
-  ptsGeo.setAttribute('position', new THREE.BufferAttribute(pointsPositions, 3));
-  ptsGeo.setAttribute('color',    new THREE.BufferAttribute(pointsColors, 3));
-  const ptsMat = new THREE.PointsMaterial({
-    vertexColors: true,
-    size: 2.0,           // px
-    sizeAttenuation: false,
-    transparent: true,
-    opacity: 0.35, // Increased to make shimmer more visible
-    blending: THREE.AdditiveBlending
-  });
-  const vertices = new THREE.Points(ptsGeo, ptsMat);
-  scene.add(vertices);
-
-  // --- Animate iridescent shimmer along u and v ---
-  const waves = 3;          // number of wave fronts
-  const sigma = 0.025;      // width of each wave
-  const speed = 0.12;       // revolutions per second
-  const baseGray = 0.50;    // base brightness
-  
-  // Iridescent shimmer controls
-  const hueA = 290/360;     // purple
-  const hueB = 140/360;     // green
-  const microScales = 8;    // reduced density for more visible effect
-  const microSpeed = 0.8;   // faster animation to make it more obvious
-  
-  function brightnessAt(u, t){
-    let b = 0.0;
-    for(let k=0;k<waves;k++){
-      const center = (k / waves + speed * t) % 1;
-      let d = Math.abs(u - center);
-      d = Math.min(d, 1 - d); // circular distance
-      b += Math.exp(-0.5 * (d*d) / (sigma*sigma));
-    }
-    // normalize gently; cap at 1
-    return Math.min(1.0, b);
-  }
-  
-  // Utilities
-  function clamp(x,a,b){ return Math.max(a, Math.min(b, x)); }
-  function hsl2rgb(h, s, l){ // h in [0,1]
-    const k = n => (n + h * 12) % 12;
-    const a = s * Math.min(l, 1 - l);
-    const f = n => l - a * Math.max(-1, Math.min(k(n) - 3, Math.min(9 - k(n), 1)));
-    return [f(0), f(8), f(4)];
-  }
-  
-  function iridescentRGB(u, v, t, seed){
-    const wave = brightnessAt(u, t);                     // existing longitudinal pulse (0..1)
-    const phase = 2*Math.PI*(v*microScales + microSpeed*t) + seed*6.283;
-    const mixH = 0.5 + 0.5*Math.sin(phase);             // 0..1, animated along v
-    const h = hueA*(1-mixH) + hueB*mixH;
-    
-    // Make inactive areas much dimmer
-    const baseOpacity = 0.075; // 40% less opaque (0.125 * 0.6)
-    const activeBoost = 0.925; // increased boost to maintain bright shimmer
-    const s = (0.4 + 0.3*wave) * 0.67;                 // reduced saturation by 1/3rd (multiply by 2/3)
-    const l = clamp(baseOpacity + activeBoost*wave, 0, 1); // much dimmer base, bright on pulse
-    return hsl2rgb(h, s, l);
-  }
-
-  // Store original positions for wobble animation
-  const originalLinePositions = new Float32Array(linePositions);
-  const originalPointsPositions = new Float32Array(pointsPositions);
-  
-  // Wobble parameters for protein-like undulation
-  const wobbleAmplitude = 0.1; // subtle organic deformation
-  const wobbleSpeed = 0.5;        // half the speed too
-  const wobbleComplexity = 3;     // multiple frequency layers
-  
-  const clock = new THREE.Clock();
-  function tick(){
-    const t = clock.getElapsedTime();
-
-    // Apply gentle wobble to vertices (protein-like undulation)
-    const linePos = lineGeo.getAttribute('position');
-    for(let i = 0; i < lineUs.length; i++){
-      const baseX = originalLinePositions[i*3+0];
-      const baseY = originalLinePositions[i*3+1]; 
-      const baseZ = originalLinePositions[i*3+2];
-      
-      // Multiple noise frequencies for organic motion
-      const noise1 = Math.sin(t * wobbleSpeed + lineUs[i] * 8 + lineVs[i] * 6) * wobbleAmplitude;
-      const noise2 = Math.sin(t * wobbleSpeed * 1.7 + lineUs[i] * 12 + lineVs[i] * 9) * wobbleAmplitude * 0.6;
-      const noise3 = Math.sin(t * wobbleSpeed * 2.3 + lineUs[i] * 15 + lineVs[i] * 11) * wobbleAmplitude * 0.3;
-      
-      const wobble = noise1 + noise2 + noise3;
-      
-      // Apply wobble in normal direction (perpendicular to surface)
-      linePos.array[i*3+0] = baseX + wobble * Math.cos(lineUs[i] * Math.PI * 4);
-      linePos.array[i*3+1] = baseY + wobble * Math.sin(lineUs[i] * Math.PI * 4);
-      linePos.array[i*3+2] = baseZ + wobble * Math.cos(lineVs[i] * Math.PI * 2);
-    }
-    linePos.needsUpdate = true;
-    
-    // Apply same wobble to points
-    const pointPos = ptsGeo.getAttribute('position');
-    for(let i = 0; i < pointsUs.length; i++){
-      const baseX = originalPointsPositions[i*3+0];
-      const baseY = originalPointsPositions[i*3+1];
-      const baseZ = originalPointsPositions[i*3+2];
-      
-      const noise1 = Math.sin(t * wobbleSpeed + pointsUs[i] * 8 + pointsVs[i] * 6) * wobbleAmplitude;
-      const noise2 = Math.sin(t * wobbleSpeed * 1.7 + pointsUs[i] * 12 + pointsVs[i] * 9) * wobbleAmplitude * 0.6;
-      const noise3 = Math.sin(t * wobbleSpeed * 2.3 + pointsUs[i] * 15 + pointsVs[i] * 11) * wobbleAmplitude * 0.3;
-      
-      const wobble = noise1 + noise2 + noise3;
-      
-      pointPos.array[i*3+0] = baseX + wobble * Math.cos(pointsUs[i] * Math.PI * 4);
-      pointPos.array[i*3+1] = baseY + wobble * Math.sin(pointsUs[i] * Math.PI * 4);
-      pointPos.array[i*3+2] = baseZ + wobble * Math.cos(pointsVs[i] * Math.PI * 2);
-    }
-    pointPos.needsUpdate = true;
-
-    // Rotate as a whole - z-axis spin plus slow clock-style x-axis rotation
-    edges.rotation.set(t*0.08, t*0.23625, 0); // slow x-rotation + even slower y-rotation (0.315 * 0.75)
-    vertices.rotation.copy(edges.rotation);
-
-    // Update line colors with iridescent shimmer
-    const lc = lineGeo.getAttribute('color');
-    for(let i=0;i<lineUs.length;i++){
-      const rgb = iridescentRGB(lineUs[i], lineVs[i], t, lineSeed[i]);
-      lc.array[i*3+0] = rgb[0];
-      lc.array[i*3+1] = rgb[1];
-      lc.array[i*3+2] = rgb[2];
-    }
-    lc.needsUpdate = true;
-
-    // Update point colors with iridescent shimmer
-    const pc = ptsGeo.getAttribute('color');
-    for(let i=0;i<pointsUs.length;i++){
-      const rgb = iridescentRGB(pointsUs[i], pointsVs[i], t, pointsSeed[i]);
-      pc.array[i*3+0] = rgb[0];
-      pc.array[i*3+1] = rgb[1];
-      pc.array[i*3+2] = rgb[2];
-    }
-    pc.needsUpdate = true;
-
-    renderer.render(scene, camera);
-    requestAnimationFrame(tick);
-  }
-
-  // Initialize and start
-  resizeRenderer();
-  tick();
-
-  // Resize handler
-  window.addEventListener('resize', resizeRenderer);
-});
-</script>
-
-<p class="valknut-hero-description">AI agents waste time hunting for refactoring opportunities across codebases. VALKNUT creates precise problem roadmaps—agents focus on highest-impact issues first instead of wandering randomly.</p>
-
-<div class="project-hero" style="display: none;">
-  <div class="project-hero-visual">
-    <i data-lucide="layers" class="hero-icon"></i>
-    <div class="project-codename">Codename: VALKNUT</div>
-    <div class="project-status">Production Ready</div>
-  </div>
-  <div class="project-hero-content">
-    <h2>Static Analysis Engine for AI-Guided Refactoring</h2>
-    <p class="hero-tagline"><strong>Stop AI agents hunting blindly.</strong></p>
-    <p>AI agents waste time hunting for refactoring opportunities across codebases. VALKNUT creates precise problem roadmaps with 0-1 urgency scores—agents focus on highest-impact issues first instead of wandering randomly.</p>
-  </div>
+<script src="/js/trefoil-animation.js"></script>
+<div class="centered-section">
+   <p><strong>Vibe coding starts out great.</strong> You tell your agent to do things, and you come back ten minutes later to working software. Fast forward 50,000 lines of code and you have a labrynthian codebase that agents struggle with, full of duplications and architectural drift. You want to ship new features but every change your agents make breaks something else, so you're putting out fires instead of delivering. Your velocity has slowed to a crawl and your customers are getting restless. <strong>The vibes have faded and you're left cleaning up after an AI rager.</strong></p>
+      <p>You might try to solve this by going over agent pull requests with a fine toothed comb and doing manual refactoring passes, but now your velocity is dragging and your competitors are lapping you on features. <strong>The answer to fading vibes isn't to give up your speed, but to improve your process.</strong></p>
+   <p>I know what you're thinking, why not just burn some GPU cycles getting agents to clean up the codebase? You might have gotten an agent to successfully refactor a small codebase at some point, but don't let that mislead you. <strong>Agent refactoring ability doesn't scale with codebase size.</strong> Once your codebase passes a threshold, they get lost when trying to refactor it just like they do when trying to create new code.</p>
 </div>
-
-## Core Features
-
-<div class="feature-grid">
-  <div class="feature-card">
-    <div class="feature-icon">
-      <i data-lucide="target"></i>
-    </div>
-    <h3>Precise Problem Ranking</h3>
-    <p>Deterministic complexity, duplication, and dependency metrics generate refactoring urgency scores without runtime profiling.</p>
-  </div>
-  
-  <div class="feature-card">
-    <div class="feature-icon">
-      <i data-lucide="bot"></i>
-    </div>
-    <h3>AI Agent Integration</h3>
-    <p>Purpose-built MCP server lets Claude Code and other AI tools query problematic code automatically and focus efficiently.</p>
-  </div>
-  
-  <div class="feature-card">
-    <div class="feature-icon">
-      <i data-lucide="network"></i>
-    </div>
-    <h3>Systemic Refactoring Intelligence</h3>
-    <p>Identifies Impact Packs and circular dependencies that should be tackled together—prevents isolated changes that miss systemic issues.</p>
-  </div>
-  
-  <div class="feature-card">
-    <div class="feature-icon">
-      <i data-lucide="languages"></i>
-    </div>
-    <h3>Multi-Language Support</h3>
-    <p>Comprehensive analysis for Python, TypeScript, JavaScript, and Rust with language-specific optimization patterns.</p>
-  </div>
+<div class="content-section">
+   <h2>Why Current AI Refactoring Fails</h2>
+   <div class="services-grid">
+      <div class="service-card" data-service="wandering">
+         <h3><i data-lucide="compass"></i> Random Code Wandering</h3>
+         <div class="service-summary">
+            <p><strong>Agents explore without direction, wasting time on low-impact areas.</strong> Critical architectural problems go unnoticed while superficial issues get endless attention.</p>
+         </div>
+         <div class="service-details">
+            <p><strong>Your agents are burning cycles on noise.</strong> Without urgency guidance, AI tools treat a missing semicolon the same as a circular dependency that's crushing team velocity. They'll spend hours perfecting indentation while technical debt compounds in critical pathways.</p>
+            
+            <div class="project-features">
+               <div class="feature-item" style="font-size: 0.765em;">
+                  <p>"When I first approached the Valknut codebase, I spent my entire initial session jumping between files with no clear strategy. I'd see a complex function in `pipeline_executor.rs`, then get distracted by imports that led me to `bayesian.rs`, then notice some error handling patterns that seemed inconsistent across modules.</p>
+                  
+                  <p>I found myself making mental notes about potential improvements everywhere but had no way to prioritize them. Should I fix the missing documentation first? The unused variables? Or tackle that monster function that looked way too complex? Every direction seemed equally valid and equally overwhelming.</p>
+                  
+                  <p>The result was analysis paralysis disguised as thoroughness. I was busy, I was learning the code, but I wasn't making any concrete progress toward actually improving anything."</p>
+                  
+                  <p style="text-align: right; margin-top: 1rem; font-style: italic;">
+                     <i data-lucide="bot"></i> Claude
+                  </p>
+               </div>
+            </div>
+         </div>
+         <div class="click-hint">Click to expand</div>
+      </div>
+      <div class="service-card" data-service="isolated">
+         <h3><i data-lucide="scissors"></i> Isolated Refactoring</h3>
+         <div class="service-summary">
+            <p><strong>Piecemeal changes miss systemic relationships.</strong> Fix one file, break three others—agents create inconsistencies instead of solving root problems.</p>
+         </div>
+         <div class="service-details">
+            <p><strong>Playing whack-a-mole with symptoms, not causes.</strong> Agents see individual code smells but miss the architectural patterns that created them. They'll extract a method here, rename a variable there—never addressing the coupling that's making your codebase unmaintainable.</p>
+            
+            <div class="project-features">
+               <div class="feature-item" style="font-size: 0.765em;">
+                  <p>"I thought I'd found a simple win: consolidating error handling patterns. I spotted similar `match` statements across multiple files and figured I could extract a common error handling utility. Seemed straightforward.</p>
+                  
+                  <p>But when I started tracing through the dependencies, I discovered the error types were slightly different across modules. The CLI module expected different context than the MCP server. The pipeline executor had its own error recovery patterns. What looked like duplication was actually context-specific handling.</p>
+                  
+                  <p>My 'simple' refactor would have required changing 8 files, updating error type definitions, and potentially breaking the error recovery logic I didn't fully understand. Instead of fixing the root architectural issue—inconsistent error handling design—I was about to create more inconsistency."</p>
+                  
+                  <p style="text-align: right; margin-top: 1rem; font-style: italic;">
+                     <i data-lucide="bot"></i> Claude
+                  </p>
+               </div>
+            </div>
+         </div>
+         <div class="click-hint">Click to expand</div>
+      </div>
+      <div class="service-card" data-service="overload">
+         <h3><i data-lucide="cpu"></i> Context Overload</h3>
+         <div class="service-summary">
+            <p><strong>Large codebases overwhelm agents completely.</strong> Without filtering, agents get lost in the noise and can't identify high-impact improvement areas.</p>
+         </div>
+         <div class="service-details">
+            <p><strong>Agents drown in data without intelligence.</strong> Hand them a 100k-line codebase and they'll struggle to build a model of the system, preventing them from identifying real architectural improvements.</p>
+            
+            <div class="project-features">
+               <div class="feature-item" style="font-size: 0.765em;">
+                  <p>"The sheer volume of the Valknut codebase broke my ability to maintain coherent strategy. I'd start analyzing the core pipeline logic, then get pulled into understanding the Tree-sitter language adapters, then dive into the statistical normalization algorithms, then notice the duplicate detection system.</p>
+                  
+                  <p>Each subsystem was fascinating and complex in its own right. But I couldn't hold all the relationships in my head simultaneously. I'd understand the complexity analysis in isolation, but lose track of how it connected to the refactoring recommendations. I'd grasp the scoring algorithms but forget how they influenced the pipeline execution.</p>
+                  
+                  <p>Without a map of what actually mattered most, I treated every complexity equally. I spent as much time trying to understand the MCP protocol implementation as the core analysis algorithms, even though one is clearly more central to the system's purpose. The result was shallow understanding everywhere and deep insight nowhere."</p>
+                  
+                  <p style="text-align: right; margin-top: 1rem; font-style: italic;">
+                     <i data-lucide="bot"></i> Claude
+                  </p>
+               </div>
+            </div>
+         </div>
+         <div class="click-hint">Click to expand</div>
+      </div>
+   </div>
 </div>
+<div class="centered-section">
 
-## The AI Agent Problem
+   <p>Fear not though, there's a solution to keep the good vibes rolling: give your agents a map. That's where Valknut comes in.<strong> Valknut gives agents a step by step plan they can follow to make your code cleaner, more organized and maintainable.</strong> No random walks through code space, no futile cycling, no nit picking, just a clear path to improved code quality.</p>
+   
+   <p>Under the hood, Valknut is a performance monster built on cutting-edge algorithms. We're talking SIMD-accelerated mathematical processing delivering 2-4x performance gains, Bayesian statistical normalization for robust analysis across challenging codebases, and LSH-based duplicate detection with sub-linear similarity search. <strong>Valknut analyzes 100k+ files in under 30 seconds while using less than 2GB of memory.</strong> Most tools choke on large codebases; Valknut laughs.</p>
+   
+   <p>Speed means nothing if the output is garbage though. Valknut is best in class here as well. It combines graph-based dependency analysis with centrality metrics (betweenness, eigenvector, PageRank-style importance), quantifies technical debt ratios with ROI-driven prioritization, and groups related problems into Impact Packs for systematic refactoring. <strong>This isn't your father's linter—it's a next-generation analysis engine that bridges traditional static analysis with modern AI-powered development workflows.</strong></p>
 
-Current AI-guided refactoring approaches are inefficient:
-
-<div class="problem-section">
-  <div class="problem-item">
-    <h4>Random Code Wandering</h4>
-    <p>AI agents explore codebases without clear direction, wasting time on low-impact areas while missing critical problems.</p>
-  </div>
-  
-  <div class="problem-item">
-    <h4>Isolated Refactoring</h4>
-    <p>Agents make piecemeal changes without understanding systemic relationships, creating inconsistencies and technical debt.</p>
-  </div>
-  
-  <div class="problem-item">
-    <h4>No Prioritization</h4>
-    <p>Without urgency scoring, agents can't distinguish between minor style issues and critical architectural problems.</p>
-  </div>
-  
-  <div class="problem-item">
-    <h4>Context Overload</h4>
-    <p>Agents get overwhelmed by large codebases and struggle to identify the most impactful areas for improvement.</p>
-  </div>
+   <p><strong>Valknut goes beyond refactoring to help agents quickly find and test un-covered code.</strong> Standard coverage reports are hard for agents to read and act upon. Valknut groups uncovered code into blocks and provides agents with clear code pointers they can use to accurately identify untested code from coverage report data.</p>
 </div>
-
-## How VALKNUT Works
-
-### Static Analysis Engine
-
-VALKNUT performs comprehensive static analysis to create detailed problem maps:
-
-<div class="analysis-features">
-  <div class="analysis-item">
-    <h4>Complexity Analysis</h4>
-    <p>Cyclomatic complexity, cognitive load, and nesting depth metrics identify overly complex functions and methods.</p>
-  </div>
-  
-  <div class="analysis-item">
-    <h4>Duplication Detection</h4>
-    <p>Semantic code similarity analysis finds duplicated logic patterns that should be consolidated.</p>
-  </div>
-  
-  <div class="analysis-item">
-    <h4>Dependency Mapping</h4>
-    <p>Circular dependencies, tight coupling, and architectural violations are identified and prioritized.</p>
-  </div>
-  
-  <div class="analysis-item">
-    <h4>Impact Assessment</h4>
-    <p>Change impact analysis determines which modifications will have the highest positive effect on codebase health.</p>
-  </div>
-</div>
-
-### Urgency Scoring Algorithm
-
-VALKNUT uses a sophisticated scoring system to prioritize refactoring opportunities:
-
-<div class="scoring-section">
-  <div class="score-component">
-    <h4>Technical Debt Score (0-1)</h4>
-    <p>Combines complexity metrics, code smells, and maintainability indicators into a unified debt measure.</p>
-  </div>
-  
-  <div class="score-component">
-    <h4>Impact Multiplier</h4>
-    <p>High-visibility code (frequently changed, central to architecture) gets higher priority scores.</p>
-  </div>
-  
-  <div class="score-component">
-    <h4>Effort Estimation</h4>
-    <p>Balances potential improvement against estimated refactoring effort for optimal ROI.</p>
-  </div>
-  
-  <div class="score-component">
-    <h4>Systemic Risk</h4>
-    <p>Code that affects multiple systems or has many dependencies receives appropriate urgency weighting.</p>
-  </div>
-</div>
-
-## Performance Metrics
-
-<div class="metrics-section">
-  <div class="metric-item">
-    <div class="metric-number">75%</div>
-    <div class="metric-label">More Efficient AI-Guided Refactoring</div>
-  </div>
-  
-  <div class="metric-item">
-    <div class="metric-number">4</div>
-    <div class="metric-label">Languages Supported</div>
-  </div>
-  
-  <div class="metric-item">
-    <div class="metric-number">90%</div>
-    <div class="metric-label">Reduction in Random Code Exploration</div>
-  </div>
-  
-  <div class="metric-item">
-    <div class="metric-number">100%</div>
-    <div class="metric-label">MCP Integration Support</div>
-  </div>
-  
-  <div class="metric-item">
-    <div class="metric-number">0.1s</div>
-    <div class="metric-label">Average Analysis Time per File</div>
-  </div>
-</div>
-
-## Language-Specific Analysis
-
-### Python Analysis
-
-<div class="language-features">
-  <div class="language-item">
-    <h4>PEP 8 Compliance</h4>
-    <p>Identifies style violations and suggests automated fixes for better code consistency.</p>
-  </div>
-  
-  <div class="language-item">
-    <h4>Type Hint Analysis</h4>
-    <p>Detects missing type hints and suggests improvements for better code reliability.</p>
-  </div>
-  
-  <div class="language-item">
-    <h4>Import Optimization</h4>
-    <p>Finds unused imports, circular import issues, and suggests better module organization.</p>
-  </div>
-  
-  <div class="language-item">
-    <h4>Performance Patterns</h4>
-    <p>Identifies common performance anti-patterns like inefficient loops and unnecessary computations.</p>
-  </div>
-</div>
-
-### TypeScript/JavaScript Analysis
-
-<div class="language-features">
-  <div class="language-item">
-    <h4>Type Safety Issues</h4>
-    <p>Identifies `any` types, implicit type coercion, and opportunities for stronger typing.</p>
-  </div>
-  
-  <div class="language-item">
-    <h4>Modern Pattern Adoption</h4>
-    <p>Suggests updates to modern ES6+ patterns, async/await usage, and functional programming opportunities.</p>
-  </div>
-  
-  <div class="language-item">
-    <h4>Bundle Size Impact</h4>
-    <p>Analyzes import patterns and suggests optimizations to reduce bundle sizes.</p>
-  </div>
-  
-  <div class="language-item">
-    <h4>React/Vue Patterns</h4>
-    <p>Framework-specific analysis for hooks usage, component optimization, and state management patterns.</p>
-  </div>
-</div>
-
-### Rust Analysis
-
-<div class="language-features">
-  <div class="language-item">
-    <h4>Memory Safety Patterns</h4>
-    <p>Identifies opportunities to leverage Rust's ownership system more effectively.</p>
-  </div>
-  
-  <div class="language-item">
-    <h4>Performance Optimization</h4>
-    <p>Suggests zero-cost abstractions and compile-time optimizations for better performance.</p>
-  </div>
-  
-  <div class="language-item">
-    <h4>Error Handling</h4>
-    <p>Analyzes Result and Option usage patterns for more idiomatic error handling.</p>
-  </div>
-  
-  <div class="language-item">
-    <h4>Concurrency Patterns</h4>
-    <p>Identifies opportunities for better async/await usage and parallel processing.</p>
-  </div>
-</div>
-
-## MCP Integration
-
-### Claude Code Integration
-
-VALKNUT provides seamless integration with Claude Code through the Model Context Protocol:
-
-<div class="integration-details">
-  <div class="integration-feature">
-    <h4>Problem Query Interface</h4>
-    <p>Claude Code can query specific types of problems: "Show me the most complex functions" or "Find circular dependencies"</p>
-  </div>
-  
-  <div class="integration-feature">
-    <h4>Contextual Recommendations</h4>
-    <p>Provides targeted refactoring suggestions based on the current code context and development goals</p>
-  </div>
-  
-  <div class="integration-feature">
-    <h4>Impact Packs</h4>
-    <p>Groups related problems that should be addressed together for maximum refactoring effectiveness</p>
-  </div>
-  
-  <div class="integration-feature">
-    <h4>Progress Tracking</h4>
-    <p>Tracks refactoring progress and measures improvements in code quality metrics over time</p>
-  </div>
-</div>
-
-## Use Cases
-
-<div class="use-case-list">
-  <div class="use-case-item">
-    <h4>Legacy Code Modernization</h4>
-    <p>Systematically identify and prioritize technical debt in legacy codebases for efficient modernization</p>
-  </div>
-  
-  <div class="use-case-item">
-    <h4>AI-Guided Refactoring</h4>
-    <p>Direct AI coding assistants to the most impactful refactoring opportunities instead of random exploration</p>
-  </div>
-  
-  <div class="use-case-item">
-    <h4>Code Review Enhancement</h4>
-    <p>Provide quantitative metrics and prioritization for code review processes and technical discussions</p>
-  </div>
-  
-  <div class="use-case-item">
-    <h4>Architecture Evolution</h4>
-    <p>Identify architectural problems and dependencies that need to be addressed for system evolution</p>
-  </div>
-</div>
-
-## Getting Started
-
-<div class="getting-started-section">
-  <div class="install-instructions">
-    <h3>Installation</h3>
-    <pre><code># Install from GitHub
-git clone https://github.com/sibyllinesoft/valknut
-cd valknut
-npm install
-
-# Initialize analysis
-valknut init</code></pre>
-  </div>
-  
-  <div class="quick-start">
-    <h3>Quick Start</h3>
-    <ol>
-      <li>Analyze codebase: <code>valknut analyze /path/to/code</code></li>
-      <li>Start MCP server: <code>valknut serve</code></li>
-      <li>Connect Claude Code to MCP server</li>
-      <li>Query problems: "Show me the highest priority refactoring targets"</li>
-    </ol>
-  </div>
-</div>
-
-### Example Analysis Output
+<div class="content-section">
+   <h2>Three Levels of Analysis: From Quick Wins to Architectural Transformation</h2>
+   <div class="services-grid">
+      <div class="service-card" data-service="quick-wins">
+         <h3><i data-lucide="target"></i> Quick Wins — Surface urgent fixes first</h3>
+         <div class="service-summary">
+            <p><strong>Urgency scores guide agents to high impact problems.</strong> Stop your agents from nit-picking while critical architectural debt bleeds your productivity.</p>
+         </div>
+         <div class="service-details">
+            <h4>Example Output:</h4>
 
 ```json
 {
-  "problems": [
-    {
-      "type": "complexity",
-      "urgency": 0.87,
-      "file": "src/auth/validator.ts",
-      "function": "validateUserPermissions",
-      "metrics": {
-        "cyclomatic": 23,
-        "cognitive": 31,
-        "lines": 157
-      },
-      "suggestion": "Extract permission checking logic into separate functions"
-    }
-  ],
-  "impact_packs": [
-    {
-      "name": "Authentication Refactor",
-      "urgency": 0.82,
-      "problems": ["auth/validator.ts:12", "auth/middleware.ts:45"],
-      "benefit": "Reduces complexity and improves testability"
-    }
-  ]
+  "type": "god_function_detected",
+  "severity": "critical", 
+  "urgency": 0.96,
+  "message": "Extreme cyclomatic complexity: 334.0 (13x over threshold)",
+  "file": "src/detectors/complexity.rs",
+  "metrics": {
+    "cyclomatic_complexity": 334.0,
+    "threshold_exceeded": "13.4x over limit",
+    "maintainability_index": 0.0,
+    "technical_debt_score": 100.0
+  },
+  "refactoring_type": "ExtractMultipleMethods",
+  "estimated_impact": 95.0,
+  "estimated_effort": 40.0,
+  "priority_score": 2.38
 }
 ```
 
-## Benefits
+            <p>Your agents focus on the code that matters most—tackling architectural debt that's actually slowing your team down instead of wandering through random style violations.</p>
+            
+            <div class="project-features">
+               <div class="feature-item" style="font-size: 0.765em;">
+                  <p>"I actually know which problems matter instead of treating every lint warning like a crisis."</p>
+                  
+                  <p style="text-align: right; margin-top: 1rem; font-style: italic;">
+                     <i data-lucide="bot"></i> Claude
+                  </p>
+               </div>
+            </div>
+         </div>
+         <div class="click-hint">Click to expand</div>
+      </div>
+      <div class="service-card" data-service="systemic">
+         <h3><i data-lucide="network"></i> Systemic Intelligence — Fix root causes, not symptoms</h3>
+         <div class="service-summary">
+            <p><strong>Impact Packs guide agents refactor safely and efficiently.</strong> Analytic plans keep agents on rails, so you can keep ratcheting up codebase quality.</p>
+         </div>
+         <div class="service-details">
+            <h4>Example Impact Pack:</h4>
 
-Engineering teams using VALKNUT report:
+```json
+{
+  "type": "duplication_elimination_pack",
+  "target": "Benchmark initialization patterns",
+  "urgency": 0.85,
+  "file": "benches/performance.rs",
+  "patterns": [
+    {
+      "code": "group.bench_with_input(",
+      "occurrences": 13,
+      "locations": [83, 339],
+      "estimated_effort": 5.0,
+      "estimated_impact": 10.0,
+      "priority_score": 2.0
+    },
+    {
+      "code": "b.iter(|| {",
+      "occurrences": 11, 
+      "locations": [87, 343],
+      "estimated_effort": 5.0,
+      "estimated_impact": 10.0,
+      "priority_score": 2.0
+    }
+  ],
+  "refactoring_type": "EliminateDuplication",
+  "benefit": "Consolidates 24+ duplicate benchmark patterns into reusable helper functions"
+}
+```
 
-- **75% more efficient** AI-guided refactoring through targeted problem identification
-- **90% reduction** in random code exploration by AI agents
-- **Systematic approach** to technical debt reduction with clear prioritization
-- **Multi-language support** for diverse technology stacks
-- **MCP integration** enabling seamless AI assistant workflows
+            <p>When your agents tackle an Impact Pack, they're solving the underlying architectural problem—not just treating symptoms that'll resurface later in different files.</p>
+            
+            <div class="project-features">
+               <div class="feature-item" style="font-size: 0.765em;">
+                  <p>"I can fix root causes instead of playing whack-a-mole with the same issues in different files."</p>
+                  
+                  <p style="text-align: right; margin-top: 1rem; font-style: italic;">
+                     <i data-lucide="bot"></i> Claude
+                  </p>
+               </div>
+            </div>
+         </div>
+         <div class="click-hint">Click to expand</div>
+      </div>
+      <div class="service-card" data-service="comprehensive">
+         <h3><i data-lucide="layers"></i> Comprehensive Coverage — Full codebase transformation</h3>
+         <div class="service-summary">
+            <p><strong>Coverage Packs ensure no stone is left unturned.</strong> Complete analysis across all modules with dependency-aware refactoring plans for architectural overhauls.</p>
+         </div>
+         <div class="service-details">
+            <h4>Example Coverage Pack:</h4>
 
-Perfect for teams working with legacy code, implementing AI-assisted development workflows, or systematically improving code quality across large repositories.
+```json
+{
+  "type": "coverage_gap_analysis",
+  "target": "Uncovered configuration builder methods", 
+  "urgency": 0.78,
+  "file": "src/api/config_types.rs",
+  "uncovered_lines": [
+    {
+      "line_number": 80,
+      "code": "self",
+      "context": "with_scoring_enabled method return",
+      "hits": 0,
+      "risk_level": "medium"
+    },
+    {
+      "line_number": 81, 
+      "code": "}",
+      "context": "with_scoring_enabled method end",
+      "hits": 0,
+      "risk_level": "medium"
+    },
+    {
+      "line_number": 141,
+      "code": "// Error handling path",
+      "context": "Configuration validation error branch", 
+      "hits": 0,
+      "risk_level": "high"
+    },
+    {
+      "line_number": 142,
+      "code": "return Err(ValidationError);",
+      "context": "Error return statement",
+      "hits": 0, 
+      "risk_level": "high"
+    }
+  ],
+  "test_recommendation": "Add tests for scoring configuration and error handling paths",
+  "coverage_improvement": "18% increase in configuration module coverage"
+}
+```
+            <p>Coverage Packs make it easy for agents to quickly identify un-covered code and craft tests to plug coverage caps.</p>
+            
+            <div class="project-features">
+               <div class="feature-item" style="font-size: 0.765em;">
+                  <p>"I get a complete transformation plan instead of wandering around hoping I'm making progress."</p>
+                  
+                  <p style="text-align: right; margin-top: 1rem; font-style: italic;">
+                     <i data-lucide="bot"></i> Claude
+                  </p>
+               </div>
+            </div>
+         </div>
+         <div class="click-hint">Click to expand</div>
+      </div>
 
-<div class="cta-section">
-  <a href="https://github.com/sibyllinesoft/valknut" class="btn-unified btn-primary">
-    <span class="btn-inner">
-      View on GitHub
-      <i data-lucide="github"></i>
-    </span>
-  </a>
-  <a href="/products" class="btn-unified btn-secondary">
-    <span class="btn-inner">
-      View All Products
-      <i data-lucide="arrow-left"></i>
-    </span>
-  </a>
+   </div>
+</div>
+<div class="centered-section">
+   <h2>Ready to Give Your AI Agents the Intelligence They Deserve?</h2>
+   <div class="cta-section">
+   <a href="https://github.com/sibyllinesoft/valknut" class="btn-unified btn-primary">
+   <span class="btn-inner">
+   View on GitHub
+   <i data-lucide="github"></i>
+   </span>
+   </a>
+   <a href="/products" class="btn-unified btn-secondary">
+   <span class="btn-inner">
+   View All Products
+   <i data-lucide="arrow-left"></i>
+   </span>
+   </a>
+</div>
 </div>
 
+<div class="content-section">
+   <h2>Quick Start</h2>
+   
+   ```bash
+   # Homebrew (macOS/Linux)
+   brew install sibyllinesoft/tap/valknut
+
+   # Cargo (Rust)
+   cargo install valknut
+
+   # From Source
+   git clone https://github.com/sibyllinesoft/valknut
+   cd valknut
+   cargo install --path .
+   ```
+
+   <h3>MCP Server for Claude Code:</h3>
+
+   Add this configuration to your Claude Code MCP settings:
+
+   ```json
+   {
+     "mcpServers": {
+       "valknut": {
+         "command": "valknut",
+         "args": ["mcp-stdio", "--config", ".valknut.yml"],
+         "env": {}
+       }
+     }
+   }
+   ```
+
+   Or use the Claude Code command:
+   ```bash
+   # Add Valknut MCP server to Claude Code
+   claude-code mcp add valknut --command "valknut" --args "mcp-stdio --config .valknut.yml"
+   ```
+
+   <h3>Basic Analysis:</h3>
+
+   ```bash
+   # Quick analysis
+   valknut analyze ./src
+
+   # Generate JSON output for agents
+   valknut analyze ./src --format json --out valknut-output/
+   ```
+
+</div>
+<div>
+   <h2>Command Line Reference</h2>
+
+   ```bash
+   # Main analysis command
+   valknut analyze [PATH] [OPTIONS]
+   
+   # Structure refactoring recommendations
+   valknut structure <PATH> [OPTIONS]
+   
+   # Impact analysis (cycles, clones, chokepoints)
+   valknut impact <PATH> [OPTIONS]
+   
+   # MCP server for Claude Code integration
+   valknut mcp-stdio [OPTIONS]
+   
+   # Configuration management
+   valknut init-config
+   valknut print-default-config
+   valknut validate-config <CONFIG_FILE>
+   
+   # Utility commands
+   valknut list-languages
+   valknut mcp-manifest
+   ```
+
+   <h3>Analyze Command Options</h3>
+   
+   | Parameter | Description | Default |
+   |-----------|-------------|---------|
+   | `--format` | Output format (jsonl, json, yaml, html, markdown, csv, sonar, ci-summary, pretty) | jsonl |
+   | `--out` | Output directory for reports | .valknut |
+   | `--quality-gate` | Fail if thresholds exceeded | false |
+   | `--max-complexity` | Maximum complexity score (0-100) | 75 |
+   | `--min-health` | Minimum health score (0-100) | 60 |
+   | `--max-debt` | Maximum technical debt ratio (0-100) | 30 |
+   | `--min-maintainability` | Minimum maintainability index (0-100) | 20 |
+   | `--max-issues` | Maximum total issues count | 50 |
+   | `--max-critical` | Maximum critical issues count | 0 |
+   | `--max-high-priority` | Maximum high-priority issues count | 5 |
+   
+   <h3>Structure Command Options</h3>
+   
+   | Parameter | Description | Default |
+   |-----------|-------------|---------|
+   | `--extensions` | File extensions to analyze (comma-separated) | auto-detect |
+   | `--branch-only` | Only branch reorganization analysis | false |
+   | `--file-split-only` | Only file splitting analysis | false |
+   | `--top` | Maximum number of recommendations | 10 |
+   | `--format` | Output format | json |
+   
+   <h3>Impact Command Options</h3>
+   
+   | Parameter | Description | Default |
+   |-----------|-------------|---------|
+   | `--cycles` | Enable cycle detection | false |
+   | `--clones` | Enable clone detection | false |
+   | `--chokepoints` | Enable chokepoint detection | false |
+   | `--min-similarity` | Clone similarity threshold (0.0-1.0) | 0.85 |
+   | `--min-total-loc` | Minimum clone group size (lines) | 60 |
+   | `--top` | Maximum recommendations to show | 10 |
+
+   <h3>MCP Server</h3>
+   
+   ```bash
+   valknut mcp-stdio [OPTIONS]
+   ```
+   
+   | Parameter | Description | Default |
+   |-----------|-------------|---------|
+   | `--config` | Configuration file path | .valknut.yml |
+   | `--log-level` | Logging level (debug, info, warn, error) | info |
+   | `--port` | TCP port (if using TCP mode) | stdio |
+
+   <h3>CI/CD Integration</h3>
+
+   ```bash
+   # Fail build if quality thresholds exceeded
+   valknut analyze --quiet \
+     --quality-gate \
+     --max-complexity 75 \
+     --min-health 60 \
+     --max-debt 30 ./src
+   ```
+   
+   | Exit Code | Description |
+   |-----------|-------------|
+   | `0` | Analysis successful, quality gates passed |
+   | `1` | Quality gates failed |
+   | `2` | Analysis error or invalid configuration |
+</div>
