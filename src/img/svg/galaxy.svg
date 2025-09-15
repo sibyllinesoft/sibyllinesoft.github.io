@@ -46,7 +46,7 @@
               type="rotate"
               from="0 84 78" 
               to="360 84 78" 
-              dur="18s" 
+              dur="24s" 
               repeatCount="indefinite"/>
           <g transform="scale(0.9) translate(8.4,7.8)">
             <path
@@ -85,7 +85,7 @@
           type="rotate"
           from="0" 
           to="360" 
-          dur="20s" 
+          dur="27s" 
           repeatCount="indefinite"/>
     </g>
   </g>

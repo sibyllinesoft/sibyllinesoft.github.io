@@ -46,6 +46,7 @@ Building game-changing AI applications requires understanding both AI technology
           </span>
         </a>
       </div>
+      
     </div>
   </div>
 </div>
@@ -85,6 +86,7 @@ Building game-changing AI applications requires understanding both AI technology
           </span>
         </a>
       </div>
+      
     </div>
   </div>
 </div>
@@ -124,6 +126,7 @@ Building game-changing AI applications requires understanding both AI technology
           </span>
         </a>
       </div>
+      
     </div>
   </div>
 </div>
@@ -163,6 +166,7 @@ Building game-changing AI applications requires understanding both AI technology
           </span>
         </a>
       </div>
+      
     </div>
   </div>
 </div>
@@ -202,6 +206,7 @@ Building game-changing AI applications requires understanding both AI technology
           </span>
         </a>
       </div>
+      
     </div>
   </div>
 </div>

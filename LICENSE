@@ -1,4 +1,4 @@
-Sustainable Programming License (SPL) v1.0
+Sibylline Permissive License (SPL) v1.0
 
 Copyright (c) 2024 Nathan Rice
 
@@ -9,23 +9,39 @@ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
-1. The above copyright notice and this permission notice shall be included in
-   all copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-2. Any derivative work based on this Software must acknowledge the original
-   work and maintain this license or a compatible open-source license.
+ATTRIBUTION REQUIREMENT: Any redistribution, modification, or derivative work
+based on this Software must include prominent attribution to the original
+author(s) and project. This attribution must include:
+- The original project name: "sibyllinesoft.github.io"
+- The original author(s): "Nathan Rice"
+- A link to the original source: https://github.com/sibyllinesoft/sibyllinesoft.github.io
+- The notice "Based on sibyllinesoft.github.io by Nathan Rice"
 
-3. If this Software is used in research that results in academic publications,
-   the original work must be properly cited using the citation information
-   provided with this Software.
+BENCHMARK DISCLOSURE REQUIREMENT: If this Software is used in any benchmarking,
+performance testing, or comparative analysis that is published, shared, or
+otherwise made public, the benchmarking methodology, test conditions, hardware
+specifications, and complete test results must be disclosed. This includes:
+- Complete system specifications and configuration details
+- Test methodology and parameters used
+- Raw performance data and analysis methods
+- Any modifications made to the Software for testing purposes
+- Comparison software versions and configurations (if applicable)
 
-4. Redistribution for commercial purposes requires that derivative works
-   contribute meaningful improvements, optimizations, or novel applications
-   back to the community under the same or compatible license terms.
+PATENT GRANT: Subject to the terms and conditions of this license, each
+contributor hereby grants you a perpetual, worldwide, non-exclusive, no-charge,
+royalty-free, irrevocable patent license to make, have made, use, offer to sell,
+sell, import, and otherwise transfer the Software, where such license applies
+only to those patent claims licensable by such contributor that are necessarily
+infringed by their contribution(s) alone or by combination of their
+contribution(s) with the Software to which such contribution(s) was submitted.
 
-5. Any benchmarking, performance testing, or comparative analysis involving
-   this Software must follow responsible disclosure practices and provide
-   fair, reproducible, and scientifically sound methodologies.
+CURE PERIOD: If you violate any terms of this license, your rights under this
+license will be terminated automatically. However, if you cure such violation
+within thirty (30) days of becoming aware of the violation, your rights will be
+reinstated retroactively.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -34,9 +50,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-For questions about this license or to obtain alternative licensing terms,
-please contact: nathan.alexander.rice@gmail.com
-
-Project: sibyllinesoft.github.io
-URL/DOI: https://github.com/nathanlrice/sibyllinesoft.github.io

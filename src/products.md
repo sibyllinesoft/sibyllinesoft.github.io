@@ -139,6 +139,90 @@ Teams lose weeks to infrastructure setup and unpredictable AI costs. Zero-setup 
   </div>
 </div>
 
+<!-- Product Multiverse -->
+<div class="project-brochure" id="multiverse-product">
+  <div class="project-visual">
+    <i data-lucide="orbit" class="project-icon"></i>
+    <div class="project-codename">Codename: MULTIVERSE</div>
+    <div class="project-status">Private Testing</div>
+  </div>
+  <div class="project-content">
+    <h3>Hybrid Cloud Meta-Framework for Instant World-Class Infrastructure</h3>
+    <div class="project-pitch">
+      <p><strong>World-class infrastructure in 2 commands.</strong></p>
+      <p>Cloud setup takes weeks while costs spiral out of control. MULTIVERSE spins up production-ready Kubernetes clusters with Cloudflare edge integration, cutting infrastructure costs by 90% while delivering infinite scalability through intelligent hybrid cloud orchestration.</p>
+      
+      <div class="project-features">
+        <div class="feature-item">
+          <strong>2-Command Deploy:</strong> Complete production infrastructure with Kubernetes, databases, monitoring, and global CDN in under 15 minutes.
+        </div>
+        <div class="feature-item">
+          <strong>90% Cost Reduction:</strong> Hetzner's low-cost Kubernetes core with Cloudflare edge acceleration delivers hyperscaler performance at fraction of the cost.
+        </div>
+        <div class="feature-item">
+          <strong>Infinite Edge Scalability:</strong> Traffic bursts automatically route through Cloudflare's 200+ global locations with seamless Kubernetes fallback.
+        </div>
+        <div class="feature-item">
+          <strong>Universal Framework Support:</strong> Works with any web framework—React, Next.js, Django, FastAPI—with automatic edge optimization and caching.
+        </div>
+      </div>
+      
+      <p>Platform teams eliminate weeks of infrastructure setup while achieving enterprise-grade reliability. Built-in observability, zero-trust security, and automatic cost optimization deliver production-ready systems from day one.</p>
+      
+      <div class="project-cta">
+        <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in becoming a tester for this product. Please let me know about testing opportunities.">
+          <span class="btn-inner">
+            Join Private Testing
+            <i data-lucide="mail"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Product Aegis -->
+<div class="project-brochure" id="aegis-product">
+  <div class="project-visual">
+    <i data-lucide="shield" class="project-icon"></i>
+    <div class="project-codename">Codename: AEGIS</div>
+    <div class="project-status">In Development</div>
+  </div>
+  <div class="project-content">
+    <h3>High-Throughput Merge Queue</h3>
+    <div class="project-pitch">
+      <p><strong>24× faster merge throughput.</strong></p>
+      <p>Traditional merge queues process PRs one at a time, creating massive bottlenecks with AI-generated code volumes. AEGIS uses intelligent batching and smart conflict detection to handle 100,000+ PRs with parallel validation.</p>
+      
+      <div class="project-features">
+        <div class="feature-item">
+          <strong>Smart Conflict Detection:</strong> Analyzes file changes to automatically group non-conflicting PRs into batches, eliminating manual coordination overhead.
+        </div>
+        <div class="feature-item">
+          <strong>Parallel Validation:</strong> Tests entire batches simultaneously using ghost branches instead of serial testing, dramatically reducing pipeline time.
+        </div>
+        <div class="feature-item">
+          <strong>Instant Failure Recovery:</strong> Parallel bisection finds problematic PRs in O(log N) time instead of testing each individually—3 iterations vs 100.
+        </div>
+        <div class="feature-item">
+          <strong>Selective Testing:</strong> Runs only tests affected by changes—47 relevant tests instead of 10,000 total, with 95% cache hit rates.
+        </div>
+      </div>
+      
+      <p>Development teams reduce merge queue time from 69 days to 2.9 days for 100,000 PRs through mathematical batching algorithms and conflict-aware scheduling.</p>
+      
+      <div class="project-cta">
+        <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in learning more about the Aegis high-throughput merge queue system.">
+          <span class="btn-inner">
+            24× Faster Merges
+            <i data-lucide="mail"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
 ## Research & Knowledge Systems
 
 Knowledge workers lose 2-3 hours daily to information fragmentation and context limits. Unified research intelligence and infinite agent memory transform information chaos into actionable insights.
@@ -210,10 +294,58 @@ Knowledge workers lose 2-3 hours daily to information fragmentation and context 
       <p>Teams recover 90% of time spent on context management while sessions stretch to 300+ messages without drift or performance loss.</p>
       
       <div class="project-cta">
+        <a href="/lethe" class="btn-unified btn-primary">
+          <span class="btn-inner">
+            Learn More
+            <i data-lucide="arrow-right"></i>
+          </span>
+        </a>
         <a href="https://github.com/sibyllinesoft/lethe" class="btn-unified btn-primary">
           <span class="btn-inner">
             View on GitHub
             <i data-lucide="github"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Product Guild -->
+<div class="project-brochure" id="guild-product">
+  <div class="project-visual">
+    <i data-lucide="scroll-text" class="project-icon"></i>
+    <div class="project-codename">Codename: GUILD</div>
+    <div class="project-status">Private Testing</div>
+  </div>
+  <div class="project-content">
+    <h3>Intelligent Documentation Curation and RAG Optimization Framework</h3>
+    <div class="project-pitch">
+      <p><strong>Documentation that stays relevant automatically.</strong></p>
+      <p>Documentation rots faster than code changes while RAG systems return irrelevant results. GUILD automatically revises documentation to match source code evolution, optimizes content for retrieval systems, and adds cross-links for maximum discoverability.</p>
+      
+      <div class="project-features">
+        <div class="feature-item">
+          <strong>Automatic Documentation Sync:</strong> Monitors source code changes and intelligently updates documentation to maintain accuracy without manual intervention.
+        </div>
+        <div class="feature-item">
+          <strong>RAG-Optimized Content:</strong> Rewrites documentation using real system data patterns to maximize retrieval accuracy and semantic search performance.
+        </div>
+        <div class="feature-item">
+          <strong>Smart Annotation System:</strong> Adds contextual cross-links and annotations based on actual usage patterns for enhanced discoverability.
+        </div>
+        <div class="feature-item">
+          <strong>Hybrid Search Engine:</strong> Advanced vector + BM25 retrieval with contextual reranking delivers precise results for complex queries.
+        </div>
+      </div>
+      
+      <p>Engineering teams eliminate documentation drift while improving RAG system accuracy by 60-80% through continuous knowledge curation. Built-in evaluation harness with TruLens integration provides measurable quality metrics.</p>
+      
+      <div class="project-cta">
+        <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in becoming a tester for this product. Please let me know about testing opportunities.">
+          <span class="btn-inner">
+            Join Private Testing
+            <i data-lucide="mail"></i>
           </span>
         </a>
       </div>
@@ -260,9 +392,99 @@ Knowledge workers lose 2-3 hours daily to information fragmentation and context 
   </div>
 </div>
 
+<!-- Product Lens -->
+<div class="project-brochure" id="lens-product">
+  <div class="project-visual">
+    <i data-lucide="search" class="project-icon"></i>
+    <div class="project-codename">Codename: LENS</div>
+    <div class="project-status">Production Ready</div>
+  </div>
+  <div class="project-content">
+    <h3>Production-Ready Code Search with 24.4% Better Relevance</h3>
+    <div class="project-pitch">
+      <p><strong>Code search that actually understands your code.</strong></p>
+      <p>Traditional search tools miss the mark—text search is fast but doesn't understand structure, while semantic search is smart but too slow. LENS combines all approaches in a three-stage pipeline delivering 0.779 nDCG@10 with sub-millisecond response times.</p>
+      
+      <div class="project-features">
+        <div class="feature-item">
+          <strong>Three-Stage Intelligence:</strong> Lexical + Symbol + Semantic layers work together—fuzzy text search, AST understanding, and natural language queries.
+        </div>
+        <div class="feature-item">
+          <strong>Sub-Millisecond Speed:</strong> P95 response times under 0.1ms while delivering 88.9% recall at 50 results through optimized indexing.
+        </div>
+        <div class="feature-item">
+          <strong>Enterprise-Grade Systems:</strong> Witness set mining, query-DAG optimization, and tenant economics with mathematical rigor.
+        </div>
+        <div class="feature-item">
+          <strong>MCP Integration:</strong> Native Model Context Protocol support for direct AI assistant integration with structured search capabilities.
+        </div>
+      </div>
+      
+      <p>Development teams cut code search time by 98% while achieving 24.4% better relevance than traditional tools. Perfect for large codebases where finding the right code quickly makes the difference.</p>
+      
+      <div class="project-cta">
+        <a href="/lens" class="btn-unified btn-primary">
+          <span class="btn-inner">
+            Learn More
+            <i data-lucide="arrow-right"></i>
+          </span>
+        </a>
+        <a href="https://github.com/sibyllinesoft/lens" class="btn-unified btn-primary">
+          <span class="btn-inner">
+            View on GitHub
+            <i data-lucide="github"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
 ## Agent Optimization & Workflow
 
 Agent workflows fail 40-60% of the time due to suboptimal prompts and scattered tooling. Self-improving agents and unified tool orchestration transform manual coordination into automated precision.
+
+<!-- Product Grimoire -->
+<div class="project-brochure" id="grimoire-product">
+  <div class="project-visual">
+    <i data-lucide="book-open" class="project-icon"></i>
+    <div class="project-codename">Codename: GRIMOIRE</div>
+    <div class="project-status">Production Ready</div>
+  </div>
+  <div class="project-content">
+    <h3>Agent-Grade CLI Suite with Enhanced Search Powers</h3>
+    <div class="project-pitch">
+      <p><strong>Give your agents magic powers.</strong></p>
+      <p>Standard tools break under AI agent workloads with unpredictable outputs and resource exhaustion. GRIMOIRE delivers 11 enhanced CLI tools with deterministic JSONL output, budget enforcement, and semantic understanding—built specifically for agent reliability.</p>
+      
+      <div class="project-features">
+        <div class="feature-item">
+          <strong>Agent-Grade Reliability:</strong> Deterministic output, budget enforcement, and structured error reporting prevent agent failures and resource exhaustion.
+        </div>
+        <div class="feature-item">
+          <strong>Semantic Search & Patching:</strong> Tools like sripgrep, spatch, and sgraph understand code structure and semantics, not just text patterns.
+        </div>
+        <div class="feature-item">
+          <strong>Sub-120ms Performance:</strong> p95 search latency under 120ms with 95%+ patch success rates—agents stay responsive under pressure.
+        </div>
+        <div class="feature-item">
+          <strong>Lens Integration:</strong> Native integration with Lens search backend provides unified code analysis across all tools.
+        </div>
+      </div>
+      
+      <p>AI agent workflows achieve 95%+ success rates with predictable resource usage. Perfect for autonomous code analysis, refactoring, and documentation tasks where reliability matters more than flexibility.</p>
+      
+      <div class="project-cta">
+        <a href="https://github.com/sibyllinesoft/grimoire" class="btn-unified btn-primary">
+          <span class="btn-inner">
+            View on GitHub
+            <i data-lucide="github"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- Product Minerva -->
 <div class="project-brochure" id="minerva-product">
@@ -385,40 +607,40 @@ Agent workflows fail 40-60% of the time due to suboptimal prompts and scattered 
 
 Legacy development tools fail with 87% false positive rates and crash under scale. AI-native code analysis and intelligent duplicate detection guide teams toward high-impact improvements.
 
-<!-- Product Aegis -->
-<div class="project-brochure" id="aegis-product">
+<!-- Product Cell -->
+<div class="project-brochure" id="cell-product">
   <div class="project-visual">
-    <i data-lucide="shield" class="project-icon"></i>
-    <div class="project-codename">Codename: AEGIS</div>
-    <div class="project-status">In Development</div>
+    <i data-lucide="atom" class="project-icon"></i>
+    <div class="project-codename">Codename: CELL</div>
+    <div class="project-status">Alpha</div>
   </div>
   <div class="project-content">
-    <h3>High-Throughput Merge Queue</h3>
+    <h3>Version Control That Actually Makes Sense</h3>
     <div class="project-pitch">
-      <p><strong>24× faster merge throughput.</strong></p>
-      <p>Traditional merge queues process PRs one at a time, creating massive bottlenecks with AI-generated code volumes. AEGIS uses intelligent batching and smart conflict detection to handle 100,000+ PRs with parallel validation.</p>
+      <p><strong>All the power of Git. Zero footguns.</strong></p>
+      <p>Git is a footgun factory—merge conflicts, detached heads, and complex histories that break everything. CELL is braindead simple: code becomes atomic cells, project state is just a list of cells. Want version X? Grab its corpus. Done.</p>
       
       <div class="project-features">
         <div class="feature-item">
-          <strong>Smart Conflict Detection:</strong> Analyzes file changes to automatically group non-conflicting PRs into batches, eliminating manual coordination overhead.
+          <strong>Braindead Simple:</strong> No branches, no merges, no conflicts. Just cells and corpuses. If you can make a shopping list, you can use CELL.
         </div>
         <div class="feature-item">
-          <strong>Parallel Validation:</strong> Tests entire batches simultaneously using ghost branches instead of serial testing, dramatically reducing pipeline time.
+          <strong>Atomic Hydration with Metaprogramming:</strong> Cells support macros and transformations—programmatically refactor entire codebases through atomic reconstruction.
         </div>
         <div class="feature-item">
-          <strong>Instant Failure Recovery:</strong> Parallel bisection finds problematic PRs in O(log N) time instead of testing each individually—3 iterations vs 100.
+          <strong>Local + Cloud Hybrid:</strong> Runs entirely locally for privacy, replicates to Cloudflare for 5-nines durability and global availability.
         </div>
         <div class="feature-item">
-          <strong>Selective Testing:</strong> Runs only tests affected by changes—47 relevant tests instead of 10,000 total, with 95% cache hit rates.
+          <strong>Perfect Reproducibility:</strong> Every corpus rebuilds the exact same project state. No more "works on my machine"—ever.
         </div>
       </div>
       
-      <p>Development teams reduce merge queue time from 69 days to 2.9 days for 100,000 PRs through mathematical batching algorithms and conflict-aware scheduling.</p>
+      <p>Teams get Git's power without the complexity. Metaprogramming capabilities let you transform codebases systematically while Cloudflare replication ensures your code survives anything.</p>
       
       <div class="project-cta">
-        <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in learning more about the Aegis high-throughput merge queue system.">
+        <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in becoming an early tester for Cell. Please let me know about alpha testing opportunities.">
           <span class="btn-inner">
-            24× Faster Merges
+            Join Alpha Testing
             <i data-lucide="mail"></i>
           </span>
         </a>
@@ -494,6 +716,12 @@ Legacy development tools fail with 87% false positive rates and crash under scal
       <p>Product teams cut specification-to-code iterations by 90% through mathematical precision that eliminates manual bottlenecks and requirement drift.</p>
       
       <div class="project-cta">
+        <a href="/arbiter" class="btn-unified btn-primary">
+          <span class="btn-inner">
+            Learn More
+            <i data-lucide="arrow-right"></i>
+          </span>
+        </a>
         <a href="https://github.com/sibyllinesoft/arbiter" class="btn-unified btn-primary">
           <span class="btn-inner">
             View on GitHub
@@ -533,6 +761,12 @@ Legacy development tools fail with 87% false positive rates and crash under scal
       <p>Engineering teams achieve 75% more efficient AI-guided refactoring through targeted problem identification. Multi-language support for Python, TypeScript, JavaScript, and Rust.</p>
       
       <div class="project-cta">
+        <a href="/valknut" class="btn-unified btn-primary">
+          <span class="btn-inner">
+            Learn More
+            <i data-lucide="arrow-right"></i>
+          </span>
+        </a>
         <a href="https://github.com/sibyllinesoft/valknut" class="btn-unified btn-primary">
           <span class="btn-inner">
             View on GitHub
@@ -619,6 +853,48 @@ Development teams face crushing AI inference costs and vendor lock-in while buil
           <span class="btn-inner">
             View on GitHub
             <i data-lucide="github"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Product Prism -->
+<div class="project-brochure" id="prism-product">
+  <div class="project-visual">
+    <i data-lucide="layout-dashboard" class="project-icon"></i>
+    <div class="project-codename">Codename: PRISM</div>
+    <div class="project-status">Private Testing</div>
+  </div>
+  <div class="project-content">
+    <h3>Agent-Managed Information Dashboards with Shareable Widgets</h3>
+    <div class="project-pitch">
+      <p><strong>Turn cool elements into reusable apps instantly.</strong></p>
+      <p>Developers create amazing UI components in side projects that never ship while teams need custom dashboards fast. PRISM lets agents automatically compose shareable widgets from existing elements into grid-based information dashboards that update in real-time.</p>
+      
+      <div class="project-features">
+        <div class="feature-item">
+          <strong>Automatic Widget Creation:</strong> Agents analyze existing UI components and automatically convert them into reusable dashboard widgets with standardized data interfaces.
+        </div>
+        <div class="feature-item">
+          <strong>Agent-Composed Dashboards:</strong> Tell agents what information you need and they compose custom dashboards from available widgets—no manual drag-and-drop required.
+        </div>
+        <div class="feature-item">
+          <strong>Community Widget Marketplace:</strong> Developers monetize cool UI elements from abandoned projects while teams get instant access to professional widgets.
+        </div>
+        <div class="feature-item">
+          <strong>Request-Driven Development:</strong> Dashboards automatically adapt based on user requests—agents create new widgets or modify existing ones to match evolving needs.
+        </div>
+      </div>
+      
+      <p>Teams cut dashboard development time by 90% while developers generate revenue from unused UI components. Agent-managed updates ensure dashboards evolve automatically based on usage patterns.</p>
+      
+      <div class="project-cta">
+        <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in becoming a tester for this product. Please let me know about testing opportunities.">
+          <span class="btn-inner">
+            Compose Custom Apps
+            <i data-lucide="mail"></i>
           </span>
         </a>
       </div>
@@ -883,6 +1159,27 @@ Use product CTAs above or contact us directly for enterprise discussions. All pr
   background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-valknut.webp');
 }
 
+#prism-product .project-visual {
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-prism.webp');
+}
+
+#guild-product .project-visual {
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-guild.webp');
+}
+
+#multiverse-product .project-visual {
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-multiverse.webp');
+}
+#grimoire-product .project-visual {
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-grimoire.webp');
+}
+#lens-product .project-visual {
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-lens.webp');
+}
+#cell-product .project-visual {
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-cell.webp');
+}
+
 .project-icon {
   width: 4rem;
   height: 4rem;
@@ -984,7 +1281,9 @@ Use product CTAs above or contact us directly for enterprise discussions. All pr
 
 .project-cta {
   margin-top: var(--space-lg);
-  text-align: center;
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
 }
 
 

@@ -16,6 +16,9 @@ export default {
     eleventyConfig.addPassthroughCopy(paths.js);
     eleventyConfig.addPassthroughCopy(paths.styles);
     
+    // Copy analysis models and JavaScript modules
+    eleventyConfig.addPassthroughCopy('src/analysis');
+    
     // Copy CNAME and other root files for GitHub Pages
     paths.rootFiles.forEach(file => {
       eleventyConfig.addPassthroughCopy(file);

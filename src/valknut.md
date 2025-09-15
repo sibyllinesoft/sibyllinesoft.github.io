@@ -6,6 +6,7 @@ order: 4
 layout: simple.njk
 title: "Valknut: Static Analysis Engine for AI-Guided Refactoring"
 description: "Stop AI agents hunting blindly. Precise problem roadmaps with 0-1 urgency scores guide agents to highest-impact issues first."
+enableModals: true
 stylesheets:
   - "/styles/valknut.css"
 scripts:
@@ -143,7 +144,7 @@ scripts:
    <h2>Three Levels of Analysis: From Quick Wins to Architectural Transformation</h2>
    <div class="services-grid">
       <div class="service-card" data-service="quick-wins">
-         <h3><i data-lucide="target"></i> Quick Wins — Surface urgent fixes first</h3>
+         <h3><i data-lucide="target"></i> Emergency Triage</h3>
          <div class="service-summary">
             <p><strong>Urgency scores guide agents to high impact problems.</strong> Stop your agents from nit-picking while critical architectural debt bleeds your productivity.</p>
          </div>
@@ -185,7 +186,7 @@ scripts:
          <div class="click-hint">Click to expand</div>
       </div>
       <div class="service-card" data-service="systemic">
-         <h3><i data-lucide="network"></i> Systemic Intelligence — Fix root causes, not symptoms</h3>
+         <h3><i data-lucide="network"></i> Uncover Systemic Issues</h3>
          <div class="service-summary">
             <p><strong>Impact Packs guide agents refactor safely and efficiently.</strong> Analytic plans keep agents on rails, so you can keep ratcheting up codebase quality.</p>
          </div>
@@ -236,7 +237,7 @@ scripts:
          <div class="click-hint">Click to expand</div>
       </div>
       <div class="service-card" data-service="comprehensive">
-         <h3><i data-lucide="layers"></i> Comprehensive Coverage — Full codebase transformation</h3>
+         <h3><i data-lucide="layers"></i> Accelerate Code Coverage</h3>
          <div class="service-summary">
             <p><strong>Coverage Packs ensure no stone is left unturned.</strong> Complete analysis across all modules with dependency-aware refactoring plans for architectural overhauls.</p>
          </div>
@@ -301,6 +302,7 @@ scripts:
    </div>
 </div>
 <div class="centered-section">
+<p>Valknut is built from the ground up to support autonomous coding. Technical debt is the single largest driver of vibe coding project failure (and project failure in general). With Valknut, your agents has the tool they need to keep your projects debt free.</p>
    <h2>Ready to Give Your AI Agents the Intelligence They Deserve?</h2>
    <div class="cta-section">
    <a href="https://github.com/sibyllinesoft/valknut" class="btn-unified btn-primary">

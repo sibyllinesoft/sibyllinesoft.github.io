@@ -1,0 +1,1084 @@
+---
+title: "2D Code Embedding Explorer"
+description: "Interactive visualization of AI code generation as stochastic process optimization in 2D embedding space"
+layout: "article.njk"
+eleventyNavigation:
+  key: "2D Embedding"
+  parent: "Analysis"
+  order: 2
+---
+
+<div class="embedding-explorer">
+  <div class="explorer-header">
+    <h1>🎯 2D Code Embedding Explorer</h1>
+    <p class="lead">
+      Visualize AI code generation as a <strong>controlled stochastic walk</strong> through a 2D embedding space. 
+      Watch how different agent archetypes navigate the landscape using maximum-likelihood paths with trust-region optimization.
+    </p>
+  </div>
+
+  <div class="explorer-layout">
+    <!-- Left Panel: Controls -->
+    <div class="controls-panel">
+      <div class="control-section">
+        <h3>🌍 Landscape</h3>
+        <div class="preset-buttons">
+          <button id="preset-crud" class="preset-btn active">CRUD-Aligned</button>
+          <button id="preset-neutral" class="preset-btn">Neutral</button>
+          <button id="preset-adversarial" class="preset-btn">Adversarial</button>
+        </div>
+        
+        <div class="slider-group">
+          <label for="length-scale">Smoothness (ℓ)</label>
+          <input type="range" id="length-scale" min="0.5" max="4" step="0.1" value="2.0">
+          <span id="length-scale-value">2.0</span>
+        </div>
+        
+        <div class="slider-group">
+          <label for="num-centers">Density (Q)</label>
+          <input type="range" id="num-centers" min="6" max="40" step="2" value="20">
+          <span id="num-centers-value">20</span>
+        </div>
+        
+        <div class="slider-group">
+          <label for="bias-weight">Bias (α)</label>
+          <input type="range" id="bias-weight" min="0" max="1.5" step="0.1" value="0.6">
+          <span id="bias-weight-value">0.6</span>
+        </div>
+        
+        <div class="slider-group">
+          <label for="alignment">Alignment (A)</label>
+          <input type="range" id="alignment" min="-1" max="1" step="0.1" value="0.6">
+          <span id="alignment-value">0.6</span>
+        </div>
+        
+        <div class="checkbox-group">
+          <input type="checkbox" id="adversarial-bump">
+          <label for="adversarial-bump">Adversarial bump near target</label>
+        </div>
+      </div>
+
+      <div class="control-section">
+        <h3>🤖 Agent Archetype</h3>
+        <div class="archetype-buttons">
+          <button id="arch-noob-vibe" class="arch-btn">Noob Vibe</button>
+          <button id="arch-expert-vibe" class="arch-btn active">Expert Vibe</button>
+          <button id="arch-noob-autonomous" class="arch-btn">Noob Autonomous</button>
+          <button id="arch-expert-autonomous" class="arch-btn">Expert Autonomous</button>
+        </div>
+        
+        <div class="archetype-info">
+          <div id="archetype-description">
+            Decaying steps with trust-region, mid-high prior quality
+          </div>
+        </div>
+      </div>
+
+      <div class="control-section">
+        <h3>⚙️ Parameters</h3>
+        <div class="slider-group">
+          <label for="human-prior">Human Prior (H)</label>
+          <input type="range" id="human-prior" min="0" max="1" step="0.01" value="0.7">
+          <span id="human-prior-value">0.70</span>
+        </div>
+        
+        <div class="slider-group">
+          <label for="model-prior">Model Prior (ρ)</label>
+          <input type="range" id="model-prior" min="0" max="1" step="0.01" value="0.8">
+          <span id="model-prior-value">0.80</span>
+        </div>
+        
+        <div class="slider-group">
+          <label for="candidates">Candidates (K)</label>
+          <input type="range" id="candidates" min="1" max="8" step="1" value="2">
+          <span id="candidates-value">2</span>
+        </div>
+        
+        <div class="slider-group">
+          <label for="reviewers">Reviewers (N)</label>
+          <input type="range" id="reviewers" min="0" max="5" step="1" value="1">
+          <span id="reviewers-value">1</span>
+        </div>
+        
+        <div class="slider-group">
+          <label for="correlation">Correlation (γ)</label>
+          <input type="range" id="correlation" min="0" max="0.9" step="0.01" value="0.1">
+          <span id="correlation-value">0.10</span>
+        </div>
+        
+        <div class="slider-group">
+          <label for="max-steps">Max Steps (T)</label>
+          <input type="range" id="max-steps" min="10" max="100" step="5" value="50">
+          <span id="max-steps-value">50</span>
+        </div>
+      </div>
+
+      <div class="control-section">
+        <h3>📊 Visualization</h3>
+        <div class="checkbox-group">
+          <input type="checkbox" id="show-quiver" checked>
+          <label for="show-quiver">Show vector field</label>
+        </div>
+        
+        <div class="checkbox-group">
+          <input type="checkbox" id="show-ellipses" checked>
+          <label for="show-ellipses">Show 1σ confidence tube</label>
+        </div>
+        
+        <div class="checkbox-group">
+          <input type="checkbox" id="show-sampling">
+          <label for="show-sampling">Show sample paths</label>
+        </div>
+        
+        <div class="slider-group" id="sample-count-group" style="display:none;">
+          <label for="sample-count">Sample paths</label>
+          <input type="range" id="sample-count" min="5" max="25" step="5" value="10">
+          <span id="sample-count-value">10</span>
+        </div>
+        
+        <div class="checkbox-group">
+          <input type="checkbox" id="show-3d">
+          <label for="show-3d">3D surface view</label>
+        </div>
+      </div>
+
+      <div class="control-section">
+        <h3>🎯 Start/Target</h3>
+        <div class="coordinate-inputs">
+          <div class="coord-group">
+            <label>Start (s₀)</label>
+            <input type="number" id="start-x" min="-5" max="5" step="0.1" value="-2">
+            <input type="number" id="start-y" min="-5" max="5" step="0.1" value="-1.5">
+          </div>
+          
+          <div class="coord-group">
+            <label>Target (s*)</label>
+            <input type="number" id="target-x" min="-5" max="5" step="0.1" value="3">
+            <input type="number" id="target-y" min="-5" max="5" step="0.1" value="2">
+          </div>
+        </div>
+      </div>
+
+      <div class="control-section">
+        <div class="action-buttons">
+          <button id="reset-btn" class="action-btn">Reset</button>
+          <button id="copy-config-btn" class="action-btn">Copy Config</button>
+          <button id="load-config-btn" class="action-btn">Load Config</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Panel: Visualization -->
+    <div class="visualization-panel">
+      <!-- Main 2D plot -->
+      <div id="main-plot" class="plot-container main-plot"></div>
+      
+      <!-- Auxiliary plots -->
+      <div class="aux-plots">
+        <div id="step-size-plot" class="aux-plot"></div>
+        <div id="acceptance-plot" class="aux-plot"></div>
+        <div id="distance-plot" class="aux-plot"></div>
+        <div id="gradient-plot" class="aux-plot"></div>
+      </div>
+      
+      <!-- 3D surface (optional) -->
+      <div id="surface-3d" class="plot-container surface-plot" style="display:none;"></div>
+      
+      <!-- Path statistics -->
+      <div class="path-stats">
+        <div class="stat-item">
+          <span class="stat-label">Final Distance:</span>
+          <span id="final-distance">--</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Steps Taken:</span>
+          <span id="steps-taken">--</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Path Log-Likelihood:</span>
+          <span id="path-likelihood">--</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Information Panel -->
+  <div class="info-panel">
+    <details>
+      <summary><strong>📖 How to Use This Explorer</strong></summary>
+      <div class="info-content">
+        <h4>🌍 Landscape Settings</h4>
+        <ul>
+          <li><strong>Smoothness (ℓ):</strong> Higher values create smoother landscapes with longer-range correlations</li>
+          <li><strong>Density (Q):</strong> Number of RBF centers affecting landscape complexity</li>
+          <li><strong>Bias (α):</strong> Strength of directional bias toward/away from target</li>
+          <li><strong>Alignment (A):</strong> Direction of bias (+1 toward target, -1 away, 0 neutral)</li>
+        </ul>
+        
+        <h4>🤖 Agent Archetypes</h4>
+        <ul>
+          <li><strong>Noob Vibe:</strong> Small fixed steps, low prior quality, prone to zigzagging</li>
+          <li><strong>Expert Vibe:</strong> Adaptive steps with trust-region, well-calibrated</li>
+          <li><strong>Noob Autonomous:</strong> Overconfident large steps, multiple reviewers but high correlation</li>
+          <li><strong>Expert Autonomous:</strong> Planning phase to build context, then efficient execution</li>
+        </ul>
+        
+        <h4>📊 Visualization Elements</h4>
+        <ul>
+          <li><strong>Contour:</strong> Landscape potential M(s) with darker = lower potential</li>
+          <li><strong>Arrows:</strong> Gradient descent direction (-∇M)</li>
+          <li><strong>Orange Path:</strong> Maximum-likelihood trajectory (zero noise)</li>
+          <li><strong>Ellipses:</strong> 1σ confidence tube showing uncertainty propagation</li>
+          <li><strong>Gray Paths:</strong> Sample paths showing stochastic variability</li>
+        </ul>
+      </div>
+    </details>
+  </div>
+</div>
+
+<style>
+.embedding-explorer {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.explorer-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.explorer-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.lead {
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.explorer-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* Controls Panel */
+.controls-panel {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 1rem;
+  height: fit-content;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.control-section {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.control-section:last-child {
+  border-bottom: none;
+}
+
+.control-section h3 {
+  margin: 0 0 0.75rem 0;
+  font-size: 0.95rem;
+  color: #495057;
+  font-weight: 600;
+}
+
+/* Buttons */
+.preset-buttons, .archetype-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.preset-btn, .arch-btn {
+  padding: 0.4rem 0.6rem;
+  border: 1px solid #ced4da;
+  background: white;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.preset-btn:hover, .arch-btn:hover {
+  background: #e9ecef;
+}
+
+.preset-btn.active, .arch-btn.active {
+  background: #007bff;
+  color: white;
+  border-color: #0056b3;
+}
+
+.action-buttons {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+}
+
+.action-btn {
+  padding: 0.5rem;
+  border: 1px solid #ced4da;
+  background: white;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.action-btn:hover {
+  background: #e9ecef;
+}
+
+/* Sliders */
+.slider-group {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.slider-group label {
+  font-size: 0.85rem;
+  color: #495057;
+  font-weight: 500;
+}
+
+.slider-group input[type="range"] {
+  grid-column: 1 / -1;
+  width: 100%;
+  margin: 0.25rem 0;
+}
+
+.slider-group span {
+  font-size: 0.8rem;
+  color: #6c757d;
+  text-align: right;
+  min-width: 40px;
+}
+
+/* Checkboxes */
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.checkbox-group label {
+  font-size: 0.85rem;
+  color: #495057;
+}
+
+/* Coordinates */
+.coordinate-inputs {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.coord-group {
+  display: grid;
+  grid-template-columns: auto 1fr 1fr;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.coord-group label {
+  font-size: 0.85rem;
+  color: #495057;
+  font-weight: 500;
+}
+
+.coord-group input[type="number"] {
+  padding: 0.25rem;
+  border: 1px solid #ced4da;
+  border-radius: 3px;
+  font-size: 0.8rem;
+}
+
+/* Archetype info */
+.archetype-info {
+  background: #e3f2fd;
+  padding: 0.5rem;
+  border-radius: 4px;
+  border-left: 3px solid #2196f3;
+}
+
+#archetype-description {
+  font-size: 0.8rem;
+  color: #1565c0;
+  font-style: italic;
+}
+
+/* Visualization Panel */
+.visualization-panel {
+  display: grid;
+  gap: 1rem;
+}
+
+.plot-container {
+  background: white;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.main-plot {
+  height: 600px;
+}
+
+.surface-plot {
+  height: 500px;
+}
+
+.aux-plots {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.aux-plot {
+  height: 200px;
+  background: white;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+}
+
+/* Path Statistics */
+.path-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.stat-item {
+  background: #f8f9fa;
+  padding: 0.75rem;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.stat-label {
+  display: block;
+  font-size: 0.8rem;
+  color: #6c757d;
+  margin-bottom: 0.25rem;
+}
+
+.stat-item span:last-child {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+/* Info Panel */
+.info-panel {
+  margin-top: 2rem;
+  background: #fff3cd;
+  border: 1px solid #ffeaa7;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.info-panel summary {
+  cursor: pointer;
+  font-size: 1.1rem;
+  color: #856404;
+  margin-bottom: 1rem;
+}
+
+.info-content {
+  color: #856404;
+}
+
+.info-content h4 {
+  color: #856404;
+  margin: 1rem 0 0.5rem 0;
+}
+
+.info-content ul {
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.info-content li {
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .explorer-layout {
+    grid-template-columns: 280px 1fr;
+  }
+  
+  .aux-plots {
+    grid-template-columns: 1fr;
+  }
+  
+  .path-stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .explorer-layout {
+    grid-template-columns: 1fr;
+  }
+  
+  .controls-panel {
+    order: 2;
+    max-height: none;
+  }
+  
+  .preset-buttons, .archetype-buttons {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .embedding-explorer {
+    color: #e9ecef;
+  }
+  
+  .explorer-header h1 {
+    color: #f8f9fa;
+  }
+  
+  .controls-panel {
+    background: #343a40;
+    border-color: #495057;
+  }
+  
+  .control-section {
+    border-color: #495057;
+  }
+  
+  .preset-btn, .arch-btn, .action-btn {
+    background: #495057;
+    border-color: #6c757d;
+    color: #e9ecef;
+  }
+  
+  .preset-btn:hover, .arch-btn:hover, .action-btn:hover {
+    background: #5a6268;
+  }
+  
+  .archetype-info {
+    background: #1e3a5f;
+    border-color: #2196f3;
+  }
+  
+  .plot-container, .aux-plot {
+    background: #495057;
+    border-color: #6c757d;
+  }
+  
+  .stat-item {
+    background: #495057;
+    color: #e9ecef;
+  }
+  
+  .info-panel {
+    background: #3d3d29;
+    border-color: #8a6914;
+    color: #fff3cd;
+  }
+}
+</style>
+
+<script src="https://cdn.plot.ly/plotly-2.26.0.min.js"></script>
+<script type="module" src="/analysis/js/embedding.js"></script>
+<script type="module" src="/analysis/js/process.js"></script>
+<script type="module" src="/analysis/js/pathml.js"></script>
+<script type="module" src="/analysis/js/sampler.js"></script>
+<script type="module" src="/analysis/js/plot2d.js"></script>
+
+<script type="module">
+import { makePrior, LANDSCAPE_PRESETS } from '/analysis/js/embedding.js';
+import { ARCHETYPES } from '/analysis/js/process.js';
+import { create2DVisualization, createAuxiliaryTraces, createAuxLayout, updateVisualization } from '/analysis/js/plot2d.js';
+import { computePathLogLikelihood } from '/analysis/js/pathml.js';
+
+// Global state
+let currentConfig = {
+  landscapeCfg: null,
+  s0: [-2, -1.5],
+  archetype: 'expert-vibe',
+  options: {
+    T: 50,
+    showQuiver: true,
+    showEllipses: true,
+    showSampling: false,
+    numSamples: 10
+  }
+};
+
+let currentPath = null;
+
+// Initialize the explorer
+function initializeExplorer() {
+  console.log('Initializing 2D Embedding Explorer...');
+  
+  // Set up event listeners
+  setupPresetButtons();
+  setupArchetypeButtons();
+  setupSliders();
+  setupCheckboxes();
+  setupCoordinateInputs();
+  setupActionButtons();
+  
+  // Initialize with default configuration
+  applyPreset('crud-aligned');
+  updateVisualization();
+  
+  console.log('2D Embedding Explorer initialized');
+}
+
+function setupPresetButtons() {
+  const presetButtons = ['crud', 'neutral', 'adversarial'];
+  const presetMap = {
+    'crud': 'crud-aligned',
+    'neutral': 'neutral',
+    'adversarial': 'adversarial'
+  };
+  
+  presetButtons.forEach(preset => {
+    const btn = document.getElementById(`preset-${preset}`);
+    if (btn) {
+      btn.addEventListener('click', () => {
+        // Update button states
+        document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        // Apply preset
+        applyPreset(presetMap[preset]);
+      });
+    }
+  });
+}
+
+function setupArchetypeButtons() {
+  const archetypes = ['noob-vibe', 'expert-vibe', 'noob-autonomous', 'expert-autonomous'];
+  
+  archetypes.forEach(arch => {
+    const btn = document.getElementById(`arch-${arch}`);
+    if (btn) {
+      btn.addEventListener('click', () => {
+        // Update button states
+        document.querySelectorAll('.arch-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        // Update archetype
+        currentConfig.archetype = arch;
+        updateArchetypeDescription(arch);
+        updateVisualization();
+      });
+    }
+  });
+}
+
+function setupSliders() {
+  const sliders = [
+    'length-scale', 'num-centers', 'bias-weight', 'alignment',
+    'human-prior', 'model-prior', 'candidates', 'reviewers', 'correlation', 'max-steps',
+    'sample-count'
+  ];
+  
+  sliders.forEach(sliderId => {
+    const slider = document.getElementById(sliderId);
+    const valueDisplay = document.getElementById(`${sliderId}-value`);
+    
+    if (slider && valueDisplay) {
+      slider.addEventListener('input', (e) => {
+        const value = parseFloat(e.target.value);
+        valueDisplay.textContent = formatSliderValue(value, slider.step);
+        
+        // Update configuration based on slider
+        handleSliderChange(sliderId, value);
+      });
+    }
+  });
+}
+
+function setupCheckboxes() {
+  const checkboxes = [
+    'adversarial-bump', 'show-quiver', 'show-ellipses', 'show-sampling', 'show-3d'
+  ];
+  
+  checkboxes.forEach(checkboxId => {
+    const checkbox = document.getElementById(checkboxId);
+    if (checkbox) {
+      checkbox.addEventListener('change', (e) => {
+        handleCheckboxChange(checkboxId, e.target.checked);
+      });
+    }
+  });
+}
+
+function setupCoordinateInputs() {
+  const coords = ['start-x', 'start-y', 'target-x', 'target-y'];
+  
+  coords.forEach(coordId => {
+    const input = document.getElementById(coordId);
+    if (input) {
+      input.addEventListener('change', (e) => {
+        const value = parseFloat(e.target.value);
+        handleCoordinateChange(coordId, value);
+      });
+    }
+  });
+}
+
+function setupActionButtons() {
+  const resetBtn = document.getElementById('reset-btn');
+  if (resetBtn) {
+    resetBtn.addEventListener('click', () => {
+      applyPreset('crud-aligned');
+      currentConfig.archetype = 'expert-vibe';
+      updateArchetypeButtons();
+      updateVisualization();
+    });
+  }
+  
+  const copyBtn = document.getElementById('copy-config-btn');
+  if (copyBtn) {
+    copyBtn.addEventListener('click', copyConfiguration);
+  }
+  
+  const loadBtn = document.getElementById('load-config-btn');
+  if (loadBtn) {
+    loadBtn.addEventListener('click', loadConfiguration);
+  }
+}
+
+function applyPreset(presetName) {
+  const preset = LANDSCAPE_PRESETS[presetName];
+  if (!preset) return;
+  
+  // Update landscape configuration
+  const landscapeParams = {
+    lengthScale: preset.lengthScale,
+    alignment: preset.alignment,
+    numCenters: preset.numCenters,
+    biasWeight: preset.biasWeight,
+    hasAdversarialBump: preset.hasAdversarialBump
+  };
+  
+  currentConfig.landscapeCfg = makePrior(landscapeParams);
+  
+  // Update UI sliders
+  updateSliderFromValue('length-scale', preset.lengthScale);
+  updateSliderFromValue('num-centers', preset.numCenters);
+  updateSliderFromValue('bias-weight', preset.biasWeight);
+  updateSliderFromValue('alignment', preset.alignment);
+  
+  const advBumpCheckbox = document.getElementById('adversarial-bump');
+  if (advBumpCheckbox) {
+    advBumpCheckbox.checked = preset.hasAdversarialBump;
+  }
+  
+  updateVisualization();
+}
+
+function handleSliderChange(sliderId, value) {
+  switch (sliderId) {
+    case 'length-scale':
+    case 'num-centers':
+    case 'bias-weight':
+    case 'alignment':
+      // Landscape parameter - need to rebuild landscape config
+      rebuildLandscapeConfig();
+      break;
+    case 'max-steps':
+      currentConfig.options.T = Math.round(value);
+      updateVisualization();
+      break;
+    case 'sample-count':
+      currentConfig.options.numSamples = Math.round(value);
+      if (currentConfig.options.showSampling) {
+        updateVisualization();
+      }
+      break;
+    default:
+      // Other parameters don't directly affect the visualization
+      // They would be used if we implemented custom parameter override
+      break;
+  }
+}
+
+function handleCheckboxChange(checkboxId, checked) {
+  switch (checkboxId) {
+    case 'adversarial-bump':
+      rebuildLandscapeConfig();
+      break;
+    case 'show-quiver':
+      currentConfig.options.showQuiver = checked;
+      updateVisualization();
+      break;
+    case 'show-ellipses':
+      currentConfig.options.showEllipses = checked;
+      updateVisualization();
+      break;
+    case 'show-sampling':
+      currentConfig.options.showSampling = checked;
+      const sampleCountGroup = document.getElementById('sample-count-group');
+      if (sampleCountGroup) {
+        sampleCountGroup.style.display = checked ? 'block' : 'none';
+      }
+      updateVisualization();
+      break;
+    case 'show-3d':
+      const surface3D = document.getElementById('surface-3d');
+      if (surface3D) {
+        surface3D.style.display = checked ? 'block' : 'none';
+        if (checked) {
+          create3DSurface();
+        }
+      }
+      break;
+  }
+}
+
+function handleCoordinateChange(coordId, value) {
+  switch (coordId) {
+    case 'start-x':
+      currentConfig.s0[0] = value;
+      break;
+    case 'start-y':
+      currentConfig.s0[1] = value;
+      break;
+    case 'target-x':
+      currentConfig.landscapeCfg.sStar[0] = value;
+      rebuildLandscapeConfig(); // Target affects landscape
+      break;
+    case 'target-y':
+      currentConfig.landscapeCfg.sStar[1] = value;
+      rebuildLandscapeConfig(); // Target affects landscape
+      break;
+  }
+  updateVisualization();
+}
+
+function rebuildLandscapeConfig() {
+  const lengthScale = parseFloat(document.getElementById('length-scale').value);
+  const numCenters = parseInt(document.getElementById('num-centers').value);
+  const biasWeight = parseFloat(document.getElementById('bias-weight').value);
+  const alignment = parseFloat(document.getElementById('alignment').value);
+  const hasAdversarialBump = document.getElementById('adversarial-bump').checked;
+  
+  const targetX = parseFloat(document.getElementById('target-x').value);
+  const targetY = parseFloat(document.getElementById('target-y').value);
+  
+  const landscapeParams = {
+    lengthScale,
+    numCenters,
+    biasWeight,
+    alignment,
+    hasAdversarialBump,
+    sStar: [targetX, targetY]
+  };
+  
+  currentConfig.landscapeCfg = makePrior(landscapeParams);
+  updateVisualization();
+}
+
+function updateVisualization() {
+  try {
+    const result = create2DVisualization(
+      currentConfig.landscapeCfg,
+      currentConfig.s0,
+      currentConfig.archetype,
+      currentConfig.options
+    );
+    
+    currentPath = result.path;
+    
+    // Update main plot
+    Plotly.react('main-plot', result.traces, result.layout);
+    
+    // Update auxiliary plots
+    updateAuxiliaryPlots(result.path);
+    
+    // Update statistics
+    updatePathStatistics(result.path);
+    
+  } catch (error) {
+    console.error('Error updating visualization:', error);
+  }
+}
+
+function updateAuxiliaryPlots(path) {
+  if (!path || path.length === 0) return;
+  
+  const auxTraces = createAuxiliaryTraces(path);
+  
+  // Step size plot
+  Plotly.react('step-size-plot', [auxTraces.stepSize], 
+    createAuxLayout('Step Size vs Time', 'Step Size'));
+  
+  // Acceptance proxy plot
+  Plotly.react('acceptance-plot', [auxTraces.acceptanceProxy],
+    createAuxLayout('Acceptance vs Time', 'Acceptance Proxy'));
+  
+  // Distance to target plot
+  Plotly.react('distance-plot', [auxTraces.distanceToTarget],
+    createAuxLayout('Distance to Target', 'Distance'));
+  
+  // Gradient norm plot
+  Plotly.react('gradient-plot', [auxTraces.gradientNorm],
+    createAuxLayout('Gradient Norm', '||∇M||'));
+}
+
+function updatePathStatistics(path) {
+  if (!path || path.length === 0) {
+    document.getElementById('final-distance').textContent = '--';
+    document.getElementById('steps-taken').textContent = '--';
+    document.getElementById('path-likelihood').textContent = '--';
+    return;
+  }
+  
+  const finalDistance = path[path.length - 1].distToTarget;
+  const stepsTaken = path.length;
+  const logLikelihood = computePathLogLikelihood(path);
+  
+  document.getElementById('final-distance').textContent = finalDistance.toFixed(3);
+  document.getElementById('steps-taken').textContent = stepsTaken.toString();
+  document.getElementById('path-likelihood').textContent = logLikelihood.toFixed(1);
+}
+
+function updateArchetypeDescription(archetype) {
+  const descriptions = {
+    'noob-vibe': 'Small fixed steps, minimal complexity, low prior quality',
+    'expert-vibe': 'Decaying steps with trust-region, mid-high prior quality',  
+    'noob-autonomous': 'Overconfident early steps, multiple candidates and reviewers',
+    'expert-autonomous': 'Planning phase then large adaptive steps'
+  };
+  
+  const descElement = document.getElementById('archetype-description');
+  if (descElement) {
+    descElement.textContent = descriptions[archetype] || '';
+  }
+}
+
+function updateArchetypeButtons() {
+  document.querySelectorAll('.arch-btn').forEach(btn => {
+    btn.classList.remove('active');
+  });
+  
+  const activeBtn = document.getElementById(`arch-${currentConfig.archetype}`);
+  if (activeBtn) {
+    activeBtn.classList.add('active');
+  }
+  
+  updateArchetypeDescription(currentConfig.archetype);
+}
+
+function updateSliderFromValue(sliderId, value) {
+  const slider = document.getElementById(sliderId);
+  const valueDisplay = document.getElementById(`${sliderId}-value`);
+  
+  if (slider) {
+    slider.value = value;
+    if (valueDisplay) {
+      valueDisplay.textContent = formatSliderValue(value, slider.step);
+    }
+  }
+}
+
+function formatSliderValue(value, step) {
+  const stepFloat = parseFloat(step);
+  if (stepFloat >= 1) {
+    return Math.round(value).toString();
+  } else if (stepFloat >= 0.01) {
+    return value.toFixed(2);
+  } else {
+    return value.toFixed(3);
+  }
+}
+
+function create3DSurface() {
+  // TODO: Implement 3D surface visualization
+  console.log('3D surface visualization not yet implemented');
+}
+
+function copyConfiguration() {
+  const config = {
+    landscape: {
+      lengthScale: currentConfig.landscapeCfg.lengthScale,
+      numCenters: currentConfig.landscapeCfg.numCenters,
+      biasWeight: currentConfig.landscapeCfg.biasWeight,
+      alignment: currentConfig.landscapeCfg.alignment,
+      hasAdversarialBump: currentConfig.landscapeCfg.hasAdversarialBump,
+      sStar: currentConfig.landscapeCfg.sStar
+    },
+    s0: currentConfig.s0,
+    archetype: currentConfig.archetype,
+    options: currentConfig.options
+  };
+  
+  navigator.clipboard.writeText(JSON.stringify(config, null, 2))
+    .then(() => alert('Configuration copied to clipboard!'))
+    .catch(err => console.error('Failed to copy configuration:', err));
+}
+
+function loadConfiguration() {
+  const configText = prompt('Paste configuration JSON:');
+  if (!configText) return;
+  
+  try {
+    const config = JSON.parse(configText);
+    
+    // Apply landscape configuration
+    currentConfig.landscapeCfg = makePrior(config.landscape);
+    currentConfig.s0 = config.s0;
+    currentConfig.archetype = config.archetype;
+    currentConfig.options = { ...currentConfig.options, ...config.options };
+    
+    // Update UI elements
+    updateSliderFromValue('length-scale', config.landscape.lengthScale);
+    updateSliderFromValue('num-centers', config.landscape.numCenters);
+    updateSliderFromValue('bias-weight', config.landscape.biasWeight);
+    updateSliderFromValue('alignment', config.landscape.alignment);
+    updateSliderFromValue('max-steps', config.options.T);
+    
+    document.getElementById('adversarial-bump').checked = config.landscape.hasAdversarialBump;
+    document.getElementById('start-x').value = config.s0[0];
+    document.getElementById('start-y').value = config.s0[1];
+    document.getElementById('target-x').value = config.landscape.sStar[0];
+    document.getElementById('target-y').value = config.landscape.sStar[1];
+    
+    updateArchetypeButtons();
+    updateVisualization();
+    
+    alert('Configuration loaded successfully!');
+  } catch (error) {
+    alert('Failed to parse configuration JSON');
+    console.error(error);
+  }
+}
+
+// Initialize when DOM is loaded
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initializeExplorer);
+} else {
+  initializeExplorer();
+}
+</script>

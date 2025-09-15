@@ -1513,9 +1513,9 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* border: 1px solid var(--color-accent); */
+  border: 1px solid rgba(99,102,241,0.3);
   border-radius: 50%;
-  opacity: 0.1;
+  opacity: 1;
   animation: orbitSpin 8s linear infinite;
 }
 

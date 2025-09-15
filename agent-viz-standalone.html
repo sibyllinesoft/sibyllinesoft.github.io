@@ -1,0 +1,2236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Visualization Standalone</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f8fafc;
+            color: #334155;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1e293b;
+            margin-bottom: 2rem;
+        }
+
+        .embedding-explorer {
+            margin: 2rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+        }
+
+        .explorer-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .explorer-layout {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 2rem;
+            align-items: start;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+
+        .visualization-container {
+            display: flex;
+            justify-content: center;
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+            border: 1px solid #e5e7eb;
+        }
+
+        .controls-panel {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+            height: fit-content;
+        }
+
+        .control-section {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        .control-section:last-child {
+            border-bottom: none;
+        }
+
+        .control-section h4 {
+            margin: 0 0 1rem 0;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .preset-buttons, .archetype-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .preset-btn {
+            padding: 0.5rem 0.75rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 4px;
+            background: white;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.2s ease;
+        }
+
+        .preset-btn:hover {
+            border-color: #6366f1;
+        }
+
+        .preset-btn.active {
+            border-color: #6366f1;
+            background: #f0f9ff;
+        }
+
+        .agent-config {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .slider-control {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .slider-control label {
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .slider-control input[type="range"] {
+            width: 100%;
+        }
+
+        .slider-control span {
+            font-weight: bold;
+            color: #6366f1;
+        }
+
+
+        .slider-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .slider-group label {
+            font-size: 0.8rem;
+            min-width: 90px;
+            color: #6b7280;
+        }
+
+        .slider-group input[type="range"] {
+            flex: 1;
+        }
+
+        .slider-group span {
+            min-width: 40px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-align: right;
+        }
+
+        .viz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .viz-options label {
+            font-size: 0.8rem;
+            color: #6b7280;
+        }
+
+        .position-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .pos-input {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .pos-input label {
+            font-size: 0.8rem;
+            min-width: 40px;
+            color: #6b7280;
+        }
+
+        .pos-input input {
+            flex: 1;
+            padding: 0.25rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .action-btn {
+            flex: 1;
+            padding: 0.5rem;
+            border: 1px solid #6366f1;
+            border-radius: 4px;
+            background: white;
+            color: #6366f1;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .action-btn:hover {
+            background: #6366f1;
+            color: white;
+        }
+
+        .archetype-description {
+            font-size: 0.8rem;
+            line-height: 1.4;
+            padding: 0.75rem;
+            background: #f8fafc;
+            border-radius: 6px;
+            border-left: 4px solid #6366f1;
+        }
+
+        .aux-plots-container {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .aux-plots-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .aux-plot {
+            height: 200px;
+            border: 1px solid #e5e7eb;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 1200px) {
+            .explorer-layout {
+                grid-template-columns: 1fr;
+            }
+            
+            .visualization-container {
+                order: 1;
+            }
+            
+            .controls-panel {
+                order: 2;
+            }
+        }
+    </style>
+    <script src="https://cdn.plot.ly/plotly-2.26.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 Agent Visualization - Standalone Debug Version</h1>
+        
+        <div class="embedding-explorer">
+            <div class="explorer-header">
+                <h3>🎯 2D Code Embedding Explorer</h3>
+                <p class="lead">
+                    Watch how different developer archetypes navigate the code landscape using <strong>maximum-likelihood paths</strong> through embedding space. 
+                    Each scenario tells a different story about LLM-assisted development patterns.
+                </p>
+            </div>
+            
+            <div class="explorer-layout">
+
+                <!-- Visualization Container -->
+                <div class="visualization-container">
+                    <div id="embedding-plot" style="width: 100%; height: 800px; max-width: 100%; overflow: hidden;"></div>
+                </div>
+
+                <!-- Controls Panel -->
+                <div class="controls-panel">
+                    <div class="control-section">
+                        <h4>🌍 Landscape</h4>
+                        <div class="preset-buttons">
+                            <button id="preset-crud" class="preset-btn active">CRUD-Aligned</button>
+                            <button id="preset-neutral" class="preset-btn">Neutral</button>
+                            <button id="preset-adversarial" class="preset-btn">Adversarial</button>
+                        </div>
+
+                        <div class="slider-group">
+                            <label for="length-scale">Base Smoothness</label>
+                            <input type="range" id="length-scale" min="0.5" max="4" step="0.1" value="2.0">
+                            <span id="length-scale-value">2.0</span>
+                        </div>
+
+                        <div class="slider-group">
+                            <label for="alignment">Model Prior Guidance</label>
+                            <input type="range" id="alignment" min="-1" max="1" step="0.1" value="0.7">
+                            <span id="alignment-value">0.7</span>
+                        </div>
+
+                        <div class="slider-group">
+                            <label for="model-strength">Model Prior Strength</label>
+                            <input type="range" id="model-strength" min="0" max="2" step="0.1" value="0.6">
+                            <span id="model-strength-value">0.6</span>
+                        </div>
+
+                        <div class="slider-group">
+                            <label for="noise-scale">Landscape Chaos</label>
+                            <input type="range" id="noise-scale" min="0" max="1" step="0.05" value="0.3">
+                            <span id="noise-scale-value">0.3</span>
+                        </div>
+
+                        <div class="slider-group">
+                            <label for="noise-freq">Chaos Granularity</label>
+                            <input type="range" id="noise-freq" min="0.5" max="4" step="0.1" value="2.0">
+                            <span id="noise-freq-value">2.0</span>
+                        </div>
+
+                        <div class="slider-group">
+                            <label for="curvature">Curvature</label>
+                            <input type="range" id="curvature" min="-1" max="1" step="0.1" value="0.0">
+                            <span id="curvature-value">0.0</span>
+                        </div>
+                    </div>
+
+                    <div class="control-section">
+                        <h4>🧠 Agent Configuration</h4>
+                        <div class="agent-config">
+                            <div class="slider-control">
+                                <label for="prompt-specificity">Prompt Specificity:</label>
+                                <input type="range" id="prompt-specificity" min="0" max="1" step="0.1" value="0.3">
+                                <span id="prompt-specificity-value">0.3</span>
+                                <small>(0 = High variance, 1 = Low variance on target)</small>
+                            </div>
+                            <div class="slider-control">
+                                <label for="prompt-scope">Prompt Scope:</label>
+                                <input type="range" id="prompt-scope" min="0" max="1" step="0.1" value="0.5">
+                                <span id="prompt-scope-value">0.5</span>
+                                <small>(0 = No prompt, 1 = Precise final location)</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="control-section">
+                        <h4>⚙️ Visualization</h4>
+                        <div class="viz-options">
+                            <label><input type="checkbox" id="show-quiver" checked> Vector Field</label>
+                            <label><input type="checkbox" id="show-ellipses" checked> Confidence</label>
+                            <label><input type="checkbox" id="show-sampling"> Sample Paths</label>
+                        </div>
+
+                        <div class="slider-group">
+                            <label for="max-steps">Max Steps (T)</label>
+                            <input type="range" id="max-steps" min="10" max="100" step="5" value="50">
+                            <span id="max-steps-value">50</span>
+                        </div>
+                    </div>
+
+                    <div class="control-section">
+                        <h4>📍 Start/Target</h4>
+                        <div class="position-controls">
+                            <div class="pos-input">
+                                <label>Start:</label>
+                                <input type="number" id="start-x" value="-1.2" step="0.1" min="-3" max="3">
+                                <input type="number" id="start-y" value="-1.2" step="0.1" min="-3" max="3">
+                            </div>
+                            <div class="pos-input">
+                                <label>Target:</label>
+                                <input type="number" id="target-x" value="1.2" step="0.1" min="-3" max="3">
+                                <input type="number" id="target-y" value="1.2" step="0.1" min="-3" max="3">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button id="reset-defaults" class="action-btn">↺ Reset</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Auxiliary Plots -->
+            <div class="aux-plots-container">
+                <h4>📊 Path Analysis</h4>
+                <div class="aux-plots-grid">
+                    <div id="step-size-plot" class="aux-plot"></div>
+                    <div id="distance-plot" class="aux-plot"></div>
+                    <div id="acceptance-plot" class="aux-plot"></div>
+                    <div id="gradient-plot" class="aux-plot"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // All the JavaScript code from the various modules, inlined for standalone operation
+        
+        // ===== EMBEDDING.JS =====
+        
+        // Default parameters for the embedding landscape
+        const EMBEDDING_DEFAULTS = {
+            // RBF kernel parameters
+            lengthScale: 2.0,        // ℓ - smoothness parameter
+            numCenters: 20,          // Q - density of RBF centers
+            biasWeight: 0.6,         // α - bias magnitude
+            alignment: 0.6,          // A ∈ [-1,1] - bias alignment (toward/away from s*)
+            noiseScale: 0.3,         // Perlin noise contribution (0 = smooth, 1 = very noisy)
+            noiseFreq: 2.0,          // Perlin noise frequency (higher = more detailed)
+            
+            // Grid parameters
+            gridSize: 60,            // Grid resolution
+            xRange: [-5, 5],         // X coordinate bounds
+            yRange: [-5, 5],         // Y coordinate bounds
+            
+            // Target location
+            sStar: [3, 2],          // s* - "correct solution" location
+            
+            // Adversarial bump parameters
+            hasAdversarialBump: false,
+            bumpStrength: -0.5,
+            bumpRadius: 1.0
+        };
+
+        // ===== PERLIN NOISE IMPLEMENTATION =====
+        
+        class PerlinNoise {
+            constructor(seed = 0) {
+                this.seed = seed;
+                this.p = this.generatePermutation();
+            }
+            
+            generatePermutation() {
+                // Generate permutation table based on seed
+                const p = [];
+                for (let i = 0; i < 256; i++) {
+                    p[i] = i;
+                }
+                
+                // Fisher-Yates shuffle with seeded random
+                let rng = this.seed;
+                const seededRandom = () => {
+                    rng = (rng * 9301 + 49297) % 233280;
+                    return rng / 233280;
+                };
+                
+                for (let i = 255; i > 0; i--) {
+                    const j = Math.floor(seededRandom() * (i + 1));
+                    [p[i], p[j]] = [p[j], p[i]];
+                }
+                
+                // Duplicate for easier indexing
+                return p.concat(p);
+            }
+            
+            fade(t) {
+                return t * t * t * (t * (t * 6 - 15) + 10);
+            }
+            
+            lerp(t, a, b) {
+                return a + t * (b - a);
+            }
+            
+            grad(hash, x, y) {
+                const h = hash & 15;
+                const u = h < 8 ? x : y;
+                const v = h < 4 ? y : h === 12 || h === 14 ? x : 0;
+                return ((h & 1) === 0 ? u : -u) + ((h & 2) === 0 ? v : -v);
+            }
+            
+            noise(x, y) {
+                const X = Math.floor(x) & 255;
+                const Y = Math.floor(y) & 255;
+                
+                x -= Math.floor(x);
+                y -= Math.floor(y);
+                
+                const u = this.fade(x);
+                const v = this.fade(y);
+                
+                const A = this.p[X] + Y;
+                const AA = this.p[A];
+                const AB = this.p[A + 1];
+                const B = this.p[X + 1] + Y;
+                const BA = this.p[B];
+                const BB = this.p[B + 1];
+                
+                return this.lerp(v,
+                    this.lerp(u, this.grad(this.p[AA], x, y), this.grad(this.p[BA], x - 1, y)),
+                    this.lerp(u, this.grad(this.p[AB], x, y - 1), this.grad(this.p[BB], x - 1, y - 1))
+                );
+            }
+        }
+
+        // Global Perlin noise instance
+        const perlinNoise = new PerlinNoise(42);
+
+        // Predefined landscape presets
+        const LANDSCAPE_PRESETS = {
+            'crud-aligned': {
+                lengthScale: 2.0,
+                alignment: 0.6,
+                numCenters: 20,
+                biasWeight: 0.6,
+                hasAdversarialBump: false,
+                description: 'Familiar domain knowledge guides toward solution'
+            },
+            
+            'neutral': {
+                lengthScale: 1.5,
+                alignment: 0.0,
+                numCenters: 15,
+                biasWeight: 0.3,
+                hasAdversarialBump: false,
+                description: 'Minimal prior bias, exploration required'
+            },
+            
+            'adversarial': {
+                lengthScale: 0.9,
+                alignment: -0.6,
+                numCenters: 10,
+                biasWeight: 0.4,
+                hasAdversarialBump: true,
+                description: 'Novel domain with misleading initial direction'
+            }
+        };
+
+        /**
+         * Generate random RBF centers for the landscape
+         */
+        function generateRBFCenters(Q, xRange, yRange, seed = 42) {
+            // Simple seeded random number generator
+            let rng = seed;
+            const random = () => {
+                rng = (rng * 9301 + 49297) % 233280;
+                return rng / 233280;
+            };
+            
+            const centers = [];
+            for (let i = 0; i < Q; i++) {
+                const x = xRange[0] + random() * (xRange[1] - xRange[0]);
+                const y = yRange[0] + random() * (yRange[1] - yRange[0]);
+                centers.push([x, y]);
+            }
+            
+            return centers;
+        }
+
+        /**
+         * Generate random weights for RBF centers
+         */
+        function generateRBFWeights(Q, seed = 123) {
+            let rng = seed;
+            const random = () => {
+                rng = (rng * 9301 + 49297) % 233280;
+                return rng / 233280;
+            };
+            
+            const weights = [];
+            for (let i = 0; i < Q; i++) {
+                // Generate weights in range [-1, 1] with bias toward positive
+                weights.push((random() - 0.3) * 2);
+            }
+            
+            return weights;
+        }
+
+        /**
+         * Create landscape configuration from parameters
+         */
+        function makePrior(params = {}) {
+            const config = { ...EMBEDDING_DEFAULTS, ...params };
+            
+            // Generate RBF centers
+            const centers = generateRBFCenters(
+                config.numCenters,
+                config.xRange,
+                config.yRange
+            );
+            
+            // Generate RBF weights
+            const weights = generateRBFWeights(config.numCenters);
+            
+            // Compute bias vector based on alignment
+            // b = A * (s* - s_bias) where s_bias is some reference point
+            const sBias = [0, 0]; // Reference point (origin)
+            const biasDirection = [
+                config.sStar[0] - sBias[0],
+                config.sStar[1] - sBias[1]
+            ];
+            
+            // Normalize and scale by alignment
+            const biasNorm = Math.sqrt(biasDirection[0]**2 + biasDirection[1]**2);
+            
+            // Alignment controls curvature around target:
+            // Positive alignment: bias points AWAY from target → creates basin (natural gravity toward solution)
+            // Negative alignment: bias points TOWARD target → creates hill (model fights against user)
+            const biasVector = [
+                -config.alignment * biasDirection[0] / biasNorm,  // Use raw alignment (not abs)
+                -config.alignment * biasDirection[1] / biasNorm   // Use raw alignment (not abs)
+            ];
+            
+            return {
+                ...config,
+                centers,
+                weights,
+                biasVector,
+                biasPoint: sBias
+            };
+        }
+
+        /**
+         * Evaluate the landscape potential M(s) and its gradients over a grid
+         */
+        function evalMGrid(cfg, X, Y) {
+            const rows = X.length;
+            const cols = X[0].length;
+            
+            // Initialize output arrays
+            const Z = Array(rows).fill().map(() => Array(cols).fill(0));
+            const dZdx = Array(rows).fill().map(() => Array(cols).fill(0));
+            const dZdy = Array(rows).fill().map(() => Array(cols).fill(0));
+            
+            // Precompute constants
+            const invLengthScale2 = 1 / (2 * cfg.lengthScale * cfg.lengthScale);
+            
+            // Vectorized computation over grid
+            for (let i = 0; i < rows; i++) {
+                for (let j = 0; j < cols; j++) {
+                    const x = X[i][j];
+                    const y = Y[i][j];
+                    const s = [x, y];
+                    
+                    // Bias term: α * b^T * (s - s_b)
+                    const biasContrib = cfg.biasWeight * (
+                        cfg.biasVector[0] * (x - cfg.biasPoint[0]) +
+                        cfg.biasVector[1] * (y - cfg.biasPoint[1])
+                    );
+                    
+                    // Bias gradient contribution
+                    let dBiasdx = cfg.biasWeight * cfg.biasVector[0];
+                    let dBiasdy = cfg.biasWeight * cfg.biasVector[1];
+                    
+                    // RBF sum: Σ w_i * exp(-||s - μ_i||² / (2ℓ²))
+                    let rbfSum = 0;
+                    let dRBFdx = 0;
+                    let dRBFdy = 0;
+                    
+                    for (let k = 0; k < cfg.centers.length; k++) {
+                        const mu = cfg.centers[k];
+                        const w = cfg.weights[k];
+                        
+                        // Squared distance
+                        const dx = x - mu[0];
+                        const dy = y - mu[1];
+                        const dist2 = dx*dx + dy*dy;
+                        
+                        // RBF kernel
+                        const kernel = Math.exp(-dist2 * invLengthScale2);
+                        rbfSum += w * kernel;
+                        
+                        // RBF gradient: w * exp(...) * (-2/2ℓ²) * (s - μ)
+                        const gradFactor = -w * kernel * invLengthScale2 * 2;
+                        dRBFdx += gradFactor * dx;
+                        dRBFdy += gradFactor * dy;
+                    }
+                    
+                    // Adversarial bump near s* if enabled
+                    let bumpContrib = 0;
+                    let dBumpdx = 0;
+                    let dBumpdy = 0;
+                    
+                    if (cfg.hasAdversarialBump) {
+                        const dxStar = x - cfg.sStar[0];
+                        const dyStar = y - cfg.sStar[1];
+                        const distToStar2 = dxStar*dxStar + dyStar*dyStar;
+                        
+                        if (distToStar2 < cfg.bumpRadius*cfg.bumpRadius) {
+                            const bumpKernel = Math.exp(-distToStar2 / (2 * 0.5*0.5)); // Fixed width
+                            bumpContrib = cfg.bumpStrength * bumpKernel;
+                            
+                            const bumpGradFactor = -cfg.bumpStrength * bumpKernel / (2 * 0.5*0.5);
+                            dBumpdx = bumpGradFactor * dxStar;
+                            dBumpdy = bumpGradFactor * dyStar;
+                        }
+                    }
+                    
+                    // Curvature term: parabolic landscape modification
+                    let curvatureContrib = 0;
+                    let dCurvdx = 0;
+                    let dCurvdy = 0;
+                    
+                    if (cfg.curvature !== undefined && cfg.curvature !== 0) {
+                        // Create parabolic curvature perpendicular to the start->target direction
+                        // Use the start position from current config if available, otherwise default
+                        const startPos = cfg.startPos || [-1.2, -1.2];
+                        const startToTarget = [cfg.sStar[0] - startPos[0], cfg.sStar[1] - startPos[1]];
+                        const pathLength = Math.sqrt(startToTarget[0]**2 + startToTarget[1]**2);
+                        
+                        if (pathLength > 0) {
+                            // Normalize the direction vector
+                            const pathDir = [startToTarget[0] / pathLength, startToTarget[1] / pathLength];
+                            
+                            // Perpendicular direction (rotate 90 degrees)
+                            const perpDir = [-pathDir[1], pathDir[0]];
+                            
+                            // Project point onto the perpendicular direction from path center
+                            const pathCenter = [(startPos[0] + cfg.sStar[0]) / 2, (startPos[1] + cfg.sStar[1]) / 2];
+                            const relativePos = [x - pathCenter[0], y - pathCenter[1]];
+                            const perpDistance = relativePos[0] * perpDir[0] + relativePos[1] * perpDir[1];
+                            
+                            // Parabolic contribution: curvature * perpDistance^2
+                            curvatureContrib = cfg.curvature * perpDistance * perpDistance;
+                            
+                            // Gradient: 2 * curvature * perpDistance * perpDir
+                            const gradFactor = 2 * cfg.curvature * perpDistance;
+                            dCurvdx = gradFactor * perpDir[0];
+                            dCurvdy = gradFactor * perpDir[1];
+                        }
+                    }
+                    
+                    // Perlin noise contribution for landscape roughness
+                    let noiseContrib = 0;
+                    let dNoisedx = 0;
+                    let dNoisedy = 0;
+                    
+                    if (cfg.noiseScale > 0) {
+                        const noiseX = x * cfg.noiseFreq;
+                        const noiseY = y * cfg.noiseFreq;
+                        
+                        // Small offset for gradient computation
+                        const eps = 0.01;
+                        const noise_center = perlinNoise.noise(noiseX, noiseY);
+                        const noise_dx = perlinNoise.noise(noiseX + eps, noiseY);
+                        const noise_dy = perlinNoise.noise(noiseX, noiseY + eps);
+                        
+                        noiseContrib = cfg.noiseScale * noise_center;
+                        dNoisedx = cfg.noiseScale * cfg.noiseFreq * (noise_dx - noise_center) / eps;
+                        dNoisedy = cfg.noiseScale * cfg.noiseFreq * (noise_dy - noise_center) / eps;
+                    }
+                    
+                    // Total potential and gradients
+                    Z[i][j] = biasContrib + rbfSum + bumpContrib + curvatureContrib + noiseContrib;
+                    dZdx[i][j] = dBiasdx + dRBFdx + dBumpdx + dCurvdx + dNoisedx;
+                    dZdy[i][j] = dBiasdy + dRBFdy + dBumpdy + dCurvdy + dNoisedy;
+                }
+            }
+            
+            return { Z, dZdx, dZdy };
+        }
+
+        /**
+         * Create coordinate grids for evaluation
+         */
+        function createGrids(cfg) {
+            const { xRange, yRange, gridSize } = cfg;
+            
+            const xVals = [];
+            const yVals = [];
+            
+            for (let i = 0; i < gridSize; i++) {
+                xVals.push(xRange[0] + (i / (gridSize - 1)) * (xRange[1] - xRange[0]));
+                yVals.push(yRange[0] + (i / (gridSize - 1)) * (yRange[1] - yRange[0]));
+            }
+            
+            const X = [];
+            const Y = [];
+            
+            for (let i = 0; i < gridSize; i++) {
+                const xRow = [];
+                const yRow = [];
+                for (let j = 0; j < gridSize; j++) {
+                    xRow.push(xVals[j]);
+                    yRow.push(yVals[i]);
+                }
+                X.push(xRow);
+                Y.push(yRow);
+            }
+            
+            return { X, Y };
+        }
+
+        /**
+         * Evaluate landscape at a single point
+         */
+        function evalMPoint(s, cfg) {
+            const [x, y] = s;
+            
+            // Bias term
+            const biasContrib = cfg.biasWeight * (
+                cfg.biasVector[0] * (x - cfg.biasPoint[0]) +
+                cfg.biasVector[1] * (y - cfg.biasPoint[1])
+            );
+            
+            const dBiasdx = cfg.biasWeight * cfg.biasVector[0];
+            const dBiasdy = cfg.biasWeight * cfg.biasVector[1];
+            
+            // RBF sum
+            let rbfSum = 0;
+            let dRBFdx = 0;
+            let dRBFdy = 0;
+            
+            const invLengthScale2 = 1 / (2 * cfg.lengthScale * cfg.lengthScale);
+            
+            for (let k = 0; k < cfg.centers.length; k++) {
+                const mu = cfg.centers[k];
+                const w = cfg.weights[k];
+                
+                const dx = x - mu[0];
+                const dy = y - mu[1];
+                const dist2 = dx*dx + dy*dy;
+                
+                const kernel = Math.exp(-dist2 * invLengthScale2);
+                rbfSum += w * kernel;
+                
+                const gradFactor = -w * kernel * invLengthScale2 * 2;
+                dRBFdx += gradFactor * dx;
+                dRBFdy += gradFactor * dy;
+            }
+            
+            // Adversarial bump
+            let bumpContrib = 0;
+            let dBumpdx = 0;
+            let dBumpdy = 0;
+            
+            if (cfg.hasAdversarialBump) {
+                const dxStar = x - cfg.sStar[0];
+                const dyStar = y - cfg.sStar[1];
+                const distToStar2 = dxStar*dxStar + dyStar*dyStar;
+                
+                if (distToStar2 < cfg.bumpRadius*cfg.bumpRadius) {
+                    const bumpKernel = Math.exp(-distToStar2 / (2 * 0.5*0.5));
+                    bumpContrib = cfg.bumpStrength * bumpKernel;
+                    
+                    const bumpGradFactor = -cfg.bumpStrength * bumpKernel / (2 * 0.5*0.5);
+                    dBumpdx = bumpGradFactor * dxStar;
+                    dBumpdy = bumpGradFactor * dyStar;
+                }
+            }
+            
+            // Curvature term
+            let curvatureContrib = 0;
+            let dCurvdx = 0;
+            let dCurvdy = 0;
+            
+            if (cfg.curvature !== undefined && cfg.curvature !== 0) {
+                // Create parabolic curvature perpendicular to the start->target direction
+                // Use the start position from current config if available, otherwise default
+                const startPos = cfg.startPos || [-1.2, -1.2];
+                const startToTarget = [cfg.sStar[0] - startPos[0], cfg.sStar[1] - startPos[1]];
+                const pathLength = Math.sqrt(startToTarget[0]**2 + startToTarget[1]**2);
+                
+                if (pathLength > 0) {
+                    // Normalize the direction vector
+                    const pathDir = [startToTarget[0] / pathLength, startToTarget[1] / pathLength];
+                    
+                    // Perpendicular direction (rotate 90 degrees)
+                    const perpDir = [-pathDir[1], pathDir[0]];
+                    
+                    // Project point onto the perpendicular direction from path center
+                    const pathCenter = [(startPos[0] + cfg.sStar[0]) / 2, (startPos[1] + cfg.sStar[1]) / 2];
+                    const relativePos = [x - pathCenter[0], y - pathCenter[1]];
+                    const perpDistance = relativePos[0] * perpDir[0] + relativePos[1] * perpDir[1];
+                    
+                    // Parabolic contribution: curvature * perpDistance^2
+                    curvatureContrib = cfg.curvature * perpDistance * perpDistance;
+                    
+                    // Gradient: 2 * curvature * perpDistance * perpDir
+                    const gradFactor = 2 * cfg.curvature * perpDistance;
+                    dCurvdx = gradFactor * perpDir[0];
+                    dCurvdy = gradFactor * perpDir[1];
+                }
+            }
+            
+            const M = biasContrib + rbfSum + bumpContrib + curvatureContrib;
+            const grad = [dBiasdx + dRBFdx + dBumpdx + dCurvdx, dBiasdy + dRBFdy + dBumpdy + dCurvdy];
+            
+            return { M, grad };
+        }
+
+        // ===== PROCESS.JS =====
+        
+        // Process parameters (correspond to previous sim-core constants)
+        const PROCESS_DEFAULTS = {
+            // Improvement dynamics - rebalanced to ensure positive progress
+            a1: 1.2,        // Fix effectiveness coefficient (increased)
+            a2: 0.08,       // Collateral damage coefficient (reduced)
+            b: 2.0,         // Diminishing returns parameter (reduced for stronger gradients)
+            
+            // Human quality factors
+            kappa1: 0.4,    // Human effect on noise reduction
+            kappa2: 0.5,    // Human effect on collateral reduction (increased)
+            
+            // Reviewer dynamics
+            sigma_r: 0.35,  // Base reviewer noise
+            tau: 0.4,       // Diversity reduction with strong priors
+            
+            // Diffusion parameters
+            sigma0: 0.4,    // Base noise level (s0 from original)
+            sigmaParallel: 1.0,   // Noise parallel to gradient
+            sigmaPerp: 0.3,       // Noise perpendicular to gradient
+            
+            // Trust region bounds
+            deltaMin: 0.01,
+            deltaMax: 2.0
+        };
+
+        /**
+         * Compute effective prior quality (rho_eff)
+         */
+        function rhoEff(rho, H) {
+            return 1 - (1 - rho) * (1 - H);
+        }
+
+        /**
+         * Compute effective number of candidates (K_eff)
+         */
+        function Keffective(K, N, Kr, H, tau = PROCESS_DEFAULTS.tau) {
+            const Kprime = K + N * Kr;
+            return 1 + (Kprime - 1) * (1 - tau * H);
+        }
+
+        /**
+         * Compute effective number of reviewers (N_eff)
+         */
+        function Neffective(N, gamma) {
+            if (N === 0) return 0;
+            return N / (1 + (N - 1) * gamma);
+        }
+
+        /**
+         * Compute selection quantile from effective candidates (z_K)
+         */
+        function zFromK(Keff) {
+            if (Keff <= 1) return 0;
+            
+            // Approximation for Φ^(-1)(1 - 1/K_eff) when K_eff > 1
+            const p = 1 - 1 / Keff;
+            
+            // Simple normal quantile approximation
+            if (p >= 0.5) {
+                const t = Math.sqrt(-2 * Math.log(1 - p));
+                return t - (2.515517 + 0.802853 * t + 0.010328 * t * t) / 
+                       (1 + 1.432788 * t + 0.189269 * t * t + 0.001308 * t * t * t);
+            } else {
+                const t = Math.sqrt(-2 * Math.log(p));
+                return -(t - (2.515517 + 0.802853 * t + 0.010328 * t * t) / 
+                        (1 + 1.432788 * t + 0.189269 * t * t + 0.001308 * t * t * t));
+            }
+        }
+
+        /**
+         * Compute drift vector v(s) at a point
+         */
+        function drift(s, landscapeCfg, knobs, processParams = PROCESS_DEFAULTS) {
+            const { M, grad } = evalMPoint(s, landscapeCfg);
+            const gradNorm = Math.sqrt(grad[0]*grad[0] + grad[1]*grad[1]);
+            
+            // Avoid division by zero
+            if (gradNorm < 1e-12) {
+                return [0, 0];
+            }
+            
+            const gradDir = [-grad[0] / gradNorm, -grad[1] / gradNorm]; // -∇M direction (toward lower potential)
+            
+            // Compute process parameters
+            const rho_eff = rhoEff(knobs.rho, knobs.H);
+            const Keff = Keffective(knobs.K, knobs.N, knobs.Kr, knobs.H);
+            const Neff = Neffective(knobs.N, knobs.gamma);
+            const zK = zFromK(Keff);
+            
+            // Base progress term with diminishing returns: a1 * ρ_eff * δ * g(||∇M||)
+            const g_grad = gradNorm / (gradNorm + processParams.b); // g(r) = r/(r+b)
+            const baseProgress = processParams.a1 * rho_eff * knobs.delta * g_grad;
+            
+            // Collateral damage: a2 * (1 - κ₂H) * δ
+            const collateral = processParams.a2 * (1 - processParams.kappa2 * knobs.H) * knobs.delta;
+            
+            // Net progress (clamped to non-negative)
+            const netProgress = Math.max(0, baseProgress - collateral);
+            
+            // Compute diffusion terms for selection lift
+            const sigmaDelta2 = Math.pow(
+                processParams.sigma0 * (1 - processParams.kappa1 * knobs.H) * knobs.delta * 
+                Math.sqrt(g_grad), 2
+            );
+            
+            const sigmaTot2 = sigmaDelta2 + (Neff > 0 ? processParams.sigma_r * processParams.sigma_r / Neff : 0);
+            
+            // Selection lift: η_t * (σ_Δ²/σ_tot) * z_K
+            const selectionLift = (sigmaTot2 > 0) ? (sigmaDelta2 / sigmaTot2) * zK : 0;
+            
+            // Total drift magnitude
+            const driftMagnitude = netProgress + selectionLift;
+            
+            // Apply trust-region clamp
+            const clampedMagnitude = Math.min(driftMagnitude, knobs.delta);
+            
+            return [
+                clampedMagnitude * gradDir[0],
+                clampedMagnitude * gradDir[1]
+            ];
+        }
+
+        /**
+         * Compute diffusion matrix Σ(s) at a point
+         */
+        function sigmaMat(s, landscapeCfg, knobs, processParams = PROCESS_DEFAULTS) {
+            const { M, grad } = evalMPoint(s, landscapeCfg);
+            const gradNorm = Math.sqrt(grad[0]*grad[0] + grad[1]*grad[1]);
+            
+            // Base diffusion scale
+            const g_grad = gradNorm / (gradNorm + processParams.b);
+            const Neff = Neffective(knobs.N, knobs.gamma);
+            
+            const baseSigma = processParams.sigma0 * (1 - processParams.kappa1 * knobs.H) * 
+                             knobs.delta * Math.sqrt(g_grad) / Math.sqrt(1 + Neff);
+            
+            if (gradNorm < 1e-12 || baseSigma < 1e-12) {
+                // Return isotropic small noise when gradient is zero
+                const smallNoise = 1e-3;
+                return [[smallNoise, 0], [0, smallNoise]];
+            }
+            
+            // Compute rotation matrix to align with gradient
+            const cosTheta = -grad[0] / gradNorm; // cos(θ) where θ is angle of -∇M
+            const sinTheta = -grad[1] / gradNorm; // sin(θ)
+            
+            // Diagonal matrix in aligned coordinates
+            const sigmaParallel = baseSigma * processParams.sigmaParallel;
+            const sigmaPerp = baseSigma * processParams.sigmaPerp;
+            
+            // Rotate back to original coordinates: R * D * R^T
+            // where R = [[cos, -sin], [sin, cos]] and D = [[σ∥, 0], [0, σ⊥]]
+            const sigma11 = cosTheta*cosTheta * sigmaParallel*sigmaParallel + 
+                            sinTheta*sinTheta * sigmaPerp*sigmaPerp;
+            const sigma12 = cosTheta*sinTheta * (sigmaParallel*sigmaParallel - sigmaPerp*sigmaPerp);
+            const sigma22 = sinTheta*sinTheta * sigmaParallel*sigmaParallel + 
+                            cosTheta*cosTheta * sigmaPerp*sigmaPerp;
+            
+            return [[sigma11, sigma12], [sigma12, sigma22]];
+        }
+
+        /**
+         * Apply trust-region constraint to step
+         */
+        function trustRegionClamp(step, delta) {
+            const stepNorm = Math.sqrt(step[0]*step[0] + step[1]*step[1]);
+            
+            if (stepNorm <= delta) {
+                return step;
+            }
+            
+            // Scale down to trust-region boundary
+            const scale = delta / stepNorm;
+            return [step[0] * scale, step[1] * scale];
+        }
+
+        // Agent archetype policies (return {delta, K, N, gamma, Kr, H, rho})
+        const ARCHETYPES = {
+            'noob-vibe': {
+                name: 'Noob Vibe Coder',
+                description: 'Small fixed steps, minimal complexity, low prior quality',
+                deltaFixed: 0.4,  // Increased for visibility - still small steps for 10-50 cycles
+                K: 1,
+                N: 0,
+                gamma: 0,
+                Kr: 0,
+                H: 0.1,  // Very low human prior - more susceptible to model bias
+                rho: 0.3, // Lower model prior - less effective
+                calibration: 0.3, // c - miscalibration (overconfident)
+                useTrustRegion: false
+            },
+            
+            'expert-vibe': {
+                name: 'Expert Vibe Coder',
+                description: 'Decaying steps with trust-region, mid-high prior quality',
+                deltaBase: 0.8,  // Larger steps for 2-10 cycles
+                decay: 0.92,     // Faster decay to finish in fewer steps
+                K: 2,
+                N: 1,
+                gamma: 0.1,
+                Kr: 0,
+                H: 0.75,  // High human prior - less susceptible to model bias
+                rho: 0.85, // High model prior quality  
+                calibration: 0.85, // well-calibrated
+                useTrustRegion: true,
+                trustRegionBand: [0.2, 0.4]
+            },
+            
+            'noob-autonomous': {
+                name: 'Noob Autonomous Engineer',
+                description: 'Overconfident early steps, multiple candidates and reviewers',
+                deltaBase: 1.2,  // Large steps for 2-6 cycles
+                decay: 0.85,     // Faster decay
+                K: 4,  // More candidates due to AI tools
+                N: 2,  // Multiple AI reviewers
+                gamma: 0.3,  // Less correlated AI opinions  
+                Kr: 1,
+                H: 0.15,  // Low human expertise, but less susceptible to bias than vibe coders
+                rho: 0.5, // Moderate model prior
+                calibration: 0.1, // severely miscalibrated - dangerous!
+                useTrustRegion: false
+            },
+            
+            'expert-autonomous': {
+                name: 'Expert Autonomous Engineer',
+                description: 'Planning phase then large adaptive steps',
+                planningPhase: 2, // Short planning for 1-3 cycles total
+                deltaBase: 1.8,   // Very large steps for 1-3 cycles
+                planningDelta: 0.3,  // Moderate planning steps
+                K: 3,  // AI-assisted candidate generation
+                N: 2,  // AI reviewers
+                gamma: 0.1,  // Low correlation - diverse AI opinions
+                Kr: 1,
+                H: 0.6, // starts high due to expertise, builds up
+                rho: 0.95, // Excellent model prior quality
+                calibration: 0.95, // Near-perfect calibration
+                useTrustRegion: true,
+                trustRegionBand: [0.25, 0.45],
+                HGrowthRate: 0.1, // Fast H growth during planning
+                rGrowthRate: 0.05  // dr per planning step
+            }
+        };
+
+        /**
+         * Get policy parameters for archetype at time t
+         */
+        function getArchetypePolicy(archetype, t, state = {}) {
+            const arch = ARCHETYPES[archetype];
+            if (!arch) {
+                throw new Error(`Unknown archetype: ${archetype}`);
+            }
+            
+            let policy = {
+                K: arch.K,
+                N: arch.N,
+                gamma: arch.gamma,
+                Kr: arch.Kr,
+                H: arch.H,
+                rho: arch.rho
+            };
+            
+            // Handle delta computation based on archetype
+            if (arch.deltaFixed !== undefined) {
+                // Fixed delta (noob-vibe)
+                policy.delta = arch.deltaFixed;
+            } else if (arch.useTrustRegion && state.acceptanceProxy !== undefined) {
+                // Trust-region adaptive delta
+                const [A_lo, A_hi] = arch.trustRegionBand;
+                const acceptance = state.acceptanceProxy;
+                
+                let deltaNew = state.delta || arch.deltaBase;
+                
+                if (acceptance > A_hi) {
+                    // Expand trust region
+                    deltaNew *= 1.3; // α
+                } else if (acceptance < A_lo) {
+                    // Contract trust region
+                    deltaNew *= 0.7; // β
+                }
+                
+                policy.delta = Math.max(PROCESS_DEFAULTS.deltaMin, 
+                                       Math.min(PROCESS_DEFAULTS.deltaMax, deltaNew));
+            } else {
+                // Decaying delta
+                const baseDecay = Math.pow(arch.decay || 0.98, t);
+                policy.delta = (arch.deltaBase || 0.3) * baseDecay;
+            }
+            
+            // Handle expert-autonomous planning phase
+            if (archetype === 'expert-autonomous' && t < arch.planningPhase) {
+                policy.delta = arch.planningDelta;
+                policy.H = arch.H + arch.HGrowthRate * t;
+                // Could also grow oracle resolution r here if tracked
+            }
+            
+            // Apply miscalibration to delta
+            if (arch.calibration !== undefined) {
+                const trueShrinkage = 1.0; // Assume we know the true shrinkage
+                const perceivedShrinkage = arch.calibration * trueShrinkage + 
+                                          (1 - arch.calibration) * (trueShrinkage * 1.5); // overestimate
+                policy.delta *= perceivedShrinkage;
+            }
+            
+            return policy;
+        }
+
+        // ===== PATHML.JS =====
+        
+        /**
+         * Compute acceptance proxy for trust-region updates
+         */
+        function computeAcceptanceProxy(stepSize, sigma) {
+            if (sigma < 1e-12) return 1.0;
+            return 1 / (1 + Math.exp(-(stepSize / (sigma + 1e-6))));
+        }
+
+        /**
+         * Compute Jacobian of drift field at a point (for covariance propagation)
+         */
+        function computeDriftJacobian(s, landscapeCfg, knobs, eps = 1e-6) {
+            const [x, y] = s;
+            
+            // Central differences for Jacobian
+            const v_center = drift(s, landscapeCfg, knobs);
+            
+            const v_dx = drift([x + eps, y], landscapeCfg, knobs);
+            const v_dy = drift([x, y + eps], landscapeCfg, knobs);
+            
+            const dvdx = [(v_dx[0] - v_center[0]) / eps, (v_dx[1] - v_center[1]) / eps];
+            const dvdy = [(v_dy[0] - v_center[0]) / eps, (v_dy[1] - v_center[1]) / eps];
+            
+            return [
+                [dvdx[0], dvdy[0]],  // [∂v₁/∂x₁, ∂v₁/∂x₂]
+                [dvdx[1], dvdy[1]]   // [∂v₂/∂x₁, ∂v₂/∂x₂]
+            ];
+        }
+
+        /**
+         * Matrix multiplication for 2x2 matrices
+         */
+        function matmul2x2(A, B) {
+            return [
+                [A[0][0]*B[0][0] + A[0][1]*B[1][0], A[0][0]*B[0][1] + A[0][1]*B[1][1]],
+                [A[1][0]*B[0][0] + A[1][1]*B[1][0], A[1][0]*B[0][1] + A[1][1]*B[1][1]]
+            ];
+        }
+
+        /**
+         * Matrix addition for 2x2 matrices
+         */
+        function matadd2x2(A, B) {
+            return [
+                [A[0][0] + B[0][0], A[0][1] + B[0][1]],
+                [A[1][0] + B[1][0], A[1][1] + B[1][1]]
+            ];
+        }
+
+        /**
+         * Compute eigenvalues of 2x2 symmetric matrix (for ellipse axes)
+         */
+        function eigen2x2Symmetric(P) {
+            const trace = P[0][0] + P[1][1];
+            const det = P[0][0] * P[1][1] - P[0][1] * P[1][0];
+            const discriminant = Math.sqrt(trace*trace - 4*det);
+            
+            const lambda1 = (trace + discriminant) / 2;
+            const lambda2 = (trace - discriminant) / 2;
+            
+            // Eigenvectors (for symmetric matrix)
+            let v1, v2;
+            if (Math.abs(P[0][1]) > 1e-12) {
+                v1 = [P[0][1], lambda1 - P[0][0]];
+                v2 = [P[0][1], lambda2 - P[0][0]];
+            } else {
+                v1 = [1, 0];
+                v2 = [0, 1];
+            }
+            
+            // Normalize eigenvectors
+            const norm1 = Math.sqrt(v1[0]*v1[0] + v1[1]*v1[1]);
+            const norm2 = Math.sqrt(v2[0]*v2[0] + v2[1]*v2[1]);
+            
+            return {
+                lambda1: Math.max(0, lambda1), // Ensure non-negative
+                lambda2: Math.max(0, lambda2),
+                v1: [v1[0]/norm1, v1[1]/norm1],
+                v2: [v2[0]/norm2, v2[1]/norm2]
+            };
+        }
+
+        /**
+         * Trace maximum-likelihood path through the landscape
+         */
+        function traceML(s0, T, landscapeCfg, policy, options = {}) {
+            const opts = {
+                propagateCovariance: true,
+                stopAtTarget: false,
+                targetThreshold: 0.1,
+                ...options
+            };
+            
+            let s = [...s0];
+            let state = { delta: 0.2 }; // Initial state for trust-region
+            
+            // Initialize covariance (small initial uncertainty)
+            let P = [[0.01, 0], [0, 0.01]];
+            
+            const path = [];
+            
+            for (let t = 0; t < T; t++) {
+                // Get policy parameters
+                let knobs;
+                if (typeof policy === 'string') {
+                    knobs = getArchetypePolicy(policy, t, state);
+                } else {
+                    knobs = policy(t, state, s);
+                }
+                
+                // Compute drift and diffusion
+                const v = drift(s, landscapeCfg, knobs);
+                const Sigma = sigmaMat(s, landscapeCfg, knobs);
+                
+                // Apply trust-region constraint
+                const step = trustRegionClamp(v, knobs.delta);
+                
+                // Compute acceptance proxy for next iteration
+                const sigmaNorm = Math.sqrt(Sigma[0][0] + Sigma[1][1]);
+                const acceptanceProxy = computeAcceptanceProxy(
+                    Math.sqrt(step[0]*step[0] + step[1]*step[1]), 
+                    sigmaNorm
+                );
+                
+                // Evaluate landscape at current point
+                const { M, grad } = evalMPoint(s, landscapeCfg);
+                const gradNorm = Math.sqrt(grad[0]*grad[0] + grad[1]*grad[1]);
+                
+                // Distance to target
+                const distToTarget = Math.sqrt(
+                    (s[0] - landscapeCfg.sStar[0])**2 + 
+                    (s[1] - landscapeCfg.sStar[1])**2
+                );
+                
+                // Store step information
+                const stepInfo = {
+                    t,
+                    x: s[0],
+                    y: s[1],
+                    step: [...step],
+                    delta: knobs.delta,
+                    grad: [...grad],
+                    gradNorm,
+                    acceptanceProxy,
+                    M,
+                    distToTarget,
+                    knobs: {...knobs}
+                };
+                
+                // Add covariance information if requested
+                if (opts.propagateCovariance) {
+                    const eig = eigen2x2Symmetric(P);
+                    stepInfo.P = [P[0].slice(), P[1].slice()]; // Deep copy
+                    stepInfo.eigenvalues = [eig.lambda1, eig.lambda2];
+                    stepInfo.eigenvectors = [eig.v1.slice(), eig.v2.slice()];
+                }
+                
+                path.push(stepInfo);
+                
+                // Check stopping criteria
+                if (opts.stopAtTarget && distToTarget < opts.targetThreshold) {
+                    break;
+                }
+                
+                // Take step
+                s[0] += step[0];
+                s[1] += step[1];
+                
+                // Update state for next iteration
+                state.delta = knobs.delta;
+                state.acceptanceProxy = acceptanceProxy;
+                
+                // Propagate covariance: P_{t+1} = A_t P_t A_t^T + Σ_t Σ_t^T
+                if (opts.propagateCovariance && t < T - 1) {
+                    const A = computeDriftJacobian(s, landscapeCfg, knobs);
+                    
+                    // Add identity: A = I + ∇v
+                    A[0][0] += 1;
+                    A[1][1] += 1;
+                    
+                    // Compute A * P * A^T
+                    const AP = matmul2x2(A, P);
+                    const APAT = matmul2x2(AP, [[A[0][0], A[1][0]], [A[0][1], A[1][1]]]); // A^T
+                    
+                    // Compute Σ Σ^T (noise covariance)
+                    const SigmaT = [[Sigma[0][0], Sigma[1][0]], [Sigma[0][1], Sigma[1][1]]];
+                    const noiseCov = matmul2x2(Sigma, SigmaT);
+                    
+                    // Update covariance
+                    P = matadd2x2(APAT, noiseCov);
+                    
+                    // Add small regularization to prevent singular covariance
+                    P[0][0] += 1e-6;
+                    P[1][1] += 1e-6;
+                }
+            }
+            
+            return path;
+        }
+
+        /**
+         * Extract confidence ellipse parameters for plotting
+         */
+        function getConfidenceEllipse(stepInfo, sigmaLevel = 1) {
+            if (!stepInfo.P || !stepInfo.eigenvalues) {
+                return null;
+            }
+            
+            const [lambda1, lambda2] = stepInfo.eigenvalues;
+            const [v1, v2] = stepInfo.eigenvectors;
+            
+            // Semi-axes lengths (scaled by confidence level)
+            const a = sigmaLevel * Math.sqrt(lambda1);
+            const b = sigmaLevel * Math.sqrt(lambda2);
+            
+            // Angle of major axis
+            const angle = Math.atan2(v1[1], v1[0]) * 180 / Math.PI;
+            
+            return {
+                cx: stepInfo.x,
+                cy: stepInfo.y,
+                a,
+                b,
+                angle
+            };
+        }
+
+        // ===== PLOT2D.JS =====
+        
+        /**
+         * Create contour plot trace for the landscape
+         */
+        function createContourTrace(landscapeCfg) {
+            const { X, Y } = createGrids(landscapeCfg);
+            const { Z } = evalMGrid(landscapeCfg, X, Y);
+            
+            return {
+                x: X[0], // x coordinates (first row)
+                y: Y.map(row => row[0]), // y coordinates (first column)
+                z: Z,
+                type: 'contour',
+                colorscale: 'Viridis',
+                showscale: true,
+                colorbar: {
+                    title: 'M(s)',
+                    titleside: 'right',
+                    len: 0.7
+                },
+                contours: {
+                    coloring: 'fill'
+                },
+                hovertemplate: 'x: %{x:.2f}<br>y: %{y:.2f}<br>M(s): %{z:.3f}<extra></extra>',
+                name: 'Landscape'
+            };
+        }
+
+        /**
+         * Create quiver plot trace for the vector field
+         */
+        function createQuiverTraces(landscapeCfg, options = {}) {
+            const opts = {
+                subsample: 6,  // Show every 6th arrow
+                scale: 0.1,    // Arrow scaling factor
+                color: 'white',
+                opacity: 0.8,
+                ...options
+            };
+            
+            const { X, Y } = createGrids(landscapeCfg);
+            const { dZdx, dZdy } = evalMGrid(landscapeCfg, X, Y);
+            
+            const traces = [];
+            
+            // Subsample grid for arrow display
+            for (let i = 0; i < X.length; i += opts.subsample) {
+                for (let j = 0; j < X[0].length; j += opts.subsample) {
+                    const x = X[i][j];
+                    const y = Y[i][j];
+                    
+                    // Gradient direction (we want -∇M for descent)
+                    const dx = -dZdx[i][j];
+                    const dy = -dZdy[i][j];
+                    
+                    // Normalize and scale
+                    const norm = Math.sqrt(dx*dx + dy*dy);
+                    if (norm < 1e-6) continue;
+                    
+                    const arrowDx = (dx / norm) * opts.scale;
+                    const arrowDy = (dy / norm) * opts.scale;
+                    
+                    // Create arrow as line trace
+                    traces.push({
+                        x: [x, x + arrowDx],
+                        y: [y, y + arrowDy],
+                        mode: 'lines',
+                        type: 'scatter',
+                        line: {
+                            color: opts.color,
+                            width: 1
+                        },
+                        opacity: opts.opacity,
+                        showlegend: false,
+                        hoverinfo: 'skip'
+                    });
+                }
+            }
+            
+            return traces;
+        }
+
+        /**
+         * Create ML path trace
+         */
+        function createPathTrace(path, options = {}) {
+            const opts = {
+                color: '#ff6b35',
+                width: 4,
+                name: 'ML Path',
+                showMarkers: true,
+                ...options
+            };
+            
+            if (path.length === 0) {
+                return {
+                    x: [], y: [], type: 'scatter', mode: 'lines',
+                    name: opts.name, showlegend: true
+                };
+            }
+            
+            const x = path.map(step => step.x);
+            const y = path.map(step => step.y);
+            
+            // Add final position
+            const lastStep = path[path.length - 1];
+            x.push(lastStep.x + lastStep.step[0]);
+            y.push(lastStep.y + lastStep.step[1]);
+            
+            return {
+                x,
+                y,
+                mode: opts.showMarkers ? 'lines+markers' : 'lines',
+                type: 'scatter',
+                line: {
+                    color: opts.color,
+                    width: opts.width
+                },
+                marker: opts.showMarkers ? {
+                    size: 6,
+                    color: opts.color,
+                    symbol: 'circle'
+                } : undefined,
+                name: opts.name,
+                showlegend: true,
+                hovertemplate: 't: %{pointNumber}<br>x: %{x:.3f}<br>y: %{y:.3f}<extra></extra>'
+            };
+        }
+
+        /**
+         * Create confidence ellipse traces
+         */
+        function createEllipseTraces(path, options = {}) {
+            const opts = {
+                sigmaLevel: 1,
+                color: 'rgba(255, 107, 53, 0.3)',
+                strokeColor: '#ff6b35',
+                strokeWidth: 1,
+                subsample: 5, // Show every 5th ellipse
+                ...options
+            };
+            
+            const traces = [];
+            
+            for (let i = 0; i < path.length; i += opts.subsample) {
+                const ellipse = getConfidenceEllipse(path[i], opts.sigmaLevel);
+                if (!ellipse) continue;
+                
+                // Generate ellipse points
+                const numPoints = 30;
+                const theta = Array.from({length: numPoints + 1}, (_, i) => 
+                    2 * Math.PI * i / numPoints);
+                
+                const x = [];
+                const y = [];
+                
+                const cosAngle = Math.cos(ellipse.angle * Math.PI / 180);
+                const sinAngle = Math.sin(ellipse.angle * Math.PI / 180);
+                
+                for (const t of theta) {
+                    // Ellipse in standard position
+                    const ex = ellipse.a * Math.cos(t);
+                    const ey = ellipse.b * Math.sin(t);
+                    
+                    // Rotate and translate
+                    const rx = cosAngle * ex - sinAngle * ey + ellipse.cx;
+                    const ry = sinAngle * ex + cosAngle * ey + ellipse.cy;
+                    
+                    x.push(rx);
+                    y.push(ry);
+                }
+                
+                traces.push({
+                    x,
+                    y,
+                    mode: 'lines',
+                    type: 'scatter',
+                    fill: 'toself',
+                    fillcolor: opts.color,
+                    line: {
+                        color: opts.strokeColor,
+                        width: opts.strokeWidth
+                    },
+                    showlegend: i === 0,
+                    name: i === 0 ? `${opts.sigmaLevel}σ Confidence` : undefined,
+                    hoverinfo: 'skip'
+                });
+            }
+            
+            return traces;
+        }
+
+        /**
+         * Create target marker trace
+         */
+        function createTargetTrace(sStar, options = {}) {
+            const opts = {
+                color: '#e74c3c',
+                size: 12,
+                symbol: 'star',
+                name: 'Target (s*)',
+                ...options
+            };
+            
+            return {
+                x: [sStar[0]],
+                y: [sStar[1]],
+                mode: 'markers',
+                type: 'scatter',
+                marker: {
+                    size: opts.size,
+                    color: opts.color,
+                    symbol: opts.symbol,
+                    line: {
+                        width: 2,
+                        color: 'white'
+                    }
+                },
+                name: opts.name,
+                showlegend: true,
+                hovertemplate: 'Target<br>x: %{x:.2f}<br>y: %{y:.2f}<extra></extra>'
+            };
+        }
+
+        /**
+         * Create start marker trace
+         */
+        function createStartTrace(s0, options = {}) {
+            const opts = {
+                color: '#2ecc71',
+                size: 10,
+                symbol: 'circle',
+                name: 'Start (s₀)',
+                ...options
+            };
+            
+            return {
+                x: [s0[0]],
+                y: [s0[1]],
+                mode: 'markers',
+                type: 'scatter',
+                marker: {
+                    size: opts.size,
+                    color: opts.color,
+                    symbol: opts.symbol,
+                    line: {
+                        width: 2,
+                        color: 'white'
+                    }
+                },
+                name: opts.name,
+                showlegend: true,
+                hovertemplate: 'Start<br>x: %{x:.2f}<br>y: %{y:.2f}<extra></extra>'
+            };
+        }
+
+        /**
+         * Create auxiliary plot traces (step size, distance, etc.)
+         */
+        function createAuxiliaryTraces(path) {
+            const t = path.map(step => step.t);
+            
+            return {
+                stepSize: {
+                    x: t,
+                    y: path.map(step => Math.sqrt(step.step[0]**2 + step.step[1]**2)),
+                    mode: 'lines+markers',
+                    type: 'scatter',
+                    name: 'Step Size',
+                    line: { color: '#3498db' }
+                },
+                
+                acceptanceProxy: {
+                    x: t,
+                    y: path.map(step => step.acceptanceProxy || 0),
+                    mode: 'lines+markers',
+                    type: 'scatter',
+                    name: 'Acceptance',
+                    line: { color: '#9b59b6' }
+                },
+                
+                distanceToTarget: {
+                    x: t,
+                    y: path.map(step => step.distToTarget),
+                    mode: 'lines+markers',
+                    type: 'scatter',
+                    name: 'Distance to Target',
+                    line: { color: '#e67e22' }
+                },
+                
+                gradientNorm: {
+                    x: t,
+                    y: path.map(step => step.gradNorm),
+                    mode: 'lines+markers',
+                    type: 'scatter',
+                    name: 'Gradient Norm',
+                    line: { color: '#1abc9c' }
+                }
+            };
+        }
+
+        /**
+         * Create complete 2D visualization
+         */
+        function create2DVisualization(landscapeCfg, s0, archetype, options = {}) {
+            const opts = {
+                T: 20,
+                showQuiver: true,
+                showEllipses: true,
+                showSampling: false,
+                numSamples: 10,
+                ...options
+            };
+            
+            // Trace ML path
+            const path = traceML(s0, opts.T, landscapeCfg, archetype, {
+                propagateCovariance: opts.showEllipses,
+                stopAtTarget: true
+            });
+            
+            const traces = [];
+            
+            // 1. Landscape contour
+            traces.push(createContourTrace(landscapeCfg));
+            
+            // 2. Vector field (optional)
+            if (opts.showQuiver) {
+                traces.push(...createQuiverTraces(landscapeCfg));
+            }
+            
+            // 3. ML path
+            traces.push(createPathTrace(path));
+            
+            // 4. Confidence ellipses (optional)
+            if (opts.showEllipses && path.length > 0) {
+                traces.push(...createEllipseTraces(path));
+            }
+            
+            // 5. Start and target markers
+            traces.push(createStartTrace(s0));
+            traces.push(createTargetTrace(landscapeCfg.sStar));
+            
+            const layout = {
+                title: `2D Code Embedding Explorer - ${archetype}`,
+                xaxis: {
+                    title: 'x',
+                    range: landscapeCfg.xRange,
+                    constrain: 'domain'
+                },
+                yaxis: {
+                    title: 'y',
+                    range: landscapeCfg.yRange,
+                    scaleanchor: 'x',
+                    scaleratio: 1
+                },
+                width: 900,
+                height: 800,
+                showlegend: true,
+                legend: {
+                    x: 1,
+                    y: 1,
+                    xanchor: 'left',
+                    bgcolor: 'rgba(255,255,255,0.8)'
+                },
+                hovermode: 'closest'
+            };
+            
+            return { traces, layout, path };
+        }
+
+        /**
+         * Create layout for auxiliary plots
+         */
+        function createAuxLayout(title, yaxis) {
+            return {
+                title,
+                xaxis: { title: 'Time Step' },
+                yaxis: { title: yaxis },
+                width: 300,
+                height: 200,
+                margin: { l: 50, r: 10, t: 30, b: 40 },
+                showlegend: false
+            };
+        }
+
+        // ===== MAIN VISUALIZATION CODE =====
+        
+        // Story presets with specific configurations
+        const STORY_PRESETS = {
+            'noob-vibe': {
+                title: 'Noob Vibe: CRUD Success',
+                description: '<strong>Noob Vibe Coder working on CRUD App:</strong> Small, safe steps on familiar territory. The model\'s prior aligns with simple database operations, leading to steady progress toward the target. This represents the "sweet spot" where limited experience meets appropriate task complexity.',
+                landscape: { preset: 'crud', alignment: 0.7, biasWeight: 0.6 },
+                archetype: 'noob-vibe',
+                start: [-1.5, -1.0],
+                target: [1.5, 1.0],
+                options: { T: 15, showQuiver: true, showEllipses: true } // 10-50 cycles for novice vibe
+            },
+            'expert-vibe': {
+                title: 'Expert Vibe: Architecture',
+                description: '<strong>Expert Vibe Coder on Architecture:</strong> Decaying steps with experience-based intuition. Navigates efficiently through complex architectural decisions using accumulated knowledge patterns. Shows how expertise enables confident, larger moves through uncertain terrain.',
+                landscape: { preset: 'neutral', alignment: 0.2, biasWeight: 0.3 },
+                archetype: 'expert-vibe',
+                start: [-2.0, -1.5],
+                target: [1.8, 1.5],
+                options: { T: 8, showQuiver: true, showEllipses: true } // 2-10 cycles for expert vibe
+            },
+            'noob-autonomous': {
+                title: 'Noob Autonomous: Overreach',
+                description: '<strong>Noob Autonomous on Complex System:</strong> Overconfident large steps with multiple AI tools, but insufficient domain knowledge. The adversarial landscape represents tasks outside the developer\'s experience, leading to erratic navigation and potential dead ends.',
+                landscape: { preset: 'adversarial', alignment: -0.3, biasWeight: 0.4 },
+                archetype: 'noob-autonomous',
+                start: [-1.0, -2.0],
+                target: [2.0, 1.5],
+                options: { T: 5, showQuiver: true, showEllipses: true } // 2-6 cycles for noob autonomous
+            },
+            'expert-autonomous': {
+                title: 'Expert Autonomous: Strategic',  
+                description: '<strong>Expert Autonomous with Planning:</strong> Strategic planning phase followed by adaptive execution. Combines human architectural insight with AI acceleration. Shows the optimal path: experience guides strategy, automation handles tactics.',
+                landscape: { preset: 'neutral', alignment: 0.5, biasWeight: 0.5 },
+                archetype: 'expert-autonomous',
+                start: [-1.8, -1.2],
+                target: [2.2, 1.8],
+                options: { T: 3, showQuiver: true, showEllipses: true } // 1-3 cycles for expert autonomous
+            }
+        };
+
+        // Archetype descriptions
+        const ARCHETYPE_DESCRIPTIONS = {
+            'noob-vibe': '<strong>Noob Vibe Coder:</strong> Fixed small steps (δ=0.05), minimal complexity, low prior quality. Represents developers who prefer simple, incremental changes with immediate feedback.',
+            'expert-vibe': '<strong>Expert Vibe Coder:</strong> Decaying steps with trust-region adaptation, mid-high prior quality. Uses experience-based intuition to navigate efficiently through architectural decisions.',
+            'noob-autonomous': '<strong>Noob Autonomous Engineer:</strong> Overconfident early steps, multiple AI tools and reviewers. High automation but low domain expertise leads to erratic optimization paths.',
+            'expert-autonomous': '<strong>Expert Autonomous Engineer:</strong> Planning phase followed by large adaptive steps. Combines strategic human insight with AI acceleration for optimal performance.'
+        };
+
+        // Current configuration
+        let currentConfig = {
+            landscapeCfg: null,
+            s0: [-1.2, -1.2], // 20% position in [-3,3] range
+            archetype: 'noob-vibe',
+            options: {
+                T: 12,
+                showQuiver: true,
+                showEllipses: true,
+                showSampling: false,
+                numSamples: 10
+            }
+        };
+
+        function initializeEmbeddingExplorer() {
+            console.log('🚀 Initializing embedding explorer...');
+            
+            // Check if DOM elements exist
+            const plotDiv = document.getElementById('embedding-plot');
+            if (!plotDiv) {
+                console.error('❌ embedding-plot div not found!');
+                return;
+            }
+            console.log('✅ Found embedding-plot div');
+            
+            // Check if Plotly is loaded
+            if (typeof Plotly === 'undefined') {
+                console.error('❌ Plotly is not loaded!');
+                return;
+            }
+            console.log('✅ Plotly is loaded');
+            
+            // Check if all required functions are imported
+            try {
+                makePrior({ lengthScale: 2.0 });
+                console.log('✅ makePrior function working');
+            } catch (error) {
+                console.error('❌ Error with imported functions:', error);
+                return;
+            }
+            
+            // Set up story preset buttons
+            // Story buttons removed - using controls panel presets instead
+            
+            // Set up agent configuration controls
+            const promptSpecificitySlider = document.getElementById('prompt-specificity');
+            const promptSpecificityValue = document.getElementById('prompt-specificity-value');
+            const promptScopeSlider = document.getElementById('prompt-scope');
+            const promptScopeValue = document.getElementById('prompt-scope-value');
+            
+            // Set up landscape presets
+            document.querySelectorAll('.preset-btn').forEach(btn => {
+                btn.addEventListener('click', () => setLandscapePreset(btn.id.replace('preset-', '')));
+            });
+            
+            // Set up debounced parameter listeners
+            let parameterDebounceTimer = null;
+            const debouncedParameterUpdate = () => {
+                clearTimeout(parameterDebounceTimer);
+                parameterDebounceTimer = setTimeout(() => {
+                    console.log('🔄 Parameters changed, updating visualization...');
+                    updateVisualization();
+                }, 150); // Reduced to 150ms for more responsive feel
+            };
+            document.getElementById('reset-defaults').addEventListener('click', () => loadStoryPreset('noob-vibe'));
+            
+            // Set up parameter sliders with debouncing
+            ['length-scale', 'alignment', 'model-strength', 'noise-scale', 'noise-freq', 'curvature', 'max-steps'].forEach(id => {
+                const slider = document.getElementById(id);
+                const display = document.getElementById(id + '-value');
+                slider.addEventListener('input', () => {
+                    display.textContent = parseFloat(slider.value).toFixed(1);
+                    debouncedParameterUpdate();
+                });
+            });
+            
+            // Set up agent control sliders (no debounce, direct update)
+            promptSpecificitySlider.addEventListener('input', (e) => {
+                promptSpecificityValue.textContent = parseFloat(e.target.value).toFixed(1);
+                updateAgentFromControls();
+            });
+            
+            promptScopeSlider.addEventListener('input', (e) => {
+                promptScopeValue.textContent = parseFloat(e.target.value).toFixed(1);
+                updateAgentFromControls();
+            });
+            
+            // Set up checkboxes with debouncing
+            ['show-quiver', 'show-ellipses', 'show-sampling'].forEach(id => {
+                document.getElementById(id).addEventListener('change', (e) => {
+                    const key = id.replace('show-', 'show' + id.split('-')[1].charAt(0).toUpperCase() + id.split('-')[1].slice(1));
+                    currentConfig.options[key] = e.target.checked;
+                    debouncedParameterUpdate();
+                });
+            });
+            
+            // Set up position controls with debouncing
+            ['start-x', 'start-y', 'target-x', 'target-y'].forEach(id => {
+                const input = document.getElementById(id);
+                input.addEventListener('input', () => {
+                    debouncedParameterUpdate();
+                });
+            });
+            
+            // Load default story
+            // Initialize with default configuration - updateVisualization first, then agent controls
+            console.log('🔧 Starting initial visualization setup...');
+            updateVisualization();
+        }
+
+        function loadStoryPreset(presetName) {
+            const preset = STORY_PRESETS[presetName];
+            if (!preset) return;
+            
+            // Update story selection
+            // Story buttons removed - preset loaded directly
+            
+            // Update landscape
+            setLandscapePreset(preset.landscape.preset);
+            document.getElementById('alignment').value = preset.landscape.alignment;
+            document.getElementById('alignment-value').textContent = preset.landscape.alignment.toFixed(1);
+            
+            // Update archetype
+            setArchetype(preset.archetype);
+            
+            // Update positions
+            document.getElementById('start-x').value = preset.start[0];
+            document.getElementById('start-y').value = preset.start[1];
+            document.getElementById('target-x').value = preset.target[0];
+            document.getElementById('target-y').value = preset.target[1];
+            currentConfig.s0 = [...preset.start];
+            
+            // Update options
+            Object.assign(currentConfig.options, preset.options);
+            document.getElementById('max-steps').value = preset.options.T;
+            document.getElementById('max-steps-value').textContent = preset.options.T;
+            
+            updateVisualization();
+        }
+
+        function updateAgentFromControls() {
+            const promptSpecificity = parseFloat(document.getElementById('prompt-specificity').value);
+            const promptScope = parseFloat(document.getElementById('prompt-scope').value);
+            
+            // Prompt specificity controls the variance of the Bayesian normal prior
+            // High specificity (1) = low variance = you tend to go where you're aiming
+            // Low specificity (0) = high variance = can get guided by model's priors
+            
+            // Prompt scope controls whether prompt specifies final location or takes hops
+            // 0 = no prompt (relies on model), 1 = precise final ending location
+            
+            // Convert prompt specificity to diffusion parameters
+            // Higher specificity = lower noise, more directed movement
+            const baseDelta = 0.1 + (promptScope * 0.2); // More scope = bigger steps
+            const noiseScale = 1.0 - promptSpecificity;  // More specificity = less noise
+            
+            // Convert prompt scope to planning parameters
+            // Higher scope = more systematic planning (K), less reliance on priors
+            const H = promptSpecificity; // Specificity maps to human guidance
+            const K = 1 + Math.floor(promptScope * 10); // More scope = more candidates
+            const rho = 0.5 + (promptSpecificity * 0.4); // More specificity = better priors
+            
+            // Update current knobs
+            if (window.currentKnobs) {
+                window.currentKnobs.delta = baseDelta;
+                window.currentKnobs.H = H;
+                window.currentKnobs.K = K;
+                window.currentKnobs.rho = rho;
+                window.currentKnobs.sigma0 = noiseScale * 0.4; // Base noise scaling
+            }
+            
+            console.log('🔄 Agent controls changed, knobs updated:', {
+                promptSpecificity, 
+                promptScope, 
+                delta: baseDelta, 
+                H, 
+                K, 
+                rho,
+                noiseScale
+            });
+            
+            // Update the plot with custom policy
+            if (window.currentLandscapeCfg) {
+                // Create a custom policy function that uses our knobs
+                const customPolicy = (t, state, s) => {
+                    return {
+                        delta: baseDelta,
+                        H: H,
+                        K: K,
+                        rho: rho,
+                        N: 1,
+                        Kr: 0.2,
+                        gamma: 0.1
+                    };
+                };
+                
+                // Generate new visualization with custom policy
+                const { traces, layout, path } = create2DVisualization(
+                    window.currentLandscapeCfg,
+                    getCurrentStartPosition(),
+                    customPolicy,  // Pass function instead of string
+                    getVisualizationOptions()
+                );
+                
+                console.log('🎯 Updating plot with custom policy...');
+                Plotly.react('embedding-plot', traces, layout);
+                console.log('✅ Plot updated with new agent parameters');
+            }
+        }
+        
+        
+        function getCurrentStartPosition() {
+            return [
+                parseFloat(document.getElementById('start-x').value),
+                parseFloat(document.getElementById('start-y').value)
+            ];
+        }
+        
+        function getVisualizationOptions() {
+            return {
+                showQuiver: document.getElementById('show-quiver').checked,
+                showEllipses: document.getElementById('show-ellipses').checked,
+                showSampling: document.getElementById('show-sampling').checked
+            };
+        }
+
+        function setLandscapePreset(preset) {
+            // Update button states
+            document.querySelectorAll('.preset-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(`preset-${preset}`).classList.add('active');
+            
+            // Set preset-specific parameters
+            const presetConfigs = {
+                'crud': { alignment: 0.7, biasWeight: 0.6, numCenters: 18 },
+                'neutral': { alignment: 0.0, biasWeight: 0.3, numCenters: 20 },
+                'adversarial': { alignment: -0.5, biasWeight: 0.8, numCenters: 25 }
+            };
+            
+            const config = presetConfigs[preset];
+            if (config) {
+                document.getElementById('alignment').value = config.alignment;
+                document.getElementById('alignment-value').textContent = config.alignment.toFixed(1);
+                
+                // Also update the model strength if specified in preset
+                if (config.biasWeight !== undefined) {
+                    document.getElementById('model-strength').value = config.biasWeight;
+                    document.getElementById('model-strength-value').textContent = config.biasWeight.toFixed(1);
+                }
+                
+                // Trigger visualization update
+                debouncedParameterUpdate();
+            }
+        }
+
+        function updateVisualization() {
+            console.log('🔄 Starting updateVisualization...');
+            try {
+                // Check if required elements exist
+                const requiredElements = ['length-scale', 'alignment', 'model-strength', 'noise-scale', 'noise-freq', 'curvature', 'start-x', 'start-y', 'target-x', 'target-y', 'max-steps'];
+                for (const id of requiredElements) {
+                    if (!document.getElementById(id)) {
+                        console.error(`❌ Missing element: ${id}`);
+                        return;
+                    }
+                }
+                console.log('✅ All required elements found');
+                
+                // Collect current parameters
+                const lengthScale = parseFloat(document.getElementById('length-scale').value);
+                const alignment = parseFloat(document.getElementById('alignment').value);
+                const modelStrength = parseFloat(document.getElementById('model-strength').value);
+                const noiseScale = parseFloat(document.getElementById('noise-scale').value);
+                const noiseFreq = parseFloat(document.getElementById('noise-freq').value);
+                const curvature = parseFloat(document.getElementById('curvature').value);
+                const startX = parseFloat(document.getElementById('start-x').value);
+                const startY = parseFloat(document.getElementById('start-y').value);
+                const targetX = parseFloat(document.getElementById('target-x').value);
+                const targetY = parseFloat(document.getElementById('target-y').value);
+                const maxSteps = parseInt(document.getElementById('max-steps').value);
+                
+                // Update configuration
+                currentConfig.s0 = [startX, startY];
+                currentConfig.options.T = maxSteps;
+            
+                // Create landscape with current parameters
+                currentConfig.landscapeCfg = makePrior({
+                    lengthScale: lengthScale,
+                    alignment: alignment,
+                    noiseScale: noiseScale,
+                    noiseFreq: noiseFreq,
+                    curvature: curvature,
+                    startPos: [startX, startY],
+                    sStar: [targetX, targetY],
+                    xRange: [-3, 3],
+                    yRange: [-3, 3],
+                    numCenters: 20,
+                    biasWeight: modelStrength
+                });
+                
+                // Also set the global references for the new control system
+                window.currentLandscapeCfg = currentConfig.landscapeCfg;
+                
+                // Initialize currentKnobs if not already set
+                if (!window.currentKnobs) {
+                    window.currentKnobs = {
+                        delta: 0.1,
+                        H: 0.3,
+                        K: 5,
+                        rho: 0.8,
+                        N: 1,
+                        Kr: 0.2,
+                        gamma: 0.1
+                    };
+                }
+                
+                console.log('Generated landscape config:', currentConfig.landscapeCfg);
+                console.log('Archetype:', currentConfig.archetype);
+                console.log('Start position:', currentConfig.s0);
+                
+                // Use a default archetype for initial load, then controls will override
+                const defaultArchetype = 'noob-vibe';  // This exists in ARCHETYPES
+                
+                // Generate visualization
+                const { traces, layout, path } = create2DVisualization(
+                    currentConfig.landscapeCfg,
+                    currentConfig.s0,
+                    defaultArchetype,
+                    currentConfig.options
+                );
+                
+                console.log('Generated', traces.length, 'traces');
+                console.log('Path length:', path.length);
+                
+                // Check if Plotly is available
+                if (typeof Plotly === 'undefined') {
+                    console.error('Plotly is not loaded!');
+                    return;
+                }
+                
+                // Plot main visualization
+                console.log('🎯 Calling Plotly.react...');
+                Plotly.react('embedding-plot', traces, layout);
+                console.log('✅ Plotly.react completed');
+            
+                // Plot auxiliary analysis
+                if (path && path.length > 0) {
+                    const auxTraces = createAuxiliaryTraces(path);
+                    
+                    Plotly.react('step-size-plot', [auxTraces.stepSize], 
+                        createAuxLayout('Step Size Evolution', 'Step Size'));
+                    
+                    Plotly.react('distance-plot', [auxTraces.distanceToTarget], 
+                        createAuxLayout('Distance to Target', 'Distance'));
+                        
+                    Plotly.react('acceptance-plot', [auxTraces.acceptanceProxy], 
+                        createAuxLayout('Acceptance Proxy', 'Acceptance'));
+                        
+                    Plotly.react('gradient-plot', [auxTraces.gradientNorm], 
+                        createAuxLayout('Gradient Norm', '||∇M||'));
+                }
+                
+            } catch (error) {
+                console.error('Error in updateVisualization:', error);
+            }
+        }
+
+        // Initialize when DOM is loaded
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeEmbeddingExplorer);
+        } else {
+            initializeEmbeddingExplorer();
+        }
+    </script>
+</body>
+</html>

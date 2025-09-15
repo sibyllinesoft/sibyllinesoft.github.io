@@ -49,7 +49,6 @@ class TOCScrollSpy {
       .filter(heading => heading.id && heading.tocLink) // Only headings with TOC links
       .sort((a, b) => a.topOffset - b.topOffset); // Sort by position
 
-    console.log(`TOC ScrollSpy: Found ${this.headings.length} headings`);
   }
 
   /**

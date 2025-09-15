@@ -43,6 +43,142 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.28.2/dist/tocbot.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.css">
+    <style>
+        /* Custom Prism theme - Blue/Green/Purple/Grey */
+        code[class*="language-"],
+        pre[class*="language-"] {
+            color: #e8eaed;
+            background: none;
+            text-shadow: none;
+            font-family: var(--font-family-monospace);
+            font-size: 14px;
+            line-height: 1.5;
+            direction: ltr;
+            text-align: left;
+            white-space: pre;
+            word-spacing: normal;
+            word-break: normal;
+            word-wrap: normal;
+            -moz-tab-size: 4;
+            -o-tab-size: 4;
+            tab-size: 4;
+            -webkit-hyphens: none;
+            -moz-hyphens: none;
+            -ms-hyphens: none;
+            hyphens: none;
+        }
+
+        /* Code blocks */
+        pre[class*="language-"] {
+            padding: 24px;
+            margin: var(--space-2xl) 0;
+            background: var(--color-background);
+            border-left: 3px solid var(--color-accent);
+            border-radius: var(--radius-md);
+            overflow: auto;
+        }
+
+        /* Inline code */
+        :not(pre) > code[class*="language-"] {
+            padding: 0.1em 0.3em;
+            border-radius: 0.3em;
+            white-space: normal;
+            background: rgba(99, 102, 241, 0.1);
+            color: #8892b0;
+        }
+
+        /* Token colors - Blue/Green/Purple/Grey theme */
+        .token.comment,
+        .token.prolog,
+        .token.doctype,
+        .token.cdata {
+            color: #64748b; /* Soft grey for comments */
+            font-style: italic;
+        }
+
+        .token.punctuation {
+            color: #94a3b8; /* Light grey for punctuation */
+        }
+
+        .token.namespace {
+            opacity: .7;
+        }
+
+        .token.property,
+        .token.tag,
+        .token.boolean,
+        .token.number,
+        .token.constant,
+        .token.symbol,
+        .token.deleted {
+            color: #f472b6; /* Pink/purple for constants */
+        }
+
+        .token.selector,
+        .token.attr-name,
+        .token.string,
+        .token.char,
+        .token.builtin,
+        .token.inserted {
+            color: #34d399; /* Green for strings */
+        }
+
+        .token.operator,
+        .token.entity,
+        .token.url,
+        .language-css .token.string,
+        .style .token.string,
+        .token.variable {
+            color: #60a5fa; /* Blue for operators */
+        }
+
+        .token.atrule,
+        .token.attr-value,
+        .token.keyword {
+            color: #a78bfa; /* Purple for keywords */
+        }
+
+        .token.function,
+        .token.class-name {
+            color: #fbbf24; /* Amber for functions */
+        }
+
+        .token.regex,
+        .token.important {
+            color: #fb7185; /* Pink for regex */
+            font-weight: bold;
+        }
+
+        .token.important,
+        .token.bold {
+            font-weight: bold;
+        }
+
+        .token.italic {
+            font-style: italic;
+        }
+
+        .token.entity {
+            cursor: help;
+        }
+
+        /* Language specific enhancements */
+        .language-bash .token.function {
+            color: #60a5fa; /* Blue for bash commands */
+        }
+
+        .language-bash .token.string {
+            color: #34d399; /* Green for bash strings */
+        }
+
+        .language-json .token.property {
+            color: #60a5fa; /* Blue for JSON properties */
+        }
+
+        .language-json .token.string {
+            color: #34d399; /* Green for JSON values */
+        }
+    </style>
     
     {%- if stylesheets %}
     {%- for stylesheet in stylesheets %}
@@ -1259,6 +1395,34 @@
     <main class="main">
         {{ content | safe }}
     </main>
+    
+    {% if enableModals %}
+    <!-- Modal positioned as direct child of body for proper stacking -->
+    <div id="service-modal" class="modal-overlay">
+       <div class="modal-content">
+          <button class="modal-close" aria-label="Close modal">&times;</button>
+          <div class="modal-image-sidebar">
+             <img id="modal-image" src="" alt="">
+             <div class="modal-image-overlay"></div>
+          </div>
+          <div class="modal-content-area">
+             <div class="modal-header">
+                <h3 id="modal-title"></h3>
+                <p id="modal-summary"></p>
+             </div>
+             <div class="modal-body" id="modal-details"></div>
+             <div class="modal-cta">
+                <a href="#" class="modal-cta-button" id="modal-cta">
+                <span class="btn-inner">
+                <span id="modal-cta-text">Get Started</span>
+                <i data-lucide="external-link"></i>
+                </span>
+                </a>
+             </div>
+          </div>
+       </div>
+    </div>
+    {% endif %}
     
     <footer class="footer">
         <p>&copy; {{ config.now.getFullYear() }} {{ config.site.title or "Sibylline Software" }}. Built with <a href="https://www.11ty.dev/">Eleventy</a>.</p>

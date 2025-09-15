@@ -6,41 +6,8 @@
 // Rotating Banner System
 class RotatingBanners {
   constructor() {
-    // Coordinated title-subtitle pairs
-    this.titleSubtitlePairs = [
-      {
-        title: 'Stop Losing to Startups With Real AI Advantages',
-        subtitles: [
-          "Turn your data moat into autonomous agent systems that competitors can't copy",
-          'Build AI-first workflows that eliminate manual processes entirely',
-          'Deploy intelligent automation that learns and improves without human intervention'
-        ]
-      },
-      {
-        title: 'Enterprise AI That Actually Works in Production',
-        subtitles: [
-          'Architected for scale, security, and seamless integration with existing systems',
-          'Built with enterprise governance, compliance, and risk management from day one',
-          'Designed for reliability with comprehensive monitoring and automated failsafes'
-        ]
-      },
-      {
-        title: 'Custom AI Research That Drives Breakthrough Innovation',
-        subtitles: [
-          'Novel algorithms tailored to your unique data patterns and business constraints',
-          'Advanced research partnerships that accelerate time-to-market for AI products',
-          'Proprietary model development that creates sustainable competitive advantages'
-        ]
-      },
-      {
-        title: 'Strategic AI Implementation with Clear ROI',
-        subtitles: [
-          'Clear roadmaps from concept to competitive edge with measurable business impact',
-          'Proven methodologies that minimize risk while maximizing transformation speed',
-          'Executive-ready strategies that align AI initiatives with business objectives'
-        ]
-      }
-    ];
+    // Build title-subtitle pairs from HTML data
+    this.titleSubtitlePairs = this.buildPairsFromHTML();
     
     this.currentTitleIndex = 0;
     this.currentSubtitleIndex = 0;
@@ -50,6 +17,46 @@ class RotatingBanners {
     this.glowTimeouts = [];
     
     this.init();
+  }
+  
+  buildPairsFromHTML() {
+    const heroData = document.querySelector('.hero-data');
+    if (!heroData) {
+      // Fallback to original data if HTML not found
+      return [
+        {
+          title: 'Build AI that ships, not just talks.',
+          subtitles: [
+            'Zero-setup environments, smart model routing, and agents that keep context.',
+            'Stop debugging prompts. Start shipping autonomous systems that work 24/7.',
+            'Your competitors hire more humans. You deploy more agents.'
+          ]
+        }
+      ];
+    }
+    
+    const groups = heroData.querySelectorAll('.title-subtitle-group');
+    const pairs = [];
+    
+    groups.forEach(group => {
+      const titleElement = group.querySelector('.title');
+      const subtitleElements = group.querySelectorAll('.subtitle');
+      
+      if (titleElement && subtitleElements.length > 0) {
+        const pair = {
+          title: titleElement.textContent.trim(),
+          subtitles: Array.from(subtitleElements).map(el => el.textContent.trim())
+        };
+        pairs.push(pair);
+      }
+    });
+    
+    return pairs.length > 0 ? pairs : [
+      {
+        title: 'Build AI that ships, not just talks.',
+        subtitles: ['Zero-setup environments, smart model routing, and agents that keep context.']
+      }
+    ];
   }
   
   init() {
@@ -91,10 +98,10 @@ class RotatingBanners {
     container.classList.remove('normal');
     container.classList.add('blurring-out');
     
-    // Call callback when blur animation completes
+    // Call callback when blur animation completes - faster overlap
     setTimeout(() => {
       if (callback) {callback();}
-    }, 600); // Match blur transition duration
+    }, 400); // Reduced from 600ms for more overlap
   }
   
   fadeInContainer(container, delay = 0) {
@@ -113,7 +120,7 @@ class RotatingBanners {
         this.titleElement.innerHTML = newTitle;
         this.titleElement.classList.remove('changing');
         this.titleElement.classList.add('normal');
-      }, 300);
+      }, 200); // Reduced from 300ms for faster title transition
     }
   }
   

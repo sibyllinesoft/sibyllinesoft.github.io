@@ -1,7 +1,8 @@
 /* Hero Section Styles */
 
 /* Neural Network Background */
-.neural-background {
+.neural-background,
+.hero-banner {
   position: fixed;
   top: 0;
   left: 0;
@@ -19,11 +20,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: visible;
+  overflow: clip;
   margin-bottom: 0;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
+}
+
+@supports (width: 100dvw) {
+  .hero-container {
+    width: 100dvw;
+    margin-left: calc(-50dvw + 50%);
+    margin-right: calc(-50dvw + 50%);
+  }
 }
 
 /* Hero Content */
@@ -301,7 +310,8 @@
     font-size: var(--text-lg);
   }
   
-  .neural-background {
+  .neural-background,
+  .hero-banner {
     opacity: 0.3;
   }
   
@@ -357,7 +367,8 @@
     -webkit-text-fill-color: transparent;
   }
   
-  .neural-background {
+  .neural-background,
+  .hero-banner {
     display: none;
   }
   

@@ -265,6 +265,49 @@ Advanced research projects exploring the frontiers of AI, machine learning, and 
   </div>
 </div>
 
+<!-- Research Logos -->
+<div class="project-brochure" id="logos-research">
+  <div class="project-visual">
+    <i data-lucide="brain-circuit" class="project-icon"></i>
+    <div class="project-codename">Logos</div>
+    <div class="project-status">Research Implementation</div>
+  </div>
+  <div class="project-content">
+    <h2>Bayesian LISP Symbolic Reasoner for Agent Systems</h2>
+    <div class="project-pitch">
+      <p><strong>The Research Question:</strong> Can AI agents reason more effectively through constrained symbolic expressions with built-in uncertainty quantification? Traditional neural approaches lack interpretability and struggle with logical consistency, while symbolic systems ignore uncertainty.</p>
+      
+      <p><strong>Our Approach:</strong> Logos implements a novel Bayesian POMDP system that combines grammar-constrained S-expression decoding with Value of Information scheduling. The system enforces mathematical rigor through Blackwell dominance validation while learning optimal epistemic action sequences through multi-game cognitive experiments.</p>
+      
+      <div class="project-features">
+        <div class="feature-item">
+          <strong>Language Reasoning Model (LRM):</strong> Grammar-constrained decoding ensures all generated reasoning follows valid S-expression syntax with typed uncertainty representation.
+        </div>
+        <div class="feature-item">
+          <strong>Bayesian Budget Optimization:</strong> Multi-dimensional cost tracking (time, computation, economic) with Lagrangian optimization for resource-constrained reasoning.
+        </div>
+        <div class="feature-item">
+          <strong>Blackwell Dominance Framework:</strong> Epistemic actions must provably improve posterior beliefs—zero tolerance for information-destroying operations with mathematical validation.
+        </div>
+        <div class="feature-item">
+          <strong>Parametric Game Laboratory:</strong> Battleship, Crafting, GridWorld, LogicGrid, and Mastermind generators provide controlled environments for cognitive experiment design.
+        </div>
+      </div>
+      
+      <p class="project-tagline">Bridging symbolic reasoning and probabilistic inference for explainable agent intelligence with formal correctness guarantees.</p>
+      
+      <div class="project-cta">
+        <a href="https://github.com/sibyllinesoft/logos" target="_blank" rel="noopener noreferrer" class="btn-unified btn-primary">
+          <span class="btn-inner">
+            View on GitHub
+            <i data-lucide="github"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
 <style>
 /* Project Brochure - Research Style */
 .project-brochure {
@@ -322,6 +365,10 @@ Advanced research projects exploring the frontiers of AI, machine learning, and 
 
 #arachne-research .project-visual {
   background-image: linear-gradient(rgba(220, 38, 127, 0.15), rgba(220, 38, 127, 0.15)), url('https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+}
+
+#logos-research .project-visual {
+  background-image: linear-gradient(rgba(147, 51, 234, 0.15), rgba(147, 51, 234, 0.15)), url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
 }
 
 .project-icon {

@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
       
       setTimeout(() => {
         if (callback) callback();
-      }, 600);
+      }, 400); // Reduced from 600ms for more overlap
     }
     
     fadeInContainer(container, delay = 0) {
@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
           this.titleElement.classList.remove('blurring-in');
           this.titleElement.classList.add('normal');
         }, 200);
-      }, 700);
+      }, 500); // Reduced from 700ms for faster title transition
     }
     
     startRotation() {

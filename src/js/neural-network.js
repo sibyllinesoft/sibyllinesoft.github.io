@@ -307,8 +307,8 @@ class NeuralNetwork {
   createTransformerStructure() {
     this.layers = [];
     const layerCount = 24; // Even more layers for much closer vertical spacing
-    const totalWidth = this.width * 0.65; // Further reduced from 0.82 to provide more breathing room horizontally
-    const totalHeight = this.height * 0.58; // Further reduced from 0.75 to provide more breathing room vertically  
+    const totalWidth = this.width * 0.65; // Original value
+    const totalHeight = this.height * 0.522; // Reduced by 10% from 0.58 to 0.522
     const cylinderRadius = totalHeight * 0.28; // Further reduced from 0.32 to match smaller total height
     
     // Generate smooth elliptical distribution with 24 layers for closer spacing
@@ -709,7 +709,7 @@ class NeuralNetwork {
     const completedPulses = [];
     
     this.pulses = this.pulses.filter(pulse => {
-      pulse.progress += pulse.speed * 0.025; // Reduced to 0.025 for smoother speed
+      pulse.progress += pulse.speed * 0.016; // NOTE: This does NOT affect main page pulse speed - main page uses inline neural network code in index.md
       
       // Check if pulse completed a connection
       if (pulse.progress >= 1 && !pulse.hasCompleted) {

@@ -39,12 +39,54 @@ const serviceData = {
     alt: 'Production pipeline visualization for autonomous agent systems',
     subject: 'Autonomous Agent Systems Development',
     body: 'Hi! I\'m interested in your Autonomous Agent Systems development services. Can we discuss how to build production-ready agent systems that scale safely?'
+  },
+  // Arbiter-specific services
+  drift: {
+    image: '/img/optimized/modal-quick-wins.webp',
+    ctaText: 'Solve Requirements Drift',
+    alt: 'Team collaboration addressing requirements drift challenges',
+    subject: 'Requirements Drift Solution Inquiry',
+    body: 'Hi! I\'m struggling with requirements drift in our projects. Can we discuss how Arbiter can help keep our specifications synchronized with evolving business needs?'
+  },
+  ambiguity: {
+    image: '/img/optimized/modal-isolated.webp',
+    ctaText: 'Eliminate Ambiguity',
+    alt: 'Clear technical documentation and specifications',
+    subject: 'Specification Ambiguity Resolution',
+    body: 'Hello! Our team is dealing with interpretation ambiguity in our specifications. Can we explore how Arbiter can provide mathematical precision to eliminate confusion?'
+  },
+  validation: {
+    image: '/img/optimized/modal-systemic.webp',
+    ctaText: 'Implement Validation',
+    alt: 'Automated validation and testing systems',
+    subject: 'Automated Validation Implementation',
+    body: 'Hi! We need automated ways to verify implementation compliance. Can we discuss how Arbiter can provide continuous validation mechanisms for our projects?'
+  },
+  'schema-validation': {
+    image: '/img/optimized/modal-comprehensive.webp',
+    ctaText: 'Get Schema Validation',
+    alt: 'CUE schema validation and data precision',
+    subject: 'CUE Schema Validation Services',
+    body: 'Hello! I\'m interested in implementing CUE schemas for mathematical precision in data validation. Can we discuss how to eliminate ambiguity with executable specifications?'
+  },
+  'api-contracts': {
+    image: '/img/optimized/modal-integration.webp',
+    ctaText: 'Generate API Contracts',
+    alt: 'API contract generation and implementation',
+    subject: 'API Contract Generation Services',
+    body: 'Hi! I need help generating complete API implementations from CUE specifications. Can we explore OpenAPI schema generation and validation middleware options?'
+  },
+  'full-system': {
+    image: '/img/optimized/modal-overload.webp',
+    ctaText: 'Generate Full System',
+    alt: 'Complete system generation from specifications',
+    subject: 'Full System Generation Consultation',
+    body: 'Hello! I\'m interested in complete application generation from business specifications. Can we discuss generating database schemas, business logic, and UI components that are mathematically consistent?'
   }
 };
 
 class ModalManager {
   constructor() {
-    this.serviceCards = document.querySelectorAll('.service-card');
     this.modal = document.getElementById('service-modal');
     this.modalTitle = document.getElementById('modal-title');
     this.modalSummary = document.getElementById('modal-summary');
@@ -52,39 +94,30 @@ class ModalManager {
     this.modalImage = document.getElementById('modal-image');
     this.modalCtaButton = document.getElementById('modal-cta');
     this.modalCtaText = document.getElementById('modal-cta-text');
-    this.modalClose = document.querySelector('.modal-close');
+    this.serviceCards = document.querySelectorAll('.service-card');
     
     this.init();
   }
   
   init() {
-    if (!this.modal) {return;}
+    if (!this.modal) return;
     
-    // Add click listeners to service cards
-    this.serviceCards.forEach(card => {
-      card.addEventListener('click', (e) => {
-        e.preventDefault();
-        
-        // Check if we should expand inline (for desktop) or open modal (for mobile)
-        if (window.innerWidth >= 768) {
-          this.toggleInlineExpansion(card);
-        } else {
-          this.openModal(card);
-        }
-      });
+    // Event delegation for service cards (no this binding issues)
+    document.addEventListener('click', (e) => {
+      const card = e.target.closest('.service-card');
+      if (!card) return;
+      e.preventDefault();
+      
+      // Always open modal for all screen sizes
+      this.openModal(card);
     });
 
-    // Set up intersection observer for automatic animations
-    this.initIntersectionObserver();
-    
-    // Add close modal listeners
-    if (this.modalClose) {
-      this.modalClose.addEventListener('click', () => this.closeModal());
-    }
-    
+    // Modal close handlers (event delegation)
     this.modal.addEventListener('click', (e) => {
-      if (e.target === this.modal) {
+      if (e.target.classList.contains('modal-overlay') || e.target.closest('.modal-close')) {
         this.closeModal();
+        this.modalDetails.replaceChildren(); // Clean up
+        document.body.style.overflow = '';
       }
     });
     
@@ -94,6 +127,9 @@ class ModalManager {
         this.closeModal();
       }
     });
+
+    // Set up intersection observer for automatic animations
+    this.initIntersectionObserver();
     
     // CTA button click handler
     if (this.modalCtaButton) {
@@ -117,7 +153,21 @@ class ModalManager {
     // Populate modal content
     this.modalTitle.innerHTML = title;
     this.modalSummary.textContent = summary;
-    this.modalDetails.innerHTML = details ? details.innerHTML : '';
+    
+    // Surgical cloning of children (no wrapper nesting)
+    if (details) {
+      const frag = document.createDocumentFragment();
+      for (const node of details.childNodes) {
+        frag.appendChild(node.cloneNode(true));
+      }
+      
+      // Remove duplicate IDs to prevent DOM conflicts
+      frag.querySelectorAll?.('[id]').forEach(n => n.removeAttribute('id'));
+      
+      this.modalDetails.replaceChildren(frag);
+    } else {
+      this.modalDetails.replaceChildren();
+    }
     
     // Set image and CTA - handle custom visualization for agentic service
     if (serviceType === 'agentic' && serviceInfo.image === 'custom-visualization') {
