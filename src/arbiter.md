@@ -4,28 +4,46 @@ key: Arbiter
 parent: Products
 order: 4
 layout: simple.njk
-title: "Arbiter: Static Analysis Engine for AI-Guided Refactoring"
-description: "Stop AI agents hunting blindly. Precise problem roadmaps with 0-1 urgency scores guide agents to highest-impact issues first."
+title: "Arbiter – Spec Compiler & Rails for AI Agents"
+description: "Compile agent-authored specs into synchronized code, tests, infra, and docs—enforced in CI."
 enableModals: true
 stylesheets:
   - "/styles/arbiter.css"
 scripts:
   - "/js/modals.js"
+  - "/js/arbiter-animation.js"
+openGraph:
+  title: "Arbiter – Spec Compiler & Rails for AI Agents"
+  description: "Compile agent-authored specs into synchronized code, tests, infra, and docs—enforced in CI."
+  type: website
+  image: "/img/arbiter-portal-screenshot.png"
+jsonLD:
+  "@context": "https://schema.org"
+  "@type": SoftwareApplication
+  "name": "Arbiter"
+  "applicationCategory": "DeveloperApplication"
+  "operatingSystem": "Cross-platform"
+  "offers":
+    "@type": "Offer"
+    "price": "0"
+    "priceCurrency": "USD"
+    "description": "Free CLI"
+  "sameAs": "https://github.com/sibyllinesoft/arbiter"
 ---
 
 <!-- Hidden data for rotating banners - customize this for Arbiter -->
 <div class="hero-data" style="display: none;">
    <div class="title-subtitle-group" data-group-index="0">
-      <div class="title">Your AI Agents are a Powerful Army</div>
-      <div class="subtitle">Stop Sending Them into Battle Without a Plan</div>
+      <div class="title">The Spec Compiler for AI Development</div>
+      <div class="subtitle">Compile agent-authored specs into code, tests, infra, and docs in seconds. Syncs to GitHub and GitLab.</div>
    </div>
    <div class="title-subtitle-group" data-group-index="1">
-      <div class="title">The Battle Plan for Your AI Workforce</div>
-      <div class="subtitle">Command and control for autonomous development</div>
+      <div class="title">Agents Generate. Arbiter Enforces. Humans Audit.</div>
+      <div class="subtitle">The mission control for AI agent teams.</div>
    </div>
    <div class="title-subtitle-group" data-group-index="2">
-      <div class="title">Stop Fighting Your Codebase</div>
-      <div class="subtitle">Start commanding your development</div>
+      <div class="title">Rails for AI Development</div>
+      <div class="subtitle">Keep your agents on track.</div>
    </div>
 </div>
 <div class="hero-container">
@@ -33,120 +51,83 @@ scripts:
    <div class="hero-content">
       <div class="hero-title-container">
          <img src="/img/logos/arbiter-large.png" alt="Arbiter Logo" class="hero-logo" style="height: 72px;">
-         <h1 class="hero-title">Your AI Agents are a Powerful Army</h1>
+         <h1 class="hero-title">The Spec Compiler for AI Development</h1>
       </div>
       <div class="rotating-banners">
          <div class="banner-container">
-            <span class="banner-text" data-text="Command and control for autonomous development">Command and control for autonomous development</span>
+            <span class="banner-text" data-text="Talk to an agent. Arbiter turns conversation into specs, code, tests, and docs—kept in sync and enforced in CI">Talk to an agent. Arbiter turns conversation into specs, code, tests, and docs—kept in sync and enforced in CI</span>
          </div>
          <div class="banner-container">
-            <span class="banner-text" data-text="Stop fighting your codebase—start commanding your development">Stop fighting your codebase—start commanding your development</span>
+            <span class="banner-text" data-text="Agents generate. Arbiter enforces. Humans audit.">Agents generate. Arbiter enforces. Humans audit.</span>
          </div>
       </div>
    </div>
 </div>
 <hr class="hero-divider">
-<script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
-<script src="/js/trefoil-animation.js"></script>
 <div class="centered-section">
-   <p><strong>You're a founder trying to outmaneuver the competition.</strong> You've hired a workforce of AI agents—tireless, brilliant, and incredibly fast. But they have no strategy. They excel at winning small skirmishes (writing a function) but consistently lose the war (maintaining architectural integrity).</p>
+   <p><strong>AI agents write code at superhuman speed. Without rails, they diverge.</strong> Arbiter enforces a single spec so agents produce consistent, correct systems.</p>
    
-   <p>The result is chaos. Each agent makes its own "best guess," creating a tangled mess of code. You're spending all your time cleaning up the friendly fire of technical debt instead of conquering your market.</p>
-   
-   <p><strong>Arbiter is the battle plan for your AI workforce.</strong> It translates your business objectives into a formal, executable specification that acts as a set of direct orders. Your agents don't guess; they execute the mission. From this single source of truth, Arbiter generates the entire supply line—tests, infrastructure, and documentation—ensuring every part of your operation is perfectly coordinated.</p>
+   <p>Other tools stop at markdown specs or UML. Arbiter compiles specs into running systems, enforces them in CI, and syncs with GitHub/GitLab. It's the only platform designed for agent-driven development end-to-end.</p>
 </div>
 
 <div class="content-section">
-   <h2>No Greenfield? No Problem.</h2>
-   <h3>Tame Your Existing Codebase First.</h3>
-   
-   <p>Most AI tools assume you're starting from scratch. We don't. You can't build the future if you're drowning in the technical debt of the past.</p>
-   
-   <p>Arbiter's most powerful feature is its ability to map your existing territory. Our <code>import</code> command analyzes your current repository—no matter how complex—and generates a baseline specification.</p>
-   
-   <p><strong>It reverse-engineers the battle plan from the code you already have.</strong></p>
-   
-   <p>Instantly, you get:</p>
-   <ul>
-      <li>A crystal-clear map of your current architecture.</li>
-      <li>A prioritized list of technical debt and architectural drift.</li>
-      <li>An executable starting point for your agents to begin targeted, safe refactoring.</li>
-   </ul>
-   
-   <p>You don't need a green field to start winning. Arbiter gives you command and control over the codebase you have <em>right now</em>.</p>
-</div>
-<div class="content-section">
-   <h2>The Command & Control Center for Autonomous Development</h2>
-   
-   <p>Arbiter introduces a complete governance system that makes AI-driven development manageable, safe, and observable. We provide the guardrails, the audit trail, and the mission control you need to lead your AI workforce effectively.</p>
+   <h2>Arbiter's Competitive Edge</h2>
    
    <div class="services-grid">
-      <div class="service-card" data-service="drift">
-         <h3><i data-lucide="target"></i> Mission Directives, Not Vague Suggestions</h3>
+      <div class="service-card" data-service="mathematical-correctness">
+         <h3><i data-lucide="shield-check"></i> Constraint-Backed Specs</h3>
          <div class="service-summary">
-            <p><strong>Before writing code, agents must declare their intent.</strong> Formal epics and tasks are machine-readable, version-controlled, and automatically synced as GitHub Issues.</p>
+            <p><strong>PM agents produce specs execution agents can't misinterpret;</strong> CUE constraints compile into validation logic and CI gates.</p>
          </div>
          <div class="service-details">
-            <p><strong>Your team is building against ghost requirements.</strong> What started as a simple e-commerce API has evolved into a complex omnichannel platform, but the original specification still talks about "products" and "orders" without considering inventory management, multi-warehouse fulfillment, or dynamic pricing.</p>
+            <p><strong>Constraint-validated, CI-enforced consistency.</strong> Unlike markdown specs that agents interpret differently, Arbiter's PM agent builds constraint-backed CUE specs through conversation, creating unambiguous constraints that execution agents implement consistently.</p>
             
             <div class="project-features">
                <div class="feature-item" style="font-size: 0.765em;">
-                  <p>"We spent three months building a user authentication system based on the original specification that called for 'simple login functionality.' Meanwhile, the business team had already committed to enterprise customers expecting SAML SSO, multi-tenant isolation, and audit logging.</p>
-                  
-                  <p>When we discovered the mismatch during security review, we had to rebuild the entire auth system. The original specification was technically correct but completely obsolete. No one had updated it because everyone assumed someone else was tracking the evolving requirements.</p>
-                  
-                  <p>The worst part? This wasn't malicious or careless—it was inevitable. Requirements evolve faster than documentation can be updated, especially when different stakeholders have different understandings of what was 'agreed upon.'"</p>
+                  <p>"With CUE specifications, agents get constraint-backed specs kept in sync—constraint-validated, CI-enforced consistency prevents drift."</p>
                   
                   <p style="text-align: right; margin-top: 1rem; font-style: italic;">
-                     <i data-lucide="user"></i> Senior Developer
+                     <i data-lucide="user"></i> AI Team Lead
                   </p>
                </div>
             </div>
          </div>
          <div class="click-hint">Click to expand</div>
       </div>
-      <div class="service-card" data-service="ambiguity">
-         <h3><i data-lucide="history"></i> Architectural Time Travel</h3>
+      <div class="service-card" data-service="full-system">
+         <h3><i data-lucide="layers"></i> Full-Stack Generation & Sync</h3>
          <div class="service-summary">
-            <p><strong>Every specification change is versioned and atomic.</strong> Disastrous architectural changes? Just revert to a previous stable version. Fast, safe experimentation.</p>
+            <p><strong>From one spec: services, APIs, infra, tests, and docs—kept synchronized as the spec evolves.</strong></p>
          </div>
          <div class="service-details">
-            <p><strong>Your specification says "validate user input" but doesn't define validation rules.</strong> Frontend validates email format, backend checks for SQL injection, and business logic assumes phone number formatting—but none of these assumptions are documented or coordinated.</p>
+            <p><strong>Complete artifact generation from specs.</strong> Execution agents shouldn't waste time on boilerplate and configuration. Arbiter generates your entire technology stack from PM agent specs, letting execution agents focus on business logic within pre-built scaffolding.</p>
             
             <div class="project-features">
                <div class="feature-item" style="font-size: 0.765em;">
-                  <p>"The specification said our API should 'handle product pricing flexibly to support various business models.' Seemed clear enough.</p>
-                  
-                  <p>The frontend team interpreted this as simple percentage discounts. The backend team built support for tiered pricing, bulk discounts, and promotional codes. The payment integration team assumed dynamic pricing with real-time adjustment. The business team wanted subscription models, usage-based billing, and promotional campaigns.</p>
-                  
-                  <p>Each interpretation was reasonable given the specification language. But when we tried to integrate, nothing aligned. We had four different pricing models that couldn't work together, and no way to determine which interpretation was 'correct' because the specification was ambiguous by design.</p>
+                  <p>"Arbiter generated everything from PostgreSQL schemas to React components—agents focus on business logic, not plumbing."</p>
                   
                   <p style="text-align: right; margin-top: 1rem; font-style: italic;">
-                     <i data-lucide="user"></i> Technical Lead
+                     <i data-lucide="user"></i> Product Manager
                   </p>
                </div>
             </div>
          </div>
          <div class="click-hint">Click to expand</div>
       </div>
-      <div class="service-card" data-service="validation">
-         <h3><i data-lucide="crosshair"></i> Surgical Strikes, Not Carpet Bombing</h3>
+      <div class="service-card" data-service="github-integration">
+         <h3><i data-lucide="git-branch"></i> Version Control & CI Sync</h3>
          <div class="service-summary">
-            <p><strong>Idempotent generation that evolves your codebase intelligently.</strong> New API endpoints enhance existing code surgically—no regenerating the world.</p>
+            <p><strong>Issues, checks, and webhooks align agents with your repo;</strong> spec changes trigger pipelines and block merges on drift.</p>
          </div>
          <div class="service-details">
-            <p><strong>You can't prove your code matches your specifications.</strong> Manual testing catches obvious failures, but subtle requirement violations compound over time until the system behavior diverges significantly from business intent.</p>
+            <p><strong>Native integration with development workflow.</strong> Agent teams need coordination mechanisms beyond chat. Arbiter creates GitHub Issues for every epic and task, with webhook events that notify execution agents of spec changes, test results, and deployment status from the PM agent.</p>
             
             <div class="project-features">
                <div class="feature-item" style="font-size: 0.765em;">
-                  <p>"Our specification required 'secure data handling with encryption at rest and in transit.' The implementation passed security review and functioned correctly in production for months.</p>
-                  
-                  <p>During a compliance audit, we discovered that while database encryption was active and HTTPS was enforced, temporary files created during data processing were being written to disk unencrypted. The logging system was also storing sensitive data in plaintext.</p>
-                  
-                  <p>The specification was satisfied in the most literal sense, but violated in spirit. There was no automated way to verify comprehensive compliance, and manual review couldn't catch every edge case. We only discovered the issue when external auditors used specialized tools to scan for unencrypted data patterns."</p>
+                  <p>"We've essentially created a GitHub-native operating system for AI agent collaboration."</p>
                   
                   <p style="text-align: right; margin-top: 1rem; font-style: italic;">
-                     <i data-lucide="user"></i> Security Engineer
+                     <i data-lucide="user"></i> DevOps Engineer
                   </p>
                </div>
             </div>
@@ -155,57 +136,134 @@ scripts:
       </div>
    </div>
 </div>
-<div class="centered-section">
-   <p>Here's the solution: specifications that can validate themselves. That's where Arbiter comes in. <strong>Arbiter transforms business requirements into mathematical specifications using the CUE language, then generates fully functional software that's guaranteed to comply with those specifications.</strong> No drift, no ambiguity, no manual validation—just executable contracts that ensure your implementation matches your intent.</p>
-   
-   <p>Under the hood, Arbiter leverages the mathematical foundations of the CUE language to provide formal verification capabilities. We're talking about type systems with gradual constraint refinement, unification-based validation with automatic consistency checking, and composable specification modules that can be reused across different parts of your system. <strong>Arbiter doesn't just generate code—it generates provably correct code that maintains compliance over time.</strong></p>
-   
-   <p>The magic happens through CUE's unique approach to configuration and validation. Unlike traditional specification languages, CUE treats your requirements as mathematical constraints that can be composed, refined, and validated automatically. <strong>When requirements change, Arbiter regenerates your implementation to maintain mathematical consistency with your updated specifications.</strong> This isn't your grandfather's code generator—it's a specification-driven development platform that bridges business requirements with mathematical precision.</p>
-   
-   <p><strong>Arbiter also accelerates compliance and regulatory requirements.</strong> Traditional compliance checking is manual, error-prone, and expensive. Arbiter embeds compliance rules directly into your specifications, generating software that's compliant by construction rather than verification.</p>
-</div>
+
 <div class="content-section">
-   <h2>The Live Battlefield Map</h2>
+<div class="section-header">
+<span class="kicker">Agent Coordination</span>
+<h2>From Conversation to Code</h2>
+<p class="lead">Other tools stop at markdown specs or UML. Arbiter compiles specs into running systems—validation logic, tests, scaffolding, documentation, and deployment configs.</p>
+</div>
+
+<figure class="workflow" aria-label="Conversation to code workflow">
+  <div class="workflow-row">
+    <div class="node">PM Agent</div>
+    <i data-lucide="arrow-right" class="workflow-arrow-right"></i>
+    <p class="note">PM agent drives Arbiter CLI/MCP to build a <em>constraint-backed spec</em>.</p>
+  </div>
+
+  <div class="workflow-row arrow-row">
+    <i class="arrow" data-lucide="arrow-down" aria-hidden="true"></i>
+  </div>
+
+  <div class="workflow-row">
+    <div class="node">Constraint Spec</div>
+    <i data-lucide="arrow-right" class="workflow-arrow-right"></i>
+    <p class="note">Arbiter compiles specs into <em>validation rules, tests, scaffolding, and docs</em>.</p>
+  </div>
+
+  <div class="workflow-row arrow-row">
+    <i class="arrow" data-lucide="arrow-down" aria-hidden="true"></i>
+  </div>
+
+  <div class="workflow-row">
+    <div class="node">Execution Agents</div>
+    <i data-lucide="arrow-right" class="workflow-arrow-right"></i>
+    <p class="note">Execution agents implement <em>inside those constraints</em>; Version Control &amp; CI keep everything in sync.</p>
+  </div>
+
+  <figcaption class="caption">Workflow coordination through constraint specs</figcaption>
+</figure>
+</div>
+
+<div class="content-section">
+<div class="section-header">
+<span class="kicker">Specification Generation</span>
+<h2>Specs Without Humans Writing Specs</h2>
+<p class="lead"><strong>PM agent builds the spec; Arbiter enforces it.</strong> By default, you don't touch CUE/YAML. The PM agent knows what "done" requires and refines through conversation until all constraints are defined.</p>
+</div>
+
+<p>Generated tests and validation rules are enforced in CI as the system evolves.</p>
+</div>
+
+<div class="content-section">
+<div class="section-header">
+<span class="kicker">Real-time Monitoring</span>
+<h2>Watch the System Emerge</h2>
+<p class="lead"><strong>Real-time docs and diagrams provide auditability and clear stakeholder communication</strong>—architecture, API docs, and test results update live as agents work.</p>
+</div>
+</div>
+
+<div class="centered-section">
+<h3>Who It's For</h3>
+<p><strong>Solo devs</strong> • Time saved through automated constraint validation and spec compilation<br>
+<strong>Seed/Series A teams</strong> • Drift removed through CI-enforced consistency and agent coordination<br>
+<strong>SMBs with growing repos</strong> • CI gates that scale without manual oversight or technical debt accumulation</p>
+</div>
+
+<div class="centered-section">
+<p>Arbiter is built from the ground up to support agent coordination. Technical debt is the single largest driver of AI project failure. With Arbiter, your PM and execution agents have the guardrails they need to keep projects consistent and debt-free.</p>
+
+<h3>Why Arbiter vs. Markdown/UML Tools?</h3>
+<p>Traditional documentation tools create static artifacts that drift from reality. Arbiter compiles conversational requirements into <strong>executable specifications</strong> that stay synchronized with your code through CI enforcement.</p>
+
+<div class="comparison-grid">
+   <div class="comparison-item">
+      <h4>Traditional Tools</h4>
+      <ul class="text-left">
+         <li class="text-left">Static documentation</li>
+         <li class="text-left">Manual updates required</li>
+         <li class="text-left">No enforcement mechanism</li>
+         <li class="text-left">Best-effort</li>
+      </ul>
+   </div>
+   <div class="comparison-item">
+      <h4>Arbiter</h4>
+      <ul class="text-left">
+         <li class="text-left">Executable specifications</li>
+         <li class="text-left">Auto-updated from code changes</li>
+         <li class="text-left">CI-enforced constraints</li>
+         <li class="text-left">Constraint-validated consistency</li>
+      </ul>
+   </div>
+</div>
+
+<h2>Ready to Give Your AI Agents the Intelligence They Deserve?</h2>
+<div class="cta-section">
+<a href="https://github.com/sibyllinesoft/arbiter" class="btn-unified btn-primary">
+<span class="btn-inner">
+View on GitHub
+<i data-lucide="github"></i>
+</span>
+</a>
+<a href="/products" class="btn-unified btn-secondary">
+<span class="btn-inner">
+View All Products
+<i data-lucide="arrow-left"></i>
+</span>
+</a>
+</div>
+</div>
+
+<div class="content-section">
+   <h2>More Advantages</h2>
    
-   <p>The Arbiter Web UI is your mission control. As an agent modifies the CUE spec, you can watch the system's architectural diagrams, dependency graphs, and project Gantt charts update <strong>in real-time</strong>. This isn't a static report; it's a live dashboard that visualizes the impact of every decision, giving you the oversight to course-correct immediately.</p>
+   <p>Beyond core spec compilation, Arbiter provides real-time visibility and agent-native coordination that traditional tools can't match.</p>
    
    <div class="services-grid">
       <div class="service-card" data-service="schema-validation">
-         <h3><i data-lucide="monitor"></i> Real-Time Mission Control</h3>
+         <h3><i data-lucide="file-text"></i> Live Docs & Diagrams</h3>
          <div class="service-summary">
-            <p><strong>Live dashboard visualizes every architectural decision in real-time.</strong> Watch dependency graphs, project timelines, and system diagrams update as agents modify specifications.</p>
+            <p><strong>Portal renders architecture, API docs, and test status in real time for fast human audit.</strong></p>
          </div>
          <div class="service-details">
-            <h4>Example CUE Schema:</h4>
-
-```cue
-#User: {
-    id: string & =~"^[a-z0-9-]+$" & len(id) > 0
-    email: string & =~"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
-    age: int & >= 13 & <= 120
-    role: "admin" | "user" | "moderator"
-    
-    // Conditional constraints based on role
-    if role == "admin" {
-        permissions: [...string] & len(permissions) > 0
-        adminLevel: int & >= 1 & <= 5
-    }
-    
-    // Cross-field validation
-    if age < 18 {
-        parentalConsent: true
-    }
-}
-```
-
-            <p>Your validation logic becomes mathematically precise, eliminating the guesswork and ensuring consistent behavior across all system components.</p>
+            <p><strong>Real-time visualization of agent progress.</strong> Stakeholders see progress through live diagrams, not code review. System architecture, dependency graphs, and documentation update automatically as agents work.</p>
             
             <div class="project-features">
                <div class="feature-item" style="font-size: 0.765em;">
-                  <p>"I can define exactly what valid data looks like instead of hoping my validation catches edge cases."</p>
+                  <p>"Stakeholders get instant visibility into system changes without parsing code or waiting for documentation updates."</p>
                   
                   <p style="text-align: right; margin-top: 1rem; font-style: italic;">
-                     <i data-lucide="user"></i> Backend Developer
+                     <i data-lucide="user"></i> Product Manager
                   </p>
                </div>
             </div>
@@ -213,9 +271,9 @@ scripts:
          <div class="click-hint">Click to expand</div>
       </div>
       <div class="service-card" data-service="api-contracts">
-         <h3><i data-lucide="git-branch"></i> Version-Controlled Battle Plans</h3>
+         <h3><i data-lucide="bot"></i> Agent-Native Integration</h3>
          <div class="service-summary">
-            <p><strong>Every specification change is tracked and reversible.</strong> Atomic commits mean you can experiment boldly and revert instantly if needed.</p>
+            <p><strong>NDJSON streams and webhooks for orchestration;</strong> Arbiter speaks agent, not just human.</p>
          </div>
          <div class="service-details">
             <h4>Example API Specification:</h4>
@@ -262,7 +320,7 @@ scripts:
             
             <div class="project-features">
                <div class="feature-item" style="font-size: 0.765em;">
-                  <p>"My API documentation, validation, and implementation are always in sync because they're generated from the same source."</p>
+                  <p>"My API documentation, validation, and implementation are kept in sync because they're generated from the same source."</p>
                   
                   <p style="text-align: right; margin-top: 1rem; font-style: italic;">
                      <i data-lucide="user"></i> API Developer
@@ -272,60 +330,38 @@ scripts:
          </div>
          <div class="click-hint">Click to expand</div>
       </div>
-      <div class="service-card" data-service="full-system">
-         <h3><i data-lucide="command"></i> Complete Supply Line Generation</h3>
+      <div class="service-card" data-service="surgical-generation">
+         <h3><i data-lucide="diff"></i> Incremental Generation</h3>
          <div class="service-summary">
-            <p><strong>From specifications to full applications with one command.</strong> Database schemas, APIs, UI components, tests, and deployment configs—all perfectly coordinated.</p>
+            <p><strong>Evolve existing code without full regeneration;</strong> new constraints update scaffolding while custom code stays intact.</p>
          </div>
          <div class="service-details">
-            <h4>Example System Specification:</h4>
+            <h4>Example Incremental Generation:</h4>
 
 ```cue
-#ECommerceSystem: {
-    // Core business entities
-    entities: {
-        products: #Product
-        orders: #Order  
-        customers: #Customer
-        inventory: #Inventory
-    }
-    
-    // Business workflows
-    workflows: {
-        orderProcessing: {
-            steps: [
-                "validateCustomer",
-                "checkInventory", 
-                "calculatePricing",
-                "processPayment",
-                "updateInventory",
-                "sendConfirmation"
-            ]
-            constraints: [
-                "inventory must be reserved before payment",
-                "failed payments must release inventory",
-                "all steps must be auditable"
-            ]
+#UserAPI: {
+    // Add new endpoint to existing API
+    "/users/{id}/preferences": {
+        PUT: {
+            request: {
+                body: #UserPreferences
+            }
+            responses: {
+                200: {body: #User}
+                404: {body: #NotFoundError}
+            }
         }
-    }
-    
-    // Infrastructure requirements
-    infrastructure: {
-        database: "postgresql"
-        caching: "redis"
-        messaging: "rabbitmq"
-        deployment: "kubernetes"
     }
 }
 ```
-            <p>Complete systems generated with mathematical consistency across all components, ensuring business logic alignment from database to user interface.</p>
+            <p>Arbiter analyzes existing code patterns and guides execution agents to enhance incrementally. New features integrate seamlessly with existing patterns, middleware, and error handling that agents recognize.</p>
             
             <div class="project-features">
                <div class="feature-item" style="font-size: 0.765em;">
-                  <p>"I get a complete, working system that's guaranteed to implement my business requirements correctly."</p>
+                  <p>"When I add a new API endpoint, Arbiter surgically updates everything—no regeneration, no lost custom logic."</p>
                   
                   <p style="text-align: right; margin-top: 1rem; font-style: italic;">
-                     <i data-lucide="user"></i> Product Manager
+                     <i data-lucide="user"></i> Backend Developer
                   </p>
                </div>
             </div>
@@ -336,22 +372,12 @@ scripts:
    </div>
 </div>
 <div class="centered-section">
-<p>Arbiter is built from the ground up to support autonomous coding. Technical debt is the single largest driver of vibe coding project failure (and project failure in general). With Arbiter, your agents has the tool they need to keep your projects debt free.</p>
-   <h2>Ready to Give Your AI Agents the Intelligence They Deserve?</h2>
-   <div class="cta-section">
-   <a href="https://github.com/sibyllinesoft/arbiter" class="btn-unified btn-primary">
-   <span class="btn-inner">
-   View on GitHub
-   <i data-lucide="github"></i>
-   </span>
-   </a>
-   <a href="/products" class="btn-unified btn-secondary">
-   <span class="btn-inner">
-   View All Products
-   <i data-lucide="arrow-left"></i>
-   </span>
-   </a>
-</div>
+
+   <h3>Legacy Codebases? No Problem.</h3>
+   
+   <p>Arbiter imports existing repos to generate a baseline spec so agents can work safely inside explicit constraints.</p>
+   
+   <p><strong>Instantly get:</strong> a comprehensive spec of your current architecture • clear constraints for agents • a baseline for safe, incremental collaboration.</p>
 </div>
 
 <div class="content-section">

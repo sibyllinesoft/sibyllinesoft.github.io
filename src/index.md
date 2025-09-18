@@ -42,13 +42,13 @@ layout: simple.njk
     </div>
     <div class="rotating-banners">
       <div class="banner-container active">
-        <span class="banner-text" data-text="The AI Dev Stack That Actually Ships">The AI Dev Stack That Actually Ships</span>
+        <span class="banner-text" data-text="Build AI agents that work. Scale them without limits.">Build AI agents that work. Scale them without limits.</span>
       </div>
       <div class="banner-container">
-        <span class="banner-text" data-text="Spin Up in Two Commands. Ship in Days.">Spin Up in Two Commands. Ship in Days.</span>
+        <span class="banner-text" data-text="The only stack that scales from prototype to production without a rewrite.">The only stack that scales from prototype to production without a rewrite.</span>
       </div>
       <div class="banner-container">
-        <span class="banner-text" data-text="From Laptop Sandbox to Hyperscale, Seamlessly.">From Laptop Sandbox to Hyperscale, Seamlessly.</span>
+        <span class="banner-text" data-text="Stop building infrastructure. Start building agents.">Stop building infrastructure. Start building agents.</span>
       </div>
     </div>
   </div>
@@ -58,17 +58,18 @@ layout: simple.njk
 
 <div class="centered-section">
 
-## While Others Stitch Tools Together, We Ship a Unified Stack That Scales From Laptop to Enterprise
+Most AI teams bolt tools together. Costs balloon. Workflows crack. Agents fail.
 
-Most teams chase AI by piling on point solutions. They end up with bloated costs, brittle workflows, and agents that break under pressure. We built one coherent stack — the same core architecture that powers a single developer’s laptop sandbox and scales up to hyperscaler clusters.
+We built one coherent stack—the same architecture runs on a single developer laptop and scales cleanly to hyperscaler clusters.
 
-The result: blazing performance, low costs, and reliable autonomous development that doesn’t collapse under real workloads. From day one you get a system designed to adapt, scale, and keep shipping — whether you’re a team of one or a global enterprise.
+The result: fast, cheap, reliable agentic systems that actually ship. From day one, you're building on infrastructure designed to learn, adapt, and scale.
 
 </div>
 
 <div class="hero-cta">
   <a href="/products/" class="btn-primary"><span class="btn-inner">Try the Stack <i data-lucide="arrow-right"></i></span></a>
-  <a href="javascript:void(0)" class="btn-secondary" data-contact-type="contact" data-subject-type="strategy"><span class="btn-inner">See How It Works <i data-lucide="mail"></i></span></a>
+  <a href="javascript:void(0)" class="btn-secondary" data-contact-type="contact" data-subject-type="strategy"><span class="btn-inner">Talk Strategy <i data-lucide="mail"></i></span></a>
+  <a href="/sandbox/" class="btn-tertiary"><span class="btn-inner">Explore the Sandbox</span></a>
 </div>
 
 <div class="content-section">
@@ -77,9 +78,9 @@ The result: blazing performance, low costs, and reliable autonomous development 
 
 <div class="services-grid">
 <div class="service-card" data-service="training">
-<h3><i data-lucide="graduation-cap"></i> Individuals — From laptop to pro-grade stack</h3>
+<h3><i data-lucide="graduation-cap"></i> Individuals</h3>
 <div class="service-summary">
-<p><strong>Your own agentic development environment in minutes.</strong> Secure sandboxes ready to run agent swarms. Pro-grade tools that work on any laptop without burning cash or privacy.</p>
+<p><strong>Prototype in minutes.</strong> Secure, pro-grade sandbox that runs locally—no budget drain, no data leaks.</p>
 </div>
 <div class="service-details">
 <p><strong>Your own sandboxed AI dev shop in minutes.</strong> Install RAVE, create a VM, and you've got a secure dev box ready to run a whole swarm of agents. SMITH orchestrates them without lag, LETHE keeps infinite memory without you curating context, and LENS + GRIMOIRE give your agents code search that's scary accurate. You get pro-grade tools, but everything works on a laptop without burning cash or privacy.</p>
@@ -95,9 +96,9 @@ The result: blazing performance, low costs, and reliable autonomous development 
 </div>
 
 <div class="service-card" data-service="startup">
-<h3><i data-lucide="zap"></i> Startups — Velocity without burn</h3>
+<h3><i data-lucide="zap"></i> Startups</h3>
 <div class="service-summary">
-<p><strong>Ship features before your runway runs out.</strong> Full agentic dev environments spin up in minutes so your team codes day one. Seamlessly scale to hyperscaler performance at a fraction of the cost.</p>
+<p><strong>Ship faster than your runway.</strong> Scale from prototype to production without costly rewrites.</p>
 </div>
 <div class="service-details">
 <p><strong>Ship features before your runway runs out.</strong> RAVE spins up your full dev environment in minutes so your team is coding day one. When you outgrow the box, MULTIVERSE scales you to hyperscaler performance at a fraction of the cost. LETHE and SCRIBE give your agents context that doesn't break, ARBITER nails specs before code drifts. You go from empty repo to shipping production features in days, not months.</p>
@@ -113,9 +114,9 @@ The result: blazing performance, low costs, and reliable autonomous development 
 </div>
 
 <div class="service-card" data-service="enterprise">
-<h3><i data-lucide="building"></i> Enterprise — Control, compliance, and speed</h3>
+<h3><i data-lucide="building"></i> Enterprise</h3>
 <div class="service-summary">
-<p><strong>Enterprise-grade agentic orchestration without the bureaucracy.</strong> Reactive architecture with sub-5ms starts, full auditing, and multi-layer sandboxing. Distributed, observable, and compliant out of the box.</p>
+<p><strong>Enterprise-grade control & compliance.</strong> Reactive systems with sub-5ms starts, full audit trails, and layered security—all out of the box.</p>
 </div>
 <div class="service-details">
 <p><strong>Enterprise-grade orchestration without the bureaucracy.</strong> SMITH gives you reactive architecture with sub-5ms starts, full auditing, and multi-layer sandboxing. GUILD keeps code and business docs in sync while enriching them for RAG. AEGIS ends merge queue hell, ARBITER locks specs to code. It's distributed, observable, and compliant out of the box—so you move faster without sacrificing control.</p>
@@ -133,18 +134,18 @@ The result: blazing performance, low costs, and reliable autonomous development 
 </div>
 
 <div class="marketing-blurb">
-<strong>Your competitors are still figuring out prompts. You could be shipping autonomous agents.</strong> The companies that win won't be those with the best AI features—they'll be the ones whose entire product is intelligent by design. Every day of delay is lost competitive advantage.
+<strong>While they're still tinkering with prompts, you could be shipping agents.</strong> Winners won't just add AI features—they'll be intelligent by design.
 </div>
 
 <div class="content-section">
 
-## Why You Can Trust Me With Your AI Strategy
+## Why Trust Us With Your AI Strategy
 
 <div class="services-grid">
 <div class="service-card" data-service="agentic">
-<h3><i data-lucide="bot"></i> I Ship Autonomous Agent Systems</h3>
+<h3><i data-lucide="bot"></i> We Ship Production Systems, Not Demos</h3>
 <div class="service-summary">
-<p>While others demo ChatGPT integrations, I build production agent systems that compose like software packages and run safely at scale.</p>
+<p><strong>Composable, reliable systems</strong> that run safely at scale.</p>
 </div>
 <div class="service-details">
 <h4>The difference:</h4>
@@ -185,9 +186,9 @@ The result: blazing performance, low costs, and reliable autonomous development 
 </div>
 
 <div class="service-card" data-service="predictive">
-<h3><i data-lucide="trending-up"></i> I Build Systems That Actually Learn</h3>
+<h3><i data-lucide="trending-up"></i> We Build Systems That Learn and Adapt</h3>
 <div class="service-summary">
-<p>Most AI just regurgitates training data. I build systems that spot patterns others miss and evolve ideas autonomously while you sleep.</p>
+<p><strong>Beyond parroting data:</strong> agents that evolve strategies and deliver value.</p>
 </div>
 <div class="service-details">
 <h4>Beyond pattern matching:</h4>
@@ -229,9 +230,9 @@ The result: blazing performance, low costs, and reliable autonomous development 
 </div>
 
 <div class="service-card" data-service="strategic">
-<h3><i data-lucide="target"></i> I've Been Doing This Since 2007</h3>
+<h3><i data-lucide="target"></i> We've Been Doing This Since 2007</h3>
 <div class="service-summary">
-<p>From collaborative filtering to autonomous agents—I've weathered every AI hype cycle and know which technologies actually stick.</p>
+<p><strong>From collaborative filtering to autonomous agents,</strong> we know what survives hype cycles.</p>
 </div>
 <div class="service-details">
 <h4>Why experience matters:</h4>
@@ -279,7 +280,7 @@ The result: blazing performance, low costs, and reliable autonomous development 
 </div>
 
 <div class="marketing-blurb">
-<strong>Ready to stop wondering "what if" and start building "what's next"?</strong> The most successful companies don't wait for perfect timing—they create competitive advantages while others hesitate.
+<strong>Stop wondering 'what if.' Start building 'what's next.'</strong> The most successful companies don't wait—they build their competitive advantage.
 </div>
 
 
@@ -290,34 +291,32 @@ The result: blazing performance, low costs, and reliable autonomous development 
 <div class="discovery-options">
   <div class="discovery-option">
     <h3><i data-lucide="lightbulb"></i> Strategy Session</h3>
-    <p>Identify high-impact AI opportunities specific to your business.</p>
-    <a class="btn-unified btn-primary" href="javascript:void(0)" data-contact-type="contact" data-subject-type="strategy">
-      <span class="btn-inner">Talk Strategy <i data-lucide="arrow-right"></i></span>
-    </a>
+    <p>Pinpoint high-impact AI opportunities.</p>
   </div>
   
   <div class="discovery-option">
     <h3><i data-lucide="search"></i> Technical Assessment</h3>
-    <p>We'll assess your current capabilities and design implementation roadmaps.</p>
-    <a class="btn-unified btn-primary" href="javascript:void(0)" data-contact-type="contact" data-subject-type="technical">
-      <span class="btn-inner">Get Assessment <i data-lucide="clipboard-check"></i></span>
-    </a>
+    <p>Evaluate infra and design a roadmap.</p>
   </div>
   
   <div class="discovery-option">
     <h3><i data-lucide="wrench"></i> Innovation Workshop</h3>
-    <p>Collaborative sessions to reimagine what's possible with intelligent systems.</p>
-    <a class="btn-unified btn-primary" href="javascript:void(0)" data-contact-type="contact" data-subject-type="innovation">
-      <span class="btn-inner">Start Workshop <i data-lucide="play-circle"></i></span>
-    </a>
+    <p>Reimagine what's possible with intelligent systems.</p>
   </div>
 </div>
 
+<div class="discovery-cta">
+  <a class="btn-unified btn-primary" href="javascript:void(0)" data-contact-type="contact" data-subject-type="discovery">
+    <span class="btn-inner">Start Your Discovery Process <i data-lucide="arrow-right"></i></span>
+  </a>
+</div>
 
 </div>
 
 
-## Latest Articles
+## From Our Blog: Systems That Scale. Workflows That Work.
+
+Deep dives on building agents that don't break.
 
 {% if collections.articles.length > 0 %}
 <div class="recent-articles">
@@ -3955,7 +3954,7 @@ class NeuralNetwork {
       this.pulses.push({
         connectionIndex,
         progress: 0,
-        speed: 1.2, // Increased speed for faster pulse movement
+        speed: 0.6, // Reduced speed by 50% for slower pulse movement
         intensity: 0.6 + Math.random() * 0.4,
         createdAt: now,
         sourceNode: connection.from, // Track originating node for propagation

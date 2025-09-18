@@ -63,25 +63,88 @@ const serviceData = {
     body: 'Hi! We need automated ways to verify implementation compliance. Can we discuss how Arbiter can provide continuous validation mechanisms for our projects?'
   },
   'schema-validation': {
-    image: '/img/optimized/modal-comprehensive.webp',
-    ctaText: 'Get Schema Validation',
-    alt: 'CUE schema validation and data precision',
-    subject: 'CUE Schema Validation Services',
-    body: 'Hello! I\'m interested in implementing CUE schemas for mathematical precision in data validation. Can we discuss how to eliminate ambiguity with executable specifications?'
+    image: 'https://images.unsplash.com/photo-1704964971025-e3ce2b8fdc91?q=80&w=500&h=1200&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    ctaText: 'Get Real-Time Control',
+    alt: 'Real-time mission control dashboard and live monitoring',
+    subject: 'Real-Time Mission Control Implementation',
+    body: 'Hello! I\'m interested in implementing real-time mission control with live dashboard visualization. Can we discuss how to monitor architectural decisions, dependency graphs, and system changes in real-time?'
   },
   'api-contracts': {
-    image: '/img/optimized/modal-integration.webp',
-    ctaText: 'Generate API Contracts',
-    alt: 'API contract generation and implementation',
-    subject: 'API Contract Generation Services',
-    body: 'Hi! I need help generating complete API implementations from CUE specifications. Can we explore OpenAPI schema generation and validation middleware options?'
+    image: 'https://images.unsplash.com/photo-1716391364025-aa44e51a535e?q=80&w=500&h=1200&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    ctaText: 'Setup Version Control',
+    alt: 'Version control and specification tracking with rollback capabilities',
+    subject: 'Version Control & Rollback Implementation',
+    body: 'Hello! I\'m interested in implementing version control with atomic commits and reversible specification changes. Can we discuss how to track every specification change and enable instant rollbacks?'
   },
   'full-system': {
-    image: '/img/optimized/modal-overload.webp',
+    image: 'https://images.unsplash.com/photo-1552705906-adcf48ae889a?q=80&w=500&h=1200&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     ctaText: 'Generate Full System',
     alt: 'Complete system generation from specifications',
     subject: 'Full System Generation Consultation',
     body: 'Hello! I\'m interested in complete application generation from business specifications. Can we discuss generating database schemas, business logic, and UI components that are mathematically consistent?'
+  },
+  'github-integration': {
+    image: 'https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?q=80&w=500&h=1200&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    ctaText: 'Setup GitHub Integration',
+    alt: 'Full GitHub integration and automation',
+    subject: 'GitHub Integration & Automation Setup',
+    body: 'Hi! I\'m interested in setting up full GitHub integration with automated issue creation, webhook event dispatch, and AI agent coordination. Can we discuss how to implement this workflow?'
+  },
+  'mathematical-correctness': {
+    image: 'https://images.unsplash.com/photo-1646763342742-e15af86f2825?q=80&w=500&h=1200&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    ctaText: 'Get Mathematical Guarantees',
+    alt: 'Mathematical correctness guarantees and formal verification',
+    subject: 'Mathematical Correctness Implementation',
+    body: 'Hello! I\'m interested in implementing mathematical correctness guarantees using CUE\'s formal verification capabilities. Can we discuss compositional spec development and provable correctness for our projects?'
+  },
+  'surgical-generation': {
+    image: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=500&h=1200&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    ctaText: 'Enable Surgical Generation',
+    alt: 'Surgical code generation and intelligent evolution',
+    subject: 'Surgical Code Generation Implementation',
+    body: 'Hi! I\'m interested in implementing surgical code generation that evolves codebases intelligently. Can we discuss idempotent generation techniques that enhance existing code without regenerating everything?'
+  },
+  'constraint-backed-specs': {
+    image: 'https://images.unsplash.com/photo-1646763342742-e15af86f2825?q=80&w=500&h=1200&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    ctaText: 'Implement Constraint-Backed Specs',
+    alt: 'Constraint-backed specifications and CI enforcement',
+    subject: 'Constraint-Backed Specifications Implementation',
+    body: 'Hello! I\'m interested in implementing constraint-backed specs with CI enforcement. Can we discuss how to build CUE specifications that generate immutable tests and prevent agent divergence?'
+  },
+  'full-stack-generation': {
+    image: 'https://images.unsplash.com/photo-1552705906-adcf48ae889a?q=80&w=500&h=1200&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    ctaText: 'Setup Full-Stack Generation',
+    alt: 'Full-stack generation and synchronization',
+    subject: 'Full-Stack Generation & Sync Implementation',
+    body: 'Hi! I\'m interested in full-stack generation from specifications. Can we discuss how to generate services, infrastructure, tests, and docs from one spec with GitHub/GitLab sync?'
+  },
+  'vcs-ci-sync': {
+    image: 'https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?q=80&w=500&h=1200&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    ctaText: 'Setup VCS Integration',
+    alt: 'Version control and CI synchronization',
+    subject: 'VCS + CI Sync Implementation',
+    body: 'Hello! I\'m interested in setting up VCS and CI integration with automated synchronization. Can we discuss GitHub/GitLab integration with spec enforcement and agent coordination?'
+  },
+  'live-docs-diagrams': {
+    image: 'https://images.unsplash.com/photo-1704964971025-e3ce2b8fdc91?q=80&w=500&h=1200&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    ctaText: 'Enable Live Documentation',
+    alt: 'Live documentation and diagrams',
+    subject: 'Live Documentation & Diagrams Setup',
+    body: 'Hi! I\'m interested in implementing live documentation and diagrams that update in real-time. Can we discuss portal rendering of architectural diagrams and API docs as agents work?'
+  },
+  'agent-native-interfaces': {
+    image: '/img/optimized/modal-integration.webp',
+    ctaText: 'Setup Agent Interfaces',
+    alt: 'Agent-native interfaces and webhooks',
+    subject: 'Agent-Native Interfaces Implementation',
+    body: 'Hello! I\'m interested in implementing agent-native interfaces with NDJSON and webhook events. Can we discuss APIs designed specifically for AI agent coordination and workflow automation?'
+  },
+  'incremental-adoption': {
+    image: 'https://images.unsplash.com/photo-1716391364025-aa44e51a535e?q=80&w=500&h=1200&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    ctaText: 'Start Incremental Adoption',
+    alt: 'Incremental adoption and legacy integration',
+    subject: 'Incremental Adoption Strategy',
+    body: 'Hi! I\'m interested in incremental adoption for existing codebases. Can we discuss how to analyze existing repositories and generate baseline specifications for gradual agent enhancement?'
   }
 };
 
