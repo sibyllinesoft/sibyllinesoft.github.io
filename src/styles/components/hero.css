@@ -39,10 +39,40 @@
 .hero-content {
   position: relative;
   z-index: 2;
-  text-align: center;
   width: 100%;
   padding: var(--space-3xl) var(--space-xl);
   margin: 0 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-xl);
+}
+
+.hero-row {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-row-logo {
+  justify-content: center;
+}
+
+.hero-row-title {
+  justify-content: center;
+}
+
+.hero-row-subtitle {
+  justify-content: center;
+}
+
+.hero-subtitle-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  align-items: center;
 }
 
 /* Hero Title Container with Logo */
@@ -294,8 +324,13 @@
     min-height: 35vh;
   }
   
-  .hero-title-container {
-    gap: var(--space-lg);
+  .hero-content {
+    padding: var(--space-2xl) var(--space-lg);
+    margin: 0;
+  }
+  
+  .hero-row {
+    justify-content: center;
   }
   
   .hero-logo {

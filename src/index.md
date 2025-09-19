@@ -33,25 +33,25 @@ layout: simple.njk
   </div>
 </div>
 
-<div class="hero-container">
-  <canvas id="neural-network" class="neural-background"></canvas>
-  <div class="hero-content">
-    <div class="hero-title-container">
-      <img src="/img/logo.svg" alt="Sibylline Software Logo" class="hero-logo">
-      <h1 class="hero-title">The AI Dev Stack That Actually Ships</h1>
+{% set heroLogo = '/img/logo.svg' %}
+{% set heroLogoAlt = 'Sibylline Software Logo' %}
+{% set heroTitle = 'The AI Dev Stack That Actually Ships' %}
+{% set heroSubtitle %}
+  <div class="rotating-banners">
+    <div class="banner-container active">
+      <span class="banner-text" data-text="Build AI agents that work. Scale them without limits.">Build AI agents that work. Scale them without limits.</span>
     </div>
-    <div class="rotating-banners">
-      <div class="banner-container active">
-        <span class="banner-text" data-text="Build AI agents that work. Scale them without limits.">Build AI agents that work. Scale them without limits.</span>
-      </div>
-      <div class="banner-container">
-        <span class="banner-text" data-text="The only stack that scales from prototype to production without a rewrite.">The only stack that scales from prototype to production without a rewrite.</span>
-      </div>
-      <div class="banner-container">
-        <span class="banner-text" data-text="Stop building infrastructure. Start building agents.">Stop building infrastructure. Start building agents.</span>
-      </div>
+    <div class="banner-container">
+      <span class="banner-text" data-text="The only stack that scales from prototype to production without a rewrite.">The only stack that scales from prototype to production without a rewrite.</span>
+    </div>
+    <div class="banner-container">
+      <span class="banner-text" data-text="Stop building infrastructure. Start building agents.">Stop building infrastructure. Start building agents.</span>
     </div>
   </div>
+{% endset %}
+<div class="hero-container">
+  <canvas id="neural-network" class="neural-background"></canvas>
+  {% include "components/hero-content.njk" %}
 </div>
 
 <hr class="hero-divider">

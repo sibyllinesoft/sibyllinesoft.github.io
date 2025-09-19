@@ -28,13 +28,11 @@ scripts:
       <div class="subtitle">From thousands of files to a prioritized list of actionable insights</div>
    </div>
 </div>
-<div class="hero-container">
-   <canvas id="neural-network" class="neural-background"></canvas>
-   <div class="hero-content">
-      <div class="hero-title-container">
-         <img src="/img/logos/valknut-large.webp" alt="Valknut Logo" class="hero-logo" style="height: 72px;">
-         <h1 class="hero-title">Valknut gives your agents refactoring superpowers</h1>
-      </div>
+{% set heroLogo = '/img/logos/valknut-large.webp' %}
+{% set heroLogoAlt = 'Valknut Logo' %}
+{% set heroLogoHeight = '61px' %}
+{% set heroTitle = 'Valknut gives your agents refactoring superpowers' %}
+{% set heroSubtitle %}
       <div class="rotating-banners">
          <div class="banner-container">
             <span class="banner-text" data-text="Turn code complexity into a precise refactoring roadmap">Turn code complexity into a precise refactoring roadmap</span>
@@ -43,7 +41,10 @@ scripts:
             <span class="banner-text" data-text="From thousands of files to a prioritized list of actionable insights">From thousands of files to a prioritized list of actionable insights</span>
          </div>
       </div>
-   </div>
+   {% endset %}
+<div class="hero-container">
+   <canvas id="neural-network" class="neural-background"></canvas>
+   {% include "components/hero-content.njk" %}
 </div>
 <hr class="hero-divider">
 <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>

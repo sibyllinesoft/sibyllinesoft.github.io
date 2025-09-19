@@ -1,0 +1,18 @@
+{% set logo_path = heroLogo | default(logo) %}
+{% set logo_alt_text = heroLogoAlt | default(logo_alt) %}
+{% set logo_size = heroLogoHeight | default(logo_height) %}
+{% set hero_title = heroTitle | default(title) %}
+{% set hero_subtitle = heroSubtitle | default(subtitle) %}
+<div class="hero-content">
+  <div class="hero-row hero-row-logo">
+    <img src="{{ logo_path }}" alt="{{ logo_alt_text }}" class="hero-logo"{% if logo_size %} style="height: {{ logo_size }};"{% endif %}>
+  </div>
+  <div class="hero-row hero-row-title">
+    <h1 class="hero-title">{{ hero_title }}</h1>
+  </div>
+  {% if hero_subtitle %}
+  <div class="hero-row hero-row-subtitle">
+    {{ hero_subtitle | safe }}
+  </div>
+  {% endif %}
+</div>

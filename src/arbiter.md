@@ -46,13 +46,11 @@ jsonLD:
       <div class="subtitle">Keep your agents on track.</div>
    </div>
 </div>
-<div class="hero-container">
-   <canvas id="neural-network" class="neural-background"></canvas>
-   <div class="hero-content">
-      <div class="hero-title-container">
-         <img src="/img/logos/arbiter-large.png" alt="Arbiter Logo" class="hero-logo" style="height: 72px;">
-         <h1 class="hero-title">The Spec Compiler for AI Development</h1>
-      </div>
+{% set heroLogo = '/img/logos/arbiter-large.png' %}
+{% set heroLogoAlt = 'Arbiter Logo' %}
+{% set heroLogoHeight = '72px' %}
+{% set heroTitle = 'The Spec Compiler for AI Development' %}
+{% set heroSubtitle %}
       <div class="rotating-banners">
          <div class="banner-container">
             <span class="banner-text" data-text="Talk to an agent. Arbiter turns conversation into specs, code, tests, and docs—kept in sync and enforced in CI">Talk to an agent. Arbiter turns conversation into specs, code, tests, and docs—kept in sync and enforced in CI</span>
@@ -61,7 +59,10 @@ jsonLD:
             <span class="banner-text" data-text="Agents generate. Arbiter enforces. Humans audit.">Agents generate. Arbiter enforces. Humans audit.</span>
          </div>
       </div>
-   </div>
+   {% endset %}
+<div class="hero-container">
+   <canvas id="neural-network" class="neural-background"></canvas>
+   {% include "components/hero-content.njk" %}
 </div>
 <hr class="hero-divider">
 <div class="centered-section">
