@@ -305,21 +305,17 @@ scripts:
 <div class="centered-section">
 <p>Valknut is built from the ground up to support autonomous coding. Technical debt is the single largest driver of vibe coding project failure (and project failure in general). With Valknut, your agents has the tool they need to keep your projects debt free.</p>
    <h2>Ready to Give Your AI Agents the Intelligence They Deserve?</h2>
-   <div class="cta-section">
-   <a href="https://github.com/sibyllinesoft/valknut" class="btn-unified btn-primary">
-   <span class="btn-inner">
-   View on GitHub
-   <i data-lucide="github"></i>
-   </span>
-   </a>
-   <a href="/products" class="btn-unified btn-secondary">
-   <span class="btn-inner">
-   View All Products
-   <i data-lucide="arrow-left"></i>
-   </span>
-   </a>
-</div>
-</div>
+   {% set primary = {
+  "href": "https://github.com/sibyllinesoft/valknut",
+  "label": "View on GitHub",
+  "icon": "github"
+} %}
+{% set secondary = {
+  "href": "/products",
+  "label": "View All Products",
+  "icon": "arrow-left"
+} %}
+{% include "components/cta-buttons.njk" %}
 
 <div class="content-section">
    <h2>Quick Start</h2>

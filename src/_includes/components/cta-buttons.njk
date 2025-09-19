@@ -1,0 +1,28 @@
+{#
+  Simple CTA button row used across product pages.
+  Usage:
+  {% include "components/cta-buttons.njk" with {
+    primary: { href: '/foo', label: 'Primary', icon: 'github' },
+    secondary: { href: '/bar', label: 'Secondary', icon: 'arrow-left' }
+  } %}
+#}
+{% set primary = primary or {} %}
+{% set secondary = secondary or {} %}
+<div class="cta-section">
+  {% if primary.href %}
+  <a href="{{ primary.href }}" class="btn-unified btn-primary">
+    <span class="btn-inner">
+      {{ primary.label }}
+      {% if primary.icon %}<i data-lucide="{{ primary.icon }}"></i>{% endif %}
+    </span>
+  </a>
+  {% endif %}
+  {% if secondary.href %}
+  <a href="{{ secondary.href }}" class="btn-unified btn-secondary">
+    <span class="btn-inner">
+      {{ secondary.label }}
+      {% if secondary.icon %}<i data-lucide="{{ secondary.icon }}"></i>{% endif %}
+    </span>
+  </a>
+  {% endif %}
+</div>

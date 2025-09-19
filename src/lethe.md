@@ -241,24 +241,15 @@ Teams using LETHE report:
 
 Perfect for development teams, researchers, and anyone who needs to maintain complex conversational context over extended periods.
 
-<div class="cta-section">
-  <a href="https://github.com/sibyllinesoft/lethe" class="btn-unified btn-primary">
-    <span class="btn-inner">
-      View on GitHub
-      <i data-lucide="github"></i>
-    </span>
-  </a>
-  <a href="javascript:void(0)" class="btn-unified btn-secondary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in becoming a tester for Lethe. Please let me know about testing opportunities.">
-    <span class="btn-inner">
-      Join Private Testing
-      <i data-lucide="mail"></i>
-    </span>
-  </a>
-  <a href="/products" class="btn-unified btn-secondary">
-    <span class="btn-inner">
-      View All Products
-      <i data-lucide="arrow-left"></i>
-    </span>
-  </a>
-</div>
+{% set primary = {
+  "href": "https://github.com/sibyllinesoft/lethe",
+  "label": "View on GitHub",
+  "icon": "github"
+} %}
+{% set secondary = {
+  "href": "javascript:void(0)",
+  "label": "View All Products",
+  "icon": "arrow-left"
+} %}
+{% include "components/cta-buttons.njk" %}
 

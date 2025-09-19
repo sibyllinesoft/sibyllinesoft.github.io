@@ -175,18 +175,15 @@ Development teams using LENS report:
 
 Perfect for large codebases where finding the right code quickly makes the difference between productive development and frustrating searches.
 
-<div class="cta-section">
-  <a href="https://github.com/sibyllinesoft/lens" class="btn-unified btn-primary">
-    <span class="btn-inner">
-      View on GitHub
-      <i data-lucide="github"></i>
-    </span>
-  </a>
-  <a href="/products" class="btn-unified btn-secondary">
-    <span class="btn-inner">
-      View All Products
-      <i data-lucide="arrow-left"></i>
-    </span>
-  </a>
-</div>
+{% set primary = {
+  "href": "https://github.com/sibyllinesoft/lens",
+  "label": "View on GitHub",
+  "icon": "github"
+} %}
+{% set secondary = {
+  "href": "/products",
+  "label": "View All Products",
+  "icon": "arrow-left"
+} %}
+{% include "components/cta-buttons.njk" %}
 

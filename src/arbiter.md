@@ -229,21 +229,17 @@ jsonLD:
 </div>
 
 <h2>Ready to Give Your AI Agents the Intelligence They Deserve?</h2>
-<div class="cta-section">
-<a href="https://github.com/sibyllinesoft/arbiter" class="btn-unified btn-primary">
-<span class="btn-inner">
-View on GitHub
-<i data-lucide="github"></i>
-</span>
-</a>
-<a href="/products" class="btn-unified btn-secondary">
-<span class="btn-inner">
-View All Products
-<i data-lucide="arrow-left"></i>
-</span>
-</a>
-</div>
-</div>
+{% set primary = {
+  "href": "https://github.com/sibyllinesoft/arbiter",
+  "label": "View on GitHub",
+  "icon": "github"
+} %}
+{% set secondary = {
+  "href": "/products",
+  "label": "View All Products",
+  "icon": "arrow-left"
+} %}
+{% include "components/cta-buttons.njk" %}
 
 <div class="content-section">
    <h2>More Advantages</h2>
