@@ -1,0 +1,271 @@
+/* Project Brochure - Stealth Project Style */
+.project-brochure {
+  display: flex;
+  background: var(--color-surface-50);
+  border: 1px solid var(--color-border-light-50);
+  border-radius: var(--radius-lg);
+  margin: var(--space-3xl) 0;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+
+.project-brochure:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-accent);
+}
+
+.project-visual {
+  flex: 0 0 40%;
+  background: var(--color-graphite-700);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3xl) var(--space-2xl);
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: overlay;
+  text-align: center;
+}
+
+/* Project-specific background images */
+#bookworm-product .project-visual {
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-bookworm.webp');
+}
+
+#darwin-product .project-visual {
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-darwin.webp');
+}
+
+#ideoscope-product .project-visual {
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-ideoscope.webp');
+}
+
+#mimir-product .project-visual {
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-mimir.webp');
+}
+
+#agentzoo-product .project-visual {
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-agentzoo.webp');
+}
+
+#mindlink-product .project-visual {
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-mindlink.webp');
+}
+
+#rave-product .project-visual {
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-rave.webp');
+}
+
+#lethe-product .project-visual {
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-lethe.webp');
+}
+
+#scribe-product .project-visual {
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-scribe.webp');
+}
+
+#smith-product .project-visual {
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-smith.webp');
+}
+
+#daedalus-product .project-visual {
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-daedalus.webp');
+}
+
+#conclave-product .project-visual {
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-conclave.webp');
+}
+
+#minerva-product .project-visual {
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-minerva.webp');
+}
+
+#hydra-product .project-visual {
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-hydra.webp');
+}
+
+#aegis-product .project-visual {
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-aegis.webp');
+}
+
+#echo-product .project-visual {
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-echo.webp');
+}
+
+#arbiter-product .project-visual {
+  background-image: linear-gradient(rgba(234, 179, 8, 0.15), rgba(234, 179, 8, 0.15)), url('/img/optimized/product-arbiter.webp');
+}
+
+#heimdall-product .project-visual {
+  background-image: linear-gradient(rgba(14, 165, 233, 0.15), rgba(14, 165, 233, 0.15)), url('/img/optimized/product-heimdall.webp');
+}
+
+#valknut-product .project-visual {
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-valknut.webp');
+}
+
+#prism-product .project-visual {
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-prism.webp');
+}
+
+#guild-product .project-visual {
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-guild.webp');
+}
+
+#multiverse-product .project-visual {
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-multiverse.webp');
+}
+#grimoire-product .project-visual {
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-grimoire.webp');
+}
+#lens-product .project-visual {
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-lens.webp');
+}
+#cell-product .project-visual {
+  background-image: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-cell.webp');
+}
+
+.project-icon {
+  width: 4rem;
+  height: 4rem;
+  color: var(--color-accent);
+  margin-bottom: var(--space-lg);
+  filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.4));
+}
+
+.project-codename {
+  color: var(--color-accent);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  margin-bottom: var(--space-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-align: center;
+}
+
+.project-status {
+  color: var(--color-text-light);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.9;
+  text-align: center;
+}
+
+.project-content {
+  flex: 1;
+  padding: var(--space-3xl);
+}
+
+.project-content h2 {
+  margin-top: 0;
+  margin-bottom: var(--space-lg);
+  color: var(--color-text);
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  text-align: center;
+}
+
+.project-content h3 {
+  margin-top: 0;
+  margin-bottom: var(--space-lg);
+  color: var(--color-text);
+  font-weight: 600;
+  text-align: center;
+}
+
+.project-pitch {
+  color: var(--color-text-light);
+  line-height: var(--leading-relaxed);
+}
+
+.project-pitch p {
+  margin-bottom: var(--space-lg);
+}
+
+.project-pitch strong {
+  color: var(--color-text-muted);
+  font-weight: 600;
+  display: block;
+  text-align: center;
+}
+
+.project-features {
+  margin: var(--space-2xl) 0;
+  background: var(--color-background);
+  border-radius: var(--radius-md);
+  padding: var(--space-xl);
+  border-left: 3px solid var(--color-accent);
+}
+
+.feature-item {
+  margin-bottom: var(--space-lg);
+  padding-left: var(--space-md);
+}
+
+.feature-item:last-child {
+  margin-bottom: 0;
+}
+
+.feature-item strong {
+  color: var(--color-accent);
+  font-weight: 600;
+  display: block;
+  margin-bottom: var(--space-xs);
+}
+
+.project-tagline {
+  color: var(--color-text);
+  font-weight: 500;
+  font-style: italic;
+  margin-bottom: var(--space-lg);
+  font-size: var(--text-lg);
+  text-align: center;
+}
+
+.project-cta {
+  margin-top: var(--space-lg);
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .project-brochure {
+    flex-direction: column;
+  }
+  
+  .project-visual {
+    flex: none;
+    padding: var(--space-2xl);
+  }
+  
+  .project-icon {
+    width: 3rem;
+    height: 3rem;
+  }
+  
+  .project-content {
+    padding: var(--space-2xl);
+  }
+  
+  .project-content h2 {
+    font-size: var(--text-2xl);
+  }
+  
+  .project-features {
+    padding: var(--space-lg);
+  }
+  
+  .project-codename {
+    font-size: var(--text-lg);
+  }
+}

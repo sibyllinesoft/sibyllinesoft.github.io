@@ -17,9 +17,9 @@
     baseAlpha: 0.045,
     highlightAlpha: 0.36,
     glow: 8,
-    expandMs: 1200,
-    holdMs:   150,
-    contractMs: 900,
+    expandMs: 1600,
+    holdMs:   200,
+    contractMs: 1200,
     channels: {
       blue: { hue: 210, sat: 0.5, light: 0.66, trailDecay: 0.75 },
       red:  { hue:   8,  sat: 0.5, light: 0.60, trailDecay: 0.75 }
@@ -28,9 +28,9 @@
     effects: { hueDrift: true, subRipples: true },
     params: {
       hueDriftDeg: 20,
-      hueDriftHz: 1/8,
+      hueDriftHz: 0.094,
       rippleAmpPx: 0.9,
-      rippleHz: 1.2
+      rippleHz: 0.9
     }
   };
 

@@ -1,0 +1,45 @@
+/* Shared project hero layout */
+.project-hero {
+  display: flex;
+  background: linear-gradient(135deg, var(--color-surface-50) 0%, var(--color-background) 100%);
+  border: 1px solid var(--color-border-light-50);
+  border-radius: var(--radius-lg);
+  margin: var(--space-2xl) 0 var(--space-4xl) 0;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.project-hero-visual {
+  flex: 0 0 35%;
+  background: linear-gradient(rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.15)), url('/img/optimized/product-lens.webp');
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: overlay;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3xl);
+  text-align: center;
+}
+
+.project-hero-content {
+  flex: 1;
+  padding: var(--space-3xl);
+}
+
+.project-hero-content h2 {
+  margin-top: 0;
+  margin-bottom: var(--space-lg);
+  color: var(--color-text);
+  font-size: var(--text-3xl);
+  font-weight: 700;
+}
+
+.hero-tagline {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-accent);
+  margin-bottom: var(--space-lg);
+}
+
