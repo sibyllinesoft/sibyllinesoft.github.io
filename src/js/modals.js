@@ -64,45 +64,45 @@ const serviceData = {
   },
   'schema-validation': {
     image: 'https://images.unsplash.com/photo-1704964971025-e3ce2b8fdc91?q=80&w=500&h=1200&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    ctaText: 'Get Real-Time Control',
-    alt: 'Real-time mission control dashboard and live monitoring',
-    subject: 'Real-Time Mission Control Implementation',
-    body: 'Hello! I\'m interested in implementing real-time mission control with live dashboard visualization. Can we discuss how to monitor architectural decisions, dependency graphs, and system changes in real-time?'
+    ctaText: 'Show Live Mission Control',
+    alt: 'Live mission control dashboard for agent progress and audits',
+    subject: 'Live Mission Control Walkthrough',
+    body: 'Hello! I\'d like to see how Arbiter\'s portal turns specs into live architecture diagrams, docs, and test telemetry so humans can audit agent work in real time. Could we schedule a walkthrough?'
   },
   'api-contracts': {
     image: 'https://images.unsplash.com/photo-1716391364025-aa44e51a535e?q=80&w=500&h=1200&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    ctaText: 'Setup Version Control',
-    alt: 'Version control and specification tracking with rollback capabilities',
-    subject: 'Version Control & Rollback Implementation',
-    body: 'Hello! I\'m interested in implementing version control with atomic commits and reversible specification changes. Can we discuss how to track every specification change and enable instant rollbacks?'
+    ctaText: 'Sync API Contracts',
+    alt: 'Executable API contracts powering consistent implementations',
+    subject: 'Executable API Contract Workflow',
+    body: 'Hi! I want our API contracts, validation, and generated clients to stay in sync. Could we dive into how Arbiter uses shared types to drive consistent implementations across services?'
   },
   'full-system': {
     image: 'https://images.unsplash.com/photo-1552705906-adcf48ae889a?q=80&w=500&h=1200&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    ctaText: 'Generate Full System',
-    alt: 'Complete system generation from specifications',
-    subject: 'Full System Generation Consultation',
-    body: 'Hello! I\'m interested in complete application generation from business specifications. Can we discuss generating database schemas, business logic, and UI components that are mathematically consistent?'
+    ctaText: 'Ship Systems from Specs',
+    alt: 'Engineers reviewing generated services, infrastructure, and tests',
+    subject: 'Spec-to-System Automation Inquiry',
+    body: 'Hello! I want to see Arbiter turn a declarative spec into synchronized services, infrastructure manifests, tests, and docs. Could we walk through the CLI flow and how template overrides keep everything in lockstep?'
   },
   'github-integration': {
     image: 'https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?q=80&w=500&h=1200&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    ctaText: 'Setup GitHub Integration',
-    alt: 'Full GitHub integration and automation',
-    subject: 'GitHub Integration & Automation Setup',
-    body: 'Hi! I\'m interested in setting up full GitHub integration with automated issue creation, webhook event dispatch, and AI agent coordination. Can we discuss how to implement this workflow?'
+    ctaText: 'Wire Up GitHub Ops',
+    alt: 'GitHub checks and issues synchronized with Arbiter automation',
+    subject: 'GitHub & CI Automation with Arbiter',
+    body: 'Hi! I need merges blocked on spec drift and agent workflows mirrored into GitHub Issues and Checks. Could we cover the built-in integrations and how to extend them for our organization?'
   },
   'mathematical-correctness': {
     image: 'https://images.unsplash.com/photo-1646763342742-e15af86f2825?q=80&w=500&h=1200&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    ctaText: 'Get Mathematical Guarantees',
-    alt: 'Mathematical correctness guarantees and formal verification',
-    subject: 'Mathematical Correctness Implementation',
-    body: 'Hello! I\'m interested in implementing mathematical correctness guarantees using CUE\'s formal verification capabilities. Can we discuss compositional spec development and provable correctness for our projects?'
+    ctaText: 'Enforce Constraint Specs',
+    alt: 'Constraint-backed specifications under review in Arbiter',
+    subject: 'Constraint-Backed Spec Guardrails',
+    body: 'Hello! I want Arbiter\'s CUE specs wired into our delivery pipeline so agents can only ship code that satisfies the constraints. Could we walk through constraint validation and drift detection in CI?'
   },
   'surgical-generation': {
     image: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=500&h=1200&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    ctaText: 'Enable Surgical Generation',
-    alt: 'Surgical code generation and intelligent evolution',
-    subject: 'Surgical Code Generation Implementation',
-    body: 'Hi! I\'m interested in implementing surgical code generation that evolves codebases intelligently. Can we discuss idempotent generation techniques that enhance existing code without regenerating everything?'
+    ctaText: 'Adopt Arbiter Incrementally',
+    alt: 'Engineers evolving an existing codebase with Arbiter guidance',
+    subject: 'Incremental Adoption Strategy',
+    body: 'Hi! I want to bring Arbiter into a live codebase without losing handwritten logic. Could we cover how the importer seeds specs from real projects and how incremental regeneration keeps custom code intact?'
   },
   'constraint-backed-specs': {
     image: 'https://images.unsplash.com/photo-1646763342742-e15af86f2825?q=80&w=500&h=1200&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',

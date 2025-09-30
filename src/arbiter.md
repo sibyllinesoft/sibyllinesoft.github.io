@@ -85,10 +85,10 @@ jsonLD:
             
             <div class="project-features">
                <div class="feature-item" style="font-size: 0.765em;">
-                  <p>"With CUE specifications, agents get constraint-backed specs kept in sync—constraint-validated, CI-enforced consistency prevents drift."</p>
-                  
+                  <p>"Arbiter pulled constraint-backed CUE specs out of our brownfield monorepo in minutes, then wired the generated checks straight into GitHub so agents can't merge drift."</p>
+                  <p>"Customising the templates with a few TypeScript hooks kept the spec declarative while the generated code matched our stack. It finally feels like humans and agents are working from the same score."</p>
                   <p style="text-align: right; margin-top: 1rem; font-style: italic;">
-                     <i data-lucide="user"></i> AI Team Lead
+                     <i data-lucide="bot"></i> Codex
                   </p>
                </div>
             </div>
@@ -105,10 +105,10 @@ jsonLD:
             
             <div class="project-features">
                <div class="feature-item" style="font-size: 0.765em;">
-                  <p>"Arbiter generated everything from PostgreSQL schemas to React components—agents focus on business logic, not plumbing."</p>
-                  
+                  <p>"The importer mapped our existing services into CUE, then the CLI regenerated TypeScript APIs, PostgreSQL migrations, Terraform modules, and Playwright specs without trampling custom code. Agents only touch the parts humans actually care about."</p>
+                  <p>"Every template override lived right beside the spec, so rerunning Arbiter after a change kept the stack synchronized instead of creating churn."</p>
                   <p style="text-align: right; margin-top: 1rem; font-style: italic;">
-                     <i data-lucide="user"></i> Product Manager
+                     <i data-lucide="bot"></i> Codex
                   </p>
                </div>
             </div>
@@ -125,10 +125,10 @@ jsonLD:
             
             <div class="project-features">
                <div class="feature-item" style="font-size: 0.765em;">
-                  <p>"We've essentially created a GitHub-native operating system for AI agent collaboration."</p>
-                  
+                  <p>"GitHub became the enforcement layer: Arbiter opened Issues from the spec backlog, attached MCP transcripts, and pushed Checks that fail if generated tests or constraint proofs drift."</p>
+                  <p>"Once we enabled the merge guard, agents couldn’t ship without satisfying the CUE constraints and regenerating docs—humans just reviewed the diff with confidence."</p>
                   <p style="text-align: right; margin-top: 1rem; font-style: italic;">
-                     <i data-lucide="user"></i> DevOps Engineer
+                     <i data-lucide="bot"></i> Codex
                   </p>
                </div>
             </div>
@@ -254,16 +254,6 @@ jsonLD:
          </div>
          <div class="service-details">
             <p><strong>Real-time visualization of agent progress.</strong> Stakeholders see progress through live diagrams, not code review. System architecture, dependency graphs, and documentation update automatically as agents work.</p>
-            
-            <div class="project-features">
-               <div class="feature-item" style="font-size: 0.765em;">
-                  <p>"Stakeholders get instant visibility into system changes without parsing code or waiting for documentation updates."</p>
-                  
-                  <p style="text-align: right; margin-top: 1rem; font-style: italic;">
-                     <i data-lucide="user"></i> Product Manager
-                  </p>
-               </div>
-            </div>
          </div>
          <div class="click-hint">Click to expand</div>
       </div>
@@ -314,16 +304,6 @@ jsonLD:
 ```
 
             <p>API contracts become executable specifications that generate consistent implementations across all your services and client libraries.</p>
-            
-            <div class="project-features">
-               <div class="feature-item" style="font-size: 0.765em;">
-                  <p>"My API documentation, validation, and implementation are kept in sync because they're generated from the same source."</p>
-                  
-                  <p style="text-align: right; margin-top: 1rem; font-style: italic;">
-                     <i data-lucide="user"></i> API Developer
-                  </p>
-               </div>
-            </div>
          </div>
          <div class="click-hint">Click to expand</div>
       </div>
@@ -352,16 +332,6 @@ jsonLD:
 }
 ```
             <p>Arbiter analyzes existing code patterns and guides execution agents to enhance incrementally. New features integrate seamlessly with existing patterns, middleware, and error handling that agents recognize.</p>
-            
-            <div class="project-features">
-               <div class="feature-item" style="font-size: 0.765em;">
-                  <p>"When I add a new API endpoint, Arbiter surgically updates everything—no regeneration, no lost custom logic."</p>
-                  
-                  <p style="text-align: right; margin-top: 1rem; font-style: italic;">
-                     <i data-lucide="user"></i> Backend Developer
-                  </p>
-               </div>
-            </div>
          </div>
          <div class="click-hint">Click to expand</div>
       </div>
