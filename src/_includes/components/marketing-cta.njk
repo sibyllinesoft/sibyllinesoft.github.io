@@ -1,0 +1,18 @@
+{% set primary = primary or {} %}
+{% set intent = intent or 'default' %}
+<section class="marketing-cta marketing-cta--{{ intent }}">
+  {% if title %}
+  <h3 class="marketing-cta__title">{{ title }}</h3>
+  {% endif %}
+  {% if body %}
+  <div class="marketing-cta__body">{{ body | safe }}</div>
+  {% endif %}
+  {% if primary.href %}
+  <a href="{{ primary.href }}" class="btn-primary"{% if primary.new_tab %} target="_blank" rel="noopener noreferrer"{% endif %}>
+    {{ primary.label }}{% if primary.code %} → `{{ primary.code }}`{% endif %}
+  </a>
+  {% endif %}
+  {% if footnote %}
+  <p class="marketing-cta__footnote">{{ footnote | safe }}</p>
+  {% endif %}
+</section>

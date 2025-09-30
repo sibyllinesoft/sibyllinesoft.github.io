@@ -5,6 +5,8 @@ date: 2025-08-21
 published: true
 tags: ["articles", "ai", "dag", "architecture", "production", "agents", "hydra"]
 layout: article.njk
+stylesheets:
+  - "/styles/components/marketing-cta.css"
 image: "/img/optimized/article-llm-programming-runtime.webp"
 ---
 
@@ -453,12 +455,16 @@ You've seen the architectural patterns that separate toy projects from productio
 
 The companies winning at enterprise AI aren't just using better models—they're building scale-first architectures with systems like Hydra that understand the fundamental coordination principles distinguishing production systems from prototype demos.
 
-<div class="cta-section">
-  <h3>Stop Building Monolithic AI. Start Building with Hydra.</h3>
-  <p>You've seen the architectural patterns. Now implement them with the toolkit designed specifically for scalable AI agent orchestration. Install Hydra and build your first DAG-based agent system in under an hour.</p>
-  <a href="https://github.com/sibyllinesoft/hydra" target="_blank" rel="noopener noreferrer" class="btn-primary">Install Hydra Now → `hydra-installer`</a>
-  <p class="cta-subtext">Ready to go deeper? Explore the <a href="LIVING-BLUEPRINT-GUIDE.md">Living Blueprint Guide</a> to see the full power of Hydra's DAG-based project management.</p>
-</div>
+<section class="marketing-cta marketing-cta--hydra">
+  <h3 class="marketing-cta__title">Stop Building Monolithic AI. Start Building with Hydra.</h3>
+  <div class="marketing-cta__body">
+    You've seen the architectural patterns. Now implement them with the toolkit designed specifically for scalable AI agent orchestration. Install Hydra and build your first DAG-based agent system in under an hour.
+  </div>
+  <a href="https://github.com/sibyllinesoft/hydra" class="btn-primary" target="_blank" rel="noopener noreferrer">
+    Install Hydra Now → `hydra-installer`
+  </a>
+  <p class="marketing-cta__footnote">Ready to go deeper? Explore the <a href="LIVING-BLUEPRINT-GUIDE.md">Living Blueprint Guide</a> to see the full power of Hydra's DAG-based project management.</p>
+</section>
 
 ## Looking Forward: The Evolution of Scalable AI Architectures
 

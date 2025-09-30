@@ -37,6 +37,7 @@ layout: simple.njk
 {% set heroLogoAlt = 'Sibylline Software Logo' %}
 {% set heroTitle = 'The AI Dev Stack That Actually Ships' %}
 {% set heroSubtitle %}
+
   <div class="rotating-banners">
     <div class="banner-container active">
       <span class="banner-text" data-text="Build AI agents that work. Scale them without limits.">Build AI agents that work. Scale them without limits.</span>
@@ -67,9 +68,8 @@ The result: fast, cheap, reliable agentic systems that actually ship. From day o
 </div>
 
 <div class="hero-cta">
-  <a href="/products/" class="btn-primary"><span class="btn-inner">Try the Stack <i data-lucide="arrow-right"></i></span></a>
+  <a href="/products/" class="btn-primary"><span class="btn-inner">Products<i data-lucide="arrow-right"></i></span></a>
   <a href="javascript:void(0)" class="btn-secondary" data-contact-type="contact" data-subject-type="strategy"><span class="btn-inner">Talk Strategy <i data-lucide="mail"></i></span></a>
-  <a href="/sandbox/" class="btn-tertiary"><span class="btn-inner">Explore the Sandbox</span></a>
 </div>
 
 <div class="content-section">
@@ -80,12 +80,19 @@ The result: fast, cheap, reliable agentic systems that actually ship. From day o
 <div class="service-card" data-service="training">
 <h3><i data-lucide="graduation-cap"></i> Individuals</h3>
 <div class="service-summary">
-<p><strong>Prototype in minutes.</strong> Secure, pro-grade sandbox that runs locally—no budget drain, no data leaks.</p>
+<p><strong>Spin up a full agentic development environment in minutes.</strong> Preconfigured with best in class software engineering workflows and tools.</p>
 </div>
 <div class="service-details">
-<p><strong>Your own sandboxed AI dev shop in minutes.</strong> Install RAVE, create a VM, and you've got a secure dev box ready to run a whole swarm of agents. SMITH orchestrates them without lag, LETHE keeps infinite memory without you curating context, and LENS + GRIMOIRE give your agents code search that's scary accurate. You get pro-grade tools, but everything works on a laptop without burning cash or privacy.</p>
-<div class="service-cta">
-<a href="/products/" class="btn-secondary"><span class="btn-inner">Set up your sandbox</span></a>
+<div class="product-features project-features">
+<p><strong>Take the guesswork out of agentic development.</strong></p>
+<ul class="bullet-box">
+<li>Rave spins up a VM for a secure dev environment ready for agent swarms in two commands</li>
+<li><a href="/arbiter/">Arbiter</a> produces validated specs for your software</li>
+<li>Conclave creates an implementation plan</li>
+<li>Smith orchestrates an agent swarm to implement and test the work in parallel</li>
+<li><a href="/valknut/">Valknut</a> provides a plan to eliminate technical debt</li>
+</ul>
+
 </div>
 </div>
 <div class="click-hint">Click to expand</div>
@@ -98,12 +105,18 @@ The result: fast, cheap, reliable agentic systems that actually ship. From day o
 <div class="service-card" data-service="startup">
 <h3><i data-lucide="zap"></i> Startups</h3>
 <div class="service-summary">
-<p><strong>Ship faster than your runway.</strong> Scale from prototype to production without costly rewrites.</p>
+<p><strong>Ship at the speed of ideation. Scale without breaking the bank.</strong> Focus on building rather than workflows, with a lock-in free path from MVP to hyperscale.</p>
 </div>
 <div class="service-details">
-<p><strong>Ship features before your runway runs out.</strong> RAVE spins up your full dev environment in minutes so your team is coding day one. When you outgrow the box, MULTIVERSE scales you to hyperscaler performance at a fraction of the cost. LETHE and SCRIBE give your agents context that doesn't break, ARBITER nails specs before code drifts. You go from empty repo to shipping production features in days, not months.</p>
+<p><strong>Ship features before your runway runs out.</strong></p>
+<ul class="bullet-box">
+<li>RAVE spins up complete dev environments in minutes for immediate team productivity</li>
+<li>MULTIVERSE scales seamlessly to hyperscaler performance at fraction of typical costs</li>
+<li>LETHE and SCRIBE provide reliable context management that prevents agent failures</li>
+<li>ARBITER maintains specification alignment preventing code drift</li>
+</ul>
+<p>Transform empty repositories into shipping production features in days, not months.</p>
 <div class="service-cta">
-<a href="/products/" class="btn-secondary"><span class="btn-inner">Scale your team</span></a>
 </div>
 </div>
 <div class="click-hint">Click to expand</div>
@@ -116,13 +129,15 @@ The result: fast, cheap, reliable agentic systems that actually ship. From day o
 <div class="service-card" data-service="enterprise">
 <h3><i data-lucide="building"></i> Enterprise</h3>
 <div class="service-summary">
-<p><strong>Enterprise-grade control & compliance.</strong> Reactive systems with sub-5ms starts, full audit trails, and layered security—all out of the box.</p>
+<p><strong>Make AI the engine of your enterprise.</strong> Trigger policy driven AI workflows  in response to events in your organization, with best in class security and observability.</p>
 </div>
 <div class="service-details">
-<p><strong>Enterprise-grade orchestration without the bureaucracy.</strong> SMITH gives you reactive architecture with sub-5ms starts, full auditing, and multi-layer sandboxing. GUILD keeps code and business docs in sync while enriching them for RAG. AEGIS ends merge queue hell, ARBITER locks specs to code. It's distributed, observable, and compliant out of the box—so you move faster without sacrificing control.</p>
-<div class="service-cta">
-<a href="javascript:void(0)" class="btn-secondary" data-contact-type="contact" data-subject-type="enterprise"><span class="btn-inner">Run it at scale</span></a>
-</div>
+<ul class="bullet-box">
+<li>Smith orchestrates agents in response to events anywhere in your organization, with centralized policy management, full auditing and multi-layer sandboxing</li>
+<li>Arbiter ensures agents write compliant code that integrates with your existing systems</li>
+<li>Guild synchronizes code and business documentation while optimizing it for use by AI.</li>
+</ul>
+<p>Distributed, observable, and compliant systems enable faster movement without sacrificing enterprise control.</p>
 </div>
 <div class="click-hint">Click to expand</div>
 <div class="service-visual galaxy">
@@ -148,10 +163,13 @@ The result: fast, cheap, reliable agentic systems that actually ship. From day o
 <p><strong>Composable, reliable systems</strong> that run safely at scale.</p>
 </div>
 <div class="service-details">
-<h4>The difference:</h4>
-<p>Anyone can wrap the OpenAI API. I build agent registries with semantic versioning, VM-isolated environments where agents can't damage host systems, and evaluation frameworks that expose what AI actually understands versus what it memorized.</p>
-<h4>What this proves:</h4>
-<p>I don't just talk about autonomous agents—I ship them. Battle-tested architectures solving real problems for real users.</p>
+<p><strong>The difference:</strong> Anyone can wrap the OpenAI API.</p>
+<ul class="bullet-box">
+<li>Build agent registries with semantic versioning for reliable deployment</li>
+<li>VM-isolated environments prevent agents from damaging host systems</li>
+<li>Evaluation frameworks distinguish true AI understanding from memorization</li>
+</ul>
+<p><strong>What this proves:</strong> I don't just talk about autonomous agents—I ship them. Battle-tested architectures solving real problems for real users.</p>
 </div>
 <div class="click-hint">Click to expand</div>
 <div class="service-visual">
@@ -191,10 +209,13 @@ The result: fast, cheap, reliable agentic systems that actually ship. From day o
 <p><strong>Beyond parroting data:</strong> agents that evolve strategies and deliver value.</p>
 </div>
 <div class="service-details">
-<h4>Beyond pattern matching:</h4>
-<p>I've built narrative analysis that maps emotional tension, trend detection that surfaces viral content weeks early, and evaluation systems that expose what AI actually understands versus what it memorized.</p>
-<h4>What this proves:</h4>
-<p>I understand how to make AI genuinely intelligent, not just responsive. Pattern recognition that finds opportunities others miss.</p>
+<p><strong>Beyond pattern matching:</strong> I've built advanced systems that go far beyond simple data parroting.</p>
+<ul class="bullet-box">
+<li>Narrative analysis that maps emotional tension in content</li>
+<li>Trend detection surfacing viral content weeks before it peaks</li>
+<li>Evaluation systems exposing true AI understanding vs memorization</li>
+</ul>
+<p><strong>What this proves:</strong> I understand how to make AI genuinely intelligent, not just responsive. Pattern recognition that finds opportunities others miss.</p>
 </div>
 <div class="click-hint">Click to expand</div>
 <div class="service-visual">
@@ -235,10 +256,13 @@ The result: fast, cheap, reliable agentic systems that actually ship. From day o
 <p><strong>From collaborative filtering to autonomous agents,</strong> we know what survives hype cycles.</p>
 </div>
 <div class="service-details">
-<h4>Why experience matters:</h4>
-<p>I know which AI approaches come and go versus which ones scale to production. I've solved the infrastructure problems that break most AI projects and seen every way implementations fail—and how to prevent it.</p>
-<h4>What this means for you:</h4>
-<p>AI moves fast, but building reliable systems doesn't. You get two decades of hard-won knowledge about what actually works.</p>
+<p><strong>Why experience matters:</strong> I know which AI approaches endure versus those that fade.</p>
+<ul class="bullet-box">
+<li>Identified AI approaches that scale reliably to production environments</li>
+<li>Solved critical infrastructure problems that break most AI projects</li>
+<li>Analyzed and prevented common implementation failure patterns</li>
+</ul>
+<p><strong>What this means for you:</strong> AI moves fast, but building reliable systems doesn't. You get two decades of hard-won knowledge about what actually works.</p>
 </div>
 <div class="click-hint">Click to expand</div>
 <div class="service-visual">
@@ -283,7 +307,6 @@ The result: fast, cheap, reliable agentic systems that actually ship. From day o
 <strong>Stop wondering 'what if.' Start building 'what's next.'</strong> The most successful companies don't wait—they build their competitive advantage.
 </div>
 
-
 <div id="discovery" class="discovery-section">
 
 ## Start Your Discovery Process
@@ -313,12 +336,12 @@ The result: fast, cheap, reliable agentic systems that actually ship. From day o
 
 </div>
 
-
 ## From Our Blog: Systems That Scale. Workflows That Work.
 
 Deep dives on building agents that don't break.
 
 {% if collections.articles.length > 0 %}
+
 <div class="recent-articles">
   {% for article in collections.articles | head(3) %}
     {% include "components/article-card.njk" %}
@@ -333,9 +356,10 @@ Deep dives on building agents that don't break.
   gap: var(--space-2xl);
 }
 </style>
+
 {% endif %}
 
-*Where ambitious ideas meet intelligent execution.*
+_Where ambitious ideas meet intelligent execution._
 
 <style>
 /* Refined Chrome Animation Base Styles */
@@ -1562,13 +1586,57 @@ Deep dives on building agents that don't break.
   font-size: var(--text-lg);
 }
 
+.service-details ul.bullet-box {
+  margin: var(--space-2xl) 0;
+  background: var(--color-background);
+  border-radius: var(--radius-md);
+  padding: var(--space-xl);
+  border-left: 3px solid var(--color-accent);
+}
+
 .service-details ul {
   margin: var(--space-sm) 0;
   padding-left: var(--space-lg);
 }
 
+.service-details ul.bullet-box li {
+  margin-bottom: var(--space-lg);
+  padding-left: var(--space-md);
+}
+
 .service-details li {
   margin-bottom: var(--space-xs);
+}
+
+.modal-body .product-features {
+  margin: var(--space-2xl) 0;
+  padding: var(--space-xl);
+  background: var(--color-background);
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--color-accent);
+}
+
+.modal-body .product-features ul {
+  margin: 0;
+  padding-left: var(--space-lg);
+  list-style: disc;
+}
+
+.modal-body .product-features li {
+  margin-bottom: var(--space-lg);
+  color: var(--color-text);
+  line-height: var(--leading-relaxed);
+}
+
+.modal-body .product-features li:last-child {
+  margin-bottom: 0;
+}
+
+.modal-body .product-features p {
+  margin-top: var(--space-lg);
+  margin-bottom: 0;
+  color: var(--color-text);
+  font-weight: 500;
 }
 
 .service-cta {
@@ -4294,9 +4362,9 @@ document.addEventListener('DOMContentLoaded', () => {
       body: 'Hello! I\'d like to explore your Enterprise AI Implementation services for our organization. Could we discuss how to integrate AI across our business operations?'
     },
     training: {
-      image: '/img/optimized/modal-team-meeting.webp',
+      image: '/img/optimized/modal-individuals.webp',
       ctaText: 'Use Mindlink',
-      alt: 'Team collaboration and training session',
+      alt: 'Focused developer coding on a laptop in a modern workspace',
       subject: 'Individual AI Productivity Training Request',
       body: 'Hi! I\'m interested in your Individual AI Productivity Training to help our team harness AI agents and custom workflows. Can we discuss training options?'
     },
@@ -4347,6 +4415,23 @@ document.addEventListener('DOMContentLoaded', () => {
     modalSummary.textContent = summary;
     modalDetails.innerHTML = details ? details.innerHTML : '';
     
+    // Ensure feature lists render inside a dedicated inset container
+    const featureLists = modalDetails.querySelectorAll('ul.bullet-box');
+    featureLists.forEach(list => {
+      const existingWrapper = list.closest('.product-features');
+      if (existingWrapper) {
+        existingWrapper.classList.add('product-features', 'project-features');
+        list.classList.remove('bullet-box');
+        return;
+      }
+
+      const wrapper = document.createElement('div');
+      wrapper.classList.add('product-features', 'project-features');
+      list.parentNode.insertBefore(wrapper, list);
+      wrapper.appendChild(list);
+      list.classList.remove('bullet-box');
+    });
+
     // Set image and CTA
     modalImage.src = serviceInfo.image;
     modalImage.alt = serviceInfo.alt;

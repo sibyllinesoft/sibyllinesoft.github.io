@@ -145,15 +145,54 @@
 .hero-content {
   position: relative;
   z-index: 2;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-xl);
   width: 100%;
+  max-width: none;
   padding: var(--space-3xl) var(--space-xl);
-  margin: 0 50px;
+  text-align: center;
+  margin: 0 auto;
+  overflow: visible;
 }
 
 .main {
   /* Valknut-specific: just override the padding to remove top padding */
   padding: 0 var(--space-xl) var(--space-4xl) !important;
+  overflow: visible;
+}
+
+.hero-row-subtitle {
+  width: 100%;
+  max-width: none;
+  overflow: visible;
+  padding: 0;
+  margin: 0;
+}
+
+.rotating-banners {
+  width: 100%;
+  max-width: none;
+  overflow: visible;
+  padding: 0;
+  margin: 0;
+}
+
+.banner-container {
+  width: 100%;
+  max-width: none;
+  overflow: visible;
+  padding: 0;
+  margin: 0;
+}
+
+.banner-text {
+  white-space: normal;
+  word-break: break-word;
+  overflow: visible;
+  max-width: none;
 }
 
 .hero-divider {
@@ -1006,7 +1045,7 @@
 }
 
 .feature-item p:first-child::before {
-  content: """;
+  content: '"';
   font-size: 3em;
   font-weight: 900;
   color: var(--color-accent);
@@ -1018,7 +1057,7 @@
 }
 
 .feature-item p:last-of-type:not([style*="text-align: right"])::after {
-  content: """;
+  content: '"';
   font-size: 3em;
   font-weight: 900;
   color: var(--color-accent);
@@ -1121,7 +1160,7 @@ ul:not(.toc-list) li {
   margin-bottom: var(--stack-sm);
 }
 
-ul:not(.toc-list) li::before {
+.comparison-item li::before {
   content: "–";
   position: absolute;
   left: 0;

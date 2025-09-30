@@ -50,8 +50,8 @@ jsonLD:
 {% set heroLogoAlt = 'Arbiter Logo' %}
 {% set heroLogoHeight = '72px' %}
 {% set heroTitle = 'The Spec Compiler for AI Development' %}
-{% set heroSubtitle %}
-      <div class="rotating-banners">
+{% set heroSubtitle -%}
+<div class="rotating-banners">
          <div class="banner-container">
             <span class="banner-text" data-text="Talk to an agent. Arbiter turns conversation into specs, code, tests, and docs—kept in sync and enforced in CI">Talk to an agent. Arbiter turns conversation into specs, code, tests, and docs—kept in sync and enforced in CI</span>
          </div>
@@ -59,7 +59,7 @@ jsonLD:
             <span class="banner-text" data-text="Agents generate. Arbiter enforces. Humans audit.">Agents generate. Arbiter enforces. Humans audit.</span>
          </div>
       </div>
-   {% endset %}
+{%- endset %}
 <div class="hero-container">
    <canvas id="neural-network" class="neural-background"></canvas>
    {% include "components/hero-content.njk" %}

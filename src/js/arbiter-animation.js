@@ -18,7 +18,7 @@
     highlightAlpha: 0.36,
     glow: 8,
     expandMs: 1600,
-    holdMs:   200,
+    holdMs:   100,
     contractMs: 1200,
     channels: {
       blue: { hue: 210, sat: 0.5, light: 0.66, trailDecay: 0.75 },

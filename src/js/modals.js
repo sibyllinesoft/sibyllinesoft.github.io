@@ -227,6 +227,12 @@ class ModalManager {
       // Remove duplicate IDs to prevent DOM conflicts
       frag.querySelectorAll?.('[id]').forEach(n => n.removeAttribute('id'));
       
+      // Remove service-cta from cloned content
+      const cta = frag.querySelector('.service-cta');
+      if (cta) {
+        cta.remove();
+      }
+      
       this.modalDetails.replaceChildren(frag);
     } else {
       this.modalDetails.replaceChildren();

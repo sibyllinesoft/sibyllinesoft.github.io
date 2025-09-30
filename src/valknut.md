@@ -32,8 +32,8 @@ scripts:
 {% set heroLogoAlt = 'Valknut Logo' %}
 {% set heroLogoHeight = '61px' %}
 {% set heroTitle = 'Valknut gives your agents refactoring superpowers' %}
-{% set heroSubtitle %}
-      <div class="rotating-banners">
+{% set heroSubtitle -%}
+<div class="rotating-banners">
          <div class="banner-container">
             <span class="banner-text" data-text="Turn code complexity into a precise refactoring roadmap">Turn code complexity into a precise refactoring roadmap</span>
          </div>
@@ -41,7 +41,7 @@ scripts:
             <span class="banner-text" data-text="From thousands of files to a prioritized list of actionable insights">From thousands of files to a prioritized list of actionable insights</span>
          </div>
       </div>
-   {% endset %}
+{%- endset %}
 <div class="hero-container">
    <canvas id="neural-network" class="neural-background"></canvas>
    {% include "components/hero-content.njk" %}

@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Scene & camera
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(45, 1, 0.01, 100);
-  camera.position.set(0, 0, 2.75); // Zoomed out slightly to 2.75
+  camera.position.set(0, 0, 3.15); // Zoomed out slightly (was 2.75)
 
   // Trefoil torus knot curve T(2,3)
   class TrefoilTorusCurve extends THREE.Curve {
@@ -203,7 +203,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const originalPointsPositions = new Float32Array(pointsPositions);
   
   // Wobble parameters for protein-like undulation
-  const wobbleAmplitude = 0.1; // subtle organic deformation
+  const wobbleAmplitude = 0.075; // subtle organic deformation
   const wobbleSpeed = 0.5;        // half the speed too
   const wobbleComplexity = 3;     // multiple frequency layers
   
