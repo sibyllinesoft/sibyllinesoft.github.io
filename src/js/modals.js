@@ -67,42 +67,48 @@ const serviceData = {
     ctaText: 'Show Live Mission Control',
     alt: 'Live mission control dashboard for agent progress and audits',
     subject: 'Live Mission Control Walkthrough',
-    body: 'Hello! I\'d like to see how Arbiter\'s portal turns specs into live architecture diagrams, docs, and test telemetry so humans can audit agent work in real time. Could we schedule a walkthrough?'
+    body: 'Hello! I\'d like to see how Arbiter\'s portal turns specs into live architecture diagrams, docs, and test telemetry so humans can audit agent work in real time. Could we schedule a walkthrough?',
+    disableCta: true
   },
   'api-contracts': {
     image: 'https://images.unsplash.com/photo-1716391364025-aa44e51a535e?q=80&w=500&h=1200&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     ctaText: 'Sync API Contracts',
     alt: 'Executable API contracts powering consistent implementations',
     subject: 'Executable API Contract Workflow',
-    body: 'Hi! I want our API contracts, validation, and generated clients to stay in sync. Could we dive into how Arbiter uses shared types to drive consistent implementations across services?'
+    body: 'Hi! I want our API contracts, validation, and generated clients to stay in sync. Could we dive into how Arbiter uses shared types to drive consistent implementations across services?',
+    disableCta: true
   },
   'full-system': {
     image: 'https://images.unsplash.com/photo-1552705906-adcf48ae889a?q=80&w=500&h=1200&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     ctaText: 'Ship Systems from Specs',
     alt: 'Engineers reviewing generated services, infrastructure, and tests',
     subject: 'Spec-to-System Automation Inquiry',
-    body: 'Hello! I want to see Arbiter turn a declarative spec into synchronized services, infrastructure manifests, tests, and docs. Could we walk through the CLI flow and how template overrides keep everything in lockstep?'
+    body: 'Hello! I want to see Arbiter turn a declarative spec into synchronized services, infrastructure manifests, tests, and docs. Could we walk through the CLI flow and how template overrides keep everything in lockstep?',
+    disableCta: true
   },
   'github-integration': {
     image: 'https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?q=80&w=500&h=1200&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     ctaText: 'Wire Up GitHub Ops',
     alt: 'GitHub checks and issues synchronized with Arbiter automation',
     subject: 'GitHub & CI Automation with Arbiter',
-    body: 'Hi! I need merges blocked on spec drift and agent workflows mirrored into GitHub Issues and Checks. Could we cover the built-in integrations and how to extend them for our organization?'
+    body: 'Hi! I need merges blocked on spec drift and agent workflows mirrored into GitHub Issues and Checks. Could we cover the built-in integrations and how to extend them for our organization?',
+    disableCta: true
   },
   'mathematical-correctness': {
     image: 'https://images.unsplash.com/photo-1646763342742-e15af86f2825?q=80&w=500&h=1200&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     ctaText: 'Enforce Constraint Specs',
     alt: 'Constraint-backed specifications under review in Arbiter',
     subject: 'Constraint-Backed Spec Guardrails',
-    body: 'Hello! I want Arbiter\'s CUE specs wired into our delivery pipeline so agents can only ship code that satisfies the constraints. Could we walk through constraint validation and drift detection in CI?'
+    body: 'Hello! I want Arbiter\'s CUE specs wired into our delivery pipeline so agents can only ship code that satisfies the constraints. Could we walk through constraint validation and drift detection in CI?',
+    disableCta: true
   },
   'surgical-generation': {
     image: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=500&h=1200&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     ctaText: 'Adopt Arbiter Incrementally',
     alt: 'Engineers evolving an existing codebase with Arbiter guidance',
     subject: 'Incremental Adoption Strategy',
-    body: 'Hi! I want to bring Arbiter into a live codebase without losing handwritten logic. Could we cover how the importer seeds specs from real projects and how incremental regeneration keeps custom code intact?'
+    body: 'Hi! I want to bring Arbiter into a live codebase without losing handwritten logic. Could we cover how the importer seeds specs from real projects and how incremental regeneration keeps custom code intact?',
+    disableCta: true
   },
   'constraint-backed-specs': {
     image: 'https://images.unsplash.com/photo-1646763342742-e15af86f2825?q=80&w=500&h=1200&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
@@ -157,6 +163,8 @@ class ModalManager {
     this.modalImage = document.getElementById('modal-image');
     this.modalCtaButton = document.getElementById('modal-cta');
     this.modalCtaText = document.getElementById('modal-cta-text');
+    this.modalCtaContainer = this.modalCtaButton?.closest('.modal-cta') || document.querySelector('.modal-cta');
+    this.modalCtaDefaultDisplay = this.modalCtaContainer ? window.getComputedStyle(this.modalCtaContainer).display : '';
     this.serviceCards = document.querySelectorAll('.service-card');
     
     this.init();
@@ -212,6 +220,7 @@ class ModalManager {
     const summary = card.querySelector('.service-summary p').textContent;
     const details = card.querySelector('.service-details');
     const serviceInfo = serviceData[serviceType] || serviceData.startup;
+    const disableCta = Boolean(serviceInfo.disableCta);
     
     // Populate modal content
     this.modalTitle.innerHTML = title;
@@ -275,14 +284,27 @@ class ModalManager {
     }
     
     this.modalImage.alt = serviceInfo.alt;
-    this.modalCtaText.textContent = serviceInfo.ctaText;
     
-    // Create secure mailto link
-    const subject = serviceInfo.subject;
-    const body = serviceInfo.body;
-    this.modalCtaButton.href = window.generateSecureMailto ? 
-      window.generateSecureMailto(subject, body, 'hello') : 
-      'javascript:void(0)';
+    if (this.modalCtaContainer) {
+      if (disableCta) {
+        this.modalCtaContainer.style.display = 'none';
+      } else {
+        this.modalCtaContainer.style.display = this.modalCtaDefaultDisplay;
+      }
+    }
+
+    if (!disableCta && this.modalCtaButton && this.modalCtaText) {
+      this.modalCtaText.textContent = serviceInfo.ctaText || 'Get Started';
+
+      const subject = serviceInfo.subject;
+      const body = serviceInfo.body;
+      this.modalCtaButton.href = window.generateSecureMailto && subject && body ?
+        window.generateSecureMailto(subject, body, 'hello') :
+        'javascript:void(0)';
+    } else if (this.modalCtaButton && this.modalCtaText) {
+      this.modalCtaButton.href = 'javascript:void(0)';
+      this.modalCtaText.textContent = '';
+    }
     
     // Show modal
     this.modal.classList.add('active');
