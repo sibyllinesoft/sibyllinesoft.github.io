@@ -13,6 +13,84 @@ description: Cutting-edge AI research projects and academic contributions
 
 Advanced research projects exploring the frontiers of AI, machine learning, and software engineering. These projects contribute to academic understanding and push the boundaries of what's possible with intelligent systems.
 
+<!-- Research Logos -->
+<div class="project-brochure" id="logos-research">
+  <div class="project-visual">
+    <i data-lucide="brain-circuit" class="project-icon"></i>
+    <div class="project-codename">Logos</div>
+    <div class="project-status">Research Implementation</div>
+  </div>
+  <div class="project-content">
+    <h2>Bayesian LISP Symbolic Reasoner for Agent Systems</h2>
+    <div class="project-pitch">
+      <p><strong>The Research Question:</strong> Can AI agents reason more effectively through constrained symbolic expressions with built-in uncertainty quantification? Traditional neural approaches lack interpretability and struggle with logical consistency, while symbolic systems ignore uncertainty.</p>
+      
+      <p><strong>Our Approach:</strong> Logos implements a novel Bayesian POMDP system that combines grammar-constrained S-expression decoding with Value of Information scheduling. The system enforces mathematical rigor through Blackwell dominance validation while learning optimal epistemic action sequences through multi-game cognitive experiments.</p>
+      
+      <div class="project-features">
+        <div class="feature-item">
+          <strong>Language Reasoning Model (LRM):</strong> Grammar-constrained decoding ensures all generated reasoning follows valid S-expression syntax with typed uncertainty representation.
+        </div>
+        <div class="feature-item">
+          <strong>Bayesian Budget Optimization:</strong> Multi-dimensional cost tracking (time, computation, economic) with Lagrangian optimization for resource-constrained reasoning.
+        </div>
+        <div class="feature-item">
+          <strong>Blackwell Dominance Framework:</strong> Epistemic actions must provably improve posterior beliefs—zero tolerance for information-destroying operations with mathematical validation.
+        </div>
+        <div class="feature-item">
+          <strong>Parametric Game Laboratory:</strong> Battleship, Crafting, GridWorld, LogicGrid, and Mastermind generators provide controlled environments for cognitive experiment design.
+        </div>
+      </div>
+      
+      <p class="project-tagline">Bridging symbolic reasoning and probabilistic inference for explainable agent intelligence with formal correctness guarantees.</p>
+      
+      <div class="project-cta">
+        <a href="https://github.com/sibyllinesoft/logos" target="_blank" rel="noopener noreferrer" class="btn-unified btn-primary">
+          <span class="btn-inner">
+            View on GitHub
+            <i data-lucide="github"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Research Lethe -->
+<div class="project-brochure" id="lethe-research">
+  <div class="project-visual">
+    <i data-lucide="database" class="project-icon"></i>
+    <div class="project-codename">Lethe</div>
+    <div class="project-status">Active Research</div>
+  </div>
+  <div class="project-content">
+    <h2>Infinite Context Through Intelligent Forgetting Research</h2>
+    <div class="project-pitch">
+      <p><strong>The Research Question:</strong> Can AI agents achieve infinite context by intelligently filtering irrelevant information and rewriting verbose histories into efficient representations? Current approaches either hit token limits or require manual context curation, creating productivity bottlenecks.</p>
+      
+      <p><strong>Our Approach:</strong> Lethe research explores novel hybrid retrieval architectures that combine intelligent filtering, efficient rewriting, and adaptive compression. Our system eliminates context management overhead by automatically determining relevance and optimizing message representation for unlimited agent memory.</p>
+      
+      <div class="project-features">
+        <div class="feature-item">
+          <strong>Intelligent Forgetting Framework:</strong> Systematic evaluation of relevance filtering algorithms that automatically identify and remove irrelevant messages while preserving essential context information.
+        </div>
+        <div class="feature-item">
+          <strong>Efficient Rewriting Research:</strong> Novel compression techniques that transform verbose conversations into information-dense representations, reducing token usage while maintaining semantic fidelity.
+        </div>
+        <div class="feature-item">
+          <strong>Zero-Overhead Context Management:</strong> Elimination of manual context curation through automated relevance assessment and dynamic history optimization for infinite agent memory.
+        </div>
+        <div class="feature-item">
+          <strong>Production-Validated Results:</strong> Complete experimental framework demonstrating infinite context capabilities with sub-3s performance and rigorous evaluation of forgetting effectiveness.
+        </div>
+      </div>
+      
+      <p class="project-tagline">Research foundation for infinite agent context through intelligent forgetting and zero-overhead memory management.</p>
+      
+    </div>
+  </div>
+</div>
+
 <!-- Research ScrambleBench -->
 <div class="project-brochure" id="scramblebench-research">
   <div class="project-visual">
@@ -58,41 +136,6 @@ Advanced research projects exploring the frontiers of AI, machine learning, and 
           </span>
         </a>
       </div>
-    </div>
-  </div>
-</div>
-
-<!-- Research Lethe -->
-<div class="project-brochure" id="lethe-research">
-  <div class="project-visual">
-    <i data-lucide="database" class="project-icon"></i>
-    <div class="project-codename">Lethe</div>
-    <div class="project-status">NeurIPS 2025</div>
-  </div>
-  <div class="project-content">
-    <h2>Infinite Context Through Intelligent Forgetting Research</h2>
-    <div class="project-pitch">
-      <p><strong>The Research Question:</strong> Can AI agents achieve infinite context by intelligently filtering irrelevant information and rewriting verbose histories into efficient representations? Current approaches either hit token limits or require manual context curation, creating productivity bottlenecks.</p>
-      
-      <p><strong>Our Approach:</strong> Lethe research explores novel hybrid retrieval architectures that combine intelligent filtering, efficient rewriting, and adaptive compression. Our system eliminates context management overhead by automatically determining relevance and optimizing message representation for unlimited agent memory.</p>
-      
-      <div class="project-features">
-        <div class="feature-item">
-          <strong>Intelligent Forgetting Framework:</strong> Systematic evaluation of relevance filtering algorithms that automatically identify and remove irrelevant messages while preserving essential context information.
-        </div>
-        <div class="feature-item">
-          <strong>Efficient Rewriting Research:</strong> Novel compression techniques that transform verbose conversations into information-dense representations, reducing token usage while maintaining semantic fidelity.
-        </div>
-        <div class="feature-item">
-          <strong>Zero-Overhead Context Management:</strong> Elimination of manual context curation through automated relevance assessment and dynamic history optimization for infinite agent memory.
-        </div>
-        <div class="feature-item">
-          <strong>Production-Validated Results:</strong> Complete experimental framework demonstrating infinite context capabilities with sub-3s performance and rigorous evaluation of forgetting effectiveness.
-        </div>
-      </div>
-      
-      <p class="project-tagline">Research foundation for infinite agent context through intelligent forgetting and zero-overhead memory management.</p>
-      
     </div>
   </div>
 </div>
@@ -266,47 +309,3 @@ Advanced research projects exploring the frontiers of AI, machine learning, and 
     </div>
   </div>
 </div>
-
-<!-- Research Logos -->
-<div class="project-brochure" id="logos-research">
-  <div class="project-visual">
-    <i data-lucide="brain-circuit" class="project-icon"></i>
-    <div class="project-codename">Logos</div>
-    <div class="project-status">Research Implementation</div>
-  </div>
-  <div class="project-content">
-    <h2>Bayesian LISP Symbolic Reasoner for Agent Systems</h2>
-    <div class="project-pitch">
-      <p><strong>The Research Question:</strong> Can AI agents reason more effectively through constrained symbolic expressions with built-in uncertainty quantification? Traditional neural approaches lack interpretability and struggle with logical consistency, while symbolic systems ignore uncertainty.</p>
-      
-      <p><strong>Our Approach:</strong> Logos implements a novel Bayesian POMDP system that combines grammar-constrained S-expression decoding with Value of Information scheduling. The system enforces mathematical rigor through Blackwell dominance validation while learning optimal epistemic action sequences through multi-game cognitive experiments.</p>
-      
-      <div class="project-features">
-        <div class="feature-item">
-          <strong>Language Reasoning Model (LRM):</strong> Grammar-constrained decoding ensures all generated reasoning follows valid S-expression syntax with typed uncertainty representation.
-        </div>
-        <div class="feature-item">
-          <strong>Bayesian Budget Optimization:</strong> Multi-dimensional cost tracking (time, computation, economic) with Lagrangian optimization for resource-constrained reasoning.
-        </div>
-        <div class="feature-item">
-          <strong>Blackwell Dominance Framework:</strong> Epistemic actions must provably improve posterior beliefs—zero tolerance for information-destroying operations with mathematical validation.
-        </div>
-        <div class="feature-item">
-          <strong>Parametric Game Laboratory:</strong> Battleship, Crafting, GridWorld, LogicGrid, and Mastermind generators provide controlled environments for cognitive experiment design.
-        </div>
-      </div>
-      
-      <p class="project-tagline">Bridging symbolic reasoning and probabilistic inference for explainable agent intelligence with formal correctness guarantees.</p>
-      
-      <div class="project-cta">
-        <a href="https://github.com/sibyllinesoft/logos" target="_blank" rel="noopener noreferrer" class="btn-unified btn-primary">
-          <span class="btn-inner">
-            View on GitHub
-            <i data-lucide="github"></i>
-          </span>
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-
