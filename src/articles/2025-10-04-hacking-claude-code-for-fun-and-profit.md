@@ -26,7 +26,7 @@ Since this is a quick off the cuff article, we're just going to dip our toes int
 I've prepared a demo repo; the code is straightforward. I've included a basic, unopinionated observability stack with an OTel collector, Grafana Tempo and Clickhouse. If your job is to do stuff with agents, I strongly advise becoming comfortable with Clickhouse at a minimum; think of trace analysis like knowing how to use a debugger or profile code, it's a sign of a skilled engineer.
 </p>
 
-<div class="cta-section">
+<div class="cta-section cta-section--centered article-github-cta">
   <a href="https://github.com/sibyllinesoft/agent-hacking" class="btn-unified btn-primary" target="_blank" rel="noopener noreferrer">
     <span class="btn-inner">
       View Demo on GitHub
@@ -37,10 +37,10 @@ I've prepared a demo repo; the code is straightforward. I've included a basic, u
 
 ## What's included
 
-The [`agent-hacking` repo](https://github.com/sibyllinesoft/agent-hacking) packages everything you need for a realistic lab environment:
+The agent-hacking repo packages everything you need for a realistic lab environment:
 
-- **`claude-code` container**: Claude Code CLI, Bifrost gateway, and sensible OTLP defaults
-- **Transformational proxy**: Bifrost forwards `/anthropic` traffic to OpenRouter out of the box; bring your own provider keys
+- **pre-instrumented claude-code**: Claude Code CLI, Bifrost gateway, and sensible OTLP defaults
+- **Transformational proxy**: Bifrost forwards `/anthropic` traffic to OpenRouter out of the box
 - **Observability stack**: OpenTelemetry Collector, ClickHouse, Grafana Tempo, and Grafana pre-wired for tracing
 - **Webhook harness**: Minimal server that shells out to the CLI so you can test flows with plain `curl`
 
