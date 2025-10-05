@@ -336,28 +336,33 @@ The result: fast, cheap, reliable agentic systems that actually ship. From day o
 
 </div>
 
-## From Our Blog: Systems That Scale. Workflows That Work.
+<section class="home-articles" markdown="0">
+  <h2>From Our Blog: Systems That Scale. Workflows That Work.</h2>
+  <p>Deep dives on building agents that don't break.</p>
 
-Deep dives on building agents that don't break.
+  {% if collections.articles.length > 0 %}
 
-{% if collections.articles.length > 0 %}
+  {% set recentArticles %}
+  <div class="recent-articles">
+    {% for article in collections.articles | head(3) %}
+      {% include "components/article-card.njk" %}
+    {% endfor %}
+  </div>
+  {% endset %}
 
-<div class="recent-articles">
-  {% for article in collections.articles | head(3) %}
-    {% include "components/article-card.njk" %}
-  {% endfor %}
-</div>
+  {{ recentArticles | safe }}
 
-<p><a href="/articles/">View all articles <i data-lucide="arrow-right"></i></a></p>
+  <p class="home-articles-link"><a href="/articles/">View all articles <i data-lucide="arrow-right"></i></a></p>
 
-<style>
-.recent-articles {
-  display: grid;
-  gap: var(--space-2xl);
-}
-</style>
+  <style>
+  .recent-articles {
+    display: grid;
+    gap: var(--space-2xl);
+  }
+  </style>
 
-{% endif %}
+  {% endif %}
+</section>
 
 _Where ambitious ideas meet intelligent execution._
 

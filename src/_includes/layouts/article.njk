@@ -158,7 +158,9 @@ layout: simple.njk
   color: var(--color-text-light);
   line-height: 1.6;
   font-style: italic;
-  margin: 0;
+  margin: 0 auto;
+  max-width: 720px;
+  text-align: center;
 }
 
 .article-body {
@@ -177,6 +179,13 @@ layout: simple.njk
 
 .article-body p {
   margin-bottom: 1.5rem;
+}
+
+.article-cta {
+  margin: var(--space-2xl) auto var(--space-xl);
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }
 
 .article-body ul, .article-body ol {
