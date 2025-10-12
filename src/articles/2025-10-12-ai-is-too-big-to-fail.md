@@ -203,8 +203,6 @@ Returning to the traditional capitalists, I'd like to note that they aren't wron
 
 Where does all this leave us? For one, you better hope and pray that AI delivers a magical transformation, because if it doesn't, the whole economy will collapse into brutal serfdom. When I say magic here, I mean it; because of the ~38T national debt bomb, a big boost is not enough. If AI doesn't completely transform our economy, the massive capital misallocation combined with the national debt is going to cause our economy to implode.
 
-Where does all this leave us? For one, you better hope and pray that AI delivers a magical transformation, because if it doesn't, the whole economy will collapse into brutal serfdom. When I say magic here, I mean it; because of the ~38T national debt bomb, a big boost is not enough. If AI doesn't completely transform our economy, the massive capital misallocation combined with the national debt is going to cause our economy to implode.
-
 If you think I'm being hyperbolic calling out a future of brutal serfdom. Keep in mind we basically have widespread serfdom now; a big chunk of Americans are in debt and living paycheck to paycheck. The only thing keeping it from being official is the lack of debtor's prison. Think about how much worse things will be with 10% inflation, 25% unemployment and the highest income inequality in history. This is fertile ground for a revolution, and historically the elites would have taken a step back to try and make the game seem less rigged as a self-preservation tactic, but this time is different. As far as I can tell, the tech oligarchs don't care because they're banking on their private island fortresses and an army of terminators to keep the populace in line.
 
 ## The Only Way Out Is Through
