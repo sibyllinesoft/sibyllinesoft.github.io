@@ -10,6 +10,7 @@ tags:
   - geopolitics
 layout: article.njk
 image: "/img/optimized/article-ai-is-too-big-to-fail.webp"
+cardImage: "/img/optimized/article-ai-is-too-big-to-fail.webp"
 ---
 <div class="tldr-banner">
   <strong>TL;DR</strong>

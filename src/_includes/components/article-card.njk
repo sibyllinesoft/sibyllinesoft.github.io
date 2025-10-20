@@ -2,7 +2,9 @@
 
 <div class="article-card-component" markdown="0" onclick="window.location.href='{{ article.url }}'" style="cursor: pointer;">
   <div class="article-image-sidebar">
-    <img src="{{ article.data.image or '/img/default-article.jpg' }}" alt="{{ article.data.title }}">
+    <img src="{{ article.data.cardImage
+      | default(article.data.image)
+      | default('/img/default-article.jpg') }}" alt="{{ article.data.title }}">
     <div class="article-image-overlay"></div>
   </div>
   

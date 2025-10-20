@@ -237,7 +237,7 @@
    Responsive Design for TOC
    ================================= */
 
-@media (max-width: 1400px) {
+@media (max-width: 1650px) {
     .toc-container {
         display: none;
     }
