@@ -46,7 +46,7 @@ jsonLD:
       <div class="subtitle">NATS JetStream, Mattermost, and GitLab telemetry give agents a command deck on day one.</div>
    </div>
 </div>
-{% set heroLogo = '/img/logos/rave-raido.svg' %}
+{% set heroLogo = '/img/logos/raido.webp' %}
 {% set heroLogoAlt = 'RAVE Raido Glyph' %}
 {% set heroLogoHeight = '96px' %}
 {% set heroTitle = 'Reproducible AI Virtual Environments' %}
@@ -60,7 +60,7 @@ jsonLD:
    </div>
 </div>
 {%- endset %}
-<div class="hero-container">
+<div class="hero-container rave-hero">
    <canvas id="rave-oscilloscope" class="neural-background" aria-hidden="true"></canvas>
    {% include "components/hero-content.njk" %}
 </div>
