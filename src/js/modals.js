@@ -19,6 +19,20 @@ const serviceData = {
     subject: 'Enterprise AI Architecture Consultation',
     body: 'Hello! I\'m interested in your Enterprise AI Architecture services. Can we discuss how to build scalable, production-ready AI systems for our organization?'
   },
+  training: {
+    image: '/img/optimized/modal-individuals.webp',
+    ctaText: 'Learn More',
+    alt: 'Focused developer coding on a laptop in a modern workspace',
+    subject: 'Individual AI Productivity Training Request',
+    body: 'Hi! I\'m interested in your Individual AI Productivity Training. Can we discuss training options?'
+  },
+  predictive: {
+    image: '/img/optimized/modal-data-visualization.webp',
+    ctaText: 'Build Predictive Systems',
+    alt: 'Data analytics dashboard with predictive charts',
+    subject: 'Predictive Applications Development Request',
+    body: 'Hi there! I\'m interested in building Predictive Applications that learn and evolve. Can we explore how to create software that gets smarter with every interaction?'
+  },
   research: {
     image: '/img/optimized/modal-team-meeting.webp',
     ctaText: 'Advance Your Research',
@@ -35,6 +49,7 @@ const serviceData = {
   },
   agentic: {
     image: 'custom-visualization', // Special flag for custom visualization
+    fallbackImage: '/img/optimized/modal-computer-code.webp',
     ctaText: 'Build Agent Systems',
     alt: 'Production pipeline visualization for autonomous agent systems',
     subject: 'Autonomous Agent Systems Development',
@@ -154,6 +169,25 @@ const serviceData = {
   }
 };
 
+/**
+ * Ensure feature lists render inside inset containers for consistent styling
+ * @param {ParentNode} context
+ */
+function normalizeFeatureLists(context) {
+  context.querySelectorAll?.('ul.bullet-box').forEach(list => {
+    const existingWrapper = list.closest('.product-features');
+    if (existingWrapper) {
+      existingWrapper.classList.add('product-features', 'project-features');
+    } else if (list.parentNode) {
+      const wrapper = list.ownerDocument.createElement('div');
+      wrapper.classList.add('product-features', 'project-features');
+      list.parentNode.insertBefore(wrapper, list);
+      wrapper.appendChild(list);
+    }
+    list.classList.remove('bullet-box');
+  });
+}
+
 class ModalManager {
   constructor() {
     this.modal = document.getElementById('service-modal');
@@ -248,13 +282,18 @@ class ModalManager {
         cta.remove();
       }
       
+      // Recreate inset wrappers for feature lists
+      normalizeFeatureLists(frag);
+      
       this.modalDetails.replaceChildren(frag);
     } else {
       this.modalDetails.replaceChildren();
     }
     
     // Set image and CTA - handle custom visualization for agentic service
-    if (serviceType === 'agentic' && serviceInfo.image === 'custom-visualization') {
+    const originalPipeline = card.querySelector('.production-pipeline');
+    const hasCustomVisualization = serviceType === 'agentic' && serviceInfo.image === 'custom-visualization';
+    if (hasCustomVisualization && originalPipeline) {
       // Hide the standard modal image and show the production pipeline instead
       this.modalImage.style.display = 'none';
       
@@ -267,20 +306,20 @@ class ModalManager {
       }
       
       // Clone the production pipeline from the card
-      const originalPipeline = card.querySelector('.production-pipeline');
-      if (originalPipeline) {
-        customVizContainer.innerHTML = originalPipeline.outerHTML;
-        customVizContainer.style.display = 'block';
-        
-        // Trigger animations for the cloned pipeline
-        setTimeout(() => {
-          this.triggerModalPipelineAnimations(customVizContainer);
-        }, 100);
-      }
+      customVizContainer.innerHTML = originalPipeline.outerHTML;
+      customVizContainer.style.display = 'block';
+      
+      // Trigger animations for the cloned pipeline
+      setTimeout(() => {
+        this.triggerModalPipelineAnimations(customVizContainer);
+      }, 100);
     } else {
-      // Standard image display for other services
+      // Standard image display or fallback for custom visualization w/o pipeline
       this.modalImage.style.display = 'block';
-      this.modalImage.src = serviceInfo.image;
+      const resolvedImage = hasCustomVisualization ?
+        serviceInfo.fallbackImage || '/img/optimized/modal-office-meeting.webp' :
+        serviceInfo.image;
+      this.modalImage.src = resolvedImage;
       
       // Hide custom visualization if it exists
       const customVizContainer = this.modal.querySelector('.modal-custom-visualization');
