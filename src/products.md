@@ -260,12 +260,6 @@ Knowledge workers lose 2-3 hours daily to information fragmentation and context 
       <p>Teams recover 90% of time spent on context management while sessions stretch to 300+ messages without drift or performance loss.</p>
       
       <div class="project-cta">
-        <a href="/lethe" class="btn-unified btn-primary">
-          <span class="btn-inner">
-            Learn More
-            <i data-lucide="arrow-right"></i>
-          </span>
-        </a>
         <a href="https://github.com/sibyllinesoft/lethe" class="btn-unified btn-primary">
           <span class="btn-inner">
             View on GitHub

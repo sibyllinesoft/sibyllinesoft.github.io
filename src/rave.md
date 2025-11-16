@@ -11,6 +11,7 @@ stylesheets:
   - "/styles/valknut.css"
 scripts:
   - "/js/rave-oscilloscope.js"
+  - "/js/modals.js"
 openGraph:
   title: "RAVE – Reproducible AI Virtual Environments"
   description: "Spin up complete, policy-enforced development stacks for every customer in minutes with the RAVE CLI."
@@ -78,33 +79,48 @@ jsonLD:
    <div class="services-grid">
          <div class="service-card">
             <h3>Complete company stack</h3>
-            <p>GitLab, JetStream, PostgreSQL, Redis, Penpot, and Mattermost arrive online together with shared OAuth, SSL, and CI already synchronized.</p>
-            <ul>
-               <li>GitLab with CI runners and baked OAuth redirect URIs</li>
-               <li>NATS JetStream for event streaming and agent signaling</li>
-               <li>PostgreSQL + dual Redis instances for app + GitLab caching</li>
-               <li>Penpot + Mattermost wired into GitLab for design + chat</li>
-            </ul>
+            <div class="service-summary">
+               <p>GitLab, JetStream, PostgreSQL, Redis, Penpot, and Mattermost arrive together with shared OAuth, SSL, and CI already synchronized.</p>
+            </div>
+            <div class="service-details">
+               <p>Everything agents and engineers need is staged in one shot so onboarding is instant.</p>
+               <ul class="bullet-box">
+                  <li>GitLab with CI runners and baked OAuth redirect URIs</li>
+                  <li>NATS JetStream for event streaming and agent signaling</li>
+                  <li>PostgreSQL + dual Redis instances for app + GitLab caching</li>
+                  <li>Penpot + Mattermost wired into GitLab for design + chat</li>
+               </ul>
+            </div>
          </div>
          <div class="service-card">
             <h3>Deterministic multi-tenancy</h3>
-            <p>Every company gets its own port ranges, SSH keys, and Age-encrypted secrets. Network namespaces keep traffic sealed; drift is impossible because the CLI is the only entry point.</p>
-            <ul>
-               <li>8100+/8110+ port bands per tenant</li>
-               <li>Age keypairs stored via <code>rave secrets init</code> &amp; <code>.sops.yaml</code></li>
-               <li>Network namespaces plus baked SSH keypairs</li>
-               <li>Secrets rehydrated with <code>rave secrets install &lt;company&gt;</code></li>
-            </ul>
+            <div class="service-summary">
+               <p>Each customer cloud gets its own port ranges, SSH keys, and Age-encrypted secrets so drift is impossible.</p>
+            </div>
+            <div class="service-details">
+               <p>The CLI is the only entry point, ensuring every change is reproducible and auditable.</p>
+               <ul class="bullet-box">
+                  <li>8100+/8110+ port bands per tenant</li>
+                  <li>Age keypairs stored via <code>rave secrets init</code> &amp; <code>.sops.yaml</code></li>
+                  <li>Network namespaces plus baked SSH keypairs</li>
+                  <li>Secrets rehydrated with <code>rave secrets install &lt;company&gt;</code></li>
+               </ul>
+            </div>
          </div>
          <div class="service-card">
             <h3>Agent-native operations</h3>
-            <p>Agents monitor and act through the same surfaces operators use: NATS JetStream events, <code>rave vm logs</code>, and Mattermost channels tied back to GitLab issues.</p>
-            <ul>
-               <li>CLI-only lifecycle ensures reproducibility</li>
-               <li><code>rave vm logs &lt;company&gt; nginx --follow</code> for live tails</li>
-               <li>JetStream topics for workflow automation + telemetry</li>
-               <li>Mattermost rooms for agent command/control</li>
-            </ul>
+            <div class="service-summary">
+               <p>Agents monitor and act through NATS JetStream, <code>rave vm logs</code>, and Mattermost channels tied back to GitLab.</p>
+            </div>
+            <div class="service-details">
+               <p>Operations stay reproducible because clouds only respond to CLI-driven workflows.</p>
+               <ul class="bullet-box">
+                  <li>CLI-only lifecycle ensures reproducibility</li>
+                  <li><code>rave vm logs &lt;company&gt; nginx --follow</code> for live tails</li>
+                  <li>JetStream topics for workflow automation + telemetry</li>
+                  <li>Mattermost rooms for agent command/control</li>
+               </ul>
+            </div>
          </div>
       </div>
    </div>
