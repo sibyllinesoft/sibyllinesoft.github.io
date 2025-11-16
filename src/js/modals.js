@@ -217,14 +217,20 @@ class ModalManager {
     // Get card content and service type
     const serviceType = card.getAttribute('data-service');
     const title = card.querySelector('h3').innerHTML;
-    const summary = card.querySelector('.service-summary p').textContent;
+    const summaryEl = card.querySelector('.service-summary p');
+    const summaryHtml = summaryEl?.innerHTML?.trim();
+    const summaryTextFallback = summaryEl?.textContent?.trim() || '';
     const details = card.querySelector('.service-details');
     const serviceInfo = serviceData[serviceType] || serviceData.startup;
     const disableCta = Boolean(serviceInfo.disableCta);
     
     // Populate modal content
     this.modalTitle.innerHTML = title;
-    this.modalSummary.textContent = summary;
+    if (summaryHtml) {
+      this.modalSummary.innerHTML = summaryHtml;
+    } else {
+      this.modalSummary.textContent = summaryTextFallback;
+    }
     
     // Surgical cloning of children (no wrapper nesting)
     if (details) {

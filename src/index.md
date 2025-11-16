@@ -3,6 +3,7 @@ eleventyNavigation:
   key: Home
   order: 1
 layout: simple.njk
+enableModals: true
 ---
 
 <!-- Hidden data for rotating banners - read by JavaScript -->
@@ -48,7 +49,7 @@ layout: simple.njk
 
 Improvements in DX are like compounding interest. They increase the velocity of everyone on the team, which not only accelerates further improvements in DX, it also results in more discretionary time to put towards DX work, since fires can be put out more quickly. The end result is a flywheel of engineering excellence that will leave you coding circles around your competitors.
 
-We understand it can be hard to invest in DX when users are demanding features and investors are demanding growth. Unfortunately, this path leads to tech debt, blocked engineers and unreliable software. Think of it like the entrepreneurial equivalent of failing to save because you're living paycheck to paycheck.
+We understand it can be hard to invest in DX when users are demanding features and investors are demanding growth. Unfortunately, this path leads to tech debt, blocked engineers and unreliable software. Think of it like the business equivalent of failing to save because you're living paycheck to paycheck.
 
 We want to help. Our mission is to make an amazing developer experience available to everyone. Our unique insight is that amazing developer experiences don't come from better tools, they come from better systems, and the ideal system in a given circumstance is team and organization dependent. We don't build one-size-fits-all tools, we build adaptable frameworks designed to put your business on rails, and we help you mold them to your needs.
 </div>
@@ -69,16 +70,15 @@ We want to help. Our mission is to make an amazing developer experience availabl
 <p><strong>Take the guesswork out of AI.</strong> Skip the research rabbit hole, spin up a professional grade development environment in minutes.</p>
 </div>
 <div class="service-details">
-<div class="product-features project-features">
-<p><strong>Take the guesswork out of agentic development.</strong></p>
+<p><strong>AI is going to transform the labor market.</strong> The people who thrive will be the ones who've mastered the skill of applying AI to real world problems. Are you ready?</p>
+<p>Unlike vibe coding tools that focus on simplifying the process of creating demos in toy environments, our software integrates into the tools used to build real software and deploys into real enviroments.</p>
 <ul class="bullet-box">
-<li>Rave spins up a VM for a secure dev environment ready for agent swarms in two commands</li>
-<li><a href="/arbiter/">Arbiter</a> compiles your specs into working software</li>
-<li>Smith orchestrates agent swarms to implement and test work in parallel</li>
+<li><a href="/rave/">Rave</a> is a complete AI development environment, designed for maximum productivity and preconfigured with best in class tools</li>
+<li><a href="/arbiter/">Arbiter</a> compiles your specs into working software with tests that keep your agents on rails</li>
+<li>Smith lets you orchestrate agent swarms to implement and test work in parallel</li>
 <li><a href="/valknut/">Valknut</a> tames agent induced technical debt</li>
 </ul>
 
-</div>
 </div>
 <div class="click-hint">Click to expand</div>
 <div class="service-visual planet">
@@ -93,15 +93,13 @@ We want to help. Our mission is to make an amazing developer experience availabl
 <p><strong>Turbo-charge your development while slashing your SaaS bill.</strong> Our co-managed AI workspaces give you the simplicity of SaaS with the cost and control of self-hosting.</p>
 </div>
 <div class="service-details">
-<p><strong>Ship features before your runway runs out.</strong></p>
+<p><strong>The startups that win ship fast.</strong> Our tools let you build at the speed of ideation with simple ops and consistent environments, so your engineers can focus on building product rather than debugging configs.</p>
+<p>Unlike vibe coding tools that silo your AI interactions and saddle you with tech debt, our tools are designed to let you build robust systems collaborativelly.</p>
 <ul class="bullet-box">
-<li>Rave spins up complete dev environments in minutes for immediate team productivity</li>
-<li>Multiverse provides multi-region hyperscale capability for a fraction of typical cloud costs</li>
-<li><a href="/arbiter/">Arbiter</a> compiles your specs into working software</li>
-</ul>
-<p>Transform empty repositories into shipping production features in days, not months.</p>
-<div class="service-cta">
-</div>
+<li><a href="/rave/">Rave</a> is a complete AI development environment, designed for maximum productivity and preconfigured with best in class tools</li>
+<li><a href="/arbiter/">Arbiter</a> compiles your specs into working software with tests that keep your agents on rails</li>
+<li>Smith lets you orchestrate agent swarms to implement and test work in parallel</li>
+<li><a href="/valknut/">Valknut</a> tames agent induced technical debt</li>
 </div>
 <div class="click-hint">Click to expand</div>
 <div class="service-visual solar">
@@ -113,15 +111,16 @@ We want to help. Our mission is to make an amazing developer experience availabl
 <div class="service-card" data-service="enterprise">
 <h3><i data-lucide="building"></i> Enterprise</h3>
 <div class="service-summary">
-<p><strong>Make AI the engine of your enterprise.</strong> Our agents respond to business events in realtime and build conformant, reliable systems.</p>
+<p><strong>Make AI the engine of your enterprise.</strong> Our agents respond to business events in realtime, obey policy and build conformant, reliable systems.</p>
 </div>
 <div class="service-details">
+<p><strong>The enterprises that win get the most out of their employees.</strong> Our tools are designed to make it easy for non-technical users to build products and automations that can be deployed to production without a complete rewrite.</p>
+<p>Our systems can be adapted to enforce compliance with your conventions, tools and infrastructure, so the vibes always stay good.</p>
 <ul class="bullet-box">
+<li><a href="/rave/">Rave</a> is a complete AI development environment, designed for maximum productivity and preconfigured with best in class tools</li>
 <li>Smith orchestrates agents in response to events anywhere in your organization, with centralized policy management, full auditing and multi-layer sandboxing</li>
-<li>Arbiter ensures agents write compliant code that integrates with your existing systems</li>
-<li>Guild synchronizes code and business documentation while optimizing it for use by AI.</li>
+<li><a href="/arbiter/">Arbiter</a> ensures agents write compliant code that integrates with your existing systems</li>
 </ul>
-<p>Distributed, observable, and compliant systems enable faster movement without sacrificing enterprise control.</p>
 </div>
 <div class="click-hint">Click to expand</div>
 <div class="service-visual galaxy">
@@ -134,7 +133,9 @@ We want to help. Our mission is to make an amazing developer experience availabl
 
 <div class="centered-section">
 <h3>Integration and Process are the Bottleneck to AI success</h3>
-<p>If you try to adopt AI without the right data, capabilities and processes in place, you're going to end up with unreliable agents and low quality code. The companies that win will be the ones that put the time in early to get an integrated AI infrastructure in place. Every day you delay is a day of lost productivity gains.</p></div>
+<p>If you try to adopt AI without the right data, capabilities and processes in place, you're going to end up with unreliable agents and low quality code. The companies that win will be the ones that put the time in early to get an integrated AI infrastructure in place. Every day you delay is a day of lost productivity gains.</p>
+<p>We recognize that not everyone has the available talent or time to integrate AI as effectively into their business as they'd like. That's why in addition to our systems being easy to work with and well configured out of the box, we also offer consulting and integration services. This is our specialty, let us spend a few hours of our time to save you weeks of pain.</p>
+</div>
 
 <div class="content-section">
 
@@ -188,7 +189,7 @@ We want to help. Our mission is to make an amazing developer experience availabl
 </div>
 
 <div class="service-card" data-service="predictive">
-<h3><i data-lucide="trending-up"></i> We Build Systems That Learn and Adapt</h3>
+<h3><i data-lucide="trending-up"></i> We've built systems for Fortune 500, government and military customers</h3>
 <div class="service-summary">
 <p><strong>Beyond parroting data:</strong> agents that evolve strategies and deliver value.</p>
 </div>
@@ -1475,7 +1476,7 @@ _Where ambitious ideas meet intelligent execution._
   background: var(--color-surface-50);
   padding: var(--space-2xl) var(--space-xl);
   border-radius: var(--radius-lg);
-  margin: var(--space-xl) 0;
+  margin: 64px 0;
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--color-border-light-50);
 }
@@ -3605,36 +3606,6 @@ _Where ambitious ideas meet intelligent execution._
   }
 }
 </style>
-
-<!-- Service Modal -->
-<div id="service-modal" class="modal-overlay">
-  <div class="modal-content">
-    <button class="modal-close" aria-label="Close modal">&times;</button>
-    
-    <div class="modal-image-sidebar">
-      <img id="modal-image" src="" alt="">
-      <div class="modal-image-overlay"></div>
-    </div>
-    
-    <div class="modal-content-area">
-      <div class="modal-header">
-        <h3 id="modal-title"></h3>
-        <p id="modal-summary"></p>
-      </div>
-      
-      <div class="modal-body" id="modal-details"></div>
-      
-      <div class="modal-cta">
-        <a href="#" class="modal-cta-button" id="modal-cta">
-          <span class="btn-inner">
-            <span id="modal-cta-text">Get Started</span>
-            <i data-lucide="mail"></i>
-          </span>
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
 
 <script>
 // Transformer-Inspired Neural Network Animation
