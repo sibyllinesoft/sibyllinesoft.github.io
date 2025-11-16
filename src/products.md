@@ -52,6 +52,12 @@ Teams lose weeks to infrastructure setup and unpredictable AI costs. Zero-setup 
       <p>Teams save 20-40 hours per project while AI agents cut management overhead by 60%. Secure by default, compliant from day one.</p>
       
       <div class="project-cta">
+        <a href="/rave" class="btn-unified btn-primary">
+          <span class="btn-inner">
+            Learn More
+            <i data-lucide="arrow-right"></i>
+          </span>
+        </a>
         <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in becoming a tester for this product. Please let me know about testing opportunities.">
           <span class="btn-inner">
             Skip Setup Weeks
@@ -183,48 +189,6 @@ Teams lose weeks to infrastructure setup and unpredictable AI costs. Zero-setup 
   </div>
 </div>
 
-<!-- Product Aegis -->
-<div class="project-brochure" id="aegis-product">
-  <div class="project-visual">
-    <i data-lucide="shield" class="project-icon"></i>
-    <div class="project-codename">Codename: AEGIS</div>
-    <div class="project-status">In Development</div>
-  </div>
-  <div class="project-content">
-    <h3>High-Throughput Merge Queue</h3>
-    <div class="project-pitch">
-      <p><strong>24× faster merge throughput.</strong></p>
-      <p>Traditional merge queues process PRs one at a time, creating massive bottlenecks with AI-generated code volumes. AEGIS uses intelligent batching and smart conflict detection to handle 100,000+ PRs with parallel validation.</p>
-      
-      <div class="project-features">
-        <div class="feature-item">
-          <strong>Smart Conflict Detection:</strong> Analyzes file changes to automatically group non-conflicting PRs into batches, eliminating manual coordination overhead.
-        </div>
-        <div class="feature-item">
-          <strong>Parallel Validation:</strong> Tests entire batches simultaneously using ghost branches instead of serial testing, dramatically reducing pipeline time.
-        </div>
-        <div class="feature-item">
-          <strong>Instant Failure Recovery:</strong> Parallel bisection finds problematic PRs in O(log N) time instead of testing each individually—3 iterations vs 100.
-        </div>
-        <div class="feature-item">
-          <strong>Selective Testing:</strong> Runs only tests affected by changes—47 relevant tests instead of 10,000 total, with 95% cache hit rates.
-        </div>
-      </div>
-      
-      <p>Development teams reduce merge queue time from 69 days to 2.9 days for 100,000 PRs through mathematical batching algorithms and conflict-aware scheduling.</p>
-      
-      <div class="project-cta">
-        <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in learning more about the Aegis high-throughput merge queue system.">
-          <span class="btn-inner">
-            24× Faster Merges
-            <i data-lucide="mail"></i>
-          </span>
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-
 ## Research & Knowledge Systems
 
 Knowledge workers lose 2-3 hours daily to information fragmentation and context limits. Unified research intelligence and infinite agent memory transform information chaos into actionable insights.
@@ -306,48 +270,6 @@ Knowledge workers lose 2-3 hours daily to information fragmentation and context 
           <span class="btn-inner">
             View on GitHub
             <i data-lucide="github"></i>
-          </span>
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Product Guild -->
-<div class="project-brochure" id="guild-product">
-  <div class="project-visual">
-    <i data-lucide="scroll-text" class="project-icon"></i>
-    <div class="project-codename">Codename: GUILD</div>
-    <div class="project-status">Private Testing</div>
-  </div>
-  <div class="project-content">
-    <h3>Intelligent Documentation Curation and RAG Optimization Framework</h3>
-    <div class="project-pitch">
-      <p><strong>Documentation that stays relevant automatically.</strong></p>
-      <p>Documentation rots faster than code changes while RAG systems return irrelevant results. GUILD automatically revises documentation to match source code evolution, optimizes content for retrieval systems, and adds cross-links for maximum discoverability.</p>
-      
-      <div class="project-features">
-        <div class="feature-item">
-          <strong>Automatic Documentation Sync:</strong> Monitors source code changes and intelligently updates documentation to maintain accuracy without manual intervention.
-        </div>
-        <div class="feature-item">
-          <strong>RAG-Optimized Content:</strong> Rewrites documentation using real system data patterns to maximize retrieval accuracy and semantic search performance.
-        </div>
-        <div class="feature-item">
-          <strong>Smart Annotation System:</strong> Adds contextual cross-links and annotations based on actual usage patterns for enhanced discoverability.
-        </div>
-        <div class="feature-item">
-          <strong>Hybrid Search Engine:</strong> Advanced vector + BM25 retrieval with contextual reranking delivers precise results for complex queries.
-        </div>
-      </div>
-      
-      <p>Engineering teams eliminate documentation drift while improving RAG system accuracy by 60-80% through continuous knowledge curation. Built-in evaluation harness with TruLens integration provides measurable quality metrics.</p>
-      
-      <div class="project-cta">
-        <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in becoming a tester for this product. Please let me know about testing opportunities.">
-          <span class="btn-inner">
-            Join Private Testing
-            <i data-lucide="mail"></i>
           </span>
         </a>
       </div>
@@ -488,45 +410,6 @@ Agent workflows fail 40-60% of the time due to suboptimal prompts and scattered 
   </div>
 </div>
 
-<!-- Product Minerva -->
-<div class="project-brochure" id="minerva-product">
-  <div class="project-visual">
-    <i data-lucide="network" class="project-icon"></i>
-    <div class="project-codename">Codename: MINERVA</div>
-    <div class="project-status">Private Testing</div>
-  </div>
-  <div class="project-content">
-    <h3>Meta MCP Server: Unified Intelligence Across All Your Tools</h3>
-    <div class="project-pitch">
-      <p><strong>One interface, every tool.</strong></p>
-      <p>Agents waste time hunting for the right tool across scattered MCP servers. MINERVA discovers and validates every tool automatically, then uses hybrid search to match natural language queries to exact capabilities.</p>
-      
-      <div class="project-features">
-        <div class="feature-item">
-          <strong>Automatic Discovery:</strong> Finds and validates tools from multiple MCP servers, creating unified directories without manual configuration.
-        </div>
-        <div class="feature-item">
-          <strong>Smart Tool Matching:</strong> BM25 search plus dense embeddings finds exactly the right tool for any query. No more guessing which tool does what.
-        </div>
-        <div class="feature-item">
-          <strong>Production Performance:</strong> Fast mode (200ms) to Thorough mode (2s) with OpenTelemetry observability and circuit breakers built in.
-        </div>
-      </div>
-      
-      <p>Teams cut tool discovery time by 75% while RBAC controls and degradation modes ensure reliable production deployment. Optional DAG generation orchestrates complex workflows automatically.</p>
-      
-      <div class="project-cta">
-        <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in becoming a tester for this product. Please let me know about testing opportunities.">
-          <span class="btn-inner">
-            Unify Your Tools
-            <i data-lucide="mail"></i>
-          </span>
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- Product Daedalus -->
 <div class="project-brochure" id="daedalus-product">
   <div class="project-visual">
@@ -644,45 +527,6 @@ Legacy development tools fail with 87% false positive rates and crash under scal
           <span class="btn-inner">
             Join Alpha Testing
             <i data-lucide="mail"></i>
-          </span>
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Product Echo -->
-<div class="project-brochure" id="echo-product">
-  <div class="project-visual">
-    <i data-lucide="search-code" class="project-icon"></i>
-    <div class="project-codename">Codename: ECHO</div>
-    <div class="project-status">Production Ready</div>
-  </div>
-  <div class="project-content">
-    <h3>Next-Generation Duplicate Code Detection</h3>
-    <div class="project-pitch">
-      <p><strong>Find duplicates tools miss completely.</strong></p>
-      <p>Traditional tools false-flag 87% of the time, missing semantic duplicates entirely. ECHO uses GraphCodeBERT embeddings to catch identical logic with different syntax—the duplicates that actually matter for refactoring.</p>
-      
-      <div class="project-features">
-        <div class="feature-item">
-          <strong>AI-Native Detection:</strong> GraphCodeBERT-mini embeddings identify semantically identical code patterns regardless of variable names or syntax style.
-        </div>
-        <div class="feature-item">
-          <strong>Blazing Performance:</strong> LSH-optimized algorithms index 250k LOC repositories in 9 seconds with zero crashes or memory issues.
-        </div>
-        <div class="feature-item">
-          <strong>Fully Local:</strong> 100% local processing with zero cloud dependencies. Perfect for regulated industries and security-conscious teams.
-        </div>
-      </div>
-      
-      <p>Teams achieve 90%+ accuracy vs traditional tools' 13% while native MCP integration lets AI coding assistants detect and refactor duplicates in real-time workflows.</p>
-      
-      <div class="project-cta">
-        <a href="https://github.com/sibyllinesoft/echo" target="_blank" rel="noopener noreferrer" class="btn-unified btn-primary">
-          <span class="btn-inner">
-            View on GitHub
-            <i data-lucide="github"></i>
           </span>
         </a>
       </div>
@@ -816,45 +660,6 @@ Development teams face crushing AI inference costs and vendor lock-in while buil
           <span class="btn-inner">
             Zero AI Bills
             <i data-lucide="mail"></i>
-          </span>
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Product Hydra -->
-<div class="project-brochure" id="hydra-product">
-  <div class="project-visual">
-    <i data-lucide="git-branch-plus" class="project-icon"></i>
-    <div class="project-codename">Codename: HYDRA</div>
-    <div class="project-status">Production Ready</div>
-  </div>
-  <div class="project-content">
-    <h3>Multi-Agent Development System for Extended Claude Code Sessions</h3>
-    <div class="project-pitch">
-      <p><strong>Keep building, stop restarting.</strong></p>
-      <p>Claude Code stalls after 50 messages, killing momentum on complex projects. HYDRA spins up 50+ specialist agents—backend architects, security auditors, test writers—so context never drops and conversations run for days.</p>
-      
-      <div class="project-features">
-        <div class="feature-item">
-          <strong>Unlimited Sessions:</strong> 300+ message conversations without performance loss through context isolation technology. Build complex features in single sessions.
-        </div>
-        <div class="feature-item">
-          <strong>50+ Domain Experts:</strong> Specialist agents with cutting-edge 2024-2025 framework knowledge handle every development need without context switching.
-        </div>
-        <div class="feature-item">
-          <strong>Parallel Coordination:</strong> Multiple agents work simultaneously on complex projects while maintaining coordination and delivering integrated results.
-        </div>
-      </div>
-      
-      <p>Senior engineers recover 2-3 hours daily by eliminating context restoration overhead while teams achieve 60-80% productivity gains through uninterrupted development flow.</p>
-      
-      <div class="project-cta">
-        <a href="https://github.com/sibyllinesoft/hydra" class="btn-unified btn-primary">
-          <span class="btn-inner">
-            View on GitHub
-            <i data-lucide="github"></i>
           </span>
         </a>
       </div>
@@ -1049,4 +854,3 @@ Sibylline AI tools help teams eliminate setup friction and reduce operational co
 Use product CTAs above or contact us directly for enterprise discussions. All products include documentation, support, and migration assistance.
 
 ---
-

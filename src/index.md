@@ -8,28 +8,14 @@ layout: simple.njk
 <!-- Hidden data for rotating banners - read by JavaScript -->
 <div class="hero-data" style="display: none;">
   <div class="title-subtitle-group" data-group-index="0">
-    <div class="title">Stop Losing to Startups With Real AI Advantages</div>
-    <div class="subtitle">Turn your data moat into autonomous agent systems that competitors can't copy</div>
-    <div class="subtitle">Build AI-first workflows that eliminate manual processes entirely</div>
-    <div class="subtitle">Deploy intelligent automation that learns and improves without human intervention</div>
+    <div class="title">10x Your Team's Velocity</div>
+    <div class="subtitle">We automate the grind so your engineers can focus on the important problems</div>
+    <div class="subtitle">Stop hustling and start automating</div>
   </div>
   <div class="title-subtitle-group" data-group-index="1">
-    <div class="title">Enterprise AI That Actually Works in Production</div>
-    <div class="subtitle">Architected for scale, security, and seamless integration with existing systems</div>
-    <div class="subtitle">Built with enterprise governance, compliance, and risk management from day one</div>
-    <div class="subtitle">Designed for reliability with comprehensive monitoring and automated failsafes</div>
-  </div>
-  <div class="title-subtitle-group" data-group-index="2">
-    <div class="title">Custom AI Research That Drives Breakthrough Innovation</div>
-    <div class="subtitle">Novel algorithms tailored to your unique data patterns and business constraints</div>
-    <div class="subtitle">Advanced research partnerships that accelerate time-to-market for AI products</div>
-    <div class="subtitle">Proprietary model development that creates sustainable competitive advantages</div>
-  </div>
-  <div class="title-subtitle-group" data-group-index="3">
-    <div class="title">Strategic AI Implementation with Clear ROI</div>
-    <div class="subtitle">Clear roadmaps from concept to competitive edge with measurable business impact</div>
-    <div class="subtitle">Proven methodologies that minimize risk while maximizing transformation speed</div>
-    <div class="subtitle">Executive-ready strategies that align AI initiatives with business objectives</div>
+    <div class="title">Enterprise AI Simplified</div>
+    <div class="subtitle">Secure and compliant out of the box</div>
+    <div class="subtitle">Total observability and control via the systems you already use</div>
   </div>
 </div>
 
@@ -40,13 +26,13 @@ layout: simple.njk
 
   <div class="rotating-banners">
     <div class="banner-container active">
-      <span class="banner-text" data-text="Build AI agents that work. Scale them without limits.">Build AI agents that work. Scale them without limits.</span>
+      <span class="banner-text" data-text="Unleash the power of AI agents on your workflows.">Unleash the power of AI agents on your workflows.</span>
     </div>
     <div class="banner-container">
-      <span class="banner-text" data-text="The only stack that scales from prototype to production without a rewrite.">The only stack that scales from prototype to production without a rewrite.</span>
+      <span class="banner-text" data-text="Scale your business. Let us handle the ops.">Scale your business. Let us handle the ops.</span>
     </div>
     <div class="banner-container">
-      <span class="banner-text" data-text="Stop building infrastructure. Start building agents.">Stop building infrastructure. Start building agents.</span>
+      <span class="banner-text" data-text="Stop building infrastructure. Start building products.">Stop building infrastructure. Start building products.</span>
     </div>
   </div>
 {% endset %}
@@ -58,13 +44,13 @@ layout: simple.njk
 <hr class="hero-divider">
 
 <div class="centered-section">
+<h3>Scaling a software business is hard. Developer experience (DX) is your secret weapon.</h3>
 
-Most AI teams bolt tools together. Costs balloon. Workflows crack. Agents fail.
+Improvements in DX are like compounding interest. They increase the velocity of everyone on the team, which not only accelerates further improvements in DX, it also results in more discretionary time to put towards DX work, since fires can be put out more quickly. The end result is a flywheel of engineering excellence that will leave you coding circles around your competitors.
 
-We built one coherent stack—the same architecture runs on a single developer laptop and scales cleanly to hyperscaler clusters.
+We understand it can be hard to invest in DX when users are demanding features and investors are demanding growth. Unfortunately, this path leads to tech debt, blocked engineers and unreliable software. Think of it like the entrepreneurial equivalent of failing to save because you're living paycheck to paycheck.
 
-The result: fast, cheap, reliable agentic systems that actually ship. From day one, you're building on infrastructure designed to learn, adapt, and scale.
-
+We want to help. Our mission is to make an amazing developer experience available to everyone. Our unique insight is that amazing developer experiences don't come from better tools, they come from better systems, and the ideal system in a given circumstance is team and organization dependent. We don't build one-size-fits-all tools, we build adaptable frameworks designed to put your business on rails, and we help you mold them to your needs.
 </div>
 
 <div class="hero-cta">
@@ -80,17 +66,16 @@ The result: fast, cheap, reliable agentic systems that actually ship. From day o
 <div class="service-card" data-service="training">
 <h3><i data-lucide="graduation-cap"></i> Individuals</h3>
 <div class="service-summary">
-<p><strong>Spin up a full agentic development environment in minutes.</strong> Preconfigured with best in class software engineering workflows and tools.</p>
+<p><strong>Take the guesswork out of AI.</strong> Skip the research rabbit hole, spin up a professional grade development environment in minutes.</p>
 </div>
 <div class="service-details">
 <div class="product-features project-features">
 <p><strong>Take the guesswork out of agentic development.</strong></p>
 <ul class="bullet-box">
 <li>Rave spins up a VM for a secure dev environment ready for agent swarms in two commands</li>
-<li><a href="/arbiter/">Arbiter</a> produces validated specs for your software</li>
-<li>Conclave creates an implementation plan</li>
-<li>Smith orchestrates an agent swarm to implement and test the work in parallel</li>
-<li><a href="/valknut/">Valknut</a> provides a plan to eliminate technical debt</li>
+<li><a href="/arbiter/">Arbiter</a> compiles your specs into working software</li>
+<li>Smith orchestrates agent swarms to implement and test work in parallel</li>
+<li><a href="/valknut/">Valknut</a> tames agent induced technical debt</li>
 </ul>
 
 </div>
@@ -105,15 +90,14 @@ The result: fast, cheap, reliable agentic systems that actually ship. From day o
 <div class="service-card" data-service="startup">
 <h3><i data-lucide="zap"></i> Startups</h3>
 <div class="service-summary">
-<p><strong>Ship at the speed of ideation. Scale without breaking the bank.</strong> Focus on building rather than workflows, with a lock-in free path from MVP to hyperscale.</p>
+<p><strong>Turbo-charge your development while slashing your SaaS bill.</strong> Our co-managed AI workspaces give you the simplicity of SaaS with the cost and control of self-hosting.</p>
 </div>
 <div class="service-details">
 <p><strong>Ship features before your runway runs out.</strong></p>
 <ul class="bullet-box">
-<li>RAVE spins up complete dev environments in minutes for immediate team productivity</li>
-<li>MULTIVERSE scales seamlessly to hyperscaler performance at fraction of typical costs</li>
-<li>LETHE and SCRIBE provide reliable context management that prevents agent failures</li>
-<li>ARBITER maintains specification alignment preventing code drift</li>
+<li>Rave spins up complete dev environments in minutes for immediate team productivity</li>
+<li>Multiverse provides multi-region hyperscale capability for a fraction of typical cloud costs</li>
+<li><a href="/arbiter/">Arbiter</a> compiles your specs into working software</li>
 </ul>
 <p>Transform empty repositories into shipping production features in days, not months.</p>
 <div class="service-cta">
@@ -129,7 +113,7 @@ The result: fast, cheap, reliable agentic systems that actually ship. From day o
 <div class="service-card" data-service="enterprise">
 <h3><i data-lucide="building"></i> Enterprise</h3>
 <div class="service-summary">
-<p><strong>Make AI the engine of your enterprise.</strong> Trigger policy driven AI workflows  in response to events in your organization, with best in class security and observability.</p>
+<p><strong>Make AI the engine of your enterprise.</strong> Our agents respond to business events in realtime and build conformant, reliable systems.</p>
 </div>
 <div class="service-details">
 <ul class="bullet-box">
@@ -148,9 +132,9 @@ The result: fast, cheap, reliable agentic systems that actually ship. From day o
 </div>
 </div>
 
-<div class="marketing-blurb">
-<strong>While they're still tinkering with prompts, you could be shipping agents.</strong> Winners won't just add AI features—they'll be intelligent by design.
-</div>
+<div class="centered-section">
+<h3>Integration and Process are the Bottleneck to AI success</h3>
+<p>If you try to adopt AI without the right data, capabilities and processes in place, you're going to end up with unreliable agents and low quality code. The companies that win will be the ones that put the time in early to get an integrated AI infrastructure in place. Every day you delay is a day of lost productivity gains.</p></div>
 
 <div class="content-section">
 
@@ -4354,24 +4338,24 @@ document.addEventListener('DOMContentLoaded', () => {
   const serviceData = {
     startup: {
       image: '/img/optimized/modal-office-meeting.webp',
-      ctaText: 'Launch RAVE',
+      ctaText: 'Schedule Consultation',
       alt: 'Modern startup office with AI technology displays',
       subject: 'Startup AI Architecture & Strategy Inquiry',
       body: 'Hi there! I\'m interested in learning more about your Startup AI Architecture & Strategy services. Could we schedule a time to discuss how you can help build robust AI infrastructure for my startup?'
     },
     enterprise: {
       image: '/img/optimized/modal-building-architecture.webp', 
-      ctaText: 'Request Smith Access',
+      ctaText: 'Request Quote',
       alt: 'Corporate skyscrapers representing enterprise AI transformation',
       subject: 'Enterprise AI Implementation Consultation',
       body: 'Hello! I\'d like to explore your Enterprise AI Implementation services for our organization. Could we discuss how to integrate AI across our business operations?'
     },
     training: {
       image: '/img/optimized/modal-individuals.webp',
-      ctaText: 'Use Mindlink',
+      ctaText: 'Learn More',
       alt: 'Focused developer coding on a laptop in a modern workspace',
       subject: 'Individual AI Productivity Training Request',
-      body: 'Hi! I\'m interested in your Individual AI Productivity Training to help our team harness AI agents and custom workflows. Can we discuss training options?'
+      body: 'Hi! I\'m interested in your Individual AI Productivity Training. Can we discuss training options?'
     },
     agentic: {
       image: '/img/optimized/modal-computer-code.webp',
