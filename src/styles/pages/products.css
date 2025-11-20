@@ -233,6 +233,14 @@
   display: flex;
   width: 100%;
   justify-content: space-evenly;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.project-cta .btn-unified {
+  flex: 1 1 240px;
+  min-width: 200px;
+  justify-content: center;
 }
 
 
@@ -267,5 +275,15 @@
   
   .project-codename {
     font-size: var(--text-lg);
+  }
+
+  .project-cta {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-md);
+  }
+
+  .project-cta .btn-unified {
+    width: 100%;
   }
 }

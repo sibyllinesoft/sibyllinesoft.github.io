@@ -195,7 +195,7 @@ We want to help. Our mission is to make an amazing developer experience availabl
 </div>
 
 <div class="service-card" data-service="predictive">
-<h3><i data-lucide="trending-up"></i> We've built systems for Fortune 500, government and military customers</h3>
+<h3><i data-lucide="trending-up"></i> Deployed in Fortune 500, government, and military</h3>
 <div class="service-summary">
 <p><strong>High-stakes domains taught us to lead with value.</strong> Our consulting layers prove impact before we deploy agents at scale.</p>
 </div>

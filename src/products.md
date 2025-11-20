@@ -13,11 +13,11 @@ description: Next-generation AI tools currently in development
 
 Our products provide a cutting edge developer experience and AI capabilities while slashing your SaaS bill and giving you total control over your software.
 
-If you're leading a team that has to hit revenue targets, AI can't be another science experiment. You need systems that land in your repos, enforce process, and give stakeholders proof that shipping speed is compounding—not just another slide in a board update.
+If you're accountable for revenue, AI can't be a science experiment. You need production systems that land in your repos, enforce process, and prove compounding speed the board can see.
 
-Sibylline builds the boring-but-critical scaffolding: opinionated infrastructure, evaluators, and orchestration that arrive production-ready. Agents plug into the workflows you already run, wrap themselves in governance, and hand you dashboards that explain why velocity just spiked.
+We ship that scaffolding: opinionated infra, evaluators, and orchestration wired for governance. Agents drop into the workflows you already run and surface dashboards that explain why throughput jumped.
 
-Every product on this page is designed to be snap-fit. Start with one pillar to unblock your biggest bottleneck, then layer in the rest when you're ready. The stack grows with you—from the IC automating diffs at 2am to the Fortune 500 platform team reining in inference spend.
+Everything here is snap-fit. Start with the pillar that removes today's bottleneck, then layer the rest as you scale—from the IC automating diffs at 2 a.m. to the Fortune 500 platform team cutting inference spend.
 
 **What You Get on Day Zero**
 * **Zero-Setup Infrastructure:** Spin up governed development environments—with CI/CD, monitoring, and identity policies—in under ten minutes across any cloud or on-prem footprint.
@@ -746,28 +746,3 @@ Creative professionals lose 40-60% of productive time to manual trend research a
     </div>
   </div>
 </div>
-
----
-
-## Ready to Transform Your Development Workflow?
-
-Sibylline AI tools help teams eliminate setup friction and reduce operational costs through intelligent automation.
-
-### Get Started Today
-
-**Engineering Teams:** HYDRA for unlimited Claude Code sessions or RAVE for zero-setup environments deliver immediate productivity gains.
-
-**Creative Teams:** BOOKWORM and IDEOSCOPE provide data-driven insights that reduce creative guesswork.
-
-**Enterprise:** Complete solutions with SMITH's reactive platform and HEIMDALL's cost-optimized AI routing.
-
-### Contact
-
-- **Demo Request:** Schedule live demonstrations with our technical team
-- **Enterprise:** Discuss custom implementations and volume licensing  
-- **Pilot Program:** Join selective beta testing for early access
-- **Integration:** Get hands-on implementation and deployment support
-
-Use product CTAs above or contact us directly for enterprise discussions. All products include documentation, support, and migration assistance.
-
----
