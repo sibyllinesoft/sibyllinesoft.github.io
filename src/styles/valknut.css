@@ -886,3 +886,47 @@ table td {
   padding-left: var(--space-lg);
   padding-right: var(--space-lg);
 }
+
+/* Responsive hero typography overrides (applied last to win the cascade) */
+.hero-title,
+.hero-content h1 {
+  font-size: clamp(2.2rem, 4.5vw + 1rem, 4.6rem);
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+.hero-subtitle,
+.banner-text {
+  font-size: clamp(1rem, 2.5vw + 0.6rem, 1.45rem);
+  line-height: 1.35;
+  text-wrap: balance;
+}
+
+@media (max-width: 640px) {
+  .hero-title,
+  .hero-content h1 {
+    font-size: clamp(1.8rem, 6vw + 0.6rem, 3rem);
+  }
+
+  .hero-subtitle,
+  .banner-text {
+    font-size: clamp(0.95rem, 4vw + 0.45rem, 1.2rem);
+  }
+
+  .hero-content {
+    padding: var(--space-2xl) var(--space-md);
+    margin: 0;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero-title,
+  .hero-content h1 {
+    font-size: clamp(1.6rem, 7vw + 0.4rem, 2.4rem);
+  }
+
+  .hero-subtitle,
+  .banner-text {
+    font-size: clamp(0.92rem, 4.5vw + 0.35rem, 1.1rem);
+  }
+}

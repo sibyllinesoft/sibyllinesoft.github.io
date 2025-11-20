@@ -11,18 +11,22 @@ description: Next-generation AI tools currently in development
 
 # Products
 
-## Sibylline: AI Tools for Autonomous, Efficient Development
+Our products provide a cutting edge developer experience and AI capabilities while slashing your SaaS bill and giving you total control over your software.
 
-Production-ready AI tools that eliminate setup friction and scale automatically. Teams report 40-80% productivity gains through intelligent automation that works from day one.
+If you're leading a team that has to hit revenue targets, AI can't be another science experiment. You need systems that land in your repos, enforce process, and give stakeholders proof that shipping speed is compounding—not just another slide in a board update.
 
-**Core Value:**
-* **Zero-Setup Infrastructure:** Deploy complete development environments in minutes, not weeks
-* **Intelligent Cost Optimization:** AI routing reduces inference costs by 40-60% automatically  
-* **Unlimited Context Management:** Never lose development momentum to conversation restarts
+Sibylline builds the boring-but-critical scaffolding: opinionated infrastructure, evaluators, and orchestration that arrive production-ready. Agents plug into the workflows you already run, wrap themselves in governance, and hand you dashboards that explain why velocity just spiked.
+
+Every product on this page is designed to be snap-fit. Start with one pillar to unblock your biggest bottleneck, then layer in the rest when you're ready. The stack grows with you—from the IC automating diffs at 2am to the Fortune 500 platform team reining in inference spend.
+
+**What You Get on Day Zero**
+* **Zero-Setup Infrastructure:** Spin up governed development environments—with CI/CD, monitoring, and identity policies—in under ten minutes across any cloud or on-prem footprint.
+* **Intelligent Cost Guardrails:** Routing, caching, and adaptive model selection trim 40-60% off inference bills while preserving latency guarantees your stakeholders can feel.
+* **Unlimited Context Memory:** Compression, recall, and policy-aware retention keep agents focused for 300+ message sessions without you curating prompts or fighting tool limits.
 
 ## Infrastructure & Execution
 
-Teams lose weeks to infrastructure setup and unpredictable AI costs. Zero-setup environments and intelligent cost optimization that scales automatically.
+Your engineers lose momentum every time they wait on infrastructure tickets or blow a sprint debugging flaky agents. This pillar eliminates both so the rest of your org sees value immediately.
 
 <!-- Product Rave -->
 <div class="project-brochure" id="rave-product">
@@ -361,87 +365,6 @@ Knowledge workers lose 2-3 hours daily to information fragmentation and context 
 ## Agent Optimization & Workflow
 
 Agent workflows fail 40-60% of the time due to suboptimal prompts and scattered tooling. Self-improving agents and unified tool orchestration transform manual coordination into automated precision.
-
-<!-- Product Grimoire -->
-<div class="project-brochure" id="grimoire-product">
-  <div class="project-visual">
-    <i data-lucide="book-open" class="project-icon"></i>
-    <div class="project-codename">Codename: GRIMOIRE</div>
-    <div class="project-status">Production Ready</div>
-  </div>
-  <div class="project-content">
-    <h3>Agent-Grade CLI Suite with Enhanced Search Powers</h3>
-    <div class="project-pitch">
-      <p><strong>Give your agents magic powers.</strong></p>
-      <p>Standard tools break under AI agent workloads with unpredictable outputs and resource exhaustion. GRIMOIRE delivers 11 enhanced CLI tools with deterministic JSONL output, budget enforcement, and semantic understanding—built specifically for agent reliability.</p>
-      
-      <div class="project-features">
-        <div class="feature-item">
-          <strong>Agent-Grade Reliability:</strong> Deterministic output, budget enforcement, and structured error reporting prevent agent failures and resource exhaustion.
-        </div>
-        <div class="feature-item">
-          <strong>Semantic Search & Patching:</strong> Tools like sripgrep, spatch, and sgraph understand code structure and semantics, not just text patterns.
-        </div>
-        <div class="feature-item">
-          <strong>Sub-120ms Performance:</strong> p95 search latency under 120ms with 95%+ patch success rates—agents stay responsive under pressure.
-        </div>
-        <div class="feature-item">
-          <strong>Lens Integration:</strong> Native integration with Lens search backend provides unified code analysis across all tools.
-        </div>
-      </div>
-      
-      <p>AI agent workflows achieve 95%+ success rates with predictable resource usage. Perfect for autonomous code analysis, refactoring, and documentation tasks where reliability matters more than flexibility.</p>
-      
-      <div class="project-cta">
-        <a href="https://github.com/sibyllinesoft/grimoire" class="btn-unified btn-primary">
-          <span class="btn-inner">
-            View on GitHub
-            <i data-lucide="github"></i>
-          </span>
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Product Daedalus -->
-<div class="project-brochure" id="daedalus-product">
-  <div class="project-visual">
-    <i data-lucide="brain-circuit" class="project-icon"></i>
-    <div class="project-codename">Codename: DAEDALUS</div>
-    <div class="project-status">Private Testing</div>
-  </div>
-  <div class="project-content">
-    <h3>Online Agent Optimization Framework</h3>
-    <div class="project-pitch">
-      <p><strong>Agents that get better automatically.</strong></p>
-      <p>Agent prompts break on edge cases and require constant tuning. DAEDALUS learns from performance metrics and failure patterns to optimize prompts continuously—individual agents and entire workflows get better without manual intervention.</p>
-      
-      <div class="project-features">
-        <div class="feature-item">
-          <strong>Automatic Prompt Generation:</strong> Analyzes task complexity to generate tailored prompts with specific requirements and success criteria built in.
-        </div>
-        <div class="feature-item">
-          <strong>Performance-Driven Evolution:</strong> Learns from historical metrics and failure patterns to prevent agent breakdowns before they happen.
-        </div>
-        <div class="feature-item">
-          <strong>Workflow-Level Optimization:</strong> Optimizes entire agent coordination patterns, not just individual prompts. Reduces failure cascades across complex workflows.
-        </div>
-      </div>
-      
-      <p>Teams see 60% improvement in agent task success rates while eliminating hours spent crafting prompts that break on production edge cases.</p>
-      
-      <div class="project-cta">
-        <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in becoming a tester for this product. Please let me know about testing opportunities.">
-          <span class="btn-inner">
-            Self-Optimizing Agents
-            <i data-lucide="mail"></i>
-          </span>
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
 
 <!-- Product Conclave -->
 <div class="project-brochure" id="conclave-product">
