@@ -23,7 +23,9 @@ document.addEventListener('DOMContentLoaded', function() {
       this.container = document.querySelector('.rotating-banners');
       this.titleElement = document.querySelector('.hero-title');
       this.isAnimating = false;
-      
+      this.rotationInterval = null;
+      this.isVisible = true; // Assume visible initially
+
       this.init();
     }
     
@@ -40,9 +42,38 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // Start with first subtitle
       this.fadeInContainer(this.container.children[0], 0);
-      
-      // Start rotation cycles
+
+      // Setup visibility observer
+      this.setupVisibilityObserver();
+
+      // Start rotation cycles (will be managed by visibility observer)
       this.startRotation();
+    }
+
+    setupVisibilityObserver() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          this.isVisible = entry.isIntersecting;
+          if (this.isVisible && !this.rotationInterval) {
+            // Resume rotation when becoming visible
+            this.startRotation();
+          } else if (!this.isVisible && this.rotationInterval) {
+            // Pause rotation when not visible
+            this.stopRotation();
+          }
+        });
+      }, { threshold: 0 }); // Fire as soon as any part is visible
+
+      if (this.container) {
+        observer.observe(this.container);
+      }
+    }
+
+    stopRotation() {
+      if (this.rotationInterval) {
+        clearInterval(this.rotationInterval);
+        this.rotationInterval = null;
+      }
     }
     
     rebuildSubtitleContainers(subtitles) {
@@ -99,7 +130,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     startRotation() {
-      setInterval(() => {
+      // Clear existing interval if any
+      this.stopRotation();
+
+      // Only start if visible
+      if (!this.isVisible) return;
+
+      this.rotationInterval = setInterval(() => {
         this.rotateToNext();
       }, 8000);
     }

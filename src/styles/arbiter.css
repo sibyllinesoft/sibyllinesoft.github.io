@@ -432,7 +432,7 @@
   background: transparent;
   padding: var(--space-2xl) 0;
   border-radius: 0;
-  margin: var(--space-xl) 0;
+  margin: 0;
   box-shadow: none;
   border: none;
 }
@@ -484,6 +484,26 @@
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   border-color: var(--color-accent);
+}
+
+.service-card:hover h3,
+.service-card.expanded h3 {
+  color: #aeb6ff;
+  text-shadow: 0 0 12px rgba(174, 182, 255, 0.75);
+}
+
+.service-card:hover h3 i,
+.service-card.expanded h3 i {
+  color: #aeb6ff;
+  stroke: #aeb6ff;
+}
+
+.service-card:hover h3 .lucide,
+.service-card.expanded h3 .lucide,
+.service-card:hover h3 svg,
+.service-card.expanded h3 svg {
+  color: #aeb6ff;
+  stroke: #aeb6ff;
 }
 
 .service-card.expanded {
@@ -669,8 +689,8 @@
   inset: 0;
   display: grid;
   place-items: center;
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(5px);
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(15px);
   z-index: 10000;
   opacity: 0;
   visibility: hidden;
@@ -696,6 +716,8 @@
   position: relative;
   transform: scale(0.8) translateY(20px);
   transition: transform 0.3s ease;
+  border: 1px solid var(--color-border-light);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
 .modal-overlay.active .modal-content {
@@ -735,7 +757,6 @@
   flex-direction: column;
   justify-content: space-between;
   overflow-y: auto;
-  background: rgba(255, 255, 255, 0.035);
 }
 
 .modal-close {
@@ -749,7 +770,7 @@
   cursor: pointer;
   width: 2rem;
   height: 2rem;
-  border-radius: 50%;
+  border-radius: var(--radius-md);
   display: flex;
   align-items: center;
   justify-content: center;

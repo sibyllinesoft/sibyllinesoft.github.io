@@ -51,6 +51,10 @@
   }
   const ro = new ResizeObserver(resize); ro.observe(canvas); resize();
 
+  // Track visibility state
+  let isVisible = true; // Assume visible initially
+  let animationFrameId = null;
+
   const TAU=Math.PI*2, DEG=Math.PI/180;
   const easeOutSine = x => Math.sin((x*Math.PI)/2);
   const easeInOutSine = x => -(Math.cos(Math.PI*x)-1)/2;
@@ -182,9 +186,34 @@
     ctx.drawImage(trailRed,0,0,bw,bh,0,0,width,height);
     ctx.restore();
 
-    if(!prefersReduced) requestAnimationFrame(draw);
+    if(!prefersReduced && isVisible) {
+      animationFrameId = requestAnimationFrame(draw);
+    }
   }
-  if(prefersReduced){ draw(performance.now()); } else { requestAnimationFrame(draw); }
+
+  // Intersection Observer to pause animation when not visible
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      isVisible = entry.isIntersecting;
+      if (isVisible && !prefersReduced && !animationFrameId) {
+        // Resume animation when becoming visible
+        animationFrameId = requestAnimationFrame(draw);
+      } else if (!isVisible && animationFrameId) {
+        // Cancel animation frame when not visible
+        cancelAnimationFrame(animationFrameId);
+        animationFrameId = null;
+      }
+    });
+  }, { threshold: 0 }); // Fire as soon as any part is visible
+
+  observer.observe(canvas);
+
+  // Start animation initially
+  if(prefersReduced){
+    draw(performance.now());
+  } else {
+    animationFrameId = requestAnimationFrame(draw);
+  }
 
   window.ArbiterAnimation = {
     setAlpha:(a)=>{ CONFIG.globalOpacity = Math.max(0, Math.min(1, a)); },
