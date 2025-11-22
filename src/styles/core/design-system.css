@@ -684,7 +684,7 @@ hr {
 /* Article Card Component Styling - Modal Style Layout */
 .article-card-component {
   display: flex;
-  background: var(--color-surface-50);
+  background: rgba(255, 255, 255, 0.035);
   border: 1px solid var(--color-border-light-50);
   border-radius: var(--radius-lg);
   margin: var(--space-xl) 0;
@@ -1174,4 +1174,28 @@ p .domain-cta {
   .article-card-footer {
     display: none;
   }
+}
+
+/* Global Scrollbar Styles - No Tracks */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
 }

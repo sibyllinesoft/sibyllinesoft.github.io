@@ -49,26 +49,31 @@ jsonLD:
 {% set heroLogo = '/img/logos/arbiter-large.png' %}
 {% set heroLogoAlt = 'Arbiter Logo' %}
 {% set heroLogoHeight = '72px' %}
-{% set heroTitle = 'The Spec Compiler for AI Development' %}
+{% set heroTitle = 'Spec Driven Development Evolved' %}
 {% set heroSubtitle -%}
-<div class="rotating-banners">
-         <div class="banner-container">
-            <span class="banner-text" data-text="Talk to an agent. Arbiter turns conversation into specs, code, tests, and docs—kept in sync and enforced in CI">Talk to an agent. Arbiter turns conversation into specs, code, tests, and docs—kept in sync and enforced in CI</span>
-         </div>
-         <div class="banner-container">
-            <span class="banner-text" data-text="Agents generate. Arbiter enforces. Humans audit.">Agents generate. Arbiter enforces. Humans audit.</span>
-         </div>
-      </div>
+<div class="hero-subtitle">Skip the markdown. Generate specs that can be compiled into code, tests, docs and infrastructure</div>
 {%- endset %}
 <div class="hero-container">
    <canvas id="neural-network" class="neural-background"></canvas>
    {% include "components/hero-content.njk" %}
 </div>
 <hr class="hero-divider">
+
 <div class="centered-section">
-   <p><strong>AI agents write code at superhuman speed. Without rails, they diverge.</strong> Arbiter enforces a single spec so agents produce consistent, correct systems.</p>
-   
-   <p>Other tools stop at markdown specs or UML. Arbiter compiles specs into running systems, enforces them in CI, and syncs with GitHub/GitLab. It's the only platform designed for agent-driven development end-to-end.</p>
+   <p><strong>Markdown specs don't work.</strong> They're a chore to read, imprecise, and agents treat them more like suggestions than constraints. Code conventions get ignored. Tech debt accrues.</p>
+
+   <p><strong>Arbiter's structured specs give you collaborative planning and consistent code.</strong> Stop trying to tame slop and start building real software at the speed of vibes.</p>
+   {% set primary = {
+  "href": "https://arbiter.sibylline.dev",
+  "label": "Read the Docs",
+  "icon": "book-open"
+} %}
+{% set secondary = {
+  "href": "https://github.com/sibyllinesoft/arbiter/",
+  "label": "View on GitHub",
+  "icon": "github"
+} %}
+{% include "components/cta-buttons.njk" %}
 </div>
 
 <div class="content-section">

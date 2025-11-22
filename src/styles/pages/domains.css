@@ -1,7 +1,7 @@
 /* Domain Brochure - Open Book Style */
 .domain-brochure {
   display: flex;
-  background: var(--color-surface-50);
+  background: rgba(255, 255, 255, 0.035);
   border: 1px solid var(--color-border-light-50);
   border-radius: var(--radius-lg);
   margin: var(--space-3xl) 0;
@@ -140,7 +140,7 @@
   text-align: center;
   margin: var(--space-5xl) 0 var(--space-3xl);
   padding: var(--space-3xl);
-  background: var(--color-surface-50);
+  background: rgba(255, 255, 255, 0.035);
   border-radius: var(--radius-lg);
   border: 1px solid var(--color-border-light);
 }

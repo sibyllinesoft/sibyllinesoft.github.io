@@ -707,7 +707,7 @@
 }
 
 .discovery-option {
-  background: var(--color-surface);
+  background: rgba(255, 255, 255, 0.035);
   padding: var(--space-lg);
   border-radius: var(--radius-lg);
   border: 1px solid var(--color-border-light);
@@ -818,12 +818,12 @@
 
 /* Standardized section styles */
 .content-section, .possibilities-deck {
-  background: var(--color-surface-50);
-  padding: var(--space-2xl) var(--space-xl);
-  border-radius: var(--radius-lg);
+  background: transparent;
+  padding: var(--space-2xl) 0;
+  border-radius: 0;
   margin: var(--space-xl) 0;
-  box-shadow: var(--shadow-sm);
-  border: 1px solid var(--color-border-light-50);
+  box-shadow: none;
+  border: none;
 }
 
 /* Standardized h2 styles - using goldmine heading margins - scoped to avoid article cards */
@@ -880,7 +880,7 @@
 }
 
 .modal-content {
-  background: var(--color-surface);
+  background: rgba(255, 255, 255, 0.035);
   border-radius: var(--radius-lg);
   padding: 0;
   max-width: 1090px;
@@ -1888,7 +1888,7 @@
 }
 
 .possibility-card {
-  background: var(--color-surface-50);
+  background: rgba(255, 255, 255, 0.035);
   border: 1px solid var(--color-border-light-50);
   border-radius: var(--radius-lg);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
@@ -2076,7 +2076,7 @@
 
 .card-expanded {
   padding: var(--space-xl);
-  background: var(--color-surface);
+  background: rgba(255, 255, 255, 0.035);
   opacity: 0;
   max-height: 0;
   overflow: hidden;
@@ -2576,12 +2576,12 @@
 
 .node-container {
   position: relative;
-  background: rgba(30, 41, 59, 0.8);
+  background: rgba(30, 41, 59, 0.05);
   border: 1px solid rgba(59, 130, 246, 0.3);
   border-radius: 8px;
   padding: 6px;
   text-align: center;
-  backdrop-filter: blur(4px);
+  backdrop-filter: none;
   transition: all 0.3s ease;
 }
 
@@ -2631,12 +2631,12 @@
 
 .metric-pod {
   flex: 1;
-  background: rgba(15, 23, 42, 0.7);
+  background: rgba(15, 23, 42, 0.05);
   border: 1px solid rgba(59, 130, 246, 0.2);
   border-radius: 6px;
   padding: 4px;
   text-align: center;
-  backdrop-filter: blur(4px);
+  backdrop-filter: none;
 }
 
 .metric-icon {

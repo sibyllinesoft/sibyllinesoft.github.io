@@ -266,24 +266,11 @@
   margin-bottom: var(--space-lg);
   line-height: var(--leading-relaxed);
   letter-spacing: -0.01em;
-  
-  /* Shimmer fade effect like banner text on home page */
+
+  /* Solid color to match P text */
   display: inline-block;
   position: relative;
-  color: transparent;
-  background: linear-gradient(90deg, 
-    var(--color-text-muted) 0%, 
-    var(--color-text) 15%, 
-    #ffffff 35%, 
-    #ffffff 65%, 
-    var(--color-text) 85%, 
-    var(--color-text-muted) 100%
-  );
-  background-size: 200% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: subtitleShimmer 18s ease-in-out infinite;
+  color: var(--color-text-light);
   transition: opacity 0.3s ease;
 }
 
@@ -305,23 +292,7 @@
   font-style: italic;
   font-weight: 400;
   position: relative;
-  color: transparent;
-  
-  /* Shimmer fade effect instead of swipe-in */
-  background: linear-gradient(90deg, 
-    var(--color-text-muted) 0%, 
-    var(--color-text) 15%, 
-    #ffffff 35%, 
-    #ffffff 65%, 
-    var(--color-text) 85%, 
-    var(--color-text-muted) 100%
-  );
-  background-size: 200% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: subtitleShimmer 18s ease-in-out infinite;
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.15);
+  color: var(--color-text);
   transition: opacity 0.3s ease;
 }
 
@@ -458,11 +429,11 @@
 
 /* Service grid containers as cards (matching site standard) */
 .content-section:has(.services-grid) {
-  background: var(--color-surface-50);
-  padding: var(--space-2xl) var(--space-xl);
-  border-radius: var(--radius-lg);
+  background: transparent;
+  padding: var(--space-2xl) 0;
+  border-radius: 0;
   margin: var(--space-xl) 0;
-  box-shadow: var(--shadow-sm);
+  box-shadow: none;
   border: none;
 }
 
@@ -491,12 +462,12 @@
   gap: var(--space-lg);
   margin-top: var(--space-lg);
   align-items: start;
+  grid-auto-rows: min-content;
 }
 
 .service-card {
-  background: var(--color-surface);
+  background: rgba(255, 255, 255, 0.035);
   padding: var(--space-xl);
-  padding-bottom: calc(var(--space-xl) + 120px);
   border-radius: var(--radius-lg);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   border: 1px solid var(--color-border-light);
@@ -506,7 +477,7 @@
   overflow: hidden;
   display: grid;
   grid-template-rows: 3.75rem 5rem 1fr;
-  height: 25rem;
+  min-height: 25rem;
 }
 
 .service-card:hover {
@@ -714,7 +685,7 @@
 }
 
 .modal-content {
-  background: var(--color-surface);
+  background: rgba(255, 255, 255, 0.035);
   border-radius: var(--radius-lg);
   padding: 0;
   max-width: 1090px;
@@ -764,7 +735,7 @@
   flex-direction: column;
   justify-content: space-between;
   overflow-y: auto;
-  background: var(--color-surface-50);
+  background: rgba(255, 255, 255, 0.035);
 }
 
 .modal-close {
@@ -1069,7 +1040,7 @@
 
 /* Quick Start container styling */
 .quickstart-container {
-  background: var(--color-surface-50);
+  background: rgba(255, 255, 255, 0.035);
   border-radius: var(--radius-md);
   padding: 24px;
   border: 1px solid var(--color-border-light);
@@ -1124,7 +1095,7 @@ table td {
 }
 
 .comparison-item {
-  background: var(--color-surface-50);
+  background: rgba(255, 255, 255, 0.035);
   border-radius: var(--radius-md);
   padding: var(--space-xl);
   border: 1px solid var(--color-border-light);
