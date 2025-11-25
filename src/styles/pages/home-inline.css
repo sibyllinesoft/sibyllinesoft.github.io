@@ -363,15 +363,6 @@
   animation: dividerPulseRTL 4s ease-in-out infinite;
 }
 
-@keyframes dividerPulseRTL {
-  0% {
-    right: -100%;
-  }
-  100% {
-    right: 100%;
-  }
-}
-
 /* Centered section styling */
 .centered-section {
   text-align: center;
