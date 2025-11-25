@@ -159,12 +159,8 @@
 }
 
 @keyframes tagShine {
-  0%, 25% {
-    background-position: -200% center;
-  }
-  75%, 100% {
-    background-position: 200% center;
-  }
+  from { background-position: -100% center; }
+  to   { background-position: 100% center; }
 }
 
 /* Responsive Design */
