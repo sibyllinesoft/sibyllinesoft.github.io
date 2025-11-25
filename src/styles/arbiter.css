@@ -258,7 +258,7 @@
 }
 
 .hero-subtitle {
-  transition: filter 1.5s ease, opacity 1.5s ease;
+  transition: filter 1.125s ease, opacity 1.125s ease;
 }
 
 .hero-subtitle.blurring-out {
@@ -278,7 +278,7 @@
 
 /* Banner container blur transitions */
 .banner-container {
-  transition: filter 0.6s ease, opacity 0.6s ease;
+  transition: filter 0.45s ease, opacity 0.45s ease;
 }
 
 .banner-container.blurring-out {

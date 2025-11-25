@@ -99,7 +99,7 @@
 }
 
 .hero-subtitle {
-  transition: filter 1.5s ease, opacity 1.5s ease;
+  transition: filter 1.125s ease, opacity 1.125s ease;
 }
 
 .hero-subtitle.blurring-out {
@@ -122,7 +122,7 @@
   display: none;
   align-items: center;
   justify-content: center;
-  transition: filter 1.5s ease, opacity 1.5s ease;
+  transition: filter 1.125s ease, opacity 1.125s ease;
 }
 
 .banner-container.blurring-out {

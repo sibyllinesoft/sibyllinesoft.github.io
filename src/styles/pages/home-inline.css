@@ -534,7 +534,7 @@
 }
 
 .banner-container {
-  transition: filter 2.25s ease, opacity 2.25s ease;
+  transition: filter 1.6875s ease, opacity 1.6875s ease;
   overflow: visible;
   padding: 20px;
   margin: 0;
