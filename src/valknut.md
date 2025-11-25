@@ -10,6 +10,7 @@ enableModals: true
 stylesheets:
   - "/styles/components/modal.css"
   - "/styles/components/service-cards.css"
+  - "/styles/components/section-layouts.css"
   - "/styles/valknut.css"
 scripts:
   - "/js/valknut-banners.js"
@@ -61,8 +62,8 @@ scripts:
   "icon": "github"
 } %}
 {% include "components/cta-buttons.njk" %}
-   <p><strong>Vibe coding starts out great.</strong> You tell your agent to do things, and you come back ten minutes later to working software. Fast forward 50,000 lines of code and you have a labrynthian codebase that agents struggle with, full of duplications and architectural drift. <strong>The vibes have faded and you're left on cleanup.</strong></p>
-   <p><strong>You need to keep your code clean to keep shipping quickly.</strong> Messy code confuses agents and biases them towards writing lower quality code themselves. Agents need help to refactor difficult codebases effectively, as they tend to get confused when refactoring just like they do when trying to create new code.</p>
+   <p><strong>Vibe coding starts out great.</strong> You tell your agent to do things, and you come back ten minutes later to working software. Fast forward 50,000 lines of code and you have a labrynthian codebase that agents struggle with, full of duplication and architectural drift. <strong>The vibes have faded.</strong></p>
+   <p><strong>You need to keep your code clean to keep shipping quickly.</strong> Messy codebases confuses agents and bias them towards writing lower quality code. Agents struggle refactor difficult codebases; they tend to get confused when refactoring just like they do when trying to create new code. <strong>Agents need guidance to clean your code correctly.</strong></p>
 </div>
 <div class="content-section">
    <h2>Why Current AI Refactoring Fails</h2>

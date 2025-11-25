@@ -1,0 +1,46 @@
+/* Shared section layout utilities */
+
+.centered-section {
+  text-align: center;
+  width: 100%;
+  padding: 0;
+  margin: 48px 0;
+}
+
+/* Override text-align for CTA sections inside centered sections */
+.centered-section .cta-section {
+  text-align: left; /* Reset to allow flex to work properly */
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+/* Override text-align for list items with text-left class inside centered sections */
+.centered-section li.text-left {
+  text-align: left;
+}
+
+.centered-section h2 {
+  margin-top: 0;
+  margin-bottom: var(--space-xl);
+}
+
+.centered-section p {
+  margin: var(--space-xl) 0; /* keep paragraph rhythm */
+}
+
+/* Simple CTA section layout (flex row of buttons) */
+.cta-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  gap: var(--space-lg);
+  margin: var(--space-2xl) 0;
+}
+
+.cta-section .btn-unified {
+  flex: 0 1 auto;
+  margin: 0;
+  display: inline-flex;
+}
