@@ -149,10 +149,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: var(--space-xl);
+  gap: var(--space-lg); /* match the tighter home hero spacing */
   width: 100%;
   max-width: none;
-  padding: var(--space-3xl) var(--space-xl);
+  padding: var(--space-2xl) var(--space-lg); /* bring vertical padding in ~32px to match home feel */
   text-align: center;
   margin: 0 auto;
   overflow: visible;
@@ -178,6 +178,10 @@
   overflow: visible;
   padding: 0;
   margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .banner-container {
@@ -186,6 +190,9 @@
   overflow: visible;
   padding: 0;
   margin: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
 }
 
 .banner-text {
@@ -193,13 +200,14 @@
   word-break: break-word;
   overflow: visible;
   max-width: none;
+  color: var(--color-text-light);
 }
 
 .hero-divider {
   border: none;
   height: 1px;
   background: rgba(255, 255, 255, 0.026);
-  margin: 0 auto 80px auto; /* Match main page spacing */
+  margin: 0 auto 48px auto; /* Match home hero spacing */
   width: 100%;
   box-shadow: 0 0 2px rgba(255, 255, 255, 0.0525);
   position: relative;
@@ -417,7 +425,7 @@
 .content-section {
   background: transparent;
   border-radius: 0;
-  padding: var(--stack-2xl) 0;
+  padding: 0;
   margin: 0;
   box-shadow: none;
   border: none;
@@ -430,7 +438,7 @@
 /* Service grid containers as cards (matching site standard) */
 .content-section:has(.services-grid) {
   background: transparent;
-  padding: var(--space-2xl) 0;
+  padding: 0;
   border-radius: 0;
   margin: 0;
   box-shadow: none;
@@ -462,7 +470,8 @@
   gap: var(--space-lg);
   margin-top: var(--space-lg);
   align-items: start;
-  grid-auto-rows: min-content;
+  align-content: start;
+  grid-auto-rows: auto;
 }
 
 .service-card {
@@ -477,7 +486,7 @@
   overflow: hidden;
   display: grid;
   grid-template-rows: 3.75rem 5rem 1fr;
-  min-height: 25rem;
+  min-height: 25rem; /* restore standard card height to prevent squashing */
 }
 
 .service-card:hover {
@@ -658,7 +667,7 @@
   text-align: center;
   width: 100%;
   padding: 0;
-  margin: var(--space-4xl) 0; /* Match marketing-blurb spacing */
+  margin: 48px 0;
 }
 
 /* Override text-align for CTA sections inside centered sections */
@@ -680,7 +689,7 @@
 }
 
 .centered-section p {
-  margin: var(--space-xl) 0; /* Half of space-4xl (which is 6rem -> 3rem) */
+  margin: var(--space-xl) 0; /* keep paragraph rhythm */
 }
 
 /* Modal Styles */

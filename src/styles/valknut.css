@@ -6,9 +6,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: var(--space-xl);
+  gap: var(--space-lg); /* match the tighter home hero spacing */
   width: 100%;
-  padding: var(--space-3xl) var(--space-xl);
+  padding: var(--space-2xl) var(--space-lg); /* bring vertical padding in ~32px to match home feel */
   text-align: center;
   margin: 0 auto;
 }
@@ -45,7 +45,7 @@
   border: none;
   height: 1px;
   background: rgba(255, 255, 255, 0.026);
-  margin: 0 auto 80px auto; /* Match main page spacing */
+  margin: 0 auto 48px auto; /* Match home hero spacing */
   width: 100%;
   box-shadow: 0 0 2px rgba(255, 255, 255, 0.0525);
   position: relative;
@@ -151,39 +151,15 @@
   font-style: italic;
   font-weight: 400;
   position: relative;
-  color: transparent;
-  
-  /* Shimmer fade effect instead of swipe-in */
-  background: linear-gradient(90deg, 
-    var(--color-text-muted) 0%, 
-    var(--color-text) 15%, 
-    #ffffff 35%, 
-    #ffffff 65%, 
-    var(--color-text) 85%, 
-    var(--color-text-muted) 100%
-  );
-  background-size: 200% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: subtitleShimmer 18s ease-in-out infinite;
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.15);
-  transition: opacity 0.3s ease;
+  color: var(--color-text-light);
+  text-shadow: none;
+  transition: filter 1.5s ease, opacity 1.5s ease;
 }
 
 /* Ensure banner text is always visible */
 .banner-container.active .banner-text {
   opacity: 1;
   display: inline-block;
-}
-
-@keyframes subtitleShimmer {
-  0%, 100% { 
-    background-position: -200% 0; 
-  }
-  50% { 
-    background-position: 200% 0; 
-  }
 }
 
 /* Title and subtitle blur transition animations */
@@ -227,16 +203,19 @@
 
 /* Banner container blur transitions */
 .banner-container {
-  transition: filter 0.6s ease, opacity 0.6s ease;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: filter 1.5s ease, opacity 1.5s ease;
 }
 
 .banner-container.blurring-out {
-  filter: blur(3px);
+  filter: blur(20px);
   opacity: 0;
 }
 
 .banner-container.blurring-in {
-  filter: blur(3px);
+  filter: blur(20px);
   opacity: 0;
 }
 
@@ -245,12 +224,19 @@
   opacity: 1;
 }
 
+.rotating-banners {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
 /* Service card styles from main page */
 .content-section {
   background: transparent;
-  padding: var(--space-2xl) 0;
+  padding: 0;
   border-radius: 0;
-  margin: var(--space-xl) 0;
+  margin: 0;
   box-shadow: none;
   border: none;
 }
@@ -444,7 +430,7 @@
   text-align: center;
   width: 100%;
   padding: 0;
-  margin: var(--space-4xl) 0; /* Match marketing-blurb spacing */
+  margin: 48px 0;
 }
 
 /* Override text-align for CTA sections inside centered sections */
@@ -461,7 +447,7 @@
 }
 
 .centered-section p {
-  margin: var(--space-xl) 0; /* Half of space-4xl (which is 6rem -> 3rem) */
+  margin: var(--space-xl) 0; /* keep paragraph rhythm */
 }
 
 /* Modal Styles */
