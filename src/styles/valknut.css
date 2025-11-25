@@ -251,95 +251,11 @@
   margin-bottom: calc(var(--space-lg) / 2);
 }
 
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--space-lg);
-  margin-top: var(--space-lg);
-  align-items: start;
-  grid-auto-rows: min-content;
-}
-
-.service-card {
-  background: rgba(255, 255, 255, 0.035);
-  padding: var(--space-xl);
-  border-radius: var(--radius-lg);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  border: 1px solid var(--color-border-light);
-  transition: all 0.3s ease;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  display: grid;
-  grid-template-rows: 3.75rem 5rem 1fr;
-  min-height: 25rem;
-}
-
-.service-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  border-color: var(--color-accent);
-}
-
-.service-card.expanded {
-  transform: scale(1.01);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-  border-color: var(--color-accent);
-  z-index: 10;
-}
-
-.service-card h3 {
-  margin-top: 0;
-  margin-bottom: var(--space-md);
-  color: var(--color-accent);
-  font-weight: 600;
-  font-size: var(--text-lg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  line-height: 1.2;
-}
-
+/* Valknut-specific service card overrides */
 .service-card h3 i,
 .service-card h3 .lucide {
   width: 45px !important;
   height: 45px !important;
-  margin-right: var(--space-md);
-  flex-shrink: 0;
-}
-
-.service-summary {
-  transition: opacity 0.3s ease;
-  align-self: start;
-}
-
-.service-details {
-  display: none;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  align-self: start;
-  font-size: calc(var(--text-base) * 0.8);
-}
-
-.service-card.expanded .service-summary {
-  opacity: 0.7;
-}
-
-.service-card.expanded .service-details {
-  display: block;
-  opacity: 1;
-}
-
-.service-details h4 {
-  margin-top: 0;
-  margin-bottom: var(--space-sm);
-  color: var(--color-text);
-  font-size: var(--text-lg);
-}
-
-.service-cta {
-  margin-top: var(--space-md);
 }
 
 .service-cta .btn-secondary {
@@ -352,20 +268,6 @@
 .service-cta .btn-secondary:hover {
   background: var(--color-primary-dark);
   transform: translateY(-1px);
-}
-
-.service-card .click-hint {
-  position: absolute;
-  bottom: var(--space-sm);
-  right: var(--space-sm);
-  font-size: var(--text-xs);
-  color: var(--color-text-muted);
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
-}
-
-.service-card.expanded .click-hint {
-  opacity: 0;
 }
 
 .service-visual {

@@ -9,6 +9,7 @@ description: "Compile agent-authored specs into synchronized code, tests, infra,
 enableModals: true
 stylesheets:
   - "/styles/components/modal.css"
+  - "/styles/components/service-cards.css"
   - "/styles/arbiter.css"
 scripts:
   - "/js/modals.js"

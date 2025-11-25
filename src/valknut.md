@@ -9,6 +9,7 @@ description: "Stop AI agents hunting blindly. Precise problem roadmaps with 0-1 
 enableModals: true
 stylesheets:
   - "/styles/components/modal.css"
+  - "/styles/components/service-cards.css"
   - "/styles/valknut.css"
 scripts:
   - "/js/valknut-banners.js"
