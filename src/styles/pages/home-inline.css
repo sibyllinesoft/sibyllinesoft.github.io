@@ -587,6 +587,10 @@
   height: 3rem;
   overflow: visible;
   margin-top: var(--space-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .banner-container {
@@ -600,6 +604,9 @@
   background: none;
   border: none;
   box-shadow: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .banner-container.active {
@@ -644,7 +651,7 @@
   font-style: italic;
   font-weight: 400;
   position: relative;
-  color: #e4e7f2;
+  color: var(--color-text-light);
   background: none;
   -webkit-background-clip: initial;
   -webkit-text-fill-color: inherit;
@@ -705,12 +712,8 @@
 
 /* Button shine animation */
 @keyframes tagShine {
-  from {
-    background-position: -200% center;
-  }
-  to {
-    background-position: 200% center;
-  }
+  from { background-position: -100% center; }
+  to   { background-position: 100% center; }
 }
 
 /* Accessibility - Respect reduced motion preferences */
@@ -862,7 +865,7 @@
 /* Landing page specific styles */
 .hero-cta {
   display: flex;
-  margin: calc(var(--space-4xl) / 2) 0 var(--space-4xl) 0; /* Cut top margin in half */
+  margin: calc(var(--space-4xl) / 2) 0 64px 0; /* Cut top margin in half, set bottom to 64px */
   align-items: center;
   justify-content: space-evenly;
   gap: var(--space-lg);
@@ -1119,11 +1122,16 @@
 /* Standardized section styles */
 .content-section, .possibilities-deck {
   background: transparent;
-  padding: var(--space-2xl) 0;
+  padding: 0;
   border-radius: 0;
-  margin: 64px 0;
+  margin: 80px 0;
   box-shadow: none;
   border: none;
+}
+
+/* Prevent intrinsic size reservation from global animation helper on home */
+.content-section {
+  contain-intrinsic-size: auto;
 }
 
 /* Standardized h2 styles - using goldmine heading margins - scoped to avoid article cards */

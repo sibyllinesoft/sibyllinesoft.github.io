@@ -470,12 +470,8 @@
 
 /* Button shine animation */
 @keyframes tagShine {
-  from {
-    background-position: -200% center;
-  }
-  to {
-    background-position: 200% center;
-  }
+  from { background-position: -100% center; }
+  to   { background-position: 100% center; }
 }
 
 /* Accessibility - Respect reduced motion preferences */
@@ -819,11 +815,16 @@
 /* Standardized section styles */
 .content-section, .possibilities-deck {
   background: transparent;
-  padding: var(--space-2xl) 0;
+  padding: 0;
   border-radius: 0;
-  margin: var(--space-xl) 0;
+  margin: 80px 0;
   box-shadow: none;
   border: none;
+}
+
+/* Prevent global intrinsic-size reservation from animations.css */
+.content-section {
+  contain-intrinsic-size: auto;
 }
 
 /* Standardized h2 styles - using goldmine heading margins - scoped to avoid article cards */
