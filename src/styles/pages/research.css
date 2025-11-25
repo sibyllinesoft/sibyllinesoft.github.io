@@ -159,10 +159,10 @@
 }
 
 @keyframes tagShine {
-  from {
+  0%, 25% {
     background-position: -200% center;
   }
-  to {
+  75%, 100% {
     background-position: 200% center;
   }
 }
