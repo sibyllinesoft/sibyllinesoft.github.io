@@ -591,20 +591,6 @@
   transform: translateY(-1px);
 }
 
-.service-card .click-hint {
-  position: absolute;
-  bottom: var(--space-sm);
-  right: var(--space-sm);
-  font-size: var(--text-xs);
-  color: var(--color-text-muted);
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
-}
-
-.service-card.expanded .click-hint {
-  opacity: 0;
-}
-
 .service-visual {
   position: absolute;
   bottom: 0;
