@@ -117,44 +117,9 @@
   max-width: var(--measure-lead);
 }
 
-/* Valknut-specific hero styling to match homepage */
-.hero-container {
-  position: relative;
-  min-height: 40vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  margin-bottom: 0;
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
-}
-
-.neural-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  opacity: 0.6;
-  pointer-events: none;
-}
-
+/* Arbiter-specific overrides */
 .hero-content {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: var(--space-lg); /* match the tighter home hero spacing */
-  width: 100%;
   max-width: none;
-  padding: var(--space-2xl) var(--space-lg); /* bring vertical padding in ~32px to match home feel */
-  text-align: center;
-  margin: 0 auto;
   overflow: visible;
 }
 
@@ -769,46 +734,3 @@ figcaption {
   }
 }
 
-/* Responsive hero typography overrides (applied last to win the cascade) */
-.hero-title,
-.hero-content h1 {
-  font-size: clamp(2.2rem, 4.5vw + 1rem, 4.6rem);
-  line-height: 1.1;
-  text-wrap: balance;
-}
-
-.hero-subtitle,
-.banner-text {
-  font-size: clamp(1rem, 2.5vw + 0.6rem, 1.45rem);
-  line-height: 1.35;
-  text-wrap: balance;
-}
-
-@media (max-width: 640px) {
-  .hero-title,
-  .hero-content h1 {
-    font-size: clamp(1.8rem, 6vw + 0.6rem, 3rem);
-  }
-
-  .hero-subtitle,
-  .banner-text {
-    font-size: clamp(0.95rem, 4vw + 0.45rem, 1.2rem);
-  }
-
-  .hero-content {
-    padding: var(--space-2xl) var(--space-md);
-    margin: 0;
-  }
-}
-
-@media (max-width: 420px) {
-  .hero-title,
-  .hero-content h1 {
-    font-size: clamp(1.6rem, 7vw + 0.4rem, 2.4rem);
-  }
-
-  .hero-subtitle,
-  .banner-text {
-    font-size: clamp(0.92rem, 4.5vw + 0.35rem, 1.1rem);
-  }
-}

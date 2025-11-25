@@ -21,20 +21,19 @@ scripts:
 <div class="hero-data" style="display: none;">
    <div class="title-subtitle-group" data-group-index="1">
       <div class="title">Ship Better Software, Faster</div>
-      <div class="subtitle">Transform tangled messes into maintainable code</div>
-      <div class="subtitle">Unleash the full power of your agents</div>
+      <div class="subtitle">Valknut transforms messy software into maintainable code</div>
+      <div class="subtitle">Valknut restructures your software to unleash the full power of your agents</div>
    </div>
    <div class="title-subtitle-group" data-group-index="0">
       <div class="title">Tame Your Tech Debt</div>
-      <div class="subtitle">Find the root cause of bugs so you can fix them before they occur</div>
-      <div class="subtitle">Stop putting out fires and build your product</div>
+      <div class="subtitle">Valknut roots out the underlying causes of bugs so you avoid them altogether</div>
+      <div class="subtitle">Valknut lets you stop putting out fires and build your product</div>
    </div>
       <div class="title-subtitle-group" data-group-index="2">
       <div class="title">Empower Your Agents</div>
-      <div class="subtitle">Streamline your codebase for agent accessibility</div>
-      <div class="subtitle">Generate better code while slashing your inference bill</div>
+      <div class="subtitle">Valknut optimizes your codebase for agent accessibility</div>
+      <div class="subtitle">Valknut helps agents generate better code while slashing your inference bill</div>
    </div>
-
 </div>
 {% set heroLogo = '/img/logos/valknut-large.webp' %}
 {% set heroLogoAlt = 'Valknut Logo' %}
