@@ -8,6 +8,7 @@ title: "Arbiter – Spec Compiler & Rails for AI Agents"
 description: "Compile agent-authored specs into synchronized code, tests, infra, and docs—enforced in CI."
 enableModals: true
 stylesheets:
+  - "/styles/components/modal.css"
   - "/styles/arbiter.css"
 scripts:
   - "/js/modals.js"

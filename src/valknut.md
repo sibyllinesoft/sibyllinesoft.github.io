@@ -8,6 +8,7 @@ title: "Valknut: Static Analysis Engine for AI-Guided Refactoring"
 description: "Stop AI agents hunting blindly. Precise problem roadmaps with 0-1 urgency scores guide agents to highest-impact issues first."
 enableModals: true
 stylesheets:
+  - "/styles/components/modal.css"
   - "/styles/valknut.css"
 scripts:
   - "/js/valknut-banners.js"
