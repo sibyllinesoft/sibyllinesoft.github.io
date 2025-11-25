@@ -15,14 +15,14 @@ scripts:
 <!-- Hidden data for rotating banners - read by JavaScript -->
 <div class="hero-data" style="display: none;">
   <div class="title-subtitle-group" data-group-index="0">
-    <div class="title">10x Your Team's Velocity</div>
-    <div class="subtitle">We automate the grind so your engineers can focus on the important problems</div>
-    <div class="subtitle">Stop hustling and start automating</div>
+    <div class="title">Slash your SaaS bill by 90%</div>
+    <div class="subtitle">Fully integrated software development workspaces for less than the cost of a Slack subscription</div>
+    <div class="subtitle">Our co-managed workspaces give you the power of self hosting with the convenience of SaaS</div>
   </div>
   <div class="title-subtitle-group" data-group-index="1">
-    <div class="title">Enterprise AI Simplified</div>
-    <div class="subtitle">Secure and compliant out of the box</div>
-    <div class="subtitle">Total observability and control via the systems you already use</div>
+    <div class="title">10x Your Teams's Velocity</div>
+    <div class="subtitle">AI agents preconfigured to plan features, review code and maintain docs</div>
+    <div class="subtitle">Our Agents understand your business out of the box and won't leave you mired in tech debt</div>
   </div>
 </div>
 

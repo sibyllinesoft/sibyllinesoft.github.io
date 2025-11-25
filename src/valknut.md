@@ -15,33 +15,30 @@ scripts:
 
 <!-- Hidden data for rotating banners - customize this for Valknut -->
 <div class="hero-data" style="display: none;">
-   <div class="title-subtitle-group" data-group-index="0">
-      <div class="title">Valknut gives your agents refactoring superpowers</div>
-      <div class="subtitle">Agents Are Lost Without Direction—VALKNUT Gives Them Purpose</div>
-   </div>
    <div class="title-subtitle-group" data-group-index="1">
-      <div class="title">Static Analysis That Guides, Not Just Reports</div>
-      <div class="subtitle">Turn code complexity into a precise refactoring roadmap</div>
+      <div class="title">Ship Better Software, Faster</div>
+      <div class="subtitle">Transform tangled messes into maintainable code</div>
+      <div class="subtitle">Unleash the full power of your agents</div>
    </div>
-   <div class="title-subtitle-group" data-group-index="2">
-      <div class="title">Stop AI Agents From Hunting Blindly</div>
-      <div class="subtitle">From thousands of files to a prioritized list of actionable insights</div>
+   <div class="title-subtitle-group" data-group-index="0">
+      <div class="title">Tame Your Tech Debt</div>
+      <div class="subtitle">Find the root cause of bugs so you can fix them before they occur</div>
+      <div class="subtitle">Stop putting out fires and build your product</div>
    </div>
+      <div class="title-subtitle-group" data-group-index="2">
+      <div class="title">Empower Your Agents</div>
+      <div class="subtitle">Streamline your codebase for agent accessibility</div>
+      <div class="subtitle">Generate better code while slashing your inference bill</div>
+   </div>
+
 </div>
 {% set heroLogo = '/img/logos/valknut-large.webp' %}
 {% set heroLogoAlt = 'Valknut Logo' %}
 {% set heroLogoHeight = '61px' %}
-{% set heroTitle = 'Valknut gives your agents refactoring superpowers' %}
-{% set heroSubtitle -%}
-<div class="rotating-banners">
-         <div class="banner-container">
-            <span class="banner-text" data-text="Turn code complexity into a precise refactoring roadmap">Turn code complexity into a precise refactoring roadmap</span>
-         </div>
-         <div class="banner-container">
-            <span class="banner-text" data-text="From thousands of files to a prioritized list of actionable insights">From thousands of files to a prioritized list of actionable insights</span>
-         </div>
-      </div>
-{%- endset %}
+{% set heroTitle = 'Ship Better Software, Faster' %}
+{% set heroSubtitle %}
+<div class="rotating-banners"></div>
+{% endset %}
 <div class="hero-container">
    <canvas id="neural-network" class="neural-background"></canvas>
    {% include "components/hero-content.njk" %}
@@ -50,9 +47,20 @@ scripts:
 <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
 <script src="/js/trefoil-animation.js"></script>
 <div class="centered-section">
-   <p><strong>Vibe coding starts out great.</strong> You tell your agent to do things, and you come back ten minutes later to working software. Fast forward 50,000 lines of code and you have a labrynthian codebase that agents struggle with, full of duplications and architectural drift. You want to ship new features but every change your agents make breaks something else, so you're putting out fires instead of delivering. Your velocity has slowed to a crawl and your customers are getting restless. <strong>The vibes have faded and you're left cleaning up after an AI rager.</strong></p>
-      <p>You might try to solve this by going over agent pull requests with a fine toothed comb and doing manual refactoring passes, but now your velocity is dragging and your competitors are lapping you on features. <strong>The answer to fading vibes isn't to give up your speed, but to improve your process.</strong></p>
-   <p>I know what you're thinking, why not just burn some GPU cycles getting agents to clean up the codebase? You might have gotten an agent to successfully refactor a small codebase at some point, but don't let that mislead you. <strong>Agent refactoring ability doesn't scale with codebase size.</strong> Once your codebase passes a threshold, they get lost when trying to refactor it just like they do when trying to create new code.</p>
+<h3>Valknut gives you a master plan to optimize your code for clarity, maintainability and agent accessbility</h3>
+   {% set primary = {
+  "href": "https://arbiter.sibylline.dev",
+  "label": "Read the Docs",
+  "icon": "book-open"
+} %}
+{% set secondary = {
+  "href": "https://github.com/sibyllinesoft/arbiter/",
+  "label": "View on GitHub",
+  "icon": "github"
+} %}
+{% include "components/cta-buttons.njk" %}
+   <p><strong>Vibe coding starts out great.</strong> You tell your agent to do things, and you come back ten minutes later to working software. Fast forward 50,000 lines of code and you have a labrynthian codebase that agents struggle with, full of duplications and architectural drift. <strong>The vibes have faded and you're left on cleanup.</strong></p>
+   <p><strong>You need to keep your code clean to keep shipping quickly.</strong> Messy code confuses agents and biases them towards writing lower quality code themselves. Agents need help to refactor difficult codebases effectively, as they tend to get confused when refactoring just like they do when trying to create new code.</p>
 </div>
 <div class="content-section">
    <h2>Why Current AI Refactoring Fails</h2>
@@ -64,15 +72,11 @@ scripts:
          </div>
          <div class="service-details">
             <p><strong>Your agents are burning cycles on noise.</strong> Without urgency guidance, AI tools treat a missing semicolon the same as a circular dependency that's crushing team velocity. They'll spend hours perfecting indentation while technical debt compounds in critical pathways.</p>
-            
             <div class="project-features">
                <div class="feature-item" style="font-size: 0.765em;">
                   <p>"When I first approached the Valknut codebase, I spent my entire initial session jumping between files with no clear strategy. I'd see a complex function in `pipeline_executor.rs`, then get distracted by imports that led me to `bayesian.rs`, then notice some error handling patterns that seemed inconsistent across modules.</p>
-                  
                   <p>I found myself making mental notes about potential improvements everywhere but had no way to prioritize them. Should I fix the missing documentation first? The unused variables? Or tackle that monster function that looked way too complex? Every direction seemed equally valid and equally overwhelming.</p>
-                  
                   <p>The result was analysis paralysis disguised as thoroughness. I was busy, I was learning the code, but I wasn't making any concrete progress toward actually improving anything."</p>
-                  
                   <p style="text-align: right; margin-top: 1rem; font-style: italic;">
                      <i data-lucide="bot"></i> Claude
                   </p>
@@ -88,15 +92,11 @@ scripts:
          </div>
          <div class="service-details">
             <p><strong>Playing whack-a-mole with symptoms, not causes.</strong> Agents see individual code smells but miss the architectural patterns that created them. They'll extract a method here, rename a variable there—never addressing the coupling that's making your codebase unmaintainable.</p>
-            
             <div class="project-features">
                <div class="feature-item" style="font-size: 0.765em;">
                   <p>"I thought I'd found a simple win: consolidating error handling patterns. I spotted similar `match` statements across multiple files and figured I could extract a common error handling utility. Seemed straightforward.</p>
-                  
                   <p>But when I started tracing through the dependencies, I discovered the error types were slightly different across modules. The CLI module expected different context than the MCP server. The pipeline executor had its own error recovery patterns. What looked like duplication was actually context-specific handling.</p>
-                  
                   <p>My 'simple' refactor would have required changing 8 files, updating error type definitions, and potentially breaking the error recovery logic I didn't fully understand. Instead of fixing the root architectural issue—inconsistent error handling design—I was about to create more inconsistency."</p>
-                  
                   <p style="text-align: right; margin-top: 1rem; font-style: italic;">
                      <i data-lucide="bot"></i> Claude
                   </p>
@@ -112,15 +112,11 @@ scripts:
          </div>
          <div class="service-details">
             <p><strong>Agents drown in data without intelligence.</strong> Hand them a 100k-line codebase and they'll struggle to build a model of the system, preventing them from identifying real architectural improvements.</p>
-            
             <div class="project-features">
                <div class="feature-item" style="font-size: 0.765em;">
                   <p>"The sheer volume of the Valknut codebase broke my ability to maintain coherent strategy. I'd start analyzing the core pipeline logic, then get pulled into understanding the Tree-sitter language adapters, then dive into the statistical normalization algorithms, then notice the duplicate detection system.</p>
-                  
                   <p>Each subsystem was fascinating and complex in its own right. But I couldn't hold all the relationships in my head simultaneously. I'd understand the complexity analysis in isolation, but lose track of how it connected to the refactoring recommendations. I'd grasp the scoring algorithms but forget how they influenced the pipeline execution.</p>
-                  
                   <p>Without a map of what actually mattered most, I treated every complexity equally. I spent as much time trying to understand the MCP protocol implementation as the core analysis algorithms, even though one is clearly more central to the system's purpose. The result was shallow understanding everywhere and deep insight nowhere."</p>
-                  
                   <p style="text-align: right; margin-top: 1rem; font-style: italic;">
                      <i data-lucide="bot"></i> Claude
                   </p>
