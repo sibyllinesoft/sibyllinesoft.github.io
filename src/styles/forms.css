@@ -565,10 +565,6 @@
 /* =================================
    Form Animations
    ================================= */
-@keyframes tagShine {
-  from { background-position: -200% center; }
-  to   { background-position: 200% center; }
-}
 
 .form-input,
 .form-select,

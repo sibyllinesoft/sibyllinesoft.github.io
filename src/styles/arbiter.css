@@ -230,15 +230,6 @@
   animation: dividerPulseRTL 4s ease-in-out infinite;
 }
 
-@keyframes dividerPulseRTL {
-  0% {
-    right: -100%;
-  }
-  100% {
-    right: 100%;
-  }
-}
-
 /* Hero title styling to match homepage exactly */
 .hero-title {
   font-size: calc(var(--text-6xl) * 1.33);
@@ -280,17 +271,6 @@
   position: relative;
   color: var(--color-text-light);
   transition: opacity 0.3s ease;
-}
-
-@keyframes subtleGlowSweep {
-  0%, 100% {
-    background-position: -100% 0;
-    filter: blur(0px) drop-shadow(0 0 0px rgba(102, 126, 234, 0));
-  }
-  50% {
-    background-position: 100% 0;
-    filter: blur(0px) drop-shadow(0 0 12px rgba(102, 126, 234, 0.6));
-  }
 }
 
 /* Banner text styling to match homepage */

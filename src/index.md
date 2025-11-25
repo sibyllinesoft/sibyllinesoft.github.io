@@ -16,13 +16,13 @@ scripts:
 <div class="hero-data" style="display: none;">
   <div class="title-subtitle-group" data-group-index="0">
     <div class="title">Slash your SaaS bill by 90%</div>
-    <div class="subtitle">Fully integrated software development workspaces for less than the cost of a Slack subscription</div>
-    <div class="subtitle">Our co-managed workspaces give you the power of self hosting with the convenience of SaaS</div>
+    <div class="subtitle">Fully integrated engineering workspaces for less than a dollar a day</div>
+    <div class="subtitle">Get the power of self hosting with the convenience of SaaS</div>
   </div>
   <div class="title-subtitle-group" data-group-index="1">
     <div class="title">10x Your Teams's Velocity</div>
-    <div class="subtitle">AI agents preconfigured to plan features, review code and maintain docs</div>
-    <div class="subtitle">Our Agents understand your business out of the box and won't leave you mired in tech debt</div>
+    <div class="subtitle">Automation tools</div>
+    <div class="subtitle">Agents that understand your business out of the box</div>
   </div>
 </div>
 

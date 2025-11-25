@@ -55,8 +55,6 @@ jsonLD:
 {% set heroLogo = '/img/logos/arbiter-large.png' %}
 {% set heroLogoAlt = 'Arbiter Logo' %}
 {% set heroLogoHeight = '72px' %}
-{% set heroTitle = 'The Spec Compiler for AI Development' %}
-{% set heroSubtitle %}
 <div class="rotating-banners"></div>
 {% endset %}
 <div class="hero-container">
@@ -78,7 +76,7 @@ jsonLD:
 } %}
 {% include "components/cta-buttons.njk" %}
    <p><strong>Markdown specs don't work.</strong> They're a chore to read, imprecise, and agents treat them more like suggestions than constraints. Code conventions get ignored. Tech debt accrues.</p>
-   <p><strong>Arbiter's structured specs give you collaborative planning and consistent code.</strong> Stop trying to tame slop and start building real software at the speed of vibes.</p>
+   <p><strong>Arbiter's structured specs produce clean, consistent code.</strong> Stop trying to tame slop and start building real software at the speed of vibes.</p>
 
 </div>
 <div class="content-section">

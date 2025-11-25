@@ -158,11 +158,6 @@
   margin-right: 1rem;
 }
 
-@keyframes tagShine {
-  from { background-position: -200% center; }
-  to   { background-position: 200% center; }
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
   .project-brochure {

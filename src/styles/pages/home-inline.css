@@ -326,15 +326,6 @@
   animation: dividerPulseRTL 4s ease-in-out infinite;
 }
 
-@keyframes dividerPulseRTL {
-  0% {
-    right: -100%;
-  }
-  100% {
-    right: 100%;
-  }
-}
-
 /* Hero divider with pulsing effect */
 .hero-divider {
   border: none;
@@ -546,18 +537,6 @@
   }
 }
 
-/* Subtle glow sweep that passes over the title */
-@keyframes subtleGlowSweep {
-  0%, 100% {
-    background-position: -100% 0;
-    filter: blur(0px) drop-shadow(0 0 0px rgba(102, 126, 234, 0));
-  }
-  50% {
-    background-position: 100% 0;
-    filter: blur(0px) drop-shadow(0 0 12px rgba(102, 126, 234, 0.6));
-  }
-}
-
 .hero-content h1 {
   /* Keep original styles for fallback */
   font-size: var(--text-6xl);
@@ -693,18 +672,6 @@
 @keyframes bannerShimmer {
   0%, 100% { background-position: -200% 0; }
   50% { background-position: 200% 0; }
-}
-
-/* Original shimmer animation for buttons */
-@keyframes subtitleShimmer {
-  0%, 100% { background-position: -200% 0; }
-  50% { background-position: 200% 0; }
-}
-
-/* Button shine animation */
-@keyframes tagShine {
-  from { background-position: -200% center; }
-  to   { background-position: 200% center; }
 }
 
 /* Accessibility - Respect reduced motion preferences */

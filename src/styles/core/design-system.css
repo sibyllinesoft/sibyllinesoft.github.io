@@ -589,6 +589,26 @@ hr {
     to   { background-position: 200% center; }
 }
 
+@keyframes dividerPulseRTL {
+  0% {
+    right: -100%;
+  }
+  100% {
+    right: 100%;
+  }
+}
+
+@keyframes subtleGlowSweep {
+  0%, 100% {
+    background-position: -100% 0;
+    filter: blur(0px) drop-shadow(0 0 0px rgba(102, 126, 234, 0));
+  }
+  50% {
+    background-position: 100% 0;
+    filter: blur(0px) drop-shadow(0 0 12px rgba(102, 126, 234, 0.6));
+  }
+}
+
 /* Lucide Icons */
 .lucide {
     width: 1.2em;
