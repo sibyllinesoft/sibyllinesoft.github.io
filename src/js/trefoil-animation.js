@@ -19,6 +19,9 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Scene & camera
   const scene = new THREE.Scene();
+  // Group all geometry so we can nudge the whole knot upward without touching the camera
+  const knotGroup = new THREE.Group();
+  scene.add(knotGroup);
   const camera = new THREE.PerspectiveCamera(45, 1, 0.01, 100);
   camera.position.set(0, 0, 3.15); // Zoomed out slightly (was 2.75)
 
@@ -29,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const phi = t * Math.PI * 2.0;
       const rad = this.R + this.r * Math.cos(3*phi);
       target.set(rad*Math.cos(2*phi), rad*Math.sin(2*phi), this.r*Math.sin(3*phi));
-      return target.multiplyScalar(0.40);
+      return target.multiplyScalar(0.4608); // 20% larger than previous (0.384 -> 0.4608)
     }
   }
   const curve = new TrefoilTorusCurve();
@@ -37,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Build the tube grid just to get a regular vertex lattice on the surface
   const tubularSegments = 360;   // segments along the knot
   const radialSegments  = 18;    // segments around circumference
-  const tubeRadius      = 0.16;
+  const tubeRadius      = 0.128; // 20% thinner to match reduced scale
   const tubeGeo = new THREE.TubeGeometry(curve, tubularSegments, tubeRadius, radialSegments, true);
   tubeGeo.rotateY(Math.PI/(radialSegments*2)); // move seam out of view
 
@@ -66,10 +69,10 @@ document.addEventListener('DOMContentLoaded', function() {
     linePositions[ptr*3+0] = posAttr.getX(index);
     linePositions[ptr*3+1] = posAttr.getY(index);
     linePositions[ptr*3+2] = posAttr.getZ(index);
-    // initial color mid-gray
-    lineColors[ptr*3+0] = 0.5;
-    lineColors[ptr*3+1] = 0.5;
-    lineColors[ptr*3+2] = 0.5;
+    // initial color darker mid-gray for a subdued idle state
+    lineColors[ptr*3+0] = 0.30;
+    lineColors[ptr*3+1] = 0.30;
+    lineColors[ptr*3+2] = 0.30;
     lineUs[ptr] = uNorm;
     const vNorm = (index % ringSize) / radialSegments; // 0..1 around circumference
     lineVs[ptr] = vNorm;
@@ -106,11 +109,11 @@ document.addEventListener('DOMContentLoaded', function() {
   const lineMat = new THREE.LineBasicMaterial({
     vertexColors: true,
     transparent: true,
-    opacity: 0.3, // Increased to make shimmer more visible
+    opacity: 0.28, // slightly lower to keep the base darker
     blending: THREE.AdditiveBlending
   });
   const edges = new THREE.LineSegments(lineGeo, lineMat);
-  scene.add(edges);
+  knotGroup.add(edges);
 
   // --- Build vertex points for visual pips at lattice vertices ---
   const pointsPositions = new Float32Array(totalVerts * 3);
@@ -127,9 +130,9 @@ document.addEventListener('DOMContentLoaded', function() {
       pointsPositions[pptr*3+0] = posAttr.getX(idx);
       pointsPositions[pptr*3+1] = posAttr.getY(idx);
       pointsPositions[pptr*3+2] = posAttr.getZ(idx);
-      pointsColors[pptr*3+0] = 0.5;
-      pointsColors[pptr*3+1] = 0.5;
-      pointsColors[pptr*3+2] = 0.5;
+      pointsColors[pptr*3+0] = 0.30;
+      pointsColors[pptr*3+1] = 0.30;
+      pointsColors[pptr*3+2] = 0.30;
       pointsUs[pptr] = Math.min(1.0, u); // clamp final duplicate
       pointsVs[pptr] = j / radialSegments;
       pointsSeed[pptr] = fract(Math.sin(idx * 12.9898) * 43758.5453);
@@ -145,17 +148,20 @@ document.addEventListener('DOMContentLoaded', function() {
     size: 2.0,           // px
     sizeAttenuation: false,
     transparent: true,
-    opacity: 0.35, // Increased to make shimmer more visible
+    opacity: 0.28, // darker idle state
     blending: THREE.AdditiveBlending
   });
   const vertices = new THREE.Points(ptsGeo, ptsMat);
-  scene.add(vertices);
+  knotGroup.add(vertices);
+
+  // Lift the entire animation slightly so it sits behind the heading instead of sagging toward the divider
+  knotGroup.position.y = 0;
 
   // --- Animate iridescent shimmer along u and v ---
   const waves = 3;          // number of wave fronts
   const sigma = 0.025;      // width of each wave
   const speed = 0.08;       // revolutions per second (reduced by 1/3 from 0.12)
-  const baseGray = 0.50;    // base brightness
+  const baseGray = 0.25;    // base brightness (darker idle appearance)
   
   // Iridescent shimmer controls
   const hueA = 290/360;     // purple
@@ -191,7 +197,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const h = hueA*(1-mixH) + hueB*mixH;
     
     // Make inactive areas much dimmer
-    const baseOpacity = 0.075; // 40% less opaque (0.125 * 0.6)
+    const baseOpacity = 0.05;  // darker idle floor
     const activeBoost = 0.925; // increased boost to maintain bright shimmer
     const s = (0.4 + 0.3*wave) * 0.89;                 // increased saturation by 33% (0.67 * 1.33 = 0.89)
     const l = clamp(baseOpacity + activeBoost*wave, 0, 1); // much dimmer base, bright on pulse
