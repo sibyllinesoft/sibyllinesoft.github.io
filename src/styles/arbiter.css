@@ -344,23 +344,13 @@
   background: transparent;
   border-radius: 0;
   padding: 0;
-  margin: 0;
+  margin: var(--space-3xl) 0;
   box-shadow: none;
   border: none;
 }
 
 .content-section:first-child {
   border-top: none;
-}
-
-/* Service grid containers as cards (matching site standard) */
-.content-section:has(.services-grid) {
-  background: transparent;
-  padding: 0;
-  border-radius: 0;
-  margin: 0;
-  box-shadow: none;
-  border: none;
 }
 
 .content-section h2 {
