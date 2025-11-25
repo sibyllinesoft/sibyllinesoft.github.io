@@ -1,0 +1,99 @@
+/* Shared product page feature styling */
+
+/* Product Features Styling for Claude Quotes */
+.project-features {
+  margin: var(--space-2xl) 0 0 0;
+  background: var(--color-background);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  border-left: 3px solid var(--color-accent);
+}
+
+.feature-item {
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+.feature-item:last-child {
+  margin-bottom: 0;
+}
+
+.feature-item strong {
+  color: var(--color-accent);
+  font-weight: 600;
+  display: block;
+  margin-bottom: var(--space-xs);
+}
+
+/* Claude quote styling */
+.feature-item p {
+  font-style: italic;
+  position: relative;
+  margin: 0 0 var(--space-md) 0;
+}
+
+/* Keep margin for the signature line */
+.feature-item p[style*="text-align: right"] {
+  margin-top: 1rem;
+}
+
+.feature-item p:first-child::before {
+  content: """;
+  font-size: 3em;
+  font-weight: 900;
+  color: var(--color-accent);
+  position: absolute;
+  left: -0.6em;
+  top: -0.3em;
+  line-height: 1;
+  opacity: 0.6;
+}
+
+.feature-item p:last-of-type:not([style*="text-align: right"])::after {
+  content: """;
+  font-size: 3em;
+  font-weight: 900;
+  color: var(--color-accent);
+  opacity: 0.6;
+  margin-left: 0.1em;
+}
+
+/* Quick Start container styling */
+.quickstart-container {
+  background: rgba(255, 255, 255, 0.035);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  border: 1px solid var(--color-border-light);
+}
+
+.quickstart-container h4 {
+  margin-top: 0;
+  margin-bottom: var(--space-md);
+  color: var(--color-text);
+}
+
+/* Override Prism code blocks to match Claude quote style */
+pre[class*="language-"] {
+  background: var(--color-background) !important;
+  border: none !important;
+  border-left: 3px solid var(--color-accent) !important;
+  border-radius: var(--radius-md) !important;
+  padding: 24px !important;
+  margin: var(--space-2xl) 0 !important;
+}
+
+/* Ensure code blocks in quickstart get proper styling */
+.quickstart-container pre,
+.quickstart-container pre code {
+  background: var(--color-background) !important;
+  border: none !important;
+  border-left: 3px solid var(--color-accent) !important;
+  border-radius: var(--radius-md) !important;
+  padding: 24px !important;
+  margin: var(--space-2xl) 0 !important;
+  font-family: var(--font-family-monospace) !important;
+  font-size: var(--text-sm) !important;
+  line-height: var(--leading-normal) !important;
+  overflow-x: auto;
+  color: var(--color-text) !important;
+}

@@ -11,6 +11,7 @@ stylesheets:
   - "/styles/components/modal.css"
   - "/styles/components/service-cards.css"
   - "/styles/components/section-layouts.css"
+  - "/styles/components/product-features.css"
   - "/styles/arbiter.css"
 scripts:
   - "/js/modals.js"
