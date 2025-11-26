@@ -1,7 +1,7 @@
 /* Professional minimalist design system */
 :root {
-    --font-family-default: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-    --font-family-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    --font-family-default: 'Sunflower', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    --font-family-display: 'Sunflower', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
     --font-family-monospace: 'SF Mono', 'Monaco', 'Consolas', 'Liberation Mono', monospace;
     
     /* Sophisticated graphite palette */
@@ -126,7 +126,7 @@ body {
     margin: 0;
     font-size: var(--text-lg);
     font-weight: 600;
-    font-family: var(--font-family-display);
+    font-family: 'Michroma', var(--font-family-default);
 }
 
 .header h1 a {
@@ -156,6 +156,7 @@ body {
     text-decoration: none;
     font-weight: 500;
     font-size: var(--text-sm);
+    font-family: 'Michroma', var(--font-family-default);
     transition: color 0.2s ease;
     letter-spacing: 0.025em;
 }
@@ -186,11 +187,13 @@ h1 {
     font-size: var(--text-5xl);
     margin-top: 0;
     line-height: var(--leading-tight);
+    font-family: 'Michroma', var(--font-family-default);
 }
 
 h2 {
     font-size: var(--text-3xl);
-    margin-top: var(--space-5xl);
+    margin-top: var(--space-3xl);
+    font-family: 'Michroma', var(--font-family-default);
 }
 
 h3 {
@@ -679,9 +682,10 @@ hr {
 /* Responsive hero typography */
 .hero-title,
 .hero-content h1 {
-  font-size: clamp(2.2rem, 4.5vw + 1rem, 4.6rem);
-  line-height: 1.1;
+  font-size: 56px;
+  line-height: 1.2;
   text-wrap: balance;
+  font-family: 'Michroma', var(--font-family-default);
 }
 
 .hero-subtitle,
@@ -1035,8 +1039,8 @@ hr {
   background: var(--color-accent);
   border-radius: calc(var(--radius-lg) - 1px);
   color: white;
-  width: 100%;
-  height: 100%;
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
 }
 
 .btn-unified.btn-primary .btn-inner .lucide {
@@ -1078,8 +1082,8 @@ hr {
   background: var(--color-background);
   border-radius: calc(var(--radius-lg) - 1px);
   color: var(--color-text);
-  width: 100%;
-  height: 100%;
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
 }
 
 .btn-unified.btn-secondary .btn-inner .lucide {

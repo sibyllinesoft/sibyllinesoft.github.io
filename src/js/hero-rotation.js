@@ -24,7 +24,7 @@
         const parsed = parseInt(this.container.dataset.rotationInterval, 10);
         if (!Number.isNaN(parsed) && parsed > 0) return parsed;
       }
-      return 4000; // default 4s between subtitle swaps (2 subtitles => 8s per title)
+      return 6000; // default 6s between subtitle swaps (2 subtitles => 12s per title)
     }
 
     buildPairsFromHTML() {

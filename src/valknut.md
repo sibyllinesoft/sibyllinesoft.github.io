@@ -1,8 +1,8 @@
 ---
 eleventyNavigation:
-key: Valknut
-parent: Products
-order: 4
+  key: Valknut
+  parent: Products
+  order: 4
 layout: simple.njk
 title: "Valknut: Static Analysis Engine for AI-Guided Refactoring"
 description: "Stop AI agents hunting blindly. Precise problem roadmaps with 0-1 urgency scores guide agents to highest-impact issues first."
@@ -20,19 +20,19 @@ scripts:
 <!-- Hidden data for rotating banners - customize this for Valknut -->
 <div class="hero-data" style="display: none;">
    <div class="title-subtitle-group" data-group-index="1">
-      <div class="title">Ship Better Software, Faster</div>
-      <div class="subtitle">Valknut transforms messy software into maintainable code</div>
-      <div class="subtitle">Valknut restructures your software to unleash the full power of your agents</div>
+      <div class="title">Valknut Keeps You Shipping</div>
+      <div class="subtitle">Transform sloppy code into maintainable software</div>
+      <div class="subtitle">Reorganize your code to unlock the full power of your agents</div>
    </div>
    <div class="title-subtitle-group" data-group-index="0">
-      <div class="title">Tame Your Tech Debt</div>
-      <div class="subtitle">Valknut roots out the underlying causes of bugs so you avoid them altogether</div>
-      <div class="subtitle">Valknut lets you stop putting out fires and build your product</div>
+      <div class="title">Valknut Tames Your Tech Debt</div>
+      <div class="subtitle">Root out the underlying causes of bugs before they can occur</div>
+      <div class="subtitle">Stop putting out fires and focus on building your product</div>
    </div>
       <div class="title-subtitle-group" data-group-index="2">
-      <div class="title">Empower Your Agents</div>
-      <div class="subtitle">Valknut optimizes your codebase for agent accessibility</div>
-      <div class="subtitle">Valknut helps agents generate better code while slashing your inference bill</div>
+      <div class="title">Valknut Empowers Your Agents</div>
+      <div class="subtitle">Generate better code while slashing your inference bill</div>
+      <div class="subtitle">Reduce errors while eliminate code duplication</div>
    </div>
 </div>
 {% set heroLogo = '/img/logos/valknut-large.webp' %}
@@ -50,23 +50,25 @@ scripts:
 <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
 <script src="/js/trefoil-animation.js"></script>
 <div class="centered-section">
-<h3>Valknut gives you a master plan to optimize your code for clarity, maintainability and agent accessbility</h3>
+<h3>Valknut optimizes your codebase for long term velocity</h3>
    {% set primary = {
-  "href": "https://arbiter.sibylline.dev",
+  "href": "https://valknut.sibylline.dev",
   "label": "Read the Docs",
   "icon": "book-open"
 } %}
 {% set secondary = {
-  "href": "https://github.com/sibyllinesoft/arbiter/",
+  "href": "https://github.com/sibyllinesoft/valknut/",
   "label": "View on GitHub",
   "icon": "github"
 } %}
 {% include "components/cta-buttons.njk" %}
    <p><strong>Vibe coding starts out great.</strong> You tell your agent to do things, and you come back ten minutes later to working software. Fast forward 50,000 lines of code and you have a labrynthian codebase that agents struggle with, full of duplication and architectural drift. <strong>The vibes have faded.</strong></p>
-   <p><strong>You need to keep your code clean to keep shipping quickly.</strong> Messy codebases confuses agents and bias them towards writing lower quality code. Agents struggle refactor difficult codebases; they tend to get confused when refactoring just like they do when trying to create new code. <strong>Agents need guidance to clean your code correctly.</strong></p>
+   <p><strong>You need a healthy codebase to keep shipping quickly.</strong> Messy codebases confuses agents and bias them towards writing lower quality code. Agents struggle refactor difficult codebases; they tend to get confused when refactoring just like they do when trying to create new code. <strong>Agents need guidance to keep your codebase healthy.</strong></p>
 </div>
 <div class="content-section">
-   <h2>Why Current AI Refactoring Fails</h2>
+
+##   Why Current AI Refactoring Fails
+
    <div class="services-grid">
       <div class="service-card" data-service="wandering">
          <h3><i data-lucide="compass"></i> Random Code Wandering</h3>

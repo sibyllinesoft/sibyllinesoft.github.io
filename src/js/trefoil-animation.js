@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Build the tube grid just to get a regular vertex lattice on the surface
   const tubularSegments = 360;   // segments along the knot
   const radialSegments  = 18;    // segments around circumference
-  const tubeRadius      = 0.128; // 20% thinner to match reduced scale
+  const tubeRadius      = 0.175;
   const tubeGeo = new THREE.TubeGeometry(curve, tubularSegments, tubeRadius, radialSegments, true);
   tubeGeo.rotateY(Math.PI/(radialSegments*2)); // move seam out of view
 
@@ -198,9 +198,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Make inactive areas much dimmer
     const baseOpacity = 0.05;  // darker idle floor
-    const activeBoost = 0.925; // increased boost to maintain bright shimmer
-    const s = (0.4 + 0.3*wave) * 0.89;                 // increased saturation by 33% (0.67 * 1.33 = 0.89)
-    const l = clamp(baseOpacity + activeBoost*wave, 0, 1); // much dimmer base, bright on pulse
+    const activeBoost = 0.7; // reduced brightness boost
+    const s = (0.5 + 0.4*wave);                 // saturation for color shimmer
+    const l = clamp(baseOpacity + activeBoost*wave, 0, 0.85); // capped lightness for richer color
     return hsl2rgb(h, s, l);
   }
 

@@ -1,8 +1,8 @@
 ---
 eleventyNavigation:
-key: Arbiter
-parent: Products
-order: 4
+  key: Arbiter
+  parent: Products
+  order: 2
 layout: simple.njk
 title: "Arbiter – Spec Compiler & Rails for AI Agents"
 description: "Compile agent-authored specs into synchronized code, tests, infra, and docs—enforced in CI."
@@ -43,9 +43,9 @@ jsonLD:
       <div class="subtitle">Make better decisions with realtime collaborative spec building</div>
    </div>
    <div class="title-subtitle-group" data-group-index="1">
-      <div class="title">Build it Right</div>
-      <div class="subtitle">Specify your software in minutes with quickstart templates and a streamlined workflow</div>
-      <div class="subtitle">Transform your specs into high quality code, tests and documentation based on your rules</div>
+      <div class="title">Do Less, Build More</div>
+      <div class="subtitle">Specify your software in minutes with quickstart templates and streamlined workflows</div>
+      <div class="subtitle">Compile your specs into high quality code, tests and docs based on customizable rules</div>
    </div>
    <div class="title-subtitle-group" data-group-index="2">
       <div class="title">Collaborate With Clarity</div>
@@ -56,6 +56,8 @@ jsonLD:
 {% set heroLogo = '/img/logos/arbiter-large.png' %}
 {% set heroLogoAlt = 'Arbiter Logo' %}
 {% set heroLogoHeight = '72px' %}
+{% set heroTitle = 'Spec Compiler & Rails for AI Agents' %}
+{% set heroSubtitle %}
 <div class="rotating-banners"></div>
 {% endset %}
 <div class="hero-container">
@@ -217,91 +219,4 @@ Arbiter is designed to be unopinionated about how you do spec-driven development
    <p>Arbiter imports existing repos to generate a baseline spec so agents can work safely inside explicit constraints.</p>
    
    <p><strong>Instantly get:</strong> a comprehensive spec of your current architecture • clear constraints for agents • a baseline for safe, incremental collaboration.</p>
-</div>
-
-<div class="content-section">
-   <h2>Quick Start</h2>
-   
-   ```bash
-   # Via bun (recommended)
-   bun install -g arbiter-cli
-
-   # Via npm
-   npm install -g arbiter-cli~ ❯ sudo chown -R root:nixbld /mnt/data/nix /mnt/data/nix/nix /mnt/data/nix/nix/store
-  sudo chmod 1775 /mnt/data/nix/nix/store
-  sudo mkdir -p /mnt/data/nix/nix/store/.links
-  sudo chown root:nixbld /mnt/data/nix/nix/store/.links
-  sudo chmod 1775 /mnt/data/nix/nix/store/.links
-[sudo] password for nathan:
-
-~ ❯ unset NIX_REMOTE NIX_STORE_DIR NIX_CONFIG
-
-~ ❯ cd /home/nathan/Projects/rave
-  source apps/cli/.venv/bin/activate
-  export PATH="$PATH:/home/nathan/Projects/rave/apps/cli"
-  export SOPS_AGE_KEY_FILE=~/.config/sops/age/keys.txt
-  rave vm build-image --profile production
-🛠️  Building qcow2 image via Nix (production) with IdP 'google'...
-error:
-       … This command may have been run as non-root in a single-user Nix installation,
-       or the Nix daemon may have crashed.
-
-       error: opening lock file '/mnt/data/nix/nix/var/nix/db/big-lock': Permission denied
-❌ nix build failed. Scroll up for details.
-
-rave main  ✗rave main  ✗ sudo find /mnt/data/nix/nix/var/log -type d -exec chmod 2775 {} +
-  sudo find /mnt/data/nix/nix/var/log -type f -exec chmod 664 {} +
-
-rave main  ❯ cd /home/nathan/Projects/rave
-  source apps/cli/.venv/bin/activate
-  export PATH="$PATH:/home/nathan/Projects/rave/apps/cli"
-  export SOPS_AGE_KEY_FILE=~/.config/sops/age/keys.txt
-  rave vm build-image --profile production
-🛠️  Building qcow2 image via Nix (production) with IdP 'google'...
-warning: Git tree '/home/nathan/Projects/rave' is dirty
-trace: warning: authentik-server.service is ordered after 'network-online.target' but doesn't depend on it
-trace: warning: gitlab-benthos-webhook.service is ordered after 'network-online.target' but doesn't depend on it
-trace: warning: Grafana passwords will be stored as plaintext in the Nix store!
-Use file provider or an env-var instead.
-
-error: suspicious ownership or permission on '/mnt/data/nix/nix/store/vvhyplhxmid0dkwhajg2wj4bw9h2213l-10-mattermost.conf.drv.chroot/root/nix/store/x4lpc5wdaf5lnx91nhb9b50mrq6h8ncs-10-mattermost.conf' for output 'out'; rejecting this build output
-error: Cannot build '/nix/store/icg0s7rqjc5nl0ck6q0rnw80l2dp8i97-tmpfiles.d.drv'.
-       Reason: 1 dependency failed.
-       Output paths:
-         /nix/store/j6n6qadfd030b71ai5n0396zz15ph6bh-tmpfiles.d
-error: Cannot build '/nix/store/wz97bhm74j1azmnn135yq7j3d9g2zymc-etc.drv'.
-       Reason: 1 dependency failed.
-       Output paths:
-         /nix/store/vhcm1xf9gali5pgn5jxdfxdpb5cyni14-etc
-error: Cannot build '/nix/store/m2hvgrzvg3q9m6lrsynl9fy1sann9fqn-nixos-system-rave-complete-24.05.20241230.b134951.drv'.
-       Reason: 1 dependency failed.
-       Output paths:
-         /nix/store/5c5nyq6sipm9vdnscnsdjhpz75147jk0-nixos-system-rave-complete-24.05.20241230.b134951
-error: Cannot build '/nix/store/v2mhvawpr4s63jmrjywdkmkfzrn97gqc-nixos-disk-image.drv'.
-       Reason: 1 dependency failed.
-       Output paths:
-         /nix/store/ap5vmhi5wv68czds7qs0ybss4cddrwbx-nixos-disk-image
-❌ nix build failed. Scroll up for details.
-   ```
-
-   <h3>Create Your First Project:</h3>
-
-   ```bash
-   # Initialize a new project
-   mkdir my-app && cd my-app
-   arbiter init "My Application"
-
-   # Add your first components
-   arbiter add service user-service --language typescript --port 3000
-   arbiter add database userdb --attach-to user-service
-   arbiter add endpoint POST /users --service user-service
-   arbiter add endpoint GET /users/{id} --service user-service
-
-   # Generate the complete application
-   arbiter generate --include-ci
-
-   # Validate everything is correct
-   arbiter check --verbose
-   ```
-
 </div>

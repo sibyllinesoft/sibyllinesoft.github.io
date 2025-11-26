@@ -15,14 +15,14 @@ scripts:
 <!-- Hidden data for rotating banners - read by JavaScript -->
 <div class="hero-data" style="display: none;">
   <div class="title-subtitle-group" data-group-index="0">
-    <div class="title">Slash your SaaS bill by 90%</div>
-    <div class="subtitle">Fully integrated engineering workspaces for less than a dollar a day</div>
-    <div class="subtitle">Get the power of self hosting with the convenience of SaaS</div>
+    <div class="title">Slash Your SaaS Bill by 90%</div>
+    <div class="subtitle">We provide AI integrated development workspaces for less than a dollar a day</div>
+    <div class="subtitle">Our co-management model gives all the power of self hosting with the convenience of SaaS</div>
   </div>
   <div class="title-subtitle-group" data-group-index="1">
-    <div class="title">10x Your Teams's Velocity</div>
-    <div class="subtitle">Automation tools</div>
-    <div class="subtitle">Agents that understand your business out of the box</div>
+    <div class="title">10x Your Company's Velocity</div>
+    <div class="subtitle">We automate the drudgery so your team can focus on the hard stuff</div>
+    <div class="subtitle">Stop sweating your prompts, our agents understand your business out of the box</div>
   </div>
 </div>
 
@@ -32,15 +32,6 @@ scripts:
 {% set heroSubtitle %}
 
   <div class="rotating-banners">
-    <div class="banner-container active">
-      <span class="banner-text" data-text="Unleash the power of AI agents on your workflows.">Unleash the power of AI agents on your workflows.</span>
-    </div>
-    <div class="banner-container">
-      <span class="banner-text" data-text="Scale your business. Let us handle the ops.">Scale your business. Let us handle the ops.</span>
-    </div>
-    <div class="banner-container">
-      <span class="banner-text" data-text="Stop building infrastructure. Start building products.">Stop building infrastructure. Start building products.</span>
-    </div>
   </div>
 {% endset %}
 <div class="hero-container">
@@ -51,23 +42,22 @@ scripts:
 <hr class="hero-divider">
 
 <div class="centered-section">
-<h3>Scaling a software business is hard. Developer experience (DX) is your secret weapon.</h3>
-
-Improvements in DX are like compounding interest. They increase the velocity of everyone on the team, which not only accelerates further improvements in DX, it also results in more discretionary time to put towards DX work, since bugs get caught earlier and fires get put out faster. The end result is a flywheel of engineering excellence that will leave you coding circles around your competitors.
-
-We understand it can be hard to invest in DX when users are demanding features and investors are demanding growth. Unfortunately, this path leads to tech debt, blocked engineers and unreliable software. Think of it like the business equivalent of failing to save because you're living paycheck to paycheck.
-
-We want to help. Our mission is to make an amazing developer experience available to everyone. Our unique insight is that amazing developer experiences don't come from better tools, they come from better systems, and the ideal system in a given circumstance is team and organization dependent. We don't build one-size-fits-all tools, we build adaptable frameworks designed to put your business on rails, and we help you mold them to your needs.
-</div>
-
+<h3>Open source workspaces with everything you need for world class developer experience, pre-wired with single sign-on and AI automation, <em>all for less than your monthly Slack bill.</em></h3>
 <div class="hero-cta">
   <a href="/products/" class="btn-primary"><span class="btn-inner">Products<i data-lucide="arrow-right"></i></span></a>
   <a href="javascript:void(0)" class="btn-secondary" data-contact-type="contact" data-subject-type="strategy"><span class="btn-inner">Talk Strategy <i data-lucide="mail"></i></span></a>
 </div>
 
+Improvements in developer experience are like compounding interest. Each minute saved is a minute that can be re-invested in building your product. Great developer experience lets you respond to feedback from customers faster and build new features at a rate that competitors can't copy.
+
+We understand it can be hard to invest in developer experience when users are demanding features and investors are demanding growth. We want to help. That's why we offer pre-configured workspaces with best in class open source tooling.
+
+We understand amazing developer experience doesn't just come from better tools, it comes from better systems, and the ideal system is different for every team. Our tools fit into your workflows and adapt to your needs, and we'll help you use them to automate your business.
+</div>
+
 <div class="content-section">
 
-## One Stack, Three Scales: From Sandbox to Hyperscale
+## One Stack From Sandbox to Hyperscale
 
 <div class="services-grid">
 <div class="service-card" data-service="training">
@@ -96,7 +86,7 @@ We want to help. Our mission is to make an amazing developer experience availabl
 <div class="service-card" data-service="startup">
 <h3><i data-lucide="zap"></i> Startups</h3>
 <div class="service-summary">
-<p><strong>Turbo-charge your development while slashing your SaaS bill.</strong> Our co-managed AI workspaces give you the simplicity of SaaS with the cost and control of self-hosting.</p>
+<p><strong>Turbo-charge your velocity while slashing your SaaS bill.</strong> Our co-managed AI workspaces give you the simplicity of SaaS with the cost and control of self-hosting.</p>
 </div>
 <div class="service-details">
 <p><strong>The startups that win ship fast.</strong> Our tools let you build at the speed of ideation with simple ops and consistent environments, so your engineers can focus on building product rather than debugging configs.</p>
@@ -139,8 +129,8 @@ We want to help. Our mission is to make an amazing developer experience availabl
 
 <div class="centered-section">
 <h3>Integration and Process are the Bottleneck to AI success</h3>
-<p>If you try to adopt AI without the right data, capabilities and processes in place, you're going to end up with unreliable agents and low quality code. The companies that win will be the ones that put the time in early to get an integrated AI infrastructure in place. Every day you delay is a day of lost productivity gains.</p>
-<p>We recognize that not everyone has the available talent or time to integrate AI as effectively into their business as they'd like. That's why in addition to our systems being easy to work with and well configured out of the box, we also offer consulting and integration services. This is our specialty, let us spend a few hours of our time to save you weeks of pain.</p>
+<p>If you try to adopt AI without the right information architecture, you're going to end up with unreliable agents and low quality code. The companies that win will be the ones that put the time in early to build the foundation for advanced AI capabilities. Every day you delay is a day of lost productivity gains.</p>
+<p>We recognize that not everyone has the resources to integrate AI effectively. Thats why our systems take the guesswork out of AI integration. We back them up with support, and we're happy to offer consultations and education. This is our specialty, a few hours of our time will save you weeks of pain.</p>
 </div>
 
 <div class="content-section">

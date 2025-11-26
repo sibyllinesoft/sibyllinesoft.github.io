@@ -42,7 +42,7 @@
     var(--color-accent) 100%
   );
   background-size: 200% auto;
-  animation: tagShine 6s linear infinite;
+  animation: tagShine 8s linear infinite;
   will-change: background-position;
 }
 
@@ -63,7 +63,7 @@
 /* Mobile responsive adjustments */
 @media (max-width: 768px) {
   .discovery-option .btn-unified.btn-primary[data-contact-type] {
-    animation: tagShine 6s linear infinite;
+    animation: tagShine 8s linear infinite;
     margin: var(--space-md) 0;
   }
 

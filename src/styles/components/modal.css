@@ -244,7 +244,7 @@
     var(--color-accent) 100%
   );
   background-size: 200% auto;
-  animation: tagShine 6s linear infinite;
+  animation: tagShine 8s linear infinite;
 }
 
 .modal-cta-button .btn-inner {

@@ -1,8 +1,8 @@
 ---
 eleventyNavigation:
-key: Scribe
-parent: Products
-order: 3
+  key: Scribe
+  parent: Products
+  order: 5
 layout: simple.njk
 title: "Scribe: Repository Intelligence for AI-Powered Development"
 description: "Transform repositories into high-quality, contextually-rich bundles that supercharge AI assistance, code review, and documentation workflows."

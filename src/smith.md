@@ -1,8 +1,8 @@
 ---
 eleventyNavigation:
-key: Arbiter
-parent: Products
-order: 4
+  key: Smith
+  parent: Products
+  order: 3
 layout: simple.njk
 title: "Arbiter – Spec Compiler & Rails for AI Agents"
 description: "Compile agent-authored specs into synchronized code, tests, infra, and docs—enforced in CI."

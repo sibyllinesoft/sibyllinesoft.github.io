@@ -21,12 +21,10 @@ Advanced research projects exploring the frontiers of AI, machine learning, and 
     <div class="project-status">Research Implementation</div>
   </div>
   <div class="project-content">
-    <h2>Bayesian LISP Symbolic Reasoner for Agent Systems</h2>
+    <h3>Bayesian LISP Symbolic Reasoner for Agent Systems</h3>
     <div class="project-pitch">
       <p><strong>The Research Question:</strong> Can AI agents reason more effectively through constrained symbolic expressions with built-in uncertainty quantification? Traditional neural approaches lack interpretability and struggle with logical consistency, while symbolic systems ignore uncertainty.</p>
-      
-      <p><strong>Our Approach:</strong> Logos implements a novel Bayesian POMDP system that combines grammar-constrained S-expression decoding with Value of Information scheduling. The system enforces mathematical rigor through Blackwell dominance validation while learning optimal epistemic action sequences through multi-game cognitive experiments.</p>
-      
+      <p><strong>Our Approach:</strong> Logos implements a novel Bayesian POMDP system that combines grammar-constrained S-expression decoding with Value of Information scheduling. The system enforces mathematical rigor through Blackwell dominance validation while learning optimal epistemic action sequences through multi-game cognitive experiments.</p>  
       <div class="project-features">
         <div class="feature-item">
           <strong>Language Reasoning Model (LRM):</strong> Grammar-constrained decoding ensures all generated reasoning follows valid S-expression syntax with typed uncertainty representation.
@@ -40,10 +38,8 @@ Advanced research projects exploring the frontiers of AI, machine learning, and 
         <div class="feature-item">
           <strong>Parametric Game Laboratory:</strong> Battleship, Crafting, GridWorld, LogicGrid, and Mastermind generators provide controlled environments for cognitive experiment design.
         </div>
-      </div>
-      
-      <p class="project-tagline">Bridging symbolic reasoning and probabilistic inference for explainable agent intelligence with formal correctness guarantees.</p>
-      
+      </div>   
+      <p class="project-tagline">Bridging symbolic reasoning and probabilistic inference for explainable agent intelligence with formal correctness guarantees.</p>    
       <div class="project-cta">
         <a href="https://github.com/sibyllinesoft/logos" target="_blank" rel="noopener noreferrer" class="btn-unified btn-primary">
           <span class="btn-inner">
@@ -64,12 +60,10 @@ Advanced research projects exploring the frontiers of AI, machine learning, and 
     <div class="project-status">Active Research</div>
   </div>
   <div class="project-content">
-    <h2>Infinite Context Through Intelligent Forgetting Research</h2>
+    <h3>Infinite Context Through Intelligent Forgetting Research</h3>
     <div class="project-pitch">
       <p><strong>The Research Question:</strong> Can AI agents achieve infinite context by intelligently filtering irrelevant information and rewriting verbose histories into efficient representations? Current approaches either hit token limits or require manual context curation, creating productivity bottlenecks.</p>
-      
       <p><strong>Our Approach:</strong> Lethe research explores novel hybrid retrieval architectures that combine intelligent filtering, efficient rewriting, and adaptive compression. Our system eliminates context management overhead by automatically determining relevance and optimizing message representation for unlimited agent memory.</p>
-      
       <div class="project-features">
         <div class="feature-item">
           <strong>Intelligent Forgetting Framework:</strong> Systematic evaluation of relevance filtering algorithms that automatically identify and remove irrelevant messages while preserving essential context information.
@@ -83,10 +77,8 @@ Advanced research projects exploring the frontiers of AI, machine learning, and 
         <div class="feature-item">
           <strong>Production-Validated Results:</strong> Complete experimental framework demonstrating infinite context capabilities with sub-3s performance and rigorous evaluation of forgetting effectiveness.
         </div>
-      </div>
-      
+      </div>  
       <p class="project-tagline">Research foundation for infinite agent context through intelligent forgetting and zero-overhead memory management.</p>
-      
     </div>
   </div>
 </div>
@@ -99,12 +91,10 @@ Advanced research projects exploring the frontiers of AI, machine learning, and 
     <div class="project-status">Research Release</div>
   </div>
   <div class="project-content">
-    <h2>Contamination-Resistant LLM Evaluation Toolkit</h2>
+    <h3>Contamination-Resistant LLM Evaluation Toolkit</h3>
     <div class="project-pitch">
       <p><strong>The Problem:</strong> Training data contamination makes LLM evaluation meaningless. Models perform well on benchmarks they've seen during training, giving false confidence in capabilities. How do you test what a model truly understands versus what it memorized?</p>
-      
       <p><strong>The Solution:</strong> A comprehensive benchmarking framework that creates truly novel test cases by transforming existing benchmarks through constructed languages and document transformations, ensuring models are evaluated on genuinely unseen content.</p>
-      
       <div class="project-features">
         <div class="feature-item">
           <strong>Constructed Language Translation:</strong> Transform benchmarks into artificial languages that preserve logical structure while eliminating memorization advantages.
@@ -119,9 +109,7 @@ Advanced research projects exploring the frontiers of AI, machine learning, and 
           <strong>Research-Grade Toolkit:</strong> Complete CLI and Python API designed for researchers and AI practitioners conducting rigorous evaluation studies.
         </div>
       </div>
-      
       <p class="project-tagline">Finally know what your models actually understand—not what they memorized.</p>
-      
       <div class="project-cta">
         <a href="https://sibylline.dev/scramblebench/" target="_blank" rel="noopener noreferrer" class="btn-unified btn-primary btn-margin-right">
           <span class="btn-inner">
@@ -148,12 +136,10 @@ Advanced research projects exploring the frontiers of AI, machine learning, and 
     <div class="project-status">Publication Ready</div>
   </div>
   <div class="project-content">
-    <h2>PageRank Centrality for Intelligent Repository Content Selection</h2>
+    <h3>PageRank Centrality for Intelligent Repository Content Selection</h3>
     <div class="project-pitch">
       <p><strong>The Research Question:</strong> Can PageRank centrality algorithms optimize repository content selection for LLM consumption? Current approaches use naive concatenation or basic similarity metrics, failing to capture code dependency relationships and importance hierarchies.</p>
-      
       <p><strong>Our Innovation:</strong> FastPath V3 introduces the first application of PageRank centrality to repository analysis, creating intelligent dependency graphs that identify critical code components. Our novel multi-fidelity approach achieves 27.8% improvement in QA accuracy with rigorous statistical validation.</p>
-      
       <div class="project-features">
         <div class="feature-item">
           <strong>PageRank Code Centrality:</strong> Novel application of PageRank algorithms to code dependency graphs, identifying central components that maximize understanding per token with statistical significance (p<0.001).
@@ -168,9 +154,7 @@ Advanced research projects exploring the frontiers of AI, machine learning, and 
           <strong>Production Research:</strong> Complete implementation with 4.7× speedup, 75% memory reduction, and reproducible benchmark framework designed for academic publication standards.
         </div>
       </div>
-      
       <p class="project-tagline">Bridging graph theory and software engineering: the first PageRank approach to intelligent code selection.</p>
-      
       <div class="project-cta">
         <a href="https://github.com/sibyllinesoft/scribe/blob/main/paper/draft.pdf" target="_blank" rel="noopener noreferrer" class="btn-unified btn-primary">
           <span class="btn-inner">
@@ -191,12 +175,10 @@ Advanced research projects exploring the frontiers of AI, machine learning, and 
     <div class="project-status">Active Research</div>
   </div>
   <div class="project-content">
-    <h2>Parametric Repository Generator for AI Agent Benchmarking</h2>
+    <h3>Parametric Repository Generator for AI Agent Benchmarking</h3>
     <div class="project-pitch">
       <p><strong>The Research Challenge:</strong> How do we systematically evaluate AI coding agents? Current benchmarks use static codebases that don't reflect the complexity and variability of real development environments. We need controlled, realistic testing environments.</p>
-      
       <p><strong>Our Innovation:</strong> Matrix (Parametric Repo Generator) creates sophisticated research platforms for benchmarking AI coding agents through parametric codebase generation. It provides a "wind tunnel" for testing agents with controllable complexity parameters.</p>
-      
       <div class="project-features">
         <div class="feature-item">
           <strong>Parametric Control:</strong> Generate codebases with precise control over complexity metrics including lines of code, dependency depth, and coupling complexity.
@@ -211,9 +193,7 @@ Advanced research projects exploring the frontiers of AI, machine learning, and 
           <strong>Agent Instrumentation:</strong> Advanced behavior tracing and instrumentation system for detailed analysis of agent performance and decision-making patterns.
         </div>
       </div>
-      
       <p class="project-tagline">Creating the scientific foundation for rigorous AI coding agent evaluation.</p>
-      
     </div>
   </div>
 </div>
@@ -226,12 +206,10 @@ Advanced research projects exploring the frontiers of AI, machine learning, and 
     <div class="project-status">Implementation Complete</div>
   </div>
   <div class="project-content">
-    <h2>Bolt-on Expert Modules for Dynamic Neural Network Adaptation</h2>
+    <h3>Bolt-on Expert Modules for Dynamic Neural Network Adaptation</h3>
     <div class="project-pitch">
       <p><strong>The Problem:</strong> Traditional parameter-efficient fine-tuning methods like LoRA are static and don't adapt to varying task complexity or context. Current approaches can't handle distribution shifts or provide dynamic specialization based on input characteristics.</p>
-      
       <p><strong>Our Solution:</strong> BEM introduces dynamic neural architectures that enable context-dependent expert routing and retrieval-aware adaptation. Our system generates context-specific weight modifications that adapt to different tasks and contexts in real-time.</p>
-      
       <div class="project-features">
         <div class="feature-item">
           <strong>Context-Aware Parameter Generation:</strong> Dynamic weight modification system that specializes computational pathways based on input characteristics and task requirements.
@@ -246,9 +224,7 @@ Advanced research projects exploring the frontiers of AI, machine learning, and 
           <strong>Robust Performance:</strong> 12-42% better accuracy than 6 major MoE-LoRA competitors, maintains performance across distribution shifts and adversarial inputs.
         </div>
       </div>
-      
       <p class="project-tagline">Proven: Dynamic neural architectures achieve superior adaptation with cross-domain robustness.</p>
-      
       <div class="project-cta">
         <a href="https://github.com/sibyllinesoft/BEM/" target="_blank" rel="noopener noreferrer" class="btn-unified btn-primary btn-margin-right">
           <span class="btn-inner">
@@ -275,12 +251,10 @@ Advanced research projects exploring the frontiers of AI, machine learning, and 
     <div class="project-status">Production Ready</div>
   </div>
   <div class="project-content">
-    <h2>Advanced JavaScript Deobfuscation Engine</h2>
+    <h3>Advanced JavaScript Deobfuscation Engine</h3>
     <div class="project-pitch">
       <p><strong>The Research Challenge:</strong> Modern JavaScript obfuscation uses sophisticated techniques that defeat pattern-matching approaches. Can formal methods and constraint solving crack the most advanced obfuscation schemes that protect malware and defeat traditional analysis tools?</p>
-      
       <p><strong>Our Innovation:</strong> ArachneJS is the first JavaScript deobfuscator built on intermediate representation (IR) analysis, Z3 constraint solving, and bytecode lifting. It achieves 95% success rate on advanced obfuscation where competitors manage only 45-70%.</p>
-      
       <div class="project-features">
         <div class="feature-item">
           <strong>IR-Based Analysis:</strong> Multi-pass optimization pipeline using formal program analysis with Control Flow Graphs (CFG) and Static Single Assignment (SSA) form—the only tool with true semantic understanding.
@@ -295,9 +269,7 @@ Advanced research projects exploring the frontiers of AI, machine learning, and 
           <strong>Formal Correctness Guarantees:</strong> Property-based testing and mathematical verification ensure semantic preservation—zero false positives with proven correctness.
         </div>
       </div>
-      
       <p class="project-tagline">Beyond pattern matching: formal methods meet practical JavaScript deobfuscation for security research.</p>
-      
       <div class="project-cta">
         <a href="https://github.com/sibyllinesoft/arachne" target="_blank" rel="noopener noreferrer" class="btn-unified btn-primary">
           <span class="btn-inner">

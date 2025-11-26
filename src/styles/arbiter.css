@@ -161,11 +161,24 @@
 }
 
 .banner-text {
+  display: inline-block;
+  font-size: calc(var(--text-xl) * 1.125);
+  font-style: italic;
+  font-weight: 400;
+  position: relative;
+  color: var(--color-text-light);
+  background: none;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: inherit;
+  animation: none;
+  text-shadow: none;
+  border: none;
+  box-shadow: none;
   white-space: normal;
   word-break: break-word;
   overflow: visible;
   max-width: none;
-  color: var(--color-text-light);
+  transition: filter 1.5s ease, opacity 1.5s ease;
 }
 
 /* Hero title styling to match homepage exactly */
@@ -211,16 +224,6 @@
   transition: opacity 0.3s ease;
 }
 
-/* Banner text styling to match homepage */
-.banner-text {
-  display: inline-block;
-  font-size: calc(var(--text-xl) * 1.125);
-  font-style: italic;
-  font-weight: 400;
-  position: relative;
-  color: var(--color-text);
-  transition: opacity 0.3s ease;
-}
 
 /* Ensure banner text is always visible */
 .banner-container.active .banner-text {

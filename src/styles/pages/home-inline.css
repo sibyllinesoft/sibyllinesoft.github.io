@@ -24,7 +24,7 @@
   overflow:hidden; isolation:isolate;
 }
 .chrome-label{
-  position:absolute; bottom:6px; left:8px; font:500 11px/1 Inter,system-ui;
+  position:absolute; bottom:6px; left:8px; font:500 11px/1 Sunflower,system-ui;
   color:#8a93a4; letter-spacing:.02em; user-select:none;
 }
 @media (prefers-reduced-motion:reduce){
@@ -357,6 +357,11 @@
   width: 100%;
   padding: var(--space-3xl) var(--space-xl);
   margin: 0 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-lg);
 }
 
 /* Hero Title Container with Logo */
@@ -499,56 +504,37 @@
   width: 100%;
   max-width: none;
   overflow: visible;
+  padding: 0;
+  margin: 0;
 }
 
 /* Rotating Banners */
 .rotating-banners {
-  position: relative;
-  height: 3rem;
+  width: 100%;
+  max-width: none;
   overflow: visible;
-  margin-top: var(--space-lg);
+  padding: 0;
+  margin: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  width: 100%;
-  max-width: none;
 }
 
 .banner-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  opacity: 0;
-  transform: translateY(0);
-  transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
-  background: none;
-  border: none;
-  box-shadow: none;
-  display: flex;
-  justify-content: center;
+  width: 100%;
+  max-width: none;
+  overflow: visible;
+  padding: 0;
+  margin: 0;
+  display: none;
   align-items: center;
+  justify-content: center;
+  transition: filter 1.6875s ease, opacity 1.6875s ease;
 }
 
 .banner-container.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.banner-container.fade-out {
-  opacity: 0;
-  transform: translateY(-20px);
-}
-
-.banner-container {
-  transition: filter 1.6875s ease, opacity 1.6875s ease;
-  overflow: visible;
-  padding: 20px;
-  margin: 0;
-  background: none;
-  border: none;
-  box-shadow: none;
+  display: flex;
 }
 
 .banner-container.blurring-out {
@@ -806,7 +792,7 @@
     var(--color-accent) 100%
   );
   background-size: 200% auto;
-  animation: tagShine 6s linear infinite;
+  animation: tagShine 8s linear infinite;
 }
 
 .btn-primary .btn-inner {
@@ -860,7 +846,7 @@
     transparent 100%
   );
   background-size: 200% auto;
-  animation: tagShine 6s linear infinite;
+  animation: tagShine 8s linear infinite;
 }
 
 .btn-secondary .btn-inner {
@@ -953,7 +939,7 @@
     var(--color-accent) 100%
   );
   background-size: 200% auto;
-  animation: tagShine 6s linear infinite;
+  animation: tagShine 8s linear infinite;
   text-decoration: none;
 }
 
@@ -1431,7 +1417,7 @@
     var(--color-accent) 100%
   );
   background-size: 200% auto;
-  animation: tagShine 6s linear infinite;
+  animation: tagShine 8s linear infinite;
   text-decoration: none;
 }
 
@@ -3207,9 +3193,10 @@
 /* Responsive hero typography overrides (applied last to win the cascade) */
 .hero-title,
 .hero-content h1 {
-  font-size: clamp(2.2rem, 4.5vw + 1rem, 4.6rem);
-  line-height: 1.1;
+  font-size: 56px;
+  line-height: 1.2;
   text-wrap: balance;
+  font-family: 'Michroma', var(--font-family-default);
 }
 
 .hero-subtitle,

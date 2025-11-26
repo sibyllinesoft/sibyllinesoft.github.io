@@ -32,7 +32,7 @@
   overflow:hidden; isolation:isolate;
 }
 .chrome-label{
-  position:absolute; bottom:6px; left:8px; font:500 11px/1 Inter,system-ui;
+  position:absolute; bottom:6px; left:8px; font:500 11px/1 Sunflower,system-ui;
   color:#8a93a4; letter-spacing:.02em; user-select:none;
 }
 @media (prefers-reduced-motion:reduce){
@@ -544,7 +544,7 @@
     var(--color-accent) 100%
   );
   background-size: 200% auto;
-  animation: tagShine 6s linear infinite;
+  animation: tagShine 8s linear infinite;
 }
 
 .btn-primary .btn-inner {
@@ -598,7 +598,7 @@
     transparent 100%
   );
   background-size: 200% auto;
-  animation: tagShine 6s linear infinite;
+  animation: tagShine 8s linear infinite;
 }
 
 .btn-secondary .btn-inner {
@@ -691,7 +691,7 @@
     var(--color-accent) 100%
   );
   background-size: 200% auto;
-  animation: tagShine 6s linear infinite;
+  animation: tagShine 8s linear infinite;
   text-decoration: none;
 }
 
@@ -994,7 +994,7 @@
     var(--color-accent) 100%
   );
   background-size: 200% auto;
-  animation: tagShine 6s linear infinite;
+  animation: tagShine 8s linear infinite;
   text-decoration: none;
 }
 
@@ -2100,9 +2100,10 @@
 /* Responsive hero typography overrides (applied last to win the cascade) */
 .hero-title,
 .hero-content h1 {
-  font-size: clamp(2.2rem, 4.5vw + 1rem, 4.6rem);
-  line-height: 1.1;
+  font-size: 56px;
+  line-height: 1.2;
   text-wrap: balance;
+  font-family: 'Michroma', var(--font-family-default);
 }
 
 .hero-subtitle,
