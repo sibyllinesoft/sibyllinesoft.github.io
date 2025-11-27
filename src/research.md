@@ -16,30 +16,25 @@ Advanced research projects exploring the frontiers of AI, machine learning, and 
 <!-- Research Logos -->
 <div class="project-brochure" id="logos-research">
   <div class="project-visual">
-    <i data-lucide="brain-circuit" class="project-icon"></i>
-    <div class="project-codename">Logos</div>
-    <div class="project-status">Research Implementation</div>
+    <h1>LOGOS</h1>
   </div>
   <div class="project-content">
-    <h3>Bayesian LISP Symbolic Reasoner for Agent Systems</h3>
+    <h3>Bayesian Symbolic Reasoning for Agents That Can Explain Themselves</h3>
     <div class="project-pitch">
-      <p><strong>The Research Question:</strong> Can AI agents reason more effectively through constrained symbolic expressions with built-in uncertainty quantification? Traditional neural approaches lack interpretability and struggle with logical consistency, while symbolic systems ignore uncertainty.</p>
-      <p><strong>Our Approach:</strong> Logos implements a novel Bayesian POMDP system that combines grammar-constrained S-expression decoding with Value of Information scheduling. The system enforces mathematical rigor through Blackwell dominance validation while learning optimal epistemic action sequences through multi-game cognitive experiments.</p>  
+      <p><strong>Reasoning you can actually trust.</strong></p>
+      <p>Neural approaches are black boxes. Symbolic systems ignore uncertainty. Logos combines grammar-constrained S-expression decoding with Bayesian inference—agents reason in provably valid logic while quantifying what they don't know.</p>
       <div class="project-features">
         <div class="feature-item">
-          <strong>Language Reasoning Model (LRM):</strong> Grammar-constrained decoding ensures all generated reasoning follows valid S-expression syntax with typed uncertainty representation.
+          <strong>Explainable by Design:</strong> Every reasoning step follows valid S-expression syntax. No more "the model said so"—you can trace exactly how conclusions were reached.
         </div>
         <div class="feature-item">
-          <strong>Bayesian Budget Optimization:</strong> Multi-dimensional cost tracking (time, computation, economic) with Lagrangian optimization for resource-constrained reasoning.
+          <strong>Uncertainty Built In:</strong> Bayesian budget optimization tracks confidence across time, computation, and cost. Agents know when to gather more information vs. act on what they have.
         </div>
         <div class="feature-item">
-          <strong>Blackwell Dominance Framework:</strong> Epistemic actions must provably improve posterior beliefs—zero tolerance for information-destroying operations with mathematical validation.
+          <strong>Mathematically Rigorous:</strong> Blackwell dominance validation ensures every epistemic action improves beliefs. Zero tolerance for reasoning that destroys information.
         </div>
-        <div class="feature-item">
-          <strong>Parametric Game Laboratory:</strong> Battleship, Crafting, GridWorld, LogicGrid, and Mastermind generators provide controlled environments for cognitive experiment design.
-        </div>
-      </div>   
-      <p class="project-tagline">Bridging symbolic reasoning and probabilistic inference for explainable agent intelligence with formal correctness guarantees.</p>    
+      </div>
+      <p>Bridging symbolic reasoning and probabilistic inference for agent intelligence you can audit, explain, and trust.</p>
       <div class="project-cta">
         <a href="https://github.com/sibyllinesoft/logos" target="_blank" rel="noopener noreferrer" class="btn-unified btn-primary">
           <span class="btn-inner">
@@ -55,30 +50,25 @@ Advanced research projects exploring the frontiers of AI, machine learning, and 
 <!-- Research Lethe -->
 <div class="project-brochure" id="lethe-research">
   <div class="project-visual">
-    <i data-lucide="database" class="project-icon"></i>
-    <div class="project-codename">Lethe</div>
-    <div class="project-status">Active Research</div>
+    <h1>LETHE</h1>
   </div>
   <div class="project-content">
-    <h3>Infinite Context Through Intelligent Forgetting Research</h3>
+    <h3>Infinite Context Through Intelligent Forgetting</h3>
     <div class="project-pitch">
-      <p><strong>The Research Question:</strong> Can AI agents achieve infinite context by intelligently filtering irrelevant information and rewriting verbose histories into efficient representations? Current approaches either hit token limits or require manual context curation, creating productivity bottlenecks.</p>
-      <p><strong>Our Approach:</strong> Lethe research explores novel hybrid retrieval architectures that combine intelligent filtering, efficient rewriting, and adaptive compression. Our system eliminates context management overhead by automatically determining relevance and optimizing message representation for unlimited agent memory.</p>
+      <p><strong>Stop managing context manually.</strong></p>
+      <p>Token limits kill productivity. You waste time choosing what to include, agents forget critical details, and conversations die after 50 messages. Lethe reads everything but forgets what doesn't matter—automatically.</p>
       <div class="project-features">
         <div class="feature-item">
-          <strong>Intelligent Forgetting Framework:</strong> Systematic evaluation of relevance filtering algorithms that automatically identify and remove irrelevant messages while preserving essential context information.
+          <strong>Intelligent Filtering:</strong> Relevance algorithms identify and compress irrelevant messages while preserving every detail that matters. No manual curation required.
         </div>
         <div class="feature-item">
-          <strong>Efficient Rewriting Research:</strong> Novel compression techniques that transform verbose conversations into information-dense representations, reducing token usage while maintaining semantic fidelity.
+          <strong>Information-Dense Rewriting:</strong> Verbose conversations compress into tight summaries that maintain full semantic fidelity. Same meaning, fraction of the tokens.
         </div>
         <div class="feature-item">
-          <strong>Zero-Overhead Context Management:</strong> Elimination of manual context curation through automated relevance assessment and dynamic history optimization for infinite agent memory.
+          <strong>Sessions That Don't Die:</strong> Conversations stretch to 300+ messages without drift or performance loss. Sub-3s response times at any context length.
         </div>
-        <div class="feature-item">
-          <strong>Production-Validated Results:</strong> Complete experimental framework demonstrating infinite context capabilities with sub-3s performance and rigorous evaluation of forgetting effectiveness.
-        </div>
-      </div>  
-      <p class="project-tagline">Research foundation for infinite agent context through intelligent forgetting and zero-overhead memory management.</p>
+      </div>
+      <p>Recover 90% of time spent on context management. Let agents access unlimited history while you focus on the actual work.</p>
     </div>
   </div>
 </div>
@@ -86,32 +76,27 @@ Advanced research projects exploring the frontiers of AI, machine learning, and 
 <!-- Research ScrambleBench -->
 <div class="project-brochure" id="scramblebench-research">
   <div class="project-visual">
-    <i data-lucide="shield-check" class="project-icon"></i>
-    <div class="project-codename">ScrambleBench</div>
-    <div class="project-status">Research Release</div>
+    <h1>SCRAMBLEBENCH</h1>
   </div>
   <div class="project-content">
-    <h3>Contamination-Resistant LLM Evaluation Toolkit</h3>
+    <h3>Know What Your Models Actually Understand</h3>
     <div class="project-pitch">
-      <p><strong>The Problem:</strong> Training data contamination makes LLM evaluation meaningless. Models perform well on benchmarks they've seen during training, giving false confidence in capabilities. How do you test what a model truly understands versus what it memorized?</p>
-      <p><strong>The Solution:</strong> A comprehensive benchmarking framework that creates truly novel test cases by transforming existing benchmarks through constructed languages and document transformations, ensuring models are evaluated on genuinely unseen content.</p>
+      <p><strong>Benchmarks lie when models memorize.</strong></p>
+      <p>Training data contamination makes evaluation meaningless. Models ace tests they've seen, giving you false confidence in capabilities. ScrambleBench creates genuinely novel test cases—same logic, zero memorization advantage.</p>
       <div class="project-features">
         <div class="feature-item">
-          <strong>Constructed Language Translation:</strong> Transform benchmarks into artificial languages that preserve logical structure while eliminating memorization advantages.
+          <strong>Constructed Language Translation:</strong> Transform benchmarks into artificial languages that preserve logical structure. Test reasoning, not recall.
         </div>
         <div class="feature-item">
-          <strong>Document Transformation:</strong> Advanced text transformations and long-context document restructuring that maintains semantic meaning while creating novel test cases.
+          <strong>Document Transformation:</strong> Advanced restructuring maintains semantic meaning while creating content no model has seen. Real evaluation at last.
         </div>
         <div class="feature-item">
-          <strong>Multi-Model Evaluation:</strong> Test 100+ models through OpenRouter integration with comprehensive statistical analysis and rich visualizations.
-        </div>
-        <div class="feature-item">
-          <strong>Research-Grade Toolkit:</strong> Complete CLI and Python API designed for researchers and AI practitioners conducting rigorous evaluation studies.
+          <strong>100+ Model Testing:</strong> OpenRouter integration with comprehensive statistical analysis. Compare capabilities across the entire model landscape.
         </div>
       </div>
-      <p class="project-tagline">Finally know what your models actually understand—not what they memorized.</p>
+      <p>Stop guessing whether your model understands or memorized. Get evaluation results you can actually trust.</p>
       <div class="project-cta">
-        <a href="https://sibylline.dev/scramblebench/" target="_blank" rel="noopener noreferrer" class="btn-unified btn-primary btn-margin-right">
+        <a href="https://sibylline.dev/scramblebench/" target="_blank" rel="noopener noreferrer" class="btn-unified btn-primary">
           <span class="btn-inner">
             Documentation
             <i data-lucide="book-open"></i>
@@ -131,30 +116,25 @@ Advanced research projects exploring the frontiers of AI, machine learning, and 
 <!-- Research FastPath -->
 <div class="project-brochure" id="fastpath-research">
   <div class="project-visual">
-    <i data-lucide="zap" class="project-icon"></i>
-    <div class="project-codename">FastPath</div>
-    <div class="project-status">Publication Ready</div>
+    <h1>FASTPATH</h1>
   </div>
   <div class="project-content">
-    <h3>PageRank Centrality for Intelligent Repository Content Selection</h3>
+    <h3>Give LLMs the Code That Actually Matters</h3>
     <div class="project-pitch">
-      <p><strong>The Research Question:</strong> Can PageRank centrality algorithms optimize repository content selection for LLM consumption? Current approaches use naive concatenation or basic similarity metrics, failing to capture code dependency relationships and importance hierarchies.</p>
-      <p><strong>Our Innovation:</strong> FastPath V3 introduces the first application of PageRank centrality to repository analysis, creating intelligent dependency graphs that identify critical code components. Our novel multi-fidelity approach achieves 27.8% improvement in QA accuracy with rigorous statistical validation.</p>
+      <p><strong>Most context selection is random guessing.</strong></p>
+      <p>Naive concatenation and basic similarity metrics miss what's actually important in codebases. FastPath applies PageRank to code dependency graphs—identifying central components that maximize understanding per token.</p>
       <div class="project-features">
         <div class="feature-item">
-          <strong>PageRank Code Centrality:</strong> Novel application of PageRank algorithms to code dependency graphs, identifying central components that maximize understanding per token with statistical significance (p<0.001).
+          <strong>PageRank for Code:</strong> Graph algorithms identify the most connected, most important components. 27.8% improvement in QA accuracy over BM25 and TF-IDF baselines (p&lt;0.001).
         </div>
         <div class="feature-item">
-          <strong>Multi-Fidelity Architecture:</strong> Adaptive budget allocation across semantic chunks, dependency relationships, and documentation with submodular optimization ensuring optimal information density.
+          <strong>Optimal Information Density:</strong> Multi-fidelity architecture allocates token budget across semantic chunks, dependencies, and docs. Maximum insight per token.
         </div>
         <div class="feature-item">
-          <strong>Empirical Validation Framework:</strong> Comprehensive evaluation against baselines (BM25, TF-IDF) with 27.8% improvement in QA accuracy and large effect size (Cohen's d=3.11) across diverse repositories.
-        </div>
-        <div class="feature-item">
-          <strong>Production Research:</strong> Complete implementation with 4.7× speedup, 75% memory reduction, and reproducible benchmark framework designed for academic publication standards.
+          <strong>Production-Ready Performance:</strong> 4.7× speedup and 75% memory reduction. Reproducible benchmarks designed for academic publication standards.
         </div>
       </div>
-      <p class="project-tagline">Bridging graph theory and software engineering: the first PageRank approach to intelligent code selection.</p>
+      <p>The first PageRank approach to intelligent code selection. Give your LLMs context that makes them smarter, not just longer.</p>
       <div class="project-cta">
         <a href="https://github.com/sibyllinesoft/scribe/blob/main/paper/draft.pdf" target="_blank" rel="noopener noreferrer" class="btn-unified btn-primary">
           <span class="btn-inner">
@@ -170,30 +150,25 @@ Advanced research projects exploring the frontiers of AI, machine learning, and 
 <!-- Research Matrix -->
 <div class="project-brochure" id="matrix-research">
   <div class="project-visual">
-    <i data-lucide="grid-3x3" class="project-icon"></i>
-    <div class="project-codename">Matrix</div>
-    <div class="project-status">Active Research</div>
+    <h1>MATRIX</h1>
   </div>
   <div class="project-content">
-    <h3>Parametric Repository Generator for AI Agent Benchmarking</h3>
+    <h3>A Wind Tunnel for AI Coding Agents</h3>
     <div class="project-pitch">
-      <p><strong>The Research Challenge:</strong> How do we systematically evaluate AI coding agents? Current benchmarks use static codebases that don't reflect the complexity and variability of real development environments. We need controlled, realistic testing environments.</p>
-      <p><strong>Our Innovation:</strong> Matrix (Parametric Repo Generator) creates sophisticated research platforms for benchmarking AI coding agents through parametric codebase generation. It provides a "wind tunnel" for testing agents with controllable complexity parameters.</p>
+      <p><strong>Static benchmarks don't reflect reality.</strong></p>
+      <p>How do you systematically evaluate AI coding agents when every codebase is different? Matrix generates synthetic repositories with controllable complexity—a wind tunnel where you test agents under precise, reproducible conditions.</p>
       <div class="project-features">
         <div class="feature-item">
-          <strong>Parametric Control:</strong> Generate codebases with precise control over complexity metrics including lines of code, dependency depth, and coupling complexity.
+          <strong>Dial-a-Complexity:</strong> Generate codebases with precise control over lines of code, dependency depth, and coupling. Test how agents perform as complexity scales.
         </div>
         <div class="feature-item">
-          <strong>Realistic Bug Injection:</strong> Systematic injection of off-by-one errors, API misuse patterns, and null handling issues that mirror real development challenges.
+          <strong>Realistic Bug Injection:</strong> Off-by-one errors, API misuse, null handling issues—systematic injection of bugs that mirror real development challenges.
         </div>
         <div class="feature-item">
-          <strong>Comprehensive Test Generation:</strong> Automated creation of unit tests, integration tests, and metamorphic testing suites for complete validation coverage.
-        </div>
-        <div class="feature-item">
-          <strong>Agent Instrumentation:</strong> Advanced behavior tracing and instrumentation system for detailed analysis of agent performance and decision-making patterns.
+          <strong>Full Instrumentation:</strong> Behavior tracing captures every agent decision. Understand not just what agents do, but why they fail.
         </div>
       </div>
-      <p class="project-tagline">Creating the scientific foundation for rigorous AI coding agent evaluation.</p>
+      <p>Creating the scientific foundation for rigorous AI coding agent evaluation. Finally measure what actually matters.</p>
     </div>
   </div>
 </div>
@@ -201,32 +176,27 @@ Advanced research projects exploring the frontiers of AI, machine learning, and 
 <!-- Research Modules -->
 <div class="project-brochure" id="modules-research">
   <div class="project-visual">
-    <i data-lucide="cpu" class="project-icon"></i>
-    <div class="project-codename">BEM</div>
-    <div class="project-status">Implementation Complete</div>
+    <h1>BEM</h1>
   </div>
   <div class="project-content">
-    <h3>Bolt-on Expert Modules for Dynamic Neural Network Adaptation</h3>
+    <h3>Dynamic Expert Modules That Adapt to Any Task</h3>
     <div class="project-pitch">
-      <p><strong>The Problem:</strong> Traditional parameter-efficient fine-tuning methods like LoRA are static and don't adapt to varying task complexity or context. Current approaches can't handle distribution shifts or provide dynamic specialization based on input characteristics.</p>
-      <p><strong>Our Solution:</strong> BEM introduces dynamic neural architectures that enable context-dependent expert routing and retrieval-aware adaptation. Our system generates context-specific weight modifications that adapt to different tasks and contexts in real-time.</p>
+      <p><strong>LoRA is static. Reality isn't.</strong></p>
+      <p>Traditional fine-tuning methods can't handle distribution shifts or varying task complexity. BEM introduces dynamic expert routing—context-specific weight modifications that adapt in real-time to what your model actually needs.</p>
       <div class="project-features">
         <div class="feature-item">
-          <strong>Context-Aware Parameter Generation:</strong> Dynamic weight modification system that specializes computational pathways based on input characteristics and task requirements.
+          <strong>Context-Aware Routing:</strong> Dynamic weight modification specializes computational pathways based on input characteristics. Different tasks get different experts automatically.
         </div>
         <div class="feature-item">
-          <strong>Multi-Expert Routing System:</strong> Intelligent routing that selects appropriate expert modules based on context analysis and task complexity assessment.
+          <strong>Cross-Modal Performance:</strong> Unified architecture handles text, vision, and multimodal tasks. One system, consistent results across domains.
         </div>
         <div class="feature-item">
-          <strong>Cross-Modal Support:</strong> Unified architecture supporting text, vision, and multimodal tasks with consistent performance across domains.
-        </div>
-        <div class="feature-item">
-          <strong>Robust Performance:</strong> 12-42% better accuracy than 6 major MoE-LoRA competitors, maintains performance across distribution shifts and adversarial inputs.
+          <strong>Proven Results:</strong> 12-42% better accuracy than 6 major MoE-LoRA competitors. Maintains performance across distribution shifts and adversarial inputs.
         </div>
       </div>
-      <p class="project-tagline">Proven: Dynamic neural architectures achieve superior adaptation with cross-domain robustness.</p>
+      <p>Dynamic neural architectures that achieve superior adaptation with cross-domain robustness. Fine-tuning that actually keeps up with your use cases.</p>
       <div class="project-cta">
-        <a href="https://github.com/sibyllinesoft/BEM/" target="_blank" rel="noopener noreferrer" class="btn-unified btn-primary btn-margin-right">
+        <a href="https://github.com/sibyllinesoft/BEM/" target="_blank" rel="noopener noreferrer" class="btn-unified btn-primary">
           <span class="btn-inner">
             View on GitHub
             <i data-lucide="github"></i>
@@ -246,30 +216,25 @@ Advanced research projects exploring the frontiers of AI, machine learning, and 
 <!-- Research Arachne -->
 <div class="project-brochure" id="arachne-research">
   <div class="project-visual">
-    <i data-lucide="spider" class="project-icon"></i>
-    <div class="project-codename">Arachne</div>
-    <div class="project-status">Production Ready</div>
+    <h1>ARACHNE</h1>
   </div>
   <div class="project-content">
-    <h3>Advanced JavaScript Deobfuscation Engine</h3>
+    <h3>Crack Obfuscation That Defeats Everything Else</h3>
     <div class="project-pitch">
-      <p><strong>The Research Challenge:</strong> Modern JavaScript obfuscation uses sophisticated techniques that defeat pattern-matching approaches. Can formal methods and constraint solving crack the most advanced obfuscation schemes that protect malware and defeat traditional analysis tools?</p>
-      <p><strong>Our Innovation:</strong> ArachneJS is the first JavaScript deobfuscator built on intermediate representation (IR) analysis, Z3 constraint solving, and bytecode lifting. It achieves 95% success rate on advanced obfuscation where competitors manage only 45-70%.</p>
+      <p><strong>Pattern matching doesn't work on modern obfuscation.</strong></p>
+      <p>Sophisticated JavaScript obfuscation defeats traditional tools. Arachne uses formal methods—IR analysis, Z3 constraint solving, and bytecode lifting—to achieve 95% success where competitors manage 45-70%.</p>
       <div class="project-features">
         <div class="feature-item">
-          <strong>IR-Based Analysis:</strong> Multi-pass optimization pipeline using formal program analysis with Control Flow Graphs (CFG) and Static Single Assignment (SSA) form—the only tool with true semantic understanding.
+          <strong>True Semantic Understanding:</strong> Multi-pass IR analysis with CFG and SSA form. The only tool that actually understands what obfuscated code does, not just what it looks like.
         </div>
         <div class="feature-item">
-          <strong>Constraint Solving Integration:</strong> Z3 SMT solver integration for symbolic execution and mathematical obfuscation cracking—handles constraint-based hiding that defeats all other tools.
+          <strong>Z3 Constraint Solving:</strong> SMT solver integration cracks mathematical obfuscation and constraint-based hiding that defeats every other tool.
         </div>
         <div class="feature-item">
-          <strong>Bytecode Lifting Capabilities:</strong> Advanced QuickJS and V8 bytecode analysis for VM-based obfuscation—the only tool that can analyze bytecode-level protection schemes.
-        </div>
-        <div class="feature-item">
-          <strong>Formal Correctness Guarantees:</strong> Property-based testing and mathematical verification ensure semantic preservation—zero false positives with proven correctness.
+          <strong>Bytecode Lifting:</strong> QuickJS and V8 bytecode analysis handles VM-based protection schemes. The only deobfuscator that works at the bytecode level.
         </div>
       </div>
-      <p class="project-tagline">Beyond pattern matching: formal methods meet practical JavaScript deobfuscation for security research.</p>
+      <p>Formal methods meet practical JavaScript deobfuscation. Zero false positives with proven semantic preservation.</p>
       <div class="project-cta">
         <a href="https://github.com/sibyllinesoft/arachne" target="_blank" rel="noopener noreferrer" class="btn-unified btn-primary">
           <span class="btn-inner">

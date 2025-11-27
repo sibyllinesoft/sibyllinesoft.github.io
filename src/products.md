@@ -20,27 +20,25 @@ Ship faster with integrated development environments, specification-driven devel
 <!-- Product Rave -->
 <div class="project-brochure" id="rave-product">
   <div class="project-visual">
-    <i data-lucide="factory" class="project-icon"></i>
-    <div class="project-codename">RAVE</div>
-    <div class="project-status">Private Testing</div>
+    <h1>RAVE</h1>
   </div>
   <div class="project-content">
-    <h3>Complete Development Environment with AI Agent Integration</h3>
+    <h3>Stop Burning Weeks on Environment Setup</h3>
     <div class="project-pitch">
-      <p><strong>A full stack in minutes.</strong></p>
-      <p>Setup weeks kill momentum. RAVE spins up GitLab, CI/CD, monitoring, and secure chat—already wired together. AI agents handle issues, reviews, and status reports while you keep building.</p>
+      <p><strong>One command. Production-ready stack.</strong></p>
+      <p>Your agents should be shipping features, not fighting infrastructure. RAVE spins up GitLab, CI/CD, databases, messaging, and secure chat—already wired together with SSO and encrypted secrets baked in.</p>
       <div class="project-features">
         <div class="feature-item">
-          <strong>Zero Setup Friction:</strong> Point at your repo, get production-ready infrastructure in under 10 minutes across any virtualization platform.
+          <strong>Instant Dev Clouds:</strong> Type one command, get a complete environment in minutes. No SSL certificates to debug. No OAuth to configure. No "works on my machine."
         </div>
         <div class="feature-item">
-          <strong>AI Agents Run Operations:</strong> Issue creation, merge request coordination, and progress tracking happen automatically without human oversight.
+          <strong>Agents Can Operate Immediately:</strong> JetStream events, structured logs, and Mattermost channels give your agents a command deck from first boot.
         </div>
         <div class="feature-item">
-          <strong>No Configuration Drift:</strong> Dev, staging, and production stay identical—"works on my machine" becomes impossible.
+          <strong>Security Through Architecture:</strong> The CLI is the only way in. Secrets are encrypted before any build starts. Network isolation is physics, not policy.
         </div>
       </div>
-      <p>Teams save 20-40 hours per project while AI agents cut management overhead by 60%. Secure by default, compliant from day one.</p>
+      <p>Reclaim the 20-40 hours you'd spend on every new project. Your infrastructure matches production from day one because the system won't let it drift.</p>
       <div class="project-cta">
         <a href="/rave" class="btn-unified btn-primary">
           <span class="btn-inner">
@@ -62,27 +60,25 @@ Ship faster with integrated development environments, specification-driven devel
 <!-- Product Arbiter -->
 <div class="project-brochure" id="arbiter-product">
   <div class="project-visual">
-    <i data-lucide="gavel" class="project-icon"></i>
-    <div class="project-codename">ARBITER</div>
-    <div class="project-status">Private Testing</div>
+    <h1>ARBITER</h1>
   </div>
   <div class="project-content">
-    <h3>Complete Software Development Specification Service</h3>
+    <h3>Keep Your Agents on Rails</h3>
     <div class="project-pitch">
-      <p><strong>From requirements to running code.</strong></p>
-      <p>Requirements change, specifications drift, and teams build the wrong thing. ARBITER uses CUE language for mathematical precision—specifications become executable contracts that generate validated software automatically.</p>
+      <p><strong>Specs that compile into working software.</strong></p>
+      <p>Markdown specs don't work. Agents treat them like suggestions, ignore conventions, and drift from requirements. Arbiter turns specifications into executable contracts—what you spec is what you get.</p>
       <div class="project-features">
         <div class="feature-item">
-          <strong>Mathematical Specifications:</strong> CUE language transforms business requirements into comprehensive specs with robustness guarantees and built-in validation.
+          <strong>Specs Are Contracts:</strong> Constraint-backed CUE specs create unambiguous rules. CI gates block merges when agents drift. No more "that's not what I asked for."
         </div>
         <div class="feature-item">
-          <strong>Automatic Code Generation:</strong> Specifications convert directly into functional software with comprehensive testing built in from the start.
+          <strong>Generate Everything:</strong> One spec produces APIs, tests, infrastructure, and docs. Stop burning tokens on boilerplate. Agents focus on business logic.
         </div>
         <div class="feature-item">
-          <strong>Real-Time Stakeholder Sync:</strong> Auto-generated diagrams update as requirements evolve, ensuring continuous alignment throughout development.
+          <strong>Collaborate in Real-Time:</strong> Watch your system emerge in the spec workbench. Catch missing endpoints and inconsistent schemas before a single line of code is written.
         </div>
       </div>
-      <p>Product teams cut specification-to-code iterations by 90% through mathematical precision that eliminates manual bottlenecks and requirement drift.</p>
+      <p>Stop trying to tame slop. Build real software at the speed of vibes—with specs that agents can't misinterpret and code that stays synchronized as requirements evolve.</p>
       <div class="project-cta">
         <a href="/arbiter" class="btn-unified btn-primary">
           <span class="btn-inner">
@@ -104,27 +100,25 @@ Ship faster with integrated development environments, specification-driven devel
 <!-- Product Smith -->
 <div class="project-brochure" id="smith-product">
   <div class="project-visual">
-    <i data-lucide="cpu" class="project-icon"></i>
-    <div class="project-codename">SMITH</div>
-    <div class="project-status">Private Testing</div>
+    <h1>SMITH</h1>
   </div>
   <div class="project-content">
-    <h3>Reactive Agent Development Platform</h3>
+    <h3>Agent Orchestration That Actually Scales</h3>
     <div class="project-pitch">
-      <p><strong>Agents that react instantly.</strong></p>
-      <p>Slow agents kill user experience. SMITH delivers sub-5ms cold starts with Rust performance—agents react to events in real-time, not after polling delays.</p>
+      <p><strong>Agents that react in milliseconds, not seconds.</strong></p>
+      <p>Slow agents kill user experience and waste compute. SMITH orchestrates agent swarms through event streams—instant dispatch, automatic scaling, zero polling overhead.</p>
       <div class="project-features">
         <div class="feature-item">
-          <strong>Event-Driven Architecture:</strong> NATS streams trigger instant agent dispatch. No polling overhead, no coordination bottlenecks.
+          <strong>Respond to Anything:</strong> Business events trigger agent dispatch instantly through NATS streams. No polling delays. No coordination bottlenecks. Agents act the moment something happens.
         </div>
         <div class="feature-item">
-          <strong>Rust Performance Core:</strong> Cold starts under 5ms, memory footprint under 150MB. 10x faster than traditional agent platforms.
+          <strong>10x Faster, 80% Lighter:</strong> Sub-5ms cold starts and under 150MB memory footprint. Rust performance means you run more agents on less hardware.
         </div>
         <div class="feature-item">
-          <strong>Production-Ready Reliability:</strong> Deterministic replay, process isolation, automatic recovery. Built for systems that can't go down.
+          <strong>Built for Production:</strong> Deterministic replay for debugging. Process isolation for security. Automatic recovery for reliability. Your agents stay up when it matters.
         </div>
-      </div>   
-      <p>Teams cut resource waste by 80% through event-driven orchestration that scales automatically. Multi-node coordination happens seamlessly through native NATS integration.</p>      
+      </div>
+      <p>Stop overpaying for slow agents that poll for work. Smith lets you build reactive systems where agents respond to events anywhere in your organization—with centralized policy and full auditing.</p>
       <div class="project-cta">
         <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in becoming a tester for this product. Please let me know about testing opportunities.">
           <span class="btn-inner">
@@ -144,27 +138,25 @@ AI-native static analysis and codebase preparation tools that help agents unders
 <!-- Product Valknut -->
 <div class="project-brochure" id="valknut-product">
   <div class="project-visual">
-    <i data-lucide="layers" class="project-icon"></i>
-    <div class="project-codename">VALKNUT</div>
-    <div class="project-status">Production Ready</div>
+    <h1>VALKNUT</h1>
   </div>
   <div class="project-content">
-    <h3>Static Analysis Engine for AI-Guided Refactoring</h3>
+    <h3>Keep Shipping Fast as Your Codebase Grows</h3>
     <div class="project-pitch">
-      <p><strong>Stop AI agents hunting blindly.</strong></p>
-      <p>AI agents waste time hunting for refactoring opportunities across codebases. VALKNUT creates precise problem roadmaps with 0-1 urgency scores—agents focus on highest-impact issues first instead of wandering randomly.</p>
+      <p><strong>Agents need guidance to keep your codebase healthy.</strong></p>
+      <p>Vibe coding starts great—until 50,000 lines later your agents are drowning in a labyrinth of duplication and drift. Valknut gives agents a map: urgency-ranked problems, safe refactoring plans, and targeted work that compounds.</p>
       <div class="project-features">
         <div class="feature-item">
-          <strong>Precise Problem Ranking:</strong> Deterministic complexity, duplication, and dependency metrics generate refactoring urgency scores without runtime profiling.
+          <strong>Stop Random Wandering:</strong> Urgency scores tell agents which problems actually hurt velocity. No more treating missing semicolons like circular dependencies.
         </div>
         <div class="feature-item">
-          <strong>AI Agent Integration:</strong> Purpose-built MCP server lets Claude Code and other AI tools query problematic code automatically and focus efficiently.
+          <strong>Fix Root Causes, Not Symptoms:</strong> Impact Packs identify code that should be refactored together. Agents solve architectural problems instead of playing whack-a-mole.
         </div>
         <div class="feature-item">
-          <strong>Systemic Refactoring Intelligence:</strong> Identifies Impact Packs and circular dependencies that should be tackled together—prevents isolated changes that miss systemic issues.
+          <strong>Plug Coverage Gaps Fast:</strong> Coverage Packs show exactly what's untested. Agents write targeted tests instead of guessing where to start.
         </div>
       </div>
-      <p>Engineering teams achieve 75% more efficient AI-guided refactoring through targeted problem identification. Multi-language support for Python, TypeScript, JavaScript, and Rust.</p>
+      <p>Messy codebases confuse agents and bias them toward low-quality output. Valknut keeps your code healthy so agents generate better code while using fewer tokens—and your velocity stays high.</p>
       <div class="project-cta">
         <a href="/valknut" class="btn-unified btn-primary">
           <span class="btn-inner">
@@ -186,9 +178,7 @@ AI-native static analysis and codebase preparation tools that help agents unders
 <!-- Product Scribe -->
 <div class="project-brochure" id="scribe-product">
   <div class="project-visual">
-    <i data-lucide="zap" class="project-icon"></i>
-    <div class="project-codename">SCRIBE</div>
-    <div class="project-status">Production Ready</div>
+    <h1>SCRIBE</h1>
   </div>
   <div class="project-content">
     <h3>Effortless Codebase Sharing with LLMs That Scales to Any Repository</h3>
@@ -226,9 +216,7 @@ Early-stage tools exploring the frontier of AI-assisted development. These produ
 <!-- Product Mimir -->
 <div class="project-brochure" id="mimir-product">
   <div class="project-visual">
-    <i data-lucide="brain-circuit" class="project-icon"></i>
-    <div class="project-codename">MIMIR</div>
-    <div class="project-status">Alpha</div>
+    <h1>MIMIR</h1>
   </div>
   <div class="project-content">
     <h3>Research Swarm Intelligence for Hard Problems</h3>
@@ -262,9 +250,7 @@ Early-stage tools exploring the frontier of AI-assisted development. These produ
 <!-- Product Lens -->
 <div class="project-brochure" id="lens-product">
   <div class="project-visual">
-    <i data-lucide="search" class="project-icon"></i>
-    <div class="project-codename">LENS</div>
-    <div class="project-status">Alpha</div>
+    <h1>LENS</h1>
   </div>
   <div class="project-content">
     <h3>Production-Ready Code Search with 24.4% Better Relevance</h3>
@@ -307,9 +293,7 @@ Early-stage tools exploring the frontier of AI-assisted development. These produ
 <!-- Product Lethe -->
 <div class="project-brochure" id="lethe-product">
   <div class="project-visual">
-    <i data-lucide="memory-stick" class="project-icon"></i>
-    <div class="project-codename">LETHE</div>
-    <div class="project-status">Alpha</div>
+    <h1>LETHE</h1>
   </div>
   <div class="project-content">
     <h3>Infinite Context for Agents Through Intelligent Forgetting</h3>
@@ -343,9 +327,7 @@ Early-stage tools exploring the frontier of AI-assisted development. These produ
 <!-- Product Conclave -->
 <div class="project-brochure" id="conclave-product">
   <div class="project-visual">
-    <i data-lucide="users" class="project-icon"></i>
-    <div class="project-codename">CONCLAVE</div>
-    <div class="project-status">Alpha</div>
+    <h1>CONCLAVE</h1>
   </div>
   <div class="project-content">
     <h3>AI-Powered Workflow Planning Through Expert Debate</h3>
