@@ -13,7 +13,6 @@ stylesheets:
   - "/styles/components/section-layouts.css"
   - "/styles/components/product-features.css"
   - "/styles/valknut.css"
-  - "/styles/rave.css"
 scripts:
   - "/js/rave-oscilloscope.js"
   - "/js/modals.js"

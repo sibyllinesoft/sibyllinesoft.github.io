@@ -45,9 +45,12 @@
     const persistCtx = persist.getContext('2d', { alpha: true });
     const tmpCtx = tmp.getContext('2d', { alpha: true });
 
+    // Size to hero container, not canvas element (like trefoil animation)
+    const container = document.querySelector('.hero-container');
+
     const state = {
-      width: canvas.clientWidth || 720,
-      height: canvas.clientHeight || 720,
+      width: container ? container.clientWidth : 720,
+      height: container ? container.clientHeight : 720,
       dpr: Math.min(2, window.devicePixelRatio || 1),
       sampleCount: CONFIG.samples,
       angles: new Float32Array(CONFIG.samples)
@@ -75,12 +78,13 @@
       }
     }
 
+    // Use ResizeObserver on container, not canvas
     const resizeObserver = typeof ResizeObserver !== 'undefined'
       ? new ResizeObserver(handleResize)
       : null;
 
-    if (resizeObserver) {
-      resizeObserver.observe(canvas);
+    if (resizeObserver && container) {
+      resizeObserver.observe(container);
     } else {
       window.addEventListener('resize', handleResize);
     }
@@ -88,7 +92,8 @@
     handleResize();
 
     function handleResize() {
-      const rect = canvas.getBoundingClientRect();
+      // Size to hero container like trefoil animation
+      const rect = container ? container.getBoundingClientRect() : canvas.getBoundingClientRect();
       state.width = Math.max(320, rect.width || state.width);
       state.height = Math.max(280, rect.height || state.height);
       state.dpr = Math.min(2, window.devicePixelRatio || 1);
