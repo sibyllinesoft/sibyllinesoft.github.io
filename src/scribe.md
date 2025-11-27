@@ -4,296 +4,68 @@ eleventyNavigation:
   parent: Products
   order: 5
 layout: simple.njk
-title: "Scribe: Repository Intelligence for AI-Powered Development"
-description: "Transform repositories into high-quality, contextually-rich bundles that supercharge AI assistance, code review, and documentation workflows."
+title: "Scribe – Intelligent Repository Bundling for LLMs"
+description: "Stop dumping files and hoping for the best. Scribe uses PageRank centrality to build bundles that maximize LLM reasoning quality."
 enableModals: true
 stylesheets:
+  - "/styles/components/modal.css"
+  - "/styles/components/service-cards.css"
+  - "/styles/components/section-layouts.css"
+  - "/styles/components/product-features.css"
   - "/styles/valknut.css"
 scripts:
   - "/js/valknut-banners.js"
+openGraph:
+  title: "Scribe – Intelligent Repository Bundling for LLMs"
+  description: "Stop dumping files and hoping for the best. Scribe uses PageRank centrality to build bundles that maximize LLM reasoning quality."
+  type: website
+  image: "/img/optimized/product-scribe.webp"
+jsonLD:
+  "@context": "https://schema.org"
+  "@type": SoftwareApplication
+  "name": "Scribe"
+  "applicationCategory": "DeveloperApplication"
+  "operatingSystem": "Cross-platform"
+  "offers":
+    "@type": "Offer"
+    "price": "0"
+    "priceCurrency": "USD"
+    "description": "Free CLI"
+  "sameAs": "https://github.com/sibyllinesoft/scribe"
 ---
 
-<!-- Hidden data for rotating banners - customize this for Scribe -->
+<!-- Hidden data for rotating banners -->
 <div class="hero-data" style="display: none;">
    <div class="title-subtitle-group" data-group-index="0">
-      <div class="title">Scribe turns repositories into AI-ready intelligence</div>
-      <div class="subtitle">Stop AI Agents From Getting Lost—SCRIBE Gives Them Context</div>
+      <div class="title">Give Your LLM the Code That Matters</div>
+      <div class="subtitle">PageRank-based file selection identifies what's actually important</div>
+      <div class="subtitle">Sub-30 second analysis on 100k+ file repositories</div>
    </div>
    <div class="title-subtitle-group" data-group-index="1">
-      <div class="title">Repository Analysis That Understands Structure</div>
-      <div class="subtitle">Transform your codebase into precise, contextual bundles</div>
+      <div class="title">Repository Bundling as Information Retrieval</div>
+      <div class="subtitle">Surgical precision: extract only what's needed to understand a specific function</div>
+      <div class="subtitle">Transformer-aware positioning maximizes LLM attention utilization</div>
    </div>
    <div class="title-subtitle-group" data-group-index="2">
-      <div class="title">Intelligent Code Selection for AI Workflows</div>
-      <div class="subtitle">From scattered files to focused, dependency-aware documentation</div>
+      <div class="title">Context That Makes LLMs Smarter</div>
+      <div class="subtitle">Progressive demotion preserves critical information within any token budget</div>
+      <div class="subtitle">Explainable selections show exactly why each file was included</div>
    </div>
 </div>
 {% set heroLogo = '/img/logos/scribe-large.webp' %}
 {% set heroLogoAlt = 'Scribe Logo' %}
 {% set heroLogoHeight = '61px' %}
-{% set heroTitle = 'Scribe turns repositories into AI-ready intelligence' %}
-{% set heroSubtitle -%}
-<div class="rotating-banners">
-         <div class="banner-container">
-            <span class="banner-text" data-text="Transform your codebase into precise, contextual bundles">Transform your codebase into precise, contextual bundles</span>
-         </div>
-         <div class="banner-container">
-            <span class="banner-text" data-text="From scattered files to focused, dependency-aware documentation">From scattered files to focused, dependency-aware documentation</span>
-         </div>
-      </div>
-{%- endset %}
+{% set heroTitle = 'Repository Intelligence for LLMs' %}
+{% set heroSubtitle %}
+<div class="rotating-banners"></div>
+{% endset %}
 <div class="hero-container">
    <canvas id="neural-network" class="neural-background"></canvas>
    {% include "components/hero-content.njk" %}
 </div>
 <hr class="hero-divider">
-<script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
-<script src="/js/trefoil-animation.js"></script>
 <div class="centered-section">
-   <p><strong>AI development starts out magical.</strong> You feed your agents a few key files, and they understand your codebase instantly. Fast forward to a 100k+ line repository and your agents are drowning in noise, unable to distinguish critical architecture from boilerplate. They hallucinate relationships that don't exist and miss the ones that do. Your AI-assisted development has slowed to a crawl as agents waste cycles parsing irrelevant files. <strong>The magic has faded and you're left with confused AI that can't see the forest for the trees.</strong></p>
-      <p>You might try manually curating file lists or writing custom selection scripts, but now you're spending more time managing context than building features. Your competitors are shipping faster because their AI actually understands their codebase structure. <strong>The answer to AI confusion isn't to give up on automation, but to give your AI the intelligence it needs.</strong></p>
-   <p>I know what you're thinking—why not just throw everything at the AI and let it figure it out? You might have succeeded with small projects, but don't let that mislead you. <strong>AI understanding doesn't scale with raw file count.</strong> Once your repository passes a threshold, agents get overwhelmed trying to parse everything, just like humans do when dropped into an unfamiliar large codebase.</p>
-</div>
-<div class="content-section">
-   <h2>Why Current AI Context Fails</h2>
-   <div class="services-grid">
-      <div class="service-card" data-service="wandering">
-         <h3><i data-lucide="compass"></i> Context Overload</h3>
-         <div class="service-summary">
-            <p><strong>AI agents drown in irrelevant files, losing focus on what matters.</strong> Critical architecture gets buried under configuration files, tests, and generated code.</p>
-         </div>
-         <div class="service-details">
-            <p><strong>Your AI is burning tokens on noise.</strong> Without intelligent file selection, AI tools treat a package.json the same as your core business logic. They'll analyze thousands of test files while missing the central patterns that define your system architecture.</p>
-            
-            <div class="project-features">
-               <div class="feature-item" style="font-size: 0.765em;">
-                  <p>"When I first analyzed this large repository, I was immediately overwhelmed by the sheer volume of files. I found myself trying to parse 15,000+ files across dozens of directories, with no clear sense of what was actually important.</p>
-                  
-                  <p>I spent equal time analyzing generated migration files, node_modules dependencies, and build artifacts as I did on the core business logic. The result was a shallow understanding of everything and deep insight into nothing. I couldn't identify the key patterns because I was drowning in peripheral details.</p>
-                  
-                  <p>Without a way to distinguish signal from noise, I treated every file as equally important. This led to responses that mentioned trivial configuration details alongside critical architectural decisions, making my analysis practically useless for understanding the system's design."</p>
-                  
-                  <p style="text-align: right; margin-top: 1rem; font-style: italic;">
-                     <i data-lucide="bot"></i> Claude
-                  </p>
-               </div>
-            </div>
-         </div>
-         <div class="click-hint">Click to expand</div>
-      </div>
-      <div class="service-card" data-service="isolated">
-         <h3><i data-lucide="scissors"></i> Missing Dependencies</h3>
-         <div class="service-summary">
-            <p><strong>Random file selection misses critical relationships.</strong> AI gets partial context without understanding how components actually connect.</p>
-         </div>
-         <div class="service-details">
-            <p><strong>Context without connections is just confusion.</strong> AI sees individual files but misses the import graphs, inheritance hierarchies, and data flow patterns that make systems comprehensible. They recommend changes that break unseen dependencies.</p>
-            
-            <div class="project-features">
-               <div class="feature-item" style="font-size: 0.765em;">
-                  <p>"I was given a handful of TypeScript components to review, but without their dependencies and imports, I couldn't understand how they actually worked together. I could see individual functions but not the data flow.</p>
-                  
-                  <p>When I suggested improvements, I had no idea whether they would break downstream consumers. I was analyzing components in isolation that were actually part of a complex dependency tree. My recommendations looked good for individual files but would have caused cascading failures across the system.</p>
-                  
-                  <p>Without the import graph and usage patterns, I was essentially doing code review blind. I could spot syntax issues and basic patterns, but I couldn't provide the architectural insights that actually matter for system-level improvements."</p>
-                  
-                  <p style="text-align: right; margin-top: 1rem; font-style: italic;">
-                     <i data-lucide="bot"></i> Claude
-                  </p>
-               </div>
-            </div>
-         </div>
-         <div class="click-hint">Click to expand</div>
-      </div>
-      <div class="service-card" data-service="overload">
-         <h3><i data-lucide="cpu"></i> Poor File Prioritization</h3>
-         <div class="service-summary">
-            <p><strong>No intelligence about what files actually matter.</strong> AI wastes attention on boilerplate while missing the core patterns that define your system.</p>
-         </div>
-         <div class="service-details">
-            <p><strong>Equal treatment of unequal importance.</strong> Without scoring heuristics, AI can't tell the difference between your main application entry point and a random utility file. They analyze everything with the same attention.</p>
-            
-            <div class="project-features">
-               <div class="feature-item" style="font-size: 0.765em;">
-                  <p>"I was asked to understand a complex web application, but I treated every file with equal importance. I spent as much time analyzing a simple constants file as the main router configuration. I dove deep into utility functions while barely skimming the core business logic.</p>
-                  
-                  <p>The result was analysis that focused on peripheral concerns while missing the central architectural patterns. I could tell you about the logging utility implementation but couldn't explain the overall request flow or business domain modeling.</p>
-                  
-                  <p>Without understanding file importance and centrality within the dependency graph, I provided recommendations that optimized the wrong things. I suggested improvements to rarely-used utilities while overlooking performance bottlenecks in critical path components."</p>
-                  
-                  <p style="text-align: right; margin-top: 1rem; font-style: italic;">
-                     <i data-lucide="bot"></i> Claude
-                  </p>
-               </div>
-            </div>
-         </div>
-         <div class="click-hint">Click to expand</div>
-      </div>
-   </div>
-</div>
-<div class="centered-section">
-
-   <p>The solution isn't more context—it's smarter context. That's where Scribe comes in. <strong>Scribe transforms your repository into intelligent, AI-ready bundles that preserve what matters while filtering out the noise.</strong> No more random file selection, no more missing dependencies, no more drowning in irrelevant details—just precise, contextual understanding.</p>
-   
-   <p>Under the hood, Scribe is an analysis powerhouse built with cutting-edge algorithms. We're talking multi-language AST parsing, PageRank-based dependency analysis for import graph centrality, and sophisticated heuristic scoring that identifies truly important files. <strong>Scribe analyzes 100k+ files in seconds while building complete dependency maps and intelligent file rankings.</strong> Most tools just list files; Scribe understands relationships.</p>
-   
-   <p>Speed means nothing if the output lacks intelligence though. Scribe excels here with multi-dimensional scoring that weighs documentation importance, import centrality, git churn signals, template detection, and entrypoint analysis. It groups related files into coherent bundles and provides interactive editing for fine-tuning selection. <strong>This isn't your typical file listing tool—it's a next-generation repository intelligence engine that bridges traditional static analysis with modern AI-powered workflows.</strong></p>
-
-   <p><strong>Scribe goes beyond simple file selection to create contextually rich, dependency-aware bundles.</strong> Standard repository tools just concatenate files. Scribe provides structured metadata, import relationship maps, and intelligent file scoring that helps AI understand not just what files exist, but how they relate and which ones matter most.</p>
-</div>
-<div class="content-section">
-   <h2>Three Modes of Analysis: From Quick Selection to Complete Repository Intelligence</h2>
-   <div class="services-grid">
-      <div class="service-card" data-service="quick-wins">
-         <h3><i data-lucide="target"></i> Smart File Selection</h3>
-         <div class="service-summary">
-            <p><strong>Heuristic scoring identifies the files that actually matter.</strong> Stop your AI from analyzing boilerplate while missing the architecture that defines your system.</p>
-         </div>
-         <div class="service-details">
-            <h4>Example Scoring Output:</h4>
-
-```json
-{
-  "file": "src/components/Dashboard.tsx",
-  "score": 0.92,
-  "ranking": 3,
-  "components": {
-    "doc_score": 0.8,
-    "import_centrality": 0.95,
-    "path_depth": 0.9,
-    "git_churn": 0.75,
-    "template_boost": 0.0,
-    "entrypoint_score": 0.0
-  },
-  "reasoning": "High import centrality (12 dependencies), recent activity, core component",
-  "imports": ["@/hooks/useAuth", "@/components/Chart", "@/api/dashboard"],
-  "dependencies": 12,
-  "dependents": 8
-}
-```
-
-            <p>Your AI focuses on the code that actually defines your system—core components, architectural patterns, and key business logic instead of getting lost in configuration files and build scripts.</p>
-            
-            <div class="project-features">
-               <div class="feature-item" style="font-size: 0.765em;">
-                  <p>"I can immediately identify which files define the system architecture instead of wasting time on generated code and utilities."</p>
-                  
-                  <p style="text-align: right; margin-top: 1rem; font-style: italic;">
-                     <i data-lucide="bot"></i> Claude
-                  </p>
-               </div>
-            </div>
-         </div>
-         <div class="click-hint">Click to expand</div>
-      </div>
-      <div class="service-card" data-service="systemic">
-         <h3><i data-lucide="network"></i> Dependency-Aware Bundles</h3>
-         <div class="service-summary">
-            <p><strong>Import graph analysis ensures complete context.</strong> AI gets the full picture with dependency relationships preserved across file boundaries.</p>
-         </div>
-         <div class="service-details">
-            <h4>Example Bundle Structure:</h4>
-
-```json
-{
-  "bundle_type": "feature_complete",
-  "target": "Authentication System",
-  "files": [
-    {
-      "path": "src/auth/AuthProvider.tsx",
-      "role": "core_component",
-      "imports": ["./hooks/useAuth", "./types/User"],
-      "dependents": ["src/App.tsx", "src/components/LoginForm.tsx"]
-    },
-    {
-      "path": "src/auth/hooks/useAuth.ts", 
-      "role": "supporting_hook",
-      "imports": ["../api/authApi", "../types/User"],
-      "dependents": ["../AuthProvider.tsx", "../../components/Profile.tsx"]
-    }
-  ],
-  "dependency_graph": {
-    "depth": 3,
-    "completeness": 0.95,
-    "missing_dependencies": []
-  },
-  "bundle_stats": {
-    "total_files": 12,
-    "total_tokens": 8450,
-    "coverage_ratio": 0.89
-  }
-}
-```
-
-            <p>When your AI analyzes a Scribe bundle, it understands how components connect—no more missing context that leads to broken recommendations or incomplete understanding.</p>
-            
-            <div class="project-features">
-               <div class="feature-item" style="font-size: 0.765em;">
-                  <p>"I get complete context with all dependencies included, so I can provide recommendations that actually work within the existing architecture."</p>
-                  
-                  <p style="text-align: right; margin-top: 1rem; font-style: italic;">
-                     <i data-lucide="bot"></i> Claude
-                  </p>
-               </div>
-            </div>
-         </div>
-         <div class="click-hint">Click to expand</div>
-      </div>
-      <div class="service-card" data-service="comprehensive">
-         <h3><i data-lucide="layers"></i> Interactive Repository Intelligence</h3>
-         <div class="service-summary">
-            <p><strong>Interactive HTML editor for fine-tuned bundle creation.</strong> Complete analysis with visual dependency exploration and customizable output formats.</p>
-         </div>
-         <div class="service-details">
-            <h4>Interactive Features:</h4>
-
-```json
-{
-  "editor_capabilities": {
-    "visual_dependency_graph": true,
-    "file_importance_heatmap": true,
-    "interactive_selection": true,
-    "real_time_scoring": true,
-    "custom_weight_tuning": true
-  },
-  "output_formats": [
-    "markdown",
-    "html", 
-    "json",
-    "structured_context"
-  ],
-  "analysis_depth": {
-    "import_resolution": "complete",
-    "template_detection": "15+ engines", 
-    "language_support": "multi_language_ast",
-    "git_integration": "churn_and_activity"
-  },
-  "performance": {
-    "analysis_time": "< 30 seconds for 100k files",
-    "memory_usage": "< 2GB for large repositories"
-  }
-}
-```
-            <p>The interactive editor lets you explore your repository structure visually, adjust selection criteria, and export perfectly tailored bundles for any AI workflow.</p>
-            
-            <div class="project-features">
-               <div class="feature-item" style="font-size: 0.765em;">
-                  <p>"I can visually explore the dependency graph and create precisely targeted bundles instead of guessing what files to include."</p>
-                  
-                  <p style="text-align: right; margin-top: 1rem; font-style: italic;">
-                     <i data-lucide="bot"></i> Claude
-                  </p>
-               </div>
-            </div>
-         </div>
-         <div class="click-hint">Click to expand</div>
-      </div>
-
-   </div>
-</div>
-<div class="centered-section">
-<p>Scribe is built from the ground up to support AI-powered development workflows. Context confusion is the single largest driver of AI development failures. With Scribe, your AI agents have the repository intelligence they need to understand your codebase structure and relationships.</p>
-   <h2>Ready to Give Your AI the Repository Intelligence It Deserves?</h2>
+<h3>Scribe uses research-grade graph algorithms to build bundles that maximize LLM reasoning quality—not just token count.</h3>
    {% set primary = {
   "href": "https://github.com/sibyllinesoft/scribe",
   "label": "View on GitHub",
@@ -305,121 +77,247 @@ scripts:
   "icon": "arrow-left"
 } %}
 {% include "components/cta-buttons.njk" %}
+   <p><strong>Most repository bundlers are glorified file concatenators.</strong> They dump your codebase into one giant blob and hope your LLM figures it out. But transformers don't attend equally to all tokens—they focus on the beginning and end while the middle gets lost. Random file ordering wastes precious context on boilerplate while burying your critical architecture.</p>
+   <p><strong>Scribe treats repository bundling as an information retrieval problem.</strong> PageRank centrality identifies truly important files. Surgical covering-set selection extracts only what's needed to understand specific functions. Transformer-aware positioning puts high-priority code where LLMs actually pay attention. <strong>The result: bundles that make LLMs reason better, not just longer.</strong></p>
+</div>
+<div class="content-section">
+
+## Why File Dumping Fails
+
+   <div class="services-grid">
+      <div class="service-card" data-service="wandering">
+         <h3><i data-lucide="compass"></i> Context Overload</h3>
+         <div class="service-summary">
+            <p><strong>LLMs drown in irrelevant files, losing focus on what matters.</strong> Critical architecture gets buried under config files, tests, and generated code.</p>
+         </div>
+         <div class="service-details">
+            <p><strong>Your LLM is burning tokens on noise.</strong> Without intelligent selection, models treat package.json the same as your core business logic. They'll analyze thousands of test files while missing the central patterns that define your system.</p>
+            <div class="project-features">
+               <div class="feature-item" style="font-size: 0.765em;">
+                  <p>"When I received the full repository dump, I was immediately overwhelmed. 15,000+ files with no signal about what actually mattered. I spent equal attention on generated migrations, node_modules dependencies, and build artifacts as I did on core business logic.</p>
+                  <p>The result was shallow understanding everywhere and deep insight nowhere. I mentioned trivial config details alongside critical architectural decisions because I couldn't distinguish signal from noise. My analysis was practically useless for understanding the system's actual design."</p>
+                  <p style="text-align: right; margin-top: 1rem; font-style: italic;">
+                     <i data-lucide="bot"></i> Claude
+                  </p>
+               </div>
+            </div>
+         </div>
+         <div class="click-hint">Click to expand</div>
+      </div>
+      <div class="service-card" data-service="isolated">
+         <h3><i data-lucide="scissors"></i> Missing Dependencies</h3>
+         <div class="service-summary">
+            <p><strong>Random file selection misses critical relationships.</strong> LLMs get partial context without understanding how components actually connect.</p>
+         </div>
+         <div class="service-details">
+            <p><strong>Context without connections is just confusion.</strong> LLMs see individual files but miss import graphs, inheritance hierarchies, and data flow patterns. They recommend changes that break unseen dependencies.</p>
+            <div class="project-features">
+               <div class="feature-item" style="font-size: 0.765em;">
+                  <p>"I was given a handful of TypeScript components but without their dependencies and imports, I couldn't understand how they worked together. I could see individual functions but not the data flow.</p>
+                  <p>When I suggested improvements, I had no idea if they'd break downstream consumers. I was analyzing components in isolation that were part of a complex dependency tree. My recommendations looked good for individual files but would have caused cascading failures."</p>
+                  <p style="text-align: right; margin-top: 1rem; font-style: italic;">
+                     <i data-lucide="bot"></i> Claude
+                  </p>
+               </div>
+            </div>
+         </div>
+         <div class="click-hint">Click to expand</div>
+      </div>
+      <div class="service-card" data-service="overload">
+         <h3><i data-lucide="cpu"></i> No File Prioritization</h3>
+         <div class="service-summary">
+            <p><strong>Equal treatment of unequal importance.</strong> LLMs waste attention on boilerplate while missing the patterns that define your system.</p>
+         </div>
+         <div class="service-details">
+            <p><strong>Not all files deserve equal attention.</strong> Without centrality analysis, LLMs can't tell the difference between your main entry point and a random utility. They analyze everything with the same weight.</p>
+            <div class="project-features">
+               <div class="feature-item" style="font-size: 0.765em;">
+                  <p>"I treated every file with equal importance. I spent as much time on a simple constants file as the main router configuration. I dove deep into utility functions while barely skimming the core business logic.</p>
+                  <p>Without understanding file centrality in the dependency graph, I optimized the wrong things. I suggested improvements to rarely-used utilities while overlooking performance bottlenecks in critical path components."</p>
+                  <p style="text-align: right; margin-top: 1rem; font-style: italic;">
+                     <i data-lucide="bot"></i> Claude
+                  </p>
+               </div>
+            </div>
+         </div>
+         <div class="click-hint">Click to expand</div>
+      </div>
+   </div>
+</div>
+<div class="content-section">
+<h2>Why Scribe?</h2>
+   <p>Scribe is the intelligent repository bundler built in Rust for production-grade performance. While other tools simply concatenate files, <strong>Scribe uses research-grade graph algorithms, surgical entity selection, and transformer-aware context positioning</strong> to build bundles that help LLMs truly understand your code.</p>
+
+   <p><strong>Scribe identifies what's genuinely important.</strong> PageRank centrality—the same algorithm Google uses to rank web pages—analyzes your dependency graph to find the files that matter most. Multi-dimensional scoring combines documentation coverage, git churn, import centrality, and entrypoint detection into explainable file rankings.</p>
+
+   <p><strong>Scribe exploits transformer architecture.</strong> Research shows LLMs attend heavily to the beginning and end of context, with the middle getting less attention. Scribe's 3-tier positioning places high-priority, query-relevant files at the HEAD (20%), supporting context in the MIDDLE (60%), and core functionality at the TAIL (20%). <strong>Same tokens, better reasoning.</strong></p>
+
+   <p><strong>Scribe degrades gracefully.</strong> Hit your token budget and most tools either fail or arbitrarily truncate. Scribe uses progressive demotion: FULL content → AST-based CHUNKS → type SIGNATURES only. Maximum information density within any budget.</p>
+</div>
+<div class="content-section">
+   <h2>From Surgical Selection to Full Repository Intelligence</h2>
+   <div class="services-grid">
+      <div class="service-card" data-service="quick-wins">
+         <h3><i data-lucide="target"></i> Surgical Covering Sets</h3>
+         <div class="service-summary">
+            <p><strong>Target a specific function and get exactly what's needed.</strong> Automatic transitive dependency computation returns the minimal file set for understanding.</p>
+         </div>
+         <div class="service-details">
+            <h4>Example Usage:</h4>
+
+```bash
+# Get only files needed to understand authenticate_user
+scribe --covering-set "authenticate_user" \
+       --entity-type function \
+       --max-files 20
+```
+
+            <p>Scribe computes the transitive closure of dependencies and dependents, returning exactly what your LLM needs—nothing more. Every file includes explainable inclusion reasons: target, direct dependency, transitive, or centrality-based.</p>
+            <div class="project-features">
+               <div class="feature-item" style="font-size: 0.765em;">
+                  <p>"I finally have complete context for the specific thing I'm analyzing, without drowning in the entire repository."</p>
+                  <p style="text-align: right; margin-top: 1rem; font-style: italic;">
+                     <i data-lucide="bot"></i> Claude
+                  </p>
+               </div>
+            </div>
+         </div>
+         <div class="click-hint">Click to expand</div>
+      </div>
+      <div class="service-card" data-service="systemic">
+         <h3><i data-lucide="network"></i> PageRank Centrality</h3>
+         <div class="service-summary">
+            <p><strong>Graph algorithms identify truly important files.</strong> The same approach Google uses to rank web pages, adapted for code dependency graphs.</p>
+         </div>
+         <div class="service-details">
+            <h4>How It Works:</h4>
+            <p>Scribe builds your import graph and runs PageRank with configurable damping and convergence detection. Files with high centrality—those that many others depend on—bubble to the top. Performance: 10ms for small repos, ~100ms for large ones.</p>
+            <div class="project-features">
+               <div class="feature-item" style="font-size: 0.765em;">
+                  <p>"PageRank centrality shows me the files that actually matter to the system, not just the ones that happen to be large or recently modified."</p>
+                  <p style="text-align: right; margin-top: 1rem; font-style: italic;">
+                     <i data-lucide="bot"></i> Claude
+                  </p>
+               </div>
+            </div>
+         </div>
+         <div class="click-hint">Click to expand</div>
+      </div>
+      <div class="service-card" data-service="comprehensive">
+         <h3><i data-lucide="layers"></i> Transformer-Aware Positioning</h3>
+         <div class="service-summary">
+            <p><strong>Put important files where LLMs actually pay attention.</strong> 3-tier context positioning exploits transformer architecture for better reasoning.</p>
+         </div>
+         <div class="service-details">
+            <h4>Context Positioning:</h4>
+            <p>Transformers attend strongly to HEAD and TAIL positions, with MIDDLE getting less focus. Scribe positions query-relevant high-centrality files at the HEAD (20%), supporting context in the MIDDLE (60%), and core functionality at the TAIL (20%).</p>
+            <div class="project-features">
+               <div class="feature-item" style="font-size: 0.765em;">
+                  <p>"Same context length, dramatically better understanding. The positioning makes a real difference in my reasoning quality."</p>
+                  <p style="text-align: right; margin-top: 1rem; font-style: italic;">
+                     <i data-lucide="bot"></i> Claude
+                  </p>
+               </div>
+            </div>
+         </div>
+         <div class="click-hint">Click to expand</div>
+      </div>
+   </div>
+</div>
+
+<div class="content-section">
+<h2>Scribe vs. File Concatenators</h2>
+<p>Most repository bundlers just list files. Scribe understands relationships.</p>
+<div class="comparison-grid">
+   <div class="comparison-item">
+      <h4>File Concatenators</h4>
+      <ul class="text-left">
+         <li class="text-left">Dump all files or manual selection</li>
+         <li class="text-left">Random or alphabetical ordering</li>
+         <li class="text-left">Truncate at token limits</li>
+         <li class="text-left">No dependency awareness</li>
+      </ul>
+   </div>
+   <div class="comparison-item">
+      <h4>Scribe</h4>
+      <ul class="text-left">
+         <li class="text-left">PageRank centrality selection</li>
+         <li class="text-left">Transformer-aware positioning</li>
+         <li class="text-left">Progressive demotion (full → chunks → signatures)</li>
+         <li class="text-left">Complete dependency graph analysis</li>
+      </ul>
+   </div>
+</div>
+
+<div class="content-section">
+   <h2>Production-Grade Performance</h2>
+
+   <p>Built in Rust with parallel processing via Rayon, Scribe handles repositories of any size:</p>
+
+   - **Small repos:** < 1 second
+   - **Medium repos:** ~5 seconds
+   - **Large repos:** ~15 seconds
+   - **100k+ files:** < 30 seconds
+
+   <p>Memory scales from 50MB to ~2GB based on repository size. Persistent caching with signature-based invalidation enables incremental updates. Streaming architecture prevents memory overload on massive codebases.</p>
+
+   <h3>Multi-Language Support</h3>
+
+   <p>Tier-1 AST parsing for Python, JavaScript/TypeScript, Rust, and Go. Plus 15+ additional languages through tree-sitter integration. AST-based semantic chunking preserves critical functions and type signatures when reducing content.</p>
+</div>
 
 <div class="content-section">
    <h2>Quick Start</h2>
-   
-   ```bash
-   # Cargo (Rust)
-   cargo install --path scribe-rs --locked
 
-   # From Source
-   git clone https://github.com/sibyllinesoft/scribe
-   cd scribe/scribe-rs
-   cargo install --path . --locked
-   ```
+```bash
+# Install from source
+cargo install --path scribe-rs --locked
 
-   <h3>Basic Usage:</h3>
+# Generate a Markdown bundle
+scribe --style markdown --output bundle.md
 
-   ```bash
-   # Generate a markdown bundle
-   scribe --style markdown --output bundle.md
+# Create an interactive HTML editor
+scribe --style html --editor --output bundle.html
 
-   # Create interactive HTML editor
-   scribe --style html --editor --output bundle.html
+# Surgical selection for a specific function
+scribe --covering-set "authenticate_user" \
+       --entity-type function \
+       --max-files 20
 
-   # JSON output for programmatic use
-   scribe --style json --output analysis.json
-   ```
+# Token-budget aware selection
+scribe --token-budget 100000 --style markdown
+```
 
-   <h3>Advanced Analysis:</h3>
+   <h3>Common Workflows</h3>
 
-   ```bash
-   # Focus on specific directories
-   scribe --include "src/**" --exclude "**/*.test.*" --output focused.md
+```bash
+# Code review: recent changes with dependencies
+scribe --git-aware --include-recent \
+       --token-budget 30000 --output review.md
 
-   # Token-budget aware selection
-   scribe --token-limit 50000 --style markdown --output constrained.md
+# Architecture overview: core files only
+scribe --include "src/**" --exclude "**/*.test.*" \
+       --centrality-weight 0.4 --output architecture.md
 
-   # With git integration
-   scribe --git-aware --include-recent --output recent-changes.md
-   ```
-
+# AI analysis: balanced selection for understanding
+scribe --algorithm heuristic \
+       --token-budget 50000 --style json \
+       --output ai-context.json
+```
 </div>
-<div>
-   <h2>Command Reference</h2>
 
-   ```bash
-   # Main command
-   scribe [OPTIONS] [PATH]
-   
-   # Common options
-   --style <FORMAT>          # Output format: markdown, html, json
-   --output <FILE>           # Output file path
-   --editor                  # Generate interactive HTML editor
-   --token-limit <NUM>       # Respect token budget constraints
-   --include <PATTERN>       # Include file patterns (glob)
-   --exclude <PATTERN>       # Exclude file patterns (glob)
-   ```
-
-   <h3>Analysis Options</h3>
-   
-   | Parameter | Description | Default |
-   |-----------|-------------|---------|
-   | `--style` | Output format (markdown, html, json) | markdown |
-   | `--output` | Output file path | stdout |
-   | `--editor` | Generate interactive HTML editor | false |
-   | `--token-limit` | Maximum token budget | unlimited |
-   | `--include` | File inclusion patterns (glob) | all files |
-   | `--exclude` | File exclusion patterns (glob) | .git, node_modules |
-   | `--git-aware` | Include git activity analysis | false |
-   | `--template-detection` | Enable template engine detection | true |
-
-   <h3>Selection Algorithms</h3>
-   
-   | Parameter | Description | Default |
-   |-----------|-------------|---------|
-   | `--algorithm` | Selection algorithm (heuristic, random, recent) | heuristic |
-   | `--centrality-weight` | Import centrality importance (0.0-1.0) | 0.2 |
-   | `--doc-weight` | Documentation file importance (0.0-1.0) | 0.15 |
-   | `--churn-weight` | Git activity importance (0.0-1.0) | 0.15 |
-   | `--depth-preference` | Prefer shallow files (0.0-1.0) | 0.1 |
-
-   <h3>Output Formats</h3>
-
-   **Markdown**: Clean, readable format perfect for AI consumption
-   ```bash
-   scribe --style markdown --output bundle.md
-   ```
-
-   **HTML with Editor**: Interactive analysis and bundle customization
-   ```bash
-   scribe --style html --editor --output analysis.html
-   ```
-
-   **JSON**: Structured data for programmatic processing
-   ```bash
-   scribe --style json --output data.json
-   ```
-
-   <h3>Integration Examples</h3>
-
-   **Code Review Preparation**:
-   ```bash
-   # Recent changes with dependencies
-   scribe --git-aware --include-recent --token-limit 30000 --output review.md
-   ```
-
-   **Documentation Generation**:
-   ```bash
-   # Core architecture files
-   scribe --include "src/**" --exclude "**/*.test.*" --doc-weight 0.3 --output docs.md
-   ```
-
-   **AI Analysis Bundle**:
-   ```bash
-   # Balanced selection for AI understanding
-   scribe --algorithm heuristic --token-limit 50000 --style json --output ai-context.json
-   ```
-
+<div class="centered-section">
+   <h2>Ready to Give Your LLM Context That Actually Works?</h2>
+   <p>Stop dumping files and hoping for the best. Build bundles that maximize LLM reasoning quality.</p>
+   {% set primary = {
+  "href": "https://github.com/sibyllinesoft/scribe",
+  "label": "View on GitHub",
+  "icon": "github"
+} %}
+{% set secondary = {
+  "href": "/products",
+  "label": "View All Products",
+  "icon": "arrow-left"
+} %}
+{% include "components/cta-buttons.njk" %}
 </div>

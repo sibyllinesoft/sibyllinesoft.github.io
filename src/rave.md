@@ -4,17 +4,21 @@ eleventyNavigation:
   parent: Products
   order: 1
 layout: simple.njk
-title: "RAVE – Reproducible AI Virtual Environments"
-description: "Provision isolated, production-ready development clouds with GitLab, JetStream, PostgreSQL, Redis, Mattermost, and Penpot already wired together."
+title: "RAVE – Managed Development Environments"
+description: "Stop spending weeks on environment setup. We provision and maintain GitLab, CI/CD, databases, messaging, and design tools—you get system access and focus on shipping."
 enableModals: true
 stylesheets:
+  - "/styles/components/modal.css"
+  - "/styles/components/service-cards.css"
+  - "/styles/components/section-layouts.css"
+  - "/styles/components/product-features.css"
   - "/styles/valknut.css"
 scripts:
   - "/js/rave-oscilloscope.js"
   - "/js/modals.js"
 openGraph:
-  title: "RAVE – Reproducible AI Virtual Environments"
-  description: "Spin up complete, policy-enforced development stacks for every customer in minutes with the RAVE CLI."
+  title: "RAVE – Managed Development Environments"
+  description: "We provision and maintain your complete dev stack—GitLab, CI/CD, databases, chat, and design tools. You get system access and focus on building."
   type: website
   image: "/img/optimized/product-rave.webp"
 jsonLD:
@@ -27,36 +31,36 @@ jsonLD:
     "@type": "Offer"
     "price": "0"
     "priceCurrency": "USD"
-    "description": "Private preview CLI"
+    "description": "Managed development environment"
   "sameAs": "https://github.com/sibyllinesoft/rave"
 ---
 
 <!-- Hidden data for rotating banners -->
 <div class="hero-data" style="display: none;">
    <div class="title-subtitle-group" data-group-index="0">
-      <div class="title">Company clouds in minutes</div>
-      <div class="subtitle">Provision GitLab, JetStream, PostgreSQL, Redis, Penpot, and Mattermost per customer with one CLI.</div>
+      <div class="title">Your Dev Stack, Fully Managed</div>
+      <div class="subtitle">GitLab, CI/CD, databases, messaging, and design tools—we set it up and keep it running.</div>
    </div>
    <div class="title-subtitle-group" data-group-index="1">
-      <div class="title">Sealed multi-tenant environments</div>
-      <div class="subtitle">Unique port ranges, baked SSH keys, and Age-managed secrets keep tenants isolated.</div>
+      <div class="title">Focus on Building, Not Infrastructure</div>
+      <div class="subtitle">Full system access when you need it. Managed operations so you don't have to think about it.</div>
    </div>
    <div class="title-subtitle-group" data-group-index="2">
-      <div class="title">Agent-native operations</div>
-      <div class="subtitle">NATS JetStream, Mattermost, and GitLab telemetry give agents a command deck on day one.</div>
+      <div class="title">Agent-Ready from Day One</div>
+      <div class="subtitle">NATS JetStream, Mattermost, and GitLab telemetry give your agents a command deck immediately.</div>
    </div>
 </div>
 {% set heroLogo = '/img/logos/raido.webp' %}
 {% set heroLogoAlt = 'RAVE Raido Glyph' %}
 {% set heroLogoHeight = '96px' %}
-{% set heroTitle = 'Reproducible AI Virtual Environments' %}
+{% set heroTitle = 'Managed Development Environments' %}
 {% set heroSubtitle -%}
 <div class="rotating-banners">
    <div class="banner-container">
-      <span class="banner-text" data-text="Spin up GitLab, CI, JetStream, Postgres, Redis, and chat already wired together">Spin up GitLab, CI, JetStream, Postgres, Redis, and chat already wired together</span>
+      <span class="banner-text" data-text="GitLab, CI, databases, messaging, and design tools—already wired together">GitLab, CI, databases, messaging, and design tools—already wired together</span>
    </div>
    <div class="banner-container">
-      <span class="banner-text" data-text="Give every customer an identical, policy-enforced development cloud">Give every customer an identical, policy-enforced development cloud</span>
+      <span class="banner-text" data-text="We handle the infrastructure so you can focus on shipping">We handle the infrastructure so you can focus on shipping</span>
    </div>
 </div>
 {%- endset %}
@@ -65,193 +69,252 @@ jsonLD:
    {% include "components/hero-content.njk" %}
 </div>
 <hr class="hero-divider">
-   <div class="centered-section">
-      <p><strong>RAVE builds complete company development environments from a single CLI invocation.</strong> Each VM ships with GitLab (plus CI runners), NATS JetStream, PostgreSQL, Redis, Penpot, and Mattermost already wired together with GitLab OAuth. Instead of weeks of "works on my machine" triage, teams type <code>rave vm create acme-corp</code> and get a production-grade stack with certificates staged, secrets injected, and agent access pre-configured.</p>
-      <p>All lifecycle actions happen through the CLI—direct hypervisor access is intentionally forbidden so every change stays reproducible. Secrets are encrypted with Age/SOPS, port ranges and network namespaces isolate tenants, and built-in health checks plus log tailing keep ops frictionless.</p>
-   </div>
+<div class="centered-section">
+<h3>We provision and maintain your complete dev environment. You get system access and focus on shipping.</h3>
+   {% set primary = {
+  "href": "javascript:void(0)",
+  "label": "Get a Managed Environment",
+  "icon": "mail",
+  "contactType": "contact",
+  "subjectType": "rave-waitlist",
+  "customBody": "I'm interested in a managed RAVE environment. Please share next steps for getting access."
+} %}
+{% set secondary = {
+  "href": "https://github.com/sibyllinesoft/rave",
+  "label": "View on GitHub",
+  "icon": "github"
+} %}
+{% include "components/cta-buttons.njk" %}
+   <p><strong>Environment setup is where velocity goes to die.</strong> Every new project means another week configuring GitLab, wiring up OAuth, debugging SSL certificates, and praying staging matches production. Your team should be shipping features, not fighting infrastructure.</p>
+   <p><strong>RAVE is a co-managed development environment.</strong> We provision and maintain a complete stack—GitLab with CI runners, NATS JetStream, PostgreSQL, Redis, Penpot, and Mattermost—already integrated, already secured, already observable. You get full system access to customize what you need. We handle the operational burden so you don't have to think about it.</p>
+</div>
 
    <div class="content-section">
       <div class="section-header">
-         <span class="kicker">Foundational Stack</span>
-         <h2>Spin up entire companies, not just VMs</h2>
-         <p class="lead">RAVE provisions a company’s whole tool suite—version control, messaging, design, data, and observability—so agents and humans land in a ready-made command center.</p>
+         <h2>Everything you need, nothing to configure</h2>
+         <p class="lead">Version control, CI/CD, messaging, databases, design tools, and observability—already integrated so you can start building immediately.</p>
       </div>
    <div class="services-grid">
-         <div class="service-card">
-            <h3>Complete company stack</h3>
+         <div class="service-card" data-service="company-stack">
+            <h3><i data-lucide="boxes"></i> Stop Wiring Services Together</h3>
             <div class="service-summary">
-               <p>GitLab, JetStream, PostgreSQL, Redis, Penpot, and Mattermost arrive together with shared OAuth, SSL, and CI already synchronized.</p>
+               <p><strong>Your team shouldn't spend the first week configuring OAuth.</strong> RAVE ships GitLab, JetStream, PostgreSQL, Redis, Penpot, and Mattermost already talking to each other.</p>
             </div>
             <div class="service-details">
-               <p>Everything agents and engineers need is staged in one shot so onboarding is instant.</p>
+               <p><strong>Environment setup is pure toil.</strong> Every hour spent debugging SSL certificates or chasing down connection strings is an hour not spent shipping features. We eliminate that entire category of work.</p>
                <ul class="bullet-box">
-                  <li>GitLab with CI runners and baked OAuth redirect URIs</li>
+                  <li>GitLab with CI runners and OAuth redirect URIs baked in</li>
                   <li>NATS JetStream for event streaming and agent signaling</li>
-                  <li>PostgreSQL + dual Redis instances for app + GitLab caching</li>
-                  <li>Penpot + Mattermost wired into GitLab for design + chat</li>
+                  <li>PostgreSQL + dual Redis instances ready for your app</li>
+                  <li>Penpot + Mattermost wired into GitLab for design and chat</li>
                </ul>
             </div>
+            <div class="click-hint">Click to expand</div>
          </div>
-         <div class="service-card">
-            <h3>Deterministic multi-tenancy</h3>
+         <div class="service-card" data-service="co-managed">
+            <h3><i data-lucide="shield-check"></i> Co-Managed Access</h3>
             <div class="service-summary">
-               <p>Each customer cloud gets its own port ranges, SSH keys, and Age-encrypted secrets so drift is impossible.</p>
+               <p><strong>Full system access when you need it.</strong> Tweak configurations, add services, customize workflows—we handle the maintenance and keep everything running.</p>
             </div>
             <div class="service-details">
-               <p>The CLI is the only entry point, ensuring every change is reproducible and auditable.</p>
+               <p><strong>Your environment, our operations.</strong> You get SSH access and can modify anything you need. We handle updates, monitoring, backups, and keeping the lights on so you can focus on your actual work.</p>
                <ul class="bullet-box">
-                  <li>8100+/8110+ port bands per tenant</li>
-                  <li>Age keypairs stored via <code>rave secrets init</code> &amp; <code>.sops.yaml</code></li>
-                  <li>Network namespaces plus baked SSH keypairs</li>
-                  <li>Secrets rehydrated with <code>rave secrets install &lt;company&gt;</code></li>
+                  <li>Full SSH and system access to your environment</li>
+                  <li>We handle updates, security patches, and maintenance</li>
+                  <li>Monitoring and alerting included</li>
+                  <li>Customize anything—add services, change configs, extend the stack</li>
                </ul>
             </div>
+            <div class="click-hint">Click to expand</div>
          </div>
-         <div class="service-card">
-            <h3>Agent-native operations</h3>
+         <div class="service-card" data-service="agent-native">
+            <h3><i data-lucide="bot"></i> Agent-Ready from Day One</h3>
             <div class="service-summary">
-               <p>Agents monitor and act through NATS JetStream, <code>rave vm logs</code>, and Mattermost channels tied back to GitLab.</p>
+               <p><strong>Your agents can't automate what they can't observe.</strong> RAVE gives them JetStream events, structured logs, and Mattermost channels from first boot.</p>
             </div>
             <div class="service-details">
-               <p>Operations stay reproducible because clouds only respond to CLI-driven workflows.</p>
+               <p><strong>Agent-native means agents can actually operate.</strong> They can tail logs, respond to events, and coordinate through chat—without you building any of that infrastructure first.</p>
                <ul class="bullet-box">
-                  <li>CLI-only lifecycle ensures reproducibility</li>
-                  <li><code>rave vm logs &lt;company&gt; nginx --follow</code> for live tails</li>
-                  <li>JetStream topics for workflow automation + telemetry</li>
-                  <li>Mattermost rooms for agent command/control</li>
+                  <li>Structured logs accessible via CLI and API</li>
+                  <li>JetStream topics for workflow automation and telemetry</li>
+                  <li>Mattermost rooms for agent command and control</li>
+                  <li>GitLab webhooks and CI integration out of the box</li>
                </ul>
             </div>
+            <div class="click-hint">Click to expand</div>
          </div>
       </div>
    </div>
 
    <div class="content-section">
       <div class="section-header">
-         <span class="kicker">CLI Flow</span>
-         <h2>Everything happens through the RAVE CLI</h2>
-         <p class="lead">Direct QEMU access is forbidden on purpose—the CLI is the only supported interface so every VM is reproducible, auditable, and scripted.</p>
+         <h2>Full control when you need it</h2>
+         <p class="lead">SSH into your environment, customize configurations, add services—it's your stack. We just keep it running.</p>
       </div>
-<pre><code># Install and expose the CLI
-cd cli && pip install -r requirements.txt
-export PATH="$PATH:$(pwd)"
-
-# Create and start a company environment
-rave vm create acme-corp --profile development --keypair ~/.ssh/id_ed25519 --skip-build
-rave vm start acme-corp
-rave vm ssh acme-corp
-
-# Operational telemetry
-rave vm logs acme-corp nginx --follow
-</code></pre>
+<pre>
+<code>
+# SSH into your environment
+ssh yourenv.rave.sibylline.dev
+</code>
+</pre>
+<h2>All services pre-configured with single sign on</h2>
       <ul>
-         <li><strong>Secrets pipeline:</strong> <code>rave secrets init</code> generates the Age key, injects it into <code>.sops.yaml</code>, and opens <code>config/secrets.yaml</code> for editing; <code>rave secrets diff</code> shows every file that will be written.</li>
-         <li><strong>Credential refresh:</strong> <code>rave secrets install &lt;company&gt;</code> rehydrates rotated credentials into running VMs, while <code>SOPS_AGE_KEY_FILE</code> guards the private key.</li>
-         <li><strong>OAuth setup:</strong> The CLI prints redirect URIs and syncs client secrets into GitLab via <code>services.rave.gitlab.oauth</code>.</li>
+         <li><strong>Full system access:</strong> SSH access to your environment with sudo privileges. Install packages, modify configs, add services.</li>
+         <li><strong>Custom domains:</strong> Your environment runs on a dedicated subdomain. Bring your own domain if you prefer.</li>
+         <li><strong>SSO everywhere:</strong> GitLab OAuth flows through to Penpot, Mattermost, and every service in the stack. Add a user once, they can log into everything.</li>
       </ul>
    </div>
 
    <div class="content-section">
       <div class="section-header">
-         <span class="kicker">Isolation &amp; Health</span>
-         <h2>Guardrails are baked in before the VM boots</h2>
-         <p class="lead">Secrets, identity, and health automation are first-class features—not TODOs left to humans.</p>
+         <h2>Secure by default, monitored 24/7</h2>
       </div>
       <div class="services-grid">
-         <div class="service-card">
-            <h3>Secrets lifecycle</h3>
-            <p>Age + SOPS protect every credential. The CLI won’t build until <code>config/secrets.yaml</code> is encrypted and <code>~/.config/sops/age/keys.txt</code> exists.</p>
-            <ul>
-               <li>CLI scaffolds keys and enforces encryption before builds</li>
-               <li>Secrets embedded automatically during VM creation</li>
-               <li>Dry-run diffs via <code>rave secrets diff</code> prevent surprises</li>
-            </ul>
+         <div class="service-card" data-service="secrets">
+            <h3><i data-lucide="key-round"></i> Secrets That Can't Leak</h3>
+            <div class="service-summary">
+               <p><strong>Every credential is encrypted at rest.</strong> Age + SOPS protect your secrets, and the system enforces it—not your memory.</p>
+            </div>
+            <div class="service-details">
+               <p><strong>Security through architecture, not discipline.</strong> Secrets are encrypted before anything runs. No plaintext credentials in config files, no accidental exposure.</p>
+               <ul>
+                  <li>All secrets encrypted with Age before deployment</li>
+                  <li>Automatic secret rotation support</li>
+                  <li>No plaintext credentials anywhere in the stack</li>
+               </ul>
+            </div>
+            <div class="click-hint">Click to expand</div>
          </div>
-         <div class="service-card">
-            <h3>OAuth &amp; identity</h3>
-            <p>GitLab OAuth powers Penpot, Mattermost, and GitLab itself. Docs in <code>docs/oidc-setup.md</code> cover end-to-end Google/GitHub setup, and the CLI prints all redirect URIs.</p>
-            <ul>
-               <li><code>rave user add</code> + <code>rave user bulk-add</code> keep metadata aligned</li>
-               <li>Client secrets synced into <code>/run/secrets/gitlab</code></li>
-               <li>Mattermost + Penpot inherit GitLab OAuth automatically</li>
-            </ul>
+         <div class="service-card" data-service="oauth">
+            <h3><i data-lucide="fingerprint"></i> One Login, Everywhere</h3>
+            <div class="service-summary">
+               <p><strong>Stop managing five different user databases.</strong> GitLab OAuth flows through to Penpot, Mattermost, and every service automatically.</p>
+            </div>
+            <div class="service-details">
+               <p><strong>Identity is solved on day one.</strong> Add a user to GitLab and they can log into everything. No manual provisioning, no password sprawl, no "which account is this again?"</p>
+               <ul>
+                  <li>Single sign-on across GitLab, Mattermost, and Penpot</li>
+                  <li>Add team members once, access everywhere</li>
+                  <li>Role-based access control through GitLab groups</li>
+               </ul>
+            </div>
+            <div class="click-hint">Click to expand</div>
          </div>
-         <div class="service-card">
-            <h3>Health automation</h3>
-            <p><code>scripts/health_checks/</code> plus <code>rave vm logs</code> provide turnkey monitoring. JetStream topics expose service events so agents can raise incidents without human babysitting.</p>
-            <ul>
-               <li>Structured log tails for nginx, GitLab, and custom services</li>
-               <li>Health scripts cover ingress, CI, database, and chat services</li>
-               <li>JetStream broadcasts support automated remediation</li>
-            </ul>
+         <div class="service-card" data-service="health">
+            <h3><i data-lucide="heart-pulse"></i> We Keep the Lights On</h3>
+            <div class="service-summary">
+               <p><strong>Monitoring and maintenance included.</strong> We watch your environment 24/7 and handle issues before they impact your work.</p>
+            </div>
+            <div class="service-details">
+               <p><strong>Focus on building, not operations.</strong> Health checks, log aggregation, and alerting are built in. When something needs attention, we handle it.</p>
+               <ul>
+                  <li>24/7 health monitoring across all services</li>
+                  <li>Proactive maintenance and security updates</li>
+                  <li>Incident response—we fix problems, you stay productive</li>
+               </ul>
+            </div>
+            <div class="click-hint">Click to expand</div>
          </div>
       </div>
    </div>
 
    <div class="content-section">
       <div class="section-header">
-         <span class="kicker">Stack Blueprint</span>
-         <h2>Architecture map for every tenant VM</h2>
-         <p class="lead">RAVE standardizes the same components for each tenant so debugging one VM teaches you how to fix them all.</p>
+         <h2>A complete development platform</h2>
+         <p class="lead">Version control, CI/CD, messaging, design, databases, and caching—the stack you'd build yourself, minus the months of integration work.</p>
       </div>
       <div class="services-grid">
-         <div class="service-card">
-            <h3>Core services</h3>
-            <ul>
-               <li>GitLab with runners + CI pipelines</li>
-               <li>NATS JetStream message bus</li>
-               <li>PostgreSQL primary database</li>
-               <li>Redis (GitLab) + Redis (application cache)</li>
-               <li>nginx reverse proxy with SSL termination</li>
-               <li>Penpot for design collaboration</li>
-               <li>Mattermost for chat &amp; agent control</li>
-            </ul>
+         <div class="service-card" data-service="core-services">
+            <h3><i data-lucide="server"></i> Production-Tested Stack</h3>
+            <div class="service-summary">
+               <p><strong>This is the stack that works.</strong> We've run this configuration in production. Services are chosen because they integrate well and scale predictably.</p>
+            </div>
+            <div class="service-details">
+               <p><strong>Everything you need to ship software.</strong> No hunting for compatible versions, no debugging integration issues, no "why doesn't this talk to that."</p>
+               <ul>
+                  <li>GitLab with runners and CI pipelines</li>
+                  <li>NATS JetStream message bus</li>
+                  <li>PostgreSQL primary database</li>
+                  <li>Redis (GitLab) + Redis (application cache)</li>
+                  <li>nginx reverse proxy with SSL termination</li>
+                  <li>Penpot for design collaboration</li>
+                  <li>Mattermost for chat and agent control</li>
+               </ul>
+            </div>
+            <div class="click-hint">Click to expand</div>
          </div>
-         <div class="service-card">
-            <h3>Isolation primitives</h3>
-            <ul>
-               <li>Deterministic port ranges per tenant (8100+/8110+ bands)</li>
-               <li>Dedicated SSH keypair baked into each VM</li>
-               <li>Network namespaces + firewall templates from <code>nixos/configs/</code></li>
-               <li>Encrypted secrets shipped via <code>rave secrets install</code></li>
-            </ul>
+         <div class="service-card" data-service="isolation">
+            <h3><i data-lucide="lock"></i> Your Own Isolated Environment</h3>
+            <div class="service-summary">
+               <p><strong>Dedicated resources, not shared infrastructure.</strong> Your environment is yours alone—isolated network, dedicated credentials, encrypted secrets.</p>
+            </div>
+            <div class="service-details">
+               <p><strong>No noisy neighbors, no shared risk.</strong> Your data stays in your environment. Your workloads don't compete with anyone else's.</p>
+               <ul>
+                  <li>Dedicated compute and storage resources</li>
+                  <li>Isolated network with your own firewall rules</li>
+                  <li>Your own SSL certificates and domains</li>
+                  <li>Encrypted secrets that only you can access</li>
+               </ul>
+            </div>
+            <div class="click-hint">Click to expand</div>
          </div>
-         <div class="service-card">
-            <h3>Automation hooks</h3>
-            <ul>
-               <li><code>services/</code> and <code>nixos/modules/</code> expose override points</li>
-               <li><code>build-scripts/</code> and <code>demo-scripts/</code> orchestrate profiles</li>
-               <li><code>docs/oidc-setup.md</code> + <code>docs/SERVICES-OVERVIEW.md</code> document topology</li>
-               <li><code>scripts/health_checks/</code> codify readiness probes</li>
-            </ul>
+         <div class="service-card" data-service="automation">
+            <h3><i data-lucide="settings-2"></i> Customize Everything</h3>
+            <div class="service-summary">
+               <p><strong>It's your environment—make it yours.</strong> Add services, change configs, install packages. Full system access means no artificial limits.</p>
+            </div>
+            <div class="service-details">
+               <p><strong>Opinionated defaults, no lock-in.</strong> The base configuration works out of the box, but you can modify anything. We'll help you get custom setups working.</p>
+               <ul>
+                  <li>Install any packages or services you need</li>
+                  <li>Modify configurations to match your workflow</li>
+                  <li>Add custom health checks and monitoring</li>
+                  <li>We'll help with complex customizations</li>
+               </ul>
+            </div>
+            <div class="click-hint">Click to expand</div>
          </div>
       </div>
    </div>
 
    <div class="content-section">
       <div class="section-header">
-         <span class="kicker">Adoption Patterns</span>
-         <h2>Where RAVE delivers leverage</h2>
+         <h2>Teams that want to build, not babysit infrastructure</h2>
       </div>
       <div class="services-grid">
-         <div class="service-card">
-            <h3>Use cases</h3>
-            <ul>
-               <li>Agencies &amp; consultancies: isolated stacks per client</li>
-               <li>Multi-tenant SaaS: customer-specific dev/staging clouds</li>
-               <li>Team management: department or program-specific sandboxes</li>
-               <li>Training &amp; education: standardized curricula environments</li>
-               <li>Demo &amp; sales: spin up full customer replicas in under 10 minutes</li>
-            </ul>
+         <div class="service-card" data-service="use-cases">
+            <h3><i data-lucide="briefcase"></i> Perfect For</h3>
+            <div class="service-summary">
+               <p><strong>Anyone tired of spending weeks on environment setup.</strong> Startups, indie hackers, small teams—anyone who'd rather ship features than fight DevOps.</p>
+            </div>
+            <div class="service-details">
+               <p><strong>Get back to building.</strong> RAVE is for teams that want enterprise-grade infrastructure without hiring a DevOps team to maintain it.</p>
+               <ul>
+                  <li><strong>Startups:</strong> Production-ready infrastructure from day one</li>
+                  <li><strong>Small teams:</strong> Enterprise tools without enterprise overhead</li>
+                  <li><strong>AI-native development:</strong> Agent-ready infrastructure with events and observability built in</li>
+                  <li><strong>Side projects:</strong> Professional tooling without the setup time</li>
+               </ul>
+            </div>
+            <div class="click-hint">Click to expand</div>
          </div>
-         <div class="service-card">
-            <h3>Security guarantees</h3>
-            <ul>
-               <li>Self-signed SSL for development with upgrade path to issued certs</li>
-               <li>GitLab OAuth enforced across Penpot + Mattermost</li>
-               <li>SSH key-only access; no passwords, no ad-hoc logins</li>
-               <li>Encrypted secrets management before any build begins</li>
-               <li>Isolated network namespaces to prevent lateral movement</li>
-            </ul>
+         <div class="service-card" data-service="security">
+            <h3><i data-lucide="shield"></i> Security Without the Headache</h3>
+            <div class="service-summary">
+               <p><strong>The secure path is the only path.</strong> SSL everywhere, encrypted secrets, SSO across all services—security best practices are the default.</p>
+            </div>
+            <div class="service-details">
+               <p><strong>Security isn't a checklist, it's architecture.</strong> We handle the security configuration so you don't have to become a security expert to ship safely.</p>
+               <ul>
+                  <li>SSL everywhere with automatic certificate management</li>
+                  <li>GitLab OAuth enforced across the entire stack</li>
+                  <li>SSH key-only access—no passwords</li>
+                  <li>Secrets encrypted at rest</li>
+                  <li>Regular security updates applied automatically</li>
+               </ul>
+            </div>
+            <div class="click-hint">Click to expand</div>
          </div>
       </div>
    </div>
@@ -270,13 +333,20 @@ rave vm logs acme-corp nginx --follow
    </div>
 
 <div class="centered-section">
-   <p>Ready to stop wasting weeks on environment setup? Join the private preview and get policy-enforced company clouds that agents can operate immediately.</p>
-   <div class="project-cta">
-      <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="rave-waitlist" data-custom-body="I'm interested in helping test RAVE. Please share next steps for getting access.">
-         <span class="btn-inner">
-            Join the RAVE preview
-            <i data-lucide="mail"></i>
-         </span>
-      </a>
-   </div>
+   <h2>Ready to Focus on Building Instead of Infrastructure?</h2>
+   <p>Get a complete, managed development environment. We handle the setup and maintenance—you ship features.</p>
+   {% set primary = {
+  "href": "javascript:void(0)",
+  "label": "Get a Managed Environment",
+  "icon": "mail",
+  "contactType": "contact",
+  "subjectType": "rave-waitlist",
+  "customBody": "I'm interested in a managed RAVE environment. Please share next steps for getting access."
+} %}
+{% set secondary = {
+  "href": "https://github.com/sibyllinesoft/rave",
+  "label": "View on GitHub",
+  "icon": "github"
+} %}
+{% include "components/cta-buttons.njk" %}
 </div>

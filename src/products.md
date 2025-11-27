@@ -23,22 +23,22 @@ Ship faster with integrated development environments, specification-driven devel
     <h1>RAVE</h1>
   </div>
   <div class="project-content">
-    <h3>Stop Burning Weeks on Environment Setup</h3>
+    <h3>Your Dev Stack, Fully Managed</h3>
     <div class="project-pitch">
-      <p><strong>One command. Production-ready stack.</strong></p>
-      <p>Your agents should be shipping features, not fighting infrastructure. RAVE spins up GitLab, CI/CD, databases, messaging, and secure chat—already wired together with SSO and encrypted secrets baked in.</p>
+      <p><strong>We handle the infrastructure. You ship features.</strong></p>
+      <p>Stop spending weeks wiring up GitLab, CI/CD, databases, and chat. We provision and maintain your complete dev environment—you get system access to customize what you need while we handle the operational burden.</p>
       <div class="project-features">
         <div class="feature-item">
-          <strong>Instant Dev Clouds:</strong> Type one command, get a complete environment in minutes. No SSL certificates to debug. No OAuth to configure. No "works on my machine."
+          <strong>Complete Stack, Zero Setup:</strong> GitLab with CI runners, PostgreSQL, Redis, NATS JetStream, Mattermost, and Penpot—already integrated with SSO and encrypted secrets.
         </div>
         <div class="feature-item">
-          <strong>Agents Can Operate Immediately:</strong> JetStream events, structured logs, and Mattermost channels give your agents a command deck from first boot.
+          <strong>Co-Managed Access:</strong> Full system access when you need to tweak configurations. We handle maintenance, updates, and keeping everything running.
         </div>
         <div class="feature-item">
-          <strong>Security Through Architecture:</strong> The CLI is the only way in. Secrets are encrypted before any build starts. Network isolation is physics, not policy.
+          <strong>Agent-Ready from Day One:</strong> JetStream events, structured logs, and Mattermost channels give your AI agents a command deck the moment you start.
         </div>
       </div>
-      <p>Reclaim the 20-40 hours you'd spend on every new project. Your infrastructure matches production from day one because the system won't let it drift.</p>
+      <p>Skip the 20-40 hours of environment setup on every project. Focus on building your product while we keep the lights on.</p>
       <div class="project-cta">
         <a href="/rave" class="btn-unified btn-primary">
           <span class="btn-inner">
@@ -46,9 +46,9 @@ Ship faster with integrated development environments, specification-driven devel
             <i data-lucide="arrow-right"></i>
           </span>
         </a>
-        <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in becoming a tester for this product. Please let me know about testing opportunities.">
+        <a href="javascript:void(0)" class="btn-unified btn-primary" data-contact-type="contact" data-subject-type="waitlist" data-custom-body="I'm interested in a managed RAVE environment. Please share next steps for getting access.">
           <span class="btn-inner">
-            Skip Setup Weeks
+            Get Started
             <i data-lucide="mail"></i>
           </span>
         </a>
