@@ -41,7 +41,7 @@
   margin-bottom: var(--space-md);
   color: var(--color-accent);
   font-weight: 600;
-  font-size: var(--text-lg);
+  font-size: var(--text-2xl);
   display: flex;
   align-items: center;
   justify-content: center;
