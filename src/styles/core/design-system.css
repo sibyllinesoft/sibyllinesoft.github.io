@@ -683,7 +683,7 @@ hr {
 .hero-title,
 .hero-content h1 {
   font-size: 56px;
-  line-height: 1.2;
+  line-height: 1.35;
   text-wrap: balance;
   font-family: 'Michroma', var(--font-family-default);
 }

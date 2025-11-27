@@ -8,7 +8,7 @@
 .hero-title {
   font-size: calc(var(--text-6xl) * 1.33);
   margin-bottom: var(--space-md);
-  line-height: var(--leading-tight);
+  line-height: 1.35;
   position: relative;
   
   /* Elegant monochrome gradient */
