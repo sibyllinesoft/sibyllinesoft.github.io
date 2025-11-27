@@ -48,11 +48,11 @@ scripts:
   <a href="javascript:void(0)" class="btn-secondary" data-contact-type="contact" data-subject-type="strategy"><span class="btn-inner">Talk Strategy <i data-lucide="mail"></i></span></a>
 </div>
 
-Improvements in developer experience are like compounding interest. Each minute saved is a minute that can be re-invested in building your product. Great developer experience lets you respond to feedback from customers faster and build new features at a rate that competitors can't copy.
+Improvements in developer experience are like compounding interest. Each minute saved is a minute that can be re-invested in building your product. Great developer experience lets you respond to feedback from customers faster and build new features at a rate that competitors can't match.
 
-We understand it can be hard to invest in developer experience when users are demanding features and investors are demanding growth. We want to help. That's why we offer pre-configured workspaces with best in class open source tooling.
+It can be hard to invest in developer experience when users are demanding features and investors are demanding growth. We want to help. That's why we offer pre-configured workspaces and best in class open source tooling.
 
-We understand amazing developer experience doesn't just come from better tools, it comes from better systems, and the ideal system is different for every team. Our tools fit into your workflows and adapt to your needs, and we'll help you use them to automate your business.
+Amazing developer experience doesn't just come from better tools, it comes from better systems, and the ideal system is different for every team. That's why our tools are designed to fit into your workflows and adapt to your needs. Unlike our competitors, we will and we'll help you use them to automate your business.
 </div>
 
 <div class="content-section">
@@ -127,10 +127,10 @@ We understand amazing developer experience doesn't just come from better tools, 
 </div>
 </div>
 
-<div class="centered-section">
-<h3>Integration and Process are the Bottleneck to AI success</h3>
-<p>If you try to adopt AI without the right information architecture, you're going to end up with unreliable agents and low quality code. The companies that win will be the ones that put the time in early to build the foundation for advanced AI capabilities. Every day you delay is a day of lost productivity gains.</p>
-<p>We recognize that not everyone has the resources to integrate AI effectively. Thats why our systems take the guesswork out of AI integration. We back them up with support, and we're happy to offer consultations and education. This is our specialty, a few hours of our time will save you weeks of pain.</p>
+<div class="content-section">
+<h2>Integration and Process are the keys to AI success</h2>
+<p>AI is like a rocket ready to carry your business to the next frontier, but with great power comes great responsbility. Launching a rocket without a stable foundation and careful targetting is likely to be counterproductive at best and actively harmful at worst, and adopting AI is no different.<strong>Good information architecture is the foundation for your business takeoff.</strong></p>
+<p>We recognize that not everyone has the resources to integrate AI effectively. Thats why our systems take the guesswork out of AI integration. We back them up with support, and we're happy to offer consultations and education. <strong>A few hours of our time will save you weeks of pain.</strong></p>
 </div>
 
 <div class="content-section">
@@ -284,8 +284,8 @@ We understand amazing developer experience doesn't just come from better tools, 
 </div>
 </div>
 
-<div class="centered-section">
-<h3>Your AI vision will determine your success.</h3>
+<div class="content-section">
+<h2>Your AI vision will determine your success.</h2>
 <p>You just saw how we pair software with embedded experts—this is where it becomes your advantage. If your leadership can't articulate where AI earns or saves the next dollar, every tool purchase turns into shelfware.</p>
 <p>Our discovery engagements force that clarity. We map your customer journeys, score back-office workflows, and identify the handful of loops where agents, automations, and humans can work in lockstep. Then we turn those ideas into Arbiter specs, Smith playbooks, and Valknut guardrails so value shows up in production, not pitch decks.</p>
 <p>The companies that win don't dabble—they commit to an AI vision, broadcast it, and back it with systems that compound every quarter. Ready to make that happen?</p>

@@ -186,6 +186,16 @@ Arbiter is designed to be unopinionated about how you do spec-driven development
 <h2>Watch the System Emerge</h2>
 <p class="lead"><strong>Real-time docs and diagrams provide auditability and clear stakeholder communication</strong>—architecture, API docs, and test results update live as agents work.</p>
 </div>
+
+The spec workbench provides a WebSocket-based event system that keeps teams synchronized as specifications evolve:
+
+- **Live Architecture Diagrams**: See your system architecture update in real-time as services, endpoints, and dependencies are added to the spec
+- **Instant Validation Feedback**: CUE constraint violations surface immediately—catch type mismatches, missing fields, and broken references before they become code
+- **Generation Progress Tracking**: Watch as Arbiter compiles specs into code, tests, docs, and infrastructure manifests
+- **Change Attribution**: Every modification is tracked with timestamps and authorship, so you know exactly who changed what and when
+- **Monaco Editor Integration**: Full CUE syntax support with autocomplete, error highlighting, and inline documentation
+
+The workbench turns spec review from a chore into a conversation. Instead of reading through pages of markdown hoping you didn't miss something critical, you get a visual representation of the entire system architecture where missing endpoints and inconsistent schemas jump out immediately.
 </div>
 
 <div class="content-section">
@@ -215,8 +225,37 @@ Arbiter is designed to be unopinionated about how you do spec-driven development
 <div class="content-section">
 
    <h2>Legacy Codebases? No Problem.</h2>
-   
-   <p>Arbiter imports existing repos to generate a baseline spec so agents can work safely inside explicit constraints.</p>
-   
-   <p><strong>Instantly get:</strong> a comprehensive spec of your current architecture • clear constraints for agents • a baseline for safe, incremental collaboration.</p>
+
+   <p>Arbiter's plugin-based importer analyzes existing repositories to bootstrap specifications from real projects—complete with confidence scoring and provenance tracking.</p>
+
+   <h3>What the Importer Detects</h3>
+
+   <p>Point Arbiter at any codebase and it automatically identifies:</p>
+
+   - **Services**: HTTP APIs, web services, microservices with framework detection (Express, FastAPI, Actix, Gin)
+   - **Databases & Infrastructure**: PostgreSQL, Redis, Docker configs, Kubernetes manifests
+   - **Frontend Applications**: React components, Vue apps, routing structures
+   - **Background Jobs**: Workers, schedulers, queue consumers
+   - **Binaries & CLIs**: Command-line tools and executables
+   - **Schemas**: Database schemas, API contracts, type definitions
+
+   <h3>How It Works</h3>
+
+```bash
+# Import from GitHub (fetches branch metadata)
+arbiter init --github-url https://github.com/org/project
+
+# Import from local checkout
+arbiter init --local-path ../my-existing-project
+
+# Enable deeper analysis for complex repos
+arbiter init --local-path ../project --deep-analysis
+
+# Speed up large monorepos
+arbiter init --local-path ../project --target-languages ts,go
+```
+
+   <p>The importer follows a five-stage pipeline: <strong>Discovery</strong> (file scanning) → <strong>Parse</strong> (evidence collection) → <strong>Infer</strong> (artifact detection) → <strong>Normalize</strong> (deduplication) → <strong>Validate</strong> (consistency checks). Every detected artifact includes confidence metrics and detailed provenance explaining exactly how it was identified.</p>
+
+   <p><strong>The result:</strong> a comprehensive spec of your current architecture with clear constraints for agents and a validated baseline for safe, incremental collaboration. Agents can only touch the parts you actually care about—everything else stays protected by the spec.</p>
 </div>

@@ -11,11 +11,10 @@ stylesheets:
 <!-- About - Open Book Style -->
 <div class="about-brochure">
   <div class="about-visual">
-    <i data-lucide="cpu" class="about-icon"></i>
-    <div class="about-image-placeholder">Nathan Rice<br>Founder & AI Architect</div>
+    <h1>Nathan Rice</h1>
   </div>
-  <div class="about-content">
-    <h2>Two Decades of AI Innovation</h2>
+  <div class="domain-content">
+    <h3>Two Decades of AI Innovation</h3>
     <div class="about-pitch">
       <p><strong>The Journey:</strong> My fascination with machine learning began during the Netflix Prize in 2007—a pivotal moment that sparked a lifelong passion for extracting insights from data. Since then, I've dedicated myself to understanding how intelligent systems can amplify human capabilities and create new possibilities.</p>
       <p><strong>The Experience:</strong> Over the years, I've built a reputation for designing and building powerful data-driven applications that help entrepreneurs and growing companies unlock their potential. My sweet spot? Helping startups figure out how to leverage their data to build amazing apps, and increasingly, how to harness AI to enable entirely new types of programs.</p>
@@ -50,8 +49,7 @@ Building game-changing AI applications requires understanding both AI technology
 <!-- Startups & Emerging Tech Domain -->
 <div class="domain-brochure" id="startup-domain">
   <div class="domain-visual">
-    <i data-lucide="rocket" class="domain-icon"></i>
-    <div class="domain-image-placeholder">Startups & Emerging Technology</div>
+    <h1>Startups</h1>
   </div>
   <div class="domain-content">
     <h3>Startups & Emerging Technology</h3>
@@ -85,8 +83,7 @@ Building game-changing AI applications requires understanding both AI technology
 <!-- Clinical & Biotech Domain -->
 <div class="domain-brochure" id="clinical-domain">
   <div class="domain-visual">
-    <i data-lucide="microscope" class="domain-icon"></i>
-    <div class="domain-image-placeholder">Clinical & Biotech Research</div>
+    <h1>Biotech</h1>
   </div>
   <div class="domain-content">
     <h3>Clinical & Biotech Research</h3>
@@ -120,8 +117,7 @@ Building game-changing AI applications requires understanding both AI technology
 <!-- Environmental & Industrial Domain -->
 <div class="domain-brochure" id="environmental-domain">
   <div class="domain-visual">
-    <i data-lucide="leaf" class="domain-icon"></i>
-    <div class="domain-image-placeholder">Environmental & Industrial Systems</div>
+    <h1>Industrial</h1>
   </div>
   <div class="domain-content">
     <h3>Environmental & Industrial Systems</h3>
@@ -155,8 +151,7 @@ Building game-changing AI applications requires understanding both AI technology
 <!-- Natural Language & Text Analysis Domain -->
 <div class="domain-brochure" id="language-domain">
   <div class="domain-visual">
-    <i data-lucide="message-square" class="domain-icon"></i>
-    <div class="domain-image-placeholder">Language Intelligence & Text Analysis</div>
+    <h1>Language</h1>
   </div>
   <div class="domain-content">
     <h3>Language Intelligence & Text Analysis</h3>
@@ -190,8 +185,7 @@ Building game-changing AI applications requires understanding both AI technology
 <!-- Military & Security Domain -->
 <div class="domain-brochure" id="security-domain">
   <div class="domain-visual">
-    <i data-lucide="shield-check" class="domain-icon"></i>
-    <div class="domain-image-placeholder">Defense & Security Applications</div>
+    <h1>Defense</h1>
   </div>
   <div class="domain-content">
     <h3>Defense & Security Applications</h3>
