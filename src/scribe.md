@@ -67,14 +67,14 @@ jsonLD:
 <div class="centered-section">
 <h3>Scribe uses research-grade graph algorithms to build bundles that maximize LLM reasoning quality—not just token count.</h3>
    {% set primary = {
+  "href": "https://scribe.sibylline.dev",
+  "label": "Read the Docs",
+  "icon": "book-open"
+} %}
+{% set secondary = {
   "href": "https://github.com/sibyllinesoft/scribe",
   "label": "View on GitHub",
   "icon": "github"
-} %}
-{% set secondary = {
-  "href": "/products",
-  "label": "View All Products",
-  "icon": "arrow-left"
 } %}
 {% include "components/cta-buttons.njk" %}
    <p><strong>Most repository bundlers are glorified file concatenators.</strong> They dump your codebase into one giant blob and hope your LLM figures it out. But transformers don't attend equally to all tokens—they focus on the beginning and end while the middle gets lost. Random file ordering wastes precious context on boilerplate while burying your critical architecture.</p>
@@ -310,14 +310,14 @@ scribe --algorithm heuristic \
    <h2>Ready to Give Your LLM Context That Actually Works?</h2>
    <p>Stop dumping files and hoping for the best. Build bundles that maximize LLM reasoning quality.</p>
    {% set primary = {
+  "href": "https://scribe.sibylline.dev",
+  "label": "Read the Docs",
+  "icon": "book-open"
+} %}
+{% set secondary = {
   "href": "https://github.com/sibyllinesoft/scribe",
   "label": "View on GitHub",
   "icon": "github"
-} %}
-{% set secondary = {
-  "href": "/products",
-  "label": "View All Products",
-  "icon": "arrow-left"
 } %}
 {% include "components/cta-buttons.njk" %}
 </div>
