@@ -198,6 +198,12 @@ AI-native static analysis and codebase preparation tools that help agents unders
       </div>
       <p>Teams cut code preparation time by 85% while LLMs get maximum insight per token through semantic chunking and dependency-aware selection.</p>
       <div class="project-cta">
+        <a href="/scribe" class="btn-unified btn-primary">
+          <span class="btn-inner">
+            Learn More
+            <i data-lucide="arrow-right"></i>
+          </span>
+        </a>
         <a href="https://github.com/sibyllinesoft/scribe" class="btn-unified btn-primary">
           <span class="btn-inner">
             View on GitHub
