@@ -209,15 +209,27 @@ scripts:
 <div class="content-section">
    <div class="section-header">
       <h2>Quickstart</h2>
-      <p class="lead">Get a Valknut report in under a day—no rewrite required.</p>
+      <p class="lead">Pulled straight from the GitHub README—copy, paste, run.</p>
    </div>
-   <ol class="quickstart-steps">
-      <li><strong>Connect your repo.</strong> Share a read-only token or run Valknut locally; we never push changes.</li>
-      <li><strong>Generate the analysis.</strong> Produce urgency maps and Impact Packs as JSON plus a compact HTML brief.</li>
-      <li><strong>Ship improvements.</strong> Hand the packs to your agents or export them to your issue tracker and rerun weekly to track drift.</li>
-   </ol>
-   <div class="service-cta">
-      <a href="https://valknut.sibylline.dev" class="btn-unified btn-primary">Read the Docs</a>
-      <a href="https://github.com/sibyllinesoft/valknut/" class="btn-unified btn-secondary">View on GitHub</a>
-   </div>
+   <pre><code>
+# Fast scan with JSONL output (default profile)
+valknut analyze ./src --format jsonl
+
+# HTML + Markdown bundle for stakeholders
+valknut analyze ./ --format html --profile thorough
+
+# Documentation audit with strict exit codes
+valknut doc-audit --root . --strict
+   </code></pre>
+   {% set primary = {
+  "href": "https://valknut.sibylline.dev",
+  "label": "Read the Docs",
+  "icon": "book-open"
+} %}
+{% set secondary = {
+  "href": "https://github.com/sibyllinesoft/valknut/",
+  "label": "View on GitHub",
+  "icon": "github"
+} %}
+   {% include "components/cta-buttons.njk" %}
 </div>
