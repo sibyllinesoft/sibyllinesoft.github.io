@@ -208,57 +208,6 @@ scripts:
 </div>
 <div class="content-section">
    <div class="section-header">
-      <h2>What a Valknut run delivers</h2>
-      <p class="lead">Artifacts your engineers and agents can act on immediately.</p>
-   </div>
-   <div class="services-grid">
-      <div class="service-card" data-service="urgency-map">
-         <h3><i data-lucide="alert-triangle"></i> Urgency Map</h3>
-         <div class="service-summary">
-            <p><strong>Ranked hotspots with 0-1 urgency scores.</strong> Focus effort where drift is costing you most.</p>
-         </div>
-         <div class="service-details">
-            <ul class="bullet-box">
-               <li>Per-file and per-domain severity with architectural context</li>
-               <li>Call graph snippets that explain why a node matters</li>
-               <li>Token-aware guidance so agents stay within context limits</li>
-            </ul>
-         </div>
-         <div class="click-hint">Click to expand</div>
-      </div>
-      <div class="service-card" data-service="impact-packs">
-         <h3><i data-lucide="git-merge"></i> Impact Packs</h3>
-         <div class="service-summary">
-            <p><strong>Refactoring playbooks that won't break adjacent systems.</strong> Safe, ordered steps for AI and humans.</p>
-         </div>
-         <div class="service-details">
-            <ul class="bullet-box">
-               <li>Dependency-aware plan with blast-radius notes</li>
-               <li>Code pointers and acceptance checks per step</li>
-               <li>Exportable to GitHub Issues, Linear, or your agent queue</li>
-            </ul>
-         </div>
-         <div class="click-hint">Click to expand</div>
-      </div>
-      <div class="service-card" data-service="coverage-packs">
-         <h3><i data-lucide="file-check-2"></i> Coverage &amp; Docs Packs</h3>
-         <div class="service-summary">
-            <p><strong>Tests and docs targeted at the highest risk gaps.</strong> Reduce churn without bloating the codebase.</p>
-         </div>
-         <div class="service-details">
-            <ul class="bullet-box">
-               <li>Prioritized test list with suggested fixtures</li>
-               <li>Documentation stubs for brittle interfaces</li>
-               <li>CI-friendly output so you can gate merges</li>
-            </ul>
-         </div>
-         <div class="click-hint">Click to expand</div>
-      </div>
-   </div>
-</div>
-
-<div class="content-section">
-   <div class="section-header">
       <h2>Quickstart</h2>
       <p class="lead">Get a Valknut report in under a day—no rewrite required.</p>
    </div>
