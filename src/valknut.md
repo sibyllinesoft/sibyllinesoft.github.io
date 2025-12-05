@@ -211,8 +211,7 @@ scripts:
       <h2>Quickstart</h2>
       <p class="lead">Pulled straight from the GitHub README—copy, paste, run.</p>
    </div>
-   <pre><code>
-# Fast scan with JSONL output (default profile)
+   <pre class="code-block"><code class="language-bash"># Fast scan with JSONL output (default profile)
 valknut analyze ./src --format jsonl
 
 # HTML + Markdown bundle for stakeholders
@@ -220,7 +219,7 @@ valknut analyze ./ --format html --profile thorough
 
 # Documentation audit with strict exit codes
 valknut doc-audit --root . --strict
-   </code></pre>
+</code></pre>
    {% set primary = {
   "href": "https://valknut.sibylline.dev",
   "label": "Read the Docs",
