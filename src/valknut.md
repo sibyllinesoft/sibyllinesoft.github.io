@@ -63,8 +63,8 @@ scripts:
   "icon": "github"
 } %}
 {% include "components/cta-buttons.njk" %}
-   <p><strong>Vibe coding starts out great.</strong> You tell your agent to do things, and you come back ten minutes later to working software. Fast forward 50,000 lines of code and you have a labrynthian codebase that agents struggle with, full of duplication and architectural drift. <strong>The vibes have faded.</strong></p>
-   <p><strong>You need a healthy codebase to keep shipping quickly.</strong> Messy codebases confuses agents and bias them towards writing lower quality code. Agents struggle refactor difficult codebases; they tend to get confused when refactoring just like they do when trying to create new code. <strong>Agents need guidance to keep your codebase healthy.</strong></p>
+   <p><strong>Vibe coding starts out great.</strong> You tell your agent to do things, and you come back ten minutes later to working software. Fast forward 50,000 lines of code and you have a labyrinthine codebase that agents struggle with, full of duplication and architectural drift. <strong>The vibes have faded.</strong></p>
+   <p><strong>You need a healthy codebase to keep shipping quickly.</strong> Messy codebases confuse agents and bias them toward lower-quality code. Agents struggle to refactor difficult codebases; they get just as confused refactoring as they do when creating new code. <strong>Agents need guidance to keep your codebase healthy.</strong></p>
 </div>
 <div class="content-section">
 
@@ -142,7 +142,7 @@ scripts:
 
    <p><strong>Valknut ensures your code is well tested and documented.</strong> Agents struggle to act on standard coverage reports and bloat code documenting the obvious. Valknut gives agents clear targets so they test and document your code efficiently.</p>
 
-   <p><strong>Valknut makes it easy to visualizes project health at a glance.</strong> No more combing through piles of verbose tool output; see your problems instantly in a sleek graphical dashboard.</p>
+   <p><strong>Valknut makes it easy to visualize project health at a glance.</strong> No more combing through piles of verbose tool output; see your problems instantly in a sleek graphical dashboard.</p>
 </div>
 <div class="content-section">
    <h2>From Quick Wins to Architectural Transformation</h2>
@@ -206,14 +206,69 @@ scripts:
       </div>
    </div>
 </div>
-<h2>Examples</h2>
-   <p>A picture is worth a thousand words</p>
-   <p>Valknut</p>
-   <p>Bifrost</p>
-   <p>LiteLLM</p>
+<div class="content-section">
+   <div class="section-header">
+      <h2>What a Valknut run delivers</h2>
+      <p class="lead">Artifacts your engineers and agents can act on immediately.</p>
+   </div>
+   <div class="services-grid">
+      <div class="service-card" data-service="urgency-map">
+         <h3><i data-lucide="alert-triangle"></i> Urgency Map</h3>
+         <div class="service-summary">
+            <p><strong>Ranked hotspots with 0-1 urgency scores.</strong> Focus effort where drift is costing you most.</p>
+         </div>
+         <div class="service-details">
+            <ul class="bullet-box">
+               <li>Per-file and per-domain severity with architectural context</li>
+               <li>Call graph snippets that explain why a node matters</li>
+               <li>Token-aware guidance so agents stay within context limits</li>
+            </ul>
+         </div>
+         <div class="click-hint">Click to expand</div>
+      </div>
+      <div class="service-card" data-service="impact-packs">
+         <h3><i data-lucide="git-merge"></i> Impact Packs</h3>
+         <div class="service-summary">
+            <p><strong>Refactoring playbooks that won't break adjacent systems.</strong> Safe, ordered steps for AI and humans.</p>
+         </div>
+         <div class="service-details">
+            <ul class="bullet-box">
+               <li>Dependency-aware plan with blast-radius notes</li>
+               <li>Code pointers and acceptance checks per step</li>
+               <li>Exportable to GitHub Issues, Linear, or your agent queue</li>
+            </ul>
+         </div>
+         <div class="click-hint">Click to expand</div>
+      </div>
+      <div class="service-card" data-service="coverage-packs">
+         <h3><i data-lucide="file-check-2"></i> Coverage &amp; Docs Packs</h3>
+         <div class="service-summary">
+            <p><strong>Tests and docs targeted at the highest risk gaps.</strong> Reduce churn without bloating the codebase.</p>
+         </div>
+         <div class="service-details">
+            <ul class="bullet-box">
+               <li>Prioritized test list with suggested fixtures</li>
+               <li>Documentation stubs for brittle interfaces</li>
+               <li>CI-friendly output so you can gate merges</li>
+            </ul>
+         </div>
+         <div class="click-hint">Click to expand</div>
+      </div>
+   </div>
 </div>
-<h2>Quickstart</h2>
-   <p>step 1</p>
-   <p>step 2</p>
-   <p>step 3</p>
+
+<div class="content-section">
+   <div class="section-header">
+      <h2>Quickstart</h2>
+      <p class="lead">Get a Valknut report in under a day—no rewrite required.</p>
+   </div>
+   <ol class="quickstart-steps">
+      <li><strong>Connect your repo.</strong> Share a read-only token or run Valknut locally; we never push changes.</li>
+      <li><strong>Generate the analysis.</strong> Produce urgency maps and Impact Packs as JSON plus a compact HTML brief.</li>
+      <li><strong>Ship improvements.</strong> Hand the packs to your agents or export them to your issue tracker and rerun weekly to track drift.</li>
+   </ol>
+   <div class="service-cta">
+      <a href="https://valknut.sibylline.dev" class="btn-unified btn-primary">Read the Docs</a>
+      <a href="https://github.com/sibyllinesoft/valknut/" class="btn-unified btn-secondary">View on GitHub</a>
+   </div>
 </div>
