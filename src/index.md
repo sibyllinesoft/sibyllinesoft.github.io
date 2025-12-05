@@ -47,12 +47,9 @@ scripts:
   <a href="/products/" class="btn-primary"><span class="btn-inner">Products<i data-lucide="arrow-right"></i></span></a>
   <a href="javascript:void(0)" class="btn-secondary" data-contact-type="contact" data-subject-type="strategy"><span class="btn-inner">Talk Strategy <i data-lucide="mail"></i></span></a>
 </div>
-
-Improvements in developer experience are like compounding interest. Each minute saved is a minute that can be re-invested in building your product. Great developer experience lets you respond to feedback from customers faster and build new features at a rate that competitors can't match.
-
-It can be hard to invest in developer experience when users are demanding features and investors are demanding growth. We want to help. That's why we offer pre-configured workspaces and best in class open source tooling.
-
-Amazing developer experience doesn't just come from better tools, it comes from better systems, and the ideal system is different for every team. That's why our tools are designed to fit into your workflows and adapt to your needs. Unlike our competitors, we will and we'll help you use them to automate your business.
+<p><strong>Improvements in developer experience are like compounding interest.</strong> Each minute saved is a minute that can be re-invested in building your product. Great developer experience lets you respond to feedback from customers faster and build new features at a rate that competitors can't match.</p>
+<p>It can be hard to invest in developer experience when users are demanding features and investors are demanding growth. We want to help. <strong>We offer customized workspaces with great developer experience out of the box.</strong></p>
+<p>Amazing developer experience doesn't just come from better tools, it comes from better systems, and the ideal system is different for every team. <strong>Our tools are designed to fit into your workflows and adapt to your needs.</strong> We don't just sell software, we can provide the support, consulting and educational services you need to achieve an exceptional outcome with AI.</p>
 </div>
 
 <div class="content-section">
@@ -69,10 +66,10 @@ Amazing developer experience doesn't just come from better tools, it comes from 
 <p><strong>AI is going to transform the labor market.</strong> The people who thrive will be the ones who've mastered the skill of applying AI to real world problems. Are you ready?</p>
 <p>Unlike vibe coding tools that focus on simplifying the process of creating demos in toy environments, our software integrates into the tools used to build real software and deploys into real enviroments.</p>
 <ul class="bullet-box">
-<li><a href="/rave/">Rave</a> is a complete AI development environment, designed for maximum productivity and preconfigured with best in class tools</li>
-<li><a href="/arbiter/">Arbiter</a> compiles your specs into working software with tests that keep your agents on rails</li>
+<li><a href="/products/rave/">Rave</a> is a complete AI development environment, designed for maximum productivity and preconfigured with best in class tools</li>
+<li><a href="/products/arbiter/">Arbiter</a> compiles your specs into working software with tests that keep your agents on rails</li>
 <li>Smith lets you orchestrate agent swarms to implement and test work in parallel</li>
-<li><a href="/valknut/">Valknut</a> tames agent induced technical debt</li>
+<li><a href="/products/valknut/">Valknut</a> tames agent induced technical debt</li>
 </ul>
 
 </div>
@@ -92,10 +89,10 @@ Amazing developer experience doesn't just come from better tools, it comes from 
 <p><strong>The startups that win ship fast.</strong> Our tools let you build at the speed of ideation with simple ops and consistent environments, so your engineers can focus on building product rather than debugging configs.</p>
 <p>Unlike vibe coding tools that silo your AI interactions and saddle you with tech debt, our tools are designed to let you build robust systems collaborativelly.</p>
 <ul class="bullet-box">
-<li><a href="/rave/">Rave</a> is a complete AI development environment, designed for maximum productivity and preconfigured with best in class tools</li>
-<li><a href="/arbiter/">Arbiter</a> compiles your specs into working software with tests that keep your agents on rails</li>
+<li><a href="/products/rave/">Rave</a> is a complete AI development environment, designed for maximum productivity and preconfigured with best in class tools</li>
+<li><a href="/products/arbiter/">Arbiter</a> compiles your specs into working software with tests that keep your agents on rails</li>
 <li>Smith lets you orchestrate agent swarms to implement and test work in parallel</li>
-<li><a href="/valknut/">Valknut</a> tames agent induced technical debt</li>
+<li><a href="/products/valknut/">Valknut</a> tames agent induced technical debt</li>
 </div>
 <div class="click-hint">Click to expand</div>
 <div class="service-visual solar">
@@ -113,9 +110,9 @@ Amazing developer experience doesn't just come from better tools, it comes from 
 <p><strong>The enterprises that win get the most out of their employees.</strong> Our tools are designed to make it easy for non-technical users to build products and automations that can be deployed to production without a complete rewrite.</p>
 <p>Our systems can be adapted to enforce compliance with your conventions, tools and infrastructure, so the vibes always stay good.</p>
 <ul class="bullet-box">
-<li><a href="/rave/">Rave</a> is a complete AI development environment, designed for maximum productivity and preconfigured with best in class tools</li>
+<li><a href="/products/rave/">Rave</a> is a complete AI development environment, designed for maximum productivity and preconfigured with best in class tools</li>
 <li>Smith orchestrates agents in response to events anywhere in your organization, with centralized policy management, full auditing and multi-layer sandboxing</li>
-<li><a href="/arbiter/">Arbiter</a> ensures agents write compliant code that integrates with your existing systems</li>
+<li><a href="/products/arbiter/">Arbiter</a> ensures agents write compliant code that integrates with your existing systems</li>
 </ul>
 </div>
 <div class="click-hint">Click to expand</div>
@@ -128,9 +125,9 @@ Amazing developer experience doesn't just come from better tools, it comes from 
 </div>
 
 <div class="content-section">
-<h2>Integration and Process are the keys to AI success</h2>
-<p>AI is like a rocket ready to carry your business to the next frontier, but with great power comes great responsbility. Launching a rocket without a stable foundation and careful targetting is likely to be counterproductive at best and actively harmful at worst, and adopting AI is no different.<strong>Good information architecture is the foundation for your business takeoff.</strong></p>
-<p>We recognize that not everyone has the resources to integrate AI effectively. Thats why our systems take the guesswork out of AI integration. We back them up with support, and we're happy to offer consultations and education. <strong>A few hours of our time will save you weeks of pain.</strong></p>
+<h2>Integration and Process determine AI success</h2>
+<p><strong>AI is like a rocket ready to carry your business to the next frontier.</strong> Launching a rocket without a stable foundation and careful targetting will be counterproductive at best and actively harmful at worst, and adopting AI is no different. If agents your agents don't understand your business, they'll take off at warp speed in the wrong direction, leaving a giant mess in their wake. <strong>Good information architecture is the foundation for a successful business takeoff.</strong></p>
+<p>We recognize that not everyone has the resources to integrate AI effectively. <strong>Our systems take the guesswork out of AI integration.</strong> We back them up with support, and we're happy to offer consultations and education. <strong>A few hours of our time will save you weeks of pain.</strong></p>
 </div>
 
 <div class="content-section">

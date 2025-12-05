@@ -4,6 +4,7 @@ eleventyNavigation:
   parent: Products
   order: 5
 layout: simple.njk
+permalink: "/products/scribe/"
 title: "Scribe – Intelligent Repository Bundling for LLMs"
 description: "Stop dumping files and hoping for the best. Scribe uses PageRank centrality to build bundles that maximize LLM reasoning quality."
 enableModals: true

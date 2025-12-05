@@ -4,6 +4,7 @@ eleventyNavigation:
   parent: Products
   order: 2
 layout: simple.njk
+permalink: "/products/lethe/"
 stylesheets:
   - "/styles/components/project-hero.css"
   - "/styles/pages/lethe.css"
@@ -252,4 +253,3 @@ Perfect for development teams, researchers, and anyone who needs to maintain com
   "icon": "arrow-left"
 } %}
 {% include "components/cta-buttons.njk" %}
-

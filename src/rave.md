@@ -4,6 +4,7 @@ eleventyNavigation:
   parent: Products
   order: 1
 layout: simple.njk
+permalink: "/products/rave/"
 title: "RAVE – Managed Development Environments"
 description: "Stop spending weeks on environment setup. We provision and maintain GitLab, CI/CD, databases, messaging, and design tools—you get system access and focus on shipping."
 enableModals: true

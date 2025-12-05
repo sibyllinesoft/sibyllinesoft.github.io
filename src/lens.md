@@ -4,6 +4,7 @@ eleventyNavigation:
   parent: Products
   order: 1
 layout: simple.njk
+permalink: "/products/lens/"
 stylesheets:
   - "/styles/components/project-hero.css"
   - "/styles/pages/lens.css"
@@ -186,4 +187,3 @@ Perfect for large codebases where finding the right code quickly makes the diffe
   "icon": "arrow-left"
 } %}
 {% include "components/cta-buttons.njk" %}
-

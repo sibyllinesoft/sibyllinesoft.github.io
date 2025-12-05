@@ -4,6 +4,7 @@ eleventyNavigation:
   parent: Products
   order: 4
 layout: simple.njk
+permalink: "/products/valknut/"
 title: "Valknut: Static Analysis Engine for AI-Guided Refactoring"
 description: "Stop AI agents hunting blindly. Precise problem roadmaps with 0-1 urgency scores guide agents to highest-impact issues first."
 enableModals: true

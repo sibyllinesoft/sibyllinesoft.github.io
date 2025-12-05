@@ -40,7 +40,7 @@ Ship faster with integrated development environments, specification-driven devel
       </div>
       <p>Skip the 20-40 hours of environment setup on every project. Focus on building your product while we keep the lights on.</p>
       <div class="project-cta">
-        <a href="/rave" class="btn-unified btn-primary">
+        <a href="/products/rave/" class="btn-unified btn-primary">
           <span class="btn-inner">
             Learn More
             <i data-lucide="arrow-right"></i>
@@ -80,7 +80,7 @@ Ship faster with integrated development environments, specification-driven devel
       </div>
       <p>Stop trying to tame slop. Build real software at the speed of vibes—with specs that agents can't misinterpret and code that stays synchronized as requirements evolve.</p>
       <div class="project-cta">
-        <a href="/arbiter" class="btn-unified btn-primary">
+        <a href="/products/arbiter/" class="btn-unified btn-primary">
           <span class="btn-inner">
             Learn More
             <i data-lucide="arrow-right"></i>
@@ -158,7 +158,7 @@ AI-native static analysis and codebase preparation tools that help agents unders
       </div>
       <p>Messy codebases confuse agents and bias them toward low-quality output. Valknut keeps your code healthy so agents generate better code while using fewer tokens—and your velocity stays high.</p>
       <div class="project-cta">
-        <a href="/valknut" class="btn-unified btn-primary">
+        <a href="/products/valknut/" class="btn-unified btn-primary">
           <span class="btn-inner">
             Learn More
             <i data-lucide="arrow-right"></i>
@@ -198,7 +198,7 @@ AI-native static analysis and codebase preparation tools that help agents unders
       </div>
       <p>Teams cut code preparation time by 85% while LLMs get maximum insight per token through semantic chunking and dependency-aware selection.</p>
       <div class="project-cta">
-        <a href="/scribe" class="btn-unified btn-primary">
+        <a href="/products/scribe/" class="btn-unified btn-primary">
           <span class="btn-inner">
             Learn More
             <i data-lucide="arrow-right"></i>
@@ -279,7 +279,7 @@ Early-stage tools exploring the frontier of AI-assisted development. These produ
       </div>
       <p>Development teams cut code search time by 98% while achieving 24.4% better relevance than traditional tools. Perfect for large codebases where finding the right code quickly makes the difference.</p>
       <div class="project-cta">
-        <a href="/lens" class="btn-unified btn-primary">
+        <a href="/products/lens/" class="btn-unified btn-primary">
           <span class="btn-inner">
             Learn More
             <i data-lucide="arrow-right"></i>
