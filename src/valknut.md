@@ -52,7 +52,12 @@ scripts:
 <script src="/js/trefoil-animation.js"></script>
 <div class="centered-section">
 <h3>Valknut gives you a plan to optimize your codebase for long term scalability, maintainability and velocity.</h3>
-   {% set primary = {
+{% set tertiary = {
+  "href": "https://valknut.sibylline.dev/report-dev.html",
+  "label": "View Demo",
+  "icon": "play-circle"
+} %}
+{% set primary = {
   "href": "https://valknut.sibylline.dev",
   "label": "Read the Docs",
   "icon": "book-open"
@@ -223,7 +228,12 @@ valknut analyze ./ --format html --profile thorough
 valknut doc-audit --root . --strict
 ```
 
-   {% set primary = {
+{% set tertiary = {
+  "href": "https://valknut.sibylline.dev/report-dev.html",
+  "label": "View Demo",
+  "icon": "play-circle"
+} %}
+{% set primary = {
   "href": "https://valknut.sibylline.dev",
   "label": "Read the Docs",
   "icon": "book-open"

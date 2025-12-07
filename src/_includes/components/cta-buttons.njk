@@ -8,7 +8,16 @@
 #}
 {% set primary = primary or {} %}
 {% set secondary = secondary or {} %}
+{% set tertiary = tertiary or {} %}
 <div class="cta-section">
+  {% if tertiary.href %}
+  <a href="{{ tertiary.href }}" class="btn-unified btn-primary">
+    <span class="btn-inner">
+      {{ tertiary.label }}
+      {% if tertiary.icon %}<i data-lucide="{{ tertiary.icon }}"></i>{% endif %}
+    </span>
+  </a>
+  {% endif %}
   {% if primary.href %}
   <a href="{{ primary.href }}" class="btn-unified btn-primary">
     <span class="btn-inner">
