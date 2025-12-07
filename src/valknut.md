@@ -58,14 +58,14 @@ scripts:
   "icon": "play-circle"
 } %}
 {% set primary = {
-  "href": "https://valknut.sibylline.dev",
-  "label": "Read the Docs",
-  "icon": "book-open"
-} %}
-{% set secondary = {
   "href": "https://github.com/sibyllinesoft/valknut/",
   "label": "View on GitHub",
   "icon": "github"
+} %}
+{% set secondary = {
+  "href": "https://valknut.sibylline.dev",
+  "label": "Read the Docs",
+  "icon": "book-open"
 } %}
 {% include "components/cta-buttons.njk" %}
    <p><strong>Vibe coding starts out great.</strong> You tell your agent to do things, and you come back ten minutes later to working software. Fast forward 50,000 lines of code and you have a labyrinthine codebase that agents struggle with, full of duplication and architectural drift. <strong>The vibes have faded.</strong></p>
@@ -234,14 +234,14 @@ valknut doc-audit --root . --strict
   "icon": "play-circle"
 } %}
 {% set primary = {
-  "href": "https://valknut.sibylline.dev",
-  "label": "Read the Docs",
-  "icon": "book-open"
-} %}
-{% set secondary = {
   "href": "https://github.com/sibyllinesoft/valknut/",
   "label": "View on GitHub",
   "icon": "github"
+} %}
+{% set secondary = {
+  "href": "https://valknut.sibylline.dev",
+  "label": "Read the Docs",
+  "icon": "book-open"
 } %}
    {% include "components/cta-buttons.njk" %}
 </div>
