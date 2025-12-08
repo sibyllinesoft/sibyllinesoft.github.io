@@ -5,7 +5,7 @@ eleventyNavigation:
   order: 4
 layout: simple.njk
 permalink: "/products/valknut/"
-title: "Valknut: Static Analysis Engine for AI-Guided Refactoring"
+title: "Valknut: Code Intelligence for Agents"
 description: "Stop AI agents hunting blindly. Precise problem roadmaps with 0-1 urgency scores guide agents to highest-impact issues first."
 enableModals: true
 stylesheets:
@@ -68,8 +68,8 @@ scripts:
   "icon": "book-open"
 } %}
 {% include "components/cta-buttons.njk" %}
-   <p><strong>Vibe coding starts out great.</strong> You tell your agent to do things, and you come back ten minutes later to working software. Fast forward 50,000 lines of code and you have a labyrinthine codebase that agents struggle with, full of duplication and architectural drift. <strong>The vibes have faded.</strong></p>
-   <p><strong>You need a healthy codebase to keep shipping quickly.</strong> Messy codebases confuse agents and bias them toward lower-quality code. Agents struggle to refactor difficult codebases; they get just as confused refactoring as they do when creating new code. <strong>Agents need guidance to keep your codebase healthy.</strong></p>
+   <p><strong>Vibe coding started out great.</strong> You tell your agent to do things, and you come back ten minutes later to working software. Fast forward 50,000 lines of code and you have a labyrinthine codebase that agents struggle with, full of duplication and architectural drift. <strong>The vibes are fading.</strong></p>
+   <p><strong>You need a healthy codebase to keep shipping quickly.</strong> Messy codebases confuse agents and bias them toward lower-quality code. Refactoring is the answer, but agents struggle to refactor difficult codebases; they get just as confused trying to clean it up as they do when creating new code. <strong>Agents need guidance to keep your codebase healthy.</strong></p>
 </div>
 <div class="content-section">
 
@@ -77,12 +77,12 @@ scripts:
 
    <div class="services-grid">
       <div class="service-card" data-service="wandering">
-         <h3><i data-lucide="compass"></i> Random Code Wandering</h3>
+         <h3><i data-lucide="compass"></i> Changes That Matter</h3>
          <div class="service-summary">
-            <p><strong>Agents explore without direction, wasting time on low-impact areas.</strong> Valknut directs agents to critical architectural problems.</p>
+            <p>Agents analyze superficially, wasting time on low-impact areas.</p><p><strong> Valknut directs agents to critical architectural problems.</strong></p>
          </div>
          <div class="service-details">
-            <p><strong>Your agents are burning cycles on noise.</strong> Without urgency guidance, AI tools treat a missing semicolon the same as a circular dependency that's crushing team velocity. They'll spend hours perfecting indentation while technical debt compounds in critical pathways.</p>
+            <p><strong>Stop Wasting Cycles on Noise.</strong> Without urgency guidance, AI tools treat a missing semicolon the same as a circular dependency that's crushing team velocity. They'll spend hours perfecting indentation while technical debt compounds in critical pathways.</p>
             <div class="project-features">
                <div class="feature-item" style="font-size: 0.765em;">
                   <p>"When I first approached the Valknut codebase, I spent my entire initial session jumping between files with no clear strategy. I'd see a complex function in `pipeline_executor.rs`, then get distracted by imports that led me to `bayesian.rs`, then notice some error handling patterns that seemed inconsistent across modules.</p>
@@ -97,12 +97,12 @@ scripts:
          <div class="click-hint">Click to expand</div>
       </div>
       <div class="service-card" data-service="isolated">
-         <h3><i data-lucide="scissors"></i> Isolated Refactoring</h3>
+         <h3><i data-lucide="scissors"></i> Eliminate Guesswork</h3>
          <div class="service-summary">
-            <p><strong>Agents simplify one thing and break three others.</strong> Valknut gives agents safe plans to simplify your code.</p>
+            <p>Agents simplify one thing and break three others.</p><p><strong> Valknut gives agents safe plans to simplify your code.</strong></p>
          </div>
          <div class="service-details">
-            <p><strong>Playing whack-a-mole with symptoms, not causes.</strong> Agents see individual code smells but miss the architectural patterns that created them. They'll extract a method here, rename a variable there—never addressing the coupling that's making your codebase unmaintainable.</p>
+            <p><strong>Stop playing whack-a-mole with symptoms, not causes.</strong> Agents see individual code smells but miss the architectural patterns that created them. They'll extract a method here, rename a variable there—never addressing the coupling that's making your codebase unmaintainable.</p>
             <div class="project-features">
                <div class="feature-item" style="font-size: 0.765em;">
                   <p>"I thought I'd found a simple win: consolidating error handling patterns. I spotted similar `match` statements across multiple files and figured I could extract a common error handling utility. Seemed straightforward.</p>
@@ -117,9 +117,9 @@ scripts:
          <div class="click-hint">Click to expand</div>
       </div>
       <div class="service-card" data-service="overload">
-         <h3><i data-lucide="cpu"></i> Context Overload</h3>
+         <h3><i data-lucide="cpu"></i> Skip Random Walks</h3>
          <div class="service-summary">
-            <p><strong>Large codebases overwhelm agents completely.</strong> Valknut gives agents a map to follow.</p>
+            <p>Large codebases overwhelm agents completely.</p><p><strong> Valknut gives agents a map to follow.</strong></p>
          </div>
          <div class="service-details">
             <p><strong>Agents drown in data without intelligence.</strong> Hand them a 100k-line codebase and they'll struggle to build a model of the system, preventing them from identifying real architectural improvements.</p>
@@ -140,14 +140,22 @@ scripts:
 </div>
 <div class="content-section">
 <h2>Why Valknut?</h2>
-   <p>Valknut is a state of the art static analysis tool that uses the latest research to identify patterns in your code that make it harder to read and modify. Valknut goes beyond other static analysis tools by incorporating research into how code structure impacts agent performance. <strong>Well structured code shouldn't be an afterthought, it's the foundation of your ability to ship quickly.</strong></p>
+   <p><strong>Standard linters are noisy, focused on file level insights, and designed around humans as the primary consumers of code.</strong> Valknut is a state of the art static analysis tool designed for a world where agents are the primary consumers of code:</p>
+   <ul>
+   <li>Simple CLI designed for agent use</li>
+   <li>Structured JSON for agents, HTML reports for humans</li>
+   <li>Plans that effectively guide your agents</li>
+   <li>Tips to optimize your code for agent performance</li>
+   </ul>
+   
+   <p><strong>Valknut sees beyond surface level issues to identify patterns that cause agents to fail.</strong> Agent failure patterns are distinct, so time spent fixing standard linting issues is low value. Instead, spend time optimizing your codebase for agent performance. Well structured code can be the difference between one shotting a task and being stuck prompting for hours, so it shouldn't be an afterthought, it's the foundation of your ability to ship quickly.</p>
 
-   <p><strong>Valknut goes beyond superficial analysis to provide deeper architectural insight.</strong> By offering an AI oracle the bones of your codebase and a thorough health report, it is able to divine large structural optimizations that will save you hours of lost productivity over time.
+   <p><strong>Valknut can formulate plans for deeper structural optimization.</strong> Valknut uses AI to analyze a optimized bundle of your code's tech debt hot spots and identify high leverage optimizations. It then formulates them into a coherent plan that guides your agents through completing the work safely. Valknut uses extensive context engineering paired with Gemini's best in class long context reasoning to produce plans that are far superior to plans produced by Claude Code, Codex and Cursor.
    </p>
 
-   <p><strong>Valknut ensures your code is well tested and documented.</strong> Agents struggle to act on standard coverage reports and bloat code documenting the obvious. Valknut gives agents clear targets so they test and document your code efficiently.</p>
+   <p><strong>Valknut ensures your code is well tested and documented.</strong> Agents struggle to act on the line numbers produced by standard coverage reports, and existing coverage renderers are designed for humans with a bunch of fluff that degrades context. When tasked with documenting code, agents burn tokens exploring then add bloat by adding low value comments to semantically clear code. Valknut gives agents clear targets so they test and document your code efficiently.</p>
 
-   <p><strong>Valknut makes it easy to visualize project health at a glance.</strong> No more combing through piles of verbose tool output; see your problems instantly in a sleek graphical dashboard.</p>
+   <p><strong>Valknut makes it easy to visualize project health at a glance.</strong> No more combing through a mountain of tool logs; see your problems instantly in a sleek graphical dashboard.</p>
 </div>
 <div class="content-section">
    <h2>From Quick Wins to Architectural Transformation</h2>
@@ -155,7 +163,8 @@ scripts:
       <div class="service-card" data-service="quick-wins">
          <h3><i data-lucide="target"></i> Emergency Triage</h3>
          <div class="service-summary">
-            <p><strong>Urgency scores guide agents to high impact problems.</strong> Stop your agents from nit-picking while critical architectural debt bleeds your productivity.</p>
+            <p>Stop your agents from nit-picking while critical architectural debt bleeds your productivity.</p>
+            <p><strong>Urgency scores guide agents to high impact problems.</strong></p>
          </div>
          <div class="service-details">
             <h4>Example Output:</h4>
@@ -174,7 +183,8 @@ scripts:
       <div class="service-card" data-service="systemic">
          <h3><i data-lucide="network"></i> Uncover Systemic Issues</h3>
          <div class="service-summary">
-            <p><strong>Impact Packs guide agents refactor safely and efficiently.</strong> Analytic plans keep agents on rails, so you can keep ratcheting up codebase quality.</p>
+            <p>Analytic plans keep agents on rails, so you can keep ratcheting up codebase quality.</p>
+            <p><strong>Impact Packs guide agents refactor safely and efficiently.</strong></p>
          </div>
          <div class="service-details">
             <h4>Example Impact Pack:</h4>
@@ -193,7 +203,8 @@ scripts:
       <div class="service-card" data-service="comprehensive">
          <h3><i data-lucide="layers"></i> Accelerate Code Coverage</h3>
          <div class="service-summary">
-            <p><strong>Coverage Packs ensure no stone is left unturned.</strong> Complete analysis across all modules with dependency-aware refactoring plans for architectural overhauls.</p>
+            <p>Complete analysis across all modules with dependency-aware refactoring plans for architectural overhauls.</p>
+            <p><strong>Coverage Packs ensure no stone is left unturned.</strong></p>
          </div>
          <div class="service-details">
             <h4>Example Coverage Pack:</h4>
@@ -213,10 +224,30 @@ scripts:
 </div>
 <div class="content-section">
    <div class="section-header">
-      <h2>Quickstart</h2>
-      <p class="lead">Pulled straight from the GitHub README—copy, paste, run.</p>
+      <h2>Quick Start</h2>
    </div>
 
+Using Valknut is easy! Just point your agent at this URL and tell it to install Valknut, then tell it to analyze your codebase and act on identified issues. If you want an Oracle generated refactoring plan, make sure you have `GEMINI_API_KEY` set in your environment.
+
+### Homebrew (macOS)
+```bash
+brew tap sibyllinesoft/valknut
+brew install valknut
+```
+
+### Cargo (cross-platform)
+```bash
+cargo install valknut-rs
+```
+
+### Build from Source
+```bash
+git clone https://github.com/sibyllinesoft/valknut
+cd valknut
+cargo build --release
+```
+
+### Examples
 ```bash
 # Fast scan with JSONL output (default profile)
 valknut analyze ./src --format jsonl
