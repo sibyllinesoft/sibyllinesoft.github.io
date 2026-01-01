@@ -11,13 +11,8 @@ image: "/img/optimized/article-llm-programming-runtime.webp"
 ---
 
 <div class="tldr-banner">
-  <strong>TL;DR</strong>
-  <ul>
-    <li>Agent systems are DAGs, not monoliths—specialized nodes scale better than single agents</li>
-    <li>Get 10x throughput and 60% cost savings through parallel execution and smart resource use</li>
-    <li>Ship production-ready systems in 6 weeks using proven implementation patterns</li>
-    <li>Built-in failure isolation, circuit breakers, and graceful degradation prevent cascading failures</li>
-  </ul>
+  <strong>tl;dr:</strong>
+  <p>Agent systems are DAGs, not monoliths—specialized nodes scale better than single agents. Parallel execution and smart resource use yield 10x throughput and 60% cost savings, with built-in failure isolation preventing cascading failures.</p>
 </div>
 
 You're building the next generation of AI-powered software, but there's a fundamental architectural breakthrough hiding in plain sight. Every day, companies deploy LLM-based systems that treat agents like isolated services instead of what they actually are: **specialized nodes in a Directed Acyclic Graph executing distributed computation**.

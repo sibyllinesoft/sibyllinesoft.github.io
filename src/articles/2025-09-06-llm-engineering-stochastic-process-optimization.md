@@ -9,13 +9,8 @@ image: "/img/optimized/article-llm-programming-runtime.webp"
 ---
 
 <div class="tldr-banner">
-  <strong>TL;DR</strong>
-  <ul>
-    <li>LLM code generation is a stochastic optimization problem with measurable convergence properties</li>
-    <li>Trust region methods outperform greedy approaches by 3-5x in complex scenarios</li>
-    <li>Oracle resolution (r) and human priors (H) create predictable speed-quality tradeoffs</li>
-    <li>Interactive simulation reveals optimal reviewer team sizes and correlation thresholds</li>
-  </ul>
+  <strong>tl;dr:</strong>
+  <p>LLM code generation is a stochastic optimization problem with measurable convergence properties. Trust region methods outperform greedy approaches by 3-5x, and oracle resolution creates predictable speed-quality tradeoffs.</p>
 </div>
 
 The fundamental question in LLM engineering isn't "how do we prompt better?"—it's **"how do we mathematically optimize the stochastic process of iterative code improvement?"**

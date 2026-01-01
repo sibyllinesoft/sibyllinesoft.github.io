@@ -8,12 +8,8 @@ layout: article.njk
 image: "/img/optimized/article-hacking-claude-code.webp"
 ---
 <div class="tldr-banner">
-  <strong>TL;DR</strong>
-  <ul>
-    <li>Drop Bifrost in front of Claude Code to rewrite inference calls without touching the agent</li>
-    <li>Use Bifrost to instrument your agents for Open Telemetry.</li>
-    <li>Emit spans for every webhook invocation, then analyze them using Clickhouse.</li>
-    </ul>
+  <strong>tl;dr:</strong>
+  <p>Drop Bifrost in front of Claude Code to rewrite inference calls without touching the agent, instrument for OpenTelemetry, and analyze traces in ClickHouse.</p>
 </div>
 
 <p>

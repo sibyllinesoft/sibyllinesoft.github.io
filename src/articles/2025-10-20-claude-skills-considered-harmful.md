@@ -14,12 +14,8 @@ image: "/img/optimized/article-claude-skills-considered-harmful.webp"
 ---
 
 <div class="tldr-banner">
-  <strong>TL;DR</strong>
-  <ul>
-    <li>Skills weld your docs and workflows to Anthropic's opaque runtime, making migration and auditing painful.</li>
-    <li>Version-controlled README hierarchies give every agent (and every teammate) portable, reviewable "skills."</li>
-    <li>The promised convenience is marginal at best and may quietly tax your context window or API bill.</li>
-  </ul>
+  <strong>tl;dr:</strong>
+  <p>Skills weld your docs and workflows to Anthropic's opaque runtime, making migration and auditing painful. Version-controlled README hierarchies give every agent portable, reviewable "skills" instead.</p>
 </div>
 
 There's a lot of hype building around Claude's "Skills" feature. Simon Willison wrote a hyperbolic article about it, it's all over LinkedIn and I've seen several prominent YouTubers feature it. Skills promise seamless integration of documentation and commands, it's being sold as a step forward for AI-assisted development.

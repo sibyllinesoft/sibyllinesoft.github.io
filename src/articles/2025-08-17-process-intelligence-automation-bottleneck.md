@@ -9,13 +9,8 @@ image: "/img/optimized/article-process-intelligence.webp"
 ---
 
 <div class="tldr-banner">
-  <strong>TL;DR</strong>
-  <ul>
-    <li>87% of AI automation fails due to poor process intelligence, not insufficient model smarts</li>
-    <li>Build orchestrated agent workflows with specialized subagents instead of single-model solutions</li>
-    <li>Use fast models for coordination, expensive models only for genuinely hard problems</li>
-    <li>Implement knowledge management subagents and persistent state tracking for reliable workflows</li>
-  </ul>
+  <strong>tl;dr:</strong>
+  <p>87% of AI automation fails due to poor process intelligence, not model smarts. Build orchestrated workflows with specialized subagents, use fast models for coordination, and implement persistent state tracking for reliability.</p>
 </div>
 
 It's 2 AM. Your "AI-powered" automation just failed for the third time this week, leaving you staring at a cryptic error message while your deployment window closes. The model is brilliant—it can write elegant algorithms, debug complex edge cases, and even craft poetry that would make Shakespeare weep. But ask it to orchestrate a multi-step workflow that survives contact with reality? It falls apart faster than your weekend plans.

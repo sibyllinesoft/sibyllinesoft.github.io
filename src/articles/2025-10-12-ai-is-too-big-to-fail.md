@@ -13,12 +13,8 @@ image: "/img/optimized/article-ai-is-too-big-to-fail.webp"
 cardImage: "/img/optimized/article-ai-is-too-big-to-fail.webp"
 ---
 <div class="tldr-banner">
-  <strong>TL;DR</strong>
-  <ul>
-    <li>AI capital flows outrun near-term revenue, yet investors frame the risk as a national security mandate.</li>
-    <li>Silicon Valley power brokers are aligned with federal leadership, ensuring backstops for key firms.</li>
-    <li>China's energy base and robotics lead mean the U.S. must sprint just to avoid falling behind.</li>
-  </ul>
+  <strong>tl;dr:</strong>
+  <p>AI capital flows outrun near-term revenue, but investors frame the risk as a national security mandate. Silicon Valley power brokers aligned with federal leadership ensure backstops for key firms, while China's energy base and robotics lead force the U.S. to sprint.</p>
 </div>
 
 You've probably been hearing that we're in an AI bubble. I think that's both loaded and reductive, and I'd like to take some time to help people understand the nuances of the situation we're currently in, because it's deep. To be clear, I am pro AI as a technology and I have an economic interest in its success (and for reasons I'll discuss, so should you), however there is a lot more going on that I don't agree with that I'd like to raise awareness of.

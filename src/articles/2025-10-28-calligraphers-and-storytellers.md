@@ -13,13 +13,8 @@ cardImage: "/img/optimized/article-calligraphers-and-storytellers.webp"
 ---
 
 <div class="tldr-banner">
-  <strong>TL;DR</strong>
-  <ul>
-    <li>AI tools feel alienating when organizations shuffle engineers between tasks instead of giving them enduring ownership.</li>
-    <li>The calligrapher/storyteller analogy explains why craft-focused developers resist AI while problem-finders adapt.</li>
-    <li>Teams that empower "storytellers" to run with AI gain leverage; committee-driven cultures squander the speed advantage.</li>
-    <li>Stay relevant by pairing domain mastery, human relationships, and architectural judgment into a vertically integrated skill set.</li>
-  </ul>
+  <strong>tl;dr:</strong>
+  <p>AI feels alienating when orgs shuffle engineers between tasks instead of giving ownership. "Calligraphers" (craft-focused) resist AI; "storytellers" (problem-finders) thrive with it. Stay relevant by combining domain expertise, people skills, and architectural judgment.</p>
 </div>
 
 One interesting take that I've heard a few times from engineers on YouTube, HackerNews and Reddit is that AI agents have taken the joy out of software engineering for them. Among other things, I've heard people mention feeling disconnected from their output, and missing the pleasure of problem solving. The first is legitimate, the second is a side effect of other problems we should fix, and both are exacerbated by the way software engineering organizations plan and distribute work.

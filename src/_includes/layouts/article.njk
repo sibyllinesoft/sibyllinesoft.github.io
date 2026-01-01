@@ -8,35 +8,19 @@ layout: simple.njk
     <strong>Draft:</strong> This article is not yet published and won't appear in the articles listing.
   </div>
   {% endif %}
-  
+
   <div class="article-hero">
-    <div class="article-image-section">
-      <img src="{{ image or '/img/default-article.jpg' }}" alt="{{ title }}">
-      <div class="article-image-overlay"></div>
-    </div>
-    <div class="article-tldr">
-      <!-- TL;DR content will be moved here from article body -->
+    <img src="{{ image or '/img/default-article.jpg' }}" alt="{{ title }}" class="article-hero-image">
+    <div class="article-hero-overlay"></div>
+    <div class="article-hero-content">
+      <header class="article-header">
+        <h1 class="article-title">{{ title }}</h1>
+        {% if description %}
+        <p class="article-description">{{ description }}</p>
+        {% endif %}
+      </header>
     </div>
   </div>
-  
-  <header class="article-header">
-    <h1 class="article-title">{{ title }}</h1>
-    <div class="article-meta">
-      <time datetime="{{ date | htmlDateString }}"><i data-lucide="calendar"></i> {{ date | readableDate }}</time>
-      {% if tags %}
-      <div class="article-tags">
-        {% for tag in tags %}
-          {% if tag != "articles" %}
-          <span class="tag">{{ tag }}</span>
-          {% endif %}
-        {% endfor %}
-      </div>
-      {% endif %}
-    </div>
-    {% if description %}
-    <p class="article-description">{{ description }}</p>
-    {% endif %}
-  </header>
 
   <div class="article-body">
     {{ content | safe }}
@@ -48,71 +32,72 @@ layout: simple.njk
 </article>
 
 <style>
+/* Override main container padding for full-bleed hero */
+.main:has(.article-content) {
+  padding-top: 0;
+}
+
 .article-content {
   max-width: 1200px;
 }
 
 .article-hero {
-  display: flex;
-  background: var(--color-surface-50);
-  border: 1px solid var(--color-border-light-50);
-  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-  margin: 0;
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  height: 500px;
-}
-
-.article-image-section {
-  flex: 1.2;
   position: relative;
-  background: var(--color-graphite-700);
+  margin: 0 0 var(--space-xl) 0;
+  overflow: hidden;
+  min-height: 375px;
+  /* Break out of container to full viewport width */
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
 }
 
-.article-image-section img {
+.article-hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
+  z-index: 1;
 }
 
-.article-image-overlay {
+.article-hero-overlay {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(99, 102, 241, 0.3);
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(79, 70, 229, 0.25) 100%);
+  z-index: 2;
   pointer-events: none;
 }
 
-.article-tldr {
-  flex: 0 0 400px;
-  padding: 2rem;
+.article-hero-content {
+  position: relative;
+  z-index: 3;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
-  color: white;
-  font-size: 0.9rem;
+  align-items: flex-end;
+  min-height: 375px;
 }
 
 .article-header {
-  padding: 2rem;
-  background: var(--color-surface-50);
-  border: 1px solid var(--color-border-light-50);
-  border-top: none;
-  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
-  margin-bottom: var(--space-xl);
+  width: 100%;
+  padding: 20px 40px;
+  background: rgba(30, 32, 38, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: none;
   text-align: center;
 }
 
 .article-header h1 {
   margin-bottom: 1rem;
-  color: var(--color-text);
+  color: white;
   font-size: 2.5rem;
   font-weight: 700;
   line-height: 1.2;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .article-meta {
@@ -120,9 +105,10 @@ layout: simple.njk
   align-items: center;
   justify-content: center;
   gap: 1rem;
+  padding: 0.75rem 1.5rem;
   margin-bottom: 1rem;
   font-size: 0.9rem;
-  color: var(--color-text-muted);
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .article-meta time {
@@ -134,7 +120,7 @@ layout: simple.njk
 .article-meta .lucide {
   width: 0.9rem;
   height: 0.9rem;
-  color: var(--color-text-muted);
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .article-tags {
@@ -145,21 +131,20 @@ layout: simple.njk
 }
 
 .tag {
-  background: var(--color-graphite-200);
+  background: rgba(255, 255, 255, 0.15);
   padding: 0.3rem 0.6rem;
   border-radius: var(--radius-md);
   font-size: 0.8rem;
-  color: var(--color-graphite-800);
-  border: 1px solid var(--color-graphite-400);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 .article-description {
   font-size: 1.1rem;
-  color: var(--color-text-light);
+  color: rgba(255, 255, 255, 0.9);
   line-height: 1.6;
   font-style: italic;
-  margin: 0 auto;
-  max-width: 720px;
+  margin: 0;
   text-align: center;
 }
 
@@ -256,97 +241,55 @@ layout: simple.njk
   font-size: 0.9rem;
 }
 
-.article-tldr .tldr-banner,
-.tldr-banner {
-  background: transparent;
-  color: white;
-  padding: 0;
-  border-radius: 0;
-  margin: 0;
-  font-size: var(--text-base);
-  border: none;
-  box-shadow: none;
-}
-
-.article-tldr .tldr-banner strong,
-.tldr-banner strong {
-  color: rgba(255, 255, 255, 0.95);
-  font-size: 1.56rem;
-  font-weight: 700;
-  display: block;
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
-.article-tldr .tldr-banner ul,
-.tldr-banner ul {
-  margin: 0;
-  padding-left: var(--space-lg);
-  list-style-type: none;
-}
-
-.article-tldr .tldr-banner li,
-.tldr-banner li {
-  margin-bottom: 1.875rem;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.95);
-  font-size: 0.84rem;
-}
-
-.article-tldr .tldr-banner li:last-child,
-.tldr-banner li:last-child {
-  margin-bottom: 0;
-}
-
-/* Hide standalone TL;DR banners in article body when they appear in the hero */
+/* Inline TL;DR paragraph style */
 .article-body .tldr-banner {
-  display: none;
+  background: var(--color-surface-50);
+  border-left: 4px solid var(--color-link);
+  padding: 1rem 1.5rem;
+  margin: 64px 0;
+  border-radius: var(--radius-md);
 }
 
-@media (max-width: 768px) {
+.article-body .tldr-banner strong {
+  color: var(--color-link);
+  font-weight: 700;
+  margin-right: 0.5rem;
+}
+
+.article-body .tldr-banner p {
+  margin: 0;
+  display: inline;
+  color: var(--color-text-light);
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
   .article-hero {
-    flex-direction: column;
-    height: auto;
+    min-height: 280px;
   }
-  
-  .article-image-section {
-    flex: 0 0 250px;
+
+  .article-hero-content {
+    min-height: 280px;
   }
-  
-  .article-tldr {
-    flex: none;
-    padding: 1.5rem;
-    font-size: 0.8rem;
-  }
-  
+
   .article-header {
     padding: 1.5rem;
     text-align: center;
   }
-  
+
   .article-meta {
     justify-content: center;
     flex-wrap: wrap;
     gap: 0.5rem;
   }
-  
+
   .article-header h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
+  }
+
+  .article-description {
+    font-size: 1rem;
   }
 }
 </style>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Move TL;DR from article body to hero section
-  const tldrBanner = document.querySelector('.article-body .tldr-banner');
-  const tldrContainer = document.querySelector('.article-tldr');
-  
-  if (tldrBanner && tldrContainer) {
-    // Move the TL;DR content to the hero section
-    tldrContainer.appendChild(tldrBanner);
-    // Make it visible again (CSS hides it in article-body)
-    tldrBanner.style.display = 'block';
-  }
-});
-</script>
