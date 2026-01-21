@@ -1,6 +1,6 @@
 ---
 title: "I taught Ralph how to fix sloppy vibe code"
-description: "Agents declare victory after trivial refactors. Here's how to make them actually finish—autonomous refactoring that works without babysitting."
+description: "Set a quality bar, let the agent grind, walk away. It actually works."
 date: 2026-01-14
 published: true
 tags: ["articles", "agents", "valknut", "ralph-loop", "refactoring", "code-quality"]
