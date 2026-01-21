@@ -1,6 +1,6 @@
 ---
-title: "Digital Alchemy: Turning Slop into Gold with Ralph and Valknut"
-description: "A two-phase workflow for rebuilding bad codebases: use Ralph Loop to achieve test coverage, then Valknut to push code health scores through the roof."
+title: "I taught Ralph how to fix sloppy vibe code"
+description: "Agents declare victory after trivial refactors. Here's how to make them actually finish—autonomous refactoring that works without babysitting."
 date: 2026-01-14
 published: true
 tags: ["articles", "agents", "valknut", "ralph-loop", "refactoring", "code-quality"]
@@ -9,12 +9,14 @@ image: "/img/optimized/article-ralph-valknut.webp"
 ---
 <div class="tldr-banner">
   <strong>tl;dr:</strong>
-  <p>Run Ralph Loop to hit 85% test coverage, then run it again with Valknut to push code health above 90%. Two passes, one transformed codebase.</p>
+  <p>Agents love to declare victory after trivial refactors. With Ralph and Valknut, they actually finish the job.</p>
 </div>
 
-You've got a messy codebase. Maybe you threw it together yourself during a weekend hackathon, a contractor delivered it, or you fully vibed it while juggling three other things. Regardless of origin, you're now trying to untagle a mess of spaghetti code that's causing agents to fail half the time even on theortically simple tasks.
+While building Valknut, I noticed something frustrating: AI agents are terrible at knowing when refactoring work is actually done. They'd split one function, rename a variable, then proudly announce "refactoring complete" while the codebase still had god modules, tangled dependency graphs, and duplicated logic scattered across packages.
 
-The good news: you don't have to burn it down and start over. With the right tools and a systematic approach, you can transmute that slop into software gold.
+Tell an agent to "improve code quality" and you'll get small, inconsequential changes followed by a mission accomplished flag. The real problems—the ones causing edit failures, wrong-file modifications, and token-burning context confusion stay untouched.
+
+I needed two things: an analytic bar agents couldn't weasel out of, and a way to keep them grinding until they actually cleared it.
 
 ## The Workflow
 
@@ -28,9 +30,11 @@ Each phase is measurable, automatable, and produces artifacts you can review. No
 
 ## Phase 1: Ralph Loop for Test Coverage
 
-If you haven't used [Ralph Loop](https://github.com/anthropics/claude-plugins/tree/main/plugins/ralph-loop) yet, it's a Claude Code plugin that keeps feeding the same prompt back to the agent until a completion condition is met. Think of it as an autonomous agent with a single-minded focus.
+If you haven't used [Ralph Loop](https://github.com/anthropics/claude-plugins/tree/main/plugins/ralph-loop) yet, it's a Claude Code plugin that keeps feeding the same prompt back to the agent until a completion condition is met. The name is a reference to the Simpsons character Ralph Wiggum, as a testament to his foolish persistence.
 
-Agents are good at writing tests. They can read code, understand intent, and generate comprehensive test cases faster than any human. What they struggle with is knowing when to stop. If you're trying to juice your test coverage, agents will often stop after increasing coverage after a small improvement, forcing you to start another loop. The Ralph Loop solves that by giving you a completion promise the agent must fulfill.
+Agents are good at writing tests. They can read code, understand intent, and generate comprehensive test cases faster than any human. What they struggle with is knowing when to stop. If you're trying to juice your test coverage, agents will often stop after incremental coverage improvements, forcing you to start another loop. The Ralph Loop solves that by giving you a completion promise the agent must fulfill.
+
+Before Ralph, getting an agent to grind through real coverage gaps meant reprompting a dozen or more times. The agent would add a few tests, report progress, and stop—leaving you to manually restart the loop. Ralph makes that a non-issue: set the completion promise, walk away, come back to results.
 
 ```bash
 # Install the plugin if you haven't already
@@ -56,21 +60,14 @@ It's the sweet spot. Below 80%, you're still missing critical paths. Above 90% a
 
 Here's where things get interesting.
 
-[Valknut](https://github.com/sibyllinesoft/valknut) is a code intelligence tool that combines structural analysis, complexity metrics, and AI-powered refactoring guidance. In addition to file level complexity and length that existing tools (e.g. eslint, ruff) already catch, Valknut catches directory and codebase issues that are currently flying under the radar:
+[Valknut](https://github.com/sibyllinesoft/valknut) was born from this exact frustration. I built it to set an objective quality bar that agents can't hand-wave past. Traditional linters output a sea of warnings that agents can "address" with minimal effort while ignoring structural rot. Valknut produces a single health score—and the agent doesn't get to stop until that number moves.
 
-- Poor semantic and representational cohesion across files, directories and packages. Does your codebase structure make sense given your import patterns and the linguistic commonalities of your code symbols?
-- Poor documentation coverage and cohesion across files, directories and packages. Do your docstrings and comments align with what symbol names in that code suggest it's doing? Are all public code interfaces documented? Do directories have README.md files that explain their semantics (and ideally link to their important code)?
-- Cross-project code duplication. Vibe coded codebases are often riddled with duplicated code, and as codebase size increases this can cause agents to modify the incorrect code in doom loops.
-- Folder level structural imbalances. Do you have deep directory nesting with 2-3 files per directory in some places, and monster 30+ file directories in others? These patterns can confuse agents and waste tokens; moving towards a balanced tree based around "the magical number seven" gives you effective chunking and progressive disclosure while being human friendly.
+More importantly, Valknut catches the issues that actually trip agents up:
 
-I suggest you use Valknut in place of a traditional linter for a few reasons:
-
-- **Agent first**: Agents don't get confused by the same things humans do, so linting tools designed for humans are leaving agent specific code health optimizations on the table when 85%+ of the code is written by agents.
-- **Faster**: Traditional linters written in the languages they're linting are usually slow (e.g. eslint), whereas Valknut is written in Rust and performance optimized. If you don't need fast iteration, Valknut gives you a lot of knobs to spend more compute analyzing your code.
-- **One tool**: Traditional linters tend to support a single language since they bake paradigms in (e.g. pep8), but since Valknut uses graph and information theory to understand the codebase the way an agent would, it can support any language with a tree sitter parser with minimal modifications (which is all the ones that matter). Agents are eliminating the barriers to polyglot programming, so being able to keep a single toolchain across languages saves a lot of hassle.
-- **Better analytics**: Valknut's analytic scoring makes it easy to see problem hotspots in your code at a glance rather than having to wade through a sea of linter noise.
-
-It's not a terrible idea to have a language specific linter for a few things, but I've seen teams burn a ton of cycles on lint rule discussions for questionable returns, so if you go this route I suggest keeping it minimal and low friction. I suspect an agent could do an audit of lint rules to identify ones that are applicable and not already covered by Valknut well enough.
+- **God modules and colocated functionality**: Agents love dumping related code into one file. This creates tangled dependency graphs that cause edit errors when the agent can't hold the full context.
+- **Cross-project duplication**: Vibe-coded repos are riddled with copy-pasted logic. Agents modify the wrong copy, tests pass, and you've got a silent bug.
+- **Structural imbalance**: Deep nesting in some places, 30-file flat directories in others. Agents waste tokens navigating inconsistent hierarchies.
+- **Poor documentation cohesion**: When docstrings don't match what code actually does, agents misunderstand intent and make wrong changes.
 
 ### Install Valknut
 
@@ -142,6 +139,8 @@ After both phases complete, you'll have:
 - A codebase that scores in the 90s on structural health
 - HTML reports documenting the final state, with attractive project level visualizations
 - Git history showing every incremental improvement
+
+The anecdotal result after running this on several codebases: fewer tokens to make subsequent changes, and far fewer failures from agents misunderstanding structure or editing the wrong file.
 
 If you feel like showing off your newly refreshed project, head on over to [The Code Quality Leaderboard](https://codehealth.sibylline.dev/) and submit it to the list!
 
