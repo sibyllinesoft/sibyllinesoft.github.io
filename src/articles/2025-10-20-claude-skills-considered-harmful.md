@@ -18,6 +18,8 @@ image: "/img/optimized/article-claude-skills-considered-harmful.webp"
   <p>Skills weld your docs and workflows to Anthropic's opaque runtime, making migration and auditing painful. Version-controlled README hierarchies give every agent portable, reviewable "skills" instead.</p>
 </div>
 
+<strong>Since this article was written, Anthropic has made the skill spec open, and Codex has implementedd support for them. I still think skills are overhyped, but they're not actively harmful.</strong>
+
 There's a lot of hype building around Claude's "Skills" feature. Simon Willison wrote a hyperbolic article about it, it's all over LinkedIn and I've seen several prominent YouTubers feature it. Skills promise seamless integration of documentation and commands, it's being sold as a step forward for AI-assisted development.
 
 We need to pump the brakes on this hype train. Skills are a poorly conceived pattern that introduces significant long-term problems for the sake of minor, vendor-specific conveniences.
