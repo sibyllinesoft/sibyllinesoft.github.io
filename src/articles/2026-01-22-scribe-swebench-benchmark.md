@@ -1,5 +1,5 @@
 ---
-title: "Scribe reduces SWE-bench token usage by 30% with no loss of accuracy"
+title: "Scribe reduces agent token usage by 30% with no loss of accuracy"
 description: "95 benchmark runs across 14 tasks in Python, Rust, Go, and JavaScript confirm the results"
 date: 2026-01-22
 published: true
