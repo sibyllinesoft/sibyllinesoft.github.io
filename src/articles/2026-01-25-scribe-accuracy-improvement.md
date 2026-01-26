@@ -125,7 +125,7 @@ I ran scribe-context mode 5 times on each task. The context was pre-fetched usin
       <td>40%</td>
       <td>-12 pp</td>
     </tr>
-    <tr style="font-weight: bold; background: var(--color-gray-10, #f5f5f5);">
+    <tr>
       <td>OVERALL</td>
       <td>58.1%</td>
       <td>91.1%</td>
