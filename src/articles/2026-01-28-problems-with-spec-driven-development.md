@@ -65,6 +65,7 @@ This led me to the design I'm iterating on now:
 
 * A master specification written in CUE that provides shared types and validates composition and correctness of child sections.
 * A simple entity/relationship base schema with subtypes and metadata capable of modelling diverse systems.
+* Re-use of off the shelf modelling tools whenever possible
 * Template/Macro driven transformation of graph nodes/cliques using deterministic code generation for scaffolding, tests and documentation.
 * Tasks and comments as first class queryable specification elements, associated to systems via relationships, letting your spec serve as a task log and knowledge graph.
 
