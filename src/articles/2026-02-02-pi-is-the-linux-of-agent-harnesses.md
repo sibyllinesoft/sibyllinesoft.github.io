@@ -39,5 +39,7 @@ When I learned that Pi was the harness behind LOLCLAW, it was a done deal. The h
 
 Of course, this depends a great deal on how well shepherded Pi is. One good sign is that like Linus, Mario Zercher (the creator of Pi) doesn't seem to be afraid to say no, and it's small enough that forks and "dialects" could emerge and all coexist peacefully. Overall, I'm hopeful that Pi will drive a standardized open agent ecosystem that keeps freedom and power in the hands of the users.
 
+[Check out Pi](https://github.com/badlogic/pi-mono)
+
 
 
