@@ -15,20 +15,20 @@ scripts:
 <!-- Hidden data for rotating banners - read by JavaScript -->
 <div class="hero-data" style="display: none;">
   <div class="title-subtitle-group" data-group-index="0">
-    <div class="title">Slash Your SaaS Bill by 90%</div>
-    <div class="subtitle">We provide AI integrated development workspaces for less than a dollar a day</div>
-    <div class="subtitle">Our co-management model gives all the power of self hosting with the convenience of SaaS</div>
+    <div class="title">Autonomous Agents Without the Risk</div>
+    <div class="subtitle">Zero trust. Post-quantum crypto. Heavy isolation.</div>
+    <div class="subtitle">Every agent action sandboxed, encrypted, and auditable.</div>
   </div>
   <div class="title-subtitle-group" data-group-index="1">
-    <div class="title">10x Your Company's Velocity</div>
-    <div class="subtitle">We automate the drudgery so your team can focus on the hard stuff</div>
-    <div class="subtitle">Stop sweating your prompts, our agents understand your business out of the box</div>
+    <div class="title">Autonomous Agents Without the Risk</div>
+    <div class="subtitle">Built on the standards your organization already runs.</div>
+    <div class="subtitle">Envoy. OPA/Rego. Grafana. Day-one integration.</div>
   </div>
 </div>
 
 {% set heroLogo = '/img/logo.svg' %}
 {% set heroLogoAlt = 'Sibylline Software Logo' %}
-{% set heroTitle = 'The AI Dev Stack That Actually Ships' %}
+{% set heroTitle = 'Autonomous Agents Without the Risk' %}
 {% set heroSubtitle %}
 
   <div class="rotating-banners">
@@ -42,34 +42,33 @@ scripts:
 <hr class="hero-divider">
 
 <div class="centered-section">
-<h3>Open source workspaces with everything you need for world class developer experience, pre-wired with single sign-on and AI automation, <em>all for less than your monthly Slack bill.</em></h3>
+<h3>Your employees are already running autonomous agents. <em>The only question is whether they're doing it safely.</em></h3>
 <div class="hero-cta">
-  <a href="/products/" class="btn-primary"><span class="btn-inner">Products<i data-lucide="arrow-right"></i></span></a>
-  <a href="javascript:void(0)" class="btn-secondary" data-contact-type="contact" data-subject-type="strategy"><span class="btn-inner">Talk Strategy <i data-lucide="mail"></i></span></a>
+  <a href="/products/" class="btn-primary"><span class="btn-inner">Learn About Smith<i data-lucide="arrow-right"></i></span></a>
+  <a href="javascript:void(0)" class="btn-secondary" data-contact-type="contact" data-subject-type="strategy"><span class="btn-inner">Talk to Us <i data-lucide="mail"></i></span></a>
 </div>
-<p><strong>Improvements in developer experience are like compounding interest.</strong> Each minute saved is a minute that can be re-invested in building your product. Great developer experience lets you respond to feedback from customers faster and build new features at a rate that competitors can't match.</p>
-<p>It can be hard to invest in developer experience when users are demanding features and investors are demanding growth. We want to help. <strong>We offer customized workspaces with great developer experience out of the box.</strong></p>
-<p>Amazing developer experience doesn't just come from better tools, it comes from better systems, and the ideal system is different for every team. <strong>Our tools are designed to fit into your workflows and adapt to your needs.</strong> We don't just sell software, we can provide the support, consulting and educational services you need to achieve an exceptional outcome with AI.</p>
+<p><strong>One in five organizations deployed OpenClaw without IT approval.</strong> Over a third of skills in its marketplace have security vulnerabilities. 40,000 exposed instances on the public internet. 1.5 million leaked API keys. Banning autonomous agents doesn't work&mdash;49% of employees use AI tools their company hasn't sanctioned. The only viable strategy is giving them an agent that's built to be governed.</p>
+<p><strong>Smith is a modular autonomous agent framework built on zero trust architecture with post-quantum cryptography.</strong> It delivers the autonomous capabilities your teams want with the security, observability, and policy controls your organization requires. Smith comes pre-configured with best-in-class development tools including <a href="/products/arbiter/">Arbiter</a> and <a href="/products/valknut/">Valknut</a>, and integrates into the infrastructure you already run.</p>
+<p><strong>Same agent. Different scales.</strong> Whether you're an individual who wants a secure agent that just works, a startup that needs to move fast without creating security debt, or an enterprise that demands full policy enforcement and compliance&mdash;Smith is one platform with the dials to match.</p>
 </div>
 
 <div class="content-section">
 
-## One Stack From Sandbox to Hyperscale
+## One Agent. Any Scale.
 
 <div class="services-grid">
 <div class="service-card" data-service="training">
 <h3><i data-lucide="graduation-cap"></i> Individuals</h3>
 <div class="service-summary">
-<p><strong>Take the guesswork out of AI.</strong> Skip the research rabbit hole, spin up a professional grade development environment in minutes.</p>
+<p><strong>Set up in minutes, not days.</strong> Smith's agentic installer handles the hard parts so you get a secure autonomous agent without the configuration minefield.</p>
 </div>
 <div class="service-details">
-<p><strong>AI is going to transform the labor market.</strong> The people who thrive will be the ones who've mastered the skill of applying AI to real world problems. Are you ready?</p>
-<p>Unlike vibe coding tools that focus on simplifying the process of creating demos in toy environments, our software integrates into the tools used to build real software and deploys into real enviroments.</p>
+<p><strong>The typical OpenClaw setup is a maze of YAML, env files, and exposed ports.</strong> Smith's installer asks what you need, configures zero trust networking, sets up encrypted credential storage, and gives you a working agent in minutes. No plaintext API keys. No exposed ports. No "why is my agent on Shodan" surprises.</p>
+<p>Smith comes pre-configured with state-of-the-art development tools so you can start building immediately:</p>
 <ul class="bullet-box">
-<li><a href="/products/rave/">Rave</a> is a complete AI development environment, designed for maximum productivity and preconfigured with best in class tools</li>
 <li><a href="/products/arbiter/">Arbiter</a> compiles your specs into working software with tests that keep your agents on rails</li>
-<li>Smith lets you orchestrate agent swarms to implement and test work in parallel</li>
-<li><a href="/products/valknut/">Valknut</a> tames agent induced technical debt</li>
+<li><a href="/products/valknut/">Valknut</a> tames agent-induced technical debt before it compounds</li>
+<li>Built-in skills and workflows for coding, task automation, and real-world integrations</li>
 </ul>
 
 </div>
@@ -83,16 +82,16 @@ scripts:
 <div class="service-card" data-service="startup">
 <h3><i data-lucide="zap"></i> Startups</h3>
 <div class="service-summary">
-<p><strong>Turbo-charge your velocity while slashing your SaaS bill.</strong> Our co-managed AI workspaces give you the simplicity of SaaS with the cost and control of self-hosting.</p>
+<p><strong>One agent. Full stack. Rock solid.</strong> A single hardened agent with state-of-the-art coding tools and core automations, built to move fast without creating security debt.</p>
 </div>
 <div class="service-details">
-<p><strong>The startups that win ship fast.</strong> Our tools let you build at the speed of ideation with simple ops and consistent environments, so your engineers can focus on building product rather than debugging configs.</p>
-<p>Unlike vibe coding tools that silo your AI interactions and saddle you with tech debt, our tools are designed to let you build robust systems collaborativelly.</p>
+<p><strong>The breach that kills a startup isn't the one you see coming.</strong> Smith ships with best-in-class coding capabilities, task automation, and workflow integration out of the box. Every action runs through zero trust verification and encrypted channels. You get startup speed with hardened security&mdash;because security debt compounds faster than technical debt.</p>
 <ul class="bullet-box">
-<li><a href="/products/rave/">Rave</a> is a complete AI development environment, designed for maximum productivity and preconfigured with best in class tools</li>
 <li><a href="/products/arbiter/">Arbiter</a> compiles your specs into working software with tests that keep your agents on rails</li>
-<li>Smith lets you orchestrate agent swarms to implement and test work in parallel</li>
-<li><a href="/products/valknut/">Valknut</a> tames agent induced technical debt</li>
+<li><a href="/products/valknut/">Valknut</a> tames agent-induced technical debt before it compounds</li>
+<li>Smith orchestrates agent swarms to implement and test work in parallel</li>
+<li>Encrypted credential management, sandboxed execution, and audit logging from day one</li>
+</ul>
 </div>
 <div class="click-hint">Click to expand</div>
 <div class="service-visual solar">
@@ -104,15 +103,16 @@ scripts:
 <div class="service-card" data-service="enterprise">
 <h3><i data-lucide="building"></i> Enterprise</h3>
 <div class="service-summary">
-<p><strong>Make AI the engine of your enterprise.</strong> Our agents respond to business events in realtime, obey policy and build conformant, reliable systems.</p>
+<p><strong>Your policies. Your compliance. Full visibility.</strong> Everything in Smith, plus the OPA/Rego policy enforcement, Envoy mesh integration, and Grafana observability your security team demands.</p>
 </div>
 <div class="service-details">
-<p><strong>The enterprises that win get the most out of their employees.</strong> Our tools are designed to make it easy for non-technical users to build products and automations that can be deployed to production without a complete rewrite.</p>
-<p>Our systems can be adapted to enforce compliance with your conventions, tools and infrastructure, so the vibes always stay good.</p>
+<p><strong>Smith integrates into the governance infrastructure you've already built and audited.</strong> Write agent policies in OPA/Rego. Route traffic through your Envoy mesh. Stream every agent action to your Grafana and SignOz dashboards. RBAC, SSO, and full audit logging are built in&mdash;not bolted on.</p>
+<p>Your CISO signs off on day one because there's nothing new to certify:</p>
 <ul class="bullet-box">
-<li><a href="/products/rave/">Rave</a> is a complete AI development environment, designed for maximum productivity and preconfigured with best in class tools</li>
-<li>Smith orchestrates agents in response to events anywhere in your organization, with centralized policy management, full auditing and multi-layer sandboxing</li>
-<li><a href="/products/arbiter/">Arbiter</a> ensures agents write compliant code that integrates with your existing systems</li>
+<li>OPA/Rego policy enforcement for fine-grained agent governance</li>
+<li>Envoy service mesh integration for zero trust network control</li>
+<li>Full observability through Grafana and SignOz&mdash;the dashboards your team already uses</li>
+<li>Centralized multi-user management with RBAC, SSO, and complete audit trails</li>
 </ul>
 </div>
 <div class="click-hint">Click to expand</div>
@@ -125,9 +125,9 @@ scripts:
 </div>
 
 <div class="content-section">
-<h2>Integration and Process determine AI success</h2>
-<p><strong>AI is like a rocket ready to carry your business to the next frontier.</strong> Launching a rocket without a stable foundation and careful targetting will be counterproductive at best and actively harmful at worst, and adopting AI is no different. If agents your agents don't understand your business, they'll take off at warp speed in the wrong direction, leaving a giant mess in their wake. <strong>Good information architecture is the foundation for a successful business takeoff.</strong></p>
-<p>We recognize that not everyone has the resources to integrate AI effectively. <strong>Our systems take the guesswork out of AI integration.</strong> We back them up with support, and we're happy to offer consultations and education. <strong>A few hours of our time will save you weeks of pain.</strong></p>
+<h2>Security that works with you, not against you</h2>
+<p><strong>Most enterprise security tools demand a rip-and-replace.</strong> Smith doesn't. It plugs into the infrastructure your team has already built, audited, and certified. Your Envoy mesh handles routing. Your OPA policies enforce governance. Your Grafana dashboards provide visibility. Smith just makes them work for autonomous agents.</p>
+<p><strong>Only 6% of organizations have an advanced AI security strategy.</strong> Smith closes that gap on day one&mdash;not by adding another tool to manage, but by extending the tools you already trust. That means shorter procurement cycles, no new infrastructure to certify, and a security team that's an ally instead of a blocker.</p>
 </div>
 
 <div class="content-section">
@@ -144,7 +144,7 @@ scripts:
 <p><strong>The difference:</strong> anyone can wrap an API; we design the operating model around it. Every engagement starts with value mapping workshops that surface the exact workflows where AI agents can remove toil or unlock revenue.</p>
 <ul class="bullet-box">
 <li>Blueprint sessions translate messy processes into Arbiter specs, policy rails and measurable success criteria.</li>
-<li>Implementation sprints drop Rave/Smith into your repo, ship automations, and leave behind production runbooks.</li>
+<li>Implementation sprints deploy Smith into your infrastructure, ship automations, and leave behind production runbooks.</li>
 <li>Reliability reviews harden agents with evaluation harnesses, incident drills and compliance gates tailored to your org.</li>
 </ul>
 <p><strong>What this proves:</strong> we don’t hand over tooling and wish you luck; we co-own the outcomes until autonomous systems are delivering the business value we scoped.</p>
@@ -282,15 +282,15 @@ scripts:
 </div>
 
 <div class="content-section">
-<h2>Your AI vision will determine your success.</h2>
-<p>You just saw how we pair software with embedded experts—this is where it becomes your advantage. If your leadership can't articulate where AI earns or saves the next dollar, every tool purchase turns into shelfware.</p>
-<p>Our discovery engagements force that clarity. We map your customer journeys, score back-office workflows, and identify the handful of loops where agents, automations, and humans can work in lockstep. Then we turn those ideas into Arbiter specs, Smith playbooks, and Valknut guardrails so value shows up in production, not pitch decks.</p>
-<p>The companies that win don't dabble—they commit to an AI vision, broadcast it, and back it with systems that compound every quarter. Ready to make that happen?</p>
+<h2>Your people already want autonomous agents. Give them a safe way to use them.</h2>
+<p>Shadow AI isn't a future risk&mdash;it's happening now. 49% of employees use AI tools their company hasn't sanctioned. The organizations that thrive won't be the ones that ban autonomous agents. They'll be the ones that channel that demand into a platform with real security, real governance, and real observability.</p>
+<p>Smith gives your teams the autonomous capabilities they've been cobbling together with OpenClaw and duct tape&mdash;wrapped in the zero trust architecture, post-quantum cryptography, and policy enforcement that your security team can actually sign off on.</p>
+<p><strong>The agentic AI security model you build in the next 30 days determines whether you capture productivity gains or become the next breach disclosure.</strong></p>
 </div>
 
 <div class="discovery-cta">
   <a class="btn-unified btn-primary" href="javascript:void(0)" data-contact-type="contact" data-subject-type="discovery">
-    <span class="btn-inner">Start Your Discovery Process <i data-lucide="arrow-right"></i></span>
+    <span class="btn-inner">Deploy Smith Securely <i data-lucide="arrow-right"></i></span>
   </a>
 </div>
 
@@ -316,4 +316,4 @@ scripts:
   {% endif %}
 </section>
 
-_Where ambitious ideas meet intelligent execution._
+_Autonomous power. Zero trust security. Your infrastructure._

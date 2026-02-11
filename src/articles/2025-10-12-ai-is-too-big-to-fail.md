@@ -1,5 +1,5 @@
 ---
-title: "AI is Too Big to Fail"
+title: "AI Is Too Big to Fail"
 description: "AI spending looks like a bubble, but political capture and energy realities make backing down impossible."
 date: 2025-10-12
 published: true

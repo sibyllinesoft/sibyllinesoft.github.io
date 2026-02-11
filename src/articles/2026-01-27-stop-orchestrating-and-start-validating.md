@@ -1,5 +1,5 @@
 ---
-title: "Stop screwing around with agent orchestration, your bottleneck is validation"
+title: "Stop Screwing Around with Agent Orchestration, Your Bottleneck Is Validation"
 description: "If you're building faster than you're validating you're disrespecting your users and wasting their time"
 date: 2026-01-27
 published: true
