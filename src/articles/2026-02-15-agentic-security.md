@@ -29,7 +29,7 @@ To agents, the only thing that distinguishes instructions and data is inferred i
 
 In theory, as these models get better, the number of sequences will decrease. The problem is that the sequence space is quite large and architectural changes are likely to cause regressions in alignment. There's always going to be gaps that a sufficiently dedicated attacker will be able to leverage to inject behavior into even the most advanced frontier models.
 
-The frontier labs will align away common attack vectors as they appear, but shipping new models is a slow process. You need to be able to react to "zero day" injections immediately. Sanitization is your first line of defense, and should be applied to all untrusted input.
+The frontier labs will align away common attack vectors as they appear, but shipping new models is a slow process. You need to be able to react to "zero day" injections immediately. Sanitization is your first line of defense, and should be applied to all untrusted input. Think of it like phishing: you don't rely on users to spot every malicious message, you quarantine suspicious content before it reaches the inbox.
 
 There are a few preprocessing steps I've found to make sanitization easier:
 
