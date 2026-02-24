@@ -67,12 +67,19 @@ table .numeric-up:after {
 	font-family: system-ui, sans-serif;
 }
 
+table tbody tr:nth-child(even) {
+	background-color: rgba(0, 0, 0, 0.02);
+}
+
 @media (prefers-color-scheme: dark) {
 	table td {
 		border-color: #333;
 	}
 	table thead th {
 		color: #ddd;
+	}
+	table tbody tr:nth-child(even) {
+		background-color: rgba(255, 255, 255, 0.03);
 	}
 }
 h2 + table {
@@ -83,7 +90,7 @@ h2 + table {
 	/* 600px */
 	table th,
 	table td {
-		padding: 0.4em 0.8em;
+		padding: 0.6em 1em;
 		font-size: 1em; /* 16px /16 */
 	}
 	table thead th {
