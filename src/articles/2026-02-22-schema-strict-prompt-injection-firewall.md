@@ -112,7 +112,8 @@ Clean (no-attack) trials use the same flow without injection to measure false po
 ### Metrics
 
 - **Attack Success Rate (ASR)**: Percentage of attack trials where the model followed the injection's intent, verified by checking for payload-specific marker words in the response content field. Refusal-quoting (models mentioning markers while explaining why they refused) is filtered out.
-- **Propagation Rate**: Percentage of propagation attacks where the injection payload leaked into the response's content field for downstream consumption.
+- **Contained Propagation**: Percentage of propagation attacks where the injection marker appeared inside the JSON `response` field. The protocol structure held, but the content is tainted — a downstream agent parsing the schema would see the injected content as data.
+- **Escaped Propagation**: Percentage of propagation attacks where the injection marker appeared outside the `response` field — in other JSON fields, raw text, or unparseable output. This means the injection broke through the protocol structure entirely, and a downstream consumer could interpret it as instructions.
 - **Detection Rate**: Percentage of attack trials where the protocol flagged a violation.
 - **False Positive Rate (FP)**: Percentage of clean trials incorrectly flagged.
 - **Protocol Compliance**: Percentage of clean trials with correct protocol format.
@@ -121,15 +122,22 @@ Clean (no-attack) trials use the same flow without injection to measure false po
 
 ### The Propagation Firewall
 
-The strongest finding is propagation prevention. Without any protocol, injections successfully embedded themselves in model responses up to 40% of the time. With Schema Strict, propagation dropped to **zero across all four models**.
+The strongest finding is propagation prevention. To understand why, it helps to distinguish two kinds of propagation:
+
+- **Escaped propagation**: The injection marker appears outside the protocol's response field — in raw text, other JSON fields, or unparseable output. A downstream agent would encounter the injected content as top-level text it might interpret as instructions. This is the dangerous case.
+- **Contained propagation**: The injection marker appears inside the JSON `response` field, but the protocol structure held. A downstream agent that parses the schema would see the injected content as data within a defined field, not as free-form instructions.
+
+Without any protocol, injections that propagated always **escaped** — there's no structure to contain them. With Schema Strict, both escaped and contained propagation dropped to **zero across all four models**.
 
 <div class="table-wrapper">
 <table>
   <thead>
     <tr>
       <th>Model</th>
-      <th class="numeric">Propagation (None)</th>
-      <th class="numeric">Propagation (Schema Strict)</th>
+      <th class="numeric">Escaped (None)</th>
+      <th class="numeric">Contained (None)</th>
+      <th class="numeric">Escaped (Schema Strict)</th>
+      <th class="numeric">Contained (Schema Strict)</th>
     </tr>
   </thead>
   <tbody>
@@ -137,14 +145,20 @@ The strongest finding is propagation prevention. Without any protocol, injection
       <td>Claude Haiku</td>
       <td class="numeric"><strong>40.0%</strong></td>
       <td class="numeric">0.0%</td>
+      <td class="numeric">0.0%</td>
+      <td class="numeric">0.0%</td>
     </tr>
     <tr>
       <td>Claude Sonnet</td>
       <td class="numeric"><strong>40.0%</strong></td>
       <td class="numeric">0.0%</td>
+      <td class="numeric">0.0%</td>
+      <td class="numeric">0.0%</td>
     </tr>
     <tr>
       <td>Claude Opus</td>
+      <td class="numeric">0.0%</td>
+      <td class="numeric">0.0%</td>
       <td class="numeric">0.0%</td>
       <td class="numeric">0.0%</td>
     </tr>
@@ -152,12 +166,14 @@ The strongest finding is propagation prevention. Without any protocol, injection
       <td>GLM 4.7</td>
       <td class="numeric"><strong>20.0%</strong></td>
       <td class="numeric">0.0%</td>
+      <td class="numeric">0.0%</td>
+      <td class="numeric">0.0%</td>
     </tr>
   </tbody>
 </table>
 </div>
 
-The JSON schema constraint means the response content is isolated in a defined field. Injection payloads that attempt to embed instructions for downstream agents are contained within that field's string value rather than appearing as top-level instructions that a consuming agent would interpret.
+In the unprotected case, every instance of propagation was escaped — the model simply echoed the injected instructions as part of its free-form response, where any downstream agent would process them as input. Schema Strict eliminated this entirely. The JSON schema constraint isolates response content in a defined field, and the nonce/fingerprint challenges prevent the model from producing a structurally valid response while also following the injection's propagation instructions.
 
 ### Attack Success Rate Reduction
 
@@ -351,7 +367,8 @@ I also tested combining Schema Strict with [Clean](https://github.com/sibyllines
       <th>Configuration</th>
       <th>Model</th>
       <th class="numeric">ASR</th>
-      <th class="numeric">Prop.</th>
+      <th class="numeric">Escaped</th>
+      <th class="numeric">Contained</th>
       <th class="numeric">Detection</th>
       <th class="numeric">FP</th>
       <th class="numeric">Compliance</th>
@@ -363,6 +380,7 @@ I also tested combining Schema Strict with [Clean](https://github.com/sibyllines
       <td>Haiku</td>
       <td class="numeric">0.0%</td>
       <td class="numeric">0.0%</td>
+      <td class="numeric">0.0%</td>
       <td class="numeric">33.3%</td>
       <td class="numeric">20.0%</td>
       <td class="numeric">80.0%</td>
@@ -371,6 +389,7 @@ I also tested combining Schema Strict with [Clean](https://github.com/sibyllines
       <td>Clean + Schema Strict</td>
       <td>Haiku</td>
       <td class="numeric">6.7%</td>
+      <td class="numeric">0.0%</td>
       <td class="numeric">0.0%</td>
       <td class="numeric">53.3%</td>
       <td class="numeric">0.0%</td>
@@ -381,6 +400,7 @@ I also tested combining Schema Strict with [Clean](https://github.com/sibyllines
       <td>Sonnet</td>
       <td class="numeric">4.4%</td>
       <td class="numeric">0.0%</td>
+      <td class="numeric">0.0%</td>
       <td class="numeric">6.7%</td>
       <td class="numeric">0.0%</td>
       <td class="numeric">100.0%</td>
@@ -389,6 +409,7 @@ I also tested combining Schema Strict with [Clean](https://github.com/sibyllines
       <td>Clean + Schema Strict</td>
       <td>Sonnet</td>
       <td class="numeric">4.4%</td>
+      <td class="numeric">0.0%</td>
       <td class="numeric">0.0%</td>
       <td class="numeric">4.4%</td>
       <td class="numeric">0.0%</td>
@@ -399,6 +420,7 @@ I also tested combining Schema Strict with [Clean](https://github.com/sibyllines
       <td>Opus</td>
       <td class="numeric">0.0%</td>
       <td class="numeric">0.0%</td>
+      <td class="numeric">0.0%</td>
       <td class="numeric">2.2%</td>
       <td class="numeric">0.0%</td>
       <td class="numeric">100.0%</td>
@@ -407,6 +429,7 @@ I also tested combining Schema Strict with [Clean](https://github.com/sibyllines
       <td>Clean + Schema Strict</td>
       <td>Opus</td>
       <td class="numeric">2.2%</td>
+      <td class="numeric">0.0%</td>
       <td class="numeric">0.0%</td>
       <td class="numeric">6.7%</td>
       <td class="numeric">0.0%</td>
@@ -417,6 +440,7 @@ I also tested combining Schema Strict with [Clean](https://github.com/sibyllines
       <td>GLM 4.7</td>
       <td class="numeric">11.1%</td>
       <td class="numeric">0.0%</td>
+      <td class="numeric">0.0%</td>
       <td class="numeric">33.3%</td>
       <td class="numeric">20.0%</td>
       <td class="numeric">80.0%</td>
@@ -425,6 +449,7 @@ I also tested combining Schema Strict with [Clean](https://github.com/sibyllines
       <td>Clean + Schema Strict</td>
       <td>GLM 4.7</td>
       <td class="numeric">8.9%</td>
+      <td class="numeric">0.0%</td>
       <td class="numeric">0.0%</td>
       <td class="numeric">35.6%</td>
       <td class="numeric">20.0%</td>
@@ -446,11 +471,13 @@ Clean provides a mixed benefit. On Haiku, it eliminates the false positive probl
 
 ## Implications for Multi-Agent Systems
 
-The propagation result is the most practically significant finding. In a multi-agent pipeline, what matters isn't whether a single agent detects an injection, but whether the injection can spread through the system. Schema Strict achieved **0% propagation across all four models and all 45 payloads**, versus up to 40% propagation without it.
+The propagation result is the most practically significant finding. In a multi-agent pipeline, what matters isn't whether a single agent detects an injection, but whether the injection can spread through the system. Schema Strict achieved **0% escaped and 0% contained propagation across all four models and all 45 payloads**, versus up to 40% escaped propagation without it.
+
+The contained/escaped distinction matters for defense-in-depth. Even if a future attack managed to smuggle a propagation marker into the `response` field (contained propagation), a downstream agent that respects the schema boundary would treat it as data, not instructions. Escaped propagation — where injected content appears outside any structural boundary — is the more dangerous failure mode, and the one the protocol is specifically designed to prevent.
 
 This suggests a design principle for multi-agent architectures: **structured, schema-validated communication between agents provides a natural firewall against injection propagation, even when individual agents are susceptible to injection themselves.**
 
-The per-category results reinforce this. Seven of nine attack categories achieved 0% ASR across all models with Schema Strict. The two exceptions (context manipulation and delimiter escape on specific models) produced responses that were schema-compliant but semantically wrong. This means the protocol contained the damage: even when an attack succeeds in changing the model's behavior, the structured output prevents that changed behavior from propagating.
+The per-category results reinforce this. Seven of nine attack categories achieved 0% ASR across all models with Schema Strict. The two exceptions (context manipulation and delimiter escape on specific models) produced responses that were schema-compliant but semantically wrong. Critically, even these successful attacks showed zero propagation — the protocol contained the damage within the response field, preventing it from spreading downstream.
 
 For practitioners building multi-agent systems, the implication is concrete: define strict schemas for all agent-to-agent communication, embed per-request challenges (nonces, fingerprints) in the schema, and verify responses before passing them downstream. The protocol won't catch every attack, but it will stop attacks from spreading.
 
