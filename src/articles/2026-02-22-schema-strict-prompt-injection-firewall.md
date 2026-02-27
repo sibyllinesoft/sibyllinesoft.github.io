@@ -14,9 +14,9 @@ layout: article.njk
 
 Conventional wisdom holds that the best way to defeat prompt injections is to detect and block malicious prompts before they reach your agent. The reality is that prompt injections are so varied that it's almost impossible to detect them reliably. Instructions can be in any language, use alternate glyphs, ascii and emojis, even be embedded in poetry or code like subliminal messages. If you're relying on detection and blocking to prevent prompt injections, you're always going to be vulnerable to a clever attacker. Thankfully there's a better way: create a canary agent, and detect injected behavior.
 
-What do I mean by a canary agent? In this context, a canary is a sacrificial agent you can use as an early indicator, much like the canaries that miners used to bring into coal mines to detect poisonous gasses. The canary agent is intentionally limited in its capabilities, it's only job is to review untrusted text and extract relevant data from it to pass along to its parent agent. In a [previous article](/articles/2026-02-15-agentic-security/), I proposed a structural approach: constrain agent-to-agent communication with a strict schema and embed a self-referential challenge the agent must answer correctly. If an injection overrides the agent's behavior, it breaks the schema — even if the model is completely fooled.
+What do I mean by a canary agent? In this context, a canary is a sacrificial agent you can use as an early indicator, much like the canaries that miners used to bring into coal mines to detect poisonous gasses. The canary agent is intentionally limited in its capabilities, it's only job is to review untrusted text and extract relevant data from it to pass along to its parent agent. In a [previous article](/articles/2026-02-15-agentic-security/), I proposed a structural approach: constrain agent-to-agent communication with a strict schema and embed a self-referential challenge the agent must answer correctly. If an injection overrides the agent's behavior, it breaks the schema, even if the model is completely fooled.
 
-I've now built and benchmarked this approach. The results: **a strict JSON response schema with an embedded fingerprint challenge eliminated injection propagation entirely across four models, nine attack categories, and 45 distinct payloads**, while reducing attack success rates by 45-100% depending on the model. Think of it as a TCP checksum for LLM outputs — you don't need to understand the corruption, just verify the output is self-consistent.
+I've now built and benchmarked this approach. The results: **a strict JSON response schema with an embedded fingerprint challenge eliminated injection propagation entirely across four models, nine attack categories, and 45 distinct payloads**, while reducing attack success rates by 45-100% depending on the model. Think of it as a TCP checksum for LLM outputs. You don't need to understand the corruption, just verify the output is self-consistent.
 
 ## The Problem
 
@@ -25,7 +25,7 @@ In a multi-agent system, prompt injection creates two threats:
 1. **Execution**: The agent follows the injected instruction instead of its actual task.
 2. **Propagation**: The agent embeds the injection in its response, passing it downstream to other agents in the pipeline.
 
-Most defenses focus on execution. But in a pipeline of agents, propagation is the bigger danger — a single compromised message can cascade through every downstream agent. You need a verification mechanism that catches injection *even when the model is fooled*.
+Most defenses focus on execution. But in a pipeline of agents, propagation is the bigger danger. A single compromised message can cascade through every downstream agent. You need a verification mechanism that catches injection *even when the model is fooled*.
 
 ## The Schema Strict Protocol
 
