@@ -266,10 +266,14 @@ hr {
     right: 0;
     top: 20%;
     width: clamp(16rem, 18vw, 22rem);
+    --toc-drawer-peek: 2.5rem;
     z-index: 1000;
     opacity: 0;
-    transform: none;
-    transition: all 0.4s ease;
+    transform: translateX(calc(100% - var(--toc-drawer-peek)));
+    transition:
+        opacity 0.25s ease,
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
     
     /* Glassmorphic styling */
     background: rgba(255, 255, 255, 0.1);
@@ -287,8 +291,15 @@ hr {
 }
 
 .toc-container.visible {
+    opacity: 0.82;
+    transform: translateX(calc(100% - var(--toc-drawer-peek)));
+}
+
+.toc-container.visible:hover,
+.toc-container.visible:focus-within {
     opacity: 1;
-    transform: none;
+    transform: translateX(0);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.16);
 }
 
 /* Dark mode glassmorphic styling */
