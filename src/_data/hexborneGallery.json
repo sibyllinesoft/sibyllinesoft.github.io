@@ -1,0 +1,82 @@
+[
+  {
+    "source": "Temperate-title",
+    "src": "/img/hexborne/title.webp",
+    "thumb": "/img/hexborne/title-thumb.webp",
+    "title": "Title screen",
+    "caption": "The main menu, set against Hexborne's animated galaxy.",
+    "alt": "Hexborne title screen with a spiral galaxy and an ornate gold menu."
+  },
+  {
+    "source": "Temperate-loading",
+    "src": "/img/hexborne/loading.webp",
+    "thumb": "/img/hexborne/loading-thumb.webp",
+    "title": "Ley transit",
+    "caption": "The loading transition into a skirmish.",
+    "alt": "A glowing tesseract at the center of streaking stars, above a loading progress bar."
+  },
+  {
+    "source": "Temperate-tactical",
+    "src": "/img/hexborne/temperate-tactical.webp",
+    "thumb": "/img/hexborne/temperate-tactical-thumb.webp",
+    "title": "Temperate frontier",
+    "caption": "A tactical view of both players' positions among woodland and rocky cover.",
+    "alt": "Green battlefield with wooded terrain, opposing bases, deployed units, and cards in hand."
+  },
+  {
+    "source": "Temperate-close",
+    "src": "/img/hexborne/temperate-close.webp",
+    "thumb": "/img/hexborne/temperate-close-thumb.webp",
+    "title": "Among the trees",
+    "caption": "A closer camera angle on the temperate battlefield.",
+    "alt": "Low camera view of a Memory Keeper structure surrounded by trees, grass, and boulders."
+  },
+  {
+    "source": "Gloamfen-overview",
+    "src": "/img/hexborne/gloamfen-overview.webp",
+    "thumb": "/img/hexborne/gloamfen-overview-thumb.webp",
+    "title": "Gloamfen overview",
+    "caption": "The full battlefield in the Gloamfen biome.",
+    "alt": "Wide view of a Gloamfen battlefield with both players' bases and the surrounding galaxy."
+  },
+  {
+    "source": "Gloamfen-close",
+    "src": "/img/hexborne/gloamfen-close.webp",
+    "thumb": "/img/hexborne/gloamfen-close-thumb.webp",
+    "title": "Inside Gloamfen",
+    "caption": "Terrain and deployed pieces at close range.",
+    "alt": "Close gameplay view of the Gloamfen biome, with terrain and deployed pieces."
+  },
+  {
+    "source": "EmberBadlands-overview",
+    "src": "/img/hexborne/ember-overview.webp",
+    "thumb": "/img/hexborne/ember-overview-thumb.webp",
+    "title": "Ember badlands",
+    "caption": "A wide view of a skirmish in the Ember Badlands.",
+    "alt": "Ember Badlands battlefield viewed from above, with bases and units on the hex board."
+  },
+  {
+    "source": "EmberBadlands-close",
+    "src": "/img/hexborne/ember-close.webp",
+    "thumb": "/img/hexborne/ember-close-thumb.webp",
+    "title": "Badlands up close",
+    "caption": "A lower camera angle on the badlands terrain.",
+    "alt": "Close gameplay view of Ember Badlands terrain and deployed pieces."
+  },
+  {
+    "source": "Snow-tactical",
+    "src": "/img/hexborne/snow-tactical.webp",
+    "thumb": "/img/hexborne/snow-tactical-thumb.webp",
+    "title": "Snowbound tactics",
+    "caption": "A tactical view of a skirmish in the snow biome.",
+    "alt": "Snow-covered battlefield with deployed units, structures, and cards in hand."
+  },
+  {
+    "source": "Snow-close",
+    "src": "/img/hexborne/snow-close.webp",
+    "thumb": "/img/hexborne/snow-close-thumb.webp",
+    "title": "On frozen ground",
+    "caption": "A close view of the snow biome.",
+    "alt": "Low camera view of snowy terrain and deployed pieces in Hexborne."
+  }
+]

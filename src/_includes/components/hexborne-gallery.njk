@@ -1,0 +1,47 @@
+<section class="game-gallery" aria-labelledby="hexborne-gallery-title" data-game-gallery>
+  <div class="game-gallery-heading">
+    <h2 id="hexborne-gallery-title">A look inside Hexborne</h2>
+    <p>In-development screenshots. Select a thumbnail to explore, or open an image for a closer look.</p>
+  </div>
+  <figure class="game-gallery-feature">
+    <a class="game-gallery-stage" href="{{ hexborneGallery[0].src }}" data-gallery-open aria-label="Enlarge screenshot">
+      <img src="{{ hexborneGallery[0].src }}" alt="{{ hexborneGallery[0].alt }}" width="1920" height="1080" loading="lazy" decoding="async" data-gallery-image>
+      <span class="game-gallery-expand" aria-hidden="true">View larger ↗</span>
+    </a>
+    <figcaption class="game-gallery-caption">
+      <div aria-live="polite" aria-atomic="true">
+        <strong data-gallery-title>{{ hexborneGallery[0].title }}</strong>
+        <p data-gallery-caption>{{ hexborneGallery[0].caption }}</p>
+      </div>
+      <div class="game-gallery-controls" hidden data-gallery-controls>
+        <button type="button" data-gallery-prev aria-label="Previous screenshot">←</button>
+        <span data-gallery-count>1 / {{ hexborneGallery | length }}</span>
+        <button type="button" data-gallery-next aria-label="Next screenshot">→</button>
+      </div>
+    </figcaption>
+  </figure>
+  <div class="game-gallery-thumbnails" aria-label="Choose a screenshot">
+    {% for shot in hexborneGallery -%}
+    <a href="{{ shot.src }}" class="game-gallery-thumbnail" data-gallery-thumb data-title="{{ shot.title | escape }}" data-caption="{{ shot.caption | escape }}" aria-label="{{ loop.index }}. {{ shot.title | escape }}"{% if loop.first %} aria-current="true"{% endif %}>
+      <img src="{{ shot.thumb }}" alt="{{ shot.alt | escape }}" width="320" height="180" loading="lazy" decoding="async">
+      <span>{{ shot.title }}</span>
+    </a>
+    {%- endfor %}
+  </div>
+  <dialog class="game-gallery-dialog" aria-label="Hexborne screenshot viewer" data-gallery-dialog>
+    <div class="game-gallery-dialog-toolbar">
+      <span data-dialog-title></span>
+      <button type="button" data-gallery-close aria-label="Close screenshot viewer">Close ×</button>
+    </div>
+    <img width="1920" height="1080" alt="" data-dialog-image>
+    <div class="game-gallery-dialog-footer">
+      <p data-dialog-caption></p>
+      <div class="game-gallery-controls">
+        <button type="button" data-gallery-prev aria-label="Previous enlarged screenshot">←</button>
+        <span data-dialog-count></span>
+        <button type="button" data-gallery-next aria-label="Next enlarged screenshot">→</button>
+      </div>
+    </div>
+  </dialog>
+</section>
+<script src="/js/components/game-gallery.js" defer></script>

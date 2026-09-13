@@ -1,0 +1,44 @@
+.mailing-list {
+  margin-top: var(--space-2xl);
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-50);
+}
+
+.article-body .mailing-list h2 {
+  margin-top: 0;
+}
+
+.mailing-list-embed {
+  width: 100%;
+  min-width: 0;
+}
+
+.mailing-list-embed .formkit-form {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* Kit's dark badge needs a light treatment on the site's dark background. */
+.mailing-list-embed .formkit-powered-by-convertkit[data-variant="dark"] {
+  filter: invert(1);
+}
+
+.article-body .mailing-list-fallback,
+.article-body .mailing-list-pending {
+  margin-bottom: 0;
+  color: var(--color-text);
+}
+
+.mailing-list-fallback {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.mailing-list .btn-unified {
+  max-width: 100%;
+  white-space: normal;
+  text-align: center;
+}

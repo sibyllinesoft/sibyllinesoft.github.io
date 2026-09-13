@@ -1,0 +1,18 @@
+<section class="mailing-list" id="hexborne-mailing-list" aria-labelledby="hexborne-mailing-list-title">
+  <h2 id="hexborne-mailing-list-title">Get Hexborne updates</h2>
+  <p>Hear about the public alpha, crowdfunding, and early access on Steam.</p>
+  {% if hexborneMailingList.uid and hexborneMailingList.embedUrl %}
+  <div class="mailing-list-embed">
+    <script async data-uid="{{ hexborneMailingList.uid | escape }}" src="{{ hexborneMailingList.embedUrl | escape }}"></script>
+  </div>
+    {% if hexborneMailingList.signupUrl %}
+  <p class="mailing-list-fallback">Form not showing? <a href="{{ hexborneMailingList.signupUrl | escape }}">Sign up on Kit</a>.</p>
+    {% else %}
+  <noscript><p>Please enable JavaScript to load the signup form.</p></noscript>
+    {% endif %}
+  {% elif hexborneMailingList.signupUrl %}
+  <a class="btn-unified" href="{{ hexborneMailingList.signupUrl | escape }}">Join the Hexborne mailing list</a>
+  {% else %}
+  <p class="mailing-list-pending">Mailing list signup is coming soon.</p>
+  {% endif %}
+</section>

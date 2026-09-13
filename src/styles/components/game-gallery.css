@@ -1,0 +1,44 @@
+.game-gallery {
+  margin: 2.5rem 0;
+  padding: clamp(1rem, 3vw, 1.75rem);
+  background: var(--color-surface-50, #202126);
+  border: 1px solid rgba(148, 163, 184, .22);
+  border-radius: 16px;
+}
+.game-gallery-heading h2 { margin-top: 0; }
+.game-gallery-heading p { color: #bfc3d1; }
+.game-gallery-feature { margin: 1.5rem 0 1rem; }
+.game-gallery-stage { display: block; position: relative; overflow: hidden; border-radius: 9px; background: #090a12; }
+.game-gallery-stage img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: contain; margin: 0; }
+.game-gallery-expand { position: absolute; right: .75rem; bottom: .75rem; color: #fff; background: #10111ce8; padding: .3rem .65rem; border: 1px solid #ffffff40; border-radius: 5px; font-size: .8rem; }
+.game-gallery-caption { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1rem 0 .5rem; }
+.game-gallery-caption strong { font-size: 1rem; color: #f5f5fa; }
+.game-gallery-caption p, .game-gallery-dialog-footer p { margin: .2rem 0 0; font-size: .9rem; color: #bfc3d1; }
+.game-gallery-controls { display: flex; align-items: center; gap: .65rem; flex-shrink: 0; font-variant-numeric: tabular-nums; }
+.game-gallery-controls[hidden] { display: none; }
+.game-gallery-controls span { white-space: nowrap; min-width: 3.5rem; text-align: center; font-size: .85rem; }
+.game-gallery button { border: 1px solid #6f7288; border-radius: 6px; min-width: 44px; min-height: 44px; background: #303241; color: white; cursor: pointer; font: inherit; padding: .35rem .7rem; }
+.game-gallery button:hover { background: #49465f; }
+.game-gallery :is(a, button):focus-visible { outline: 3px solid #b6a7ff; outline-offset: 4px; }
+.game-gallery-thumbnails { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .65rem; }
+.game-gallery-thumbnail { display: block; overflow: hidden; border: 2px solid transparent; border-radius: 7px; background: #14151e; text-decoration: none; color: #c8cad6; }
+.game-gallery-thumbnail[aria-current] { border-color: #ab9cf5; color: #fff; background: #35304c; }
+.game-gallery-thumbnail:hover { border-color: #80789f; }
+.game-gallery-thumbnail img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; margin: 0; }
+.game-gallery-thumbnail span { display: block; padding: .35rem .5rem; font-size: .72rem; line-height: 1.4; }
+.game-gallery-dialog { width: min(1600px, calc(100vw - 2rem)); max-width: none; max-height: calc(100dvh - 2rem); padding: 1rem; border: 1px solid #565364; border-radius: 12px; background: #15151e; color: #fff; }
+.game-gallery-dialog::backdrop { background: #06060dee; }
+.game-gallery-dialog-toolbar, .game-gallery-dialog-footer { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.game-gallery-dialog-toolbar { padding-bottom: .75rem; }
+.game-gallery-dialog-toolbar span { font-weight: 600; }
+.game-gallery-dialog > img { display: block; width: 100%; height: auto; max-height: calc(100dvh - 12rem); object-fit: contain; margin: 0; }
+.game-gallery-dialog-footer { padding-top: .75rem; }
+@media (max-width: 640px) {
+  .game-gallery { padding: .85rem; margin-inline: -.25rem; }
+  .game-gallery-thumbnails { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .game-gallery-caption, .game-gallery-dialog-footer { flex-direction: column; align-items: flex-start; }
+  .game-gallery-controls { align-self: flex-end; }
+  .game-gallery-dialog { padding: .75rem; width: calc(100vw - 1rem); max-height: calc(100dvh - 1rem); }
+  .game-gallery-dialog-toolbar { font-size: .9rem; }
+  .game-gallery-dialog-toolbar button { font-size: .85rem; flex-shrink: 0; }
+}
